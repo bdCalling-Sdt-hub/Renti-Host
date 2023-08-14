@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/auth/signin_screen/signin_screen.dart';
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -28,37 +29,55 @@ class _SplashScreenState extends State<SplashScreen> {
                   colorFilter: ColorFilter.mode(Color(0xff000B90).withOpacity(0.6), BlendMode.dstATop)
                 )
               ),
-              child: Column(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20,right: 20,bottom: 24,top: 24),
+                  child: Column(
 
-                children: [
-                  SizedBox(height:212 ,),
-                  Container(
-                    height: 198,
-                    width: 198,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage('assets/logos/Logo.png'))
-                    ),
-                  ),
-                  SizedBox(height: 330,),
-                  SizedBox(
-                    height: 57,
-                    width: 350,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>SelectLanguageScreen()));
-                        },
-                        child: Text(
-                          'Get Started',
-                          style: TextStyle(color: Color(0xff000B90),fontSize: 18,fontWeight: FontWeight.w600),
+                    children: [
+                      const SizedBox(height:212 ,),
+                      Container(
+                        height: 198,
+                        width: 198,
+                        decoration:const BoxDecoration(
+                          image: DecorationImage(image: AssetImage('assets/logos/Logo.png'))
                         ),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)
-                          ),
-                          backgroundColor: Color(0xFFFFFFFF),
-                        )),
+                      ),
+                      const SizedBox(height: 302,),
+                      SizedBox(
+                        height: 22,
+                        width: 100,
+                        child: Row(
+                          children: [
+                            const Text('English',style: TextStyle(color: Color(0xFFFFFFFF),fontSize: 16,fontWeight: FontWeight.w400,),),
+                            IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>SelectLanguageScreen()));
+                            }, icon:const Icon(Icons.arrow_forward_ios_rounded,color: Color(0xFFFFFFFF),size: 14,))
+                          ],
+                        ),
+                      ),
+                     const SizedBox(height: 24,),
+                      SizedBox(
+                        height: 57,
+                        width: 350,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>SignInScreen()));
+                            },
+                            child: Text(
+                              'Get Started',
+                              style: TextStyle(color: Color(0xff000B90),fontSize: 18,fontWeight: FontWeight.w600),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)
+                              ),
+                              backgroundColor: Color(0xFFFFFFFF),
+                            )),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           )
