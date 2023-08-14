@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_details/user_details_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/user_request_screen.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
 home: UserRequestScreen(),
+
     );
   }
 }
