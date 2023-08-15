@@ -22,7 +22,7 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
           titleSpacing: -8,
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>SignInScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
             },
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
@@ -55,21 +55,21 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'Full Name',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 12,
                               ),
                               TextFormField(
                                 style: TextStyle(color: Color(0xFF2E2C2C)),
                                 maxLines: 1,
                                 keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
+                                decoration:const InputDecoration(
                                   fillColor: Color(0xFFFFFFFF),
                                   hintText: 'Type full name here...',
                                   hintStyle: TextStyle(
@@ -93,22 +93,22 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                                 ),
 
                               ),
-                              SizedBox(height: 16,),
-                              Text(
+                              const SizedBox(height: 16,),
+                              const Text(
                                 'Email',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 12,
                               ),
                               TextFormField(
                                 style: TextStyle(color: Color(0xFF2E2C2C)),
                                 maxLines: 1,
                                 keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
+                                decoration:const InputDecoration(
                                   fillColor: Color(0xFFFFFFFF),
                                   hintText: 'Enter your email...',
                                   hintStyle: TextStyle(
@@ -140,10 +140,10 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                                   }
                                 },
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 16,
                               ),
-                              Text(
+                              const  Text(
                                 'Gender',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
@@ -177,7 +177,7 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                                           });
                                         },
                                       ),
-                                      Text('Female')
+                                      const Text('Female')
                                     ],
                                   ),
                                   Row(
@@ -191,30 +191,30 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                                           });
                                         },
                                       ),
-                                      Text('Others')
+                                      const Text('Others')
                                     ],
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 16,),
-                              Text(
+                              const SizedBox(height: 16,),
+                              const Text(
                                 'Date of Birth',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 12,
                               ),
                               Row(
                                 children: [
                                   Expanded(
                                     child: TextFormField(
-                                      style: TextStyle(color: Color(0xFF2E2C2C)),
+                                      style:const TextStyle(color: Color(0xFF2E2C2C)),
                                       maxLines: 1,
                                       keyboardType: TextInputType.text,
-                                      decoration: InputDecoration(
+                                      decoration:const InputDecoration(
                                         fillColor: Color(0xFFFFFFFF),
                                         hintText: 'DD',
                                         hintStyle: TextStyle(
@@ -239,13 +239,13 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
 
                                     ),
                                   ),
-                                  SizedBox(width: 10,),
+                                  const SizedBox(width: 10,),
                                   Expanded(
                                     child: TextFormField(
-                                      style: TextStyle(color: Color(0xFF2E2C2C)),
+                                      style:const TextStyle(color: Color(0xFF2E2C2C)),
                                       maxLines: 1,
                                       keyboardType: TextInputType.text,
-                                      decoration: InputDecoration(
+                                      decoration:const InputDecoration(
                                         fillColor: Color(0xFFFFFFFF),
                                         hintText: 'MM',
                                         hintStyle: TextStyle(
@@ -270,13 +270,13 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
 
                                     ),
                                   ),
-                                  SizedBox(width: 10,),
+                                  const SizedBox(width: 10,),
                                   Expanded(
                                     child: TextFormField(
-                                      style: TextStyle(color: Color(0xFF2E2C2C)),
+                                      style:const TextStyle(color: Color(0xFF2E2C2C)),
                                       maxLines: 1,
                                       keyboardType: TextInputType.text,
-                                      decoration: InputDecoration(
+                                      decoration:const InputDecoration(
                                         fillColor: Color(0xFFFFFFFF),
                                         hintText: 'YY',
                                         hintStyle: TextStyle(
@@ -305,24 +305,24 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                                 ],
                               ),
 
-                              SizedBox(
+                              const SizedBox(
                                 height: 16,
                               ),
-                              Text(
+                              const Text(
                                 'Password',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 12,
                               ),
                               TextFormField(
-                                style: TextStyle(color: Color(0xFF2E2C2C)),
+                                style:const TextStyle(color: Color(0xFF2E2C2C)),
                                 maxLines: 1,
                                 keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
+                                decoration:const InputDecoration(
                                   fillColor: Color(0xFFFFFFFF),
                                   hintText: 'Type password here...',
                                   hintStyle: TextStyle(
@@ -356,22 +356,22 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                                   }
                                 },
                               ),
-                              SizedBox(height: 16,),
-                              Text(
+                              const SizedBox(height: 16,),
+                              const Text(
                                 'Confirm Password',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 12,
                               ),
                               TextFormField(
-                                style: TextStyle(color: Color(0xFF2E2C2C)),
+                                style:const TextStyle(color: Color(0xFF2E2C2C)),
                                 maxLines: 1,
                                 keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
+                                decoration:const InputDecoration(
                                   fillColor: Color(0xFFFFFFFF),
                                   hintText: 'Type confirm password here...',
                                   hintStyle: TextStyle(
@@ -405,21 +405,21 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                                   }
                                 },
                               ),
-                              SizedBox(
-                                height: 16,
+                              const SizedBox(
+                                height: 44,
                               ),
 
 
 
                               SizedBox(
                                 height: 57,
-                                width: 350,
+                                width: MediaQuery.of(context).size.width,
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (_)=>SecondSignUpScreen()));
+                                      Navigator.push(context, MaterialPageRoute(builder: (_)=>const SecondSignUpScreen()));
                                     },
                                     child: Text(
-                                      'Sign Up',
+                                      'Continue',
                                       style: TextStyle(
                                           color: Color(0xffFFFFFF),
                                           fontSize: 18,
@@ -435,12 +435,6 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                             ],
                           ),
                         ),
-
-
-
-
-
-
                       ],
                     ),
                   ),

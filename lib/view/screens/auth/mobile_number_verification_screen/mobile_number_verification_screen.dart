@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:renti_host/view/screens/auth/forgot_password_screen/forgot_password_screen.dart';
-import 'package:renti_host/view/screens/auth/new_password/new_password.dart';
+import 'package:renti_host/view/screens/auth/email_verification_screen/email_verification_screen.dart';
+import 'package:renti_host/view/screens/auth/select_photo_screen/select_photo_screen.dart';
 
-class VerifyOtpScreen extends StatefulWidget {
-  const VerifyOtpScreen({super.key});
+class MobileNumberVerificationScreen extends StatefulWidget {
+  const MobileNumberVerificationScreen({super.key});
 
   @override
-  State<VerifyOtpScreen> createState() => _VerifyOtpScreenState();
+  State<MobileNumberVerificationScreen> createState() => _MobileNumberVerificationScreenState();
 }
 
-class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
+class _MobileNumberVerificationScreenState extends State<MobileNumberVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -20,7 +20,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
           titleSpacing: -8,
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>const Forgot_Password_Screen()));
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>const SelectPhotoScreen()));
             },
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
@@ -31,7 +31,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
           automaticallyImplyLeading: false,
           backgroundColor: const Color(0xFF000B90),
           title: const Text(
-            'Verify Otp',
+            'Mobile Number Verification',
             style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontSize: 18,
@@ -41,17 +41,17 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(
+                padding:const  EdgeInsets.only(
                     left: 20, right: 20, bottom: 24, top: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    const Text('Please enter the OTP code.',style: TextStyle(
+                    const Text('''We have sent you an OTP code on your mobile number. Please enter the OTP code.''',style: TextStyle(
                         color: Color(0xFF2E2C2C),
                         fontSize: 16,
                         fontWeight: FontWeight.w400),),
-                    const  SizedBox(height: 24,),
+                    const SizedBox(height: 24,),
                     Align(
                       alignment: Alignment.center,
                       child: Container(
@@ -68,7 +68,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                         ),
                       ),
                     ),
-                    const  SizedBox(height: 48,),
+                    const SizedBox(height: 48,),
                     PinCodeTextField(
                       length: 6,
                       obscureText: false,
@@ -80,10 +80,10 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                           disabledColor: Colors.blue,
                           fieldHeight: 40,
                           fieldWidth: 30,
-                          activeFillColor:  Color(0xffFFFFFF),
-                          inactiveFillColor:  Color(0xffFFFFFF),
-                          selectedFillColor:  Color(0xffFFFFFF),
-                          selectedColor: Color(0xffFFFFFF)),
+                          activeFillColor: const Color(0xffFFFFFF),
+                          inactiveFillColor: const Color(0xffFFFFFF),
+                          selectedFillColor: const Color(0xffFFFFFF),
+                          selectedColor:const Color(0xffFFFFFF)),
                       animationDuration: const Duration(milliseconds: 300),
                       backgroundColor: Colors.transparent,
                       enableActiveFill: false,
@@ -94,19 +94,19 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       },
                       appContext: context,
                     ),
-                    const  SizedBox(
+                    const SizedBox(
                       height: 26,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const  Text('Did not get the OTP?',style: TextStyle(
+                        const Text('Did not get the Email?',style: TextStyle(
                             color: Color(0xFF2E2C2C),
                             fontSize: 14,
                             fontWeight: FontWeight.w400),),
                         GestureDetector(
                           onTap: (){},
-                          child:const Text('Resend OTP',style: TextStyle(
+                          child:const Text('Resend Email',style: TextStyle(
                               color: Color(0xFF000B90),
                               fontSize: 18,
                               fontWeight: FontWeight.w600),),
@@ -114,7 +114,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       ],
                     ),
 
-                    const  SizedBox(
+                    const SizedBox(
                       height: 320,
                     ),
                     SizedBox(
@@ -122,9 +122,9 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (_)=>New_Password()));
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>const EmailVerificationScreen()));
                           },
-                          child: Text(
+                          child:  Text(
                             'Verify',
                             style: TextStyle(
                                 color: Color(0xffFFFFFF),

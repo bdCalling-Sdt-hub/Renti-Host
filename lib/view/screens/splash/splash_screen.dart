@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+
 import 'package:renti_host/view/screens/auth/signin_screen/signin_screen.dart';
+
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -43,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           image: DecorationImage(image: AssetImage('assets/logos/Logo.png'))
                         ),
                       ),
-                      const SizedBox(height: 302,),
+                      const SizedBox(height: 260,),
                       SizedBox(
                         height: 22,
                         width: 100,
@@ -59,12 +61,12 @@ class _SplashScreenState extends State<SplashScreen> {
                      const SizedBox(height: 24,),
                       SizedBox(
                         height: 57,
-                        width: 350,
+                        width: MediaQuery.of(context).size.width,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (_)=>SignInScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
                             },
-                            child: Text(
+                           child: Text(
                               'Get Started',
                               style: TextStyle(color: Color(0xff000B90),fontSize: 18,fontWeight: FontWeight.w600),
                             ),

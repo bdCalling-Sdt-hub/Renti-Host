@@ -41,20 +41,20 @@ class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>SingleChildScrollView(
               child: Padding(
-                padding:  EdgeInsets.only(
+                padding:const  EdgeInsets.only(
                     left: 20, right: 20, bottom: 24, top: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Please enter your email address for recover ',style: TextStyle(
+                    const Text('Please enter your email address for recover ',style: TextStyle(
                         color: Color(0xFF2E2C2C),
                         fontSize: 16,
                         fontWeight: FontWeight.w400),),
-                    Text('your password.',style: TextStyle(
+                    const Text('your password.',style: TextStyle(
                         color: Color(0xFF2E2C2C),
                   fontSize: 16,
                   fontWeight: FontWeight.w400),),
-                    SizedBox(height: 24,),
+                    const  SizedBox(height: 24,),
                     Align(
                       alignment: Alignment.center,
                       child: Container(
@@ -71,25 +71,25 @@ class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 24,),
-                    Text(
+                    const SizedBox(height: 24,),
+                    const  Text(
                       'Email',
                       style: TextStyle(
                           color: Color(0xFF2E2C2C),
                           fontSize: 16,
                           fontWeight: FontWeight.w400),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 12,
                     ),
                     Form(
                       key: _formKey,
                       autovalidateMode: AutovalidateMode.always,
                       child: TextFormField(
-                        style: TextStyle(color: Color(0xFF2E2C2C)),
+                        style:const TextStyle(color: Color(0xFF2E2C2C)),
                         maxLines: 1,
                         keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
+                        decoration:const InputDecoration(
                           fillColor: Color(0xFFFFFFFF),
                           hintText: 'Enter your email...',
                           hintStyle: TextStyle(
@@ -122,12 +122,12 @@ class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 324,
                     ),
                     SizedBox(
                       height: 57,
-                      width: 350,
+                      width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(builder: (_)=>VerifyOtpScreen()));

@@ -14,12 +14,12 @@ class _New_PasswordState extends State<New_Password> {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor:const Color(0xFFFFFFFF),
         appBar: AppBar(
           titleSpacing: -8,
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>VerifyOtpScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>const VerifyOtpScreen()));
             },
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
@@ -40,25 +40,25 @@ class _New_PasswordState extends State<New_Password> {
         body:  LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>SingleChildScrollView(
               child: Padding(
-                padding:  EdgeInsets.only(
+                padding:const  EdgeInsets.only(
                     left: 20, right: 20, bottom: 24, top: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Your password must have 8-10 characters.',style: TextStyle(
+                    const  Text('Your password must have 8-10 characters.',style: TextStyle(
                         color: Color(0xFF2E2C2C),
                         fontSize: 16,
                         fontWeight: FontWeight.w400),),
 
-                    SizedBox(height: 24,),
-                    Text(
+                    const SizedBox(height: 24,),
+                    const Text(
                       'Password',
                       style: TextStyle(
                           color: Color(0xFF2E2C2C),
                           fontSize: 16,
                           fontWeight: FontWeight.w400),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 12,
                     ),
                     Form(
@@ -71,7 +71,7 @@ class _New_PasswordState extends State<New_Password> {
                           style: TextStyle(color: Color(0xFF2E2C2C)),
                           maxLines: 1,
                           keyboardType: TextInputType.text,
-                          decoration: InputDecoration(
+                          decoration:const InputDecoration(
                             fillColor: Color(0xFFFFFFFF),
                             hintText: 'Type password here...',
                             hintStyle: TextStyle(
@@ -103,21 +103,21 @@ class _New_PasswordState extends State<New_Password> {
                             }
                           },
                         ),
-                        Text(
+                        const Text(
                           'Confirm Password',
                           style: TextStyle(
                               color: Color(0xFF2E2C2C),
                               fontSize: 16,
                               fontWeight: FontWeight.w400),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         TextFormField(
                           style: TextStyle(color: Color(0xFF2E2C2C)),
                           maxLines: 1,
                           keyboardType: TextInputType.text,
-                          decoration: InputDecoration(
+                          decoration:const InputDecoration(
                             fillColor: Color(0xFFFFFFFF),
                             hintText: 'Type Confirm password here...',
                             hintStyle: TextStyle(
@@ -151,12 +151,12 @@ class _New_PasswordState extends State<New_Password> {
                         ),
                       ],
                     )),
-                    SizedBox(
+                    const SizedBox(
                       height: 370,
                     ),
                     SizedBox(
                       height: 57,
-                      width: 350,
+                      width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                           onPressed: () {
 

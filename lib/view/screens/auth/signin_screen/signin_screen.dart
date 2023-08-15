@@ -50,14 +50,14 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'Email',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
+                              const  SizedBox(
                                 height: 12,
                               ),
                               TextFormField(
@@ -96,24 +96,24 @@ class _SignInScreenState extends State<SignInScreen> {
                                   }
                                 },
                               ),
-                              SizedBox(
+                              const  SizedBox(
                                 height: 16,
                               ),
-                              Text(
+                              const Text(
                                 'Password',
                                 style: TextStyle(
                                     color: Color(0xFF2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
+                              const  SizedBox(
                                 height: 12,
                               ),
                               TextFormField(
-                                style: TextStyle(color: Color(0xFF2E2C2C)),
+                                style:const TextStyle(color: Color(0xFF2E2C2C)),
                                 maxLines: 1,
                                 keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
+                                decoration:const InputDecoration(
                                   fillColor: Color(0xFFFFFFFF),
                                   hintText: 'Type password here...',
                                   hintStyle: TextStyle(
@@ -147,14 +147,14 @@ class _SignInScreenState extends State<SignInScreen> {
                                   }
                                 },
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 16,
                               ),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(context, MaterialPageRoute(builder: (_)=>Forgot_Password_Screen()));
                                 },
-                                child: Align(
+                                child:const Align(
                                   alignment: Alignment.bottomRight,
                                   child: Text('Forgot Password?',
                                       style: TextStyle(
@@ -163,7 +163,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                           fontWeight: FontWeight.w400)),
                                 ),
                               ),
-                              SizedBox(
+                              const  SizedBox(
                                 height: 40,
                               ),
                               SizedBox(
@@ -194,17 +194,17 @@ class _SignInScreenState extends State<SignInScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 24,
                         ),
-                        Align(
+                        const Align(
                             alignment: Alignment.center,
                             child: Text('Or',
                                 style: TextStyle(
                                     color: Color(0xff2E2C2C),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400))),
-                        SizedBox(
+                        const SizedBox(
                           height: 24,
                         ),
                         Row(
@@ -212,7 +212,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             Expanded(
                                 child: Container(
                               height: 46,
-                              width: 166,
+                                  width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                   color: Color(0xFFFFFFFF),
                                   border: Border.all(
@@ -228,10 +228,10 @@ class _SignInScreenState extends State<SignInScreen> {
                                       height: 30,
                                       width: 30,
                                     ),
-                                    SizedBox(
+                                    const  SizedBox(
                                       width: 16,
                                     ),
-                                    Text('Google',
+                                    const  Text('Google',
                                         style: TextStyle(
                                             color: Color(0xff2E2C2C),
                                             fontSize: 12,
@@ -240,15 +240,15 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                               ),
                             )),
-                            SizedBox(
+                            const  SizedBox(
                               width: 16,
                             ),
                             Expanded(
                                 child: Container(
                               height: 46,
-                              width: 166,
+                                  width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
-                                  color: Color(0xFFFFFFFF),
+                                  color:const Color(0xFFFFFFFF),
                                   border: Border.all(
                                       width: 1, color: Color(0xFFE6E7F4)),
                                   borderRadius: BorderRadius.circular(8)),
@@ -262,10 +262,10 @@ class _SignInScreenState extends State<SignInScreen> {
                                       height: 30,
                                       width: 30,
                                     ),
-                                    SizedBox(
+                                    const  SizedBox(
                                       width: 16,
                                     ),
-                                    Text('Apple',
+                                    const  Text('Apple',
                                         style: TextStyle(
                                             color: Color(0xff2E2C2C),
                                             fontSize: 12,
@@ -276,23 +276,23 @@ class _SignInScreenState extends State<SignInScreen> {
                             )),
                           ],
                         ),
-                        SizedBox(height: 209,),
+                        const SizedBox(height: 209,),
 
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const  Text(
                             'Dont have an account?',
                             style:
                             TextStyle(color:Color(0xFF000B90), fontSize: 18),
                           ),
-                          SizedBox(width: 2,),
+                          const SizedBox(width: 2,),
                           GestureDetector(
                               onTap: () {
                                 Navigator.push(context, MaterialPageRoute(builder: (_)=>FirstSignUpScreen()));
                               },
-                              child: Text(
+                              child:const Text(
                                 'Sign Up',
                                 style: TextStyle(
                                     color:Color(0xFF000B90) , fontSize: 16,fontWeight: FontWeight.w500),

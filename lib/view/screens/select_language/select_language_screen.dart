@@ -77,10 +77,10 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                                           color: index == selectedItem ? Color(0xFF000B90):Color(0xFFFFFFFF),
                                         ),
                                       ),
-                                      SizedBox(width: 10,),
+                                    const  SizedBox(width: 10,),
                                       Text(
                                         languageName[index],
-                                        style: TextStyle(color:Color(0xFF2E2C2C), fontSize: 14,fontWeight: FontWeight.w400),
+                                        style:const TextStyle(color:Color(0xFF2E2C2C), fontSize: 14,fontWeight: FontWeight.w400),
                                       ),
                                     ],
                                   ),
@@ -90,14 +90,14 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                             );
                           }),
                     ),
-                    SizedBox(height: 34,),
+                    const  SizedBox(height: 34,),
                     SizedBox(
                       height: 57,
-                      width: 350,
+                      width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(
-                                context, MaterialPageRoute(builder: (_) => SplashScreen()));
+                                context, MaterialPageRoute(builder: (_) =>const SplashScreen()));
                           },
                           child: Text(
                             'Confirm',
