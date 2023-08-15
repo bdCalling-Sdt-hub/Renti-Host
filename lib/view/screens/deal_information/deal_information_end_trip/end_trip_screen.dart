@@ -51,6 +51,7 @@ class _EndTripState extends State<EndTrip> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       DottedBorder(
+                          padding: EdgeInsets.all(0),
                           dashPattern: [
                             10,
                             6,
@@ -79,6 +80,7 @@ class _EndTripState extends State<EndTrip> {
                       Column(
                         children: [
                           DottedBorder(
+                              padding: EdgeInsets.all(0),
                               dashPattern: [
                                 10,
                                 6,
@@ -105,6 +107,7 @@ class _EndTripState extends State<EndTrip> {
                             height: 8,
                           ),
                           DottedBorder(
+                              padding: EdgeInsets.all(0),
                               dashPattern: [
                                 10,
                                 6,

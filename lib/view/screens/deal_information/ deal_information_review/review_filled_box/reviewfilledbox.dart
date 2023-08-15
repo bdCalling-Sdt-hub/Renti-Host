@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import '../../../message/messages/messages_screen.dart';
 import '../review_screen.dart';
 
 class FilledBox extends StatefulWidget {
@@ -12,38 +13,160 @@ class FilledBox extends StatefulWidget {
 class _FilledBoxState extends State<FilledBox> {
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-              centerTitle: false,
-              elevation: 0,
-              title: Text('Car Deal Information',
-                  style: TextStyle(
-                      color: Color(0xff2E2C2C),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600)),
-              backgroundColor: Color(0xffffffff),
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>Review ()));
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                ),
-                color: Colors.black,
-              )),
-          body: Center(
-            child: Column(
-              children: [
-                Text("Give us rating out of 5",
-                    style: TextStyle(
-                        color: Color(0xff2E2C2C),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500)),
-              ],
+      appBar: AppBar(
+          centerTitle: false,
+          elevation: 0,
+          title: Text('Car Deal Information',
+              style: TextStyle(
+                  color: Color(0xff2E2C2C),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600)),
+          backgroundColor: Color(0xffffffff),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => Review()));
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
             ),
-          ),
+            color: Colors.black,
+          )),
+      body: LayoutBuilder(builder: (context,constraint){
+          return SingleChildScrollView(
+           child: Padding(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 20),
+              child: Center(
+                child: Column(
+                  children: [
+                    Text("Give us rating out of 5",
+                        style: TextStyle(
+                            color: Color(0xff2E2C2C),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
+                    SizedBox(height: 16,),
+                    RatingBarIndicator(
+                      rating: 2.75,
+                      itemBuilder: (context, index) => Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      itemCount: 5,
+                      itemSize: 50.0,
+                      direction: Axis.horizontal,
+                    ),
+                    SizedBox(height:16,),
+                    Container(
+                      height: 56,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color(0xffE6E7F4),
+                        // border: Border.all(color: Color(0xff000B90))
+                      ),
+                      child: Center(
+                        child: Text("Nice Behavior",
+                            style: TextStyle(
+                                color: Color(0xff000B90),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400)),
+                      ),
+                    ),
+                    SizedBox(height: 8,),
+                    Container(
+                      height: 56,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color(0xffE6E7F4),
+                        // border: Border.all(color: Color(0xff000B90))
+                      ),
+                      child: Center(
+                        child: Text("Nice Behavior",
+                            style: TextStyle(
+                                color: Color(0xff000B90),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400)),
+                      ),
+                    ),
+                    SizedBox(height: 8,),
+                    Container(
+                      height: 56,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color(0xffE6E7F4),
+                        // border: Border.all(color: Color(0xff000B90))
+                      ),
+                      child: Center(
+                        child: Text("Nice Behavior",
+                            style: TextStyle(
+                                color: Color(0xff000B90),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400)),
+                      ),
+                    ),
+                    SizedBox(height: 16,),
+                    SizedBox(
+                      height: 100,
+                      child: TextFormField(
+                        style: TextStyle(color: Color(0xFF2E2C2C)),
+                        maxLines: 4,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          fillColor: Color(0xFFFFFFFF),
+                          hintText: 'Type card number here...',
+                          hintStyle: TextStyle(
+                              letterSpacing: 1,
+                              color: Color(0xFFCCCCCC)),
+                          filled: true,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide()),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFCCCCCC),
+                              )),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFCCCCCC),
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide:
+                              BorderSide(color: Color(0xFFCCCCCC))),
+                        ),
 
+                      ),
+                    ),
+                    SizedBox(height: 182,),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>MessageScreen()));
+                      },
+                      child: Container(
+                        height: 57,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Color(0xff000B90),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Text("Send Review",
+                              style: TextStyle(
+                                  color: Color(0xffFFFFFFC),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w400)),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        })
     ));
   }
 }

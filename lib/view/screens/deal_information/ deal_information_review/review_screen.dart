@@ -53,6 +53,7 @@ class _ReviewState extends State<Review> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       DottedBorder(
+                          padding: EdgeInsets.all(0),
                           dashPattern: [
                             10,
                             6,
@@ -81,6 +82,7 @@ class _ReviewState extends State<Review> {
                       Column(
                         children: [
                           DottedBorder(
+                              padding: EdgeInsets.all(0),
                               dashPattern: [
                                 10,
                                 6,
@@ -107,6 +109,7 @@ class _ReviewState extends State<Review> {
                             height: 8,
                           ),
                           DottedBorder(
+                              padding: EdgeInsets.all(0),
                               dashPattern: [
                                 10,
                                 6,

@@ -38,101 +38,105 @@ class _StartTripState extends State<StartTrip> {
         body: LayoutBuilder(builder: (context, constraint) {
           return SingleChildScrollView(
             child: Padding(
-              padding:
-                  EdgeInsetsDirectional.symmetric(vertical: 20, horizontal: 20),
+              padding: const EdgeInsetsDirectional.symmetric(vertical: 20, horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Upload car photo",
+                  const Text("Upload car photo",
                       style: TextStyle(
                           color: Color(0xff2E2C2C),
                           fontSize: 16,
                           fontWeight: FontWeight.w500)),
-                  SizedBox(
-                    height: 16,
-                  ),
+                  const SizedBox(height: 16),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DottedBorder(
-                          dashPattern: [
-                            10,
-                            6,
-                          ],
-                          color: Color(0xffB0B3DD),
-                          strokeWidth: 1,
-                          borderType: BorderType.RRect,
-                          radius: Radius.circular(12),
-                          child: Container(
-                            width: 172,
-                            height: 156,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: Color(0xffE6E7F4),
-                            ),
-                            child: Center(
-                                child: Image.asset(
-                              "assets/images/bi_image.png",
-                              width: 40,
-                              height: 35,
+                      Expanded(
+                        flex: 2,
+                        child: DottedBorder(
+                          padding: const EdgeInsets.all(0),
+                            dashPattern: const [
+                              10,
+                              6,
+                            ],
+                            color: const Color(0xffB0B3DD),
+                            strokeWidth: 1,
+                            borderType: BorderType.RRect,
+                            radius: const Radius.circular(12),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 150,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Color(0xffE6E7F4),
+                              ),
+                              child: Center(
+                                  child: Image.asset(
+                                "assets/images/bi_image.png",
+                                width: 40,
+                                height: 35,
+                              )),
                             )),
-                          )),
-                      SizedBox(
-                        width: 8,
                       ),
-                      Column(
-                        children: [
-                          DottedBorder(
-                              dashPattern: [
-                                10,
-                                6,
-                              ],
-                              color: Color(0xffB0B3DD),
-                              strokeWidth: 1,
-                              borderType: BorderType.RRect,
-                              radius: Radius.circular(12),
-                              child: Container(
-                                height: 72,
-                                width: 132,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Color(0xffE6E7F4),
-                                ),
-                                child: Center(
-                                    child: Image.asset(
-                                  "assets/images/bi_image.png",
-                                  width: 40,
-                                  height: 35,
+                      const SizedBox(width: 8),
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          children: [
+                            DottedBorder(
+                                padding: const EdgeInsets.all(0),
+                                dashPattern: const [
+                                  10,
+                                  6,
+                                ],
+                                color: const Color(0xffB0B3DD),
+                                strokeWidth: 1,
+                                borderType: BorderType.RRect,
+                                radius: Radius.circular(12),
+                                child: Container(
+                                  height: 71,
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: Color(0xffE6E7F4),
+                                  ),
+                                  child: Center(
+                                      child: Image.asset(
+                                    "assets/images/bi_image.png",
+                                    width: 40,
+                                    height: 35,
+                                  )),
                                 )),
-                              )),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          DottedBorder(
-                              dashPattern: [
-                                10,
-                                6,
-                              ],
-                              color: Color(0xffB0B3DD),
-                              // strokeWidth: 1,
-                              borderType: BorderType.RRect,
-                              radius: Radius.circular(12),
-                              borderPadding: EdgeInsets.all(1),
-                              child: Container(
-                                height: 72,
-                                width: 132,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Color(0xffE6E7F4),
-                                ),
-                                child: Center(
-                                    child: Image.asset(
-                                  "assets/images/bi_image.png",
-                                  width: 40,
-                                  height: 35,
+                            SizedBox(
+                              height: 8,
+                            ),
+                            DottedBorder(
+                                padding: EdgeInsets.all(0),
+                                dashPattern: [
+                                  10,
+                                  6,
+                                ],
+                                color: Color(0xffB0B3DD),
+                                // strokeWidth: 1,
+                                borderType: BorderType.RRect,
+                                radius: Radius.circular(12),
+                                borderPadding: EdgeInsets.all(1),
+                                child: Container(
+                                  height: 71,
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: Color(0xffE6E7F4),
+                                  ),
+                                  child: Center(
+                                      child: Image.asset(
+                                    "assets/images/bi_image.png",
+                                    width: 40,
+                                    height: 35,
+                                  )),
                                 )),
-                              )),
-                        ],
+                          ],
+                        ),
                       )
                     ],
                   ),
