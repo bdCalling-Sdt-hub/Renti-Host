@@ -1,7 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/add_cars/add_cars/car_details_screen.dart';
+import 'package:renti_host/view/screens/add_cars/add_cars/car_specifiation_screen.dart';
 
 import '../upload_car.dart';
 

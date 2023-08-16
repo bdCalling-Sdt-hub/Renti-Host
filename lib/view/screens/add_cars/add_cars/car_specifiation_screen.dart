@@ -12,18 +12,19 @@ class _CarDetailsState extends State<CarDetails> {
   Widget build(BuildContext context) {
 
     List< String> seatList = ["Baby Car Seat", " Sunroof", ' Bluetooth','GPS'];
-    int ? selectedItem =0;
+    int selectedItem = 0;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_back_ios_new,
           color: Color(0xff2E2C2C),
           size: 18,
         ),
         titleSpacing: -8,
-        title: Text(
+        title: const Text(
           "Add Cars",
           style: TextStyle(
             color: Color(0xff2E2C2C),
@@ -40,31 +41,31 @@ class _CarDetailsState extends State<CarDetails> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              Text("Special Characteristics",
+              const Text("Special Characteristics",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car license field
-              Text("Car Color",
+              const Text("Car Color",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type color here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -73,24 +74,24 @@ class _CarDetailsState extends State<CarDetails> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
 
-              Text("Car Color",
+              const Text("Car Color",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
@@ -98,7 +99,7 @@ class _CarDetailsState extends State<CarDetails> {
                 style: TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type color here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -114,16 +115,16 @@ class _CarDetailsState extends State<CarDetails> {
                       BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              Text("Car Doors",
+              const Text("Car Doors",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
@@ -131,7 +132,7 @@ class _CarDetailsState extends State<CarDetails> {
                 style: TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type number here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -147,16 +148,16 @@ class _CarDetailsState extends State<CarDetails> {
                       BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              Text("Car Seats",
+              const Text("Car Seats",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
@@ -164,7 +165,7 @@ class _CarDetailsState extends State<CarDetails> {
                 style: TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type number here....",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -180,16 +181,16 @@ class _CarDetailsState extends State<CarDetails> {
                       BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              Text("Total Run",
+              const Text("Total Run",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
@@ -197,7 +198,7 @@ class _CarDetailsState extends State<CarDetails> {
                 style: TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type km here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -206,28 +207,28 @@ class _CarDetailsState extends State<CarDetails> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
                       BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car license field
-              Text("Gear Type",
+              const Text("Gear Type",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
@@ -235,7 +236,7 @@ class _CarDetailsState extends State<CarDetails> {
                 style: TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Gear Type here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -244,25 +245,27 @@ class _CarDetailsState extends State<CarDetails> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
 
              Column(
-               children:List.generate(seatList.length, (index){
-                   return Padding(
-                     padding: const EdgeInsets.only(left: 16.0,bottom: 16),
-                     child: GestureDetector(
-                          onTap: (){
-                            setState(() {
-                               selectedItem = index;
-                            });
-                          },
+               children:List.generate( seatList.length,(index){
+                   return GestureDetector(
+                     onTap: (){
+                       setState(() {
+                         selectedItem = index;
+                       });
+
+                       print("selected: $selectedItem");
+                     },
+                     child: Padding(
+                       padding: const EdgeInsets.only(left: 16.0, bottom: 20),
                        child: Row(
                          children: [
                            Container(
@@ -270,19 +273,19 @@ class _CarDetailsState extends State<CarDetails> {
                              width: 20,
                              decoration: BoxDecoration(
                                  shape: BoxShape.circle,
-                                 color:  index == selectedItem? Color(0xff000B90):Color(0xffffffff),
-                                 border: Border.all(color: Color(0xffcccccc),width: 1),
+                                 color:  index == selectedItem ? const Color(0xff000B90) : const Color(0xffffffff),
+                                 border: Border.all(color: const Color(0xffcccccc),width: 1),
                                  boxShadow: [
                                    BoxShadow(
-                                       color : Color(0xff000000).withOpacity(0.4),
-                                       offset: Offset(0, 0),
+                                       color : const Color(0xff000000).withOpacity(0.4),
+                                       offset: const Offset(0, 0),
                                        blurRadius: 2
                                    )
                                  ]
                              ),
                            ),
-                           SizedBox(width: 10,),
-                           Text(seatList[index],style: TextStyle(color: Color(0xff2E2C2C),fontSize:14, fontWeight:FontWeight.w400 ),)
+                           const SizedBox(width: 10,),
+                           Text(seatList[index],style: const TextStyle(color: Color(0xff2E2C2C),fontSize:14, fontWeight:FontWeight.w400 ),)
                          ],
                        ),
                      ),
@@ -300,7 +303,7 @@ class _CarDetailsState extends State<CarDetails> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      color: Color(0xff999999),
+                      color: const Color(0xff999999),
                       borderRadius: BorderRadius.circular(8)),
                   child: const Padding(
                     padding:
