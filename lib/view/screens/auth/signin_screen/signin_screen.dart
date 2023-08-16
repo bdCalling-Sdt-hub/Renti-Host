@@ -61,10 +61,11 @@ class _SignInScreenState extends State<SignInScreen> {
                                 height: 12,
                               ),
                               TextFormField(
+
                                 style: TextStyle(color: Color(0xFF2E2C2C)),
                                 maxLines: 1,
                                 keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
+                                decoration:const InputDecoration(
                                   fillColor: Color(0xFFFFFFFF),
                                   hintText: 'Enter your email...',
                                   hintStyle: TextStyle(
@@ -168,7 +169,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               ),
                               SizedBox(
                                 height: 57,
-                                width: 350,
+                                width: MediaQuery.of(context).size.width,
                                 child: ElevatedButton(
                                     onPressed: () {
                                       if (_formKey.currentState!.validate()) {

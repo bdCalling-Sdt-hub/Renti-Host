@@ -38,6 +38,7 @@ class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
                 fontWeight: FontWeight.w500),
           ),
         ),
+
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>SingleChildScrollView(
               child: Padding(
@@ -123,7 +124,7 @@ class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 324,
+                      height: 326,
                     ),
                     SizedBox(
                       height: 57,
@@ -142,7 +143,7 @@ class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                BorderRadius.circular(5)),
+                                BorderRadius.circular(8)),
                             backgroundColor: Color(0xFF000B90),
                           )),
                     ),

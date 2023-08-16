@@ -46,23 +46,24 @@ class _SelectPhotoScreenState extends State<SelectPhotoScreen> {
                     child: Column(
                       children: [
                         SizedBox(height: 44,),
-                       CircleAvatar(
+                     const  CircleAvatar(
                          radius: 60,
+
                          child:  CircleAvatar(
                            radius: 50,
                            foregroundColor: Color(0xffE6E7F4),
                            child: Icon(Icons.camera_alt,size: 34,color: Color(0xFFB0B3DD),),
                          ),
                        ),
-                        SizedBox(height: 16,),
-                        Text(
+                        const SizedBox(height: 16,),
+                        const Text(
                           'Upload Your Photo',
                           style: TextStyle(
                               color: Color(0xFF000B90),
                               fontSize: 16,
                               fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(height: 440,),
+                        const SizedBox(height: 440,),
                         SizedBox(
                           height: 57,
                           width: MediaQuery.of(context).size.width,

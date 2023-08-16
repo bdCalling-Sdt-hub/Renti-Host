@@ -1,10 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:renti_host/view/screens/auth/signin_screen/signin_screen.dart';
+import 'package:renti_host/view/screens/profile_screen/profile_screen.dart';
 
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
+import 'package:renti_host/view/screens/settings_screen/settings_screen/settings_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -46,15 +47,16 @@ class _SplashScreenState extends State<SplashScreen> {
                         ),
                       ),
                       const SizedBox(height: 260,),
-                      SizedBox(
-                        height: 22,
-                        width: 100,
-                        child: Row(
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>SelectLanguageScreen()));
+                        },
+                        child:const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text('English',style: TextStyle(color: Color(0xFFFFFFFF),fontSize: 16,fontWeight: FontWeight.w400,),),
-                            IconButton(onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (_)=>SelectLanguageScreen()));
-                            }, icon:const Icon(Icons.arrow_forward_ios_rounded,color: Color(0xFFFFFFFF),size: 14,))
+                             Text('English',style: TextStyle(color: Color(0xFFFFFFFF),fontSize: 16,fontWeight: FontWeight.w400,),),
+                            SizedBox(width: 12,),
+                             Icon(Icons.arrow_forward_ios_outlined,color: Color(0xFFFFFFFF),size: 12,)
                           ],
                         ),
                       ),
@@ -64,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         width: MediaQuery.of(context).size.width,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>const SettingsScreen()));
                             },
                            child: Text(
                               'Get Started',
@@ -72,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
                             ),
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)
+                                  borderRadius: BorderRadius.circular(8)
                               ),
                               backgroundColor: Color(0xFFFFFFFF),
                             )),
