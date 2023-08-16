@@ -14,7 +14,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
       appBar: AppBar(
           centerTitle: false,
           elevation: 0,
-          title: Text('User details',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)),
+          automaticallyImplyLeading : true,
+          titleSpacing: -8,
+          title: Text('All reviews',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)),
           backgroundColor:Color(0xffffffff),
           leading: IconButton(onPressed: (){
             // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserRequestScreen()));
@@ -31,20 +33,21 @@ class _ReviewScreenState extends State<ReviewScreen> {
                       onTap: (){
                         // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
                       },
-                      child: Card(
-                        elevation: 10,
-                        color: Colors.white,
-                        child: Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Row(
+                      child: Container(
+                        width: 350,
+                        height: 170,
+                        child: Card(
+                          elevation: 10,
+                          color: Colors.white,
+                          child: Padding(
+                            padding:EdgeInsetsDirectional.symmetric(horizontal: 16,vertical: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
                                       children: [
                                         Image(image: AssetImage("assets/images/Avater.png"),width: 70,height:70 ,),
                                         SizedBox(width: 16,),
@@ -52,21 +55,23 @@ class _ReviewScreenState extends State<ReviewScreen> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children:  [
                                             const Text("John Doe",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500),),
-                                            const SizedBox(height: 8),
-                                            const Row(
-                                              children: [
-                                                Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                SizedBox(width: 8,),
-                                                Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                SizedBox(width: 8,),
-                                                Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                SizedBox(width: 8,),
-                                                Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                SizedBox(width: 8,),
-                                                Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              ],
+
+                                            Expanded(
+                                              flex: 0,
+                                              child: const Row(
+                                                children: [
+                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                                  SizedBox(width: 8,),
+                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                                  SizedBox(width: 8,),
+                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                                  SizedBox(width: 8,),
+                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                                  SizedBox(width: 8,),
+                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                                ],
+                                              ),
                                             ),
-                                            const SizedBox(height: 8,),
                                             RichText(
                                               text: TextSpan(
                                                 text: 'Car license: ',
@@ -77,7 +82,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                                                 ],
                                               ),
                                             ),
-                                            const SizedBox(height: 8,),
+
                                             RichText(
                                               text: TextSpan(
                                                 text: 'Date:  ',
@@ -94,18 +99,20 @@ class _ReviewScreenState extends State<ReviewScreen> {
                                         ),
                                       ],
                                     ),
-                                  ),
-                                  Image.asset("assets/images/Photo.png",width:70,height: 70,)
-                                ],
-                              ),
-                             const SizedBox(height: 10,),
-                             const Text("Lorem ipsum dolor sit amet consectetur. Conguefames egestas tristique nisl sit nec eu scelerisquenam. Et senectus sed morbi quam.",
-                                 maxLines: 3,
-                                 style: TextStyle(
-                                     color: Color(0xff737373),
-                                     fontSize: 14,fontWeight:FontWeight.w400)),
+                                    Expanded(
+                                      flex: 1,
+                                        child: Image.asset("assets/images/Photo.png",width:70,height: 70,))
+                                  ],
+                                ),
+                               const SizedBox(height: 10,),
+                               const Text("Lorem ipsum dolor sit amet consectetur. Conguefames egestas tristique nisl sit nec eu scelerisquenam. Et senectus sed morbi quam.",
+                                   maxLines: 3,
+                                   style: TextStyle(
+                                       color: Color(0xff737373),
+                                       fontSize: 14,fontWeight:FontWeight.w400)),
 
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
