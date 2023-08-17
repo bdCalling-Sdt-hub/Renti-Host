@@ -7,6 +7,48 @@ class MessageScreen extends StatefulWidget {
   @override
   State<MessageScreen> createState() => _MessageScreenState();
 }
+List<Map<String, String>> dataList = [
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Reserved",
+  },
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Complete",
+  },
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Reserved",
+  },
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Complete",
+  },
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Complete",
+  },
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Reserved",
+  },
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Complete",
+  },
+  {
+    "image": "assets/images/Carphoto.png",
+    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+    "status": "Reserved",
+  },
+];
 
 class _MessageScreenState extends State<MessageScreen> {
   @override
@@ -26,7 +68,7 @@ class _MessageScreenState extends State<MessageScreen> {
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16,vertical: 20),
             child: Column(
-              children: List.generate(20, (index){
+              children: List.generate(dataList.length, (index){
                 return  GestureDetector(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (_)=>InboxScreen()));
@@ -53,7 +95,8 @@ class _MessageScreenState extends State<MessageScreen> {
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text("John Doe",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500)),
-                                            Container(
+                                            dataList[index]["status"] == "Reserved"
+                                           ? Container(
                                                 padding: EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
                                                 alignment: Alignment.center,
                                                 decoration: BoxDecoration(
@@ -67,7 +110,28 @@ class _MessageScreenState extends State<MessageScreen> {
                                                       color: Color(0xff00A991),
                                                       fontSize: 10,fontWeight:FontWeight.w400
                                                   ),
-                                                )),
+                                                )) :
+                                            Container(
+                                              height: 22,
+                                              padding: const EdgeInsets.symmetric(
+                                                  horizontal: 12, vertical: 4),
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: ShapeDecoration(
+                                                color: const Color(0xFFE6F6F4),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                    BorderRadius.circular(4)),
+                                              ),
+                                              child: const Text(
+                                                'Reserved',
+                                                style: TextStyle(
+                                                  color: Color(0xFFD7263D),
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 1.40,
+                                                ),
+                                              ),
+                                            )
                                           ],
                                         ),
                                         SizedBox(height: 8,),
