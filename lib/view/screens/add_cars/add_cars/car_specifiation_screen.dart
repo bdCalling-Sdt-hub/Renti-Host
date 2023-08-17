@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CarDetails extends StatefulWidget {
-  const CarDetails({super.key});
+class CarSpecifications extends StatefulWidget {
+  const CarSpecifications({super.key});
 
   @override
-  State<CarDetails> createState() => _CarDetailsState();
+  State<CarSpecifications> createState() => _CarDetailsState();
 }
 
-class _CarDetailsState extends State<CarDetails> {
+class _CarDetailsState extends State<CarSpecifications> {
   @override
   Widget build(BuildContext context) {
 
@@ -18,10 +18,15 @@ class _CarDetailsState extends State<CarDetails> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(
-          Icons.arrow_back_ios_new,
-          color: Color(0xff2E2C2C),
-          size: 18,
+        leading: InkWell(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Color(0xff2E2C2C),
+            size: 18,
+          ),
         ),
         titleSpacing: -8,
         title: const Text(
@@ -298,7 +303,7 @@ class _CarDetailsState extends State<CarDetails> {
               const SizedBox(height: 24,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>CarDetails()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>CarSpecifications()));
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width,

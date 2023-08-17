@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:renti_host/view/screens/%20home/home/inner_widgets/alert_box.dart';
-import 'package:renti_host/view/screens/%20home/home/inner_widgets/custom_car_list.dart';
 import 'package:renti_host/view/screens/%20home/home/inner_widgets/drawer/custom_drawer.dart';
+import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_add_car.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,7 +19,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         appBar: PreferredSize(
           preferredSize: Size(MediaQuery.of(context).size.width, 64),
           child: AppBar(
@@ -35,7 +34,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
             title: InkWell(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => SearchScreen()));
+                    context, MaterialPageRoute(builder: (_) => const SearchScreen()));
               },
               child: Container(
                 height: 40,
@@ -132,7 +131,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Expanded(
@@ -179,7 +178,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Expanded(
@@ -228,7 +227,8 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  CustomCarList()
+                  const SizedBox(height: 88,),
+                  const HomeAddCar()
                 ],
               );
             })),

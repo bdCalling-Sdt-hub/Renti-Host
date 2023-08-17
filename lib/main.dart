@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/%20home/home/home_screen.dart';
 import 'package:renti_host/view/screens/car_list/car_list/car_list_screen.dart';
 
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  const MaterialApp(
       debugShowCheckedModeBanner: false,
-        home:CarListScreen()
+        home:HomeScreen()
     );
   }
 }

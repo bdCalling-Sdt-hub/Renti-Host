@@ -75,7 +75,7 @@ class _CarListScreenState extends State<CarListScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Expanded(
                   child: SingleChildScrollView(
                     child: GridView.builder(
@@ -88,13 +88,14 @@ class _CarListScreenState extends State<CarListScreen> {
                             childAspectRatio: MediaQuery.of(context).size.width,
                             crossAxisSpacing: 8,
                             mainAxisSpacing: 8,
-                            mainAxisExtent: 206
+                            mainAxisExtent: 214
                         ),
-                        itemBuilder: (context, index) => Container(
+                          itemBuilder: (context, index) => Container(
+
                           decoration: BoxDecoration(
                               color: Color(0xffffffff),
                               borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     blurRadius: 8,
                                     color: Color(0x19000000)
@@ -113,7 +114,7 @@ class _CarListScreenState extends State<CarListScreen> {
                                     )
                                 ),
                               ),
-                              SizedBox(height: 8,),
+                              const SizedBox(height: 8,),
                               Container(
                                 width: 71,
                                 alignment: Alignment.center,
@@ -122,7 +123,10 @@ class _CarListScreenState extends State<CarListScreen> {
                                   color: const Color(0xffE6F6F4),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
-                                child: const Text("Active", textAlign: TextAlign.center,style: TextStyle(color: Color(0xff00A991),fontSize: 10 ,fontWeight:FontWeight.w400 ),),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                  child: const Text("Active", textAlign: TextAlign.center,style: TextStyle(color: Color(0xff00A991),fontSize: 10 ,fontWeight:FontWeight.w400 ),),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0, bottom: 10),

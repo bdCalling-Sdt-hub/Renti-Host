@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomAlertBox extends StatefulWidget {
-  const CustomAlertBox({super.key});
+class CustomAlertBox2 extends StatefulWidget {
+  const CustomAlertBox2({super.key});
 
   @override
-  State<CustomAlertBox> createState() => _CustomDrawerState();
+  State<CustomAlertBox2> createState() => _CustomDrawerState();
 }
 
-class _CustomDrawerState extends State<CustomAlertBox> {
+class _CustomDrawerState extends State<CustomAlertBox2> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

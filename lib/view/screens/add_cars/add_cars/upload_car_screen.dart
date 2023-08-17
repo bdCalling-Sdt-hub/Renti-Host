@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/add_cars/add_cars/car_specifiation_screen.dart';
 import 'package:renti_host/view/screens/add_cars/add_cars/inner_widgets/custom_upload_car.dart';
+import 'package:renti_host/view/screens/car_details/car_details/car_details_screen.dart';
 
-class UploadCar extends StatefulWidget {
-  const UploadCar({super.key});
+class UploadCarScreen extends StatefulWidget {
+  const UploadCarScreen({super.key});
 
   @override
-  State<UploadCar> createState() => _UploadCarState();
+  State<UploadCarScreen> createState() => _UploadCarState();
 }
 
-class _UploadCarState extends State<UploadCar> {
+class _UploadCarState extends State<UploadCarScreen> {
   String dropdownValue = 'Year';
   @override
   Widget build(BuildContext context) {
@@ -20,14 +22,14 @@ class _UploadCarState extends State<UploadCar> {
           onTap: (){
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios_new,
             color: Color(0xff2E2C2C),
             size: 18,
           ),
         ),
         titleSpacing: -8,
-        title: Text(
+        title: const Text(
           "Add Cars",
           style: TextStyle(
             color: Color(0xff2E2C2C),
@@ -49,13 +51,13 @@ class _UploadCarState extends State<UploadCar> {
                          width:171,
                        decoration: BoxDecoration(
                          borderRadius: BorderRadius.circular(8),
-                         image: DecorationImage(
+                         image: const DecorationImage(
                            image: AssetImage("assets/images/black_car.png"),
                            fit: BoxFit.fill
                          ),
                        ),
                      ),
-                   SizedBox(width: 8,),
+                   const SizedBox(width: 8,),
                    Column(
                      children: [
 
@@ -65,7 +67,7 @@ class _UploadCarState extends State<UploadCar> {
 
                          decoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(8),
-                           image: DecorationImage(
+                           image: const DecorationImage(
                                image: AssetImage("assets/images/black_car.png"),
                                fit: BoxFit.fill
                            ),
@@ -78,7 +80,7 @@ class _UploadCarState extends State<UploadCar> {
                             width:171,
                             decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                image: AssetImage("assets/images/black_car.png"),
                                fit: BoxFit.fill
                            ),
@@ -91,18 +93,14 @@ class _UploadCarState extends State<UploadCar> {
                 ],
               ),
 
-              SizedBox(
-                height: 16,
-              ),
-              Text("Car Model Name",
+              const SizedBox(height: 16,),
+              const Text("Car Model Name",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
-                height: 12,
-              ),
+              const SizedBox(height: 12,),
 
               Row(
                 children: [
@@ -110,7 +108,7 @@ class _UploadCarState extends State<UploadCar> {
                     flex: 8,
                     child: TextFormField(
                       showCursor: false,
-                      style: TextStyle(color: Color(0xff2E2C2C)),
+                      style: const TextStyle(color: Color(0xff2E2C2C)),
                       decoration: InputDecoration(
                         hintText: "Type name here",
                         hintStyle: const TextStyle(
@@ -130,16 +128,12 @@ class _UploadCarState extends State<UploadCar> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
+                  const SizedBox(width: 20,),
                   Expanded(
                       flex: 3,
                       child: DropdownButtonFormField(
-
                         elevation: 0,
-                        icon: Icon(Icons.keyboard_arrow_down,color: Color(0xffcccccc),size:20 ,),
-
+                        icon: const Icon(Icons.keyboard_arrow_down,color: Color(0xffcccccc),size:20 ,),
                         decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide:
@@ -172,25 +166,25 @@ class _UploadCarState extends State<UploadCar> {
                       ))
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car license field
-              Text("Car License Number",
+              const Text("Car License Number",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type license number here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -199,30 +193,30 @@ class _UploadCarState extends State<UploadCar> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car description
-              Text("Car Description",
+              const Text("Car Description",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               // car description  field
               SizedBox(
                 height: 100,
-                // Height dosn't work
+
                 child: TextFormField(
                   textInputAction: TextInputAction.newline,
                   keyboardType: TextInputType.multiline,
@@ -230,7 +224,7 @@ class _UploadCarState extends State<UploadCar> {
                   maxLines: 5,
                   decoration: InputDecoration(
                     hintText: "type description here...",
-                    hintStyle: TextStyle(color: Color(0xffcccccc)),
+                    hintStyle: const TextStyle(color: Color(0xffcccccc)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
                     enabledBorder: OutlineInputBorder(
@@ -245,25 +239,25 @@ class _UploadCarState extends State<UploadCar> {
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car license field
-              Text("Set Rent Amount",
+              const Text("Set Rent Amount",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type amount here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -272,18 +266,23 @@ class _UploadCarState extends State<UploadCar> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
 
-              CustomUploadCar()
+              CustomUploadCar(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const CarSpecifications()));
+                },
+
+              )
             ],
           ),
         ),

@@ -16,9 +16,13 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
 
-        leading: Icon(Icons.arrow_back_ios_new,color: Color(0xff2E2C2C),size:18 ,),
+        leading: InkWell(
+          onTap: (){
+            Navigator.pop(context);
+          },
+            child: const Icon(Icons.arrow_back_ios_new,color: Color(0xff2E2C2C),size:18 ,)),
         titleSpacing: -8,
-        title: Text("Search",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w600,),),
+        title: const Text("Search",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w600,),),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -32,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
                    decoration: InputDecoration(
 
                        prefixIcon: Icon(Icons.search_outlined,size: 20,color: Color(0xffcccccc)),
-                       suffixIcon: Icon(Icons.add_circle_outline_sharp,size: 14,color: Color(0xff000B90),),
+                       suffixIcon: Icon(Icons.cancel_outlined,size: 14,color: Color(0xff000B90),),
                        hintText: "Find Car Model",
                        hintStyle: TextStyle(color: Color(0xffcccccc),fontSize: 14,fontWeight: FontWeight.w400),
                        border: OutlineInputBorder(

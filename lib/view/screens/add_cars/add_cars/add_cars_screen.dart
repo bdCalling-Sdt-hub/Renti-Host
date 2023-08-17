@@ -1,7 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/add_cars/add_cars/car_specifiation_screen.dart';
 import 'package:renti_host/view/screens/add_cars/add_cars/inner_widgets/custom_upload_car.dart';
-import 'package:renti_host/view/screens/add_cars/add_cars/upload_car.dart';
+import 'package:renti_host/view/screens/add_cars/add_cars/upload_car_screen.dart';
+
 
 class AddCarsScreen extends StatefulWidget {
   const AddCarsScreen({super.key});
@@ -11,16 +13,6 @@ class AddCarsScreen extends StatefulWidget {
 }
 
 class _AddCarsScreenState extends State<AddCarsScreen> {
-  // String selectedValue = "USA";
-  // List<DropdownMenuItem<String>> get dropdownItems{
-  //   List<DropdownMenuItem<String>> menuItems = [
-  //     DropdownMenuItem(child: Text("USA"),value: "USA"),
-  //     DropdownMenuItem(child: Text("Canada"),value: "Canada"),
-  //     DropdownMenuItem(child: Text("Brazil"),value: "Brazil"),
-  //     DropdownMenuItem(child: Text("England"),value: "England"),
-  //   ];
-  //   return menuItems;
-  // }
 
   String dropdownValue = 'Year';
 
@@ -31,13 +23,19 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
-          Icons.arrow_back_ios_new,
-          color: Color(0xff2E2C2C),
-          size: 18,
+        leading: InkWell(
+          onTap: (){
+            Navigator.pop(context);
+          },
+
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Color(0xff2E2C2C),
+            size: 18,
+          ),
         ),
         titleSpacing: -8,
-        title: Text(
+        title: const Text(
           "Add Cars",
           style: TextStyle(
             color: Color(0xff2E2C2C),
@@ -55,23 +53,21 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
             // upload car image
             children: [
               DottedBorder(
+                padding: const EdgeInsets.all(0),
                 borderType: BorderType.RRect,
-                radius: Radius.circular(10),
-                color: Color(0XFFB0B3DD),
+                radius: const Radius.circular(8),
+                color: const Color(0XFFB0B3DD),
                 strokeWidth: 1,
-                dashPattern: [
-                  10,
-                  10,
-                ],
+                dashPattern: const [10, 10],
                 child: Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: Color(0xffE6E7F4),
+                        color: const Color(0xffE6E7F4),
                         borderRadius: BorderRadius.circular(8)),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 16.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 16.0),
                           child: Icon(
                             Icons.image,
                             size: 50,
@@ -84,13 +80,13 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
-                                color: Color(0xff000B90),
+                                color: const Color(0xff000B90),
                                 borderRadius: BorderRadius.circular(8)),
-                            child: Padding(
+                            child: const Padding(
                               padding:
-                                  const EdgeInsets.symmetric(vertical: 16.0),
+                                  EdgeInsets.symmetric(vertical: 16.0),
                               child: Center(
-                                  child: const Text(
+                                  child: Text(
                                 "Uploaded Car Photo",
                                 style: TextStyle(
                                     color: Color(0xffffffff),
@@ -103,7 +99,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                       ],
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Container(
@@ -114,24 +110,23 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                       borderRadius: BorderRadius.circular(8),
                       border:
                           Border.all(color: const Color(0xff000B90), width: 1)),
-                  child: Center(
-                    child: Text("Upload Car Photo",
-                        style: TextStyle(
+                  child: const Center(
+                    child: Text("Upload Car Photo", style: TextStyle(
                           color: Color(0xff000B90),
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         )),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              Text("Car Model Name",
+              const Text("Car Model Name",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
 
@@ -141,7 +136,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                     flex: 8,
                     child: TextFormField(
                       showCursor: false,
-                      style: TextStyle(color: Color(0xff2E2C2C)),
+                      style: const TextStyle(color: Color(0xff2E2C2C)),
                       decoration: InputDecoration(
                         hintText: "Type name here",
                         hintStyle: const TextStyle(
@@ -203,25 +198,25 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                       ))
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car license field
-              Text("Car License Number",
+              const Text("Car License Number",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type license number here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -237,28 +232,27 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                           BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car description
-              Text("Car Description",
+              const Text("Car Description",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               // car description  field
               SizedBox(
               height: 100,
-                // Height dosn't work
+
                 child: TextFormField(
                   textInputAction: TextInputAction.newline,
                   keyboardType: TextInputType.multiline,
-
-                  maxLines: 5,
+                  maxLines: 3,
                   decoration: InputDecoration(
                     hintText: "type description here...",
                     hintStyle: TextStyle(color: Color(0xffcccccc)),
@@ -276,17 +270,17 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               // car license field
-              Text("Set Rent Amount",
+              const Text("Set Rent Amount",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               TextFormField(
@@ -294,7 +288,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                 style: TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type amount here...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Color(0xffcccccc),
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
@@ -310,11 +304,64 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                       BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
+                height: 12,
+              ),
+              Row(
+                children: [
+                Expanded(child: TextFormField(
+                  showCursor: true,
+                  style: TextStyle(color: Color(0xff2E2C2C)),
+                  decoration: InputDecoration(
+                    hintText: "Type amount here...",
+                    hintStyle: const TextStyle(
+                        color: Color(0xffcccccc),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                  ),
+                ),) ,
+                  const SizedBox(width: 16,),
+                Expanded(child: TextFormField(
+                  showCursor: true,
+                  style: const TextStyle(color: Color(0xff2E2C2C)),
+                  decoration: InputDecoration(
+                    hintText: "Type amount here...",
+                    hintStyle: const TextStyle(
+                        color: Color(0xffcccccc),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                        BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                  ),
+                ),)
+                ],
+              ),
+              const SizedBox(
                 height: 16,
               ),
-              CustomUploadCar()
-
+               CustomUploadCar(
+                 onTap: (){
+                   Navigator.push(context, MaterialPageRoute(builder: (_)=>const UploadCarScreen()));
+                 },
+               )
             ],
           ),
         ),
