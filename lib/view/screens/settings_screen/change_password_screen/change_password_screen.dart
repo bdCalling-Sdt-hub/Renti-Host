@@ -29,7 +29,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFFFFFFFF),
         title: const Text(
-          'Change Language',
+          'Change Password',
           style: TextStyle(
               color: Color(0xFF2E2C2C),
               fontSize: 18,

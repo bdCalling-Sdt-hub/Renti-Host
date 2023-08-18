@@ -28,7 +28,7 @@ class _AddCreditCardScreenState extends State<AddCreditCardScreen> {
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFFFFFFFF),
         title: const Text(
-          'Payment Method',
+          'Add Credit Card',
           style: TextStyle(
               color: Color(0xFF2E2C2C),
               fontSize: 18,
