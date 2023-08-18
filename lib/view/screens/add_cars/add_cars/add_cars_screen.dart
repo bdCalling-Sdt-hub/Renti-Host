@@ -156,7 +156,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                       ),
                     ),
                   ),
-                   SizedBox(
+                   const SizedBox(
                     width: 20,
                   ),
                   Expanded(
@@ -225,11 +225,11 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                          BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                          const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                          BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                          const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
               const SizedBox(
@@ -255,7 +255,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                   maxLines: 3,
                   decoration: InputDecoration(
                     hintText: "type description here...",
-                    hintStyle: TextStyle(color: Color(0xffcccccc)),
+                    hintStyle: const TextStyle(color: Color(0xffcccccc)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
                     enabledBorder: OutlineInputBorder(
@@ -285,7 +285,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type amount here...",
                   hintStyle: const TextStyle(
@@ -297,11 +297,11 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
               const SizedBox(
@@ -349,7 +349,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
-                        BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   ),
                 ),)
                 ],
