@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/%20home/home/inner_widgets/custom_car_list.dart';
+import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_car_list.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -15,7 +15,6 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-
         leading: InkWell(
           onTap: (){
             Navigator.pop(context);
@@ -26,35 +25,34 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 24.0,left: 20,right: 20),
+          padding: const EdgeInsets.only(top: 24.0,left: 20,right: 20,bottom: 24),
           child: Column(
             children: [
                  TextFormField(
-                   cursorColor: Color(0xff2E2C2C),
+                   cursorColor: const Color(0xff2E2C2C),
                    showCursor: false,
-                   style: TextStyle(color: Color(0xff2E2C2C)),
+                   style: const TextStyle(color: Color(0xff2E2C2C)),
                    decoration: InputDecoration(
-
-                       prefixIcon: Icon(Icons.search_outlined,size: 20,color: Color(0xffcccccc)),
-                       suffixIcon: Icon(Icons.cancel_outlined,size: 14,color: Color(0xff000B90),),
+                       prefixIcon: const Icon(Icons.search_outlined,size: 20,color: Color(0xffcccccc)),
+                       suffixIcon: const Icon(Icons.cancel_outlined,size: 15,color: Color(0xff000B90),),
                        hintText: "Find Car Model",
-                       hintStyle: TextStyle(color: Color(0xffcccccc),fontSize: 14,fontWeight: FontWeight.w400),
+                       hintStyle: const TextStyle(color: Color(0xffcccccc),fontSize: 14,fontWeight: FontWeight.w400),
                        border: OutlineInputBorder(
                          borderRadius: BorderRadius.circular(8)
                        ),
                      enabledBorder: OutlineInputBorder(
                          borderRadius: BorderRadius.circular(8),
-                       borderSide: BorderSide(color: Color(0xffCCCCCC),width: 1)
+                       borderSide: const BorderSide(color: Color(0xffCCCCCC),width: 1)
                      ),
                      
                      focusedBorder: OutlineInputBorder(
                          borderRadius: BorderRadius.circular(8),
-                         borderSide: BorderSide(color: Color(0xffCCCCCC),width: 1)),
+                         borderSide: const BorderSide(color: Color(0xffCCCCCC),width: 1)),
 
                    ),
 
                  ),
-              CustomCarList()
+               HomeCarList()
             ],
           ),
         ),

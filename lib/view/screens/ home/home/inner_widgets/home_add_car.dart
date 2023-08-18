@@ -9,6 +9,7 @@ class HomeAddCar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: 88,),
         const Image(image: AssetImage("assets/images/bro.png"),height: 220,width: 350,),
 
         const SizedBox(height: 49,),

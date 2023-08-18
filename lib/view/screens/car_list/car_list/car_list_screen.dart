@@ -17,6 +17,7 @@ class _CarListScreenState extends State<CarListScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         appBar:AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -118,14 +119,14 @@ class _CarListScreenState extends State<CarListScreen> {
                               Container(
                                 width: 71,
                                 alignment: Alignment.center,
-                                padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
+
                                 decoration: BoxDecoration(
                                   color: const Color(0xffE6F6F4),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 4.0),
-                                  child: const Text("Active", textAlign: TextAlign.center,style: TextStyle(color: Color(0xff00A991),fontSize: 10 ,fontWeight:FontWeight.w400 ),),
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 4.0),
+                                  child: Text("Active", textAlign: TextAlign.center,style: TextStyle(color: Color(0xff00A991),fontSize: 10 ,fontWeight:FontWeight.w400 ),),
                                 ),
                               ),
                               Padding(

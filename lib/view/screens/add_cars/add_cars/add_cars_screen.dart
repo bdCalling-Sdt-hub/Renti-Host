@@ -164,7 +164,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                      child: DropdownButtonFormField(
 
                        elevation: 0,
-                       icon: Icon(Icons.keyboard_arrow_down,color: Color(0xffcccccc),size:20 ,),
+                       icon: const Icon(Icons.keyboard_arrow_down,color: Color(0xffcccccc),size:20 ,),
 
                         decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -261,11 +261,11 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
-                            BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                            const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
-                            BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                            const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   ),
                 ),
               ),
@@ -311,20 +311,21 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                 children: [
                 Expanded(child: TextFormField(
                   showCursor: true,
-                  style: TextStyle(color: Color(0xff2E2C2C)),
+                  style: const TextStyle(color: Color(0xff2E2C2C)),
                   decoration: InputDecoration(
-                    hintText: "Type amount here...",
+                    prefixIcon: const Icon(Icons.calendar_month_rounded,size: 24,color: Color(0xff999999),),
+                    hintText: "Start",
                     hintStyle: const TextStyle(
                         color: Color(0xffcccccc),
                         fontSize: 14,
                         fontWeight: FontWeight.w400),
-                    border: OutlineInputBorder(
+                        border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
-                    enabledBorder: OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
-                        const BorderSide(color: Color(0xffCCCCCC), width: 1)),
-                    focusedBorder: OutlineInputBorder(
+                         const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                         focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
                         const BorderSide(color: Color(0xffCCCCCC), width: 1)),
@@ -335,7 +336,8 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                   showCursor: true,
                   style: const TextStyle(color: Color(0xff2E2C2C)),
                   decoration: InputDecoration(
-                    hintText: "Type amount here...",
+                    prefixIcon: const Icon(Icons.calendar_month_rounded,size: 24,color: Color(0xff999999),),
+                    hintText: "End",
                     hintStyle: const TextStyle(
                         color: Color(0xffcccccc),
                         fontSize: 14,

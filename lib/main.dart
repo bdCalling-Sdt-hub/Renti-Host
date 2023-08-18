@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/%20home/home/home_screen.dart';
-import 'package:renti_host/view/screens/car_list/car_list/car_list_screen.dart';
-
-
-
 void main() {
   runApp(const MyApp());
 }

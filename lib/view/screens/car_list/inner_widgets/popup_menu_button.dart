@@ -9,14 +9,14 @@ class CustomPopupMenuButton extends StatefulWidget {
 }
 
 class _PopupMenuButtonState extends State<CustomPopupMenuButton> {
-  List carModel = ["Toyato","BMW","Nissan", "Limberghini"];
+  List carModel = ["Toyota","BMW","Nissan", "Limberghini"];
   int selectedItem = 0;
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
       position: PopupMenuPosition.under,
       elevation: 1,
-      offset: Offset(0, 1),
+      offset: const Offset(0, 1),
       itemBuilder: (context) {
         return List.generate(carModel.length, (index) {
           return  PopupMenuItem(
@@ -48,8 +48,8 @@ class _PopupMenuButtonState extends State<CustomPopupMenuButton> {
       child: Container(
         padding: const EdgeInsetsDirectional.all(19),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Color(0xffcccccc),width: 1)),
-        child: Icon(Icons.filter_list_outlined,color: Color(0xffcccccc),size: 20,),
+            border: Border.all(color: const Color(0xffcccccc),width: 1)),
+        child: const Icon(Icons.filter_list_outlined,color: Color(0xffcccccc),size: 20,),
       ),
     );
   }

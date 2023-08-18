@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/active_documents.dart';
+import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/active_details.dart';
 import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/custom_alert_box.dart';
 import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/reserved_details.dart';
 
@@ -18,10 +18,16 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(
-          Icons.arrow_back_ios_new,
-          color: Color(0xff2E2C2C),
-          size: 18,
+        leading: IconButton(
+          icon:  Icon(
+            Icons.arrow_back_ios_new,
+            color: Color(0xff2E2C2C),
+            size: 18,
+          ) ,
+          onPressed: (){
+          Navigator.pop(context);
+          },
+
         ),
         titleSpacing: -8,
         title: const Text(

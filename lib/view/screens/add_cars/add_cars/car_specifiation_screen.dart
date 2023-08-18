@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/car_list/car_list/car_list_screen.dart';
 
 class CarSpecifications extends StatefulWidget {
   const CarSpecifications({super.key});
@@ -13,7 +14,6 @@ class _CarDetailsState extends State<CarSpecifications> {
 
     List< String> seatList = ["Baby Car Seat", " Sunroof", ' Bluetooth','GPS'];
     int selectedItem = 0;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -134,7 +134,7 @@ class _CarDetailsState extends State<CarSpecifications> {
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type number here...",
                   hintStyle: const TextStyle(
@@ -146,11 +146,11 @@ class _CarDetailsState extends State<CarSpecifications> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
               const SizedBox(
@@ -179,11 +179,11 @@ class _CarDetailsState extends State<CarSpecifications> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
               const SizedBox(
@@ -200,7 +200,7 @@ class _CarDetailsState extends State<CarSpecifications> {
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Type km here...",
                   hintStyle: const TextStyle(
@@ -238,7 +238,7 @@ class _CarDetailsState extends State<CarSpecifications> {
               ),
               TextFormField(
                 showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
+                style: const TextStyle(color: Color(0xff2E2C2C)),
                 decoration: InputDecoration(
                   hintText: "Gear Type here...",
                   hintStyle: const TextStyle(
@@ -253,8 +253,7 @@ class _CarDetailsState extends State<CarSpecifications> {
                       const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide:
-                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      borderSide: const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
              const SizedBox(height: 16,),
@@ -266,8 +265,6 @@ class _CarDetailsState extends State<CarSpecifications> {
                        setState(() {
                          selectedItem = index;
                        });
-
-                       print("selected: $selectedItem");
                      },
                      child: Padding(
                        padding: const EdgeInsets.only(left: 16.0, bottom: 20),
@@ -303,7 +300,7 @@ class _CarDetailsState extends State<CarSpecifications> {
               const SizedBox(height: 24,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>CarSpecifications()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const CarListScreen()));
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width,

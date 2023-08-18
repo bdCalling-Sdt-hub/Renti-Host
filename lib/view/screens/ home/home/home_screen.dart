@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:renti_host/view/screens/%20home/home/inner_widgets/drawer/custom_drawer.dart';
+import 'package:renti_host/view/screens/%20home/home/inner_widgets/custom_drawer.dart';
 import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_add_car.dart';
+import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_car_list.dart';
+import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_top_section.dart';
+import 'package:renti_host/view/screens/%20home/home/inner_widgets/start_end_date.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 
 class _PendingApprovalScreenState extends State<HomeScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -80,155 +81,14 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
           ),
         ),
         body: SingleChildScrollView(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.only(left: 20, right: 20,top: 24,bottom: 24),
             child: LayoutBuilder(builder: (context, constrains) {
-              return Column(
+              return   Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1, color: Color(0xffE6E7F4)),
-                              color: Color(0xffffffff),
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color(0xff000000).withOpacity(0.225),
-                                    blurRadius: 8,
-                                    offset: Offset(0, 1))
-                              ]),
-                          width: 106,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 20.0, bottom: 7),
-                                  child: Text(
-                                    "Total Car",
-                                    style: GoogleFonts.poppins(
-                                        color: Color(0xff000000),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(bottom: 11.0),
-                                  child: Text(
-                                    "00",
-                                    style: TextStyle(
-                                        color: Color(0xff000B90),
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1, color: Color(0xffE6E7F4)),
-                              color: Color(0xffffffff),
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color(0xff000000).withOpacity(0.225),
-                                    blurRadius: 8,
-                                    offset: Offset(0, 1))
-                              ]),
-                          width: 106,
-                          child: const Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 20.0, bottom: 7),
-                                  child: Text(
-                                    "Active",
-                                    style: TextStyle(
-                                        color: Color(0xff000000),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(bottom: 11.0),
-                                  child: Text(
-                                    "00",
-                                    style: TextStyle(
-                                        color: Color(0xff00A991),
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1, color: Color(0xffE6E7F4)),
-                              color: Color(0xffffffff),
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color(0xff000000).withOpacity(0.225),
-                                    blurRadius: 8,
-                                    offset: Offset(0, 1))
-                              ]),
-                          width: 106,
-                          child: const Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 20.0, bottom: 7),
-                                  child: Text(
-                                    "Reserved",
-                                    style: TextStyle(
-                                        color: Color(0xff000000),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(bottom: 11.0),
-                                  child: Text(
-                                    "00",
-                                    style: TextStyle(
-                                        color: Color(0xffD7263D),
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 88,),
-                  const HomeAddCar()
+
+                  //home top section
+                  const HomeTopSection(),
+                  HomeCarList()
                 ],
               );
             })),
