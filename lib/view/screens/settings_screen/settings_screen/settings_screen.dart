@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/settings_screen/change_language_screen/change_language.dart';
 import 'package:renti_host/view/screens/settings_screen/change_password_screen/change_password_screen.dart';
 import 'package:renti_host/view/screens/settings_screen/payment_method_screen/payment_method_screen.dart';
+import 'package:renti_host/view/screens/settings_screen/privacy_policy_screen/privacy_policy_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -215,7 +216,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     const SizedBox(height: 8,),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>const PrivacyPolicyScreen()));
+                      },
                       child: Container(
                           height: 70,
                           width: MediaQuery.of(context).size.width,
