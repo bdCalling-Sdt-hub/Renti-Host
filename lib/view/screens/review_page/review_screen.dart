@@ -26,98 +26,177 @@ class _ReviewScreenState extends State<ReviewScreen> {
         builder: (context,constraint){
           return SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              child:Column(
-                  children: List.generate(50, (index) =>Padding(
-                    padding: const EdgeInsets.only(left: 16,right: 16),
-                    child: GestureDetector(
+              child:Padding(
+                padding: EdgeInsetsDirectional.symmetric(vertical: 24,horizontal: 20),
+                child: Column(
+                    children: List.generate(50, (index) =>GestureDetector(
                       onTap: (){
                         // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
                       },
-                      child: Container(
-                        width: 350,
-                        height: 170,
-                        child: Card(
-                          elevation: 10,
-                          color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: Container(
+
+                          width: MediaQuery.of(context).size.width,
+                          height: 170,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            shadows: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 10,
+                                offset: Offset(0, 1),
+                                spreadRadius: 0,
+                              )
+                            ],
+                          ),
                           child: Padding(
-                            padding:EdgeInsetsDirectional.symmetric(horizontal: 16,vertical: 16),
+                            padding: EdgeInsetsDirectional.symmetric(vertical: 16,horizontal: 16),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Image(image: AssetImage("assets/images/Avater.png"),width: 70,height:70 ,),
-                                        SizedBox(width: 16,),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children:  [
-                                            const Text("John Doe",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500),),
-
-                                            Expanded(
-                                              flex: 0,
-                                              child: const Row(
-                                                children: [
-                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                  SizedBox(width: 8,),
-                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                  SizedBox(width: 8,),
-                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                  SizedBox(width: 8,),
-                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                  SizedBox(width: 8,),
-                                                  Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                                ],
-                                              ),
-                                            ),
-                                            RichText(
-                                              text: TextSpan(
-                                                text: 'Car license: ',
-                                                style: DefaultTextStyle.of(context).style,
-                                                children: const <TextSpan>[
-                                                  TextSpan(text: 'NBG1234567', style: TextStyle(fontWeight: FontWeight.bold)),
-
-                                                ],
-                                              ),
-                                            ),
-
-                                            RichText(
-                                              text: TextSpan(
-                                                text: 'Date:  ',
-                                                style: DefaultTextStyle.of(context).style,
-                                                children: const <TextSpan>[
-                                                  TextSpan(text: '10 aug 2023', style: TextStyle(fontWeight: FontWeight.bold)),
-
-                                                ],
-                                              ),
-                                            ),
-
-
-                                          ],
-                                        ),
-                                      ],
-                                    ),
                                     Expanded(
                                       flex: 1,
-                                        child: Image.asset("assets/images/Photo.png",width:70,height: 70,))
+                                      child: Container(
+                                        width: 70,
+                                        height: 70,
+                                        decoration: ShapeDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("assets/images/Avater.png"),
+                                            fit: BoxFit.fill,
+                                          ),
+                                          shape: OvalBorder(),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 8,),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'John Doe',
+                                            style: TextStyle(
+                                              color: Color(0xFF2E2C2C),
+                                              fontSize: 18,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w500,
+                                              height: 1.40,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                              SizedBox(width: 4,),
+                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                              SizedBox(width: 4,),
+                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                              SizedBox(width: 4,),
+                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                              SizedBox(width: 4,),
+                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
+                                            ],
+                                          ),
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Car license: ',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF999999),
+                                                    fontSize: 10,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w400,
+                                                    height: 1.40,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: 'NBG1234567',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF2E2C2C),
+                                                    fontSize: 10,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w400,
+                                                    height: 1.40,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Date: ',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF999999),
+                                                    fontSize: 10,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w400,
+                                                    height: 1.40,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: '10 aug 2023',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF2E2C2C),
+                                                    fontSize: 10,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w400,
+                                                    height: 1.40,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                        width: 70,
+                                        height: 70,
+                                        decoration: ShapeDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("assets/images/Carphoto.png"),
+                                            fit: BoxFit.cover,
+                                          ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(40),
+                                          ),
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
-                               const SizedBox(height: 10,),
-                               const Text("Lorem ipsum dolor sit amet consectetur. Conguefames egestas tristique nisl sit nec eu scelerisquenam. Et senectus sed morbi quam.",
-                                   maxLines: 3,
-                                   style: TextStyle(
-                                       color: Color(0xff737373),
-                                       fontSize: 14,fontWeight:FontWeight.w400)),
-
+                                SizedBox(height: 16),
+                                Text(
+                                  'Lorem ipsum dolor sit amet consectetur. Congue fames egestas tristique nisl sit nec eu scelerisque nam. Et senectus sed morbi quam.',
+                                  maxLines: 3,
+                                  style: TextStyle(
+                                    color: Color(0xFF737373),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    height: 1.40,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ) ,)
+                    ) ,)
+                ),
               )
           );
         },

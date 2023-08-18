@@ -11,9 +11,7 @@ class RentiFeeScreen extends StatefulWidget {
   State<RentiFeeScreen> createState() => _RentiFeeScreenState();
 }
 
-List <int> tripNo = [
-  1,7,5,6,7,
-];
+
 class _RentiFeeScreenState extends State<RentiFeeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -47,14 +45,7 @@ class _RentiFeeScreenState extends State<RentiFeeScreen> {
         body: LayoutBuilder(builder: (context,constraint){
           return  SingleChildScrollView(
             padding: const EdgeInsetsDirectional.symmetric(vertical: 24,horizontal:20 ),
-            child: Column(
-                children: List.generate(tripNo.length, (index){
-                  return Padding(
-                    padding: EdgeInsets.only(bottom: 8),
-                    child: RentiFeeCard(),
-                  );
-                })
-            ),
+            child: RentiFeeCard()
           );
         })
     );

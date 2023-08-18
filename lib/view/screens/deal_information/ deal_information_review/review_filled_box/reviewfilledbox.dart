@@ -18,18 +18,18 @@ class _FilledBoxState extends State<FilledBox> {
       appBar: AppBar(
           centerTitle: false,
           elevation: 0,
-          title: Text('Car Deal Information',
+          title: const Text('Car Deal Information',
               style: TextStyle(
                   color: Color(0xff2E2C2C),
                   fontSize: 18,
                   fontWeight: FontWeight.w600)),
-          backgroundColor: Color(0xffffffff),
+          backgroundColor: const Color(0xffffffff),
           leading: IconButton(
             onPressed: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => Review()));
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
             ),
             color: Colors.black,
@@ -37,19 +37,19 @@ class _FilledBoxState extends State<FilledBox> {
       body: LayoutBuilder(builder: (context,constraint){
           return SingleChildScrollView(
            child: Padding(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 20),
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 20),
               child: Center(
                 child: Column(
                   children: [
-                    Text("Give us rating out of 5",
+                    const Text("Give us rating out of 5",
                         style: TextStyle(
                             color: Color(0xff2E2C2C),
                             fontSize: 16,
                             fontWeight: FontWeight.w500)),
-                    SizedBox(height: 16,),
+                    const SizedBox(height: 16,),
                     RatingBarIndicator(
                       rating: 2.75,
-                      itemBuilder: (context, index) => Icon(
+                      itemBuilder: (context, index) => const Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
@@ -57,16 +57,16 @@ class _FilledBoxState extends State<FilledBox> {
                       itemSize: 50.0,
                       direction: Axis.horizontal,
                     ),
-                    SizedBox(height:16,),
+                    const SizedBox(height:16,),
                     Container(
                       height: 56,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: Color(0xffE6E7F4),
+                        color: const Color(0xffE6E7F4),
                         // border: Border.all(color: Color(0xff000B90))
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text("Nice Behavior",
                             style: TextStyle(
                                 color: Color(0xff000B90),
@@ -74,16 +74,16 @@ class _FilledBoxState extends State<FilledBox> {
                                 fontWeight: FontWeight.w400)),
                       ),
                     ),
-                    SizedBox(height: 8,),
+                    const SizedBox(height: 8,),
                     Container(
                       height: 56,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: Color(0xffE6E7F4),
+                        color: const Color(0xffE6E7F4),
                         // border: Border.all(color: Color(0xff000B90))
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text("Nice Behavior",
                             style: TextStyle(
                                 color: Color(0xff000B90),
@@ -91,16 +91,16 @@ class _FilledBoxState extends State<FilledBox> {
                                 fontWeight: FontWeight.w400)),
                       ),
                     ),
-                    SizedBox(height: 8,),
+                    const SizedBox(height: 8,),
                     Container(
                       height: 56,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: Color(0xffE6E7F4),
+                        color: const Color(0xffE6E7F4),
                         // border: Border.all(color: Color(0xff000B90))
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text("Nice Behavior",
                             style: TextStyle(
                                 color: Color(0xff000B90),
@@ -108,7 +108,7 @@ class _FilledBoxState extends State<FilledBox> {
                                 fontWeight: FontWeight.w400)),
                       ),
                     ),
-                    SizedBox(height: 16,),
+                    const SizedBox(height: 16,),
                     SizedBox(
                       height: 100,
                       child: TextFormField(
@@ -140,7 +140,7 @@ class _FilledBoxState extends State<FilledBox> {
 
                       ),
                     ),
-                    SizedBox(height: 182,),
+                    const SizedBox(height: 182,),
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (_)=>MessageScreen()));
@@ -149,10 +149,10 @@ class _FilledBoxState extends State<FilledBox> {
                         height: 57,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                          color: Color(0xff000B90),
+                          color: const Color(0xff000B90),
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text("Send Review",
                               style: TextStyle(
                                   color: Color(0xffFFFFFFC),

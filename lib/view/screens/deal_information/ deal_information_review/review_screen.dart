@@ -82,21 +82,21 @@ class _ReviewState extends State<Review> {
                       Column(
                         children: [
                           DottedBorder(
-                              padding: EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
                               dashPattern: [
                                 10,
                                 6,
                               ],
-                              color: Color(0xffB0B3DD),
+                              color: const Color(0xffB0B3DD),
                               strokeWidth: 1,
                               borderType: BorderType.RRect,
-                              radius: Radius.circular(12),
+                              radius: const Radius.circular(12),
                               child: Container(
                                 height: 72,
                                 width: 132,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
-                                  color: Color(0xffE6E7F4),
+                                  color: const Color(0xffE6E7F4),
                                 ),
                                 child: Center(
                                     child: Image.asset(
@@ -105,26 +105,26 @@ class _ReviewState extends State<Review> {
                                       height: 35,
                                     )),
                               )),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
                           DottedBorder(
-                              padding: EdgeInsets.all(0),
-                              dashPattern: [
+                              padding: const EdgeInsets.all(0),
+                              dashPattern: const [
                                 10,
-                                6,
+                                10,
                               ],
-                              color: Color(0xffB0B3DD),
+                              color: const Color(0xffB0B3DD),
                               // strokeWidth: 1,
                               borderType: BorderType.RRect,
-                              radius: Radius.circular(12),
+                              radius: const Radius.circular(12),
                               borderPadding: EdgeInsets.all(1),
                               child: Container(
                                 height: 72,
                                 width: 132,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
-                                  color: Color(0xffE6E7F4),
+                                  color: const Color(0xffE6E7F4),
                                 ),
                                 child: Center(
                                     child: Image.asset(
@@ -137,17 +137,17 @@ class _ReviewState extends State<Review> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Container(
                     height: 56,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: Color(0xff000B90),
+                      color: const Color(0xff000B90),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text("Capture Car Photo",
                           style: TextStyle(
                               color: Color(0xffFFFFFFC),
@@ -155,16 +155,16 @@ class _ReviewState extends State<Review> {
                               fontWeight: FontWeight.w600)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
-                  Text("Rental Information",
+                  const Text("Rental Information",
                       style: TextStyle(
                           color: Color(0xff2E2C2C),
                           fontSize: 16,
                           fontWeight: FontWeight.w500)),
-                  SizedBox(height: 16,),
-                  Row(
+                  const SizedBox(height: 16,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Car model:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -172,8 +172,8 @@ class _ReviewState extends State<Review> {
                       Text("Toyota Corolla",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 8,),
-                  Row(
+                  const SizedBox(height: 8,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Car year:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -181,8 +181,8 @@ class _ReviewState extends State<Review> {
                       Text("2015",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 8,),
-                  Row(
+                  const SizedBox(height: 8,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Car color:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -190,7 +190,7 @@ class _ReviewState extends State<Review> {
                       Text("Blue",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 8,),
+                  const SizedBox(height: 8,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
