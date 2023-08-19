@@ -57,7 +57,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                       decoration: ShapeDecoration(
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                          side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         shadows: const [
@@ -95,7 +95,6 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                   style: TextStyle(
                                     color: Color(0xFF000B90),
                                     fontSize: 14,
-                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w700,
                                     height: 1.40,
                                   ),
@@ -112,7 +111,6 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                             style: TextStyle(
                                               color: Color(0xFF999999),
                                               fontSize: 10,
-                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w400,
                                               height: 1.40,
                                             ),
@@ -122,7 +120,6 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                             style: TextStyle(
                                               color: Color(0xFF2E2C2C),
                                               fontSize: 12,
-                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w500,
                                               height: 1.40,
                                             ),
@@ -136,7 +133,6 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                       style: TextStyle(
                                         color: Color(0xFF000B90),
                                         fontSize: 14,
-                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w700,
                                         height: 1.40,
                                       ),
@@ -152,7 +148,6 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                         style: TextStyle(
                                           color: Color(0xFF999999),
                                           fontSize: 10,
-                                          fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w400,
                                           height: 1.40,
                                         ),
@@ -162,7 +157,6 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                         style: TextStyle(
                                           color: Color(0xFF2E2C2C),
                                           fontSize: 12,
-                                          fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w500,
                                           height: 1.40,
                                         ),

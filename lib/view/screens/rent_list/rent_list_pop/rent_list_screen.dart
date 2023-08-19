@@ -54,7 +54,6 @@ class _RentListScreenState extends State<RentListScreen> {
             style: TextStyle(
               color: Color(0xFF2E2C2C),
               fontSize: 18,
-              fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
               height: 1.40,
             ),
@@ -93,14 +92,13 @@ class _RentListScreenState extends State<RentListScreen> {
                                       children: [
                                         Container(
                                             width: 350,
-                                            height: 359,
-                                            clipBehavior: Clip.antiAlias,
+                                            height: 193,
                                             decoration: ShapeDecoration(
                                               color: Colors.white,
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(8)),
-                                              shadows: [
+                                              shadows: const [
                                                 BoxShadow(
                                                   color: Color(0x19000000),
                                                   blurRadius: 10,
@@ -110,7 +108,7 @@ class _RentListScreenState extends State<RentListScreen> {
                                               ],
                                             ),
                                             child: Padding(
-                                                padding: EdgeInsets.only(
+                                                padding: const EdgeInsets.only(
                                                     left: 10,
                                                     top: 14,
                                                     right: 10),
@@ -276,11 +274,9 @@ class _RentListScreenState extends State<RentListScreen> {
                                                                             18,
                                                                         vertical:
                                                                             4),
-                                                                    clipBehavior:
-                                                                        Clip.antiAlias,
                                                                     decoration:
                                                                         ShapeDecoration(
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFFE6F6F4),
                                                                       shape: RoundedRectangleBorder(
                                                                           borderRadius:
@@ -316,8 +312,6 @@ class _RentListScreenState extends State<RentListScreen> {
                                                                             12,
                                                                         vertical:
                                                                             4),
-                                                                    clipBehavior:
-                                                                        Clip.antiAlias,
                                                                     decoration:
                                                                         ShapeDecoration(
                                                                       color: const Color(
@@ -359,8 +353,6 @@ class _RentListScreenState extends State<RentListScreen> {
                                                               color: Color(
                                                                   0xFF999999),
                                                               fontSize: 12,
-                                                              fontFamily:
-                                                                  'Poppins',
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -396,8 +388,6 @@ class _RentListScreenState extends State<RentListScreen> {
                                                               color: Color(
                                                                   0xFF999999),
                                                               fontSize: 12,
-                                                              fontFamily:
-                                                                  'Poppins',
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -412,8 +402,6 @@ class _RentListScreenState extends State<RentListScreen> {
                                                               color: Color(
                                                                   0xFF2E2C2C),
                                                               fontSize: 12,
-                                                              fontFamily:
-                                                                  'Poppins',
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -436,8 +424,6 @@ class _RentListScreenState extends State<RentListScreen> {
                                                                 color: Color(
                                                                     0xFF999999),
                                                                 fontSize: 12,
-                                                                fontFamily:
-                                                                    'Poppins',
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
@@ -453,8 +439,6 @@ class _RentListScreenState extends State<RentListScreen> {
                                                                 color: Color(
                                                                     0xFF2E2C2C),
                                                                 fontSize: 12,
-                                                                fontFamily:
-                                                                    'Poppins',
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
@@ -462,7 +446,7 @@ class _RentListScreenState extends State<RentListScreen> {
                                                               ),
                                                             ),
                                                           ]),
-                                                      SizedBox(
+                                                      const SizedBox(
                                                         height: 24,
                                                       ),
                                                       const Text(
@@ -471,7 +455,6 @@ class _RentListScreenState extends State<RentListScreen> {
                                                           color:
                                                               Color(0xFF2E2C2C),
                                                           fontSize: 12,
-                                                          fontFamily: 'Poppins',
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           height: 1.40,
@@ -672,7 +655,7 @@ class _RentListScreenState extends State<RentListScreen> {
                                       ],
                                     ),
                                   )),
-                            child: Container(
+                          child: Container(
                             width: 350,
                             height: 86,
                             padding: const EdgeInsets.all(8),
@@ -785,7 +768,7 @@ class _RentListScreenState extends State<RentListScreen> {
                                             horizontal: 18, vertical: 4),
                                         clipBehavior: Clip.antiAlias,
                                         decoration: ShapeDecoration(
-                                          color: Color(0xFFE6F6F4),
+                                          color: const Color(0xFFE6F6F4),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(4)),

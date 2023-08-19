@@ -22,7 +22,7 @@ class _RentiFeeScreenState extends State<RentiFeeScreen> {
             automaticallyImplyLeading: true,
             titleSpacing: -8,
             title: const Text(
-              'Renti Fee',
+              'Rent Fee',
               style: TextStyle(
                 color: Color(0xFF2E2C2C),
                 fontSize: 18,
@@ -43,8 +43,8 @@ class _RentiFeeScreenState extends State<RentiFeeScreen> {
               color: const Color(0xff2E2C2C),
             )),
         body: LayoutBuilder(builder: (context,constraint){
-          return  SingleChildScrollView(
-            padding: const EdgeInsetsDirectional.symmetric(vertical: 24,horizontal:20 ),
+          return  const SingleChildScrollView(
+            padding: EdgeInsetsDirectional.symmetric(vertical: 24,horizontal:20 ),
             child: RentiFeeCard()
           );
         })

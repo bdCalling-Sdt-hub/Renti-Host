@@ -18,11 +18,11 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
         appBar: AppBar(
             centerTitle: false,
             elevation: 0,
-            title: Text('User details',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)),
-            backgroundColor:Color(0xffffffff),
+            title: const Text('User details',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)),
+            backgroundColor:const Color(0xffffffff),
             leading: IconButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (_)=>UserRequestScreen()));
-            }, icon:Icon(Icons.arrow_back_ios,),color: Colors.black,)
+            }, icon:const Icon(Icons.arrow_back_ios,),color: Colors.black,)
         ),
         body: LayoutBuilder(builder: (context,constraint){
           return SingleChildScrollView(
@@ -35,7 +35,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                           Row(
+                           const Row(
                         children: [
                           Image(image: AssetImage("assets/images/avater1.png"),width: 64,height:64 ,),
                           SizedBox(width: 16,),
@@ -62,17 +62,16 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                         ],
                       ),
                       Row(
-
                         children: [
                       InkWell(
                         child: Container(
                           height: 24,
                           width: 24,
                           decoration: BoxDecoration(
-                            color: Color(0xffE6E7F4),
+                            color: const Color(0xffE6E7F4),
                             borderRadius: BorderRadius.circular(4),
                           ),
-                          child:  Icon(Icons.call,size: 18,),
+                          child:  const Icon(Icons.call,size: 18,),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -81,18 +80,18 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                           height: 24,
                           width: 24,
                           decoration: BoxDecoration(
-                            color: Color(0xffE6E7F4),
+                            color: const Color(0xffE6E7F4),
                             borderRadius: BorderRadius.circular(4),
                           ),
-                          child: Icon(Icons.message,size: 18,),
+                          child: const Icon(Icons.message,size: 18,),
                         ),
                       ),
                     ],
                   )
                     ],
                   ),
-                  SizedBox(height: 24,),
-                  Row(
+                  const SizedBox(height: 24,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Rent date:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -100,8 +99,8 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       Text("06 aug 2023- 07 aug 2023",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 8,),
-                  Row(
+                  const SizedBox(height: 8,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Total time:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -109,8 +108,8 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       Text("24 hours",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 8,),
-                  Row(
+                  const SizedBox(height: 8,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Contact:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -118,8 +117,8 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       Text("+52 12837494",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 8,),
-                  Row(
+                  const SizedBox(height: 8,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Location:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -127,8 +126,8 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       Text("Privada Calle 109 - Piso 4",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 8,),
-                  Row(
+                  const SizedBox(height: 8,),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Total amount:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -136,9 +135,9 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       Text('\$${'120'}',style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  SizedBox(height: 32,),
-                  Text("Car details",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
-                  SizedBox(height: 16,),
+                  const SizedBox(height: 32,),
+                  const Text("Car details",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                  const SizedBox(height: 16,),
                   Container(
                     height: 142,
                     width: constraint.maxWidth,
@@ -147,7 +146,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       child: Row(
                         children: [
                           Padding(
-                            padding:  EdgeInsets.only(left: 16,top: 16),
+                            padding:  const EdgeInsets.only(left: 16,top: 16),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,7 +163,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                                   ],
                                 ),
                                 const SizedBox(height: 8,),
-                                Text("\$${"25/hr"}"),
+                                const Text("\$${"25/hr"}"),
                               ],
                             ),
                           ),
@@ -173,7 +172,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height:16,),
+                  const SizedBox(height:16,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -186,19 +185,19 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                             width: constraint.maxWidth,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: Color(0xffFBE9EC),
+                                color: const Color(0xffFBE9EC),
                                 borderRadius: BorderRadius.circular(8)
                             ),
-                            child: Text("Cancel", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 18,fontWeight:FontWeight.w500)),
+                            child: const Text("Cancel", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 18,fontWeight:FontWeight.w500)),
                           ),
                         ),
                       ),
-                      SizedBox(width: 8,),
+                      const SizedBox(width: 8,),
                       Expanded(
                         child: InkWell(
                           onTap: (){
 
-                            Navigator.push(context, MaterialPageRoute(builder: (_)=>StartTrip()));
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>StartTripScreen()));
                           },
                           child: Container(
                             //alignment: Alignment.bottomRight,
@@ -207,10 +206,10 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                               alignment: Alignment.center,
 
                               decoration: BoxDecoration(
-                                  color: Color(0xff000B90),
+                                  color: const Color(0xff000B90),
                                 borderRadius: BorderRadius.circular(8)
                               ),
-                              child: Text("Approve", textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18,fontWeight:FontWeight.w500))
+                              child: const Text("Approve", textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18,fontWeight:FontWeight.w500))
                           ),
                         ),
                       ),

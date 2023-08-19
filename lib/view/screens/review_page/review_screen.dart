@@ -16,25 +16,25 @@ class _ReviewScreenState extends State<ReviewScreen> {
           elevation: 0,
           automaticallyImplyLeading : true,
           titleSpacing: -8,
-          title: Text('All reviews',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)),
-          backgroundColor:Color(0xffffffff),
+          title: const Text('All reviews',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)),
+          backgroundColor:const Color(0xffffffff),
           leading: IconButton(onPressed: (){
             // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserRequestScreen()));
-          }, icon:Icon(Icons.arrow_back_ios,),color: Colors.black,)
+          }, icon:const Icon(Icons.arrow_back_ios,),color: Colors.black,)
       ),
       body: LayoutBuilder(
         builder: (context,constraint){
           return SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child:Padding(
-                padding: EdgeInsetsDirectional.symmetric(vertical: 24,horizontal: 20),
+                padding: const EdgeInsetsDirectional.symmetric(vertical: 24,horizontal: 20),
                 child: Column(
                     children: List.generate(50, (index) =>GestureDetector(
                       onTap: (){
                         // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
                       },
                       child: Padding(
-                        padding: EdgeInsets.only(bottom: 8),
+                        padding: const EdgeInsets.only(bottom: 8),
                         child: Container(
 
                           width: MediaQuery.of(context).size.width,
@@ -43,7 +43,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                           decoration: ShapeDecoration(
                             color: Colors.white,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                            shadows: [
+                            shadows: const [
                               BoxShadow(
                                 color: Color(0x19000000),
                                 blurRadius: 10,
@@ -53,7 +53,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                             ],
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.symmetric(vertical: 16,horizontal: 16),
+                            padding: const EdgeInsetsDirectional.symmetric(vertical: 16,horizontal: 16),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -65,7 +65,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                                       child: Container(
                                         width: 70,
                                         height: 70,
-                                        decoration: ShapeDecoration(
+                                        decoration: const ShapeDecoration(
                                           image: DecorationImage(
                                             image: AssetImage("assets/images/Avater.png"),
                                             fit: BoxFit.fill,
@@ -74,8 +74,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: 8,),
-                                    Expanded(
+                                    const SizedBox(width: 8,),
+                                    const Expanded(
                                       flex: 2,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -167,7 +167,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                                         width: 70,
                                         height: 70,
                                         decoration: ShapeDecoration(
-                                          image: DecorationImage(
+                                          image: const DecorationImage(
                                             image: AssetImage("assets/images/Carphoto.png"),
                                             fit: BoxFit.cover,
                                           ),
@@ -179,8 +179,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
                                     )
                                   ],
                                 ),
-                                SizedBox(height: 16),
-                                Text(
+                                const SizedBox(height: 16),
+                                const Text(
                                   'Lorem ipsum dolor sit amet consectetur. Congue fames egestas tristique nisl sit nec eu scelerisque nam. Et senectus sed morbi quam.',
                                   maxLines: 3,
                                   style: TextStyle(
