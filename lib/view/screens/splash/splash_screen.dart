@@ -6,6 +6,7 @@ import 'package:renti_host/view/screens/profile_screen/profile_screen.dart';
 
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
 import 'package:renti_host/view/screens/settings_screen/settings_screen/settings_screen.dart';
+import 'package:renti_host/view/screens/splash/inner_widgets/bottom_section.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -33,53 +34,26 @@ class _SplashScreenState extends State<SplashScreen> {
                 )
               ),
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20,right: 20,bottom: 24,top: 24),
-                  child: Column(
-
-                    children: [
-                      const SizedBox(height:212 ,),
-                      Container(
-                        height: 198,
-                        width: 198,
-                        decoration:const BoxDecoration(
-                          image: DecorationImage(image: AssetImage('assets/logos/Logo.png'))
+                child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  color: Color(0xff000b90).withOpacity(0.6),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20,right: 20,bottom: 24,top: 24),
+                    child: Column(
+                      children: [
+                        const SizedBox(height:212 ,),
+                        Container(
+                          height: 198,
+                          width: 198,
+                          decoration:const BoxDecoration(
+                            image: DecorationImage(image: AssetImage('assets/logos/Logo.png'))
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 260,),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>SelectLanguageScreen()));
-                        },
-                        child:const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             Text('English',style: TextStyle(color: Color(0xFFFFFFFF),fontSize: 16,fontWeight: FontWeight.w400,),),
-                            SizedBox(width: 12,),
-                             Icon(Icons.arrow_forward_ios_outlined,color: Color(0xFFFFFFFF),size: 12,)
-                          ],
-                        ),
-                      ),
-                     const SizedBox(height: 24,),
-                      SizedBox(
-                        height: 57,
-                        width: MediaQuery.of(context).size.width,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (_)=>const SettingsScreen()));
-                            },
-                           child: Text(
-                              'Get Started',
-                              style: TextStyle(color: Color(0xff000B90),fontSize: 18,fontWeight: FontWeight.w600),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8)
-                              ),
-                              backgroundColor: Color(0xFFFFFFFF),
-                            )),
-                      ),
-                    ],
+                        const SizedBox(height: 260,),
+                       BottomSection()
+                      ],
+                    ),
                   ),
                 ),
               ),

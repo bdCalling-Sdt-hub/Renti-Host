@@ -35,11 +35,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Column(
                         children: [
                           Container(
-                            height: 82,
+
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                                color: Color(0xff000B90),
+                                color: const Color(0xff000B90),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
@@ -51,11 +51,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       Container(
                                         height: 50,
                                         width: 50,
-                                        child: Image.asset('assets/images/profile_photo.png',),
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
 
                                         ),
+                                        child: Image.asset('assets/images/profile_photo.png',),
                                       ),
                                       const  SizedBox(width: 16,),
                                       const Text(
@@ -69,7 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   IconButton(onPressed: (){
                                     Navigator.push(context, MaterialPageRoute(builder: (_)=>const EditProfileScreen()));
-                                  }, icon:const Icon(Icons.edit_note_sharp,size: 20,color: Color(0xffFFFFFF),))
+                                  }, icon:const Icon(Icons.edit_square,size: 20,color: Color(0xffFFFFFF),))
 
                                 ],
                               ),
@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                          const SizedBox(height: 8,),
 
                           Container(
-                              height: 70,
+
                               width: MediaQuery.of(context).size.width,
                               decoration: ShapeDecoration(
                                 color: Colors.white,
@@ -96,11 +96,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ],
                               ),
                               child:const Padding(
-                                padding:  EdgeInsets.all(8.0),
+                                padding:  EdgeInsets.only(left: 8,top: 8,bottom: 8),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.add_card_rounded,color: Color(0xff999999),size: 20,),
-                                    SizedBox(width: 18,),
+                                    Icon(Icons.credit_card_outlined,color: Color(0xff999999),size: 20,),
+                                    SizedBox(width: 16,),
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -139,11 +139,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                    )
                                  ],
                                ),
-                              child: Padding(
+                              child: const Padding(
                                 padding:  EdgeInsets.all(8.0),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.email,color: Color(0xff999999),size: 20,),
+                                    Icon(Icons.email_outlined,color: Color(0xff999999),size: 20,),
                                     SizedBox(width: 18,),
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,7 +187,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 padding:  EdgeInsets.all(8.0),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.call,color: Color(0xff999999),size: 20,),
+                                    Icon(Icons.call_rounded,color: Color(0xff999999),size: 20,),
                                     SizedBox(width: 18,),
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
