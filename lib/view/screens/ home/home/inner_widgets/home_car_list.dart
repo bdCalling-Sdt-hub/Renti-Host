@@ -100,7 +100,8 @@ class _HomeCarListState extends State<HomeCarList> {
                                       borderRadius: BorderRadius.circular(4),
                                     ),
                                     child: const Text("Reserved", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 10 ,fontWeight:FontWeight.w400 ),),
-                                  ):Container(
+                                  ):
+                                  Container(
                                     width: 71,
                                     alignment: Alignment.center,
                                     padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
@@ -119,15 +120,12 @@ class _HomeCarListState extends State<HomeCarList> {
                                    const Text("\$ 100/day",style: TextStyle(color: Color(0xff595959),fontSize: 12,fontWeight: FontWeight.w500),),
 
                                       dataList[index]["status"] == "Reserved"? GestureDetector(
-
                                         onTap: () {
                                           changeIndex(index);
-
                                         },
-
-                                        child:const Icon(
-                                         Icons.keyboard_arrow_down_rounded,
-                                         color:  Color(0xff2E2C2C),
+                                        child: Icon(
+                                         isClicked ? Icons.arrow_downward : Icons.keyboard_arrow_down_rounded,
+                                         color:  const Color(0xff2E2C2C),
                                          size: 18,
                                          weight: 10
                                         )
@@ -157,6 +155,8 @@ class _HomeCarListState extends State<HomeCarList> {
     setState(() {
       selectedIndex = index;
       isClicked = !isClicked;
+
     });
   }
+
 }
