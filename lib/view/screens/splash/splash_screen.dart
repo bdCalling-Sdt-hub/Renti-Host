@@ -1,11 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'package:renti_host/view/screens/auth/signin_screen/signin_screen.dart';
-import 'package:renti_host/view/screens/profile_screen/profile_screen.dart';
-
-import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
-import 'package:renti_host/view/screens/settings_screen/settings_screen/settings_screen.dart';
 import 'package:renti_host/view/screens/splash/inner_widgets/bottom_section.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -50,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                             image: DecorationImage(image: AssetImage('assets/logos/Logo.png'))
                           ),
                         ),
-                        const SizedBox(height: 260,),
+
                        BottomSection()
                       ],
                     ),

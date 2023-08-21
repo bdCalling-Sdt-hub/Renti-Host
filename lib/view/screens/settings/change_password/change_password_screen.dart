@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/settings_screen/settings_screen/settings_screen.dart';
+import 'package:renti_host/view/screens/settings/settings/settings_screen.dart';
+
+import 'package:renti_host/view/widgets/button/custom_button.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   const ChangePasswordScreen({super.key});
@@ -213,34 +215,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400)),
                             ),
-                            const  SizedBox(
-                              height: 40,
-                            ),
-                            SizedBox(
-                              height: 57,
-                              width: MediaQuery.of(context).size.width,
-                              child: ElevatedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      print('successful');
-                                    } else {
-                                      print('Failed');
-                                    }
-                                  },
-                                  child: Text(
-                                    'Save',
-                                    style: TextStyle(
-                                        color: Color(0xffFFFFFF),
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                        BorderRadius.circular(5)),
-                                    backgroundColor: Color(0xFF000B90),
-                                  )),
-                            ),
+
+
                           ],
                         ),
                       ),
@@ -249,7 +225,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     ],
                   ),
                 ),
-              )),
+              )
+      ),
+      extendBody: true,
+      bottomNavigationBar: CustomButton(onTap: (){}, buttonName: "Save", buttonColor: const Color(0xff000b90)),
     );
   }
 }

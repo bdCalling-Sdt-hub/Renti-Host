@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/settings_screen/payment_method_screen/payment_method_screen.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:renti_host/view/screens/settings/payment_method/payment_method_screen.dart';
+
+import '../../../../widgets/button/custom_button.dart';
 
 class AddDebitCardScreen extends StatefulWidget {
   const AddDebitCardScreen({super.key});
@@ -43,7 +46,7 @@ class _AddDebitCardScreenState extends State<AddDebitCardScreen> {
           builder: (BuildContext context, BoxConstraints constraints) =>
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(
+                  padding:  EdgeInsets.only(
                       left: 20, right: 20, bottom: 24, top: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,32 +107,28 @@ class _AddDebitCardScreenState extends State<AddDebitCardScreen> {
                             flex: 1,
                               child: Container(
                                 height: 60,
-                            padding: const EdgeInsets.symmetric(
+                            padding:  const EdgeInsets.symmetric(
                                 vertical: 6, horizontal: 14),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 border:
-                                    Border.all(color: Color(0xFFCCCCCC))),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                  child:
-                                      Image.asset('assets/logos/flag.png'),
-                                ),
-                                const SizedBox(
-                                  width: 12,
-                                ),
-                                const Text(
-                                  '+52',
-                                  style: TextStyle(
-                                      color: Color(0xFFCCCCCC),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400),
-                                )
-                              ],
-                            ),
+                                    Border.all(color: const Color(0xFFCCCCCC))),
+                                   child: IntlPhoneField(
+
+                                      initialCountryCode: 'MX',
+                                      disableLengthCheck: true,
+                                      showDropdownIcon: false,
+                                      showCountryFlag: true,
+                                      decoration: const InputDecoration(
+                                     border: OutlineInputBorder(
+                                       borderSide: BorderSide.none,
+                                     )
+                                    ),
+                                    onChanged: (phone) {
+                                      print(phone.completeNumber);
+                                    },
+                                  )
+
                           )),
                           const SizedBox(
                             width: 10,
@@ -256,32 +255,11 @@ class _AddDebitCardScreenState extends State<AddDebitCardScreen> {
                                   BorderSide(color: Color(0xFFCCCCCC))),
                         ),
                       ),
-                      const SizedBox(
-                        height: 44,
-                      ),
-                      SizedBox(
-                        height: 57,
-                        width: MediaQuery.of(context).size.width,
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text(
-                              'Save',
-                              style: TextStyle(
-                                  color: Color(0xffFFFFFF),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              backgroundColor: Color(0xFF000B90),
-                            )),
-                      ),
-
                     ],
                   ),
                 ),
               )),
+          bottomNavigationBar: CustomButton(onTap: (){}, buttonName: "Add", buttonColor: const Color(0xff000b90)),
     ));
   }
 }

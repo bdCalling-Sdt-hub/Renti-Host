@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:renti_host/view/screens/profile_screen/edit_profile_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -67,9 +68,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       ),
                                     ],
                                   ),
-                                  IconButton(onPressed: (){
+
+
+                                   InkWell(
+                                       onTap: (){
+                                         Navigator.push(context, MaterialPageRoute(builder: (_)=>EditProfileScreen()));
+                                       },
+                                       child: SvgPicture.asset("assets/icons/icons_edit.svg",color: Colors.white,))
+
+                                  /*IconButton(onPressed: (){
                                     Navigator.push(context, MaterialPageRoute(builder: (_)=>const EditProfileScreen()));
-                                  }, icon:const Icon(Icons.edit_square,size: 20,color: Color(0xffFFFFFF),))
+                                  }, icon:const Icon(Icons.edit_square,size: 20,color: Color(0xffFFFFFF),)
+                                  )*/
 
                                 ],
                               ),
@@ -83,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               decoration: ShapeDecoration(
                                 color: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                                  side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 shadows: const [
@@ -122,12 +132,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const SizedBox(height: 8,),
                            Container(
-                               height: 70,
+
                                width: MediaQuery.of(context).size.width,
                                decoration: ShapeDecoration(
                                  color: Colors.white,
                                  shape: RoundedRectangleBorder(
-                                   side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                                   side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                                    borderRadius: BorderRadius.circular(8),
                                  ),
                                  shadows: const [
@@ -166,12 +176,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const SizedBox(height: 8,),
                            Container(
-                               height: 70,
+
                                width: MediaQuery.of(context).size.width,
                                decoration: ShapeDecoration(
                                  color: Colors.white,
                                  shape: RoundedRectangleBorder(
-                                   side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                                   side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                                    borderRadius: BorderRadius.circular(8),
                                  ),
                                  shadows: const [
@@ -183,7 +193,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                    )
                                  ],
                                ),
-                              child: Padding(
+                              child: const Padding(
                                 padding:  EdgeInsets.all(8.0),
                                 child: Row(
                                   children: [
@@ -210,7 +220,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const SizedBox(height: 8,),
                            Container(
-                               height: 70,
+
                                width: MediaQuery.of(context).size.width,
                                decoration: ShapeDecoration(
                                  color: Colors.white,
@@ -227,7 +237,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                    )
                                  ],
                                ),
-                              child: Padding(
+                              child: const Padding(
                                 padding:  EdgeInsets.all(8.0),
                                 child: Row(
                                   children: [
@@ -254,12 +264,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const SizedBox(height: 8,),
                            Container(
-                               height: 70,
                                width: MediaQuery.of(context).size.width,
                                decoration: ShapeDecoration(
                                  color: Colors.white,
                                  shape: RoundedRectangleBorder(
-                                   side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                                   side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                                    borderRadius: BorderRadius.circular(8),
                                  ),
                                  shadows: const [
@@ -271,13 +280,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                    )
                                  ],
                                ),
-                              child:const Padding(
+                              child: Padding(
                                 padding:  EdgeInsets.all(8.0),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.male,color: Color(0xff999999),size: 20,),
-                                    SizedBox(width: 18,),
-                                    Column(
+                                    SvgPicture.asset("assets/icons/gender.svg"),
+                                    const SizedBox(width: 18,),
+                                    const Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text('Gender',style: TextStyle(
@@ -298,12 +307,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const SizedBox(height: 8,),
                            Container(
-                               height: 70,
                                width: MediaQuery.of(context).size.width,
                                decoration: ShapeDecoration(
                                  color: Colors.white,
                                  shape: RoundedRectangleBorder(
-                                   side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                                   side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                                    borderRadius: BorderRadius.circular(8),
                                  ),
                                  shadows: const [
@@ -315,11 +323,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                    )
                                  ],
                                ),
-                              child: Padding(
-                                padding:  EdgeInsets.all(8.0),
+                              child: const Padding(
+                                padding:  EdgeInsets.only(top: 8.0,left: 8,bottom: 8),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.location_city,color: Color(0xff999999),size: 20,),
+                                    Icon(Icons.location_on_outlined,color: Color(0xff999999),size: 20,),
                                     SizedBox(width: 18,),
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,

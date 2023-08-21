@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/settings_screen/settings_screen/settings_screen.dart';
+import 'package:renti_host/view/screens/settings/settings/settings_screen.dart';
+
 
 class ChangeLanguageScreen extends StatefulWidget {
   const ChangeLanguageScreen({super.key});
