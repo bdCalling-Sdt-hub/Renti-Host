@@ -405,7 +405,7 @@ class _UserListScreenState extends State<UserListScreen> {
                                                         style: TextStyle(
                                                           color: Color(0xFF2E2C2C),
                                                           fontSize: 12,
-                                                          fontWeight:
+                                                          fontWeight:                    
                                                           FontWeight
                                                               .w400,
                                                           height: 1.40,

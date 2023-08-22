@@ -6,115 +6,116 @@ class PaymentCard extends StatefulWidget {
   @override
   State<PaymentCard> createState() => _PaymentCardState();
 }
-List<Map<String,String>> dataList = [
 
-  {
 
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "1223435566",
-    "Trip no" : "1",
-    "amount" : " \$100"
-
-  },
-
-  {
-
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "1223435566",
-    "Trip no" : "2",
-    "amount" : " \$200"
-
-  },
-  {
-
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "1223435566",
-    "Trip no" : "3",
-    "amount" : " \$60"
-
-  },
-
-  {
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "1223435566",
-    "Trip no" : "9",
-    "amount" : " \$160"
-
-  },
-  {
-
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "12234387655566",
-    "Trip no" : "5",
-    "amount" : " \$222"
-
-  },
-  {
-
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "1223345435566",
-    "Trip no" : "8",
-    "amount" : " \$232"
-
-  },
-  {
-
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "12234563435566",
-    "Trip no" : "10",
-    "amount" : " \$100"
-
-  },
-  {
-
-    "image":"assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "124563435566",
-    "Trip no" : "4",
-    "amount" : "\$85"
-
-  },
-  {
-
-    "image": "assets/images/Carphoto.png",
-    "carModel" : "Toyota Harrier",
-    "car license no:" : "61-10-TMD",
-    "Transition ID:": "122456435566",
-    "Trip no" : "7",
-    "amount" : " \$70"
-
-  },
-];
-Map<int, bool> expandedMap = {};
-
-   void onChanged(int index){
-   setState(() {
-    if (expandedMap.containsKey(index)) {
-      expandedMap[index] = ! expandedMap[index]!;
-    } else {
-      expandedMap[index] = true;
-    }
-  });
-}
-
-void setState(Null Function() param0) {
-}
 class _PaymentCardState extends State<PaymentCard> {
+
+  List<Map<String,String>> dataList = [
+
+    {
+
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
+      "Trip no" : "1",
+      "amount" : " \$100"
+
+    },
+
+    {
+
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
+      "Trip no" : "2",
+      "amount" : " \$200"
+
+    },
+    {
+
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
+      "Trip no" : "3",
+      "amount" : " \$60"
+
+    },
+
+    {
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
+      "Trip no" : "9",
+      "amount" : " \$160"
+
+    },
+    {
+
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "12234387655566",
+      "Trip no" : "5",
+      "amount" : " \$222"
+
+    },
+    {
+
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223345435566",
+      "Trip no" : "8",
+      "amount" : " \$232"
+
+    },
+    {
+
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "12234563435566",
+      "Trip no" : "10",
+      "amount" : " \$100"
+
+    },
+    {
+
+      "image":"assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "124563435566",
+      "Trip no" : "4",
+      "amount" : "\$85"
+
+    },
+    {
+
+      "image": "assets/images/Carphoto.png",
+      "carModel" : "Toyota Harrier",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "122456435566",
+      "Trip no" : "7",
+      "amount" : " \$70"
+
+    },
+  ];
+  Map<int, bool> expandedMap = {};
+
+  void onChanged(int index){
+    setState(() {
+      if (expandedMap.containsKey(index)) {
+        expandedMap[index] = !expandedMap[index]!;
+      } else {
+        expandedMap[index] = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
