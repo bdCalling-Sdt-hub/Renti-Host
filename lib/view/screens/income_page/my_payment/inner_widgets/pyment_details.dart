@@ -106,7 +106,6 @@ class _PaymentCardState extends State<PaymentCard> {
     },
   ];
   Map<int, bool> expandedMap = {};
-
   void onChanged(int index){
     setState(() {
       if (expandedMap.containsKey(index)) {
@@ -273,7 +272,7 @@ class _PaymentCardState extends State<PaymentCard> {
                                       onTap: (){
                                         onChanged(index);
                                       },
-                                      child: isExpanded ? Icon(Icons.keyboard_arrow_up_sharp) : Icon(Icons.keyboard_arrow_down_sharp)
+                                      child: isExpanded ? const Icon(Icons.keyboard_arrow_up_sharp) : const Icon(Icons.keyboard_arrow_down_sharp)
                                   )
                                 ],
                               ),

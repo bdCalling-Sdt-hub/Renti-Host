@@ -16,11 +16,16 @@ class _StartEndDateState extends State<StartEndDate> {
         width: MediaQuery.of(context).size.width,
         margin:  const EdgeInsetsDirectional.symmetric(horizontal: 4),
         padding:  const EdgeInsetsDirectional.symmetric(vertical: 16, horizontal: 12),
-        decoration:   const BoxDecoration(
-          color: Color(0xffffffff),
+        decoration: const BoxDecoration(
+          border: BorderDirectional(
+              top: BorderSide.none,
+              bottom: BorderSide(color: Color(0xffE6E7F4),width:0.5),
+              start: BorderSide(color: Color(0xffE6E7F4),width:0.5),
+              end: BorderSide(color: Color(0xffE6E7F4),width:0.5)
+          ),
+        )
 
-          borderRadius: BorderRadius.only(topRight: Radius.zero,topLeft: Radius.zero,bottomRight: Radius.circular(8),bottomLeft: Radius.circular(8))
-        ),
+        ,
         child:  Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -56,7 +61,6 @@ class _StartEndDateState extends State<StartEndDate> {
                       color: Color(0xFF2E2C2C),
                       fontSize: 10,
                       fontWeight: FontWeight.w400,
-
                     ),
                   ),
                   TextSpan(

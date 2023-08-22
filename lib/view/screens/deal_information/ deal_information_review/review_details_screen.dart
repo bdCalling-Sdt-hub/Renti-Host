@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:renti_host/view/screens/deal_information/%20deal_information_review/review_filled_box/reviewfilledbox.dart';
+import 'package:renti_host/view/screens/deal_information/ratings/rating_screen.dart';
+import 'package:renti_host/view/widgets/button/bottom_button.dart';
 
 import '../deal_information_end_trip/end_trip_screen.dart';
-class Review extends StatefulWidget {
-  const Review({super.key});
+class ReviewDetailsScreen extends StatefulWidget {
+  const ReviewDetailsScreen({super.key});
 
   @override
-  State<Review> createState() => _ReviewState();
+  State<ReviewDetailsScreen> createState() => _ReviewState();
 }
 
-class _ReviewState extends State<Review> {
+class _ReviewState extends State<ReviewDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color(0xffffffff),
         appBar: AppBar(
             centerTitle: false,
             elevation: 0,
@@ -26,7 +28,7 @@ class _ReviewState extends State<Review> {
             backgroundColor: const Color(0xffffffff),
             leading: IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>EndTrip()));
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>EndTripScreen()));
               },
               icon: const Icon(
                 Icons.arrow_back_ios,
@@ -272,33 +274,23 @@ class _ReviewState extends State<Review> {
                       Text("Mexico",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 32,),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_)=>FilledBox()));
-                    },
-                    child: Container(
-                      height: 56,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: const Color(0xff000B90))
-                      ),
-                      child: const Center(
-                        child: Text("Review",
-                            style: TextStyle(
-                                color: Color(0xff000B90),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600)),
-                      ),
-                    ),
-                  ),
+              
+                  
                 ],
               ),
             ),
           );
         }),
+        
+        bottomNavigationBar: BottomButton(
+            
+            onTap: (){
+
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>RatingScreen()));
+            }, buttonName: "Review", buttonColor: Color(0xffffffff),
+           textColor:  Color(0xff000b90),
+        ),
+        
       ),
     );
 
