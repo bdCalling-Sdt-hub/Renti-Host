@@ -15,7 +15,7 @@ class SettingName extends StatefulWidget {
 }
 
 class _SettingNameState extends State<SettingName> {
-  double _value = 10;
+ double _value = 10;
   List settingData = ["change Language", "Change Password","Notifications","Payment Method","Privacy Policy"];
   @override
   Widget build(BuildContext context) {
@@ -31,73 +31,7 @@ class _SettingNameState extends State<SettingName> {
             }
             else if(index==2){
              showDialog(context: context, builder: (context){
-               return  AlertDialog(
-                 title: Column(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   children: [
-                     Center(
-                       child: Padding(
-                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                         child: Stack(
-                           children: [
-                             const Positioned(
-                                 top: 12,
-                                 right: 0,
-                                 child: Icon(Icons.cancel_outlined,color: Color(0xffD7263D) ,size: 18,)),
-                             Padding(
-                               padding: const EdgeInsets.only( top: 24,right: 20),
-                               child: Column(
-                                 children: [
-                                   const Text("Set notification sound",style: TextStyle(
-                                     color: Color(0xFF2E2C2C),
-                                     fontSize: 18,
-                                     fontWeight: FontWeight.w600,
-
-                                   ),
-                                   ),
-                                   const Padding(
-                                     padding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 20),
-                                     child: Divider(
-                                       color: Color(0xffE0DFDF) ,height: 1,
-                                     ),
-                                   ),
-                                   Directionality(
-                                     textDirection: TextDirection.ltr,
-                                     child: SfSlider(
-                                       min: 0,
-                                       max: 100,
-                                       value: _value,
-                                       thumbIcon: Text(
-                                         textAlign : TextAlign.center,
-                                         _value.toString(),style: const TextStyle(
-                                         color: Colors.white,
-                                         fontSize: 10,
-                                         fontWeight: FontWeight.w400,
-                                       ),),
-                                       showDividers: true,
-                                       activeColor: const Color(0xff000b90),
-                                       // interval: 20,
-                                       // showTicks: true,
-                                       minorTicksPerInterval: 2,
-                                       onChanged: ( value){
-                                         setState(() {
-                                           _value = value;
-                                         });
-                                       },
-                                     ),
-
-                                   ),
-
-                                 ],
-                               ),
-                             ),
-                           ],
-                         ),
-                       ),
-                     ),
-                   ],
-                 ),
-               );
+               return  DialogBox();
 
              });
             }
@@ -115,7 +49,7 @@ class _SettingNameState extends State<SettingName> {
                 decoration: ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: Color(0xFFE6E7F4)),
+                    side: const BorderSide(width: 1, color: Color(0xFFE6E7F4)),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   shadows:  [

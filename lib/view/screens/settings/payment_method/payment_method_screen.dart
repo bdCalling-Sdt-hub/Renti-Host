@@ -122,8 +122,6 @@ class _Payment_Method_ScreenState extends State<Payment_Method_Screen> {
                 ],
               ),
             ),
-
-
           ],
         ),
       ),

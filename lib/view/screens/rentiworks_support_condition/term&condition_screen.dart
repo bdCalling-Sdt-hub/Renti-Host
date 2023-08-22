@@ -78,7 +78,6 @@ class _TermConditionScreenState extends State<TermConditionScreen> {
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
-                    SizedBox(height: 8,),
                   ],
                 )
             ),

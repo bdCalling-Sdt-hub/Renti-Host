@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/settings/privacy_policy/privacy_policy_screen.dart';
 import 'package:renti_host/view/screens/settings/settings/inner_widgets/setting_name.dart';
-import '../change_language/change_language.dart';
-import '../change_password/change_password_screen.dart';
-import '../payment_method/payment_method_screen.dart';
+
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -11,7 +8,6 @@ class SettingsScreen extends StatefulWidget {
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
-
 class _SettingsScreenState extends State<SettingsScreen> {
 
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});
@@ -28,7 +28,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
         backgroundColor: const Color(0xFFFFFFFF),
         title: const Text(
           'About Us',
-          style: TextStyle(
+           style: TextStyle(
               color: Color(0xFF2E2C2C),
               fontSize: 18,
               fontWeight: FontWeight.w600),
@@ -44,7 +44,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lorem ipsum dolor sit amet consectetur',
+                      'Lorem ipsum dolor sit amet conjecture',
                       style: TextStyle(
                           color: Color(0xFF2E2C2C),
                           fontSize: 16,
