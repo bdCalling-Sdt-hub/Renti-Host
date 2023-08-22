@@ -7,19 +7,19 @@ class DialogBox extends StatefulWidget {
   State<DialogBox> createState() => _DialogBoxState();
 }
 
-class _DialogBoxState extends State<DialogBox> {
-  List<Map<String, String>> dataList = [
-    {
-      "userName" : "Humayun",
-      "userPic" : "assets/images/avater1.png",
-      "ratingImage" : "assets/images/Vector.png",
-      "rating" : "2.5",
-      "status": "Complete",
-      "Contact:":"+52 3645646464",
-      "Email:": "kabir@gmail.com",
-      "tripNo" : "01"
-    },
-  ];
+// class _DialogBoxState extends State<DialogBox> {
+//   List<Map<String, String>> dataList = [
+//     {
+//       "userName" : "Humayun",
+//       "userPic" : "assets/images/avater1.png",
+//       "ratingImage" : "assets/images/Vector.png",
+//       "rating" : "2.5",
+//       "status": "Complete",
+//       "Contact:":"+52 3645646464",
+//       "Email:": "kabir@gmail.com",
+//       "tripNo" : "01"
+//     },
+//   ];
   @override
   Widget build(BuildContext context) {
     return Column(
