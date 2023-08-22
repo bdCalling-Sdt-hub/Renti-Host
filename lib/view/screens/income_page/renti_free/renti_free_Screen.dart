@@ -23,7 +23,7 @@ class _RentiFeeScreenState extends State<RentiFeeScreen> {
             automaticallyImplyLeading: true,
             titleSpacing: -8,
             title: const Text(
-              'Renti Fee',
+              'Rent Fee',
               style: TextStyle(
                 color: Color(0xFF2E2C2C),
                 fontSize: 18,

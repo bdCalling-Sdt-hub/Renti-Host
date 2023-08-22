@@ -98,13 +98,13 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
 
                                           alignment: Alignment.center,
                                           decoration: BoxDecoration(
-                                              color: Color(0xffFBE9EC),
+                                              color: const Color(0xffFBE9EC),
                                               borderRadius: BorderRadius.circular(8)
                                           ),
-                                          child: Text("Cancel", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 18,fontWeight:FontWeight.w500)),
+                                          child: const Text("Cancel", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 18,fontWeight:FontWeight.w500)),
                                         ),
                                       ),
-                                      SizedBox(width: 8,),
+                                      const SizedBox(width: 8,),
                                       Expanded(
                                         child: Container(
                                           //alignment: Alignment.bottomRight,
@@ -113,10 +113,10 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                                             alignment: Alignment.center,
 
                                             decoration: BoxDecoration(
-                                                color: Color(0xff000B90),
+                                                color: const Color(0xff000B90),
                                                 borderRadius: BorderRadius.circular(8)
                                             ),
-                                            child: Text("Approve", textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18,fontWeight:FontWeight.w500))
+                                            child: const Text("Approve", textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18,fontWeight:FontWeight.w500))
                                         ),
                                       ),
                                     ],

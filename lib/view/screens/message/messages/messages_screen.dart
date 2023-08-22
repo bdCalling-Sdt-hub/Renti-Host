@@ -66,7 +66,7 @@ class _MessageScreenState extends State<MessageScreen> {
       body: LayoutBuilder(builder: (context,constraint){
         return SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 16,vertical: 20),
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 16,vertical: 20),
             child: Column(
               children: List.generate(dataList.length, (index){
                 return  GestureDetector(
@@ -74,18 +74,18 @@ class _MessageScreenState extends State<MessageScreen> {
                     Navigator.push(context, MaterialPageRoute(builder: (_)=>InboxScreen()));
                   },
                   child: Card(
-                    shadowColor: Color(0xff000000).withOpacity(0.1),
+                    shadowColor: const Color(0xff000000).withOpacity(0.1),
                     elevation: 20,
                     color: Colors.white,
                     child: Padding(
-                      padding: EdgeInsetsDirectional.symmetric(vertical: 20,horizontal: 20),
+                      padding: const EdgeInsetsDirectional.symmetric(vertical: 20,horizontal: 20),
                       child: Column(
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Image(image: AssetImage("assets/images/Avaterkala.png"),width: 52,height:52 ,),
-                              SizedBox(width: 8,),
+                              const Image(image: AssetImage("assets/images/Avaterkala.png"),width: 52,height:52 ,),
+                              const SizedBox(width: 8,),
                               Expanded(
                                   flex: 1,
                                   child: Column(
@@ -94,16 +94,16 @@ class _MessageScreenState extends State<MessageScreen> {
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("John Doe",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500)),
+                                            const Text("John Doe",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500)),
                                             dataList[index]["status"] == "Reserved"
                                            ? Container(
-                                                padding: EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
+                                                padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
                                                 alignment: Alignment.center,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xffE6F6F4),
+                                                    color: const Color(0xffE6F6F4),
                                                     borderRadius: BorderRadius.circular(4)
                                                 ),
-                                                child: Text(
+                                                child: const Text(
                                                   "Complete",
                                                   maxLines: 2,
                                                   style: TextStyle(
@@ -134,8 +134,8 @@ class _MessageScreenState extends State<MessageScreen> {
                                             )
                                           ],
                                         ),
-                                        SizedBox(height: 8,),
-                                        Expanded(
+                                        const SizedBox(height: 8,),
+                                        const Expanded(
                                           flex: 0,
                                           child: Text(
                                               "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",

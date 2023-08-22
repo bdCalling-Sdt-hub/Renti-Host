@@ -120,18 +120,18 @@ class _InboxScreenState extends State<InboxScreen> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
                       color: (messages[index].messageType == "sender"
-                          ? Color(0xFF000B90)
-                          : Color(0xFFE6E6E6)),
+                          ? const Color(0xFF000B90)
+                          : const Color(0xFFE6E6E6)),
                     ),
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text(
                       messages[index].messageContent,
 
                       style: TextStyle(
                         fontSize: 15,
                         color: (messages[index].messageType == "sender"
-                            ? Color(0xFFffffff)
-                            : Color(0xFF000000)),
+                            ? const Color(0xFFffffff)
+                            : const Color(0xFF000000)),
                       ),
                     ),
                   ),
@@ -147,10 +147,10 @@ class _InboxScreenState extends State<InboxScreen> {
         child: Container(
           padding: const EdgeInsetsDirectional.symmetric(vertical: 16, horizontal: 16),
           width: MediaQuery.of(context).size.width,
-          decoration: ShapeDecoration(
+          decoration: const ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(
-              side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+              side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
             ),
           ),
           child: Row(
@@ -173,7 +173,7 @@ class _InboxScreenState extends State<InboxScreen> {
               ),
               IconButton(
                   onPressed: (){},
-                  icon: Icon(Icons.send, color: Colors.black, size: 24)
+                  icon: const Icon(Icons.send, color: Colors.black, size: 24)
               )
             ],
           ),
