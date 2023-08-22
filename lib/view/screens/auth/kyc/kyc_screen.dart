@@ -1,8 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/auth/second_signup_screen/second_signup_screen.dart';
-import 'package:renti_host/view/screens/auth/select_photo_screen/select_photo_screen.dart';
 import 'package:renti_host/view/widgets/button/custom_button.dart';
+
+import '../second_signup/second_signup_screen.dart';
+import '../select_photo/select_photo_screen.dart';
 
 class Kyc_Screen extends StatefulWidget {
   const Kyc_Screen({super.key});

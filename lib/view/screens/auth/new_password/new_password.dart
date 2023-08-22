@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/auth/verify_otp_screen/verify_otp_screen.dart';
 import 'package:renti_host/view/widgets/button/custom_button.dart';
+
+import '../verify_otp/verify_otp_screen.dart';
 
 class UpdatePassScreen extends StatefulWidget {
   const UpdatePassScreen({super.key});

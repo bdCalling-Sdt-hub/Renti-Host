@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/auth/first_signup_screen/first_signup_screen.dart';
-import 'package:renti_host/view/screens/auth/forgot_password_screen/forgot_password_screen.dart';
-import 'package:renti_host/view/screens/auth/signin_screen/inner_widget/signin_top_section.dart';
-import 'package:renti_host/view/widgets/button/custom_button.dart';
+
+import '../first_signup/first_signup_screen.dart';
+import '../forgot_password/forgot_password_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});

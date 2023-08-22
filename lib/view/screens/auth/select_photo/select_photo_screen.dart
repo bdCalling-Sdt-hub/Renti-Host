@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/auth/kyc_screen/kyc_screen.dart';
-import 'package:renti_host/view/screens/auth/mobile_number_verification_screen/mobile_number_verification_screen.dart';
 
 import '../../../widgets/button/custom_button.dart';
+import '../kyc/kyc_screen.dart';
+import '../mobile_number_verification/mobile_number_verification_screen.dart';
 
 class SelectPhotoScreen extends StatefulWidget {
   const SelectPhotoScreen({super.key});

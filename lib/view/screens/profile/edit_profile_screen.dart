@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:renti_host/view/screens/profile_screen/profile_screen.dart';
+import 'package:renti_host/view/screens/profile/profile_screen.dart';
 import 'package:renti_host/view/widgets/button/custom_button.dart';
 
 class EditProfileScreen extends StatefulWidget {

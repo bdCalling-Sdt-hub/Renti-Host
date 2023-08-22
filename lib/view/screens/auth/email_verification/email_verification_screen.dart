@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/auth/mobile_number_verification_screen/mobile_number_verification_screen.dart';
+
+import '../mobile_number_verification/mobile_number_verification_screen.dart';
+
 
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({super.key});

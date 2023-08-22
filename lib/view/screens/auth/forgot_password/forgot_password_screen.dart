@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/auth/signin_screen/signin_screen.dart';
-import 'package:renti_host/view/screens/auth/verify_otp_screen/verify_otp_screen.dart';
 import 'package:renti_host/view/widgets/button/custom_button.dart';
+
+import '../signin/signin_screen.dart';
+import '../verify_otp/verify_otp_screen.dart';
 
 class Forgot_Password_Screen extends StatefulWidget {
   const Forgot_Password_Screen({super.key});
