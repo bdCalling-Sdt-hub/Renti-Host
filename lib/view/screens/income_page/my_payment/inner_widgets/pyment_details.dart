@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/income_page/renti_free/inner_widget/start_end_date.dart';
-class RentiFeeCard extends StatefulWidget {
-  const RentiFeeCard({super.key});
+
+class PaymentCard extends StatefulWidget {
+  const PaymentCard({super.key});
+
   @override
-  State<RentiFeeCard> createState() => _RentiFeeCardState();
+  State<PaymentCard> createState() => _PaymentCardState();
 }
-class _RentiFeeCardState extends State<RentiFeeCard> {
+
+
+class _PaymentCardState extends State<PaymentCard> {
+
   List<Map<String,String>> dataList = [
 
     {
 
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "1223435566",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
       "Trip no" : "1",
-      "amount" : " \$30"
+      "amount" : " \$100"
 
     },
 
@@ -22,82 +28,89 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
 
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "1223435568",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
       "Trip no" : "2",
-      "amount" : " \$30"
+      "amount" : " \$200"
 
     },
     {
 
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "1223435567",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
       "Trip no" : "3",
-      "amount" : " \$30"
+      "amount" : " \$60"
 
     },
 
     {
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "1223435569",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223435566",
       "Trip no" : "9",
-      "amount" : " \$30"
+      "amount" : " \$160"
 
     },
     {
 
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "12234387655555",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "12234387655566",
       "Trip no" : "5",
-      "amount" : " \$30"
+      "amount" : " \$222"
 
     },
     {
 
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "122334543566",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "1223345435566",
       "Trip no" : "8",
-      "amount" : " \$30"
+      "amount" : " \$232"
 
     },
     {
 
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "12234563435566",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "12234563435566",
       "Trip no" : "10",
-      "amount" : " \$30"
+      "amount" : " \$100"
 
     },
     {
 
       "image":"assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "124563435566",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "124563435566",
       "Trip no" : "4",
-      "amount" : "\$30"
+      "amount" : "\$85"
 
     },
     {
 
       "image": "assets/images/Carphoto.png",
       "carModel" : "Toyota Harrier",
-      "TransitionID": "122456435566",
+      "car license no:" : "61-10-TMD",
+      "Transition ID:": "122456435566",
       "Trip no" : "7",
-      "amount" : "\$30"
+      "amount" : " \$70"
 
     },
   ];
-
   Map<int, bool> expandedMap = {};
 
   void onChanged(int index){
     setState(() {
       if (expandedMap.containsKey(index)) {
-        expandedMap[index] = ! expandedMap[index]!;
+        expandedMap[index] = !expandedMap[index]!;
       } else {
         expandedMap[index] = true;
       }
@@ -107,25 +120,27 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: List.generate(dataList.length, (index){
+        children: List.generate(dataList.length,(index){
+
           final isExpanded = expandedMap[index] ?? false;
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Column(
-              children: [
-                Container(
+
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Container(
                     padding: const EdgeInsets.only(left: 8,right:16,top: 8,bottom: 8),
                     decoration: ShapeDecoration(
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                        side: const BorderSide(width: 1, color: Color(0xFFE6E7F4)),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      shadows:  const [
+                      shadows:   [
                         BoxShadow(
-                          color: Color(0x19000000),
+                          color: Color(0xff000000).withOpacity(0.01),
                           blurRadius: 10,
-                          offset: Offset(0, 1),
+                          offset: const Offset(0, 1),
                           spreadRadius: 0,
                         )
                       ],
@@ -135,7 +150,7 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          width: 86,
+                          width: 100,
                           height: 88,
                           decoration: ShapeDecoration(
                             image:  DecorationImage(
@@ -155,9 +170,9 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                   Text(
-                                     dataList[index]["carModel"].toString(),
-                                    style: const TextStyle(
+                                  const Text(
+                                    'Toyota Harrier',
+                                    style: TextStyle(
                                       color: Color(0xFF000B90),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
@@ -171,7 +186,7 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                       color: Color(0xFF000B90),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
-                                   
+                                      height: 1.40,
                                     ),
                                   ),
                                 ],
@@ -186,16 +201,41 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                         color: Color(0xFF999999),
                                         fontSize: 10,
                                         fontWeight: FontWeight.w400,
-                                     
+                                        height: 1.40,
                                       ),
                                     ),
                                     TextSpan(
-                                      text: dataList[index]["TransitionID"],
+                                      text: dataList[index]["Transition ID:"],
                                       style: const TextStyle(
                                         color: Color(0xFF2E2C2C),
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
-                                       
+                                        height: 1.40,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    const TextSpan(
+                                      text: 'Car License No:',
+                                      style: TextStyle(
+                                        color: Color(0xFF999999),
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w400,
+                                        height: 1.40,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: dataList[index]["car license no:"],
+                                      style: const TextStyle(
+                                        color: Color(0xFF2E2C2C),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                        height: 1.40,
                                       ),
                                     ),
                                   ],
@@ -233,24 +273,24 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                       onTap: (){
                                         onChanged(index);
                                       },
-                                      child: isExpanded ? const Icon(Icons.keyboard_arrow_up_sharp) : const Icon(Icons.keyboard_arrow_down_sharp)
+                                      child: isExpanded ? Icon(Icons.keyboard_arrow_up_sharp) : Icon(Icons.keyboard_arrow_down_sharp)
                                   )
                                 ],
                               ),
                             ],
                           ),
                         ),
+
                       ],
                     )
                 ),
-
-                isExpanded ? StartEndDate() : const SizedBox()
-              ],
-            ),
+              ),
+              isExpanded ? StartEndDate() : const SizedBox()
+            ],
           );
         }
         )
     );
   }
-
 }
+
