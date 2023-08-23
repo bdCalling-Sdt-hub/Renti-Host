@@ -14,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _PendingApprovalScreenState extends State<HomeScreen> {
+  bool isApproved = false;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -83,12 +85,10 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         body: SingleChildScrollView(
             padding: const EdgeInsets.only(left: 20, right: 20,top: 24,bottom: 24),
             child: LayoutBuilder(builder: (context, constrains) {
-              return   Column(
+              return  Column(
                 children: [
-
                   //home top section
-                  const HomeTopSection(),
-                  HomeCarList()
+                  HomeTopSection(),
                 ],
               );
             })),
