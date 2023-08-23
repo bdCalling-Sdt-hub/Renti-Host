@@ -10,8 +10,7 @@ class InboxScreen extends StatefulWidget {
 class _InboxScreenState extends State<InboxScreen> {
   List<ChatMessage> messages = [
     ChatMessage(
-        messageContent:
-            "Lorem ipsum dolor sit amet consectetur. Fringilla vitae dolor.",
+        messageContent: "Lorem ipsum dolor sit amet consectetur. Fringilla vitae dolor.",
         messageType: "sender"),
     ChatMessage(
         messageContent:
@@ -35,6 +34,7 @@ class _InboxScreenState extends State<InboxScreen> {
         messageContent:
             "Lorem ipsum dolor sit amet\nconsectetur. Enim posuere aenean enim malesuada diam donec augue facilisi.",
         messageType: "receiver"),
+
   ];
 
   @override
@@ -111,22 +111,22 @@ class _InboxScreenState extends State<InboxScreen> {
               padding: const EdgeInsets.only(top: 10, bottom: 10),
             child: Column(
               children: List.generate(messages.length, (index) => Container(
-                padding: const EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
+                padding: const EdgeInsets.only(left: 14, right: 14, top: 10,),
                 child: Align(
                   alignment: (messages[index].messageType == "sender"
                       ? Alignment.topRight
-                      : Alignment.topLeft),
+                      : Alignment.topLeft ),
                   child: Container(
+                     padding: const EdgeInsets.all(8),
+                     width: MediaQuery.of(context).size.width/1.5,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
                       color: (messages[index].messageType == "sender"
                           ? const Color(0xFF000B90)
                           : const Color(0xFFE6E6E6)),
                     ),
-                    padding: const EdgeInsets.all(16),
                     child: Text(
                       messages[index].messageContent,
-
                       style: TextStyle(
                         fontSize: 15,
                         color: (messages[index].messageType == "sender"
@@ -180,12 +180,14 @@ class _InboxScreenState extends State<InboxScreen> {
         ),
       ),
     );
-
   }
 }
 
 class ChatMessage {
   String messageContent;
   String messageType;
-  ChatMessage({required this.messageContent, required this.messageType});
+  ChatMessage({
+    required this.messageContent,
+    required this.messageType
+  });
 }
