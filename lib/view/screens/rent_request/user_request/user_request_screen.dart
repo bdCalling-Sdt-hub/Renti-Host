@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/rent_request/user_request/inner_widgets/card_top.dart';
 
 import '../user_details/user_details_screen.dart';
 
@@ -14,7 +15,9 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor:const Color(0xffffffff),
           appBar:  AppBar(
+            automaticallyImplyLeading: false,
             centerTitle: false,
             backgroundColor:const Color(0xffffffff),
             elevation: 0,
@@ -24,106 +27,65 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
           body: LayoutBuilder(
             builder: (context,constraint){
               return SingleChildScrollView(
+                padding: const EdgeInsetsDirectional.only(top: 24,end: 20,start: 20),
                   scrollDirection: Axis.vertical,
                   child:Column(
-                      children: List.generate(50, (index) =>Padding(
-                        padding: const EdgeInsets.only(left: 20,right: 20),
-                        child: GestureDetector(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
-                          },
-                          child: Card(
-                            elevation: 10,
-                            color: Colors.white,
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
+                      children: List.generate(50, (index) =>GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
+                        },
+                        child: Container(
+                          padding: const EdgeInsetsDirectional.only(top: 16,start: 16,bottom: 16,end: 16),
+                          margin: const EdgeInsetsDirectional.only(bottom: 24),
+                          decoration: BoxDecoration(
+                            color: const Color(0xffffffff),
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow:  [
+                              BoxShadow(
+                                color: const Color(0xff000000).withOpacity(0.1),
+                                blurRadius: 10,
+                                offset: Offset(0, 1)
+                              )
+                            ]
+                          ),
+                          child: Column(
+                            children: [
+                              const CardTop(),
+                              const SizedBox(height: 16,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Image(image: AssetImage("assets/images/Avater.png"),width: 50,height:50 ,),
-                                      SizedBox(width: 16,),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children:  [
-                                          Text("John Doe",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500),),
-                                          SizedBox(height: 8,),
-                                          Row(
-                                            children: [
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 4,),
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 4,),
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 4,),
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 2,),
-                                              Text("(4.5)"),
-                                            ],
-                                          ),
-                                          SizedBox(height: 8,),
-                                          Row(
-                                            children: [
-                                              Icon(Icons.location_on,size: 14,),
-                                              SizedBox(width: 8,),
-                                              Text("Privada Calle 109 - Piso 4",style: TextStyle(color: Color(0xff737373),fontSize: 14,fontWeight:FontWeight.w400 ),),
-                                              SizedBox()
-                                            ],
-                                          ),
-                                          SizedBox(height: 8,),
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: [
-                                              Icon(Icons.calendar_month,size: 14,),
-                                              SizedBox(width: 8,),
-                                              Padding(
-                                                padding: EdgeInsets.only(top: 8),
-                                                child: Text("06 aug 2023- 07 aug 2023",style: TextStyle(color: Color(0xff737373),fontSize: 14,fontWeight:FontWeight.w400 ),),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                  Expanded(
+                                    child: Container(
+                                      height: 48,
+                                      width: constraint.maxWidth,
+
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          color: const Color(0xffFBE9EC),
+                                          borderRadius: BorderRadius.circular(8)
                                       ),
-                                    ],
+                                      child: const Text("Cancel", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 18,fontWeight:FontWeight.w500)),
+                                    ),
                                   ),
-                                  const SizedBox(height: 24,),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Container(
-                                          height: 48,
-                                          width: constraint.maxWidth,
+                                  const SizedBox(width: 8,),
+                                  Expanded(
+                                    child: Container(
+                                      //alignment: Alignment.bottomRight,
+                                        height: 48,
+                                        width: constraint.maxWidth,
+                                        alignment: Alignment.center,
 
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                              color: const Color(0xffFBE9EC),
-                                              borderRadius: BorderRadius.circular(8)
-                                          ),
-                                          child: const Text("Cancel", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 18,fontWeight:FontWeight.w500)),
+                                        decoration: BoxDecoration(
+                                            color: const Color(0xff000B90),
+                                            borderRadius: BorderRadius.circular(8)
                                         ),
-                                      ),
-                                      const SizedBox(width: 8,),
-                                      Expanded(
-                                        child: Container(
-                                          //alignment: Alignment.bottomRight,
-                                            height: 48,
-                                            width: constraint.maxWidth,
-                                            alignment: Alignment.center,
-
-                                            decoration: BoxDecoration(
-                                                color: const Color(0xff000B90),
-                                                borderRadius: BorderRadius.circular(8)
-                                            ),
-                                            child: const Text("Approve", textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18,fontWeight:FontWeight.w500))
-                                        ),
-                                      ),
-                                    ],
+                                        child: const Text("Approve", textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18,fontWeight:FontWeight.w500))
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
+                            ],
                           ),
                         ),
                       ) ,)

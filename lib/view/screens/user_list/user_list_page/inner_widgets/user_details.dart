@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/user_list/user_list_page/inner_widgets/complete_container.dart';
+import 'package:renti_host/view/screens/user_list/user_list_page/inner_widgets/complete_button.dart';
 import 'package:renti_host/view/screens/user_list/user_list_page/inner_widgets/dialog_box.dart';
-import 'package:renti_host/view/screens/user_list/user_list_page/inner_widgets/reserved_container.dart';
+import 'package:renti_host/view/screens/user_list/user_list_page/inner_widgets/reserved_button.dart';
 
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});

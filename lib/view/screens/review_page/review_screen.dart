@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/review_page/inner_widgets/top_section.dart';
 
-class ReviewScreen extends StatefulWidget {
-  const ReviewScreen({super.key});
+class AllReviewScreen extends StatefulWidget {
+  const AllReviewScreen({super.key});
 
   @override
-  State<ReviewScreen> createState() => _ReviewScreenState();
+  State<AllReviewScreen> createState() => _ReviewScreenState();
 }
 
-class _ReviewScreenState extends State<ReviewScreen> {
+class _ReviewScreenState extends State<AllReviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,178 +26,45 @@ class _ReviewScreenState extends State<ReviewScreen> {
       body: LayoutBuilder(
         builder: (context,constraint){
           return SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child:Padding(
-                padding: const EdgeInsetsDirectional.symmetric(vertical: 24,horizontal: 20),
-                child: Column(
-                    children: List.generate(50, (index) =>GestureDetector(
-                      onTap: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: Container(
+            padding: EdgeInsetsDirectional.symmetric(vertical: 24,horizontal: 20),
+              child:Column(
+                  children: List.generate(50, (index) =>GestureDetector(
+                    onTap: (){
+                      // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
+                    },
+                    child: Container(
+                      padding: const EdgeInsetsDirectional.all(16),
+                      margin: const EdgeInsetsDirectional.only(bottom: 8),
+                      width: MediaQuery.of(context).size.width,
 
-                          width: MediaQuery.of(context).size.width,
-                          height: 170,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: ShapeDecoration(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                            shadows: const [
-                              BoxShadow(
-                                color: Color(0x19000000),
+                      decoration: BoxDecoration(
+                          color: const Color(0xffffffff),
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow:  [
+                            BoxShadow(
+                                color: const Color(0xff000000).withOpacity(0.1),
                                 blurRadius: 10,
-                                offset: Offset(0, 1),
-                                spreadRadius: 0,
-                              )
-                            ],
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.symmetric(vertical: 16,horizontal: 16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Container(
-                                        width: 70,
-                                        height: 70,
-                                        decoration: const ShapeDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage("assets/images/Avater.png"),
-                                            fit: BoxFit.fill,
-                                          ),
-                                          shape: OvalBorder(),
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8,),
-                                    const Expanded(
-                                      flex: 2,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'John Doe',
-                                            style: TextStyle(
-                                              color: Color(0xFF2E2C2C),
-                                              fontSize: 18,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w500,
-                                              height: 1.40,
-                                            ),
-                                          ),
-                                          Row(
-                                            children: [
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 4,),
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 4,),
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 4,),
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                              SizedBox(width: 4,),
-                                              Image(image: AssetImage("assets/images/Vector.png"),width: 12,height:12),
-                                            ],
-                                          ),
-                                          Text.rich(
-                                            TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: 'Car license: ',
-                                                  style: TextStyle(
-                                                    color: Color(0xFF999999),
-                                                    fontSize: 10,
-                                                    fontFamily: 'Poppins',
-                                                    fontWeight: FontWeight.w400,
-                                                    height: 1.40,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: 'NBG1234567',
-                                                  style: TextStyle(
-                                                    color: Color(0xFF2E2C2C),
-                                                    fontSize: 10,
-                                                    fontFamily: 'Poppins',
-                                                    fontWeight: FontWeight.w400,
-                                                    height: 1.40,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Text.rich(
-                                            TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: 'Date: ',
-                                                  style: TextStyle(
-                                                    color: Color(0xFF999999),
-                                                    fontSize: 10,
-                                                    fontFamily: 'Poppins',
-                                                    fontWeight: FontWeight.w400,
-                                                    height: 1.40,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: '10 aug 2023',
-                                                  style: TextStyle(
-                                                    color: Color(0xFF2E2C2C),
-                                                    fontSize: 10,
-                                                    fontFamily: 'Poppins',
-                                                    fontWeight: FontWeight.w400,
-                                                    height: 1.40,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Container(
-                                        width: 70,
-                                        height: 70,
-                                        decoration: ShapeDecoration(
-                                          image: const DecorationImage(
-                                            image: AssetImage("assets/images/Carphoto.png"),
-                                            fit: BoxFit.cover,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(40),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(height: 16),
-                                const Text(
-                                  'Lorem ipsum dolor sit amet consectetur. Congue fames egestas tristique nisl sit nec eu scelerisque nam. Et senectus sed morbi quam.',
-                                  maxLines: 3,
-                                  style: TextStyle(
-                                    color: Color(0xFF737373),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.40,
-                                  ),
-                                ),
-                              ],
+                                offset: const Offset(0, 1)
+                            )
+                          ]
+                      ),
+                      child: const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                            ReviewTopSection(),
+                            SizedBox(height: 8,),
+                            Text(
+                            'Lorem ipsum dolor sit amet consectetur. Congue fames egestas tristique nisl sit nec eu scelerisque nam. Et senectus sed morbi quam.',
+                            style: TextStyle(
+                              color: Color(0xFF737373),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ) ,)
-                ),
+                    ),
+                  ) ,)
               )
           );
         },
