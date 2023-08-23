@@ -93,7 +93,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
   ];
 
   Map<int, bool> expandedMap = {};
-
   void onChanged(int index){
     setState(() {
       if (expandedMap.containsKey(index)) {
@@ -103,7 +102,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
       }
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -171,7 +169,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                       color: Color(0xFF000B90),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
-                                   
                                     ),
                                   ),
                                 ],
@@ -186,7 +183,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                         color: Color(0xFF999999),
                                         fontSize: 10,
                                         fontWeight: FontWeight.w400,
-                                     
                                       ),
                                     ),
                                     TextSpan(
@@ -195,7 +191,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                         color: Color(0xFF2E2C2C),
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
-                                       
                                       ),
                                     ),
                                   ],
@@ -214,7 +209,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                             color: Color(0xFF999999),
                                             fontSize: 10,
                                             fontWeight: FontWeight.w400,
-                                            height: 1.40,
                                           ),
                                         ),
                                         TextSpan(
@@ -223,7 +217,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                             color: Color(0xFF2E2C2C),
                                             fontSize: 12,
                                             fontWeight: FontWeight.w500,
-                                            height: 1.40,
                                           ),
                                         ),
                                       ],
@@ -243,7 +236,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                       ],
                     )
                 ),
-
                 isExpanded ? StartEndDate() : const SizedBox()
               ],
             ),

@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 class ReviewTopSection extends StatelessWidget {
   const ReviewTopSection({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,7 +14,7 @@ class ReviewTopSection extends StatelessWidget {
           Container(
               width: 70,
               height: 70,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(image: AssetImage("assets/images/Avater.png"))
               )
           ),

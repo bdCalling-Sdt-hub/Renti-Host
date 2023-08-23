@@ -9,7 +9,6 @@ class WeeklyScreen extends StatefulWidget {
   @override
   State<WeeklyScreen> createState() => _WeeklyScreenState();
 }
-
 List <int> tripNo = [
   1,7,5,6,7,
 ];
@@ -27,9 +26,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
             style: TextStyle(
               color: Color(0xFF2E2C2C),
               fontSize: 18,
-              fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
-              height: 1.40,
             ),
           ),
           backgroundColor: Color(0xffffffff),
@@ -85,19 +82,17 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                             ),
                           ),
                           const SizedBox(width: 8,),
-                          const Expanded(
+                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Toyota Harrier',
                                   style: TextStyle(
                                     color: Color(0xFF000B90),
                                     fontSize: 14,
-                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w700,
-                                    height: 1.40,
                                   ),
                                 ),
                                 SizedBox(height: 16),
@@ -112,9 +107,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                             style: TextStyle(
                                               color: Color(0xFF999999),
                                               fontSize: 10,
-                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w400,
-                                              height: 1.40,
                                             ),
                                           ),
                                           TextSpan(
@@ -122,9 +115,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                             style: TextStyle(
                                               color: Color(0xFF2E2C2C),
                                               fontSize: 12,
-                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w500,
-                                              height: 1.40,
                                             ),
                                           ),
                                         ],
@@ -136,9 +127,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                       style: TextStyle(
                                         color: Color(0xFF000B90),
                                         fontSize: 14,
-                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w700,
-                                        height: 1.40,
                                       ),
                                     ),
                                   ],
@@ -152,19 +141,15 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                         style: TextStyle(
                                           color: Color(0xFF999999),
                                           fontSize: 10,
-                                          fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w400,
-                                          height: 1.40,
                                         ),
                                       ),
                                       TextSpan(
-                                        text: ("07"),
+                                        text: tripNo[index].toString(),
                                         style: TextStyle(
                                           color: Color(0xFF2E2C2C),
                                           fontSize: 12,
-                                          fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w500,
-                                          height: 1.40,
                                         ),
                                       ),
                                     ],

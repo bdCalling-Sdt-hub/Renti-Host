@@ -10,8 +10,6 @@ class RentiFeeScreen extends StatefulWidget {
   @override
   State<RentiFeeScreen> createState() => _RentiFeeScreenState();
 }
-
-
 class _RentiFeeScreenState extends State<RentiFeeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,6 @@ class _RentiFeeScreenState extends State<RentiFeeScreen> {
                 color: Color(0xFF2E2C2C),
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-
               ),
             ),
             backgroundColor: const Color(0xffffffff),

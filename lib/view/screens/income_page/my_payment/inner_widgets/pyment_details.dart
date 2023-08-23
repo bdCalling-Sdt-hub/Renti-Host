@@ -175,7 +175,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                       color: Color(0xFF000B90),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
-                                      height: 1.40,
                                     ),
                                   ),
                                   Text(
@@ -185,7 +184,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                       color: Color(0xFF000B90),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
-                                      height: 1.40,
                                     ),
                                   ),
                                 ],
@@ -200,7 +198,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                         color: Color(0xFF999999),
                                         fontSize: 10,
                                         fontWeight: FontWeight.w400,
-                                        height: 1.40,
                                       ),
                                     ),
                                     TextSpan(
@@ -209,7 +206,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                         color: Color(0xFF2E2C2C),
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
-                                        height: 1.40,
                                       ),
                                     ),
                                   ],
@@ -225,7 +221,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                         color: Color(0xFF999999),
                                         fontSize: 10,
                                         fontWeight: FontWeight.w400,
-                                        height: 1.40,
                                       ),
                                     ),
                                     TextSpan(
@@ -234,7 +229,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                         color: Color(0xFF2E2C2C),
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
-                                        height: 1.40,
                                       ),
                                     ),
                                   ],
@@ -253,7 +247,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                             color: Color(0xFF999999),
                                             fontSize: 10,
                                             fontWeight: FontWeight.w400,
-                                            height: 1.40,
                                           ),
                                         ),
                                         TextSpan(
@@ -262,7 +255,6 @@ class _PaymentCardState extends State<PaymentCard> {
                                             color: Color(0xFF2E2C2C),
                                             fontSize: 12,
                                             fontWeight: FontWeight.w500,
-                                            height: 1.40,
                                           ),
                                         ),
                                       ],
@@ -279,7 +271,6 @@ class _PaymentCardState extends State<PaymentCard> {
                             ],
                           ),
                         ),
-
                       ],
                     )
                 ),

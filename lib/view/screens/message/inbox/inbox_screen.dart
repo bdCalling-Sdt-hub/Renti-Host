@@ -47,7 +47,7 @@ class _InboxScreenState extends State<InboxScreen> {
           toolbarHeight: 64,
           elevation: 0,
           titleSpacing: -8,
-          backgroundColor: Color(0xff000B90),
+          backgroundColor: const Color(0xff000B90),
           leading: const Icon(Icons.arrow_back_ios_new),
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +80,7 @@ class _InboxScreenState extends State<InboxScreen> {
               padding: EdgeInsets.only(right: 16),
               child: Icon(
                 Icons.call,
-                color: Color(0xfffffffff),
+                color: Color(0xffffffff),
                 size: 24,
               ),
             )
@@ -182,7 +182,6 @@ class _InboxScreenState extends State<InboxScreen> {
     );
   }
 }
-
 class ChatMessage {
   String messageContent;
   String messageType;

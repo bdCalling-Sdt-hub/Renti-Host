@@ -8,11 +8,9 @@ import 'inner_widgets/rating_section.dart';
 
 class RatingScreen extends StatefulWidget {
   const RatingScreen({super.key});
-
   @override
   State<RatingScreen> createState() => _FilledBoxState();
 }
-
 class _FilledBoxState extends State<RatingScreen> {
   @override
   Widget build(BuildContext context) {
@@ -20,6 +18,7 @@ class _FilledBoxState extends State<RatingScreen> {
         child: Scaffold(
           backgroundColor: const Color(0xffffffff),
       appBar: AppBar(
+          titleSpacing: -8,
           centerTitle: false,
           elevation: 0,
           title: const Text('Car Deal Information',
@@ -35,7 +34,7 @@ class _FilledBoxState extends State<RatingScreen> {
             icon: const Icon(
               Icons.arrow_back_ios,
             ),
-            color: Colors.black,
+            color: const Color(0xff2E2C2C),
           )),
       body: LayoutBuilder(builder: (context,constraint){
           return SingleChildScrollView(
@@ -47,9 +46,7 @@ class _FilledBoxState extends State<RatingScreen> {
                     // rating section
                     const RatingSection(),
                     const SizedBox(height:16,),
-
                     const CommentSection(),
-
                     const SizedBox(height: 16,),
                     SizedBox(
                       height: 100,
@@ -61,7 +58,6 @@ class _FilledBoxState extends State<RatingScreen> {
                           fillColor: Color(0xFFFFFFFF),
                           hintText: 'Type review here...',
                           hintStyle: TextStyle(
-
                               color: Color(0xFFCCCCCC)),
                           filled: true,
                           border: OutlineInputBorder(
@@ -70,15 +66,12 @@ class _FilledBoxState extends State<RatingScreen> {
                               borderSide: BorderSide(
                                 color: Color(0xFFCCCCCC),
                               )),
-
                           enabledBorder: OutlineInputBorder(
                               borderSide:
                               BorderSide(color: Color(0xFFCCCCCC))),
                         ),
-
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -92,7 +85,6 @@ class _FilledBoxState extends State<RatingScreen> {
             textColor:  Color(0xffffffff),
           ),
     )
-
     );
   }
 }

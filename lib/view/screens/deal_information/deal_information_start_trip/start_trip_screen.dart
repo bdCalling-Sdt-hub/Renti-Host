@@ -19,8 +19,11 @@ class _StartTripScreenState extends State<StartTripScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+
       child: Scaffold(
+          backgroundColor: const Color(0xffffffff),
         appBar: AppBar(
+             titleSpacing: -8,
             centerTitle: false,
             elevation: 0,
             title: const Text('Car Deal Information',

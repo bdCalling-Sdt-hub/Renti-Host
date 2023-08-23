@@ -68,10 +68,8 @@ class _DialogBoxState extends State<DialogBox> {
                         ),
                         const SizedBox(width: 16),
                         const Column(
-                          mainAxisAlignment:
-                          MainAxisAlignment.center,
-                          crossAxisAlignment:
-                          CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Humayun',
@@ -79,7 +77,6 @@ class _DialogBoxState extends State<DialogBox> {
                                 color: Color(0xFF2E2C2C),
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
-                                height: 1.40,
                               ),
                             ),
                             SizedBox(height: 8),
@@ -92,7 +89,6 @@ class _DialogBoxState extends State<DialogBox> {
                                   height: 12),
                               SizedBox(width: 8,),
                               Text("(2.5)")
-
                             ],
                             )
                           ],
@@ -104,96 +100,59 @@ class _DialogBoxState extends State<DialogBox> {
                   Expanded(
                     flex: 2,
                     child: Column(
-                      mainAxisAlignment:
-                      MainAxisAlignment.center,
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         dataList[index]["status"]=="Complete"?Container(
                           width: 71,
-                          padding: const EdgeInsets
-                              .symmetric(
-                              horizontal: 12,
-                              vertical: 4),
-                          clipBehavior:
-                          Clip.antiAlias,
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                           decoration:
                           ShapeDecoration(
-                            color: const Color(
-                                0xFFE6F6F4),
-                            shape:
-                            RoundedRectangleBorder(
-                                borderRadius:
-                                BorderRadius
-                                    .circular(
-                                    4)),
+                            color: const Color(0xFFE6F6F4),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                           ),
                           child: const Center(
                             child: Text(
                               'Complete',
                               style: TextStyle(
-                                color: Color(
-                                    0xFF00A991),
+                                color: Color(0xFF00A991),
                                 fontSize: 10,
-                                fontWeight:
-                                FontWeight.w400,
-                                height: 1.40,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),
                         )
-                            : Container(
-                          width: 71,
-                          padding: const EdgeInsets
-                              .symmetric(
-                              horizontal: 12,
-                              vertical: 4),
-                          clipBehavior:
-                          Clip.antiAlias,
-                          decoration:
-                          ShapeDecoration(
-                            color: const Color(
-                                0xFFFBE9EC),
-                            shape:
-                            RoundedRectangleBorder(
-                                borderRadius:
-                                BorderRadius
-                                    .circular(
-                                    4)),
+                            : Container(width: 71,
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFFBE9EC),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4)),
                           ),
                           child: const Center(
                             child: Text(
                               'Reserved',
                               style: TextStyle(
-                                color: Color(
-                                    0xFFD7263D),
+                                color: Color(0xFFD7263D),
                                 fontSize: 10,
-                                fontWeight:
-                                FontWeight.w400,
-                                height: 1.40,
+                                fontWeight: FontWeight.w400,
+
                               ),
                             ),
                           ),
                         ),
                         const SizedBox(height: 8),
                         Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.center,
-                          crossAxisAlignment:
-                          CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
                               width: 24,
                               height: 24,
                               decoration: ShapeDecoration(
-                                color: const Color(
-                                    0xffE6E7F4),
-                                shape:
-                                RoundedRectangleBorder(
-                                    borderRadius:
-                                    BorderRadius
-                                        .circular(
-                                        4)),
+                                color: const Color(0xffE6E7F4),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4)),
                               ),
                               child: const Icon(
                                 Icons.call,
@@ -206,61 +165,38 @@ class _DialogBoxState extends State<DialogBox> {
                               width: 24,
                               height: 24,
                               decoration: ShapeDecoration(
-                                color: const Color(
-                                    0xFFE6E7F4),
-                                shape:
-                                RoundedRectangleBorder(
-                                    borderRadius:
-                                    BorderRadius
-                                        .circular(
-                                        4)),
+                                color: const Color(0xFFE6E7F4),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4)),
                               ),
                               child: const Icon(
                                   Icons.message,
                                   size: 18,
-                                  color:
-                                  Color(0xff000b90)),
+                                  color: Color(0xff000b90)),
                             ),
                           ],
                         ),
                       ],
                     ),
                   ),
-
                 ],
               ),
-              const SizedBox(
-                height: 24,
-              ),
-              const Row(
-                mainAxisAlignment:
-                MainAxisAlignment
-                    .spaceBetween,
+              const SizedBox(height: 24),
+              const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Contact:',
                     style: TextStyle(
-                      color: Color(
-                          0xFF999999),
+                      color: Color(0xFF999999),
                       fontSize: 12,
-                      fontWeight:
-                      FontWeight
-                          .w400,
-                      height: 1.40,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Text('+52 3645646464',
-                      textAlign:
-                      TextAlign
-                          .right,
                       style: TextStyle(
-                        color: Color(
-                            0xFF2E2C2C),
+                        color: Color(0xFF2E2C2C),
                         fontSize: 12,
-                        fontWeight:
-                        FontWeight
-                            .w400,
-                        height: 1.40,
+                        fontWeight: FontWeight.w400,
                       ))
                 ],
               ),
@@ -268,70 +204,44 @@ class _DialogBoxState extends State<DialogBox> {
                 height: 8,
               ),
               const Row(
-                mainAxisAlignment:
-                MainAxisAlignment
-                    .spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Email:',
                     style: TextStyle(
-                      color: Color(
-                          0xFF999999),
+                      color: Color(0xFF999999),
                       fontSize: 12,
-                      fontWeight:
-                      FontWeight
-                          .w400,
-                      height: 1.40,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Text(
                     'johndoe@gmail.com',
-                    textAlign:
-                    TextAlign.right,
                     style: TextStyle(
-                      color: Color(
-                          0xFF2E2C2C),
+                      color: Color(0xFF2E2C2C),
                       fontSize: 12,
-                      fontWeight:
-                      FontWeight
-                          .w400,
-                      height: 1.40,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               const Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment
-                      .spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'Trip no:',
                       style: TextStyle(
-                        color: Color(
-                            0xFF999999),
+                        color: Color(0xFF999999),
                         fontSize: 12,
-                        fontWeight:
-                        FontWeight
-                            .w400,
-                        height: 1.40,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                     Text(
                       '01',
-                      textAlign:
-                      TextAlign
-                          .right,
                       style: TextStyle(
                         color: Color(0xFF2E2C2C),
                         fontSize: 12,
-                        fontWeight:
-                        FontWeight
-                            .w400,
-                        height: 1.40,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ]),

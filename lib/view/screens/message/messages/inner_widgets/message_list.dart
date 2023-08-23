@@ -119,16 +119,12 @@ class MessageList extends StatelessWidget {
                             ),
                           ],
                         ),
-
-
                       ],
                     )
-                    
                   );
                 }
                 );
                 },
-
                 backgroundColor: const Color(0xFFD7263D),
                 icon : CupertinoIcons.delete,
               ),
