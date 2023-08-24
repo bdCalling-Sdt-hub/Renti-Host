@@ -7,12 +7,11 @@ class CustomAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            color: Color(0xff000B90),
+            color: const Color(0xff000B90),
             borderRadius: BorderRadius.circular(8)),
         child: const Padding(
           padding:

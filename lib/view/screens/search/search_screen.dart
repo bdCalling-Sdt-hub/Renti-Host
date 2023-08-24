@@ -30,7 +30,7 @@ class _SearchScreenState extends State<SearchScreen> {
             children: [
                  TextFormField(
                    cursorColor: const Color(0xff2E2C2C),
-                   showCursor: false,
+                   showCursor: true,
                    style: const TextStyle(color: Color(0xff2E2C2C)),
                    decoration: InputDecoration(
                        prefixIcon: const Icon(Icons.search_outlined,size: 20,color: Color(0xffcccccc)),

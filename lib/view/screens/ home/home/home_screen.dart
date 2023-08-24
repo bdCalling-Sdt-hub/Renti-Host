@@ -1,9 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/%20home/home/inner_widgets/custom_drawer.dart';
 import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_add_car.dart';
-import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/home/inner_widgets/home_top_section.dart';
-import 'package:renti_host/view/screens/%20home/home/inner_widgets/start_end_date.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,6 +14,18 @@ class HomeScreen extends StatefulWidget {
 
 class _PendingApprovalScreenState extends State<HomeScreen> {
   bool isApproved = false;
+
+  @override
+  void initState() {
+    Timer(const Duration( seconds: 10), () {
+      if(isApproved == true){
+        Navigator.push(context, MaterialPageRoute(builder: (_)=>HomeScreen()));
+      }
+      else{
+      }
+    });
+    super.initState();
+  }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -85,10 +96,12 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         body: SingleChildScrollView(
             padding: const EdgeInsets.only(left: 20, right: 20,top: 24,bottom: 24),
             child: LayoutBuilder(builder: (context, constrains) {
-              return  Column(
+              return Column(
                 children: [
                   //home top section
                   HomeTopSection(),
+                  // HomeApproval()
+                  const HomeAddCar()
                 ],
               );
             })),

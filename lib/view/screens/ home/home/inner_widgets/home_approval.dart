@@ -24,7 +24,6 @@ class HomeApproval extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: InkWell(
               onTap: (){
-
               },
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,

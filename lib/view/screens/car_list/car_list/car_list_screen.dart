@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/%20home/home/inner_widgets/alert_box.dart';
 import 'package:renti_host/view/screens/car_details/car_details/car_details_screen.dart';
 import 'package:renti_host/view/screens/car_list/inner_widgets/popup_menu_button.dart';
+import 'package:renti_host/view/screens/car_list/inner_widgets/search_filter.dart';
 
 class CarListScreen extends StatefulWidget {
   const CarListScreen({super.key});
@@ -17,7 +18,6 @@ class _CarListScreenState extends State<CarListScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
         appBar:AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -40,42 +40,7 @@ class _CarListScreenState extends State<CarListScreen> {
           padding: const EdgeInsets.symmetric(vertical: 24.0,horizontal: 20),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 12,
-                    child: TextFormField(
-                      showCursor: false,
-                      style: TextStyle(color: Color(0xff2E2C2C)),
-                      decoration: InputDecoration(
-                        hintText: "search car by company...",
-                        hintStyle: const TextStyle(
-                            color: Color(0xffcccccc),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide:
-                            const BorderSide(color: Color(0xffCCCCCC), width: 1)),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide:
-                            const BorderSide(color: Color(0xffCCCCCC), width: 1)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  const Expanded(
-                      flex: 3,
-                      child: CustomPopupMenuButton(),
-
-                  )
-                ],
-              ),
+               const SearchFilter(),
               const SizedBox(height: 16),
               Expanded(
                   child: SingleChildScrollView(
@@ -151,7 +116,6 @@ class _CarListScreenState extends State<CarListScreen> {
                     ),
                   )
               ),
-
             ],
           ),
         ),

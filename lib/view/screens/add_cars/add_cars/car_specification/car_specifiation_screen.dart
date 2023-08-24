@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/car_list/car_list/car_list_screen.dart';
+import 'package:renti_host/view/screens/add_cars/add_cars/car_specification/inner_widgets/car_service.dart';
+import 'package:renti_host/view/screens/car_details/car_details/car_details_screen.dart';
+import 'package:renti_host/view/widgets/button/bottom_nav_button.dart';
 
 class CarSpecifications extends StatefulWidget {
   const CarSpecifications({super.key});
@@ -9,11 +11,9 @@ class CarSpecifications extends StatefulWidget {
 }
 
 class _CarDetailsState extends State<CarSpecifications> {
+  bool isClicked = false;
   @override
   Widget build(BuildContext context) {
-
-    List< String> seatList = ["Baby Car Seat", " Sunroof", ' Bluetooth','GPS'];
-    int selectedItem = 0;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -52,10 +52,37 @@ class _CarDetailsState extends State<CarSpecifications> {
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   )),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16,),
               // car license field
+              const Text("Car Color",
+                  style: TextStyle(
+                    color: Color(0xff2E2C2C),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  )),
+              const SizedBox(height: 12,),
+              TextFormField(
+                showCursor: true,
+                style: const TextStyle(color: Color(0xff2E2C2C)),
+                decoration: InputDecoration(
+                  hintText: "Type color here...",
+                  hintStyle: const TextStyle(
+                      color: Color(0xffcccccc),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide:
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide:
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                ),
+              ),
+              const SizedBox(height: 16,),
               const Text("Car Color",
                   style: TextStyle(
                     color: Color(0xff2E2C2C),
@@ -84,40 +111,6 @@ class _CarDetailsState extends State<CarSpecifications> {
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
                       const BorderSide(color: Color(0xffCCCCCC), width: 1)),
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-
-              const Text("Car Color",
-                  style: TextStyle(
-                    color: Color(0xff2E2C2C),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  )),
-              const SizedBox(
-                height: 12,
-              ),
-              TextFormField(
-                showCursor: true,
-                style: TextStyle(color: Color(0xff2E2C2C)),
-                decoration: InputDecoration(
-                  hintText: "Type color here...",
-                  hintStyle: const TextStyle(
-                      color: Color(0xffcccccc),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
               const SizedBox(
@@ -216,7 +209,7 @@ class _CarDetailsState extends State<CarSpecifications> {
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide:
-                      BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                      const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
               const SizedBox(
@@ -256,76 +249,23 @@ class _CarDetailsState extends State<CarSpecifications> {
                       borderSide: const BorderSide(color: Color(0xffCCCCCC), width: 1)),
                 ),
               ),
-             const SizedBox(height: 16,),
+               const SizedBox(height: 16,),
+              const CarService()
 
-             Column(
-               children:List.generate( seatList.length,(index){
-                   return GestureDetector(
-                     onTap: (){
-                       setState(() {
-                         selectedItem = index;
-                       });
-                     },
-                     child: Padding(
-                       padding: const EdgeInsets.only(left: 16.0, bottom: 20),
-                       child: Row(
-                         children: [
-                           Container(
-                             height: 20,
-                             width: 20,
-                             decoration: BoxDecoration(
-                                 shape: BoxShape.circle,
-                                 color:  index == selectedItem ? const Color(0xff000B90) : const Color(0xffffffff),
-                                 border: Border.all(color: const Color(0xffcccccc),width: 1),
-                                 boxShadow: [
-                                   BoxShadow(
-                                       color : const Color(0xff000000).withOpacity(0.4),
-                                       offset: const Offset(0, 0),
-                                       blurRadius: 2
-                                   )
-                                 ]
-                             ),
-                           ),
-                           const SizedBox(width: 10,),
-                           Text(seatList[index],style: const TextStyle(color: Color(0xff2E2C2C),fontSize:14, fontWeight:FontWeight.w400 ),)
-                         ],
-                       ),
-                     ),
-                   );
-                 })
-
-             ),
-
-
-              const SizedBox(height: 24,),
-              GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const CarListScreen()));
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff999999),
-                      borderRadius: BorderRadius.circular(8)),
-                  child: const Padding(
-                    padding:
-                    EdgeInsets.symmetric(vertical: 16.0),
-                    child: Center(
-                        child: Text(
-                          "Add car",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Color(0xffffffff),
-                              fontWeight: FontWeight.w600),
-                        )),
-                  ),
-
-                ),
-              ),
 
             ],
           ),
         ),
+      ),
+
+      bottomNavigationBar: BottomNavButton(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>CarDetailsScreen()));
+             setState(() {
+               isClicked == !isClicked;
+             });
+
+          }, buttonName: "Add Car", buttonColor: isClicked ?  const Color(0xff000b90): const Color(0xff999999)
       ),
     );
   }

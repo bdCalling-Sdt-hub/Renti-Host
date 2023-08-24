@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:renti_host/view/screens/%20home/home/inner_widgets/alert_box.dart';
 import 'package:renti_host/view/screens/add_cars/add_cars/add_cars_screen.dart';
 
@@ -11,14 +12,15 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
-  int selectedItem = 0;
+
+  bool changeColor = false;
   @override
   Widget build(BuildContext context) {
     return  Drawer(
-      width: 227,
+      width: 230,
       backgroundColor: const Color(0xffFFFFFF),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20.0,),
+      child: SingleChildScrollView(
+        padding:  EdgeInsetsDirectional.only(start: 20,end: 20),
         child: Column(
           children: [
              const UserAccountsDrawerHeader(
@@ -30,7 +32,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                    fontWeight: FontWeight.w500,
                  ),
                ),
-
                accountEmail: Text(
                  "+5237455372562",
                  style: TextStyle(
@@ -51,17 +52,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
              ),
              InkWell(
                onTap: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (_)=>AddCarsScreen()));
+                 //Navigator.push(context, MaterialPageRoute(builder: (_)=>AddCarsScreen()));
                  setState(() {
-                   selectedItem;
+                  changeColor = !changeColor;
                  });
                },
                child: Container(
                  decoration: BoxDecoration(
-                   color:const Color(0xff000B90),
+                   color:changeColor ? const Color(0xffffffff):const Color(0xff000B90),
                    borderRadius: BorderRadius.circular(4)
                  ),
-                   width: 167,
                  child: const Padding(
                    padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
                    child: Row(
@@ -84,46 +84,52 @@ class _CustomDrawerState extends State<CustomDrawer> {
                ),
              ),
             const SizedBox(height: 8,),
-            Container(
-              decoration: BoxDecoration(
-                  color: const Color(0xff000B90),
-                  borderRadius: BorderRadius.circular(4)
-              ),
-              width: 167,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.car_crash_outlined,
-                      size: 18,
-                      color: Color(0xff999999),
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Text(
-                      "Car list",
-                      style: TextStyle(color: Color(0xff999999), fontSize: 14),
-                    ),
-                  ],
+            InkWell(
+              onTap: (){
+                setState(() {
+                  changeColor = !changeColor;
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color:changeColor ? const Color(0xffffffff):const Color(0xff000B90),
+                    borderRadius: BorderRadius.circular(4)
+                ),
+
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.directions_car_filled_outlined,
+                        size: 18,
+                        color: Color(0xff999999),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Car list",
+                        style: TextStyle(color: Color(0xff999999), fontSize: 14),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 8,),
             Container(
-
               decoration: BoxDecoration(
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
+
               child: const Padding(
                 padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
                   children: [
                     Icon(
-                      Icons.person,
+                      Icons.person_outline_outlined,
                       size: 18,
                       color: Color(0xff999999),
                     ),
@@ -144,13 +150,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
+
               child: const Padding(
                 padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
                   children: [
                     Icon(
-                      Icons.vpn_key,
+                      Icons.car_rental_outlined,
                       size: 18,
                       color: Color(0xff999999),
                     ),
@@ -171,7 +177,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
               child: const Padding(
                 padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
@@ -198,20 +203,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
+
+              child:  Padding(
+                padding: const EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.attach_money_outlined,
-                      size: 18,
-                      color: Color(0xff999999),
-                    ),
-                    SizedBox(
+                    SvgPicture.asset("assets/icon_image/income_icon.svg"),
+                    const SizedBox(
                       width: 16,
                     ),
-                    Text(
+                    const Text(
                       "Income",
                       style: TextStyle(color: Color(0xff999999), fontSize: 14),
                     ),
@@ -225,20 +226,36 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
+              child:    Padding(
+                padding: const EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.kayaking_outlined,
-                      size: 18,
-                      color: Color(0xff999999),
+                    SvgPicture.asset("assets/icon_image/Bells.svg"),
+                    const SizedBox(width: 16,),
+                    const Text(
+                      "Notifications",
+                      style: TextStyle(color: Color(0xff999999), fontSize: 14),
                     ),
-                    SizedBox(
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 8,),
+            Container(
+              decoration: BoxDecoration(
+                  color: const Color(0xffffffff),
+                  borderRadius: BorderRadius.circular(4)
+              ),
+
+              child:  Padding(
+                padding: const EdgeInsets.only(left: 8,bottom: 8,top: 8),
+                child: Row(
+                  children: [
+                    SvgPicture.asset("assets/icon_image/admin_info.svg"),
+                    const SizedBox(
                       width: 16,
                     ),
-                    Text(
+                    const Text(
                       "Admin Info",
                       style: TextStyle(color: Color(0xff999999), fontSize: 14),
                     ),
@@ -257,7 +274,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
               child: const Padding(
                 padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
@@ -284,20 +300,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
+
+              child:  Padding(
+                padding: const EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.question_mark,
-                      size: 18,
-                      color: Color(0xff999999),
-                    ),
-                    SizedBox(
+                   SvgPicture.asset("assets/icon_image/questions.svg"),
+                    const SizedBox(
                       width: 16,
                     ),
-                    Text(
+                    const Text(
                       "How to works",
                       style: TextStyle(color: Color(0xff999999), fontSize: 14),
                     ),
@@ -306,29 +318,31 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
             ),
             const SizedBox(height: 8,),
-            Container(
-              decoration: BoxDecoration(
-                  color: const Color(0xff000b90),
-                  borderRadius: BorderRadius.circular(4)
-              ),
-              width: 167,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.error_outline,
-                      size: 18,
-                      color: Color(0xff999999),
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Text(
-                      "Terms And ",
-                      style: TextStyle(color: Color(0xff999999), fontSize: 14),
-                    ),
-                  ],
+            FittedBox(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: const Color(0xff000b90),
+                    borderRadius: BorderRadius.circular(4)
+                ),
+
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.error_outline,
+                        size: 18,
+                        color: Color(0xff999999),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Terms And Conditions",
+                        style: TextStyle(color: Color(0xff999999), fontSize: 14),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -338,16 +352,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
-              child: const Padding(
+
+              child:  Padding(
                 padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.headset_mic_rounded,
-                      size: 18,
-                      color: Color(0xff999999),
-                    ),
+                    SvgPicture.asset("assets/icon_image/support.svg"),
                     SizedBox(
                       width: 16,
                     ),
@@ -365,13 +375,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: const Color(0xffffffff),
                   borderRadius: BorderRadius.circular(4)
               ),
-              width: 167,
+
               child: const Padding(
                 padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: Row(
                   children: [
                     Icon(
-                      Icons.error_outline,
+                      Icons.info_outline,
                       size: 18,
                       color: Color(0xff999999),
                     ),
@@ -397,9 +407,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                color: const Color(0xffffffff),
                borderRadius: BorderRadius.circular(4)
               ),
-               width: 167,
+
               child: Padding(
-                padding: EdgeInsets.only(left: 8,bottom: 8,top: 8),
+                padding: const EdgeInsets.only(left: 8,bottom: 8,top: 8),
                 child: InkWell(
                   onTap: () {
                     showDialog<void>(
@@ -413,7 +423,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   child: const Row(
                     children: [
                       Icon(
-                        Icons.logout,
+                        Icons.login,
                         size: 18,
                         color: Color(0xff999999),
                       ),

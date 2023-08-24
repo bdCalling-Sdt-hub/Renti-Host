@@ -124,7 +124,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                           changeIndex(index);
                                         },
                                         child: Icon(
-                                         isClicked ? Icons.arrow_downward : Icons.keyboard_arrow_down_rounded,
+                                         isClicked ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
                                          color:  const Color(0xff2E2C2C),
                                          size: 18,
                                          weight: 10

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/active_details.dart';
 import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/custom_alert_box.dart';
+import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/document_file.dart';
+import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/pop_menu.dart';
 import 'package:renti_host/view/screens/car_details/car_details/inner_wigdets/reserved_details.dart';
 
 class CarDetailsScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class CarDetailsScreen extends StatefulWidget {
 }
 
 class _CarDetailsScreenState extends State<CarDetailsScreen> {
-  List documentsName = ["Circulation card","Environmental  verification hologram","REPUVE","Car insurance policy","Car License",];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon:  Icon(
+          icon:  const Icon(
             Icons.arrow_back_ios_new,
             color: Color(0xff2E2C2C),
             size: 18,
@@ -38,69 +39,8 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        actions: [
-          PopupMenuButton(
-              color: Color(0xffffffff),
-              icon: const Icon(
-                Icons.more_vert_outlined,
-                color: Colors.black,
-              ),
-              elevation: 1,
-              position: PopupMenuPosition.under,
-              itemBuilder: (context) => [
-                    const PopupMenuItem(
-                        child: Row(
-                      children: [
-                        Icon(
-                          Icons.note_alt_rounded,
-                          size: 20,
-                          color: Color(0xff2E2C2C),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          "Edit Car",
-                          style: TextStyle(
-                              color: Color(0xff2E2C2C),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ],
-                    )),
-                    PopupMenuItem(
-                      child: InkWell(
-                        onTap: () {
-                          showDialog<void>(
-                            context: context,
-                            barrierDismissible: false, // user must tap button!
-                            builder: (BuildContext context) {
-                              return const CustomAlertBox2();
-                            },
-                          );
-                        },
-                        child: const Row(
-                          children: [
-                            Icon(
-                              Icons.delete,
-                              size: 20,
-                              color: Color(0xffD7263D),
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              "Delete Car",
-                              style: TextStyle(
-                                  color: Color(0xffD7263D),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ]),
+        actions: const [
+          PopUpMenu()
           // Icon(Icons.more_vert_outlined,color: Colors.black,)
         ],
       ),
@@ -141,9 +81,9 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                   Container(
                     width: 71,
                     // alignment: Alignment.center,
-                    padding: EdgeInsetsDirectional.symmetric(vertical: 0, horizontal: 12),
+                    padding: const EdgeInsetsDirectional.symmetric(vertical: 0, horizontal: 12),
                     decoration: BoxDecoration(
-                      color: Color(0xffE6F6F4),
+                      color: const Color(0xffE6F6F4),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: const Padding(
@@ -160,26 +100,9 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                const ReservedDetails(),
 
               const SizedBox(height: 16,),
-              const Text("Documents",style: TextStyle(color: Color(0xff2E2C2C) ,fontSize: 18,fontWeight:FontWeight.w500 ,)),
-              const SizedBox(height: 24,),
-              Column(
-                children: List.generate(documentsName.length, (index){
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0, ),
-                    child: InkWell(
-                      onTap: (){
-                      },
-                      child: Row(
-                        children: [
-                          const Image(image: AssetImage("assets/icon_image/pdf_icon.png"),height: 25,width: 25,),
-                          const SizedBox(width: 16,),
-                          Text(documentsName[index],style: TextStyle(color: Color(0xff2E2C2C) ,fontSize: 12,fontWeight:FontWeight.w400 ,))
-                        ],
-                      ),
-                    ),
-                  );
-                }),
-              )
+
+              DocumentsFiles()
+
 
             ],
           ),
