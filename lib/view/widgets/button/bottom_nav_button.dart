@@ -10,7 +10,6 @@ class BottomNavButton extends StatelessWidget {
   final VoidCallback ? onTap;
   final String buttonName;
   final Color  buttonColor;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,15 +21,14 @@ class BottomNavButton extends StatelessWidget {
           height: 57,
           width: MediaQuery.of(context).size.width,
           child: ElevatedButton(
-
               onPressed: onTap,
               style: ElevatedButton.styleFrom(
                 elevation: 0,
                   shape: RoundedRectangleBorder(
-                      borderRadius:
-                      BorderRadius.circular(5)),
-                  backgroundColor: buttonColor
-              ),
+
+                      borderRadius: BorderRadius.circular(5)),
+                      backgroundColor: buttonColor
+                     ),
               child:  Text(
                 buttonName,
                 style: const TextStyle(

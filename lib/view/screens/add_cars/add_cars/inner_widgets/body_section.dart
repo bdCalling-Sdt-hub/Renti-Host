@@ -9,7 +9,7 @@ class AddCarBodySection extends StatefulWidget {
 }
 
 class _AddCarBodySectionState extends State<AddCarBodySection> {
-  List years = ["2020","2929","2021","2023","2020","2012","2015", "2024","2020","2929","2021", "2023","2012","2015", "2024","2020","2929","2021", "2023"];
+  List years = ["2020","2929","2021","2023","2020","2020","2929","2021","2023","2020","2020","2929","2021","2023","2020", ];
   bool isClicked = true;
   String iniTialValue= "year";
   @override
@@ -30,6 +30,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
         Row(
           children: [
             Expanded(
+              flex: 3,
               child: TextFormField(
                 showCursor: false,
                 style: const TextStyle(color: Color(0xff2E2C2C)),
@@ -53,36 +54,37 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
               ),
             ),
            const SizedBox(width: 8,),
-           PopupMenuButton(
-             onSelected: (val) => setState(() => iniTialValue = val),
-             initialValue: iniTialValue,
-             position: PopupMenuPosition.under,
-             elevation: 1,
-             offset: const Offset(0, 1),
-             itemBuilder: (context) {
-               return List.generate(years.length, (index) {
-                 return  PopupMenuItem(
-                     child: Text(years[index],style: const TextStyle(color: Color(0xff2E2C2C),fontSize:14, fontWeight:FontWeight.w400 ),),
-                 );
-               }
-               );
-
-             },
-             child: GestureDetector(
-               onTap: (){
-                 setState(() {
-                   isClicked == !isClicked;
-                 });
-
-               },
-               child: Container(
-                 padding: const EdgeInsetsDirectional.symmetric(horizontal: 16,vertical: 16),
-                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
-                     border: Border.all(color: const Color(0xffcccccc),width: 1)),
-                 child:  isClicked? const Icon(Icons.keyboard_arrow_down):const Icon(Icons.keyboard_arrow_down),
-
+           Expanded(
+             child: Container(
+               height: 58,
+               width: 58,
+               decoration: BoxDecoration(
+                   borderRadius: BorderRadius.circular(8),
+                   border: Border.all(color: const Color(0xffcccccc)
+                   )
                ),
-             ),
+               child: PopupMenuButton(
+                 position: PopupMenuPosition.under,
+               icon:  isClicked ? InkWell(
+                   onTap: (){
+                     setState(() {
+                       isClicked = !isClicked;
+                     });
+                   },
+                   child: const Icon(Icons.keyboard_arrow_down_outlined)):const Icon(Icons.keyboard_arrow_up_outlined),
+                itemBuilder: (context) {
+                    return years.map((item) {
+                    return PopupMenuItem(
+                     value: item,
+                     child: Center(child: Text(item)),
+                    );
+                  }).toList();
+                 },
+                  onSelected: (item) {
+                 print(item);
+                },
+                ),
+             )
            )
           ],
         ),
@@ -112,8 +114,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                 borderRadius: BorderRadius.circular(8)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide:
-                const BorderSide(color: Color(0xffCCCCCC), width: 1)),
+                borderSide: const BorderSide(color: Color(0xffCCCCCC), width: 1)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide:
@@ -136,7 +137,6 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
         // car description  field
         SizedBox(
           height: 100,
-
           child: TextFormField(
             textInputAction: TextInputAction.newline,
             keyboardType: TextInputType.multiline,
