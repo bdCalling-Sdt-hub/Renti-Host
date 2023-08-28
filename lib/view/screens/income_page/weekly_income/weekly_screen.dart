@@ -29,10 +29,10 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          backgroundColor: Color(0xffffffff),
+          backgroundColor: const Color(0xffffffff),
           leading: IconButton(
             onPressed: () {
-               Navigator.push(context, MaterialPageRoute(builder: (_)=>IncomeScreen()));
+               Navigator.push(context, MaterialPageRoute(builder: (_)=>const IncomeScreen()));
             },
             icon: const Icon(
               Icons.arrow_back_ios,
@@ -54,7 +54,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                       decoration: ShapeDecoration(
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                          side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         shadows: const [
@@ -95,8 +95,8 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                SizedBox(height: 16),
-                                Row(
+                                const SizedBox(height: 16),
+                                const Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text.rich(
@@ -132,11 +132,11 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 16),
+                                const SizedBox(height: 16),
                                 Text.rich(
                                   TextSpan(
                                     children: [
-                                      TextSpan(
+                                      const TextSpan(
                                         text: 'Trip no: ',
                                         style: TextStyle(
                                           color: Color(0xFF999999),
@@ -146,7 +146,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                       ),
                                       TextSpan(
                                         text: tripNo[index].toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color(0xFF2E2C2C),
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,

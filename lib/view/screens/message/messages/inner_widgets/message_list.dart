@@ -90,7 +90,7 @@ class MessageList extends StatelessWidget {
                                 onTap: (){
                                 },
                                 child: Container(
-                                  padding: EdgeInsetsDirectional.symmetric(vertical: 12),
+                                  padding: const EdgeInsetsDirectional.symmetric(vertical: 12),
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                       color: const Color(0xffFBE9EC),
@@ -107,7 +107,7 @@ class MessageList extends StatelessWidget {
                                 },
                                 child: Container(
                                   //alignment: Alignment.bottomRight,
-                                  padding: EdgeInsetsDirectional.symmetric(vertical: 12),
+                                  padding: const EdgeInsetsDirectional.symmetric(vertical: 12),
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: const Color(0xff000B90),
@@ -122,91 +122,99 @@ class MessageList extends StatelessWidget {
                       ],
                     )
                   );
-                }
-                );
-                },
-                backgroundColor: const Color(0xFFD7263D),
-                icon : CupertinoIcons.delete,
-              ),
-              ]),
-              child: Card(
-                shadowColor: const Color(0xff000000).withOpacity(0.1),
-                elevation: 10,
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(vertical: 20,horizontal: 20),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Image(
-                            image: AssetImage("assets/images/Avaterkala.png"),width: 52,height:52 ,),
-                          const SizedBox(width: 8,),
-                          Expanded(
-                              flex: 1,
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:  [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        const Text("John Doe",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500)),
-                                        dataList[index]["status"] == "Reserved"
-                                            ? Container(
-                                            padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                color: const Color(0xffE6F6F4),
-                                                borderRadius: BorderRadius.circular(4)
-                                            ),
-                                            child: const Text(
-                                              "Complete",
-                                              style: TextStyle(
-                                                  color: Color(0xff00A991),
-                                                  fontSize: 10,fontWeight:FontWeight.w400
-                                              ),
-                                            )) :
-                                        Container(
-                                          height: 22,
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 12, vertical: 4),
-                                          decoration: ShapeDecoration(
-                                            color: const Color(0xFFE6F6F4),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                BorderRadius.circular(4)),
+                    });
+                    },
+                    backgroundColor: const Color(0xFFD7263D),
+                    icon : CupertinoIcons.delete,),
+                 ]),
+
+              child: Container(
+                margin: EdgeInsets.only(bottom: 8),
+                  width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(16),
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    shadows: [
+                      BoxShadow(
+                        color: Color(0x19000000),
+                        blurRadius: 10,
+                        offset: Offset(0, 1),
+                        spreadRadius: 0,
+                      )
+                    ],
+                ),
+
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Image(
+                          image: AssetImage("assets/images/Avaterkala.png"),width: 52,height:52 ,),
+                        const SizedBox(width: 8,),
+                        Expanded(
+                            flex: 1,
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children:  [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text("Bessie Cooper",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500)),
+                                      dataList[index]["status"] == "Reserved"
+                                          ? Container(
+                                          padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                              color: const Color(0xffE6F6F4),
+                                              borderRadius: BorderRadius.circular(4)
                                           ),
                                           child: const Text(
-                                            'Reserved',
+                                            "Complete",
                                             style: TextStyle(
-                                              color: Color(0xFFD7263D),
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w400,
+                                                color: Color(0xff00A991),
+                                                fontSize: 10,fontWeight:FontWeight.w400
                                             ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    const SizedBox(height: 8,),
-                                    const Expanded(
-                                      flex: 0,
-                                      child: Text(
-                                          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
-                                          maxLines: 2,
+                                          )) :
+                                      Container(
+                                        height: 22,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 12, vertical: 4),
+                                        decoration: ShapeDecoration(
+                                          color: const Color(0xFFE6F6F4),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(4)),
+                                        ),
+                                        child: const Text(
+                                          'Reserved',
                                           style: TextStyle(
-                                              color: Color(0xff737373),
-                                              fontSize: 14,fontWeight:FontWeight.w400
-                                          )
-                                      ),
-                                    ),
-                                  ]
-                              )
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                                            color: Color(0xFFD7263D),
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8,),
+                                  const Text(
+                                      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                          color: Color(0xff737373),
+                                          fontSize: 14,fontWeight:FontWeight.w400
+                                      )
+                                  ),
+                                ]
+                            )
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),

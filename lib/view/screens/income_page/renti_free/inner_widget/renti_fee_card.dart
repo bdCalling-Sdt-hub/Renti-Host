@@ -159,7 +159,6 @@ class _RentiFeeCardState extends State<RentiFeeCard> {
                                       color: Color(0xFF000B90),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
-                                      height: 1.40,
                                     ),
                                   ),
                                   Text(

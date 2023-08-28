@@ -51,7 +51,7 @@ class _DialogBoxState extends State<DialogBox> {
                 crossAxisAlignment:CrossAxisAlignment.center,
                 children: [
                   Expanded(
-                    flex: 6,
+                    flex: 2,
                     child: Row(
                       children: [
                         Container(
@@ -96,9 +96,8 @@ class _DialogBoxState extends State<DialogBox> {
                       ],
                     ),
                   ),
-                  
                   Expanded(
-                    flex: 2,
+                    flex: 0,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,

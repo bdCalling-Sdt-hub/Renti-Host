@@ -18,7 +18,7 @@ class CarDetailsBody extends StatelessWidget {
               Text("06 aug 2023- 07 aug 2023",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -27,7 +27,7 @@ class CarDetailsBody extends StatelessWidget {
               Text("24 hours",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -36,7 +36,7 @@ class CarDetailsBody extends StatelessWidget {
               Text("+52 12837494",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -45,7 +45,7 @@ class CarDetailsBody extends StatelessWidget {
               Text("Privada Calle 109 - Piso 4",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
