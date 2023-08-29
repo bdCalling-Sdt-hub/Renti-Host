@@ -68,12 +68,12 @@ class _SelectPhotoScreenState extends State<SelectPhotoScreen> {
 
                             ),
                             child: Container(
-                              
+
                               child: Icon(Icons.camera_alt_outlined,size: 54,color: Color(0xffB0B3DD),),
                               margin: EdgeInsets.all(10),
-                              
-                              
-                             
+
+
+
                               decoration: BoxDecoration(
                                 color: Color(0xffE6E7F4),
                                 shape: BoxShape.circle
@@ -82,7 +82,7 @@ class _SelectPhotoScreenState extends State<SelectPhotoScreen> {
                               width: 130,
                             ),
                           ),
-                        
+
                           const SizedBox(height: 16,),
 
                           const Text(

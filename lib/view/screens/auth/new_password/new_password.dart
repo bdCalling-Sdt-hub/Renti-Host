@@ -18,7 +18,7 @@ class _New_PasswordState extends State<UpdatePassScreen> {
       child: Scaffold(
         extendBody: true,
         bottomNavigationBar: CustomButton(onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (_)=>VerifyOtpScreen()));
+
         }, buttonName: "Reset", buttonColor: Color(0xff000B90)),
         backgroundColor: Color(0xFF000b90),
         appBar: AppBar(
@@ -55,7 +55,7 @@ class _New_PasswordState extends State<UpdatePassScreen> {
                 ),
                 child: Padding(
                   padding:const  EdgeInsets.only(
-                      left: 20, right: 20, bottom: 24, top: 24),
+                      left: 20, right: 20, bottom: 40, top: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -117,6 +117,7 @@ class _New_PasswordState extends State<UpdatePassScreen> {
                               }
                             },
                           ),
+                          SizedBox(height: 16,),
                           const Text(
                             'Confirm Password',
                             style: TextStyle(
@@ -170,7 +171,6 @@ class _New_PasswordState extends State<UpdatePassScreen> {
                   ),
                 ),
               ),
-
             )
         ),
       ),

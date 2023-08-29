@@ -43,15 +43,15 @@ class _SecondSignUpScreenState extends State<SecondSignUpScreen> {
         ),
         body:  LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-                  child: Container(
-                      height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context).size.width,
-                      decoration:  const BoxDecoration(
-                          color: Color(0xFFFBFBFB),
-                          // color: Color(0xFFFBFBFB),
-                          borderRadius: BorderRadius.only(bottomLeft: Radius.zero,bottomRight: Radius.zero,topLeft: Radius.circular(8),topRight: Radius.circular(8))
-                      ),
+                Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    decoration:  const BoxDecoration(
+                        color: Color(0xFFFBFBFB),
+                        // color: Color(0xFFFBFBFB),
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.zero,bottomRight: Radius.zero,topLeft: Radius.circular(8),topRight: Radius.circular(8))
+                    ),
+                  child: SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 20, right: 20, bottom: 24, top: 24),

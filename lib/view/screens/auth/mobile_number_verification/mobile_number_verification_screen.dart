@@ -137,7 +137,6 @@ class _MobileNumberVerificationScreenState extends State<MobileNumberVerificatio
                   ),
                 ),
               ),
-
             )
         ),
         bottomNavigationBar: CustomButton(

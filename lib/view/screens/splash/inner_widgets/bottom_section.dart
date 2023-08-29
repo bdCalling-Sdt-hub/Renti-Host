@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:renti_host/view/screens/auth/signin/signin_screen.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/term&condition_screen.dart';
 import '../../select_language/select_language_screen.dart';
 import '../../settings/settings/settings_screen.dart';
@@ -36,7 +37,7 @@ class _BottomSectionState extends State<BottomSection> {
           width: MediaQuery.of(context).size.width,
           child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>const SettingsScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

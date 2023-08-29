@@ -21,13 +21,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
     'Korean',
     'Swedish',
     'Bangla'
-    'Spanish',
-    'Japanese',
-    'Chinese',
-    'Dutch',
-    'Korean',
-    'Swedish',
-    'Bangla'
+
   ];
   int selectedItem = 0;
 
