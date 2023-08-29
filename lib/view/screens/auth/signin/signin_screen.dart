@@ -18,7 +18,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF000b90),
+        backgroundColor: const Color(0xFF000b90),
         appBar: AppBar(
           titleSpacing: -8,
           leading: IconButton(
@@ -54,6 +54,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       padding: const EdgeInsets.only(
                           left: 20, right: 20, bottom: 24, top: 24),
                       child: Column(
+
                         children: [
 
                           Form(
@@ -74,7 +75,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                                 TextFormField(
 
-                                  style: TextStyle(color: Color(0xFF2E2C2C)),
+                                  style: const TextStyle(color: Color(0xFF2E2C2C)),
                                   maxLines: 1,
                                   keyboardType: TextInputType.text,
                                   decoration:const InputDecoration(
@@ -132,27 +133,27 @@ class _SignInScreenState extends State<SignInScreen> {
                                       setState(() {
                                         isClicked=!isClicked;
                                       });
-                                    }, icon: isClicked ? Icon(Icons.visibility_off) : Icon(Icons.visibility)),
-                                    fillColor: Color(0xFFFFFFFF),
+                                    }, icon: isClicked ? const Icon(Icons.visibility_off,color: Color(0xffCCCCCC),size: 14,) : const Icon(Icons.visibility,color: Color(0xffCCCCCC),size: 14,)),
+                                    fillColor: const Color(0xFFFFFFFF),
                                     hintText: 'Type password here...',
-                                    hintStyle: TextStyle(
+                                    hintStyle: const TextStyle(
                                         letterSpacing: 1,
                                         color: Color(0xFFCCCCCC)),
                                     filled: true,
-                                    border: OutlineInputBorder(
+                                    border: const OutlineInputBorder(
                                         borderSide:
                                         BorderSide(color: Colors.red)),
-                                    focusedBorder: OutlineInputBorder(
+                                    focusedBorder: const OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0xFFCCCCCC),
                                       ),
                                     ),
-                                    errorBorder: OutlineInputBorder(
+                                    errorBorder: const OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0xFFCCCCCC),
                                       ),
                                     ),
-                                    enabledBorder: OutlineInputBorder(
+                                    enabledBorder: const OutlineInputBorder(
                                         borderSide:
                                         BorderSide(color: Color(0xFFCCCCCC))),
                                   ),
@@ -171,7 +172,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (_)=>Forgot_Password_Screen()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (_)=>const Forgot_Password_Screen()));
                                   },
                                   child:const Align(
                                     alignment: Alignment.bottomRight,
@@ -196,7 +197,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                           print('Failed');
                                         }
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         'Sign In',
                                         style: TextStyle(
                                             color: Color(0xffFFFFFF),
@@ -207,7 +208,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
                                             BorderRadius.circular(5)),
-                                        backgroundColor: Color(0xFF000B90),
+                                        backgroundColor: const Color(0xFF000B90),
                                       )),
                                 ),
                               ],
@@ -233,9 +234,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                 height: 46,
                                     width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
-                                    color: Color(0xFFFFFFFF),
+                                    color: const Color(0xFFFFFFFF),
                                     border: Border.all(
-                                        width: 1, color: Color(0xFFE6E7F4)),
+                                        width: 1, color: const Color(0xFFE6E7F4)),
                                     borderRadius: BorderRadius.circular(8)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -269,7 +270,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 decoration: BoxDecoration(
                                     color:const Color(0xFFFFFFFF),
                                     border: Border.all(
-                                        width: 1, color: Color(0xFFE6E7F4)),
+                                        width: 1, color: const Color(0xFFE6E7F4)),
                                     borderRadius: BorderRadius.circular(8)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -309,7 +310,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             const SizedBox(width: 2,),
                             GestureDetector(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (_)=>FirstSignUpScreen()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const FirstSignUpScreen()));
                                 },
                                 child:const Text(
                                   'Sign Up',

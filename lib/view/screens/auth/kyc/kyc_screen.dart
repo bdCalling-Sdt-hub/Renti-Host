@@ -67,7 +67,7 @@ class _Kyc_ScreenState extends State<Kyc_Screen> {
                             children: [
                               Container(
                                 height: 146,
-                                width: 350,
+                                width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
                                     color: const Color(0xffe6e7f4),
                                     borderRadius: BorderRadius.circular(8)),

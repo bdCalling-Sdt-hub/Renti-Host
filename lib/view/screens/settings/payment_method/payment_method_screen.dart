@@ -46,83 +46,85 @@ class _Payment_Method_ScreenState extends State<Payment_Method_Screen> {
       ),
       body:  Padding(
         padding: const EdgeInsets.only(top:16,left: 20,right: 20,bottom: 24),
-        child: Column(
-          children: [
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
 
 
-             const SizedBox(height: 24,),
-             Column(
-              children: List.generate( 4, (index){
-              return   Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: InkWell(
-                  onTap: (){
+               const SizedBox(height: 24,),
+               Column(
+                children: List.generate( 4, (index){
+                return   Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: InkWell(
+                    onTap: (){
 
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=>const DebitCardNameScreen()));
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: const Color(0xffcccccc),width: 1)
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                SvgPicture.asset("assets/images/debit_card.svg"),
-                                const SizedBox(width: 16,),
-                                const Text('Debit Card',style: TextStyle(
-                                  color: Color(0xFF2E2C2C),
-                                  fontSize: 16,
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>const DebitCardNameScreen()));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: const Color(0xffcccccc),width: 1)
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  SvgPicture.asset("assets/images/debit_card.svg"),
+                                  const SizedBox(width: 16,),
+                                  const Text('Debit Card',style: TextStyle(
+                                    color: Color(0xFF2E2C2C),
+                                    fontSize: 16,
 
-                                  fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w500,
 
-                                ),),
-                              ],
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16,
-                              color: Color(0xFF2E2C2C),
-                            )
-                          ],
-                        ),
+                                  ),),
+                                ],
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16,
+                                color: Color(0xFF2E2C2C),
+                              )
+                            ],
+                          ),
+                      ),
                     ),
                   ),
+                );
+
+                }
                 ),
-              );
-
-              }
               ),
-            ),
-            const SizedBox(height: 28,),
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>const AddDebitCardScreen()));
-              },
-              child: const Row(
-                children: [
-                  Icon(Icons.add_circle_outline,
-                    color: Color(0xFF000B90),
-                    size: 24,
-                  ),
-                  SizedBox(width: 8,),
-                  Text("Add Card",
-                    style: TextStyle(
+              const SizedBox(height: 28,),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const AddDebitCardScreen()));
+                },
+                child: const Row(
+                  children: [
+                    Icon(Icons.add_circle_outline,
                       color: Color(0xFF000B90),
-                      fontSize: 18,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      height: 1.40,
+                      size: 24,
                     ),
-                  )
-                ],
+                    SizedBox(width: 8,),
+                    Text("Add Card",
+                      style: TextStyle(
+                        color: Color(0xFF000B90),
+                        fontSize: 18,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        height: 1.40,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
 
