@@ -9,7 +9,6 @@ class WeeklyScreen extends StatefulWidget {
   @override
   State<WeeklyScreen> createState() => _WeeklyScreenState();
 }
-
 List <int> tripNo = [
   1,7,5,6,7,
 ];
@@ -27,15 +26,13 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
             style: TextStyle(
               color: Color(0xFF2E2C2C),
               fontSize: 18,
-              fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
-              height: 1.40,
             ),
           ),
-          backgroundColor: Color(0xffffffff),
+          backgroundColor: const Color(0xffffffff),
           leading: IconButton(
             onPressed: () {
-               Navigator.push(context, MaterialPageRoute(builder: (_)=>IncomeScreen()));
+               Navigator.push(context, MaterialPageRoute(builder: (_)=>const IncomeScreen()));
             },
             icon: const Icon(
               Icons.arrow_back_ios,
@@ -57,7 +54,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                       decoration: ShapeDecoration(
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
+                          side: const BorderSide(width: 0.50, color: Color(0xFFE6E7F4)),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         shadows: const [
@@ -85,23 +82,21 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                             ),
                           ),
                           const SizedBox(width: 8,),
-                          const Expanded(
+                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Toyota Harrier',
                                   style: TextStyle(
                                     color: Color(0xFF000B90),
                                     fontSize: 14,
-                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w700,
-                                    height: 1.40,
                                   ),
                                 ),
-                                SizedBox(height: 16),
-                                Row(
+                                const SizedBox(height: 16),
+                                const Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text.rich(
@@ -112,9 +107,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                             style: TextStyle(
                                               color: Color(0xFF999999),
                                               fontSize: 10,
-                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w400,
-                                              height: 1.40,
                                             ),
                                           ),
                                           TextSpan(
@@ -122,9 +115,7 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                             style: TextStyle(
                                               color: Color(0xFF2E2C2C),
                                               fontSize: 12,
-                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w500,
-                                              height: 1.40,
                                             ),
                                           ),
                                         ],
@@ -136,35 +127,29 @@ class _WeeklyScreenState extends State<WeeklyScreen> {
                                       style: TextStyle(
                                         color: Color(0xFF000B90),
                                         fontSize: 14,
-                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w700,
-                                        height: 1.40,
                                       ),
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 16),
+                                const SizedBox(height: 16),
                                 Text.rich(
                                   TextSpan(
                                     children: [
-                                      TextSpan(
+                                      const TextSpan(
                                         text: 'Trip no: ',
                                         style: TextStyle(
                                           color: Color(0xFF999999),
                                           fontSize: 10,
-                                          fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w400,
-                                          height: 1.40,
                                         ),
                                       ),
                                       TextSpan(
-                                        text: ("07"),
-                                        style: TextStyle(
+                                        text: tripNo[index].toString(),
+                                        style: const TextStyle(
                                           color: Color(0xFF2E2C2C),
                                           fontSize: 12,
-                                          fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w500,
-                                          height: 1.40,
                                         ),
                                       ),
                                     ],

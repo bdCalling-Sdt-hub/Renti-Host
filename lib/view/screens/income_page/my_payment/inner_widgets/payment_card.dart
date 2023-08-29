@@ -280,16 +280,15 @@ class _PaymentCardState extends State<PaymentCard> {
                             ],
                           ),
                         ),
-
                       ],
                     )
                 ),
                 isExpanded ? Container(
                     width: MediaQuery.of(context).size.width,
                     margin: const EdgeInsetsDirectional.symmetric(horizontal: 4),
-                    padding: const EdgeInsetsDirectional.symmetric(vertical: 16, horizontal: 11),
+                    padding: const EdgeInsetsDirectional.symmetric(vertical: 16, horizontal: 12),
                     decoration: const ShapeDecoration(
-                      color: Colors.white,
+                     color: Colors.white,
                       shape: RoundedRectangleBorder(
                         side: BorderSide(width: 0.25, color: Color(0xFFE6E7F4)),
                         borderRadius: BorderRadius.only(

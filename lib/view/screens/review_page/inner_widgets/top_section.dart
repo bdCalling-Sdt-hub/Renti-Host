@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 class ReviewTopSection extends StatelessWidget {
   const ReviewTopSection({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,11 +14,11 @@ class ReviewTopSection extends StatelessWidget {
           Container(
               width: 70,
               height: 70,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(image: AssetImage("assets/images/Avater.png"))
               )
           ),
-          const SizedBox(width: 8,),
+          const SizedBox(width: 8),
           const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -30,7 +28,6 @@ class ReviewTopSection extends StatelessWidget {
                   color: Color(0xFF2E2C2C),
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
-
                 ),
               ),
               Row(
@@ -55,7 +52,6 @@ class ReviewTopSection extends StatelessWidget {
                         color: Color(0xFF999999),
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
-
                       ),
                     ),
                     TextSpan(
@@ -99,11 +95,13 @@ class ReviewTopSection extends StatelessWidget {
         Container(
           width: 70,
           height: 70,
-          decoration: const BoxDecoration(
-               shape: BoxShape.circle,
-               image: DecorationImage(
+          decoration: ShapeDecoration(
+            image: const DecorationImage(
               image: AssetImage("assets/images/Carphoto.png"),
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40),
             ),
           ),
         )

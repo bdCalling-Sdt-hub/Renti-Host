@@ -5,12 +5,12 @@ class CarDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical:24),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical:24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Rent date:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -18,8 +18,8 @@ class CarDetailsBody extends StatelessWidget {
               Text("06 aug 2023- 07 aug 2023",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          const SizedBox(height: 8,),
-          const Row(
+          SizedBox(height: 8),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Total time:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -27,8 +27,8 @@ class CarDetailsBody extends StatelessWidget {
               Text("24 hours",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          const SizedBox(height: 8,),
-          const Row(
+          SizedBox(height: 8),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Contact:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -36,8 +36,8 @@ class CarDetailsBody extends StatelessWidget {
               Text("+52 12837494",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          const SizedBox(height: 8,),
-          const Row(
+          SizedBox(height: 8),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Location:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
@@ -45,8 +45,8 @@ class CarDetailsBody extends StatelessWidget {
               Text("Privada Calle 109 - Piso 4",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
             ],
           ),
-          const SizedBox(height: 8,),
-          const Row(
+          SizedBox(height: 8),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Total amount:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),

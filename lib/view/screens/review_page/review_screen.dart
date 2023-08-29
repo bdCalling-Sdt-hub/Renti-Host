@@ -12,6 +12,7 @@ class _ReviewScreenState extends State<AllReviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:const Color(0xffffffff),
       appBar: AppBar(
           centerTitle: false,
           elevation: 0,
@@ -21,7 +22,7 @@ class _ReviewScreenState extends State<AllReviewScreen> {
           backgroundColor:const Color(0xffffffff),
           leading: IconButton(onPressed: (){
             // Navigator.push(context, MaterialPageRoute(builder: (_)=>UserRequestScreen()));
-          }, icon:const Icon(Icons.arrow_back_ios,),color: Colors.black,)
+          }, icon:const Icon(Icons.arrow_back_ios,size: 18,),color: Color(0xff2E2C2C),)
       ),
       body: LayoutBuilder(
         builder: (context,constraint){
@@ -52,7 +53,7 @@ class _ReviewScreenState extends State<AllReviewScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                             ReviewTopSection(),
-                            SizedBox(height: 8,),
+                            SizedBox(height:8),
                             Text(
                             'Lorem ipsum dolor sit amet consectetur. Congue fames egestas tristique nisl sit nec eu scelerisque nam. Et senectus sed morbi quam.',
                             style: TextStyle(

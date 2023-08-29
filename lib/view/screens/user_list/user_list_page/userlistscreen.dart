@@ -11,6 +11,7 @@ class _UserListScreenState extends State<UserListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:const Color(0xffffffff) ,
         appBar: AppBar(
             centerTitle: false,
             elevation: 0,

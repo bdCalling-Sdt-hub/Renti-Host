@@ -83,7 +83,7 @@ class _UserDetailsState extends State<UserDetails> {
                         borderRadius: BorderRadius.circular(8)),
                     shadows: [
                       BoxShadow(
-                        color: const Color(0xff000000).withOpacity(0.01),
+                        color: const Color(0xff000000).withOpacity(0.10),
                         blurRadius: 10,
                       )
                     ],
@@ -144,9 +144,7 @@ class _UserDetailsState extends State<UserDetails> {
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 41,
-                      ),
+
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment:
@@ -155,10 +153,8 @@ class _UserDetailsState extends State<UserDetails> {
                           dataList[index]["status"]=="Reserved"? const CompleteContainer():const ReservedContainer(),
                           const SizedBox(height: 8),
                           Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.center,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
                                 width: 24,

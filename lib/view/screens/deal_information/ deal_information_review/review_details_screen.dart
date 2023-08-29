@@ -18,6 +18,7 @@ class _ReviewState extends State<ReviewDetailsScreen> {
       child: Scaffold(
         backgroundColor: const Color(0xffffffff),
         appBar: AppBar(
+            titleSpacing: -8,
             centerTitle: false,
             elevation: 0,
             title: const Text('Car Deal Information',

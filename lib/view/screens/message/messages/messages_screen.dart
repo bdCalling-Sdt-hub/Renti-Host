@@ -6,53 +6,11 @@ class MessageScreen extends StatefulWidget {
   @override
   State<MessageScreen> createState() => _MessageScreenState();
 }
-List<Map<String, String>> dataList = [
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Reserved",
-  },
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Complete",
-  },
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Reserved",
-  },
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Complete",
-  },
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Complete",
-  },
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Reserved",
-  },
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Complete",
-  },
-  {
-    "image": "assets/images/Carphoto.png",
-    "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-    "status": "Reserved",
-  },
-];
-
 class _MessageScreenState extends State<MessageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor:const Color(0xffffffff),
       appBar:  AppBar(
         centerTitle: false,
         automaticallyImplyLeading: false,

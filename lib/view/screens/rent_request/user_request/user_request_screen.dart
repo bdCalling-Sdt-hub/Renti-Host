@@ -3,6 +3,7 @@ import 'package:renti_host/view/screens/rent_request/user_request/inner_widgets/
 
 import '../user_details/user_details_screen.dart';
 
+
 class UserRequestScreen extends StatefulWidget {
   const UserRequestScreen({super.key});
 
@@ -21,7 +22,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
             centerTitle: false,
             backgroundColor:const Color(0xffffffff),
             elevation: 0,
-            title: const Text("Users Request",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),
+            title: const Text("Users Request",style: TextStyle(color: Color(0xFF2E2C2C),fontSize: 18,fontWeight: FontWeight.w600),
             ),
           ),
           body: LayoutBuilder(
@@ -44,7 +45,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                               BoxShadow(
                                 color: const Color(0xff000000).withOpacity(0.1),
                                 blurRadius: 10,
-                                offset: Offset(0, 1)
+                                offset: const Offset(0, 1)
                               )
                             ]
                           ),

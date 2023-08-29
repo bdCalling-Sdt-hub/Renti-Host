@@ -16,7 +16,8 @@ class _EndTripState extends State<EndTripScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
+        backgroundColor: const Color(0xffffffff),
+        appBar: AppBar(titleSpacing: -8,
             centerTitle: false,
             elevation: 0,
             title: const Text('Car Deal Information',
