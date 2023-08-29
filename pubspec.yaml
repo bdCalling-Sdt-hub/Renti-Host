@@ -35,12 +35,16 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  pin_code_fields: ^7.4.0
-  dotted_border: ^2.0.0+3
-  google_fonts: ^5.1.0
-  flutter_svg: ^2.0.7
-  intl_phone_field: ^3.2.0
-  syncfusion_flutter_sliders: ^22.2.9
+  pin_code_fields:
+  dotted_border:
+  google_fonts:
+  flutter_svg:
+  intl_phone_field:
+  syncfusion_flutter_sliders:
+  flutter_dismissible_tile:
+  animated_card:
+  flutter_slidable:
+  flutter_rating_bar:
 
 dev_dependencies:
   flutter_test:
