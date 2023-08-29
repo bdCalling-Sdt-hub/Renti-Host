@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/%20home/home/home_screen.dart';
-import 'package:renti_host/view/screens/car_list/car_list/car_list_screen.dart';
-
-
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-        home:HomeScreen()
+      defaultTransition: Transition.noTransition,
+      transitionDuration: const Duration(milliseconds: 200),
+      initialRoute: AppRoute.splashScreen,
+      navigatorKey: Get.key,
+      getPages: AppRoute.routes,
     );
   }
 }
-
