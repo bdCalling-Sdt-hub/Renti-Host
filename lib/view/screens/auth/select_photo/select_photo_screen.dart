@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../widgets/button/custom_button.dart';
 import '../kyc/kyc_screen.dart';
 import '../mobile_number_verification/mobile_number_verification_screen.dart';
 
@@ -98,13 +96,7 @@ class _SelectPhotoScreenState extends State<SelectPhotoScreen> {
                     ),
                   ),
                 )),
-            bottomNavigationBar: CustomButton(
-          buttonName: "Continue",
-          buttonColor: Color(0xff000b90),
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>MobileNumberVerificationScreen()));
-          },
-        ),
+
       ),
     );
   }

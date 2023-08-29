@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/widgets/button/custom_button.dart';
 
 import '../kyc/kyc_screen.dart';
 import '../signin/signin_screen.dart';
@@ -310,13 +309,7 @@ class _SecondSignUpScreenState extends State<SecondSignUpScreen> {
                   ),
                 )
             ),
-        bottomNavigationBar: CustomButton(
-          buttonName: "Continue",
-          buttonColor: Color(0xff000b90),
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>Kyc_Screen()));
-          },
-        ),
+
       ),
     );
   }

@@ -1,4 +1,6 @@
 class AppStaticStrings {
 
-  static const String splashScreen = "Splash Screen";
+  static const String english = "English";
+  static const String getStarted = "Get Started";
+
 }

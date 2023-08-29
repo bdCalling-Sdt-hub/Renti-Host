@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/splash/inner_widgets/bottom_section.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_images.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_bitton.dart';
+import 'package:renti_host/view/widgets/image/custom_image.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,46 +17,69 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-
+      top: true,
       child: Scaffold(
-
-          body: LayoutBuilder(
-            builder:(BuildContext context, BoxConstraints constraints) => Container(
-              height: constraints.maxHeight,
-              width: constraints.maxWidth,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/backgroundimg.png'),
-                  fit: BoxFit.fill,
-                  colorFilter: ColorFilter.mode(Color(0xff000B90).withOpacity(0.6), BlendMode.dstATop)
-                )
-              ),
-              child: SingleChildScrollView(
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  color: Color(0xff000b90).withOpacity(0.6),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20,right: 20,bottom: 24,top: 24),
-                    child: Column(
-                      children: [
-                        const SizedBox(height:212 ,),
-                        Container(
-                          height: 198,
-                          width: 198,
-                          decoration:const BoxDecoration(
-                            image: DecorationImage(image: AssetImage('assets/logos/Logo.png'))
-                          ),
-                        ),
-
-                       BottomSection()
-                      ],
-                    ),
-                  ),
-                ),
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) =>
+              Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+            height: constraints.maxHeight,
+            width: constraints.maxWidth,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                opacity: 0.5,
+                image: AssetImage(AppImages.splashImage),
+                fit: BoxFit.fill,
+                colorFilter:
+                    ColorFilter.mode(AppColors.blueNormal, BlendMode.dstATop),
               ),
             ),
-          )
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Spacer(),
+                const CustomImage(
+                    imageSrc: AppImages.logoImage,
+                    imageType: ImageType.png,
+                    size: 200),
+                const Spacer(),
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CustomText(
+                            text: AppStaticStrings.english,
+                            color: AppColors.whiteLight,
+                            fontSize: 16,
+                            right: 8,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            color: AppColors.whiteLight,
+                            size: 14,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    CustomElevatedButton(
+                      onPressed: () {},
+                      titleText: AppStaticStrings.getStarted,
+                      buttonWidth: double.maxFinite,
+                      buttonColor: AppColors.whiteLight,
+                      titleColor: AppColors.blueNormal,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

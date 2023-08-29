@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/splash/splash_screen.dart';
-import 'package:renti_host/view/widgets/button/custom_button.dart';
 
 class SelectLanguageScreen extends StatefulWidget {
   const SelectLanguageScreen({super.key});
@@ -140,13 +139,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                     })),
                   )),
         ),
-        bottomNavigationBar: CustomButton(
-          onTap: (){
-
-          },
-          buttonColor: Color(0xff000b90),
-          buttonName:  "Confirm",
-        )
+        //bottomNavigationBar: CustomButton(onTap: (){}, buttonColor: Color(0xff000b90), buttonName:  "Confirm",)
       ),
     );
   }

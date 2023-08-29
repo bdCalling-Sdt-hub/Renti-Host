@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/widgets/button/custom_button.dart';
 
 import '../signin/signin_screen.dart';
 import '../verify_otp/verify_otp_screen.dart';
@@ -18,9 +17,7 @@ class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
     return  SafeArea(
       child: Scaffold(
         extendBody: true,
-        bottomNavigationBar: CustomButton(onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (_)=>VerifyOtpScreen()));
-        }, buttonName: "Continue", buttonColor: Color(0xff000B90)),
+       // bottomNavigationBar: CustomButton(onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>VerifyOtpScreen()));}, buttonName: "Continue", buttonColor: Color(0xff000B90)),
         backgroundColor: Color(0xFF000b90),
         appBar: AppBar(
           titleSpacing: -8,

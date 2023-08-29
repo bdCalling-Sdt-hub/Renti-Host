@@ -1,7 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/widgets/button/custom_button.dart';
-
 import '../second_signup/second_signup_screen.dart';
 import '../select_photo/select_photo_screen.dart';
 
@@ -199,14 +197,7 @@ class _Kyc_ScreenState extends State<Kyc_Screen> {
                     ),
                   ),
                 )),
-        bottomNavigationBar: CustomButton(
-          buttonName: "Continue",
-          buttonColor: Color(0xff000b90),
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (_) => SelectPhotoScreen()));
-          },
-        ),
+        //bottomNavigationBar: CustomButton(buttonName: "Continue", buttonColor: Color(0xff000b90), onTap: () {Navigator.push(context, MaterialPageRoute(builder: (_) => SelectPhotoScreen()));},),
       ),
     );
   }

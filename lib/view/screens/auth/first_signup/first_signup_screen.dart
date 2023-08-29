@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:renti_host/view/widgets/button/custom_button.dart';
-
 import '../second_signup/second_signup_screen.dart';
 import '../signin/signin_screen.dart';
 
@@ -426,13 +424,7 @@ class _FirstSignUpScreenState extends State<FirstSignUpScreen> {
                     ),
                   ),
                 )),
-           bottomNavigationBar: CustomButton(
-            buttonName: "Continue",
-             buttonColor: Color(0xff000b90),
-             onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder: (_)=>SecondSignUpScreen()));
-          },
-        ),
+           //bottomNavigationBar: CustomButton(buttonName: "Continue", buttonColor: Color(0xff000b90), onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>SecondSignUpScreen()));},),
       )
     );
   }

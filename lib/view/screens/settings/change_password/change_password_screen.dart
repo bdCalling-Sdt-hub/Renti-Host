@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/settings/settings/settings_screen.dart';
 
-import 'package:renti_host/view/widgets/button/custom_button.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   const ChangePasswordScreen({super.key});
@@ -228,7 +227,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               )
       ),
       extendBody: true,
-      bottomNavigationBar: CustomButton(onTap: (){}, buttonName: "Save", buttonColor: const Color(0xff000b90)),
+      //bottomNavigationBar: CustomButton(onTap: (){}, buttonName: "Save", buttonColor: const Color(0xff000b90)),
     );
   }
 }

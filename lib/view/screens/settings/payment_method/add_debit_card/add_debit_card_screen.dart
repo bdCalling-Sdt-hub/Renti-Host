@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:renti_host/view/screens/settings/payment_method/payment_method_screen.dart';
 
-import '../../../../widgets/button/custom_button.dart';
 
 class AddDebitCardScreen extends StatefulWidget {
   const AddDebitCardScreen({super.key});
@@ -114,7 +113,6 @@ class _AddDebitCardScreenState extends State<AddDebitCardScreen> {
                                 border:
                                     Border.all(color: const Color(0xFFCCCCCC))),
                                    child: IntlPhoneField(
-
                                       initialCountryCode: 'MX',
                                       disableLengthCheck: true,
                                       showDropdownIcon: false,
@@ -259,7 +257,7 @@ class _AddDebitCardScreenState extends State<AddDebitCardScreen> {
                   ),
                 ),
               )),
-          bottomNavigationBar: CustomButton(onTap: (){}, buttonName: "Add", buttonColor: const Color(0xff000b90)),
+         // bottomNavigationBar: CustomButton(onTap: (){}, buttonName: "Add", buttonColor: const Color(0xff000b90)),
     ));
   }
 }

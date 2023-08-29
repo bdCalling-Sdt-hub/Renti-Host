@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:renti_host/view/screens/auth/new_password/new_password.dart';
-import 'package:renti_host/view/widgets/button/custom_button.dart';
 
 import '../forgot_password/forgot_password_screen.dart';
 
@@ -18,9 +17,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
     return  SafeArea(
       child: Scaffold(
         extendBody: true,
-        bottomNavigationBar: CustomButton(onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (_)=>UpdatePassScreen()));
-        }, buttonName: "Continue", buttonColor: Color(0xff000B90)),
+
         backgroundColor: Color(0xFF000b90),
         appBar: AppBar(
           titleSpacing: -8,

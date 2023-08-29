@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:renti_host/view/screens/auth/email_verification/email_verification_screen.dart';
-import '../../../widgets/button/custom_button.dart';
 import '../select_photo/select_photo_screen.dart';
 
 class MobileNumberVerificationScreen extends StatefulWidget {
@@ -140,13 +139,7 @@ class _MobileNumberVerificationScreenState extends State<MobileNumberVerificatio
 
             )
         ),
-        bottomNavigationBar: CustomButton(
-          buttonName: "Verify",
-          buttonColor: Color(0xff000b90),
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>EmailVerificationScreen()));
-          },
-        ),
+
       ),
 
     );
