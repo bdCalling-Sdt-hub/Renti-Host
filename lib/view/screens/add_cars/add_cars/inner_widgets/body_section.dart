@@ -7,7 +7,6 @@ class AddCarBodySection extends StatefulWidget {
   @override
   State<AddCarBodySection> createState() => _AddCarBodySectionState();
 }
-
 class _AddCarBodySectionState extends State<AddCarBodySection> {
   List years = ["2020","2929","2021","2023","2020","2020","2929","2021","2023","2020","2020","2929","2021","2023","2020", ];
   bool isClicked = true;
