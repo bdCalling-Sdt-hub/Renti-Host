@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-
-import '../kyc/kyc_screen.dart';
 import '../signin/sign_in_screen.dart';
 
-class SecondSignUpScreen extends StatefulWidget {
-  const SecondSignUpScreen({super.key});
+class SignUpContinueScreen extends StatefulWidget {
+  const SignUpContinueScreen({super.key});
 
   @override
-  State<SecondSignUpScreen> createState() => _SecondSignUpScreenState();
+  State<SignUpContinueScreen> createState() => _SignUpContinueScreenState();
 }
 
-class _SecondSignUpScreenState extends State<SecondSignUpScreen> {
+class _SignUpContinueScreenState extends State<SignUpContinueScreen> {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();

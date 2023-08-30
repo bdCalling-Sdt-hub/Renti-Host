@@ -35,7 +35,24 @@ class AppStaticStrings {
   static const String resendOTP = "Resend OTP";
   static const String verify = "Verify";
 
+  //Set a new password Screen All Strings
+  static const String setNewPass = "Set a new password";
+  static const String yourPassMust = "Your password must have 8-10 characters.";
+  static const String reset = "Reset";
+  static const String confirmPassword = "Confirm Password";
+  static const String newPassword = "New Password";
+
 
   //Sign Up All Strings
   static const String signUp = "Sign Up";
+  static const String fullName = "Full Name";
+  static const String enterFullName = "Enter full name";
+  static const String gender = "Gender";
+  static const String male = "Male";
+  static const String female = "Female";
+  static const String others = "Others";
+  static const String dateOfBirth = "Date of Birth";
+  static const String dd = "DD";
+  static const String mm = "MM";
+  static const String yy = "YY";
 }

@@ -1,151 +1,112 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_bitton.dart';
+import 'package:renti_host/view/widgets/container/custon_container.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
 
 class NewPasswordScreen extends StatefulWidget {
   const NewPasswordScreen({super.key});
 
   @override
-  State<NewPasswordScreen> createState() => _New_PasswordState();
+  State<NewPasswordScreen> createState() => NewPasswordScreenState();
 }
 
-class _New_PasswordState extends State<NewPasswordScreen> {
+class NewPasswordScreenState extends State<NewPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         extendBody: true,
+        backgroundColor: AppColors.blueNormal,
+        appBar: const CustomAppBar(
+            appBarContent: CustomBack(
+          text: AppStaticStrings.setNewPass,
+        )),
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) =>
+              CustomContainer(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CustomText(
+                      text: AppStaticStrings.yourPassMust, fontSize: 16),
+                  Form(
+                    key: _formKey,
+                    autovalidateMode: AutovalidateMode.always,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //New Password Text and TextField
+                        const CustomText(text: AppStaticStrings.newPassword, top: 24, bottom: 12),
+                        CustomTextField(
+                          isPassword: true,
+                          textInputAction: TextInputAction.done,
+                          hintText: AppStaticStrings.enterPassword,
+                          suffixIconColor: AppColors.whiteNormalActive,
+                          hintStyle: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.whiteNormalActive),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return AppStaticStrings.notBeEmpty;
+                            } else if (value.length < 6) {
+                              return AppStaticStrings.passwordShouldBe;
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
 
-        backgroundColor: Color(0xFF000b90),
-        //appBar: ,
-        body:  LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>SingleChildScrollView(
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration:  const BoxDecoration(
-                    color: Color(0xFFFBFBFB),
-                    // color: Color(0xFFFBFBFB),
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.zero,bottomRight: Radius.zero,topLeft: Radius.circular(8),topRight: Radius.circular(8))
-                ),
-                child: Padding(
-                  padding:const  EdgeInsets.only(
-                      left: 20, right: 20, bottom: 24, top: 24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const  Text('Your password must have 8-10 characters.',style: TextStyle(
-                          color: Color(0xFF2E2C2C),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400),),
-
-                      const SizedBox(height: 24,),
-                      const Text(
-                        'Password',
-                        style: TextStyle(
-                            color: Color(0xFF2E2C2C),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      Form(
-                          key: _formKey,
-                          autovalidateMode: AutovalidateMode.always,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextFormField(
-                            style: TextStyle(color: Color(0xFF2E2C2C)),
-                            maxLines: 1,
-                            keyboardType: TextInputType.text,
-                            decoration:const InputDecoration(
-                              fillColor: Color(0xFFFFFFFF),
-                              hintText: 'Type password here...',
-                              hintStyle: TextStyle(
-                                  letterSpacing: 1,
-                                  color: Color(0xFFCCCCCC)),
-                              filled: true,
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide()),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFCCCCCC),
-                                  )),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFCCCCCC),
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide:
-                                  BorderSide(color: Color(0xFFCCCCCC))),
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'this field can not be empty';
-                              } else if (value.length<6) {
-                                return 'Please enter a valid email';
-                              } else {
-                                return null;
-                              }
-                            },
-                          ),
-                          const Text(
-                            'Confirm Password',
-                            style: TextStyle(
-                                color: Color(0xFF2E2C2C),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400),
-                          ),
-                          const SizedBox(
-                            height: 12,
-                          ),
-                          TextFormField(
-                            style: TextStyle(color: Color(0xFF2E2C2C)),
-                            maxLines: 1,
-                            keyboardType: TextInputType.text,
-                            decoration:const InputDecoration(
-                              fillColor: Color(0xFFFFFFFF),
-                              hintText: 'Type Confirm password here...',
-                              hintStyle: TextStyle(
-                                  letterSpacing: 1,
-                                  color: Color(0xFFCCCCCC)),
-                              filled: true,
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide()),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFCCCCCC),
-                                  )),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFCCCCCC),
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide:
-                                  BorderSide(color: Color(0xFFCCCCCC))),
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'this field can not be empty';
-                              } else if (value.length<6) {
-                                return 'Please enter a valid email';
-                              } else {
-                                return null;
-                              }
-                            },
-                          ),
-                        ],
-                      )),
-
-                    ],
+                        //Confirm Password Text and TextField
+                        const CustomText(text: AppStaticStrings.confirmPassword, top: 24, bottom: 12),
+                        CustomTextField(
+                          isPassword: true,
+                          textInputAction: TextInputAction.done,
+                          hintText: AppStaticStrings.enterPassword,
+                          suffixIconColor: AppColors.whiteNormalActive,
+                          hintStyle: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.whiteNormalActive),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return AppStaticStrings.notBeEmpty;
+                            } else if (value.length < 6) {
+                              return AppStaticStrings.passwordShouldBe;
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                ],
               ),
-
-            )
+            ),
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          child: CustomElevatedButton(
+              onPressed: () {
+                Get.offAllNamed(AppRoute.signInScreen);
+              },
+              titleText: AppStaticStrings.reset),
         ),
       ),
     );

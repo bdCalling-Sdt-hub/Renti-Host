@@ -4,6 +4,8 @@ import 'package:renti_host/view/screens/auth/forgot_password/forgot_password_scr
 import 'package:renti_host/view/screens/auth/new_password/new_password.dart';
 import 'package:renti_host/view/screens/auth/otp/forgot_password_otp.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_screen.dart';
+import 'package:renti_host/view/screens/auth/signup/sign_up_screen.dart';
+import 'package:renti_host/view/screens/auth/signup_continue/sign_up_continue.dart';
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
 import 'package:renti_host/view/screens/splash/splash_screen.dart';
 
@@ -16,6 +18,8 @@ class AppRoute {
   static const String forgotPasswordOTPScreen = "/forgot_password_otp";
   static const String newPasswordScreen = "/new_password";
 
+  static const String signUpScreen = "/sign_up_screen";
+  static const String signUpContinueScreen = "/sign_up_continue_screen";
 
   static const String homeScreen = "/home_screen";
 
@@ -27,6 +31,9 @@ class AppRoute {
     GetPage(name: forgotPasswordScreen, page: ()=> const ForgotPasswordScreen()),
     GetPage(name: forgotPasswordOTPScreen, page: ()=> const ForgotPassOTP()),
     GetPage(name: newPasswordScreen, page: ()=> const NewPasswordScreen()),
+
+    GetPage(name: signUpScreen, page: ()=> const SignUpScreen()),
+    GetPage(name: signUpContinueScreen, page: ()=> const SignUpContinueScreen()),
 
     GetPage(name: homeScreen, page: ()=> const HomeScreen()),
 

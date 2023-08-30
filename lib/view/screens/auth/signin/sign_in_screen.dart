@@ -39,7 +39,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   //Don't have an Account? Sign Up Text button
                   GestureDetector(
                     onTap: (){
-                      Get.toNamed(AppRoute.forgotPasswordScreen);
+                      Get.toNamed(AppRoute.signUpScreen);
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 24),

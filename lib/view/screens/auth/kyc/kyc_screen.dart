@@ -1,6 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import '../second_signup/second_signup_screen.dart';
+import '../second_signup/sign_up_continue.dart';
 import '../select_photo/select_photo_screen.dart';
 
 class Kyc_Screen extends StatefulWidget {
