@@ -1,5 +1,18 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_icons.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_bitton.dart';
+import 'package:renti_host/view/widgets/container/custon_container.dart';
+import 'package:renti_host/view/widgets/image/custom_image.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
 
 class KYCScreen extends StatefulWidget {
   const KYCScreen({super.key});
@@ -14,164 +27,88 @@ class _KYCScreenState extends State<KYCScreen> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
-        backgroundColor: Color(0xff000b90),
-
+        backgroundColor: AppColors.blueNormal,
+        appBar: const CustomAppBar(
+          appBarContent: CustomBack(text: AppStaticStrings.kyc),
+        ),
         body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
-                        color: Color(0xFFFBFBFB),
-                        // color: Color(0xFFFBFBFB),
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.zero,
-                            bottomRight: Radius.zero,
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8))),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 24, top: 24),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 146,
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffe6e7f4),
-                                    borderRadius: BorderRadius.circular(8)),
-                                child: DottedBorder(
-                                  strokeWidth: 1,
-                                  dashPattern: const [10, 10],
-                                  color: const Color(0xffB0B3DD),
-                                  borderType: BorderType.RRect,
-                                  radius: const Radius.circular(8),
-                                  padding: const EdgeInsets.all(2),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                          'assets/logos/Vector.png',
-                                          height: 34,
-                                          width: 50,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 25,
-                                      ),
-                                      Center(
-                                        child: SizedBox(
-                                          height: 48,
-                                          width: 318,
-                                          child: ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (_) =>
-                                                            KYCScreen()));
-                                              },
-                                              style: ElevatedButton.styleFrom(
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5)),
-                                                backgroundColor:
-                                                    Color(0xFF000B90),
-                                              ),
-                                              child: const Text(
-                                                'Upload',
-                                                style: TextStyle(
-                                                    color: Color(0xffFFFFFF),
-                                                    fontSize: 18,
-                                                    fontWeight:
-                                                        FontWeight.w600),
-                                              )),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              const Text(
-                                '1. Upload INE/Passport ',
-                                style: TextStyle(
-                                    color: Color(0xff737373),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              const Text(
-                                '2. Tax stamps .key extension file',
-                                style: TextStyle(
-                                    color: Color(0xff737373),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              const Text(
-                                '3. Tax stamps .cer extension file',
-                                style: TextStyle(
-                                    color: Color(0xff737373),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              const Text(
-                                'RFC',
-                                style: TextStyle(
-                                    color: Color(0xff2E2C2C),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(
-                                height: 12,
-                              ),
-                              const TextField(
-                                style: TextStyle(color: Color(0xFF2E2C2C)),
-                                maxLines: 1,
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  fillColor: Color(0xFFFFFFFF),
-                                  hintText: 'Type RFC here...',
-                                  hintStyle: TextStyle(
-                                      letterSpacing: 1,
-                                      color: Color(0xFFCCCCCC)),
-                                  filled: true,
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide()),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                    color: Color(0xFFCCCCCC),
-                                  )),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFCCCCCC),
-                                    ),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Color(0xFFCCCCCC))),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+          builder: (BuildContext context, BoxConstraints constraints) =>
+              CustomContainer(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //Image Upload Section
+                  Container(
+                    width: constraints.maxWidth,
+                    decoration: BoxDecoration(
+                      color: AppColors.blueLight,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: DottedBorder(
+                      strokeWidth: 1,
+                      dashPattern: const [10, 10],
+                      color: AppColors.blueLightActive,
+                      borderType: BorderType.RRect,
+                      radius: const Radius.circular(8),
+                      padding: const EdgeInsets.all(2),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        child: Column(
+                          children: [
+                            const CustomImage(
+                              imageSrc: AppIcons.uploadIcon,
+                              size: 50,
+                            ),
+                            const SizedBox(height: 16),
+                            CustomElevatedButton(
+                              onPressed: () {},
+                              titleText: AppStaticStrings.upload,
+                              buttonWidth: double.maxFinite,
+                              buttonHeight: 48,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                )),
-        //bottomNavigationBar: CustomButton(buttonName: "Continue", buttonColor: Color(0xff000b90), onTap: () {Navigator.push(context, MaterialPageRoute(builder: (_) => SelectPhotoScreen()));},),
+
+                  //Upload Image Type Text..
+                  const CustomText(
+                    text: AppStaticStrings.uploadINE,
+                    color: AppColors.whiteDarkActive,
+                    top: 16,
+                    textAlign: TextAlign.start,
+                  ),
+                  //RFC Text and TextField
+                  const CustomText(
+                    text: AppStaticStrings.rfc,
+                    top: 16,
+                    bottom: 12,
+                    textAlign: TextAlign.start,
+                  ),
+                  CustomTextField(
+                    textInputAction: TextInputAction.done,
+                    hintText: AppStaticStrings.enterRFC,
+                    hintStyle: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.whiteNormalActive),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+          child: CustomElevatedButton(onPressed: (){
+            Get.toNamed(AppRoute.kycImageScreen);
+          }, titleText: AppStaticStrings.continueNext),
+        ),
       ),
     );
   }

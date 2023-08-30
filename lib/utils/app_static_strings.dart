@@ -18,14 +18,16 @@ class AppStaticStrings {
   static const String haveAnAccount = "Don’t have an account? ";
   static const String notBeEmpty = "This field can not be empty";
   static const String enterValidEmail = "Please enter a valid email";
-  static const String passwordShouldBe = "Password should be more than 6 characters";
+  static const String passwordShouldBe =
+      "Password should be more than 6 characters";
   static const String successful = "Successful";
   static const String failed = "Failed";
   static const String or = "Or";
 
   //Forgot Password All Strings
   static const String forgotPassword = "Forgot Password";
-  static const String recoverPass = "Please enter your email address for recover your password.";
+  static const String recoverPass =
+      "Please enter your email address for recover your password.";
   static const String continueNext = "Continue";
 
   //Forgot Password OTP Screen All Strings
@@ -55,10 +57,26 @@ class AppStaticStrings {
   static const String mm = "MM";
   static const String yy = "YY";
 
-  //Sign Up Continue Screen All Screen
+  //Sign Up Continue Screen All Strings
   static const String phoneNumber = "Phone Number";
   static const String phone = "+52";
   static const String enterPhoneNumber = "Enter phone number";
   static const String address = "Address";
   static const String enterAddress = "Enter your address";
+
+  //KYC Screen All Strings
+  static const String kyc = "KYC";
+  static const String upload = "Upload";
+  static const String uploadINE =
+      "1. Upload INE/Passport\n2. Tax stamps .key extension file\n3. Tax stamps .cer extension file";
+  static const String rfc = "RFC";
+  static const String enterRFC = "Enter RFC";
+
+  //KYC Upload Image All Strings
+  static const String selectPhoto = "Select Photo";
+  static const String uploadYourPhoto = "Upload Your Photo";
+
+  //KYC Phone Number Verification Screen All Strings
+  static const String mobileVerification = "Mobile Number Verification";
+  static const String weHaveSent = "We have sent you an OTP code on your mobile number. Please enter the OTP code.";
 }

@@ -1,44 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../mobile_number_verification/mobile_number_verification_screen.dart';
 
 
-class EmailVerificationScreen extends StatefulWidget {
-  const EmailVerificationScreen({super.key});
+class KYCEmailVerification extends StatefulWidget {
+  const KYCEmailVerification({super.key});
 
   @override
-  State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
+  State<KYCEmailVerification> createState() => _KYCEmailVerificationState();
 }
 
-class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
+class _KYCEmailVerificationState extends State<KYCEmailVerification> {
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
         extendBody: true,
         backgroundColor: Color(0xff000b90) ,
-        appBar: AppBar(
-          titleSpacing: -8,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>MobileNumberVerificationScreen()));
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 14,
-            ),
-            color: const Color(0xFfFFFFFF),
-          ),
-          automaticallyImplyLeading: false,
-          backgroundColor: const Color(0xFF000B90),
-          title: const Text(
-            'Email Verification',
-            style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 18,
-                fontWeight: FontWeight.w500),
-          ),
-        ),
+
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>Container(
               height: MediaQuery.of(context).size.height,

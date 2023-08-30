@@ -62,8 +62,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     ),
                   ),
                   // Email and TextField
-                  const CustomText(
-                      text: AppStaticStrings.email, top: 24, bottom: 12),
+                  const CustomText(text: AppStaticStrings.email, top: 24, bottom: 12),
                   Form(
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.always,
