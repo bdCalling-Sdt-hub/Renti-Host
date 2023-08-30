@@ -18,16 +18,14 @@ class AppStaticStrings {
   static const String haveAnAccount = "Don’t have an account? ";
   static const String notBeEmpty = "This field can not be empty";
   static const String enterValidEmail = "Please enter a valid email";
-  static const String passwordShouldBe =
-      "Password should be more than 6 characters";
+  static const String passwordShouldBe = "Password should be more than 6 characters";
   static const String successful = "Successful";
   static const String failed = "Failed";
   static const String or = "Or";
 
   //Forgot Password All Strings
   static const String forgotPassword = "Forgot Password";
-  static const String recoverPass =
-      "Please enter your email address for recover your password.";
+  static const String recoverPass = "Please enter your email address for recover your password.";
   static const String continueNext = "Continue";
 
   //Forgot Password OTP Screen All Strings
@@ -67,8 +65,7 @@ class AppStaticStrings {
   //KYC Screen All Strings
   static const String kyc = "KYC";
   static const String upload = "Upload";
-  static const String uploadINE =
-      "1. Upload INE/Passport\n2. Tax stamps .key extension file\n3. Tax stamps .cer extension file";
+  static const String uploadINE = "1. Upload INE/Passport\n2. Tax stamps .key extension file\n3. Tax stamps .cer extension file";
   static const String rfc = "RFC";
   static const String enterRFC = "Enter RFC";
 
@@ -79,4 +76,10 @@ class AppStaticStrings {
   //KYC Phone Number Verification Screen All Strings
   static const String mobileVerification = "Mobile Number Verification";
   static const String weHaveSent = "We have sent you an OTP code on your mobile number. Please enter the OTP code.";
+
+  //Kyc Email Verification Screen All Strings
+  static const String emailVerification = "Email Verification";
+  static const String weSentEmail = "We have sent you a link on your email address. Please check for confirm your account.";
+  static const String resendEmail = "Resend Email";
+  static const String getTheEmail = "Did not get the email?";
 }

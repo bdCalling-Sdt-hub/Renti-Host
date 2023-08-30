@@ -4,6 +4,7 @@ import 'package:renti_host/view/screens/deal_information/ratings/rating_screen.d
 import 'package:renti_host/view/widgets/button/bottom_button.dart';
 
 import '../deal_information_end_trip/end_trip_screen.dart';
+
 class ReviewDetailsScreen extends StatefulWidget {
   const ReviewDetailsScreen({super.key});
 
@@ -29,7 +30,8 @@ class _ReviewState extends State<ReviewDetailsScreen> {
             backgroundColor: const Color(0xffffffff),
             leading: IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>EndTripScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => EndTripScreen()));
               },
               icon: const Icon(
                 Icons.arrow_back_ios,
@@ -39,8 +41,8 @@ class _ReviewState extends State<ReviewDetailsScreen> {
         body: LayoutBuilder(builder: (context, constraint) {
           return SingleChildScrollView(
             child: Padding(
-              padding:
-              const EdgeInsetsDirectional.symmetric(vertical: 20, horizontal: 20),
+              padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: 20, horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -76,10 +78,10 @@ class _ReviewState extends State<ReviewDetailsScreen> {
                               ),
                               child: Center(
                                   child: Image.asset(
-                                    "assets/images/bi_image.png",
-                                    width: 40,
-                                    height: 35,
-                                  )),
+                                "assets/images/bi_image.png",
+                                width: 40,
+                                height: 35,
+                              )),
                             )),
                       ),
                       const SizedBox(width: 8),
@@ -106,39 +108,41 @@ class _ReviewState extends State<ReviewDetailsScreen> {
                                   ),
                                   child: Center(
                                       child: Image.asset(
-                                        "assets/images/bi_image.png",
-                                        width: 40,
-                                        height: 35,
-                                      )),
+                                    "assets/images/bi_image.png",
+                                    width: 40,
+                                    height: 35,
+                                  )),
                                 )),
                             const SizedBox(
                               height: 8,
                             ),
                             DottedBorder(
-                                padding: const EdgeInsets.all(0),
-                                dashPattern: const [
-                                  10,
-                                  10,
-                                ],
-                                color: const Color(0xffB0B3DD),
-                                strokeWidth: 1,
-                                borderType: BorderType.RRect,
-                                radius: const Radius.circular(12),
-                                borderPadding: const EdgeInsets.all(1),
-                                child: Container(
-                                  height: 71,
-                                  width: MediaQuery.of(context).size.width,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: const Color(0xffE6E7F4),
+                              padding: const EdgeInsets.all(0),
+                              dashPattern: const [
+                                10,
+                                10,
+                              ],
+                              color: const Color(0xffB0B3DD),
+                              strokeWidth: 1,
+                              borderType: BorderType.RRect,
+                              radius: const Radius.circular(12),
+                              borderPadding: const EdgeInsets.all(1),
+                              child: Container(
+                                height: 71,
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: const Color(0xffE6E7F4),
+                                ),
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/bi_image.png",
+                                    width: 40,
+                                    height: 35,
                                   ),
-                                  child: Center(
-                                      child: Image.asset(
-                                        "assets/images/bi_image.png",
-                                        width: 40,
-                                        height: 35,
-                                      )),
-                                )),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       )
@@ -170,131 +174,238 @@ class _ReviewState extends State<ReviewDetailsScreen> {
                           color: Color(0xff2E2C2C),
                           fontSize: 16,
                           fontWeight: FontWeight.w500)),
-                  const SizedBox(height: 16,),
+                  const SizedBox(
+                    height: 16,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Car model:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Car model:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("Toyota Corolla",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("Toyota Corolla",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Car year:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Car year:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("2015",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("2015",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Car color:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Car color:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("Blue",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("Blue",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Car license no:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Car license no:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("61-10-TMD",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("61-10-TMD",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Gear type:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Gear type:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text('Manual',style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text('Manual',
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Rental time:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Rental time:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("12pm - 12am",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("12pm - 12am",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Rental date:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Rental date:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text('08 aug 2023 - 09 aug 2024',style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text('08 aug 2023 - 09 aug 2024',
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 24,),
+                  const SizedBox(
+                    height: 24,
+                  ),
                   const Text("User Information",
                       style: TextStyle(
                           color: Color(0xff2E2C2C),
                           fontSize: 16,
                           fontWeight: FontWeight.w500)),
-                  const SizedBox(height: 16,),
+                  const SizedBox(
+                    height: 16,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Name:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Name:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("Md Ratul",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("Md Ratul",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("INE:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("INE:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("12345678964",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("12345678964",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Driving license no:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Driving license no:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("61-10-2222",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("61-10-2222",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Pickup location:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
+                      Text("Pickup location:",
+                          style: TextStyle(
+                              color: Color(0xff999999),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
                       SizedBox(),
-                      Text("Mexico",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
+                      Text("Mexico",
+                          style: TextStyle(
+                              color: Color(0xff2E2C2C),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
-              
-                  
                 ],
               ),
             ),
           );
         }),
-        
         bottomNavigationBar: BottomButton(
-            
-            onTap: (){
-
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>RatingScreen()));
-            }, buttonName: "Review", buttonColor: Color(0xffffffff),
-           textColor:  Color(0xff000b90),
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => RatingScreen()));
+          },
+          buttonName: "Review",
+          buttonColor: Color(0xffffffff),
+          textColor: Color(0xff000b90),
         ),
-        
       ),
     );
-
-   
   }
 }
