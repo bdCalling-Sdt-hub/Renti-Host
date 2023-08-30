@@ -28,6 +28,13 @@ class AppStaticStrings {
   static const String recoverPass = "Please enter your email address for recover your password.";
   static const String continueNext = "Continue";
 
+  //Forgot Password OTP Screen All Strings
+  static const String otp = "OTP";
+  static const String otpCode = "Please enter the OTP code.";
+  static const String notGetOTP = "Did not get the OTP?";
+  static const String resendOTP = "Resend OTP";
+  static const String verify = "Verify";
+
 
   //Sign Up All Strings
   static const String signUp = "Sign Up";

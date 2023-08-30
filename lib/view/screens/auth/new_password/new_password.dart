@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../verify_otp/verify_otp_screen.dart';
-
-class UpdatePassScreen extends StatefulWidget {
-  const UpdatePassScreen({super.key});
+class NewPasswordScreen extends StatefulWidget {
+  const NewPasswordScreen({super.key});
 
   @override
-  State<UpdatePassScreen> createState() => _New_PasswordState();
+  State<NewPasswordScreen> createState() => _New_PasswordState();
 }
 
-class _New_PasswordState extends State<UpdatePassScreen> {
+class _New_PasswordState extends State<NewPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -18,28 +16,7 @@ class _New_PasswordState extends State<UpdatePassScreen> {
         extendBody: true,
 
         backgroundColor: Color(0xFF000b90),
-        appBar: AppBar(
-          titleSpacing: -8,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>const VerifyOtpScreen()));
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 14,
-            ),
-            color: const Color(0xFfFFFFFF),
-          ),
-          automaticallyImplyLeading: false,
-          backgroundColor: const Color(0xFF000B90),
-          title: const Text(
-            'Update Password',
-            style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 18,
-                fontWeight: FontWeight.w500),
-          ),
-        ),
+        //appBar: ,
         body:  LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>SingleChildScrollView(
               child: Container(

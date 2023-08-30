@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -92,7 +94,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
-              onPressed: () {}, titleText: AppStaticStrings.continueNext),
+              onPressed: () {
+                Get.toNamed(AppRoute.forgotPasswordOTPScreen);
+              },
+              titleText: AppStaticStrings.continueNext),
         ),
       ),
     );
