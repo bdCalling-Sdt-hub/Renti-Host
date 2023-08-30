@@ -1,47 +1,21 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import '../second_signup/sign_up_continue.dart';
-import '../select_photo/select_photo_screen.dart';
 
-class Kyc_Screen extends StatefulWidget {
-  const Kyc_Screen({super.key});
+class KYCScreen extends StatefulWidget {
+  const KYCScreen({super.key});
 
   @override
-  State<Kyc_Screen> createState() => _Kyc_ScreenState();
+  State<KYCScreen> createState() => _KYCScreenState();
 }
 
-class _Kyc_ScreenState extends State<Kyc_Screen> {
+class _KYCScreenState extends State<KYCScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
         backgroundColor: Color(0xff000b90),
-        appBar: AppBar(
-          titleSpacing: -8,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => const SecondSignUpScreen()));
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 14,
-            ),
-            color: const Color(0xFfFFFFFF),
-          ),
-          automaticallyImplyLeading: false,
-          backgroundColor: const Color(0xFF000B90),
-          title: const Text(
-            'KYC',
-            style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 18,
-                fontWeight: FontWeight.w500),
-          ),
-        ),
+
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>
                 SingleChildScrollView(
@@ -102,7 +76,7 @@ class _Kyc_ScreenState extends State<Kyc_Screen> {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (_) =>
-                                                            Kyc_Screen()));
+                                                            KYCScreen()));
                                               },
                                               style: ElevatedButton.styleFrom(
                                                 shape: RoundedRectangleBorder(

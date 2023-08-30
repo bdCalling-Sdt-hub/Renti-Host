@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
-import '../signin/sign_in_screen.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_images.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_bitton.dart';
+import 'package:renti_host/view/widgets/container/custon_container.dart';
+import 'package:renti_host/view/widgets/image/custom_image.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
 
 class SignUpContinueScreen extends StatefulWidget {
   const SignUpContinueScreen({super.key});
@@ -11,303 +23,103 @@ class SignUpContinueScreen extends StatefulWidget {
 class _SignUpContinueScreenState extends State<SignUpContinueScreen> {
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-    return  SafeArea(
+    final formKey = GlobalKey<FormState>();
+    return SafeArea(
       child: Scaffold(
         extendBody: true,
-        backgroundColor: const Color(0xff000b90) ,
-        appBar: AppBar(
-          titleSpacing: -8,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 14,
-            ),
-            color: const Color(0xFfFFFFFF),
-          ),
-          automaticallyImplyLeading: false,
-          backgroundColor: const Color(0xFF000B90),
-          title: const Text(
-            'Sign Up',
-            style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 18,
-                fontWeight: FontWeight.w500),
-          ),
-        ),
-        body:  LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    decoration:  const BoxDecoration(
-                        color: Color(0xFFFBFBFB),
-                        // color: Color(0xFFFBFBFB),
-                        borderRadius: BorderRadius.only(bottomLeft: Radius.zero,bottomRight: Radius.zero,topLeft: Radius.circular(8),topRight: Radius.circular(8))
-                    ),
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 24, top: 24),
-                      child: Column(
+        backgroundColor: AppColors.blueNormal,
+        appBar: const CustomAppBar(appBarContent: CustomBack(text: AppStaticStrings.signUp),),
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) =>
+              CustomContainer(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Form(
+                key: formKey,
+                autovalidateMode: AutovalidateMode.always,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Phone Number Text
+                    const CustomText(text: AppStaticStrings.phoneNumber, bottom: 12),
+                    //Country Flag and Enter Phone Number TextField
+                    SizedBox(
+                      height: 56,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Form(
-
-                            key: _formKey,
-                            autovalidateMode: AutovalidateMode.always,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          Container(
+                            width: 110,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: AppColors.whiteLight,
+                              border: Border.all(
+                                  color: AppColors.whiteDark,
+                                  width: 1.0,
+                                  style: BorderStyle.solid),
+                            ),
+                            child: const Row(
                               children: [
-                                const  Text(
-                                  'Date of Birth',
-                                  style: TextStyle(
-                                      color: Color(0xFF2E2C2C),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Container(
-                                        height: 58,
-                                        width: 108,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(8),
-                                          border: Border.all(
-                                              color: Color(0xFFCCCCCC)
-                                          )
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(14.0),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                height: 40,
-                                                width: 40,
-                                                child: Image.asset('assets/logos/flag.png'),
-
-                                              ),
-                                              const SizedBox(width: 12,),
-                                              const Text('+52', style: TextStyle(
-                                                  color: Color(0xFFCCCCCC),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400),)
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                    ),
-                                    const SizedBox(width: 10,),
-                                    Expanded(
-                                      flex: 2,
-                                      child: TextFormField(
-                                        style: TextStyle(color: Color(0xFF2E2C2C)),
-                                        maxLines: 1,
-                                        keyboardType: TextInputType.text,
-                                        decoration:const InputDecoration(
-                                          fillColor: Color(0xFFFFFFFF),
-                                          hintText: 'Type mobile number...',
-                                          hintStyle: TextStyle(
-                                              letterSpacing: 1,
-                                              color: Color(0xFFCCCCCC)),
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                              borderSide: BorderSide()),
-                                          focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0xFFCCCCCC),
-                                              )),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0xFFCCCCCC),
-                                            ),
-                                          ),
-                                          enabledBorder: OutlineInputBorder(
-                                              borderSide:
-                                              BorderSide(color: Color(0xFFCCCCCC))),
-                                        ),
-
-                                      ),
-                                    ),
-                                    const SizedBox(width: 10,),
-
-                                  ],
-                                ),
-                                const SizedBox(height: 16,),
-                                const Text(
-                                  'Address',
-                                  style: TextStyle(
-                                      color: Color(0xFF2E2C2C),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-                                TextFormField(
-                                  style:const TextStyle(color: Color(0xFF2E2C2C)),
-                                  maxLines: 5,
-                                  keyboardType: TextInputType.text,
-                                  decoration:const InputDecoration(
-                                    fillColor: Color(0xFFFFFFFF),
-                                    hintText: 'Type card number here...',
-                                    hintStyle: TextStyle(
-                                        letterSpacing: 1,
-                                        color: Color(0xFFCCCCCC)),
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide()),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFCCCCCC),
-                                        )),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFCCCCCC),
-                                      ),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xFFCCCCCC))),
-                                  ),
-
-                                ),
-                                const SizedBox(height: 16,),
-                                const Text(
-                                  'Credit Card Number',
-                                  style: TextStyle(
-                                      color: Color(0xFF2E2C2C),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                const  SizedBox(
-                                  height: 12,
-                                ),
-                                TextFormField(
-                                  style:const TextStyle(color: Color(0xFF2E2C2C)),
-                                  maxLines: 1,
-                                  keyboardType: TextInputType.text,
-                                  decoration:const InputDecoration(
-                                    fillColor: Color(0xFFFFFFFF),
-                                    hintText: 'Type card number here...',
-                                    hintStyle: TextStyle(
-                                        letterSpacing: 1,
-                                        color: Color(0xFFCCCCCC)),
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide()),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFCCCCCC),
-                                        )),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFCCCCCC),
-                                      ),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xFFCCCCCC))),
-                                  ),
-
-                                ),
-                                const  SizedBox(height: 16,),
-                                const Text(
-                                  'Expire Date',
-                                  style: TextStyle(
-                                      color: Color(0xFF2E2C2C),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-                                TextFormField(
-                                  style:const TextStyle(color: Color(0xFF2E2C2C)),
-                                  maxLines: 1,
-                                  keyboardType: TextInputType.text,
-                                  decoration:const InputDecoration(
-                                    fillColor: Color(0xFFFFFFFF),
-                                    hintText: 'MM-YY',
-                                    hintStyle: TextStyle(
-                                        letterSpacing: 1,
-                                        color: Color(0xFFCCCCCC)),
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide()),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFCCCCCC),
-                                        )),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFCCCCCC),
-                                      ),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xFFCCCCCC))),
-                                  ),
-
-                                ),
-                                const SizedBox(height: 16,),
-                                const Text(
-                                  'CVV',
-                                  style: TextStyle(
-                                      color: Color(0xFF2E2C2C),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-                                TextFormField(
-                                  style:const TextStyle(color: Color(0xFF2E2C2C)),
-                                  maxLines: 1,
-                                  keyboardType: TextInputType.text,
-                                  decoration:const InputDecoration(
-                                    fillColor: Color(0xFFFFFFFF),
-                                    hintText: 'Type CVV here...',
-                                    hintStyle: TextStyle(
-                                        letterSpacing: 1,
-                                        color: Color(0xFFCCCCCC)),
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide()),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFCCCCCC),
-                                        )),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFCCCCCC),
-                                      ),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xFFCCCCCC))),
-                                  ),
-
-                                ),
+                                CustomImage(
+                                    imageSrc: AppImages.flagImage, size: 40),
+                                CustomText(
+                                    text: AppStaticStrings.phone,
+                                    left: 10,
+                                    color: AppColors.whiteNormalActive)
                               ],
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: CustomTextField(
+                              keyboardType: TextInputType.phone,
+                              hintText: AppStaticStrings.enterPhoneNumber,
+                              hintStyle: GoogleFonts.poppins(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.whiteNormalActive),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                )
-            ),
 
+                    //Address Text and TextField
+                    const CustomText(text: AppStaticStrings.address, top: 16, bottom: 12),
+
+                    Container(
+                      height: 100,
+                      padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: AppColors.whiteLight,border: Border.all(color: AppColors.whiteNormalActive,style: BorderStyle.solid,width: 1.0,strokeAlign: 1)
+                      ),
+                      child: CustomTextField(
+                        textInputAction: TextInputAction.done,
+                        fieldBorderColor: AppColors.whiteLight,
+                        hintText: AppStaticStrings.enterAddress,
+                        hintStyle: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.whiteNormalActive),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+          child: CustomElevatedButton(onPressed: (){
+            Get.toNamed(AppRoute.kycScreen);
+          }, titleText: AppStaticStrings.continueNext),
+        ),
       ),
     );
   }

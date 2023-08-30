@@ -42,8 +42,7 @@ class AppStaticStrings {
   static const String confirmPassword = "Confirm Password";
   static const String newPassword = "New Password";
 
-
-  //Sign Up All Strings
+  //Sign Up Screen All Strings
   static const String signUp = "Sign Up";
   static const String fullName = "Full Name";
   static const String enterFullName = "Enter full name";
@@ -55,4 +54,11 @@ class AppStaticStrings {
   static const String dd = "DD";
   static const String mm = "MM";
   static const String yy = "YY";
+
+  //Sign Up Continue Screen All Screen
+  static const String phoneNumber = "Phone Number";
+  static const String phone = "+52";
+  static const String enterPhoneNumber = "Enter phone number";
+  static const String address = "Address";
+  static const String enterAddress = "Enter your address";
 }

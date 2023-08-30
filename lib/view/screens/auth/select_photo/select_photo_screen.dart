@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../kyc/kyc_screen.dart';
+import '../kyc/kyc_first/kyc_screen.dart';
 import '../mobile_number_verification/mobile_number_verification_screen.dart';
 
 class SelectPhotoScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SelectPhotoScreenState extends State<SelectPhotoScreen> {
           titleSpacing: -8,
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>Kyc_Screen()));
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>KYCScreen()));
             },
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,

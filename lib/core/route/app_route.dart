@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:renti_host/view/screens/%20home/home/home_screen.dart';
 import 'package:renti_host/view/screens/auth/forgot_password/forgot_password_screen.dart';
+import 'package:renti_host/view/screens/auth/kyc/kyc_first/kyc_screen.dart';
 import 'package:renti_host/view/screens/auth/new_password/new_password.dart';
 import 'package:renti_host/view/screens/auth/otp/forgot_password_otp.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_screen.dart';
@@ -20,6 +21,7 @@ class AppRoute {
 
   static const String signUpScreen = "/sign_up_screen";
   static const String signUpContinueScreen = "/sign_up_continue_screen";
+  static const String kycScreen = "/kyc_screen";
 
   static const String homeScreen = "/home_screen";
 
@@ -34,6 +36,7 @@ class AppRoute {
 
     GetPage(name: signUpScreen, page: ()=> const SignUpScreen()),
     GetPage(name: signUpContinueScreen, page: ()=> const SignUpContinueScreen()),
+    GetPage(name: kycScreen, page: ()=> const KYCScreen()),
 
     GetPage(name: homeScreen, page: ()=> const HomeScreen()),
 

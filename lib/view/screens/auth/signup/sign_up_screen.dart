@@ -247,12 +247,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 )),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        bottomNavigationBar: Padding(padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
-              onPressed: () {
-                Get.toNamed(AppRoute.signUpContinueScreen);
-              },
+              onPressed: () {Get.toNamed(AppRoute.signUpContinueScreen);},
               titleText: AppStaticStrings.continueNext),
         ),
       ),
