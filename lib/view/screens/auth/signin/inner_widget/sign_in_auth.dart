@@ -94,7 +94,7 @@ class _SignInAuthState extends State<SignInAuth> {
                 child: const Align(
                   alignment: Alignment.bottomRight,
                   child: CustomText(
-                    text: AppStaticStrings.forgotPassword,
+                    text: AppStaticStrings.forgotPass,
                     fontSize: 16,
                     color: AppColors.blueDark,
                     bottom: 24,

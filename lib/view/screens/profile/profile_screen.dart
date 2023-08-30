@@ -80,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 EditProfileScreen()));
                                   },
                                   child: SvgPicture.asset(
-                                    "assets/icons/icons_edit.svg",
+                                    "assets/icons/edit_icon.svg",
                                     color: Colors.white,
                                   ))
 

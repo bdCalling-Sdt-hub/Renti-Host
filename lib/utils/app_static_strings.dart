@@ -12,7 +12,7 @@ class AppStaticStrings {
   static const String enterEmail = "Enter email";
   static const String password = "Password";
   static const String enterPassword = "Enter password";
-  static const String forgotPassword = "Forgot Password?";
+  static const String forgotPass = "Forgot Password?";
   static const String google = "Google";
   static const String apple = "Apple";
   static const String haveAnAccount = "Don’t have an account? ";
@@ -22,6 +22,12 @@ class AppStaticStrings {
   static const String successful = "Successful";
   static const String failed = "Failed";
   static const String or = "Or";
+
+  //Forgot Password All Strings
+  static const String forgotPassword = "Forgot Password";
+  static const String recoverPass = "Please enter your email address for recover your password.";
+  static const String continueNext = "Continue";
+
 
   //Sign Up All Strings
   static const String signUp = "Sign Up";
