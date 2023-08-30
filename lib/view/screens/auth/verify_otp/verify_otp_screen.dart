@@ -23,7 +23,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
           titleSpacing: -8,
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>const Forgot_Password_Screen()));
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>const ForgotPasswordScreen()));
             },
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,

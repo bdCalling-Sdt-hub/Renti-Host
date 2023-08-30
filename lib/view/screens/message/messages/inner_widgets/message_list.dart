@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/message/inbox/inbox_screen.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 class MessageList extends StatelessWidget {
    MessageList({super.key});
@@ -74,7 +71,6 @@ class MessageList extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                          )
                         ),
-
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 16),
                           child: Divider(

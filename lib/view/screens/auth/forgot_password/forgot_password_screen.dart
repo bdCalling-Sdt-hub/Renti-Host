@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import '../signin/sign_in_screen.dart';
 
-import '../signin/signin_screen.dart';
-import '../verify_otp/verify_otp_screen.dart';
-
-class Forgot_Password_Screen extends StatefulWidget {
-  const Forgot_Password_Screen({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<Forgot_Password_Screen> createState() => _Forgot_Password_ScreenState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _Forgot_Password_ScreenState extends State<Forgot_Password_Screen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {

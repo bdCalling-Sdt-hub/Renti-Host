@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -47,7 +49,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 Column(
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(AppRoute.selectLanguageScreen);
+                      },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,7 +72,9 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     const SizedBox(height: 24),
                     CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoute.signInScreen);
+                      },
                       titleText: AppStaticStrings.getStarted,
                       buttonWidth: double.maxFinite,
                       buttonColor: AppColors.whiteLight,

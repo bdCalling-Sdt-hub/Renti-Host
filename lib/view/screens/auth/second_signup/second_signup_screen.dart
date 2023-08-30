@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../kyc/kyc_screen.dart';
-import '../signin/signin_screen.dart';
+import '../signin/sign_in_screen.dart';
 
 class SecondSignUpScreen extends StatefulWidget {
   const SecondSignUpScreen({super.key});

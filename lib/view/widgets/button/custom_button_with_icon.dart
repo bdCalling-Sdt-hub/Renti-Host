@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class CustomElevatedButtonWithIcon extends StatelessWidget {
@@ -19,10 +20,12 @@ class CustomElevatedButtonWithIcon extends StatelessWidget {
   final double iconSize;
   final String iconSrc;
   final double left;
+  final ImageType imageType;
 
   const CustomElevatedButtonWithIcon(
       {required this.onPressed,
       required this.titleText,
+      this.imageType = ImageType.svg,
       this.titleColor = AppColors.blackNormal,
       this.buttonColor = AppColors.whiteLight,
       this.buttonBorderColor = AppColors.blueLight,
@@ -30,7 +33,7 @@ class CustomElevatedButtonWithIcon extends StatelessWidget {
       this.titleSize = 14,
       this.buttonRadius = 8,
       this.titleWeight = FontWeight.w400,
-      this.buttonHeight = 56,
+      this.buttonHeight = 46,
       this.buttonBorderWidth = 1,
       this.buttonWidth = double.maxFinite,
       this.iconSize = 30,
@@ -60,8 +63,11 @@ class CustomElevatedButtonWithIcon extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SvgPicture.asset(iconSrc,
-                color: iconColor, height: iconSize, width: iconSize),
+            CustomImage(
+                imageSrc: iconSrc,
+                imageColor: iconColor,
+                size: iconSize,
+                imageType: imageType),
             CustomText(
               text: titleText,
               color: titleColor,

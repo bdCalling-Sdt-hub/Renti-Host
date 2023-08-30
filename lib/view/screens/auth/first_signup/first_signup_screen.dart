@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../second_signup/second_signup_screen.dart';
-import '../signin/signin_screen.dart';
+import '../signin/sign_in_screen.dart';
 
 
 class FirstSignUpScreen extends StatefulWidget {
