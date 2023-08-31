@@ -38,8 +38,7 @@ class _SignInAuthState extends State<SignInAuth> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //Email Text and TextField.
-              const CustomText(
-                text: AppStaticStrings.email, bottom: 12,top: 4,),
+              const CustomText(text: AppStaticStrings.email, bottom: 12),
               CustomTextField(
                 hintText: AppStaticStrings.enterEmail,
                 hintStyle: GoogleFonts.poppins(

@@ -40,7 +40,6 @@ class ForgotPassOTP extends StatelessWidget {
                   const CustomText(
                     text: AppStaticStrings.otpCode,
                     fontSize: 16,
-                    top: 4,
                     bottom: 24,
                   ),
                   const Align(

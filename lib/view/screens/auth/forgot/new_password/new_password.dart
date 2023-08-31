@@ -28,9 +28,10 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
         extendBody: true,
         backgroundColor: AppColors.blueNormal,
         appBar: const CustomAppBar(
-            appBarContent: CustomBack(
-          text: AppStaticStrings.setNewPass,
-        )),
+          appBarContent: CustomBack(
+            text: AppStaticStrings.setNewPass,
+          ),
+        ),
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) =>
               CustomContainer(
@@ -41,8 +42,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.yourPassMust, fontSize: 16),
+                  const CustomText(text: AppStaticStrings.yourPassMust, fontSize: 16),
                   Form(
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.always,
@@ -50,7 +50,10 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         //New Password Text and TextField
-                        const CustomText(text: AppStaticStrings.newPassword, top: 24, bottom: 12),
+                        const CustomText(
+                            text: AppStaticStrings.newPassword,
+                            top: 24,
+                            bottom: 12),
                         CustomTextField(
                           isPassword: true,
                           textInputAction: TextInputAction.done,
@@ -72,7 +75,10 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                         ),
 
                         //Confirm Password Text and TextField
-                        const CustomText(text: AppStaticStrings.confirmPassword, top: 24, bottom: 12),
+                        const CustomText(
+                            text: AppStaticStrings.confirmPassword,
+                            top: 24,
+                            bottom: 12),
                         CustomTextField(
                           isPassword: true,
                           textInputAction: TextInputAction.done,

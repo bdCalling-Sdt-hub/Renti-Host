@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/%20home/home/inner_widgets/start_end_date.dart';
+import 'package:renti_host/view/screens/income_page/renti_free/inner_widget/start_end_date.dart';
 class HomeCarList extends StatefulWidget {
 
   const HomeCarList({super.key});
@@ -139,7 +139,7 @@ class _HomeCarListState extends State<HomeCarList> {
                     ],
                   ),
                 ),
-                dataList[index]["status"] == "Reserved" && index == selectedIndex ? const StartEndDate() : const SizedBox()
+                dataList[index]["status"] == "Reserved" && index == selectedIndex ?  StartEndDate() : const SizedBox()
               ],
             );
           }

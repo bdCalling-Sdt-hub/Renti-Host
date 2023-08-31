@@ -39,10 +39,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               CustomContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            paddingVertical: 0,
-            paddingHorizontal: 0,
             child: SingleChildScrollView(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 24),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

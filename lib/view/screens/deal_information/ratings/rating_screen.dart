@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:renti_host/view/screens/deal_information/ratings/inner_widgets/comment.dart';
 import 'package:renti_host/view/widgets/button/bottom_button.dart';
 import '../../message/messages/messages_screen.dart';

@@ -18,14 +18,16 @@ class AppStaticStrings {
   static const String haveAnAccount = "Don’t have an account? ";
   static const String notBeEmpty = "This field can not be empty";
   static const String enterValidEmail = "Please enter a valid email";
-  static const String passwordShouldBe = "Password should be more than 6 characters";
+  static const String passwordShouldBe =
+      "Password should be more than 6 characters";
   static const String successful = "Successful";
   static const String failed = "Failed";
   static const String or = "Or";
 
   //Forgot Password All Strings
   static const String forgotPassword = "Forgot Password";
-  static const String recoverPass = "Please enter your email address for recover your password.";
+  static const String recoverPass =
+      "Please enter your email address for recover your password.";
   static const String continueNext = "Continue";
 
   //Forgot Password OTP Screen All Strings
@@ -65,7 +67,8 @@ class AppStaticStrings {
   //KYC Screen All Strings
   static const String kyc = "KYC";
   static const String upload = "Upload";
-  static const String uploadINE = "1. Upload INE/Passport\n2. Tax stamps .key extension file\n3. Tax stamps .cer extension file";
+  static const String uploadINE =
+      "1. Upload INE/Passport\n2. Tax stamps .key extension file\n3. Tax stamps .cer extension file";
   static const String rfc = "RFC";
   static const String enterRFC = "Enter RFC";
 
@@ -75,11 +78,40 @@ class AppStaticStrings {
 
   //KYC Phone Number Verification Screen All Strings
   static const String mobileVerification = "Mobile Number Verification";
-  static const String weHaveSent = "We have sent you an OTP code on your mobile number. Please enter the OTP code.";
+  static const String weHaveSent =
+      "We have sent you an OTP code on your mobile number. Please enter the OTP code.";
 
   //Kyc Email Verification Screen All Strings
   static const String emailVerification = "Email Verification";
-  static const String weSentEmail = "We have sent you a link on your email address. Please check for confirm your account.";
+  static const String weSentEmail =
+      "We have sent you a link on your email address. Please check for confirm your account.";
   static const String resendEmail = "Resend Email";
   static const String getTheEmail = "Did not get the email?";
+
+  //Home Screen All Strings
+  static const String searchCar = "Search cars...";
+  static const String totalCar = "Total car";
+  static const String active = "Active";
+  static const String reserved = "Reserved";
+  static const String num = "00";
+  static const String waitForAdmin = "Please wait for admin’s approval.";
+  static const String addNewCar = "Add New Car";
+
+  //Drawer All Strings
+  static const String userName = "John Doe";
+  static const String userPhone = "+5237455372562";
+  static const String addCar = "Add Car";
+  static const String carList = "Car List";
+  static const String userList = "User List";
+  static const String rentList = "Rent List";
+  static const String reviews = "Reviews";
+  static const String income = "Income";
+  static const String notification = "Notification";
+  static const String adminInfo = "Admin Info";
+  static const String settings = "Settings";
+  static const String howRentWorks = "How Renti Works";
+  static const String termsConditions = "Terms & Conditions";
+  static const String support = "Support";
+  static const String aboutUs = "About Us";
+  static const String logOut = "Log Out";
 }
