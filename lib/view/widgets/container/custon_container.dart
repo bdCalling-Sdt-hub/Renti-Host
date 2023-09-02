@@ -11,6 +11,8 @@ class CustomContainer extends StatelessWidget {
         this.radiusTopLeft = 16,
         this.radiusTopRight = 16,
         this.width = double.infinity,
+        this.radiusBottomLeft = 0,
+        this.radiusBottomRight = 0,
         required this.child});
 
   final double radiusTopLeft;
@@ -21,6 +23,8 @@ class CustomContainer extends StatelessWidget {
   final double? height;
   final Widget child;
   final double marginTop;
+  final double radiusBottomLeft;
+  final double radiusBottomRight;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,8 @@ class CustomContainer extends StatelessWidget {
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(radiusTopLeft),
           topRight: Radius.circular(radiusTopRight),
+          bottomLeft: Radius.circular(radiusBottomLeft),
+          bottomRight: Radius.circular(radiusBottomRight),
         ),
       ),
       child: child,

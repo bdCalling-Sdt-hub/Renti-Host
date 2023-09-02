@@ -114,4 +114,16 @@ class AppStaticStrings {
   static const String support = "Support";
   static const String aboutUs = "About Us";
   static const String logOut = "Log Out";
+
+  //Home Screen All Car List Strings
+  static const String carsList = "Cars List";
+  static const String perDay = "/day";
+  static const String start = "Start: ";
+  static const String end = "End: ";
+  static const String seeAll = "See all";
+
+  //logOut pop up Strings
+  static const String alertMessage = "You sure want to log out";
+  static const String yes = "Yes";
+  static const String no = "No";
 }

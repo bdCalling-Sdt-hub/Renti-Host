@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/view/screens/%20home/inner_widgets/custom_drawer.dart';
+import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -42,7 +42,8 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         backgroundColor: AppColors.whiteLight,
         key: scaffoldKey,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Container(
+        //This is a message for Admin Approval....
+        /*floatingActionButton: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           width: MediaQuery.of(context).size.width,
@@ -64,7 +65,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-        ),
+        )*/
         drawer: const CustomDrawer(),
         appBar: CustomAppBar(
           appBarContent: Row(
@@ -112,15 +113,15 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         ),
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            return SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+            return const SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const HomeTopSection(),
-                  const SizedBox(height: 80),
+                  HomeTopSection(),
+                 /* const SizedBox(height: 80),
                   const CustomImage(
                       imageSrc: AppImages.adminApprovalImage,
                       imageType: ImageType.png),
@@ -147,7 +148,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                  ),
+                  ),*/
+
+                  HomeCarList()
                 ],
               ),
             );

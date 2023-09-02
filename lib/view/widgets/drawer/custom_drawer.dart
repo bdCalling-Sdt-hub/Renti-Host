@@ -42,8 +42,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
               padding: const EdgeInsets.all(8),
               margin: const EdgeInsets.only(top: 8),
               decoration: BoxDecoration(
-                color: AppColors.whiteLight,
-                borderRadius: BorderRadius.circular(4)
+                  color: AppColors.whiteLight,
+                  borderRadius: BorderRadius.circular(4)
               ),
               child: const Row(
                 children: [
