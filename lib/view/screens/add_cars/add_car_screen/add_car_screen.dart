@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/view/screens/add_cars/add_cars/inner_widgets/add_car_bottom_section.dart';
-import 'package:renti_host/view/screens/add_cars/add_cars/inner_widgets/add_car_body_section.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_body_section.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_bottom_section.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -177,7 +179,9 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
 
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-          child: CustomElevatedButton(onPressed: () {}, titleText: AppStaticStrings.continueNext),
+          child: CustomElevatedButton(onPressed: () {
+            Get.toNamed(AppRoute.addCarSpecialScreens);
+          }, titleText: AppStaticStrings.continueNext),
         ),
       ),
     );

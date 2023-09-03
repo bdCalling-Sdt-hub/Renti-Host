@@ -1,3 +1,8 @@
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:renti_host/utils/app_colors.dart';
+
 class AppStaticStrings {
   static const String english = "English";
   static const String getStarted = "Get Started";
@@ -148,9 +153,26 @@ class AppStaticStrings {
       "4. Upload car invoice\n"
       "5. Upload REPUVE (non theft report)";
 
+  //Add Cars Special Screen All String
+  static const String specialCharacteristics = "Special Characteristics";
+  static const String carColor = "Car Color";
+  static const String enterCarColor = "Enter car color";
+  static const String carDoors = "Car Doors";
+  static const String typeNumber = "Type Number";
+  static const String carSeats = "Car Seats";
+  static const String totalRun = "Total Run";
+  static const String enterTotalKM = "Enter Total KM";
+  static const String gearType = "Gear Type";
+  static const String enterGearType = "Enter gear type";
 
   //logOut pop up Strings
   static const String alertMessage = "You sure want to log out";
   static const String yes = "Yes";
   static const String no = "No";
+
+//HintTextStyle
+  static TextStyle hintStyle = GoogleFonts.poppins(
+      fontSize: 14,
+      color: AppColors.whiteNormalActive,
+      fontWeight: FontWeight.w400);
 }

@@ -1,0 +1,73 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_specification/inner_widgets/car_service.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
+
+class AddCarSpecialScreen extends StatefulWidget {
+  const AddCarSpecialScreen({super.key});
+
+  @override
+  State<AddCarSpecialScreen> createState() => _CarDetailsState();
+}
+
+class _CarDetailsState extends State<AddCarSpecialScreen> {
+  bool isClicked = false;
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      top: true,
+      child: Scaffold(
+        backgroundColor: AppColors.whiteLight,
+        extendBody: true,
+        appBar: const CustomAppBar(appBarContent: CustomBack(text: AppStaticStrings.addCar,color: AppColors.blackNormal),),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomText(text: AppStaticStrings.specialCharacteristics,fontWeight: FontWeight.w600),
+
+              // Car license Text and TextField
+              const CustomText(text: AppStaticStrings.carColor,top: 16,bottom: 12),
+              CustomTextField(hintText: AppStaticStrings.enterCarColor,hintStyle: AppStaticStrings.hintStyle),
+
+              //Car Doors Text and TextField
+              const CustomText(text: AppStaticStrings.carDoors,top: 16,bottom: 12),
+              CustomTextField(hintText: AppStaticStrings.typeNumber,hintStyle: AppStaticStrings.hintStyle),
+
+              //Car Seats Text and TextField
+              const CustomText(text: AppStaticStrings.carSeats,top: 16,bottom: 12),
+              CustomTextField(hintText: AppStaticStrings.typeNumber,hintStyle: AppStaticStrings.hintStyle),
+
+              //Total Run Text and TextField
+              const CustomText(text: AppStaticStrings.totalRun,top: 16,bottom: 12),
+              CustomTextField(hintText: AppStaticStrings.enterTotalKM,hintStyle: AppStaticStrings.hintStyle),
+
+              //Gear Type Text and TextField
+              const CustomText(text: AppStaticStrings.gearType,top: 16,bottom: 12),
+              CustomTextField(hintText: AppStaticStrings.enterGearType,hintStyle: AppStaticStrings.hintStyle),
+
+
+              const SizedBox(height: 16),
+              const CarService(),
+              const SizedBox(height: 80),
+            ],
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+          child: CustomElevatedButton(onPressed: (){
+            Get.offAllNamed(AppRoute.navigation);
+          }, titleText: AppStaticStrings.addCar),
+        ),
+      ),
+    );
+  }
+}

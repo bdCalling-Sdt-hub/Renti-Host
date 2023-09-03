@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/view/screens/add_cars/add_cars/inner_widgets/year_select_drop_down.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
 
