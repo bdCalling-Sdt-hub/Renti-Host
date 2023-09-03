@@ -173,6 +173,13 @@ class AppStaticStrings {
 
   //Rent Request Details Screen All Strings
   static const String userDetails = "User details";
+  static const String rentDate = "Rent date:";
+  static const String totalTime = "Total time:";
+  static const String contact = "Contact:";
+  static const String totalAmount = "Total amount:";
+  static const String carDetails = "Car details";
+  static const String km = "km/L";
+  static const String hr = "/hr";
 
   //logOut pop up Strings
   static const String alertMessage = "You sure want to log out";
