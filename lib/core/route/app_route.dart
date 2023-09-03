@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:renti_host/view/screens/%20home/home_screen.dart';
+import 'package:renti_host/view/screens/add_cars/add_cars_screen.dart';
 import 'package:renti_host/view/screens/auth/forgot/forget_password/forgot_password_screen.dart';
 import 'package:renti_host/view/screens/auth/forgot/new_password/new_password.dart';
 import 'package:renti_host/view/screens/auth/forgot/otp/forgot_password_otp.dart';
@@ -41,6 +42,9 @@ class AppRoute {
   static const String profileScreen = "/profile_screen";
 
   static const String searchScreen = "/search_screen";
+  static const String addCarsScreens = "/add_cars_screen";
+
+
 
   static List<GetPage> routes = [
 
@@ -66,5 +70,6 @@ class AppRoute {
 
     //Inner Screens
     GetPage(name: searchScreen, page: ()=> const SearchScreen()),
+    GetPage(name: addCarsScreens, page: ()=> const AddCarsScreen()),
   ];
 }

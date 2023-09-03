@@ -6,7 +6,7 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/button/custom_button_with_icon.dart';
-import 'package:renti_host/view/widgets/button/custom_elevated_bitton.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';

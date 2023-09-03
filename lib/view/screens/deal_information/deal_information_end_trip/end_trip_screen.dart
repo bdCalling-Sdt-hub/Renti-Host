@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_end_trip/inner_widgets/rental_info.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_end_trip/inner_widgets/top_upload_section.dart';
-import 'package:renti_host/view/widgets/button/bottom_button.dart';
 
 import '../ deal_information_review/review_details_screen.dart';
 import '../deal_information_start_trip/start_trip_screen.dart';
@@ -96,13 +94,6 @@ class _EndTripState extends State<EndTripScreen> {
             ),
           );
         }),
-        bottomNavigationBar: BottomButton(onTap: (){
-
-          Navigator.push(context, MaterialPageRoute(builder: (_)=>ReviewDetailsScreen()));
-
-        }, 
-            textColor: Color(0xffffffff),
-            buttonName: "End trip", buttonColor: Color(0xff000b90)),
       ),
 
     );

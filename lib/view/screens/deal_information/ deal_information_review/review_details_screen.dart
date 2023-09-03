@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:renti_host/view/screens/deal_information/ratings/rating_screen.dart';
-import 'package:renti_host/view/widgets/button/bottom_button.dart';
 
 import '../deal_information_end_trip/end_trip_screen.dart';
 
@@ -388,7 +386,8 @@ class _ReviewState extends State<ReviewDetailsScreen> {
                           style: TextStyle(
                               color: Color(0xff2E2C2C),
                               fontSize: 16,
-                              fontWeight: FontWeight.w500)),
+                              fontWeight: FontWeight.w500),
+                      ),
                     ],
                   ),
                 ],
@@ -396,7 +395,7 @@ class _ReviewState extends State<ReviewDetailsScreen> {
             ),
           );
         }),
-        bottomNavigationBar: BottomButton(
+        /*bottomNavigationBar: BottomButton(
           onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (_) => RatingScreen()));
@@ -404,7 +403,7 @@ class _ReviewState extends State<ReviewDetailsScreen> {
           buttonName: "Review",
           buttonColor: Color(0xffffffff),
           textColor: Color(0xff000b90),
-        ),
+        ),*/
       ),
     );
   }

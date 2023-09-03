@@ -126,6 +126,28 @@ class AppStaticStrings {
   static const String search = "Search";
   static const String findCarModel = "Find Car Model";
 
+  //Add Cars Screens All Strings
+  static const String uploadCarPhoto = "Upload Car Photo";
+  static const String capturePhoto = "Capture Photo";
+  static const String carModelName = "Car Model Name";
+  static const String carLicenseNumber = "Car License Number";
+  static const String enterLicense = "Enter license number";
+  static const String carDescription = "Car Description";
+  static const String enterDescription = "Enter Description";
+  static const String setRentAmount = "Set Rent Amount";
+  static const String enterAmount = "Enter Amount";
+  static const String enterCarName = "Enter car name";
+  static const String insuranceDate = "Insurance Date";
+  static const String uploadPhoto = "Upload Photo";
+  static const String year = "Year";
+  static const String startDate = "Start";
+  static const String endDate = "End";
+  static const String addCarList = "1. Upload car license\n"
+      "2. Upload car insurance Policy\n"
+      "3. Upload circulation card\n"
+      "4. Upload car invoice\n"
+      "5. Upload REPUVE (non theft report)";
+
 
   //logOut pop up Strings
   static const String alertMessage = "You sure want to log out";

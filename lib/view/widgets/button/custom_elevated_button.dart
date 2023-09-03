@@ -13,9 +13,11 @@ class CustomElevatedButton extends StatelessWidget {
   final double buttonHeight;
   final double? buttonWidth;
   final TextAlign textAlign;
+  final Color buttonBorderColor;
 
   const CustomElevatedButton(
       {this.textAlign = TextAlign.center,
+      this.buttonBorderColor = Colors.transparent,
       required this.onPressed,
       required this.titleText,
       this.titleColor = AppColors.whiteLight,
@@ -38,8 +40,8 @@ class CustomElevatedButton extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(buttonColor),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(buttonRadius),
-            ),
+                borderRadius: BorderRadius.circular(buttonRadius),
+                side: BorderSide(color: buttonBorderColor)),
           ),
           elevation: MaterialStateProperty.all(0),
         ),

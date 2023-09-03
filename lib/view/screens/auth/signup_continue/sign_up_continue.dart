@@ -7,7 +7,7 @@ import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
-import 'package:renti_host/view/widgets/button/custom_elevated_bitton.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/container/custon_container.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -93,7 +93,6 @@ class _SignUpContinueScreenState extends State<SignUpContinueScreen> {
 
                     Container(
                       height: 100,
-                      padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: AppColors.whiteLight,border: Border.all(color: AppColors.whiteNormalActive,style: BorderStyle.solid,width: 1.0,strokeAlign: 1)

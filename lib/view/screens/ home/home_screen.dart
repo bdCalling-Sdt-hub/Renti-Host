@@ -133,7 +133,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
 
                   //Add New Car... That section comes when admin approved user as host...
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(AppRoute.addCarsScreens);
+                    },
                     child: const Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,

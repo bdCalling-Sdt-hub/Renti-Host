@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:renti_host/view/screens/deal_information/ratings/inner_widgets/comment.dart';
-import 'package:renti_host/view/widgets/button/bottom_button.dart';
 import '../../message/messages/messages_screen.dart';
 import '../ deal_information_review/review_details_screen.dart';
 import 'inner_widgets/rating_section.dart';
@@ -77,12 +76,6 @@ class _FilledBoxState extends State<RatingScreen> {
             ),
           );
         }),
-          bottomNavigationBar: BottomButton(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>RatingScreen()));
-            }, buttonName: " Send Review", buttonColor: Color(0xff000b90),
-            textColor:  Color(0xffffffff),
-          ),
     )
     );
   }
