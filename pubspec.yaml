@@ -43,6 +43,8 @@ dependencies:
   get:
   flutter_svg:
   pin_code_text_field:
+  flutter_slidable:
+  flutter_rating_bar:
 
 dev_dependencies:
   flutter_test:

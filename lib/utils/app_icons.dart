@@ -22,4 +22,6 @@ class AppIcons {
   static const String support = "$basePath/support.svg";
   static const String termsConditions = "$basePath/terms_conditions.svg";
   static const String userList = "$basePath/user_list.svg";
+  static const String home = "$basePath/home.svg";
+  static const String message = "$basePath/message.svg";
 }

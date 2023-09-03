@@ -37,7 +37,7 @@ class CustomBack extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
         child: Row(
           children: [
-            Icon(Icons.arrow_back_ios_new, size: fontSize, color: AppColors.whiteLight),
+            Icon(Icons.arrow_back_ios_new, size: fontSize, color: color),
             CustomText(
               left: left,
               text: text,

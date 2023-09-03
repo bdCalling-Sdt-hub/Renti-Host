@@ -110,7 +110,7 @@ class _SignInAuthState extends State<SignInAuth> {
                   } else {
                     print(AppStaticStrings.failed);
                   }
-                  Get.toNamed(AppRoute.homeScreen);
+                  Get.toNamed(AppRoute.navigation);
                 },
                 titleText: AppStaticStrings.signIn,
                 buttonWidth: double.maxFinite,

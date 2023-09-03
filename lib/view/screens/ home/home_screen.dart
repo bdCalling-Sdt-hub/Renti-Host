@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
@@ -79,7 +80,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
               ),
               Expanded(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoute.searchScreen);
+                  },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 16),
                     padding:
@@ -113,15 +116,16 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         ),
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            return const SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+            return  SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  HomeTopSection(),
-                 /* const SizedBox(height: 80),
+                  const HomeTopSection(),
+
+                  const SizedBox(height: 80),
                   const CustomImage(
                       imageSrc: AppImages.adminApprovalImage,
                       imageType: ImageType.png),
@@ -148,9 +152,19 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                  ),*/
+                  ),
 
-                  HomeCarList()
+                  //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
+                  /*const SizedBox(height: 16),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      CustomText(text: AppStaticStrings.carsList, fontWeight: FontWeight.w600),
+                      CustomText(text: AppStaticStrings.seeAll, color: AppColors.blueNormal),
+                    ],
+                  ),
+                  const HomeCarList()*/
                 ],
               ),
             );

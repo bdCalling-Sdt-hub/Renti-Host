@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:renti_host/view/screens/message/inbox/inbox_screen.dart';
 
 class MessageList extends StatelessWidget {

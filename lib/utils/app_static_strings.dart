@@ -122,6 +122,11 @@ class AppStaticStrings {
   static const String end = "End: ";
   static const String seeAll = "See all";
 
+  //Search Screen All Strings\
+  static const String search = "Search";
+  static const String findCarModel = "Find Car Model";
+
+
   //logOut pop up Strings
   static const String alertMessage = "You sure want to log out";
   static const String yes = "Yes";
