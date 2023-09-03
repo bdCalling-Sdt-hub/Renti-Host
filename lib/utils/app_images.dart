@@ -8,5 +8,6 @@ class AppImages {
   static const String adminApprovalImage = "$basePath/admin_approval_image.png";
   static const String profileImage = "$basePath/profile_image.png";
   static const String blueCar = "$basePath/blue_car.png";
+  static const String starImage = "$basePath/star_image.svg";
 
 }

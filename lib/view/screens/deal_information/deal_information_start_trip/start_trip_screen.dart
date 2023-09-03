@@ -3,7 +3,7 @@ import 'package:renti_host/view/screens/deal_information/deal_information_end_tr
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_info.dart';
 
 
-import '../../rent_request/user_details/user_details_screen.dart';
+import '../../rent_request/user_details/user_request_details_screen.dart';
 
 class StartTripScreen extends StatefulWidget {
   const StartTripScreen({super.key});

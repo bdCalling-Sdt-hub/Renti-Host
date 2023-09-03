@@ -1,33 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/rent_request/user_details/inner_widgets/car-details_body.dart';
-import 'package:renti_host/view/screens/rent_request/user_details/inner_widgets/car_details.dart';
-import 'package:renti_host/view/screens/rent_request/user_details/inner_widgets/user_details_top_section.dart';
-import 'package:renti_host/view/screens/rent_request/user_request/user_request_screen.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/rent_request/user_request_details/inner_widgets/car-details_body.dart';
+import 'package:renti_host/view/screens/rent_request/user_request_details/inner_widgets/car_details.dart';
+import 'package:renti_host/view/screens/rent_request/user_request_details/inner_widgets/user_details_top_section.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
 import '../../deal_information/deal_information_start_trip/start_trip_screen.dart';
 
-class UserDetailsScreen extends StatefulWidget {
-  const UserDetailsScreen({super.key});
+class UserRequestDetailsScreen extends StatefulWidget {
+  const UserRequestDetailsScreen({super.key});
 
   @override
-  State<UserDetailsScreen> createState() => _UserDetailsScreenState();
+  State<UserRequestDetailsScreen> createState() => _UserRequestDetailsScreenState();
 }
 
-class _UserDetailsScreenState extends State<UserDetailsScreen> {
+class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: true,
       child: Scaffold(
-        backgroundColor:const Color(0xffffffff),
-        appBar: AppBar(
-            titleSpacing: -8,
-            centerTitle: false,
-            elevation: 0,
-            title: const Text('User details',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600)),
-            backgroundColor:const Color(0xffffffff),
-            leading: IconButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>UserRequestScreen()));
-            }, icon:const Icon(Icons.arrow_back_ios,),color: Colors.black,)
-        ),
+        backgroundColor: AppColors.whiteLight,
+        appBar: const CustomAppBar(appBarContent: CustomBack(text: AppStaticStrings.userDetails),),
         body: LayoutBuilder(builder: (context,constraint){
           return SingleChildScrollView(
             child: Padding(

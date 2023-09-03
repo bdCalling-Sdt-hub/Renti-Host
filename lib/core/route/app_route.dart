@@ -16,6 +16,7 @@ import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/navbar/custom_navbar.dart';
 import 'package:renti_host/view/screens/profile/profile_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/user_request_screen.dart';
+import 'package:renti_host/view/screens/rent_request/user_request_details/user_request_details_screen.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
 import 'package:renti_host/view/screens/splash/splash_screen.dart';
@@ -37,14 +38,21 @@ class AppRoute {
   static const String kycEmailVerification = "/kyc_email_verification";
 
   static const String navigation = "/navigation";
-  static const String homeScreen = "/home_screen";
-  static const String rentScreen = "/rent_screen";
-  static const String messageScreen = "/message_screen";
-  static const String profileScreen = "/profile_screen";
 
+  //Home and Home Inner Screens Path Strings
+  static const String homeScreen = "/home_screen";
   static const String searchScreen = "/search_screen";
   static const String addCarsScreens = "/add_cars_screen";
   static const String addCarSpecialScreens = "/add_car_special_screen";
+
+  //Rent Request and Inner Screens Path Strings
+  static const String rentScreen = "/user_request_screen";
+  static const String userRequestDetails = "/user_request_details_screen";
+
+
+
+  static const String messageScreen = "/message_screen";
+  static const String profileScreen = "/profile_screen";
 
 
 
@@ -65,14 +73,19 @@ class AppRoute {
     GetPage(name: kycEmailVerification, page: ()=> const KYCEmailVerification()),
 
     GetPage(name: navigation, page: ()=> const CustomNavBar()),
-    GetPage(name: homeScreen, page: ()=> const HomeScreen()),
-    GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),
-    GetPage(name: messageScreen, page: ()=> const MessageScreen()),
-    GetPage(name: profileScreen, page: ()=> const ProfileScreen()),
 
-    //Inner Screens
+    //Home and Inner Screens
+    GetPage(name: homeScreen, page: ()=> const HomeScreen()),
     GetPage(name: searchScreen, page: ()=> const SearchScreen()),
     GetPage(name: addCarsScreens, page: ()=> const AddCarsScreen()),
     GetPage(name: addCarSpecialScreens, page: ()=> const AddCarSpecialScreen()),
+
+    //Rent Request and Inner Screens
+    GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),
+    GetPage(name: userRequestDetails, page: ()=> const UserRequestDetailsScreen()),
+
+
+    GetPage(name: messageScreen, page: ()=> const MessageScreen()),
+    GetPage(name: profileScreen, page: ()=> const ProfileScreen()),
   ];
 }

@@ -165,6 +165,15 @@ class AppStaticStrings {
   static const String gearType = "Gear Type";
   static const String enterGearType = "Enter gear type";
 
+  //Rent Request Screen All Strings
+  static const String usersRequest = "Users Request";
+  static const String cancel = "Cancel";
+  static const String approve = "Approve";
+  static const String rating = "(4.5)";
+
+  //Rent Request Details Screen All Strings
+  static const String userDetails = "User details";
+
   //logOut pop up Strings
   static const String alertMessage = "You sure want to log out";
   static const String yes = "Yes";
