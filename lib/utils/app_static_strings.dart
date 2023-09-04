@@ -169,20 +169,19 @@ class AppStaticStrings {
   static const String searchCarBy = "search car by company...";
   static const String seeDetails = "See details";
 
-
   //Car Details screen All Strings
   static const String carModel = "Car model:";
   static const String numberOfDoors = "Number of Doors:";
   static const String seats = "Seats:";
   static const String carColor1 = "Car Color:";
   static const String carLicense = "Car license no:";
-  static const String  registrationDate = "Registration date:";
-  static const String  insuranceDate1 = "Insurance date:";
-  static const String  reservation = "Reservation:";
-  static const String  userName1 = "User name:";
-  static const String  transitionNo = "Transition no:";
-  static const String  tripNo = "Trip no:";
-  static const String  documents = "Documents";
+  static const String registrationDate = "Registration date:";
+  static const String insuranceDate1 = "Insurance date:";
+  static const String reservation = "Reservation:";
+  static const String userName1 = "User name:";
+  static const String transitionNo = "Transition no:";
+  static const String tripNo = "Trip no:";
+  static const String documents = "Documents";
 
   //Car Delete Pop Up All Strings
   static const String wantToDeleteCar = "You sure want to Delete Car?";
@@ -204,6 +203,27 @@ class AppStaticStrings {
   static const String carDetails = "Car details";
   static const String km = "km/L";
   static const String hr = "/hr";
+
+  //Start Trip Screen All Strings
+  static const String carDealInformation = "Car Deal Information";
+  static const String rentalInformation = "Rental Information";
+  static const String carYear = "Car year:";
+  static const String gearType1 = "Gear Type:";
+  static const String rentalTime = "Rental time:";
+  static const String rentalDate = "Rental Date:";
+  static const String userInformation = "User Information";
+  static const String name = "Name:";
+  static const String iNE = "INE:";
+  static const String drivingLicense = "Driving license no:";
+  static const String pickUpLocation = "Pickup location:";
+  static const String startTrip = "Start trip";
+  static const String endTrip = "End trip";
+  static const String review = "Review";
+  static const String giveUsRating = "Give us rating out of 5";
+  static const String niceBehavior = "Nice Behavior.";
+  static const String typeReview = "Type Review";
+  static const String sendReview = "Send Review";
+
 
   //logOut pop up Strings
   static const String alertMessage = "You sure want to log out";

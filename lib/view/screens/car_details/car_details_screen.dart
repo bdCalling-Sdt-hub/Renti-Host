@@ -56,12 +56,12 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     decoration: BoxDecoration(
-                      color: AppColors.greenLight,
+                      color: AppColors.redLight,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: const CustomText(
-                        text: AppStaticStrings.active,
-                        color: AppColors.greenNormal,
+                        text: AppStaticStrings.reserved,
+                        color: AppColors.redNormal,
                         fontSize: 10),
                   ),
                 ],

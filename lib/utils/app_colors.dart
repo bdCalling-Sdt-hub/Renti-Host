@@ -33,4 +33,7 @@ class AppColors {
 
   //ShadowColor
   static const Color shadowColor = Color(0x19000000);
+
+  //Rating Color
+  static const Color ratingColor = Color(0xffFBA91D);
 }

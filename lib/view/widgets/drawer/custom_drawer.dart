@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
@@ -37,19 +39,22 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
 
             //Add cars Section
-            Container(
-              width: double.maxFinite,
-              padding: const EdgeInsets.all(8),
-              margin: const EdgeInsets.only(top: 8),
-              decoration: BoxDecoration(
-                  color: AppColors.whiteLight,
-                  borderRadius: BorderRadius.circular(4)
-              ),
-              child: const Row(
-                children: [
-                  CustomImage(imageSrc: AppIcons.addCar,size: 18,),
-                  CustomText(text: AppStaticStrings.addCar,color: AppColors.whiteDarkHover,left: 8)
-                ],
+            GestureDetector(
+              onTap: () => Get.toNamed(AppRoute.endTripScreen),
+              child: Container(
+                width: double.maxFinite,
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.only(top: 8),
+                decoration: BoxDecoration(
+                    color: AppColors.whiteLight,
+                    borderRadius: BorderRadius.circular(4)
+                ),
+                child: const Row(
+                  children: [
+                    CustomImage(imageSrc: AppIcons.addCar,size: 18,),
+                    CustomText(text: AppStaticStrings.addCar,color: AppColors.whiteDarkHover,left: 8)
+                  ],
+                ),
               ),
             ),
           ],

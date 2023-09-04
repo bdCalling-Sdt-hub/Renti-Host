@@ -14,6 +14,9 @@ import 'package:renti_host/view/screens/auth/signup/sign_up_screen.dart';
 import 'package:renti_host/view/screens/auth/signup_continue/sign_up_continue.dart';
 import 'package:renti_host/view/screens/car_details/car_details_screen.dart';
 import 'package:renti_host/view/screens/car_list/car_list_screen.dart';
+import 'package:renti_host/view/screens/deal_information/deal_information_end_trip/end_trip_screen.dart';
+import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/start_trip_screen.dart';
+import 'package:renti_host/view/screens/deal_information/end_trip_review/end_trip_review_screen.dart';
 import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/navbar/custom_navbar.dart';
 import 'package:renti_host/view/screens/profile/profile_screen.dart';
@@ -48,6 +51,11 @@ class AppRoute {
   static const String addCarSpecialScreens = "/add_car_special_screen";
   static const String seeAllCarList = "/car_list_screen";
   static const String carDetailsScreen = "/car_details_screen";
+
+  //Home Drawer Screens Strings
+  static const String startTripScreen = "/start_trip_screen";
+  static const String endTripScreen = "/end_trip_screen";
+  static const String endTripReviewScreen = "/end_trip_review_screen";
 
   //Rent Request and Inner Screens Path Strings
   static const String rentScreen = "/user_request_screen";
@@ -85,6 +93,11 @@ class AppRoute {
     GetPage(name: addCarSpecialScreens, page: ()=> const AddCarSpecialScreen()),
     GetPage(name: seeAllCarList, page: ()=> const CarListScreen()),
     GetPage(name: carDetailsScreen, page: ()=> const CarDetailsScreen()),
+
+    //Home Drawer Screens
+    GetPage(name: startTripScreen, page: ()=> const StartTripScreen()),
+    GetPage(name: endTripScreen, page: ()=> const EndTripScreen()),
+    GetPage(name: endTripReviewScreen, page: ()=> const EndTripReviewScreen()),
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),

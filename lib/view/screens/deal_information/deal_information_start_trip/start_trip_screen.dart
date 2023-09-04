@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/deal_information/deal_information_end_trip/inner_widgets/top_upload_section.dart';
-import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_info.dart';
-
-
-import '../../rent_request/user_details/user_request_details_screen.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/car_image_scetion.dart';
+import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_information.dart';
+import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_user_information.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class StartTripScreen extends StatefulWidget {
   const StartTripScreen({super.key});
@@ -16,87 +20,57 @@ class _StartTripScreenState extends State<StartTripScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-
+      top: true,
       child: Scaffold(
-          backgroundColor: const Color(0xffffffff),
-        appBar: AppBar(
-             titleSpacing: -8,
-            centerTitle: false,
-            elevation: 0,
-            title: const Text('Car Deal Information',
-                style: TextStyle(
-                    color: Color(0xff2E2C2C),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600)),
-            backgroundColor: const Color(0xffffffff),
-            leading: IconButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>UserDetailsScreen()));
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-              ),
-              color: Colors.black,
-            )),
-        body: LayoutBuilder(builder: (context, constraint) {
-          return  const SingleChildScrollView(
-            padding: EdgeInsetsDirectional.symmetric(vertical: 20, horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                 // top Section with upload button
-                 TopUploadSection(),
-                SizedBox(height: 16),
-                RentalInfostart(),
-                SizedBox(height: 24,),
-                Text("User Information",
-                    style: TextStyle(
-                        color: Color(0xff2E2C2C),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500)),
-                SizedBox(height: 16,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Name:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
-                    SizedBox(),
-                    Text("Md Ratul",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
-                  ],
-                ),
-                SizedBox(height: 8,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("INE:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
-                    SizedBox(),
-                    Text("12345678964",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
-                  ],
-                ),
-                SizedBox(height: 8,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Driving license no:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
-                    SizedBox(),
-                    Text("61-10-2222",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
-                  ],
-                ),
-                SizedBox(height: 8,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Pickup location:",style: TextStyle(color: Color(0xff999999),fontSize: 16,fontWeight:FontWeight.w400)),
-                    SizedBox(),
-                    Text("Mexico",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 16,fontWeight:FontWeight.w500)),
-                  ],
-                ),
-
-              ],
-            ),
-          );
-        }
+        extendBody: true,
+        backgroundColor: AppColors.whiteLight,
+        appBar: const CustomAppBar(
+          appBarContent: CustomBack(
+              text: AppStaticStrings.carDealInformation,
+              color: AppColors.blackNormal),
         ),
-
+        body: LayoutBuilder(
+          builder: (context, constraint) {
+            return SingleChildScrollView(
+              padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: 24, horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CustomText(
+                      text: AppStaticStrings.uploadCarPhoto,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      bottom: 16),
+                  // top Section with upload button
+                  const CarImageSection(),
+                  const SizedBox(height: 16),
+                  CustomElevatedButton(
+                    onPressed: () {},
+                    titleText: AppStaticStrings.uploadCarPhoto,
+                    buttonHeight: 48,
+                    titleSize: 16,
+                    titleWeight: FontWeight.w500,
+                    buttonWidth: double.maxFinite,
+                  ),
+                  const SizedBox(height: 16),
+                  const RentalInformation(),
+                  const SizedBox(height: 24),
+                  //User Information Section
+                  const RentalUserInformation(),
+                  const SizedBox(height: 80),
+                ],
+              ),
+            );
+          },
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          child: CustomElevatedButton(
+              onPressed: () {},
+              titleText: AppStaticStrings.startTrip,
+              buttonHeight: 48),
+        ),
       ),
     );
   }
