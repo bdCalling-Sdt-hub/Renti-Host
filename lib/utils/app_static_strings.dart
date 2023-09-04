@@ -165,6 +165,13 @@ class AppStaticStrings {
   static const String gearType = "Gear Type";
   static const String enterGearType = "Enter gear type";
 
+  //Car List Screen All Strings
+  static const String searchCarBy = "search car by company...";
+  static const String seeDetails = "See details";
+
+
+
+
   //Rent Request Screen All Strings
   static const String usersRequest = "Users Request";
   static const String cancel = "Cancel";

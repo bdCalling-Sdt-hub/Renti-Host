@@ -6,6 +6,7 @@ import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/inner_widgets/user_request_card.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class UserRequestScreen extends StatefulWidget {
   const UserRequestScreen({super.key});
@@ -23,9 +24,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
         extendBody: true,
         backgroundColor: AppColors.whiteLight,
         appBar: const CustomAppBar(
-          appBarContent: CustomBack(
-              text: AppStaticStrings.usersRequest,
-              color: AppColors.blackNormal),
+          appBarContent: CustomText(text: AppStaticStrings.usersRequest,fontSize: 18,fontWeight: FontWeight.w600),
         ),
         body: LayoutBuilder(
           builder: (context, constraint) {

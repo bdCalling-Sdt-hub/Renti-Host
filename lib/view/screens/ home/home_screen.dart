@@ -116,7 +116,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         ),
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            return  SingleChildScrollView(
+            return SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
               child: Column(
@@ -125,7 +125,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 children: [
                   const HomeTopSection(),
 
-                  const SizedBox(height: 80),
+                  /*const SizedBox(height: 80),
                   const CustomImage(
                       imageSrc: AppImages.adminApprovalImage,
                       imageType: ImageType.png),
@@ -154,19 +154,28 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                  ),
+                  ),*/
 
                   //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
-                  /*const SizedBox(height: 16),
-                  const Row(
+                  const SizedBox(height: 16),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CustomText(text: AppStaticStrings.carsList, fontWeight: FontWeight.w600),
-                      CustomText(text: AppStaticStrings.seeAll, color: AppColors.blueNormal),
+                      const CustomText(
+                          text: AppStaticStrings.carsList,
+                          fontWeight: FontWeight.w600),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(AppRoute.seeAllCarList);
+                        },
+                        child: const CustomText(
+                            text: AppStaticStrings.seeAll,
+                            color: AppColors.blueNormal),
+                      ),
                     ],
                   ),
-                  const HomeCarList()*/
+                  const HomeCarList()
                 ],
               ),
             );

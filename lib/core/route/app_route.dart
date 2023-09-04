@@ -12,6 +12,7 @@ import 'package:renti_host/view/screens/auth/kyc/kyc_number_verification/kyc_num
 import 'package:renti_host/view/screens/auth/signin/sign_in_screen.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_screen.dart';
 import 'package:renti_host/view/screens/auth/signup_continue/sign_up_continue.dart';
+import 'package:renti_host/view/screens/car_list/car_list_screen.dart';
 import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/navbar/custom_navbar.dart';
 import 'package:renti_host/view/screens/profile/profile_screen.dart';
@@ -44,6 +45,7 @@ class AppRoute {
   static const String searchScreen = "/search_screen";
   static const String addCarsScreens = "/add_cars_screen";
   static const String addCarSpecialScreens = "/add_car_special_screen";
+  static const String seeAllCarList = "/car_list_screen";
 
   //Rent Request and Inner Screens Path Strings
   static const String rentScreen = "/user_request_screen";
@@ -79,6 +81,7 @@ class AppRoute {
     GetPage(name: searchScreen, page: ()=> const SearchScreen()),
     GetPage(name: addCarsScreens, page: ()=> const AddCarsScreen()),
     GetPage(name: addCarSpecialScreens, page: ()=> const AddCarSpecialScreen()),
+    GetPage(name: seeAllCarList, page: ()=> const CarListScreen()),
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),
