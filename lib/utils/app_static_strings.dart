@@ -170,7 +170,24 @@ class AppStaticStrings {
   static const String seeDetails = "See details";
 
 
+  //Car Details screen All Strings
+  static const String carModel = "Car model:";
+  static const String numberOfDoors = "Number of Doors:";
+  static const String seats = "Seats:";
+  static const String carColor1 = "Car Color:";
+  static const String carLicense = "Car license no:";
+  static const String  registrationDate = "Registration date:";
+  static const String  insuranceDate1 = "Insurance date:";
+  static const String  reservation = "Reservation:";
+  static const String  userName1 = "User name:";
+  static const String  transitionNo = "Transition no:";
+  static const String  tripNo = "Trip no:";
+  static const String  documents = "Documents";
 
+  //Car Delete Pop Up All Strings
+  static const String wantToDeleteCar = "You sure want to Delete Car?";
+  static const String editCar = "Edit Car";
+  static const String deleteCar = "Delete Car";
 
   //Rent Request Screen All Strings
   static const String usersRequest = "Users Request";
