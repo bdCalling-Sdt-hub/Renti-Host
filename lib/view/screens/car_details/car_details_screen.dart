@@ -70,8 +70,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
               //Cost Per Day
               const Row(
                 children: [
-                  CustomText(
-                      text: "\$", fontSize: 16, fontWeight: FontWeight.w500),
+                  CustomText(text: "\$", fontSize: 16, fontWeight: FontWeight.w500),
                   CustomText(
                       text: "100", fontSize: 16, fontWeight: FontWeight.w500),
                   CustomText(

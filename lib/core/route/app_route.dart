@@ -27,6 +27,7 @@ import 'package:renti_host/view/screens/rent_request/user_request_details/user_r
 import 'package:renti_host/view/screens/search/search_screen.dart';
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
 import 'package:renti_host/view/screens/splash/splash_screen.dart';
+import 'package:renti_host/view/screens/user_list/user_list_screen.dart';
 
 class AppRoute {
 
@@ -58,6 +59,7 @@ class AppRoute {
   static const String startTripScreen = "/start_trip_screen";
   static const String endTripScreen = "/end_trip_screen";
   static const String endTripReviewScreen = "/end_trip_review_screen";
+  static const String userListScreen = "/user_list_screen";
 
   //Rent Request and Inner Screens Path Strings
   static const String rentScreen = "/user_request_screen";
@@ -99,6 +101,7 @@ class AppRoute {
     GetPage(name: addCarSpecialScreens, page: ()=> const AddCarSpecialScreen()),
     GetPage(name: seeAllCarList, page: ()=> const CarListScreen()),
     GetPage(name: carDetailsScreen, page: ()=> const CarDetailsScreen()),
+    GetPage(name: userListScreen, page: ()=> const UserListScreen()),
 
     //Home Drawer Screens
     GetPage(name: startTripScreen, page: ()=> const StartTripScreen()),

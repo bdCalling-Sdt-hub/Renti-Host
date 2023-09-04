@@ -18,7 +18,7 @@ class ReservedDetails extends StatelessWidget {
             CustomText(text: "2014",fontSize: 16,fontWeight:FontWeight.w500),
           ],
         ),
-        SizedBox(height: 8,),
+        SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
