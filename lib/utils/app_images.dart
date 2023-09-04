@@ -10,5 +10,7 @@ class AppImages {
   static const String blueCar = "$basePath/blue_car.png";
   static const String starImage = "$basePath/star_image.svg";
   static const String redCarImage = "$basePath/red_car_image.png";
+  static const String userImage = "$basePath/user_image.png";
+  static const String userImage1 = "$basePath/user_image1.png";
 
 }

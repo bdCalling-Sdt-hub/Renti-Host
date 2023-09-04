@@ -204,6 +204,12 @@ class AppStaticStrings {
   static const String km = "km/L";
   static const String hr = "/hr";
 
+  //Messages Screen All Strings
+  static const String messages = "Messages";
+  static const String bessieCooper = "Bessie Cooper";
+  static const String messageDemo = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium";
+  static const String complete = "Complete";
+
   //Start Trip Screen All Strings
   static const String carDealInformation = "Car Deal Information";
   static const String rentalInformation = "Rental Information";
@@ -226,7 +232,8 @@ class AppStaticStrings {
 
 
   //logOut pop up Strings
-  static const String alertMessage = "You sure want to log out";
+  static const String alertMessage = "You sure want to log out?";
+  static const String deleteMessage = "You sure want to delete message?";
   static const String yes = "Yes";
   static const String no = "No";
 

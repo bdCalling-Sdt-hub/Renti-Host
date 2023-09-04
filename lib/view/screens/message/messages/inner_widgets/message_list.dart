@@ -1,224 +1,166 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:renti_host/view/screens/message/inbox/inbox_screen.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_images.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/widgets/image/custom_image.dart';
+import 'package:renti_host/view/widgets/popups/common_popup.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class MessageList extends StatelessWidget {
-   MessageList({super.key});
+  MessageList({super.key});
 
-  List<Map<String, String>> dataList = [
+  final List<Map<String, String>> dataList = [
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Reserved",
+      "image": AppImages.userImage,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.reserved,
     },
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Complete",
+      "image": AppImages.userImage1,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.complete,
     },
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Reserved",
+      "image": AppImages.profileImage,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.reserved,
     },
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Complete",
+      "image": AppImages.userImage,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.reserved,
     },
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Complete",
+      "image": AppImages.userImage1,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.complete,
     },
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Reserved",
+      "image": AppImages.profileImage,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.reserved,
     },
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Complete",
+      "image": AppImages.userImage,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.reserved,
     },
     {
-      "image": "assets/images/Carphoto.png",
-      "document": 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
-      "status": "Reserved",
+      "image": AppImages.userImage1,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.complete,
+    },
+    {
+      "image": AppImages.profileImage,
+      "document": AppStaticStrings.messageDemo,
+      "status": AppStaticStrings.reserved,
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: List.generate(dataList.length, (index){
-          return  GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>const InboxScreen()));
+      children: List.generate(
+        dataList.length,
+        (index) {
+          return GestureDetector(
+            onTap: () {
+              Get.toNamed(AppRoute.inboxScreen);
             },
             child: Slidable(
-              endActionPane: ActionPane(motion: ScrollMotion() ,
-                  children: [
-                SlidableAction(
-                onPressed: (v){
-                showDialog(context: context, builder: (context){
-                  return  AlertDialog(
-                    title: Column(
-                      children: [
-                        const Text("You sure want to delete message?",style: TextStyle(
-                          color: Color(0xFF2E2C2C),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                         )
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                          child: Divider(
-                            height: 1,
-                            color: Color(0xffE0DFDF),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: InkWell(
-                                onTap: (){
-                                },
-                                child: Container(
-                                  padding: const EdgeInsetsDirectional.symmetric(vertical: 12),
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xffFBE9EC),
-                                      borderRadius: BorderRadius.circular(8)
-                                  ),
-                                  child: const Text("No", textAlign: TextAlign.center, style: TextStyle(color: Color(0xffD7263D),fontSize: 18,fontWeight:FontWeight.w600)),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 8,),
-                            Expanded(
-                              child: InkWell(
-                                onTap: (){
-                                },
-                                child: Container(
-                                  //alignment: Alignment.bottomRight,
-                                  padding: const EdgeInsetsDirectional.symmetric(vertical: 12),
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: const Color(0xff000B90),
-                                        borderRadius: BorderRadius.circular(8)
-                                    ),
-                                    child: const Text("Yes", textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18,fontWeight:FontWeight.w600))
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
-                  );
-                    });
-                    },
-                    backgroundColor: const Color(0xFFD7263D),
-                    icon : CupertinoIcons.delete,),
-                 ]),
-
+              endActionPane: ActionPane(
+                motion: const ScrollMotion(),
+                children: [
+                  SlidableAction(
+                      onPressed: (v) {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return CommonPopUp(
+                                title: AppStaticStrings.deleteMessage,
+                                onTapYes: () {},
+                                onTapNo: () {});
+                          },
+                        );
+                      },
+                      backgroundColor: AppColors.redNormal,
+                      icon: CupertinoIcons.delete),
+                ],
+              ),
               child: Container(
-                margin: EdgeInsets.only(bottom: 8),
-                  width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.only(bottom: 8),
+                width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.all(16),
                 decoration: ShapeDecoration(
                   color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  shadows: const [
+                    BoxShadow(
+                      color: AppColors.shadowColor,
+                      blurRadius: 10,
+                      offset: Offset(0, 1),
+                      spreadRadius: 0,
                     ),
-                    shadows: [
-                      BoxShadow(
-                        color: Color(0x19000000),
-                        blurRadius: 10,
-                        offset: Offset(0, 1),
-                        spreadRadius: 0,
-                      )
-                    ],
+                  ],
                 ),
-
-                child: Column(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Image(
-                          image: AssetImage("assets/images/Avaterkala.png"),width: 52,height:52 ,),
-                        const SizedBox(width: 8,),
-                        Expanded(
-                            flex: 1,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children:  [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const Text("Bessie Cooper",style: TextStyle(color: Color(0xff2E2C2C),fontSize: 18,fontWeight: FontWeight.w500)),
-                                      dataList[index]["status"] == "Reserved"
-                                          ? Container(
-                                          padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                              color: const Color(0xffE6F6F4),
-                                              borderRadius: BorderRadius.circular(4)
-                                          ),
-                                          child: const Text(
-                                            "Complete",
-                                            style: TextStyle(
-                                                color: Color(0xff00A991),
-                                                fontSize: 10,fontWeight:FontWeight.w400
-                                            ),
-                                          )) :
-                                      Container(
-                                        height: 22,
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 12, vertical: 4),
-                                        decoration: ShapeDecoration(
-                                          color: const Color(0xFFE6F6F4),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(4)),
-                                        ),
-                                        child: const Text(
-                                          'Reserved',
-                                          style: TextStyle(
-                                            color: Color(0xFFD7263D),
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  const SizedBox(height: 8,),
-                                  const Text(
-                                      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
-                                      maxLines: 2,
-                                      style: TextStyle(
-                                          color: Color(0xff737373),
-                                          fontSize: 14,fontWeight:FontWeight.w400
-                                      )
-                                  ),
-                                ]
-                            )
-                        ),
-                      ],
+                    CustomImage(imageSrc: dataList[index]["image"].toString(),size: 52,imageType: ImageType.png,),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const CustomText(
+                                  text: AppStaticStrings.bessieCooper,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                decoration: BoxDecoration(
+                                  color: dataList[index]["status"] == "Reserved"
+                                      ? AppColors.redLight
+                                      : AppColors.greenLight,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: CustomText(
+                                  text: dataList[index]["status"].toString(),
+                                  fontSize: 10,
+                                  color: dataList[index]["status"] == "Reserved"
+                                      ? AppColors.redNormal
+                                      : AppColors.greenNormal
+                                ),
+                              ),
+                            ],
+                          ),
+                          CustomText(
+                            text: dataList[index]["document"].toString(),
+                            fontSize: 12,
+                            color: AppColors.whiteDark,
+                            textAlign: TextAlign.start,
+                            top: 8,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
           );
-
-        } )
-
+        },
+      ),
     );
   }
 }

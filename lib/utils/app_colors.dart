@@ -15,6 +15,7 @@ class AppColors {
   // White Color
   static const Color whiteLight = Color(0xffffffff);
   static const Color whiteNormalActive = Color(0xffCCCCCC);
+  static const Color whiteNormalHover = Color(0xffE6E6E6);
 
   static const Color whiteDark = Color(0xffBFBFBF);
   static const Color whiteDarkHover = Color(0xff999999);

@@ -17,6 +17,7 @@ import 'package:renti_host/view/screens/car_list/car_list_screen.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_end_trip/end_trip_screen.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/start_trip_screen.dart';
 import 'package:renti_host/view/screens/deal_information/end_trip_review/end_trip_review_screen.dart';
+import 'package:renti_host/view/screens/message/inbox/inbox_screen.dart';
 import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/navbar/custom_navbar.dart';
 import 'package:renti_host/view/screens/profile/profile_screen.dart';
@@ -62,8 +63,11 @@ class AppRoute {
   static const String userRequestDetails = "/user_request_details_screen";
 
 
-
+  //Message and Inner Screens Path Strings
   static const String messageScreen = "/message_screen";
+  static const String inboxScreen = "/inbox_screen";
+
+
   static const String profileScreen = "/profile_screen";
 
 
@@ -103,8 +107,11 @@ class AppRoute {
     GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),
     GetPage(name: userRequestDetails, page: ()=> const UserRequestDetailsScreen()),
 
-
+    //Message and Inner Screens
     GetPage(name: messageScreen, page: ()=> const MessageScreen()),
+    GetPage(name: inboxScreen, page: ()=> const InboxScreen()),
+
+
     GetPage(name: profileScreen, page: ()=> const ProfileScreen()),
   ];
 }
