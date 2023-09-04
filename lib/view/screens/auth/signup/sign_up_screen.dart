@@ -49,8 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //Full name And TextField
-                          const CustomText(
-                              text: AppStaticStrings.fullName, bottom: 12),
+                          const CustomText(text: AppStaticStrings.fullName, bottom: 12),
                           CustomTextField(
                             hintText: AppStaticStrings.enterFullName,
                             hintStyle: GoogleFonts.poppins(

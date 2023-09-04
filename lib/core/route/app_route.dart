@@ -20,6 +20,7 @@ import 'package:renti_host/view/screens/deal_information/end_trip_review/end_tri
 import 'package:renti_host/view/screens/message/inbox/inbox_screen.dart';
 import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/navbar/custom_navbar.dart';
+import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_screen.dart';
 import 'package:renti_host/view/screens/profile/profile_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/user_request_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request_details/user_request_details_screen.dart';
@@ -69,6 +70,7 @@ class AppRoute {
 
 
   static const String profileScreen = "/profile_screen";
+  static const String editProfileScreen = "/edit_profile_screen";
 
 
 
@@ -111,7 +113,8 @@ class AppRoute {
     GetPage(name: messageScreen, page: ()=> const MessageScreen()),
     GetPage(name: inboxScreen, page: ()=> const InboxScreen()),
 
-
+    //Profile and inner Screens
     GetPage(name: profileScreen, page: ()=> const ProfileScreen()),
+    GetPage(name: editProfileScreen, page: ()=> const EditProfileScreen()),
   ];
 }

@@ -8,6 +8,8 @@ class AppIcons {
   static const String forgotPassIcon = "$basePath/forgot_pass_icon.svg";
   static const String otpIcon = "$basePath/otp_icon.svg";
   static const String uploadIcon = "$basePath/upload_icon.svg";
+  static const String editProfileIcon = "$basePath/edit_icon.svg";
+  static const String cameraIcon = "$basePath/camera_icon.svg";
 
   //Drawer Icons
   static const String addCar = "$basePath/add_car.svg";

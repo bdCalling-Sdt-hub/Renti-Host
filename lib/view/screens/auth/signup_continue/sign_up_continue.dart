@@ -90,7 +90,6 @@ class _SignUpContinueScreenState extends State<SignUpContinueScreen> {
 
                     //Address Text and TextField
                     const CustomText(text: AppStaticStrings.address, top: 16, bottom: 12),
-
                     Container(
                       height: 100,
                       decoration: BoxDecoration(

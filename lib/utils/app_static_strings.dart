@@ -210,6 +210,16 @@ class AppStaticStrings {
   static const String messageDemo = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium";
   static const String complete = "Complete";
 
+  //Profile Screen All Strings
+  static const String profile = "Profile";
+  static const String ine = "INE";
+  static const String mobile = "Mobile";
+
+  //Edit Profile Screen All Screens
+  static const String profileEdit = "Profile Edit";
+  static const String name1 = "Name";
+  static const String save = "Save";
+
   //Start Trip Screen All Strings
   static const String carDealInformation = "Car Deal Information";
   static const String rentalInformation = "Rental Information";
