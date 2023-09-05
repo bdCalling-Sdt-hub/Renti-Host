@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -227,6 +226,8 @@ class AppStaticStrings {
   //Admin Information Screen All Strings
   static const String hotlineNumber = 'Hotline Number';
   static const String officeAddress = 'Office Address';
+  static const String allReviews = 'All reviews';
+  static const String date = 'Date: ';
 
   //Start Trip Screen All Strings
   static const String carDealInformation = "Car Deal Information";

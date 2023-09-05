@@ -6,8 +6,8 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/auth/signin/inner_widget/sign_in_auth.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
-import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/container/custon_container.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -22,7 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.blueNormal,
-        appBar: const CustomAppBar(appBarContent: CustomBack(text: AppStaticStrings.signIn,),),
+        appBar: const CustomAppBar(appBarContent: CustomText(text: AppStaticStrings.signIn,fontSize: 18,color: AppColors.whiteLight),),
         body: CustomContainer(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
