@@ -228,6 +228,11 @@ class AppStaticStrings {
   static const String officeAddress = 'Office Address';
   static const String allReviews = 'All reviews';
   static const String date = 'Date: ';
+  static const String totalIncome = 'Total Income';
+  static const String weeklyIncome = 'Weekly Income';
+  static const String rentiFee = 'Renti Fee';
+  static const String myPayment = 'My Payment';
+  static const String carLicNo = 'Car License No: ';
 
   //Start Trip Screen All Strings
   static const String carDealInformation = "Car Deal Information";

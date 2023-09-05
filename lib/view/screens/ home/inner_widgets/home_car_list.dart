@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/view/screens/income_page/renti_free/inner_widget/start_end_date.dart';
+import 'package:renti_host/view/widgets/start_end_date/start_end_date.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class HomeCarList extends StatefulWidget {
@@ -13,8 +13,6 @@ class HomeCarList extends StatefulWidget {
 }
 
 class _HomeCarListState extends State<HomeCarList> {
-  bool isClicked = false;
-  int selectedIndex = -1;
 
   List<Map<String, String>> dataList = [
     {
@@ -49,12 +47,27 @@ class _HomeCarListState extends State<HomeCarList> {
     },
   ];
 
+  Map<int, bool> expandedMap = {};
+
+  void onChanged(int index) {
+    setState(
+          () {
+        if (expandedMap.containsKey(index)) {
+          expandedMap[index] = !expandedMap[index]!;
+        } else {
+          expandedMap[index] = true;
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: List.generate(
         dataList.length,
         (index) {
+          final isExpanded = expandedMap[index] ?? false;
           return Column(
             children: [
               Container(
@@ -162,10 +175,9 @@ class _HomeCarListState extends State<HomeCarList> {
                                 dataList[index]["status"] == "Reserved"
                                     ? GestureDetector(
                                         onTap: () {
-                                          changeIndex(index);
+                                          onChanged(index);
                                         },
-                                        child: Icon(
-                                            isClicked
+                                        child: Icon(isExpanded
                                                 ? Icons.keyboard_arrow_up_rounded
                                                 : Icons.keyboard_arrow_down_rounded,
                                             color: AppColors.blueNormal,
@@ -182,20 +194,11 @@ class _HomeCarListState extends State<HomeCarList> {
                   ],
                 ),
               ),
-              dataList[index]["status"] == "Reserved" && index == selectedIndex
-                  ? StartEndDate()
-                  : const SizedBox()
+              dataList[index]["status"] == "Reserved" && isExpanded ? StartEndDate() : const SizedBox(),
             ],
           );
         },
       ),
     );
-  }
-
-  changeIndex(int index) {
-    setState(() {
-      selectedIndex = index;
-      isClicked = !isClicked;
-    });
   }
 }

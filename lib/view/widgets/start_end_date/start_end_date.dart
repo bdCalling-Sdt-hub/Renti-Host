@@ -4,30 +4,29 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 
 class StartEndDate extends StatelessWidget {
-  const StartEndDate({super.key});
+   StartEndDate({super.key});
+
+  final List<String> date = ['05 aug, 2023', '06 aug, 2023'];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 16),
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsetsDirectional.symmetric(vertical: 16, horizontal: 12),
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(8),
-          bottomRight: Radius.circular(8),
-        ),
         border: BorderDirectional(
           top: BorderSide.none,
-          bottom: BorderSide(color: AppColors.blueLight, width: 1),
-          start: BorderSide(color: AppColors.blueLight, width: 1),
-          end: BorderSide(color: AppColors.blueLight, width: 1),
+          bottom: BorderSide(color: AppColors.blueLight, width: 0.5),
+          start: BorderSide(color: AppColors.blueLight, width: 0.5),
+          end: BorderSide(color: AppColors.blueLight, width: 0.5),
         ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          RichText(
-            text: TextSpan(
+          Text.rich(
+            TextSpan(
               children: [
                 TextSpan(
                   text: AppStaticStrings.start,
@@ -38,7 +37,7 @@ class StartEndDate extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: "05 aug, 2023",
+                  text: date[0],
                   style: GoogleFonts.poppins(
                     color: AppColors.blackNormal,
                     fontSize: 12,
@@ -48,8 +47,8 @@ class StartEndDate extends StatelessWidget {
               ],
             ),
           ),
-          RichText(
-            text: TextSpan(
+          Text.rich(
+            TextSpan(
               children: [
                 TextSpan(
                   text: AppStaticStrings.end,
@@ -60,7 +59,7 @@ class StartEndDate extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: '06 july 2023 ',
+                  text: date[1],
                   style: GoogleFonts.poppins(
                     color: AppColors.blackNormal,
                     fontSize: 12,
