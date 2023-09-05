@@ -1,336 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_images.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/rent_list/inner_widgets/rent_details_top_section.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
+import 'package:renti_host/view/widgets/rent_details/custom_rent_details.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
-class RentiDetailsAlert extends StatelessWidget {
-  const RentiDetailsAlert({super.key});
+class RentDetailsAlert extends StatelessWidget {
+  const RentDetailsAlert({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 350,
-                decoration: BoxDecoration(
-                    color: const Color(0xffffffff),
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow:  [
-                      BoxShadow(
-                          color: const Color(0xff000000).withOpacity(0.1),
-                          blurRadius: 10,
-                          offset: const Offset(0, 1)
-                      )
-                    ]
-                ),
-                child: Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 14, right: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        width: 70,
-                                        height: 70,
-                                        decoration: const BoxDecoration(
-                                        image:
-                                        DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/Carphoto.png"),
-                                          fit: BoxFit.cover,
-                                        ),
-                                        shape: BoxShape.circle
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                        width: 16),
-                                    const Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Toyota Harrier',
-                                          style:
-                                          TextStyle(
-                                            color: Color(0xFF2E2C2C),
-                                            fontSize: 18,
-                                            fontWeight:
-                                            FontWeight.w500,
-                                            height: 1.40,
-                                          ),
-                                        ),
-                                        SizedBox(height: 8),
-                                        Text.rich(
-                                          TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Car license: ',
-                                                style: TextStyle(color:
-                                                  Color(0xFF999999),
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                'NBG1234567',
-                                                style: TextStyle(color:
-                                                  Color(0xFF2E2C2C),
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        SizedBox(height: 8),
-                                        Text.rich(
-                                          TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text:
-                                                'Car year: ',
-                                                style: TextStyle(
-                                                  color: Color(0xFF999999),
-                                                  fontSize: 10, fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                '2020',
-                                                style:
-                                                TextStyle(
-                                                  color:
-                                                  Color(0xFF2E2C2C),
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+        child: Container(
+          width: double.maxFinite,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppColors.whiteLight,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: const [
+              BoxShadow(
+                color: AppColors.shadowColor,
+                blurRadius: 10,
+                offset: Offset(0, 1),
+              ),
+            ],
+          ),
+          child:  Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const RentDetailsTopSection(
+                  image: AppImages.blueCar,
+                  carName: "Toyota Harrier",
+                  carModel: "2020",
+                  status: AppStaticStrings.reserved,
+                  carLicense: "NBG1234567"),
+              const SizedBox(height: 16),
+              const CustomRentDetails(title: AppStaticStrings.tripNo, data: "01"),
+              const SizedBox(height: 8),
+              const CustomRentDetails(
+                  title: AppStaticStrings.startDate1, data: '9 aug 2023'),
+              const SizedBox(height: 8),
+              const CustomRentDetails(
+                  title: AppStaticStrings.endDate1, data: '10 aug 2023'),
+              const CustomText(
+                  text: AppStaticStrings.userInformation,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  top: 24,
+                  bottom: 16),
+              const CustomRentDetails(
+                  title: AppStaticStrings.name,
+                  data: AppStaticStrings.userName),
+              const SizedBox(height: 8),
+              const CustomRentDetails(
+                  title: AppStaticStrings.contact, data: '+52 1526363840'),
+              const SizedBox(height: 8),
+              const CustomRentDetails(
+                  title: AppStaticStrings.email1, data: 'johndoe@gmail.com'),
+              const SizedBox(height: 8),
+              const CustomRentDetails(
+                  title: AppStaticStrings.iNE, data: '1231 1231 1231 1231'),
+              const SizedBox(height: 8),
+              const CustomRentDetails(
+                  title: AppStaticStrings.drivingLicense, data: 'ACD1234566'),
+              const SizedBox(height: 24),
 
-                              Container(
-                                width: 71,
-                                padding: const EdgeInsets.symmetric(vertical: 4),
-                                decoration:
-                                ShapeDecoration(
-                                  color: const Color(0xFFE6F6F4),
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-                                ),
-                                child:
-                                const Text(
-                                  textAlign: TextAlign.center,
-                                  'Active',
-                                  style: TextStyle(
-                                    color: Color(0xFF00A991),
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Trip no:',
-                                style: TextStyle(
-                                  color: Color(0xFF999999),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-
-                                ),
-                              ),
-                              Text('01',
-
-                                  style: TextStyle(color: Color(0xFF2E2C2C),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ))
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Start Date:',
-                                style: TextStyle(
-                                  color: Color(
-                                      0xFF999999),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              Text(
-                                '9 aug 2023',
-                                style: TextStyle(
-                                  color: Color(0xFF2E2C2C),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height:8),
-                          const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'End Date:',
-                                  style: TextStyle(
-                                    color: Color(0xFF999999),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Text(
-                                  '10 aug 2023',
-                                  style: TextStyle(
-                                    color: Color(0xFF2E2C2C),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-
-                                  ),
-                                ),
-                              ]),
-                          const SizedBox(height: 24,),
-                          const Text('User Information',
-                            style: TextStyle(
-                              color:
-                              Color(0xFF2E2C2C), fontSize: 12,
-                              fontWeight: FontWeight.w500,
-
-                            ),
-                          ),
-                          const SizedBox(height: 16,),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Name:',
-                                style: TextStyle(
-                                  color: Color(0xFF999999),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              Text('Mr. John Doe',
-                                  style: TextStyle(
-                                    color: Color(0xFF2E2C2C),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ))
-                            ],
-                          ),
-                          const SizedBox(height:8),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Contact:',
-                                style: TextStyle(
-                                  color: Color(0xFF999999),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              Text(
-                                '+52 1526363840',
-                                style: TextStyle(
-                                  color: Color(0xFF2E2C2C),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height:8),
-                          const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Email:',
-                                  style: TextStyle(
-                                    color: Color(0xFF999999),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-
-                                  ),
-                                ),
-                                Text(
-                                  'johndoe@gmail.com',
-                                  style: TextStyle(
-                                    color: Color(0xFF2E2C2C),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-
-                                  ),
-                                ),
-                              ]),
-                          const SizedBox(height: 8),
-                          const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'INE:',
-                                  style: TextStyle(
-                                    color: Color(0xFF999999),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Text(
-                                  '1231 1231 1231 1231',
-                                  style: TextStyle(
-                                    color: Color(0xFF2E2C2C),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ]),
-                          const SizedBox(height:8),
-                          const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Driving license:',
-                                  style: TextStyle(
-                                    color: Color(0xFF999999),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-
-                                  ),
-                                ),
-                                Text(
-                                  'ACD1234566',
-                                  style: TextStyle(
-                                    color: Color(0xFF2E2C2C),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ]),
-                        ]))),
-          ],
+              //This Button Only Show When Reserve Status card Clicked
+              CustomElevatedButton(onPressed: (){
+                Get.toNamed(AppRoute.endTripScreen);
+              }, titleText: AppStaticStrings.seeDetails,buttonWidth: double.maxFinite,buttonHeight: 48)
+            ],
+          ),
         ),
       ),
     );

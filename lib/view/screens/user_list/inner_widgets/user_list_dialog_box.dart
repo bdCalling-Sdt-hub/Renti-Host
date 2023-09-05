@@ -21,7 +21,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
       "rating": "2.5",
       "status": "Complete",
       "Contact:": "+52 3645646464",
-      "Email:": "kabir@gmail.com",
+      "Email:": "johndoe@gmail.com",
       "tripNo": "01"
     },
   ];

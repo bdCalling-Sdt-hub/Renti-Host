@@ -76,7 +76,7 @@ class _UserDetailsState extends State<UserDetails> {
                   BoxShadow(
                     color: AppColors.shadowColor,
                     blurRadius: 10,
-                  )
+                  ),
                 ],
               ),
               child: Row(
@@ -156,7 +156,8 @@ class _UserDetailsState extends State<UserDetails> {
                             margin: const EdgeInsets.only(right: 16),
                             decoration: BoxDecoration(
                                 color: AppColors.blueLight,
-                                borderRadius: BorderRadius.circular(4)),
+                                borderRadius: BorderRadius.circular(4),
+                            ),
                             child: const Icon(
                               Icons.call,
                               size: 18,

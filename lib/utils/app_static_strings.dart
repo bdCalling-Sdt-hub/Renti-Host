@@ -14,6 +14,7 @@ class AppStaticStrings {
   //Sign In Screen All Strings
   static const String signIn = "Sign In";
   static const String email = "Email";
+  static const String email1 = "Email: ";
   static const String enterEmail = "Enter email";
   static const String password = "Password";
   static const String enterPassword = "Enter password";
@@ -146,7 +147,9 @@ class AppStaticStrings {
   static const String uploadPhoto = "Upload Photo";
   static const String year = "Year";
   static const String startDate = "Start";
+  static const String startDate1 = "Start Date: ";
   static const String endDate = "End";
+  static const String endDate1 = "End Date: ";
   static const String addCarList = "1. Upload car license\n"
       "2. Upload car insurance Policy\n"
       "3. Upload circulation card\n"
@@ -170,17 +173,18 @@ class AppStaticStrings {
   static const String seeDetails = "See details";
 
   //Car Details screen All Strings
-  static const String carModel = "Car model:";
-  static const String numberOfDoors = "Number of Doors:";
-  static const String seats = "Seats:";
-  static const String carColor1 = "Car Color:";
-  static const String carLicense = "Car license no:";
-  static const String registrationDate = "Registration date:";
-  static const String insuranceDate1 = "Insurance date:";
-  static const String reservation = "Reservation:";
-  static const String userName1 = "User name:";
-  static const String transitionNo = "Transition no:";
-  static const String tripNo = "Trip no:";
+  static const String carModel = "Car model: ";
+  static const String numberOfDoors = "Number of Doors: ";
+  static const String seats = "Seats: ";
+  static const String carColor1 = "Car Color: ";
+  static const String carLicense = "Car license no: ";
+  static const String carLic = "Car license: ";
+  static const String registrationDate = "Registration date: ";
+  static const String insuranceDate1 = "Insurance date: ";
+  static const String reservation = "Reservation: ";
+  static const String userName1 = "User name: ";
+  static const String transitionNo = "Transition no: ";
+  static const String tripNo = "Trip no: ";
   static const String documents = "Documents";
 
   //Car Delete Pop Up All Strings
@@ -196,9 +200,9 @@ class AppStaticStrings {
 
   //Rent Request Details Screen All Strings
   static const String userDetails = "User details";
-  static const String rentDate = "Rent date:";
-  static const String totalTime = "Total time:";
-  static const String contact = "Contact:";
+  static const String rentDate = "Rent date: ";
+  static const String totalTime = "Total time: ";
+  static const String contact = "Contact: ";
   static const String totalAmount = "Total amount:";
   static const String carDetails = "Car details";
   static const String km = "km/L";
