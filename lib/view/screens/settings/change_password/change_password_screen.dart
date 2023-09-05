@@ -129,7 +129,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
           child: CustomElevatedButton(onPressed: (){
-            Get.back();
           }, titleText: AppStaticStrings.save),
         ),
       ),

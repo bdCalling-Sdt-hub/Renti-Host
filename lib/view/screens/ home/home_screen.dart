@@ -74,7 +74,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                   scaffoldKey.currentState!.openDrawer();
+                },
                 child: const Icon(Icons.menu,
                     color: AppColors.blueNormal, size: 40),
               ),
@@ -108,9 +110,10 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 ),
               ),
               const CustomImage(
-                  imageSrc: AppImages.profileImage,
-                  imageType: ImageType.png,
-                  size: 40),
+                imageSrc: AppImages.profileImage,
+                imageType: ImageType.png,
+                size: 40,
+              ),
             ],
           ),
         ),
@@ -170,8 +173,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                           Get.toNamed(AppRoute.seeAllCarList);
                         },
                         child: const CustomText(
-                            text: AppStaticStrings.seeAll,
-                            color: AppColors.blueNormal),
+                          text: AppStaticStrings.seeAll,
+                          color: AppColors.blueNormal,
+                        ),
                       ),
                     ],
                   ),
