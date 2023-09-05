@@ -31,6 +31,13 @@ import 'package:renti_host/view/screens/rent_request/user_request_details/user_r
 import 'package:renti_host/view/screens/review/all_review_screen.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
+import 'package:renti_host/view/screens/settings/change_language/change_language.dart';
+import 'package:renti_host/view/screens/settings/change_password/change_password_screen.dart';
+import 'package:renti_host/view/screens/settings/payment_method/add_new_card/add_new_card_screen.dart';
+import 'package:renti_host/view/screens/settings/payment_method/card_details/card_details_screen.dart';
+import 'package:renti_host/view/screens/settings/payment_method/payment_method_screen.dart';
+import 'package:renti_host/view/screens/settings/privacy_policy/privacy_policy_screen.dart';
+import 'package:renti_host/view/screens/settings/settings/settings_screen.dart';
 import 'package:renti_host/view/screens/splash/splash_screen.dart';
 import 'package:renti_host/view/screens/user_list/user_list_screen.dart';
 
@@ -70,6 +77,13 @@ class AppRoute {
   static const String allReview = "/all_review_screen";
   static const String incomeScreen = "/income_screen";
   static const String weeklyIncomeScreen = "/weekly_income_screen";
+  static const String settingsScreen = "/settings_screen";
+  static const String changeLanguageScreen = "/change_language_screen";
+  static const String changePasswordScreen = "/change_password_screen";
+  static const String paymentMethodScreen = "/payment_method_screen";
+  static const String addNewCardScreen = "/add_debit_card_screen";
+  static const String cardDetailsScreen = "/card_details_screen";
+  static const String privacyPolicyScreen = "/privacy_policy_screen";
 
   //Rent Request and Inner Screens Path Strings
   static const String rentScreen = "/user_request_screen";
@@ -122,6 +136,13 @@ class AppRoute {
     GetPage(name: allReview, page: ()=> const AllReviewScreen()),
     GetPage(name: incomeScreen, page: ()=> const IncomeScreen()),
     GetPage(name: weeklyIncomeScreen, page: ()=> const WeeklyIncomeScreen()),
+    GetPage(name: settingsScreen, page: ()=> const SettingsScreen()),
+    GetPage(name: changeLanguageScreen, page: ()=> const ChangeLanguageScreen()),
+    GetPage(name: changePasswordScreen, page: ()=> const ChangePasswordScreen()),
+    GetPage(name: paymentMethodScreen, page: ()=> const PaymentMethodScreen()),
+    GetPage(name: addNewCardScreen, page: ()=> const AddNewCardScreen()),
+    GetPage(name: cardDetailsScreen, page: ()=> const CardDetailsScreen()),
+    GetPage(name: privacyPolicyScreen, page: ()=> const PrivacyPolicyScreen()),
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),

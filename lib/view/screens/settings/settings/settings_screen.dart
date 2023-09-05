@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/settings/settings/inner_widgets/setting_name.dart';
-
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/settings/settings/inner_widgets/dialog_box.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -8,47 +14,98 @@ class SettingsScreen extends StatefulWidget {
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
+
 class _SettingsScreenState extends State<SettingsScreen> {
+  double value = 10;
 
-
+  List settingData = [
+    "Change Language",
+    "Change Password",
+    "Notification Sound",
+    "Payment Method",
+    "Privacy Policy"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
+      top: true,
       child: Scaffold(
-        backgroundColor: const Color(0xFFFFFFFF),
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 18,
-              color:  Color(0xff2E2C2C),
-            ),
-          ),
-          titleSpacing: -8,
-          automaticallyImplyLeading: false,
-          backgroundColor: const Color(0xFFFFFFFF),
-          title: const Text(
-            'Settings',
-            style: TextStyle(
-                color: Color(0xFF2E2C2C),
-                fontSize: 18,
-                fontWeight: FontWeight.w600),
+        backgroundColor: AppColors.whiteLight,
+        appBar: const CustomAppBar(
+          appBarContent: CustomBack(
+            text: AppStaticStrings.settings,
+            color: AppColors.blackNormal,
           ),
         ),
         body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>const SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: 20, right: 20, bottom: 24, top: 24),
-                child: SettingName(
-                ),
-                ),
+          builder: (BuildContext context, BoxConstraints constraints) =>
+              SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+            child: Column(
+              children: List.generate(
+                settingData.length,
+                (index) {
+                  return GestureDetector(
+                    onTap: () {
+                      if (index == 0) {
+                        Get.toNamed(AppRoute.changeLanguageScreen);
+                      } else if (index == 1) {
+                        Get.toNamed(AppRoute.changePasswordScreen);
+                      } else if (index == 2) {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return const DialogBox();
+                            });
+                      } else if (index == 3) {
+                        Get.toNamed(AppRoute.paymentMethodScreen);
+                      } else if (index == 4) {
+                        Get.toNamed(AppRoute.privacyPolicyScreen);
+                      }
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 24),
+                      width: MediaQuery.of(context).size.width,
+                      decoration: ShapeDecoration(
+                        color: AppColors.whiteLight,
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                              width: 1, color: AppColors.blueLight),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        shadows: const [
+                          BoxShadow(
+                            color: AppColors.shadowColor,
+                            blurRadius: 10,
+                            offset: Offset(0, 1),
+                            spreadRadius: 0,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomText(
+                            text: settingData[index],
+                            fontSize: 16,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                            color: AppColors.blackNormal,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
-
+            ),
+          ),
         ),
       ),
     );
