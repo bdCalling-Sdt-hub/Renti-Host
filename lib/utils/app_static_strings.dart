@@ -224,6 +224,10 @@ class AppStaticStrings {
   static const String name1 = "Name";
   static const String save = "Save";
 
+  //Admin Information Screen All Strings
+  static const String hotlineNumber = 'Hotline Number';
+  static const String officeAddress = 'Office Address';
+
   //Start Trip Screen All Strings
   static const String carDealInformation = "Car Deal Information";
   static const String rentalInformation = "Rental Information";

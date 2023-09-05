@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:renti_host/view/screens/%20home/home_screen.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/add_car_screen.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_specification/add_car_specification_screen.dart';
+import 'package:renti_host/view/screens/admin_info/admin_info_screen.dart';
 import 'package:renti_host/view/screens/auth/forgot/forget_password/forgot_password_screen.dart';
 import 'package:renti_host/view/screens/auth/forgot/new_password/new_password.dart';
 import 'package:renti_host/view/screens/auth/forgot/otp/forgot_password_otp.dart';
@@ -62,6 +63,7 @@ class AppRoute {
   static const String endTripReviewScreen = "/end_trip_review_screen";
   static const String userListScreen = "/user_list_screen";
   static const String rentListScreen = "/rent_list_screen";
+  static const String adminInfoScreen = "/admin_info_screen";
 
   //Rent Request and Inner Screens Path Strings
   static const String rentScreen = "/user_request_screen";
@@ -110,6 +112,7 @@ class AppRoute {
     GetPage(name: endTripScreen, page: ()=> const EndTripScreen()),
     GetPage(name: endTripReviewScreen, page: ()=> const EndTripReviewScreen()),
     GetPage(name: rentListScreen, page: ()=> const RentListScreen()),
+    GetPage(name: adminInfoScreen, page: ()=> const AdminInfoScreen()),
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),

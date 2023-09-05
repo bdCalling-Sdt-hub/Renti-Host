@@ -40,7 +40,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
             //Add cars Section
             GestureDetector(
-              onTap: () => Get.toNamed(AppRoute.rentListScreen),
+              onTap: () => Get.toNamed(AppRoute.adminInfoScreen),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
@@ -51,7 +51,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.addCar,size: 18,),
+                    CustomImage(imageSrc: AppIcons.addCar,size: 18),
                     CustomText(text: AppStaticStrings.addCar,color: AppColors.whiteDarkHover,left: 8)
                   ],
                 ),

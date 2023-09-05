@@ -66,16 +66,14 @@ class _RentListScreenState extends State<RentListScreen> {
         body: LayoutBuilder(
           builder: (context, constraint) {
             return SingleChildScrollView(
-              padding: const EdgeInsetsDirectional.symmetric(
-                  vertical: 24, horizontal: 20),
+              padding: const EdgeInsetsDirectional.symmetric(vertical: 24, horizontal: 20),
               child: Column(
                 children: List.generate(
                   dataList.length,
                   (index) => GestureDetector(
                     onTap: () => showDialog(
                       context: context,
-                      builder: (BuildContext context) =>
-                          const RentDetailsAlert(),
+                      builder: (BuildContext context) => const RentDetailsAlert(),
                     ),
                     child: Container(
                       padding: const EdgeInsetsDirectional.all(8),

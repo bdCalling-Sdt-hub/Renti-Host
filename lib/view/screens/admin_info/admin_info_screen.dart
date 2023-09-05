@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
+import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class AdminInfoScreen extends StatefulWidget {
   const AdminInfoScreen({super.key});
@@ -10,151 +15,103 @@ class AdminInfoScreen extends StatefulWidget {
 class _AdminInfoScreenState extends State<AdminInfoScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child:
-        Scaffold(
-          backgroundColor: Color(0xFFFFFFFF),
-          appBar: AppBar(
-            titleSpacing: -8,
-            leading: IconButton(
-              onPressed: () {
-
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 14,
-              ),
-              color: const Color(0xff2E2C2C),
-            ),
-            automaticallyImplyLeading: false,
-            backgroundColor: const Color(0xFFFFFFFF),
-            title: const Text(
-              'Admin Information',
-              style: TextStyle(
-                  color: Color(0xFF2E2C2C),
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600),
+    return SafeArea(
+      top: true,
+      child: Scaffold(
+        backgroundColor: AppColors.whiteLight,
+        appBar: const CustomAppBar(
+          appBarContent: CustomBack(
+              text: AppStaticStrings.adminInfo, color: AppColors.blackNormal),
+        ),
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) =>
+              const SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                    text: AppStaticStrings.hotlineNumber,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.blueNormal,
+                    bottom: 8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.call, color: AppColors.blackNormal, size: 18),
+                    CustomText(text: '+52 123123123', fontSize: 18, left: 8),
+                  ],
+                ),
+                SizedBox(height: 8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.call, color: AppColors.blackNormal, size: 18),
+                    CustomText(text: '+52 123123123', fontSize: 18, left: 8),
+                  ],
+                ),
+                SizedBox(height: 8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.call, color: AppColors.blackNormal, size: 18),
+                    CustomText(text: '+52 123123123', fontSize: 18, left: 8),
+                  ],
+                ),
+                SizedBox(height: 24),
+                CustomText(
+                    text: AppStaticStrings.email,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.blueNormal,
+                    bottom: 8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.email_outlined,
+                        color: AppColors.blackNormal, size: 18),
+                    CustomText(text: '+52 123123123', fontSize: 18, left: 8),
+                  ],
+                ),
+                SizedBox(height: 8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.email_outlined,
+                        color: AppColors.blackNormal, size: 18),
+                    CustomText(text: '+52 123123123', fontSize: 18, left: 8),
+                  ],
+                ),
+                SizedBox(height: 24),
+                CustomText(
+                    text: AppStaticStrings.officeAddress,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.blueNormal,
+                    bottom: 8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.location_on_outlined,
+                        color: AppColors.blackNormal, size: 18),
+                    CustomText(
+                        text: 'Street no.14, Mexico City',
+                        fontSize: 18,
+                        left: 8),
+                  ],
+                ),
+              ],
             ),
           ),
-          body:  LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) =>
-                 const SingleChildScrollView(
-                    child: Padding(
-                      padding:  EdgeInsets.only(
-                          left: 20, right: 20, bottom: 24,top: 24),
-                      child:Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                           Text(
-                            'Hotline Number',
-                            style: TextStyle(
-                                color: Color(0xFF000B90),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(height: 12,),
-                          Row(
-                            children: [
-                              Icon(Icons.call,color: Color(0xff2E2C2C),),
-                              SizedBox(width: 8,),
-                              Text(
-                                '+52 123123123',
-                                style: TextStyle(
-                                    color: Color(0xFF000B90),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 8,),
-                          Row(
-                            children: [
-                              Icon(Icons.call,color: Color(0xff2E2C2C),),
-                              SizedBox(width: 8,),
-                              Text(
-                                '+52 123123123',
-                                style: TextStyle(
-                                    color: Color(0xFF000B90),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 8,),
-                          Row(
-                            children: [
-                              Icon(Icons.call,color: Color(0xff2E2C2C),),
-                              SizedBox(width: 8,),
-                              Text(
-                                '+52 123123123',
-                                style: TextStyle(
-                                    color: Color(0xFF000B90),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 24,),
-                          Text(
-                            'Email',
-                            style: TextStyle(
-                                color: Color(0xFF000B90),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(height: 12,),
-                          Row(
-                            children: [
-                              Icon(Icons.email,color: Color(0xff2E2C2C),),
-                              SizedBox(width: 8,),
-                              Text(
-                                'admin1@gmail.com',
-                                style: TextStyle(
-                                    color: Color(0xFF000B90),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 8,),
-                          Row(
-                            children: [
-                              Icon(Icons.email,color: Color(0xff2E2C2C),),
-                              SizedBox(width: 8,),
-                              Text(
-                                'admin1@gmail.com',
-                                style: TextStyle(
-                                    color: Color(0xFF000B90),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 24,),
-                          Text(
-                            'Office Address',
-                            style: TextStyle(
-                                color: Color(0xFF000B90),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(height: 12,),
-                          Row(
-                            children: [
-                              Icon(Icons.location_on,color: Color(0xff2E2C2C),),
-                              SizedBox(width: 8,),
-                              Text(
-                                'Street no.14, Mexico City',
-                                style: TextStyle(
-                                    color: Color(0xFF000B90),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                    ),
-                  )),
-        ));
+        ),
+      ),
+    );
   }
 }
