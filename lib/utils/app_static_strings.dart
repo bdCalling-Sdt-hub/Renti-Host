@@ -244,11 +244,13 @@ class AppStaticStrings {
   static const String addNewCard = "Add New Card";
   static const String bankAccountNumber = "Bank Account Number";
   static const String enterAccountNumber = "Enter Account Number";
-
   static const String changeLanguage = "Change Language";
   static const String paymentMethod = "Payment Method";
   static const String addDebitCard = "Add Debit Card";
   static const String privacyPolicy = "Privacy Policy";
+
+
+
 
   //Start Trip Screen All Strings
   static const String carDealInformation = "Car Deal Information";

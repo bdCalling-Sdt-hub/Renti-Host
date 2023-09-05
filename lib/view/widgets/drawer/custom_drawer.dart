@@ -40,7 +40,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
             //Add cars Section
             GestureDetector(
-              onTap: () => Get.toNamed(AppRoute.settingsScreen),
+              onTap: () => Get.toNamed(AppRoute.aboutUs),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),

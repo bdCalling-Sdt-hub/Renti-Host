@@ -28,6 +28,10 @@ import 'package:renti_host/view/screens/profile/profile_screen.dart';
 import 'package:renti_host/view/screens/rent_list/rent_list_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/user_request_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request_details/user_request_details_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/about_us_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/support_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/term&condition_screen.dart';
 import 'package:renti_host/view/screens/review/all_review_screen.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
@@ -84,10 +88,14 @@ class AppRoute {
   static const String addNewCardScreen = "/add_debit_card_screen";
   static const String cardDetailsScreen = "/card_details_screen";
   static const String privacyPolicyScreen = "/privacy_policy_screen";
+  static const String howRentiWorks = "/renti_work_screen";
+  static const String termsAndCondition = "/terms_condition_screen";
 
   //Rent Request and Inner Screens Path Strings
   static const String rentScreen = "/user_request_screen";
   static const String userRequestDetails = "/user_request_details_screen";
+  static const String supportScreen = "/support_screen";
+  static const String aboutUs = "/about_us_screen";
 
 
   //Message and Inner Screens Path Strings
@@ -143,6 +151,10 @@ class AppRoute {
     GetPage(name: addNewCardScreen, page: ()=> const AddNewCardScreen()),
     GetPage(name: cardDetailsScreen, page: ()=> const CardDetailsScreen()),
     GetPage(name: privacyPolicyScreen, page: ()=> const PrivacyPolicyScreen()),
+    GetPage(name: howRentiWorks, page: ()=> const RentiWorkScreen()),
+    GetPage(name: termsAndCondition, page: ()=> const TermsConditionScreen()),
+    GetPage(name: supportScreen, page: ()=> const SupportScreen()),
+    GetPage(name: aboutUs, page: ()=> const AboutUsScreen()),
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),
