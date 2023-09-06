@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/year_select_drop_down.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
 
@@ -13,9 +14,34 @@ class AddCarBodySection extends StatefulWidget {
 }
 
 class _AddCarBodySectionState extends State<AddCarBodySection> {
-
   bool isClicked = true;
   String iniTialValue = "year";
+  List<String> timeList = [
+    "2023",
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013",
+    "2012",
+    "2011",
+    "2010",
+    "2009",
+    "2008",
+    "2007",
+    "2006",
+    "2005",
+    "2004",
+    "2003",
+    "2002",
+    "2001",
+    "2000"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +58,11 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
 
         //Care Model Name Text and TextField with select year section
         SizedBox(
-          height: 52,
+
           child: Row(
             children: [
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: CustomTextField(
                   hintText: AppStaticStrings.enterCarName,
                   hintStyle: hintStyle,
@@ -44,17 +70,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
               ),
               const SizedBox(width: 8),
               Expanded(
-                child: Container(
-                  height: 58,
-                  width: 58,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: AppColors.whiteNormalActive,
-                    ),
-                  ),
-                  /*child: const YearSelectDropDown(),*/
-                ),
+                child: DropDown(itemList: timeList)
               ),
             ],
           ),
@@ -72,13 +88,15 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
         Container(
           height: 100,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: AppColors.whiteLight,
-              border: Border.all(
-                  color: AppColors.whiteNormalActive,
-                  style: BorderStyle.solid,
-                  width: 1.0,
-                  strokeAlign: 1)),
+            borderRadius: BorderRadius.circular(8),
+            color: AppColors.whiteLight,
+            border: Border.all(
+              color: AppColors.whiteNormalActive,
+              style: BorderStyle.solid,
+              width: 1.0,
+              strokeAlign: 1,
+            ),
+          ),
           child: CustomTextField(
             textInputAction: TextInputAction.done,
             fieldBorderColor: AppColors.whiteLight,

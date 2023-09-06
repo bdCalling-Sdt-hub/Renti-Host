@@ -156,7 +156,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
             //All Notification List Section
             GestureDetector(
-              onTap: () => Get.toNamed(AppRoute.seeAllCarList),
+              onTap: () => Get.toNamed(AppRoute.notificationScreen),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
@@ -174,7 +174,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
             ),
 
-            //All Car List Section
+            //Admin Section
             GestureDetector(
               onTap: () => Get.toNamed(AppRoute.adminInfoScreen),
               child: Container(
@@ -300,7 +300,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
             //LogOut Section
             GestureDetector(
-              onTap: () => showDialog(context: context, builder: (context) => CommonPopUp(title: AppStaticStrings.logOut, onTapYes: (){}, onTapNo: (){}),),
+              onTap: () => showDialog(context: context, builder: (context) => CommonPopUp(title: AppStaticStrings.alertMessage, onTapYes: (){
+                Get.offAllNamed(AppRoute.signInScreen);
+              }, onTapNo: (){
+                Navigator.of(context).pop();
+              }),),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),

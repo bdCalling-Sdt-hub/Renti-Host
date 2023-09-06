@@ -1,123 +1,104 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
-class YearSelectDropDown extends StatefulWidget {
-  const YearSelectDropDown({super.key});
+class DropDown extends StatefulWidget {
+  final List<String> itemList;
+  final Color fillColor;
+  final Color borderColor;
+  final Color prefixColor;
+
+  final double borderRadius;
+  final double width;
+
+  const DropDown(
+      {super.key,
+      required this.itemList,
+      this.fillColor = Colors.white,
+      this.borderRadius = 8,
+      this.width = double.maxFinite,
+      this.borderColor = AppColors.whiteNormalActive,
+      this.prefixColor = AppColors.whiteNormalActive});
 
   @override
-  State<YearSelectDropDown> createState() => _YearSelectDropDownState();
+  State<DropDown> createState() => _DropDownState();
 }
 
-class _YearSelectDropDownState extends State<YearSelectDropDown> {
-  final List<String> hearCutItems = [
-    "2020",
-    "2929",
-    "2021",
-    "2023",
-    "2020",
-    "2020",
-    "2929",
-    "2021",
-    "2023",
-    "2020",
-    "2020",
-    "2929",
-    "2021",
-    "2023",
-    "2020",
-  ];
-
-  String? selectedHearColorValue;
+class _DropDownState extends State<DropDown> {
+  String selectedTime = "";
+  bool prefix = true;
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField2<String>(
-      isExpanded: true,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: AppColors.whiteLight,
-        border: OutlineInputBorder(
-          borderSide: const BorderSide(width: 0.50, color: Color(0xFF535770),
+    return SizedBox(
+      width: widget.width,
+      child: DropdownButtonFormField2<String>(
+        isExpanded: true,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: widget.fillColor,
+          border: OutlineInputBorder(
+            borderSide: BorderSide(width: 0.50, color: widget.borderColor),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
           ),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 0.50, color: Color(0xFF535770),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 0.50, color: widget.borderColor),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
           ),
-          borderRadius: BorderRadius.circular(4),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 1, color: widget.borderColor),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+          ),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide:
-              const BorderSide(width: 1, color: AppColors.whiteDarkHover),
-          borderRadius: BorderRadius.circular(4),
+        hint: const CustomText(
+          text: "Year",fontSize: 14,color: AppColors.whiteNormalActive,
         ),
-      ),
-      hint: const CustomText(
-        text: AppStaticStrings.year,color: AppColors.blackNormal,
-      ),
-      items: hearCutItems
-          .map((item) => DropdownMenuItem<String>(
+        items: widget.itemList
+            .map(
+              (item) => DropdownMenuItem<String>(
                 value: item,
-                child: CustomText(text: item),
-              ))
-          .toList(),
-      validator: (value) {
-        if (value == null) {
-          return 'Please Select Hair Cut';
-        }
-        return null;
-      },
-      onChanged: (value) {},
-      onSaved: (value) {
-        selectedHearColorValue = value.toString();
-      },
-      buttonStyleData: const ButtonStyleData(
-        padding: EdgeInsets.only(right: 8),
-      ),
-      iconStyleData: const IconStyleData(
-        icon: Icon(
-          Icons.arrow_drop_down,
-          color: AppColors.whiteLight,
+                child: CustomText(left: 0, text: item),
+              ),
+            )
+            .toList(),
+        validator: (value) {
+          if (value == null) {
+            return 'Please Select Year';
+          }
+          return null;
+        },
+        onChanged: (value) {
+          setState(() {
+            prefix = false;
+          });
+        },
+        onSaved: (value) {
+          selectedTime = value!;
+        },
+        buttonStyleData: const ButtonStyleData(
+
         ),
-        iconSize: 24,
-      ),
-      dropdownStyleData: DropdownStyleData(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: AppColors.blueNormal,
-          border: Border.all(color: AppColors.shadowColor),
+        iconStyleData: const IconStyleData(
+          icon: Icon(
+            Icons.keyboard_arrow_down,
+            color: Colors.black26,
+          ),
+          iconSize: 24,
         ),
-      ),
-      menuItemStyleData: const MenuItemStyleData(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        dropdownStyleData: DropdownStyleData(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.white,
+            border: Border.all(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        menuItemStyleData: const MenuItemStyleData(
+          padding: EdgeInsets.only(left: 16),
+        ),
       ),
     );
   }
 }
-
-/*PopupMenuButton(
-            position: PopupMenuPosition.under,
-                  icon: isClicked
-                      ? InkWell(
-                          onTap: () {
-                            setState(() {
-                              isClicked = !isClicked;
-                            });
-                          },
-                          child: const Icon(Icons.keyboard_arrow_down_outlined))
-                      : const Icon(Icons.keyboard_arrow_up_outlined),
-                  itemBuilder: (context) {
-                    return years.map((item) {
-                      return PopupMenuItem(
-                        value: item,
-                        child: Center(child: Text(item)),
-                      );
-                    }).toList();
-                  },
-                  onSelected: (item) {
-                    print(item);
-                  },
-                )*/

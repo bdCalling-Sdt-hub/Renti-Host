@@ -23,6 +23,7 @@ import 'package:renti_host/view/screens/income/weekly_income/weekly_incom_screen
 import 'package:renti_host/view/screens/message/inbox/inbox_screen.dart';
 import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/navbar/custom_navbar.dart';
+import 'package:renti_host/view/screens/notification/notification_screen.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_screen.dart';
 import 'package:renti_host/view/screens/profile/profile_screen.dart';
 import 'package:renti_host/view/screens/rent_list/rent_list_screen.dart';
@@ -90,6 +91,7 @@ class AppRoute {
   static const String privacyPolicyScreen = "/privacy_policy_screen";
   static const String howRentiWorks = "/renti_work_screen";
   static const String termsAndCondition = "/terms_condition_screen";
+  static const String notificationScreen = "/notification_screen";
 
   //Rent Request and Inner Screens Path Strings
   static const String rentScreen = "/user_request_screen";
@@ -155,6 +157,7 @@ class AppRoute {
     GetPage(name: termsAndCondition, page: ()=> const TermsConditionScreen()),
     GetPage(name: supportScreen, page: ()=> const SupportScreen()),
     GetPage(name: aboutUs, page: ()=> const AboutUsScreen()),
+    GetPage(name: notificationScreen, page: ()=> const NotificationScreen()),
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),
