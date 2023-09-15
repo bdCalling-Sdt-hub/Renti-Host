@@ -127,14 +127,11 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const HomeTopSection(),
-
-                  /*const SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   const CustomImage(
                       imageSrc: AppImages.adminApprovalImage,
                       imageType: ImageType.png),
                   const SizedBox(height: 48),
-
-                  //Add New Car... That section comes when admin approved user as host...
                   GestureDetector(
                     onTap: () {
                       Get.toNamed(AppRoute.addCarsScreens);
@@ -157,10 +154,10 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                  ),*/
+                  ),
 
                   //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
-                  const SizedBox(height: 16),
+                  /*const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -179,7 +176,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  const HomeCarList()
+                  const HomeCarList()*/
                 ],
               ),
             );

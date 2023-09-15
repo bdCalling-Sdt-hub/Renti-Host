@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -34,14 +35,12 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
             color: AppColors.blackNormal,
           ),
         ),
-        body: const SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // upload car image (There is a Upload Car Photo and Capture Photo Button
-              //This Section I want to delete ...
-              /*DottedBorder(
+              DottedBorder(
                 padding: const EdgeInsets.all(0),
                 borderType: BorderType.RRect,
                 radius: const Radius.circular(8),
@@ -80,14 +79,13 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                 buttonWidth: double.maxFinite,
                 buttonHeight: 48,
                 buttonBorderColor: AppColors.blueNormal,
-              ),*/
+              ),
 
-              //Add Three Car Photo in this section
-              CarImageSection(),
+              /*CarImageSection(),*/
 
-              AddCarBodySection(),
-              SizedBox(height: 16),
-              AddCarBottomSection()
+              const AddCarBodySection(),
+              const SizedBox(height: 16),
+              const AddCarBottomSection()
             ],
           ),
         ),
