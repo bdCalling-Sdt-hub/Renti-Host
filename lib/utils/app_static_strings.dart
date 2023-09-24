@@ -74,6 +74,8 @@ class AppStaticStrings {
   static const String upload = "Upload";
   static const String uploadINE =
       "1. Upload INE/Passport\n2. Tax stamps .key extension file\n3. Tax stamps .cer extension file";
+  static const String ineOrPassport = "INE/Passport";
+  static const String enterIneOrPassword = "Enter INE/Passport";
   static const String rfc = "RFC";
   static const String enterRFC = "Enter RFC";
 
@@ -166,6 +168,7 @@ class AppStaticStrings {
   static const String enterTotalKM = "Enter Total KM";
   static const String gearType = "Gear Type";
   static const String enterGearType = "Enter gear type";
+  static const String registrationDate1 = "Registration Date";
 
   //Car List Screen All Strings
   static const String searchCarBy = "search car by company...";
@@ -248,8 +251,6 @@ class AppStaticStrings {
   static const String paymentMethod = "Payment Method";
   static const String addDebitCard = "Add Debit Card";
   static const String privacyPolicy = "Privacy Policy";
-
-
 
 
   //Start Trip Screen All Strings

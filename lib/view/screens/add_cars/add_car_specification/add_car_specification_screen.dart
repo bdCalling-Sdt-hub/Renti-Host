@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -54,6 +55,40 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
               const CustomText(text: AppStaticStrings.gearType,top: 16,bottom: 12),
               CustomTextField(hintText: AppStaticStrings.enterGearType,hintStyle: AppStaticStrings.hintStyle),
 
+              //Gear Type Text and TextField
+              const CustomText(text: AppStaticStrings.registrationDate1,top: 16,bottom: 12),
+              TextFormField(
+                showCursor: true,
+                style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.blackNormal),
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(
+                    Icons.calendar_month_rounded,
+                    size: 24,
+                    color: AppColors.whiteDarkHover,
+                  ),
+                  hintText: AppStaticStrings.startDate,
+                  hintStyle: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.whiteNormalActive),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                        color: AppColors.whiteNormalActive, width: 1),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                        color: AppColors.whiteNormalActive, width: 1),
+                  ),
+                ),
+              ),
 
               const SizedBox(height: 16),
               const CarService(),

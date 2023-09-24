@@ -34,31 +34,30 @@ class _CustomNavBarState extends State<CustomNavBar> {
           selectedIndex: selectedIndex,
           image: AppIcons.home),
       MenuBarItems(
-        text: "Rent",
-        index: 1,
-        selectedIndex: selectedIndex,
-        image: AppIcons.rentList
-      ),
+          text: "Rent",
+          index: 1,
+          selectedIndex: selectedIndex,
+          image: AppIcons.rentList),
       MenuBarItems(
-        text: "Message",
-        index: 2,
-        selectedIndex: selectedIndex,
-        image: AppIcons.message
-      ),
+          text: "Message",
+          index: 2,
+          selectedIndex: selectedIndex,
+          image: AppIcons.message),
       MenuBarItems(
-        text: "Profile",
-        index: 3,
-        selectedIndex: selectedIndex,
-        image: AppIcons.userList
-      ),
+          text: "Profile",
+          index: 3,
+          selectedIndex: selectedIndex,
+          image: AppIcons.userList),
     ];
 
     return SafeArea(
+      top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
         extendBody: true,
         bottomNavigationBar: Container(
-          height: 60,alignment: Alignment.bottomCenter,
+          height: 60,
+          alignment: Alignment.bottomCenter,
           padding: const EdgeInsets.only(top: 15),
           decoration: const BoxDecoration(
             color: AppColors.whiteLight,
@@ -73,16 +72,19 @@ class _CustomNavBarState extends State<CustomNavBar> {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: List.generate(manuBarItems.length, (index) {
-              return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
-                child: manuBarItems[index],
-              );
-            }),
+            children: List.generate(
+              manuBarItems.length,
+              (index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                  child: manuBarItems[index],
+                );
+              },
+            ),
           ),
         ),
         body: screens[selectedIndex],
@@ -94,10 +96,11 @@ class _CustomNavBarState extends State<CustomNavBar> {
 class MenuBarItems extends StatelessWidget {
   const MenuBarItems(
       {super.key,
-        required this.image,
-        required this.index,
-        required this.selectedIndex,
-        required this.text});
+      required this.image,
+      required this.index,
+      required this.selectedIndex,
+      required this.text});
+
   final String image;
   final String text;
 
@@ -111,13 +114,19 @@ class MenuBarItems extends StatelessWidget {
         Column(
           children: [
             CustomImage(
-                imageColor: index != selectedIndex ? AppColors.whiteDark : AppColors.blueNormal,size: 24,
+                imageColor: index != selectedIndex
+                    ? AppColors.whiteDark
+                    : AppColors.blueNormal,
+                size: 24,
                 imageSrc: image),
-              CustomText(
-                fontSize: 12,fontWeight: FontWeight.w600,
-                text: text,
-                color: selectedIndex == index ?AppColors.blueNormal : AppColors.whiteDark,
-              ),
+            CustomText(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              text: text,
+              color: selectedIndex == index
+                  ? AppColors.blueNormal
+                  : AppColors.whiteDark,
+            ),
           ],
         ),
       ],

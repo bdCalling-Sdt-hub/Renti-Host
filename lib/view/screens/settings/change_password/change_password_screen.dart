@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:renti_host/data/controller/settings/change_password_controller/change_password_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -17,9 +18,13 @@ class ChangePasswordScreen extends StatefulWidget {
 }
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+
+  final _formKey = GlobalKey<FormState>();
+  final controller = Get.put(ChangePasswordController());
+
+
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
     return SafeArea(
       top: true,
       child: Scaffold(
@@ -38,7 +43,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               children: [
                 Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -47,6 +52,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         bottom: 12,
                       ),
                       CustomTextField(
+                        textEditingController: controller.currentPassword.value,
                         textInputAction: TextInputAction.done,
                         hintText: AppStaticStrings.enterCurrentPassword,
                         hintStyle: GoogleFonts.poppins(
@@ -57,8 +63,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return AppStaticStrings.notBeEmpty;
-                          } else if (!value.contains(RegExp('\@'))) {
-                            return AppStaticStrings.enterValidEmail;
                           } else {
                             return null;
                           }
@@ -70,6 +74,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         bottom: 12,
                       ),
                       CustomTextField(
+                        textEditingController: controller.newPassword.value,
                         textInputAction: TextInputAction.done,
                         hintText: AppStaticStrings.enterNewPassword,
                         hintStyle: GoogleFonts.poppins(
@@ -80,8 +85,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return AppStaticStrings.notBeEmpty;
-                          } else if (!value.contains(RegExp('\@'))) {
-                            return AppStaticStrings.enterValidEmail;
                           } else {
                             return null;
                           }
@@ -93,6 +96,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         bottom: 12,
                       ),
                       CustomTextField(
+                        textEditingController: controller.reTypedPassword.value,
                         textInputAction: TextInputAction.done,
                         hintText: AppStaticStrings.enterConfirmPassword,
                         hintStyle: GoogleFonts.poppins(
@@ -103,8 +107,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return AppStaticStrings.notBeEmpty;
-                          } else if (!value.contains(RegExp('\@'))) {
-                            return AppStaticStrings.enterValidEmail;
                           } else {
                             return null;
                           }
@@ -129,6 +131,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
           child: CustomElevatedButton(onPressed: (){
+            controller.changePass(controller.currentPassword.value.text, controller.currentPassword.value.text, controller.reTypedPassword.value.text);
           }, titleText: AppStaticStrings.save),
         ),
       ),

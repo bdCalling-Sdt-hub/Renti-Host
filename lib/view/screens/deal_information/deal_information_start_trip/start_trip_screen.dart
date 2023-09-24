@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/car_image_scetion.dart';
@@ -67,7 +69,9 @@ class _StartTripScreenState extends State<StartTripScreen> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(AppRoute.endTripScreen);
+              },
               titleText: AppStaticStrings.startTrip,
               buttonHeight: 48),
         ),

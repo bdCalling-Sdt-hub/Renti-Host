@@ -80,7 +80,6 @@ class _HomeCarListState extends State<HomeCarList> {
                     Image.asset(
                       dataList[index]["image"] ?? "",
                       fit: BoxFit.fill,
-                      height: 70,
                       width: 130,
                     ),
                     Expanded(
@@ -126,7 +125,6 @@ class _HomeCarListState extends State<HomeCarList> {
                                 ),
                                 dataList[index]["status"] == "Reserved"
                                     ? Container(
-                                        width: 70,
                                         alignment: Alignment.center,
                                         padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
                                         decoration: BoxDecoration(
@@ -138,7 +136,6 @@ class _HomeCarListState extends State<HomeCarList> {
                                             fontSize: 10,
                                             color: AppColors.redNormal),)
                                     : Container(
-                                        width: 70,
                                         alignment: Alignment.center,
                                         padding: const EdgeInsetsDirectional.symmetric(vertical: 4, horizontal: 12),
                                         decoration: BoxDecoration(

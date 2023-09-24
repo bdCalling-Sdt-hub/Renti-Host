@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/data/controller/auth/login_controller/login_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/utils/app_utils.dart';
+import 'package:renti_host/view/screens/auth/signin/sign_in_controller/sign_in_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_button_with_icon.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
@@ -19,33 +22,36 @@ class SignInAuth extends StatefulWidget {
 }
 
 class _SignInAuthState extends State<SignInAuth> {
-
   final _formKey = GlobalKey<FormState>();
-  bool isClicked = false;
-  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return GetBuilder<SignInController>(builder: (controller) => Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         //Email pass auth section
         Form(
           key: _formKey,
-          autovalidateMode: AutovalidateMode.always,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //Email Text and TextField.
               const CustomText(text: AppStaticStrings.email, bottom: 12),
               CustomTextField(
+                textEditingController: controller.emailController,
+                focusNode: controller.emailFocusNode,
                 hintText: AppStaticStrings.enterEmail,
                 hintStyle: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 1,
-                    color: AppColors.whiteNormalActive),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 1,
+                  color: AppColors.whiteNormalActive,
+                ),
+                onFieldSubmitted: (value) {
+                  Utils.fieldFocusChange(context, controller.emailFocusNode, controller.passwordFocusNode);
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return AppStaticStrings.notBeEmpty;
@@ -64,6 +70,8 @@ class _SignInAuthState extends State<SignInAuth> {
                 top: 16,
               ),
               CustomTextField(
+                textEditingController: controller.passwordController,
+                focusNode: controller.passwordFocusNode,
                 isPassword: true,
                 textInputAction: TextInputAction.done,
                 isPrefixIcon: true,
@@ -88,6 +96,7 @@ class _SignInAuthState extends State<SignInAuth> {
               //Forget Password Button
               GestureDetector(
                 onTap: () {
+                  controller.clearData();
                   Get.toNamed(AppRoute.forgotPasswordScreen);
                 },
                 child: const Align(
@@ -101,23 +110,21 @@ class _SignInAuthState extends State<SignInAuth> {
                   ),
                 ),
               ),
-
-              //Sign In button
-              CustomElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    print(AppStaticStrings.successful);
-                  } else {
-                    print(AppStaticStrings.failed);
-                  }
-                  Get.toNamed(AppRoute.navigation);
-                },
-                titleText: AppStaticStrings.signIn,
-                buttonWidth: double.maxFinite,
-              ),
             ],
           ),
         ),
+
+        //Sign In button
+        CustomElevatedButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              controller.signInUser();
+            }
+          },
+          titleText: AppStaticStrings.signIn,
+          buttonWidth: double.maxFinite,
+        ),
+
         //Or Text
         const Align(
           alignment: Alignment.center,
@@ -151,6 +158,7 @@ class _SignInAuthState extends State<SignInAuth> {
           ],
         ),
       ],
+    )
     );
   }
 }

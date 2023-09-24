@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/data/controller/auth/new_password_controller/new_password_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -20,6 +21,7 @@ class NewPasswordScreen extends StatefulWidget {
 
 class NewPasswordScreenState extends State<NewPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
+  final newPassController = Get.put(NewPasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +58,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                             bottom: 12),
                         CustomTextField(
                           isPassword: true,
+                          textEditingController: newPassController.newPasswordController.value,
                           textInputAction: TextInputAction.done,
                           hintText: AppStaticStrings.enterPassword,
                           suffixIconColor: AppColors.whiteNormalActive,
@@ -81,6 +84,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                             bottom: 12),
                         CustomTextField(
                           isPassword: true,
+                          textEditingController: newPassController.confirmPasswordController.value,
                           textInputAction: TextInputAction.done,
                           hintText: AppStaticStrings.enterPassword,
                           suffixIconColor: AppColors.whiteNormalActive,
@@ -110,7 +114,12 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
               onPressed: () {
-                Get.offAllNamed(AppRoute.signInScreen);
+               if(newPassController.newPasswordController.value.text == newPassController.confirmPasswordController.value.text){
+                 newPassController.resetPassword(newPassController.forgetPassController.emailController.value.text, newPassController.confirmPasswordController.value.text);
+               }
+               else{
+                 Utils.toastMessageCenter("New password and Current password does not match");
+               }
               },
               titleText: AppStaticStrings.reset),
         ),

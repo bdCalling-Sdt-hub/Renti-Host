@@ -5,6 +5,7 @@ import 'package:renti_host/utils/app_icons.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
+    this.onFieldSubmitted,
     this.textEditingController,
     this.focusNode,
     this.keyboardType = TextInputType.text,
@@ -39,6 +40,7 @@ class CustomTextField extends StatefulWidget {
   final TextAlign textAlign;
   final int? maxLines;
   final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
   final FormFieldValidator? validator;
   final String? hintText;
   final TextStyle? hintStyle;
@@ -63,6 +65,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
 
     return TextFormField(
+      onFieldSubmitted: widget.onFieldSubmitted,
       readOnly: widget.readOnly,
       controller: widget.textEditingController,
       focusNode: widget.focusNode,

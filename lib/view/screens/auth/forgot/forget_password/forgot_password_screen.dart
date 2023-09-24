@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/data/controller/auth/otp_controller/forgot_pass_repo.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -22,6 +22,8 @@ class ForgotPasswordScreen extends StatefulWidget {
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
+
+  final forgotPassword = Get.put(ForgetPasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +67,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.always,
                     child: CustomTextField(
+                      textEditingController: forgotPassword.emailController.value,
                       textInputAction: TextInputAction.done,
                       hintText: AppStaticStrings.enterEmail,
                       hintStyle: GoogleFonts.poppins(
@@ -92,7 +95,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
               onPressed: () {
-                Get.toNamed(AppRoute.forgotPasswordOTPScreen);
+                //Get.toNamed(AppRoute.forgotPasswordOTPScreen);
+                forgotPassword.resetPassword(forgotPassword.emailController.value.text);
               },
               titleText: AppStaticStrings.continueNext),
         ),

@@ -83,6 +83,22 @@ class _KYCScreenState extends State<KYCScreen> {
                     top: 16,
                     textAlign: TextAlign.start,
                   ),
+                  //INE/Passport Text and TextField
+                  const CustomText(
+                    text: AppStaticStrings.ineOrPassport,
+                    top: 16,
+                    bottom: 12,
+                    textAlign: TextAlign.start,
+                  ),
+                  CustomTextField(
+                    textInputAction: TextInputAction.done,
+                    hintText: AppStaticStrings.enterIneOrPassword,
+                    hintStyle: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.whiteNormalActive),
+                  ),
+
                   //RFC Text and TextField
                   const CustomText(
                     text: AppStaticStrings.rfc,

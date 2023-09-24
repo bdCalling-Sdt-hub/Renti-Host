@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/language/languages.dart';
+import 'core/di_service/dependency_injection.dart' as di;
 
-void main() {
+
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await di.initDependency();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -22,6 +26,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.noTransition,
       transitionDuration: const Duration(milliseconds: 200),
+      translations: Languages(),
+      locale: const Locale("en" , "US"),
+      fallbackLocale: const Locale("en" , "US"),
       initialRoute: AppRoute.splashScreen,
       navigatorKey: Get.key,
       getPages: AppRoute.routes,

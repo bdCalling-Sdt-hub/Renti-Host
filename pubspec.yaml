@@ -46,6 +46,9 @@ dependencies:
   flutter_slidable:
   flutter_rating_bar:
   dropdown_button2:
+  http:
+  shared_preferences:
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:

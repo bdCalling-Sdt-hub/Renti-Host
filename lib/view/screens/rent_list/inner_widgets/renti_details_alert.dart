@@ -73,7 +73,7 @@ class RentDetailsAlert extends StatelessWidget {
 
               //This Button Only Show When Reserve Status card Clicked
               CustomElevatedButton(onPressed: (){
-                Get.toNamed(AppRoute.endTripScreen);
+                Get.toNamed(AppRoute.startTripScreen);
               }, titleText: AppStaticStrings.seeDetails,buttonWidth: double.maxFinite,buttonHeight: 48)
             ],
           ),

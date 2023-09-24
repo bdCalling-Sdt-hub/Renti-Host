@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/data/controller/auth/forget_password_controller/forgot_pass_otp_repo.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -13,8 +13,15 @@ import 'package:renti_host/view/widgets/container/custon_container.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
-class ForgotPassOTP extends StatelessWidget {
+class ForgotPassOTP extends StatefulWidget {
   const ForgotPassOTP({super.key});
+
+  @override
+  State<ForgotPassOTP> createState() => _ForgotPassOTPState();
+}
+
+class _ForgotPassOTPState extends State<ForgotPassOTP> {
+  final otpController = Get.put(OTPController());
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +59,9 @@ class ForgotPassOTP extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   PinCodeTextField(
-                    length: 6,
+                    length: 4,
                     obscureText: false,
+                    controller: otpController.controllerOTP.value,
                     keyboardType: TextInputType.number,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     textStyle: GoogleFonts.poppins(
@@ -65,7 +73,7 @@ class ForgotPassOTP extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         disabledColor: Colors.blue,
                         fieldHeight: 56,
-                        fieldWidth: 44,
+                        fieldWidth: 50,
                         activeColor: AppColors.whiteNormalActive,
                         inactiveColor: AppColors.whiteNormalActive,
                         activeFillColor: AppColors.whiteNormalActive,
@@ -106,10 +114,11 @@ class ForgotPassOTP extends StatelessWidget {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
-              onPressed: () {
-                Get.toNamed(AppRoute.newPasswordScreen);
-              },
-              titleText: AppStaticStrings.verify),
+            onPressed: () {
+              otpController.verifyOTP(otpController.controllerOTP.value.text, otpController.forgetPassController.emailController.value.text);
+            },
+            titleText: AppStaticStrings.verify,
+          ),
         ),
       ),
     );
