@@ -13,7 +13,7 @@ class _DialogBoxState extends State<DialogBox> {
     return AlertDialog(
       backgroundColor: Colors.white,
 
-      title: Container(
+      title: SizedBox(
 
         width: MediaQuery.of(context).size.width,
         child: Column(

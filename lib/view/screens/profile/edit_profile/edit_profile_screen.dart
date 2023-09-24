@@ -94,7 +94,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return AppStaticStrings.notBeEmpty;
-                      } else if (!value.contains(RegExp('\@'))) {
+                      } else if (!value.contains(RegExp('@'))) {
                         return AppStaticStrings.enterValidEmail;
                       } else {
                         return null;
@@ -177,10 +177,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
-          child: CustomElevatedButton(onPressed: (){
-            Get.offNamed(AppRoute.navigation);
-          }, titleText: AppStaticStrings.save),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          child: CustomElevatedButton(
+              onPressed: () {
+                Get.offNamed(AppRoute.navigation);
+              },
+              titleText: AppStaticStrings.save),
         ),
       ),
     );

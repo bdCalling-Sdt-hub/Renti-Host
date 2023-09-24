@@ -45,7 +45,7 @@ class CardDetailsScreen extends StatelessWidget {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return AppStaticStrings.notBeEmpty;
-                    } else if (!value.contains(RegExp('\@'))) {
+                    } else if (!value.contains(RegExp('@'))) {
                       return AppStaticStrings.enterValidEmail;
                     } else {
                       return null;
@@ -111,7 +111,7 @@ class CardDetailsScreen extends StatelessWidget {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return AppStaticStrings.notBeEmpty;
-                    } else if (!value.contains(RegExp('\@'))) {
+                    } else if (!value.contains(RegExp('@'))) {
                       return AppStaticStrings.enterValidEmail;
                     } else {
                       return null;
@@ -134,7 +134,7 @@ class CardDetailsScreen extends StatelessWidget {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return AppStaticStrings.notBeEmpty;
-                    } else if (!value.contains(RegExp('\@'))) {
+                    } else if (!value.contains(RegExp('@'))) {
                       return AppStaticStrings.enterValidEmail;
                     } else {
                       return null;

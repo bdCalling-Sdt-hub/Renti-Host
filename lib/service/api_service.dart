@@ -10,54 +10,39 @@ import 'package:renti_host/core/route/app_route.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-class ApiService extends GetxService{
-
+class ApiService extends GetxService {
   SharedPreferences sharedPreferences;
   ApiService({required this.sharedPreferences});
 
   Future<ApiResponseModel> request(
-      String uri,
-      String method,
-      Map<String, dynamic>? params, {bool passHeader = false}) async {
-
+      String uri, String method, Map<String, dynamic>? params,
+      {bool passHeader = false}) async {
     Uri url = Uri.parse(uri);
     http.Response response;
 
     try {
       if (method == ApiResponseMethod.postMethod) {
-        if(passHeader){
+        if (passHeader) {
           initToken();
-          response = await http.post(
-              url,
-              body: params,
-              headers: {
-                "Content-Type": "application/json",
-                "Authorization": "$tokenType $token"
-              });
+          response = await http.post(url, body: params, headers: {
+            "Content-Type": "application/json",
+            "Authorization": "$tokenType $token"
+          });
+        } else {
+          response = await http.post(url, body: params);
         }
-        else{
-          response = await http.post(
-              url,
-              body: params
-          );
-        }
-      }
-      else if (method == ApiResponseMethod.deleteMethod) {
+      } else if (method == ApiResponseMethod.deleteMethod) {
         response = await http.delete(url);
-      }
-      else if (method == ApiResponseMethod.updateMethod) {
+      } else if (method == ApiResponseMethod.updateMethod) {
         response = await http.patch(url);
-      }
-      else {
-        if(passHeader){
+      } else {
+        if (passHeader) {
           initToken();
-          response = await http.get(
-              url,headers: {
+          response = await http.get(url, headers: {
             "Accept": "application/json",
             "Authorization": "$tokenType $token"
           });
-        }
-        else{
+        } else {
           response = await http.get(url);
         }
       }
@@ -69,24 +54,24 @@ class ApiService extends GetxService{
         print(response.body);
       }
 
-
       if (response.statusCode == 200) {
-        try{
-          ApiAuthorizationResponseModel authorizationResponseModel = ApiAuthorizationResponseModel.fromJson(jsonDecode(response.body));
-          if(authorizationResponseModel.message == 'Unauthenticated' ){
-            sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
+        try {
+          ApiAuthorizationResponseModel authorizationResponseModel =
+              ApiAuthorizationResponseModel.fromJson(jsonDecode(response.body));
+          if (authorizationResponseModel.message == 'Unauthenticated') {
+            sharedPreferences.setBool(
+                SharedPreferenceHelper.rememberMeKey, false);
             sharedPreferences.remove(SharedPreferenceHelper.token);
             Get.offAllNamed(AppRoute.signInScreen);
           }
-        }catch(e){
+        } catch (e) {
           e.toString();
         }
 
         return ApiResponseModel(200, 'Success', response.body);
-      }
-      else if (response.statusCode == 401) {
+      } else if (response.statusCode == 401) {
         sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
-        Get.offAllNamed(AppRoute. signInScreen);
+        Get.offAllNamed(AppRoute.signInScreen);
         return ApiResponseModel(401, "Unauthorized".tr, response.body);
       } else if (response.statusCode == 500) {
         return ApiResponseModel(500, "Internal Server Error".tr, response.body);
@@ -107,8 +92,10 @@ class ApiService extends GetxService{
 
   initToken() {
     if (sharedPreferences.containsKey(SharedPreferenceHelper.accessTokenKey)) {
-      String? t = sharedPreferences.getString(SharedPreferenceHelper.accessTokenKey);
-      String? tType = sharedPreferences.getString(SharedPreferenceHelper.accessTokenType);
+      String? t =
+          sharedPreferences.getString(SharedPreferenceHelper.accessTokenKey);
+      String? tType =
+          sharedPreferences.getString(SharedPreferenceHelper.accessTokenType);
       token = t ?? '';
       tokenType = tType ?? 'Bearer';
     } else {

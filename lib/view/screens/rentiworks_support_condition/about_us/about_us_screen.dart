@@ -1,35 +1,31 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/utils/app_utils.dart';
-import 'package:renti_host/view/screens/settings/privacy_policy/pp_controller/pp_controller.dart';
-import 'package:renti_host/view/screens/settings/privacy_policy/pp_repo/pp_repo.dart';
-import 'package:renti_host/view/screens/settings/privacy_policy/pp_response_model/pp_response_model.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_controller/about_us_controller.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_model/about_us_model.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_repo/about_us_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
-class PrivacyPolicyScreen extends StatefulWidget {
-  const PrivacyPolicyScreen({super.key});
+class AboutUsScreen extends StatefulWidget {
+  const AboutUsScreen({super.key});
 
   @override
-  State<PrivacyPolicyScreen> createState() => _PrivacyPolicyScreenState();
+  State<AboutUsScreen> createState() => _AboutUsScreenState();
 }
 
-class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
+class _AboutUsScreenState extends State<AboutUsScreen> {
   @override
   void initState() {
     //
 
     //
     Get.put(ApiService(sharedPreferences: Get.find()));
-    Get.put(PrivacyPolicyRepo(apiService: Get.find()));
-    Get.put(PrivacyPolicyController(privacyPolicyRepo: Get.find()));
+    Get.put(AboutUsRepo(apiService: Get.find()));
+    Get.put(AboutUsController(aboutUsRepo: Get.find()));
     super.initState();
   }
 
@@ -40,14 +36,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<PrivacyPolicyController>(builder: (controller) {
+    return GetBuilder<AboutUsController>(builder: (controller) {
       return SafeArea(
         top: true,
         child: Scaffold(
           backgroundColor: AppColors.whiteLight,
           appBar: const CustomAppBar(
             appBarContent: CustomBack(
-              text: AppStaticStrings.privacyPolicy,
+              text: AppStaticStrings.aboutUs,
               color: AppColors.blackNormal,
             ),
           ),
@@ -56,8 +52,8 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-              child: FutureBuilder<PrivacyPolicyModel>(
-                  future: controller.privacyPolicy(),
+              child: FutureBuilder<AboutUsModel>(
+                  future: controller.aboutUs(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
@@ -70,10 +66,10 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                       return const Text(
                           "No data available"); // Handle case where no data is available
                     }
-                    PrivacyPolicyModel ppModel = snapshot.data!;
+                    AboutUsModel tcModel = snapshot.data!;
                     return Expanded(
                       child: CustomText(
-                        text: ppModel.privacyPolicy!.content.toString(),
+                        text: tcModel.about!.content.toString(),
                         color: AppColors.whiteDarker,
                         textAlign: TextAlign.justify,
                       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';

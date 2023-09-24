@@ -1,16 +1,20 @@
 import 'dart:convert';
 
-SignInResponseModel signInResponseModelFromJson(String str) => SignInResponseModel.fromJson(json.decode(str));
-String signInResponseModelToJson(SignInResponseModel data) => json.encode(data.toJson());
+SignInResponseModel signInResponseModelFromJson(String str) =>
+    SignInResponseModel.fromJson(json.decode(str));
+String signInResponseModelToJson(SignInResponseModel data) =>
+    json.encode(data.toJson());
+
 class SignInResponseModel {
   SignInResponseModel({
-      String? message, 
-      User? user, 
-      String? accessToken,}){
+    String? message,
+    User? user,
+    String? accessToken,
+  }) {
     _message = message;
     _user = user;
     _accessToken = accessToken;
-}
+  }
 
   SignInResponseModel.fromJson(dynamic json) {
     _message = json['message'];
@@ -34,34 +38,35 @@ class SignInResponseModel {
     map['accessToken'] = _accessToken;
     return map;
   }
-
 }
 
 User userFromJson(String str) => User.fromJson(json.decode(str));
 String userToJson(User data) => json.encode(data.toJson());
+
 class User {
   User({
-      String? id, 
-      String? fullName, 
-      String? email, 
-      String? phoneNumber, 
-      String? gender, 
-      String? address, 
-      String? dateOfBirth, 
-      String? password, 
-      List<String>? kyc,
-      String? rfc, 
-      String? creaditCardNumber, 
-      String? ine, 
-      String? image, 
-      String? role, 
-      bool? emailVerified, 
-      bool? approved, 
-      String? isBanned, 
-      dynamic oneTimeCode, 
-      String? createdAt, 
-      String? updatedAt, 
-      int? v,}){
+    String? id,
+    String? fullName,
+    String? email,
+    String? phoneNumber,
+    String? gender,
+    String? address,
+    String? dateOfBirth,
+    String? password,
+    List<String>? kyc,
+    String? rfc,
+    String? creaditCardNumber,
+    String? ine,
+    String? image,
+    String? role,
+    bool? emailVerified,
+    bool? approved,
+    String? isBanned,
+    dynamic oneTimeCode,
+    String? createdAt,
+    String? updatedAt,
+    int? v,
+  }) {
     _id = id;
     _fullName = fullName;
     _email = email;
@@ -83,7 +88,7 @@ class User {
     _createdAt = createdAt;
     _updatedAt = updatedAt;
     _v = v;
-}
+  }
 
   User.fromJson(dynamic json) {
     _id = json['_id'];
@@ -184,5 +189,4 @@ class User {
     map['__v'] = _v;
     return map;
   }
-
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/route/app_route.dart';
-import 'package:renti_host/data/controller/auth/login_controller/login_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -55,7 +54,7 @@ class _SignInAuthState extends State<SignInAuth> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return AppStaticStrings.notBeEmpty;
-                  } else if (!value.contains(RegExp('\@'))) {
+                  } else if (!value.contains(RegExp('@'))) {
                     return AppStaticStrings.enterValidEmail;
                   } else {
                     return null;

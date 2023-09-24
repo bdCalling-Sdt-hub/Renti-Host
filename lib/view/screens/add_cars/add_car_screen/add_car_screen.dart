@@ -6,7 +6,6 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_body_section.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_bottom_section.dart';
-import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/car_image_scetion.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';

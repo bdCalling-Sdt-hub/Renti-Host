@@ -5,7 +5,6 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/inner_widgets/user_request_card.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
-import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class UserRequestScreen extends StatefulWidget {

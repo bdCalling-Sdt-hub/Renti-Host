@@ -2,8 +2,7 @@ import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<void> initDependency() async{
-
+Future<void> initDependency() async {
   final sharedPreference = await SharedPreferences.getInstance();
 
   Get.lazyPut(() => sharedPreference, fenix: true);

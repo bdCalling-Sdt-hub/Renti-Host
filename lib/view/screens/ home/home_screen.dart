@@ -6,7 +6,6 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';

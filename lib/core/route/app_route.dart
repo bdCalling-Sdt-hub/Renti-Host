@@ -25,14 +25,14 @@ import 'package:renti_host/view/screens/message/messages/messages_screen.dart';
 import 'package:renti_host/view/screens/navbar/custom_navbar.dart';
 import 'package:renti_host/view/screens/notification/notification_screen.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_screen.dart';
-import 'package:renti_host/view/screens/profile/profile_screen.dart';
+import 'package:renti_host/view/screens/profile/profile_screen/profile_screen.dart';
 import 'package:renti_host/view/screens/rent_list/rent_list_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/user_request_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request_details/user_request_details_screen.dart';
-import 'package:renti_host/view/screens/rentiworks_support_condition/about_us_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_screen.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works_screen.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/support_screen.dart';
-import 'package:renti_host/view/screens/rentiworks_support_condition/term&condition_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/term_condition_screen.dart/term&condition_screen.dart';
 import 'package:renti_host/view/screens/review/all_review_screen.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
 import 'package:renti_host/view/screens/select_language/select_language_screen.dart';
@@ -47,7 +47,6 @@ import 'package:renti_host/view/screens/splash/splash_screen.dart';
 import 'package:renti_host/view/screens/user_list/user_list_screen.dart';
 
 class AppRoute {
-
   static const String splashScreen = "/splash_screen";
   static const String selectLanguageScreen = "/select_language_screen";
   static const String signInScreen = "/sign_in_screen";
@@ -99,76 +98,80 @@ class AppRoute {
   static const String supportScreen = "/support_screen";
   static const String aboutUs = "/about_us_screen";
 
-
   //Message and Inner Screens Path Strings
   static const String messageScreen = "/message_screen";
   static const String inboxScreen = "/inbox_screen";
 
-
   static const String profileScreen = "/profile_screen";
   static const String editProfileScreen = "/edit_profile_screen";
 
-
-
   static List<GetPage> routes = [
+    GetPage(name: splashScreen, page: () => const SplashScreen()),
+    GetPage(
+        name: selectLanguageScreen, page: () => const SelectLanguageScreen()),
+    GetPage(name: signInScreen, page: () => const SignInScreen()),
+    GetPage(
+        name: forgotPasswordScreen, page: () => const ForgotPasswordScreen()),
+    GetPage(name: forgotPasswordOTPScreen, page: () => const ForgotPassOTP()),
+    GetPage(name: newPasswordScreen, page: () => const NewPasswordScreen()),
 
-    GetPage(name: splashScreen, page: ()=>const SplashScreen()),
-    GetPage(name: selectLanguageScreen, page: ()=> const SelectLanguageScreen()),
-    GetPage(name: signInScreen, page: ()=> const SignInScreen()),
-    GetPage(name: forgotPasswordScreen, page: ()=> const ForgotPasswordScreen()),
-    GetPage(name: forgotPasswordOTPScreen, page: ()=> const ForgotPassOTP()),
-    GetPage(name: newPasswordScreen, page: ()=> const NewPasswordScreen()),
+    GetPage(name: signUpScreen, page: () => const SignUpScreen()),
+    GetPage(
+        name: signUpContinueScreen, page: () => const SignUpContinueScreen()),
+    GetPage(name: kycScreen, page: () => const KYCScreen()),
+    GetPage(name: kycImageScreen, page: () => const KYCImageScreen()),
+    GetPage(
+        name: kycNumberVerification, page: () => const KYCNumberVerification()),
+    GetPage(
+        name: kycEmailVerification, page: () => const KYCEmailVerification()),
 
-    GetPage(name: signUpScreen, page: ()=> const SignUpScreen()),
-    GetPage(name: signUpContinueScreen, page: ()=> const SignUpContinueScreen()),
-    GetPage(name: kycScreen, page: ()=> const KYCScreen()),
-    GetPage(name: kycImageScreen, page: ()=> const KYCImageScreen()),
-    GetPage(name: kycNumberVerification, page: ()=> const KYCNumberVerification()),
-    GetPage(name: kycEmailVerification, page: ()=> const KYCEmailVerification()),
-
-    GetPage(name: navigation, page: ()=> const CustomNavBar()),
+    GetPage(name: navigation, page: () => const CustomNavBar()),
 
     //Home and Inner Screens
-    GetPage(name: homeScreen, page: ()=> const HomeScreen()),
-    GetPage(name: searchScreen, page: ()=> const SearchScreen()),
-    GetPage(name: addCarsScreens, page: ()=> const AddCarsScreen()),
-    GetPage(name: addCarSpecialScreens, page: ()=> const AddCarSpecialScreen()),
-    GetPage(name: seeAllCarList, page: ()=> const CarListScreen()),
-    GetPage(name: carDetailsScreen, page: ()=> const CarDetailsScreen()),
-    GetPage(name: userListScreen, page: ()=> const UserListScreen()),
+    GetPage(name: homeScreen, page: () => const HomeScreen()),
+    GetPage(name: searchScreen, page: () => const SearchScreen()),
+    GetPage(name: addCarsScreens, page: () => const AddCarsScreen()),
+    GetPage(
+        name: addCarSpecialScreens, page: () => const AddCarSpecialScreen()),
+    GetPage(name: seeAllCarList, page: () => const CarListScreen()),
+    GetPage(name: carDetailsScreen, page: () => const CarDetailsScreen()),
+    GetPage(name: userListScreen, page: () => const UserListScreen()),
 
     //Home Drawer Screens
-    GetPage(name: startTripScreen, page: ()=> const StartTripScreen()),
-    GetPage(name: endTripScreen, page: ()=> const EndTripScreen()),
-    GetPage(name: endTripReviewScreen, page: ()=> const EndTripReviewScreen()),
-    GetPage(name: rentListScreen, page: ()=> const RentListScreen()),
-    GetPage(name: adminInfoScreen, page: ()=> const AdminInfoScreen()),
-    GetPage(name: allReview, page: ()=> const AllReviewScreen()),
-    GetPage(name: incomeScreen, page: ()=> const IncomeScreen()),
-    GetPage(name: weeklyIncomeScreen, page: ()=> const WeeklyIncomeScreen()),
-    GetPage(name: settingsScreen, page: ()=> const SettingsScreen()),
-    GetPage(name: changeLanguageScreen, page: ()=> const ChangeLanguageScreen()),
-    GetPage(name: changePasswordScreen, page: ()=> const ChangePasswordScreen()),
-    GetPage(name: paymentMethodScreen, page: ()=> const PaymentMethodScreen()),
-    GetPage(name: addNewCardScreen, page: ()=> const AddNewCardScreen()),
-    GetPage(name: cardDetailsScreen, page: ()=> const CardDetailsScreen()),
-    GetPage(name: privacyPolicyScreen, page: ()=> const PrivacyPolicyScreen()),
-    GetPage(name: howRentiWorks, page: ()=> const RentiWorkScreen()),
-    GetPage(name: termsAndCondition, page: ()=> const TermsConditionScreen()),
-    GetPage(name: supportScreen, page: ()=> const SupportScreen()),
-    GetPage(name: aboutUs, page: ()=> const AboutUsScreen()),
-    GetPage(name: notificationScreen, page: ()=> const NotificationScreen()),
+    GetPage(name: startTripScreen, page: () => const StartTripScreen()),
+    GetPage(name: endTripScreen, page: () => const EndTripScreen()),
+    GetPage(name: endTripReviewScreen, page: () => const EndTripReviewScreen()),
+    GetPage(name: rentListScreen, page: () => const RentListScreen()),
+    GetPage(name: adminInfoScreen, page: () => const AdminInfoScreen()),
+    GetPage(name: allReview, page: () => const AllReviewScreen()),
+    GetPage(name: incomeScreen, page: () => const IncomeScreen()),
+    GetPage(name: weeklyIncomeScreen, page: () => const WeeklyIncomeScreen()),
+    GetPage(name: settingsScreen, page: () => const SettingsScreen()),
+    GetPage(
+        name: changeLanguageScreen, page: () => const ChangeLanguageScreen()),
+    GetPage(
+        name: changePasswordScreen, page: () => const ChangePasswordScreen()),
+    GetPage(name: paymentMethodScreen, page: () => const PaymentMethodScreen()),
+    GetPage(name: addNewCardScreen, page: () => const AddNewCardScreen()),
+    GetPage(name: cardDetailsScreen, page: () => const CardDetailsScreen()),
+    GetPage(name: privacyPolicyScreen, page: () => const PrivacyPolicyScreen()),
+    GetPage(name: howRentiWorks, page: () => const RentiWorkScreen()),
+    GetPage(name: termsAndCondition, page: () => const TermsConditionScreen()),
+    GetPage(name: supportScreen, page: () => const SupportScreen()),
+    GetPage(name: aboutUs, page: () => const AboutUsScreen()),
+    GetPage(name: notificationScreen, page: () => const NotificationScreen()),
 
     //Rent Request and Inner Screens
-    GetPage(name: rentScreen, page: ()=> const UserRequestScreen()),
-    GetPage(name: userRequestDetails, page: ()=> const UserRequestDetailsScreen()),
+    GetPage(name: rentScreen, page: () => const UserRequestScreen()),
+    GetPage(
+        name: userRequestDetails, page: () => const UserRequestDetailsScreen()),
 
     //Message and Inner Screens
-    GetPage(name: messageScreen, page: ()=> const MessageScreen()),
-    GetPage(name: inboxScreen, page: ()=> const InboxScreen()),
+    GetPage(name: messageScreen, page: () => const MessageScreen()),
+    GetPage(name: inboxScreen, page: () => const InboxScreen()),
 
     //Profile and inner Screens
-    GetPage(name: profileScreen, page: ()=> const ProfileScreen()),
-    GetPage(name: editProfileScreen, page: ()=> const EditProfileScreen()),
+    GetPage(name: profileScreen, page: () => const ProfileScreen()),
+    GetPage(name: editProfileScreen, page: () => const EditProfileScreen()),
   ];
 }
