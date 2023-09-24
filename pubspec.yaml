@@ -49,6 +49,9 @@ dependencies:
   http:
   shared_preferences:
   fluttertoast:
+  file_picker:
+  open_file:
+  image_picker:
 
 dev_dependencies:
   flutter_test:

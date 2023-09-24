@@ -72,8 +72,9 @@ class AppStaticStrings {
   //KYC Screen All Strings
   static const String kyc = "KYC";
   static const String upload = "Upload";
-  static const String uploadINE =
-      "1. Upload INE/Passport\n2. Tax stamps .key extension file\n3. Tax stamps .cer extension file";
+  static const String uploadINE = "1. Upload INE/Passport";
+  static const String uploadTax = "2. Tax stamps .key extension file";
+  static const String uploadCer = "3. Tax stamps .cer extension file";
   static const String ineOrPassport = "INE/Passport";
   static const String enterIneOrPassword = "Enter INE/Passport";
   static const String rfc = "RFC";

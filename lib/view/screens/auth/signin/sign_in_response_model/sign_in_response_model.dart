@@ -1,7 +1,3 @@
-import 'dart:convert';
-
-SignInResponseModel signInResponseModelFromJson(String str) => SignInResponseModel.fromJson(json.decode(str));
-String signInResponseModelToJson(SignInResponseModel data) => json.encode(data.toJson());
 class SignInResponseModel {
   SignInResponseModel({
       String? message, 
@@ -37,44 +33,34 @@ class SignInResponseModel {
 
 }
 
-User userFromJson(String str) => User.fromJson(json.decode(str));
-String userToJson(User data) => json.encode(data.toJson());
 class User {
   User({
       String? id, 
       String? fullName, 
       String? email, 
-      String? phoneNumber, 
-      String? gender, 
-      String? address, 
-      String? dateOfBirth, 
       String? password, 
-      List<String>? kyc,
-      String? rfc, 
-      String? creaditCardNumber, 
       String? ine, 
-      String? image, 
       String? role, 
       bool? emailVerified, 
       bool? approved, 
       String? isBanned, 
-      dynamic oneTimeCode, 
+      String? oneTimeCode, 
       String? createdAt, 
       String? updatedAt, 
-      int? v,}){
+      int? v, 
+      String? kyc, 
+      String? rfc, 
+      String? address, 
+      String? creaditCardNumber, 
+      String? dateOfBirth, 
+      String? gender, 
+      String? image, 
+      String? phoneNumber,}){
     _id = id;
     _fullName = fullName;
     _email = email;
-    _phoneNumber = phoneNumber;
-    _gender = gender;
-    _address = address;
-    _dateOfBirth = dateOfBirth;
     _password = password;
-    _kyc = kyc;
-    _rfc = rfc;
-    _creaditCardNumber = creaditCardNumber;
     _ine = ine;
-    _image = image;
     _role = role;
     _emailVerified = emailVerified;
     _approved = approved;
@@ -83,27 +69,22 @@ class User {
     _createdAt = createdAt;
     _updatedAt = updatedAt;
     _v = v;
+    _kyc = kyc;
+    _rfc = rfc;
+    _address = address;
+    _creaditCardNumber = creaditCardNumber;
+    _dateOfBirth = dateOfBirth;
+    _gender = gender;
+    _image = image;
+    _phoneNumber = phoneNumber;
 }
 
   User.fromJson(dynamic json) {
     _id = json['_id'];
     _fullName = json['fullName'];
     _email = json['email'];
-    _phoneNumber = json['phoneNumber'];
-    _gender = json['gender'];
-    _address = json['address'];
-    _dateOfBirth = json['dateOfBirth'];
     _password = json['password'];
-    if (json['KYC'] != null) {
-      _kyc = [];
-      json['KYC'].forEach((v) {
-        _kyc = json['KYC'] != null ? json['KYC'].cast<String>() : [];
-      });
-    }
-    _rfc = json['RFC'];
-    _creaditCardNumber = json['creaditCardNumber'];
     _ine = json['ine'];
-    _image = json['image'];
     _role = json['role'];
     _emailVerified = json['emailVerified'];
     _approved = json['approved'];
@@ -112,68 +93,66 @@ class User {
     _createdAt = json['createdAt'];
     _updatedAt = json['updatedAt'];
     _v = json['__v'];
+    _kyc = json['KYC'];
+    _rfc = json['RFC'];
+    _address = json['address'];
+    _creaditCardNumber = json['creaditCardNumber'];
+    _dateOfBirth = json['dateOfBirth'];
+    _gender = json['gender'];
+    _image = json['image'];
+    _phoneNumber = json['phoneNumber'];
   }
   String? _id;
   String? _fullName;
   String? _email;
-  String? _phoneNumber;
-  String? _gender;
-  String? _address;
-  String? _dateOfBirth;
   String? _password;
-  List<dynamic>? _kyc;
-  String? _rfc;
-  String? _creaditCardNumber;
   String? _ine;
-  String? _image;
   String? _role;
   bool? _emailVerified;
   bool? _approved;
   String? _isBanned;
-  dynamic _oneTimeCode;
+  String? _oneTimeCode;
   String? _createdAt;
   String? _updatedAt;
   int? _v;
+  String? _kyc;
+  String? _rfc;
+  String? _address;
+  String? _creaditCardNumber;
+  String? _dateOfBirth;
+  String? _gender;
+  String? _image;
+  String? _phoneNumber;
 
   String? get id => _id;
   String? get fullName => _fullName;
   String? get email => _email;
-  String? get phoneNumber => _phoneNumber;
-  String? get gender => _gender;
-  String? get address => _address;
-  String? get dateOfBirth => _dateOfBirth;
   String? get password => _password;
-  List<dynamic>? get kyc => _kyc;
-  String? get rfc => _rfc;
-  String? get creaditCardNumber => _creaditCardNumber;
   String? get ine => _ine;
-  String? get image => _image;
   String? get role => _role;
   bool? get emailVerified => _emailVerified;
   bool? get approved => _approved;
   String? get isBanned => _isBanned;
-  dynamic get oneTimeCode => _oneTimeCode;
+  String? get oneTimeCode => _oneTimeCode;
   String? get createdAt => _createdAt;
   String? get updatedAt => _updatedAt;
   int? get v => _v;
+  String? get kyc => _kyc;
+  String? get rfc => _rfc;
+  String? get address => _address;
+  String? get creaditCardNumber => _creaditCardNumber;
+  String? get dateOfBirth => _dateOfBirth;
+  String? get gender => _gender;
+  String? get image => _image;
+  String? get phoneNumber => _phoneNumber;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['_id'] = _id;
     map['fullName'] = _fullName;
     map['email'] = _email;
-    map['phoneNumber'] = _phoneNumber;
-    map['gender'] = _gender;
-    map['address'] = _address;
-    map['dateOfBirth'] = _dateOfBirth;
     map['password'] = _password;
-    if (_kyc != null) {
-      map['KYC'] = _kyc?.map((v) => v.toJson()).toList();
-    }
-    map['RFC'] = _rfc;
-    map['creaditCardNumber'] = _creaditCardNumber;
     map['ine'] = _ine;
-    map['image'] = _image;
     map['role'] = _role;
     map['emailVerified'] = _emailVerified;
     map['approved'] = _approved;
@@ -182,6 +161,14 @@ class User {
     map['createdAt'] = _createdAt;
     map['updatedAt'] = _updatedAt;
     map['__v'] = _v;
+    map['KYC'] = _kyc;
+    map['RFC'] = _rfc;
+    map['address'] = _address;
+    map['creaditCardNumber'] = _creaditCardNumber;
+    map['dateOfBirth'] = _dateOfBirth;
+    map['gender'] = _gender;
+    map['image'] = _image;
+    map['phoneNumber'] = _phoneNumber;
     return map;
   }
 

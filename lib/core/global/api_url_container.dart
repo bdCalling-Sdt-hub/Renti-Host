@@ -8,7 +8,6 @@ class ApiUrlContainer{
   static const String oneTimeCodeEndPoint = "user/verify-code";
   static const String resetPassEndPoint = "user/verify-code";
 
-
   static const String carAddEndPoint = "car/add";
   static const String carListEndPoint = "car/add";
 }

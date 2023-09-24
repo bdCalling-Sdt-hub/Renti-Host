@@ -21,8 +21,8 @@ class CarListController extends GetxController {
     isLoading.value = true;
     try {
       // Fetch the Bearer token from SharedPreferences
-      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-      final accessToken = sharedPreferences.getString(SharedPreferenceHelper.accessTokenKey);
+      final token = await SharedPreferences.getInstance();
+      final accessToken = token.getString(SharedPreferenceHelper.accessTokenKey);
 
       if (kDebugMode) {
         print("$accessToken");

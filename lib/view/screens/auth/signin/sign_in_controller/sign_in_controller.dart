@@ -7,7 +7,7 @@ import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_repo/sign_in_repo.dart';
-import 'package:renti_host/view/screens/auth/signin/sign_in_response_model/SignInResponseModel.dart';
+import 'package:renti_host/view/screens/auth/signin/sign_in_response_model/sign_in_response_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInController extends GetxController{
@@ -48,14 +48,8 @@ class SignInController extends GetxController{
 
   gotoNextStep(SignInResponseModel signInResponseModel) async{
 
-    bool emailVerification = signInResponseModel.user?.emailVerified == false ? false : true;
+    bool emailVerified = signInResponseModel.user?.emailVerified == false ? false : true;
 
-    /*if(remember){
-      await signInRepo.apiService.sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, true);
-    }
-    else{
-      await signInRepo.apiService.sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
-    }*/
 
     await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
     await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenKey, signInResponseModel.accessToken ?? "");
@@ -64,9 +58,13 @@ class SignInController extends GetxController{
     await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userPhoneNumberKey, signInResponseModel.user?.phoneNumber.toString() ?? "");
     await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userNameKey, signInResponseModel.user?.fullName.toString() ?? "");
 
+    final prefs = await SharedPreferences.getInstance();
+    final userToken = prefs.getString(SharedPreferenceHelper.accessTokenKey);
+    if (kDebugMode) {
+      print("$userToken");
+    }
 
-
-    if(emailVerification == false){
+    if(emailVerified == true){
       clearData();
       Get.offAllNamed(AppRoute.navigation);
       Utils.toastMessage("Successfully Signed In");

@@ -10,6 +10,7 @@ class AppIcons {
   static const String uploadIcon = "$basePath/upload_icon.svg";
   static const String editProfileIcon = "$basePath/edit_icon.svg";
   static const String cameraIcon = "$basePath/camera_icon.svg";
+  static const String uploadIcons = "$basePath/upload.svg";
 
   //Drawer Icons
   static const String addCar = "$basePath/add_car.svg";
