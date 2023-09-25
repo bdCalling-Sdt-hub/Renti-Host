@@ -6,6 +6,7 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
@@ -74,7 +75,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
             children: [
               GestureDetector(
                 onTap: () {
-                   scaffoldKey.currentState!.openDrawer();
+                  scaffoldKey.currentState!.openDrawer();
                 },
                 child: const Icon(Icons.menu,
                     color: AppColors.blueNormal, size: 40),
@@ -126,37 +127,37 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const HomeTopSection(),
-                  const SizedBox(height: 80),
-                  const CustomImage(
-                      imageSrc: AppImages.adminApprovalImage,
-                      imageType: ImageType.png),
-                  const SizedBox(height: 48),
-                  GestureDetector(
-                    onTap: () {
-                      Get.toNamed(AppRoute.addCarsScreens);
-                    },
-                    child: const Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomImage(
-                          imageSrc: AppIcons.addCar,
-                          size: 24,
-                          imageColor: AppColors.blueNormal,
-                        ),
-                        CustomText(
-                          text: AppStaticStrings.addNewCar,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.blueNormal,
-                          left: 8,
-                        ),
-                      ],
-                    ),
-                  ),
+                  // const SizedBox(height: 80),
+                  // const CustomImage(
+                  //     imageSrc: AppImages.adminApprovalImage,
+                  //     imageType: ImageType.png),
+                  // const SizedBox(height: 48),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     Get.toNamed(AppRoute.addCarsScreens);
+                  //   },
+                  //   child: const Row(
+                  //     crossAxisAlignment: CrossAxisAlignment.center,
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       CustomImage(
+                  //         imageSrc: AppIcons.addCar,
+                  //         size: 24,
+                  //         imageColor: AppColors.blueNormal,
+                  //       ),
+                  //       CustomText(
+                  //         text: AppStaticStrings.addNewCar,
+                  //         fontSize: 18,
+                  //         fontWeight: FontWeight.w600,
+                  //         color: AppColors.blueNormal,
+                  //         left: 8,
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
 
                   //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
-                  /*const SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -175,7 +176,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  const HomeCarList()*/
+                  const HomeCarList()
                 ],
               ),
             );

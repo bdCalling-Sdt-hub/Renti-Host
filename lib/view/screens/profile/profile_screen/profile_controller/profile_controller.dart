@@ -10,19 +10,37 @@ class ProfileController extends GetxController {
   ProfileRepo profileRepo;
   ProfileController({required this.profileRepo});
 
-  Future<ProfileModel> profile() async {
+  @override
+  void onReady() {
+    profile();
+    super.onReady();
+  }
+
+  @override
+  void onInit() {
+    profile();
+    super.onInit();
+  }
+
+  late bool isLoading = false;
+  late ProfileModel profileModel;
+
+  Future<void> profile() async {
+    isLoading = true;
+    update();
     ApiResponseModel responseModel = await profileRepo.privacyPolicy();
-    ProfileModel profileModel; // Define the variable here
+    // Define the variable here
 
     if (responseModel.statusCode == 200) {
       profileModel =
           ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
     } else {
+      isLoading = false;
       Utils.toastMessage(responseModel.message);
-      // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
-      return ProfileModel(); // Return a default value or handle the error accordingly.
+      update();
     }
 
-    return profileModel; // Return the variable here
+    isLoading = false;
+    update();
   }
 }

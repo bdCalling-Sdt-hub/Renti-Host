@@ -6,6 +6,7 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_controller/edit_profile_controller.dart';
 import 'package:renti_host/view/screens/profile/inner_widgets/profile_card.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_model/profile_model.dart';
@@ -24,12 +25,10 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
-    //
-
-    //
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(ProfileRepo(apiService: Get.find()));
-    Get.put(ProfileController(profileRepo: Get.find()));
+    var controller = Get.put(ProfileController(profileRepo: Get.find()));
+    controller.profile();
     super.initState();
   }
 
@@ -40,41 +39,63 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: true,
-      child: Scaffold(
-        backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
-          appBarContent: CustomText(
-            text: AppStaticStrings.profile,
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
+    var editProfileController = Get.find<EditProfileController>();
+    return GetBuilder<ProfileController>(builder: (controller) {
+      ProfileModel profileModel = controller.profileModel;
+
+      String fullName = profileModel.user!.fullName.toString();
+      String email = profileModel.user!.email.toString();
+      String phoneNumber = profileModel.user!.phoneNumber.toString();
+      String creaditCardNumber =
+          profileModel.user!.creaditCardNumber.toString();
+      String dateOfBirth = profileModel.user!.dateOfBirth.toString();
+      String gender = profileModel.user!.gender.toString();
+      String address = profileModel.user!.address.toString();
+      return SafeArea(
+        top: true,
+        child: Scaffold(
+          backgroundColor: AppColors.whiteLight,
+          appBar: const CustomAppBar(
+            appBarContent: CustomText(
+              text: AppStaticStrings.profile,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ),
-        body: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) =>
-              SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-            child: GetBuilder<ProfileController>(builder: (controller) {
-              return FutureBuilder<ProfileModel>(
-                  future: controller.profile(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(
-                          child:
-                              CircularProgressIndicator()); // Show a loading indicator while waiting for data
-                    } else if (snapshot.hasError) {
-                      return Text(
-                          "Error: ${snapshot.error}"); // Show an error message if data fetch fails
-                    } else if (!snapshot.hasData) {
-                      return const Text(
-                          "No data available"); // Handle case where no data is available
-                    }
-                    ProfileModel profileModel = snapshot.data!;
-                    return Column(
+          body: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) =>
+                SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 24),
+                    child: Column(
                       children: [
                         GestureDetector(
-                          onTap: () => Get.toNamed(AppRoute.editProfileScreen),
+                          onTap: () {
+                            controller.profile();
+                            Get.toNamed(AppRoute.editProfileScreen)!
+                                .then((value) => controller.profile());
+
+                            editProfileController.fullNameController =
+                                TextEditingController(text: fullName);
+
+                            editProfileController.emailController =
+                                TextEditingController(text: email);
+
+                            editProfileController.creaditCardNumberController =
+                                TextEditingController(text: creaditCardNumber);
+
+                            editProfileController.phoneNumberController =
+                                TextEditingController(text: phoneNumber);
+
+                            editProfileController.dateOfBirthController =
+                                TextEditingController(text: dateOfBirth);
+
+                            editProfileController.genderController =
+                                TextEditingController(text: gender);
+
+                            editProfileController.addressController =
+                                TextEditingController(text: address);
+                          },
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             padding: const EdgeInsets.all(16),
@@ -100,8 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           size: 50),
                                     ),
                                     CustomText(
-                                        text: profileModel.user!.fullName
-                                            .toString(),
+                                        text: fullName,
                                         color: AppColors.whiteLight,
                                         left: 16,
                                         fontSize: 16,
@@ -117,37 +137,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         ProfileCard(
                             title: AppStaticStrings.ine,
-                            description: profileModel.user!.ine.toString(),
+                            description: creaditCardNumber,
                             icon: Icons.credit_card_outlined),
                         ProfileCard(
                             title: AppStaticStrings.email,
-                            description: profileModel.user!.email.toString(),
+                            description: email,
                             icon: Icons.email_outlined),
                         ProfileCard(
                             title: AppStaticStrings.mobile,
-                            description:
-                                profileModel.user!.phoneNumber.toString(),
+                            description: phoneNumber,
                             icon: Icons.phone),
                         ProfileCard(
                             title: AppStaticStrings.dateOfBirth,
-                            description:
-                                profileModel.user!.dateOfBirth.toString(),
+                            description: dateOfBirth,
                             icon: Icons.cake),
                         ProfileCard(
                             title: AppStaticStrings.gender,
-                            description: profileModel.user!.gender.toString(),
+                            description: gender,
                             icon: Icons.female_outlined),
                         ProfileCard(
                             title: AppStaticStrings.address,
-                            description: profileModel.user!.address.toString(),
+                            description: address,
                             icon: Icons.location_on_outlined),
                       ],
-                    );
-                  });
-            }),
+                    )),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

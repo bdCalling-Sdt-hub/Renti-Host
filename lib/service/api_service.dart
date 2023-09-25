@@ -24,7 +24,9 @@ class ApiService extends GetxService {
       if (method == ApiResponseMethod.postMethod) {
         if (passHeader) {
           initToken();
-          response = await http.post(url, body: params, headers: {
+          final body = jsonEncode(params);
+
+          response = await http.post(url, body: body, headers: {
             "Content-Type": "application/json",
             "Authorization": "$tokenType $token"
           });
