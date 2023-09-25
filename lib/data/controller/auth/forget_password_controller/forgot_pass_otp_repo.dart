@@ -8,7 +8,7 @@ import 'package:renti_host/data/controller/auth/otp_controller/forgot_pass_repo.
 import 'package:renti_host/utils/app_utils.dart';
 
 class OTPController extends GetxController {
-  final String apiUrl = 'http://103.161.9.106:3001/api/user/verify-code';
+  final String apiUrl = 'http://192.168.10.14:3001/api/user/verify-code';
   final controllerOTP = TextEditingController().obs;
   final forgetPassController = Get.put(ForgetPasswordController());
 
