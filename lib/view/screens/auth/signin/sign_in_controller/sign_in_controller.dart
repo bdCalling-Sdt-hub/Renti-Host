@@ -6,7 +6,7 @@ import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_repo/sign_in_repo.dart';
-import 'package:renti_host/view/screens/auth/signin/sign_in_response_model/SignInResponseModel.dart';
+import 'package:renti_host/view/screens/auth/signin/sign_in_response_model/sign_in_response_model.dart';
 
 class SignInController extends GetxController {
   SignInRepo signInRepo;
