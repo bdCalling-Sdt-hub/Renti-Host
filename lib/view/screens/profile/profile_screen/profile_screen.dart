@@ -99,8 +99,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           imageType: ImageType.png,
                                           size: 50),
                                     ),
-                                    const CustomText(
-                                        text: AppStaticStrings.userName,
+                                    CustomText(
+                                        text: profileModel.user!.fullName
+                                            .toString(),
                                         color: AppColors.whiteLight,
                                         left: 16,
                                         fontSize: 16,
@@ -114,29 +115,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                         ),
-                        const ProfileCard(
+                        ProfileCard(
                             title: AppStaticStrings.ine,
-                            description: "1231 1231 1231 1231",
+                            description: profileModel.user!.ine.toString(),
                             icon: Icons.credit_card_outlined),
-                        const ProfileCard(
+                        ProfileCard(
                             title: AppStaticStrings.email,
-                            description: "johndoe@gmail.com",
+                            description: profileModel.user!.email.toString(),
                             icon: Icons.email_outlined),
-                        const ProfileCard(
+                        ProfileCard(
                             title: AppStaticStrings.mobile,
-                            description: "+52 234354566",
+                            description:
+                                profileModel.user!.phoneNumber.toString(),
                             icon: Icons.phone),
-                        const ProfileCard(
+                        ProfileCard(
                             title: AppStaticStrings.dateOfBirth,
-                            description: "12-08-1998",
+                            description:
+                                profileModel.user!.dateOfBirth.toString(),
                             icon: Icons.cake),
-                        const ProfileCard(
+                        ProfileCard(
                             title: AppStaticStrings.gender,
-                            description: "Female",
+                            description: profileModel.user!.gender.toString(),
                             icon: Icons.female_outlined),
-                        const ProfileCard(
+                        ProfileCard(
                             title: AppStaticStrings.address,
-                            description: "Privada Calle 109 - Piso 4",
+                            description: profileModel.user!.address.toString(),
                             icon: Icons.location_on_outlined),
                       ],
                     );
