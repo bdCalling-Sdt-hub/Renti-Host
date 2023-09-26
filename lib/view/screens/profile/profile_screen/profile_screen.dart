@@ -60,9 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   future: controller.profile(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(
-                          child:
-                              CircularProgressIndicator()); // Show a loading indicator while waiting for data
+                      return const Center(child: CircularProgressIndicator()); // Show a loading indicator while waiting for data
                     } else if (snapshot.hasError) {
                       return Text(
                           "Error: ${snapshot.error}"); // Show an error message if data fetch fails

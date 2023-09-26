@@ -15,10 +15,10 @@ class ProfileController extends GetxController {
     ProfileModel profileModel; // Define the variable here
 
     if (responseModel.statusCode == 200) {
-      profileModel =
-          ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
+      profileModel = ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
     } else {
       Utils.toastMessage(responseModel.message);
+
       // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
       return ProfileModel(); // Return a default value or handle the error accordingly.
     }
