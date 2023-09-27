@@ -23,7 +23,10 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
         extendBody: true,
         backgroundColor: AppColors.whiteLight,
         appBar: const CustomAppBar(
-          appBarContent: CustomText(text: AppStaticStrings.usersRequest,fontSize: 18,fontWeight: FontWeight.w600),
+          appBarContent: CustomText(
+              text: AppStaticStrings.usersRequest,
+              fontSize: 18,
+              fontWeight: FontWeight.w600),
         ),
         body: LayoutBuilder(
           builder: (context, constraint) {
@@ -44,9 +47,9 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                         borderRadius: BorderRadius.circular(8),
                         boxShadow: const [
                           BoxShadow(
-                              color: AppColors.shadowColor,
-                              blurRadius: 10,
-                              offset: Offset(0, 1),
+                            color: AppColors.shadowColor,
+                            blurRadius: 10,
+                            offset: Offset(0, 1),
                           ),
                         ],
                       ),
