@@ -220,7 +220,8 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                         email: controller.emailController.text,
                         gender: controller.genderList[controller.selectedGender]
                             .toString(),
-                        dob: "${controller.dateController.text}/${controller.monthController.text}/${controller.yearController.text}",
+                        dob:
+                            "${controller.dateController.text}/${controller.monthController.text}/${controller.yearController.text}",
                         password: controller.confirmPasswordController.text);
                   }
                 },
@@ -250,11 +251,6 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
     await signUpController.signUpRepo.apiService.sharedPreferences
         .setString(SharedPreferenceHelper.password, password);
 
-    print("full name: $fullName");
-    print("email: $email");
-    print("gender: $gender");
-    print("dob: $dob");
-    print("password: $password");
     Get.toNamed(AppRoute.signUpContinueScreen);
   }
 }

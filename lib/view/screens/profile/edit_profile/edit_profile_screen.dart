@@ -214,8 +214,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 onPressed: () {
                   controller.editProfile();
                   final profileController = Get.find<ProfileController>();
-
                   profileController.profile();
+                  profileController.update();
+                  Get.back();
                 },
                 titleText: AppStaticStrings.save),
           ),

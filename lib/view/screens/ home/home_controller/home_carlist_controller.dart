@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/utils/app_utils.dart';
@@ -11,6 +12,7 @@ class HomeCarListController extends GetxController {
 
   bool isLoading = true;
 
+  TextEditingController searchController = TextEditingController();
   HomeCarListModel homeCarListModel = HomeCarListModel();
 
   Future<void> homeCarList({String search = ""}) async {

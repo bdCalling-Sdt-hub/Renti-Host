@@ -36,7 +36,10 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                   text: AppStaticStrings.carDetails,
                   color: AppColors.blackNormal),
               if (homeCarListModel.cars![index].tripStatus != "Start")
-                const PopUpMenu()
+                PopUpMenu(
+                  homeCarListModel: homeCarListModel,
+                  index: index,
+                )
             ],
           ),
         ),
@@ -90,7 +93,9 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
               const SizedBox(height: 24),
               ReservedDetails(homeCarListModel: homeCarListModel, index: index),
               const SizedBox(height: 16),
-              const DocumentFilesSection()
+              DocumentFilesSection(
+                documentsName: homeCarListModel.cars![index].kyc,
+              )
             ],
           ),
         ),

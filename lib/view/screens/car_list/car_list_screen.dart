@@ -32,9 +32,17 @@ class _CarListScreenState extends State<CarListScreen> {
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
-            appBar: const CustomAppBar(
+            appBar: CustomAppBar(
               appBarContent: CustomBack(
-                  text: AppStaticStrings.carList, color: AppColors.blackNormal),
+                  isBack: false,
+                  ontap: () {
+                    controller.homeCarList(search: "");
+
+                    // navigator!.pop();
+                    navigator!.pop();
+                  },
+                  text: AppStaticStrings.carList,
+                  color: AppColors.blackNormal),
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(vertical: 24),

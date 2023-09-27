@@ -10,10 +10,11 @@ import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/popups/common_popup.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+// ignore: must_be_immutable
 class CustomDrawer extends StatefulWidget {
-  CustomDrawer({super.key, required this.homeCarListModel});
-
-  HomeCarListModel homeCarListModel;
+  const CustomDrawer({
+    super.key,
+  });
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -77,8 +78,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
             //All Car List Section
             GestureDetector(
-              onTap: () => Get.toNamed(AppRoute.seeAllCarList,
-                  arguments: widget.homeCarListModel),
+              onTap: () => Get.toNamed(
+                AppRoute.seeAllCarList,
+              ),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),

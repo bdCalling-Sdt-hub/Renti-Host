@@ -29,4 +29,5 @@ class ApiUrlContainer {
 
   //Home Section
   static const String homeCarList = "car/host";
+  static const String deleteCar = "car/delete/";
 }

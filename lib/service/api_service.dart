@@ -34,7 +34,10 @@ class ApiService extends GetxService {
           response = await http.post(url, body: params);
         }
       } else if (method == ApiResponseMethod.deleteMethod) {
-        response = await http.delete(url);
+        response = await http.delete(url, headers: {
+          "Content-Type": "application/json",
+          "Authorization": "$tokenType $token"
+        });
       } else if (method == ApiResponseMethod.updateMethod) {
         response = await http.patch(url);
       } else {
