@@ -1,12 +1,9 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_controller/pp_controller.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_repo/pp_repo.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_response_model/pp_response_model.dart';

@@ -1,4 +1,3 @@
-import 'package:intl_phone_field/phone_number.dart';
 import 'package:renti_host/core/global/api_response_method.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/core/global/api_url_container.dart';

@@ -1,17 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/settings/payment_method_section/payment_method/card_details_controller/card_details_controller.dart';
+import 'package:renti_host/view/screens/settings/payment_method_section/payment_method/card_details_repo/card_details_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 
-class PaymentMethodScreen extends StatelessWidget {
+class PaymentMethodScreen extends StatefulWidget {
   const PaymentMethodScreen({super.key});
+
+  @override
+  State<PaymentMethodScreen> createState() => _PaymentMethodScreenState();
+}
+
+class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
+
+  @override
+  void initState() {
+    Get.put(ApiService(sharedPreferences: Get.find()));
+    Get.put(CardDetailsRepo(apiService: Get.find()));
+    var controller = Get.put(CardDetailsController(cardDetailsRepo:  Get.find()));
+    controller.cardDetails();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

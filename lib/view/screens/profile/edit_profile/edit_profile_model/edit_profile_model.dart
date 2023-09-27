@@ -6,14 +6,14 @@ class EditProfileModel {
 
   EditProfileModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
     return data;
   }
@@ -90,28 +90,28 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['fullName'] = this.fullName;
-    data['email'] = this.email;
-    data['password'] = this.password;
-    data['ine'] = this.ine;
-    data['role'] = this.role;
-    data['emailVerified'] = this.emailVerified;
-    data['approved'] = this.approved;
-    data['isBanned'] = this.isBanned;
-    data['oneTimeCode'] = this.oneTimeCode;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    data['phoneNumber'] = this.phoneNumber;
-    data['gender'] = this.gender;
-    data['address'] = this.address;
-    data['dateOfBirth'] = this.dateOfBirth;
-    data['KYC'] = this.kYC;
-    data['RFC'] = this.rFC;
-    data['creaditCardNumber'] = this.creaditCardNumber;
-    data['image'] = this.image;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['fullName'] = fullName;
+    data['email'] = email;
+    data['password'] = password;
+    data['ine'] = ine;
+    data['role'] = role;
+    data['emailVerified'] = emailVerified;
+    data['approved'] = approved;
+    data['isBanned'] = isBanned;
+    data['oneTimeCode'] = oneTimeCode;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    data['phoneNumber'] = phoneNumber;
+    data['gender'] = gender;
+    data['address'] = address;
+    data['dateOfBirth'] = dateOfBirth;
+    data['KYC'] = kYC;
+    data['RFC'] = rFC;
+    data['creaditCardNumber'] = creaditCardNumber;
+    data['image'] = image;
     return data;
   }
 }

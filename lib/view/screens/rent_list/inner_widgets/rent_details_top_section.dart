@@ -98,7 +98,6 @@ class RentDetailsTopSection extends StatelessWidget {
           ],
         ),
         Container(
-          width: 70,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           margin: const EdgeInsets.only(bottom: 8),
           decoration: BoxDecoration(

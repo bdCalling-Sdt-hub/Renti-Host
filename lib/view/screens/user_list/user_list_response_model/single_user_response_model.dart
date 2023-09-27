@@ -1,34 +1,34 @@
-class ProfileModel {
-  ProfileModel({
+class SingleUserResponseModel {
+  SingleUserResponseModel({
       String? message, 
-      User? user,}){
+      UserDetails? userDetails,}){
     _message = message;
-    _user = user;
+    _userDetails = userDetails;
 }
 
-  ProfileModel.fromJson(dynamic json) {
+  SingleUserResponseModel.fromJson(dynamic json) {
     _message = json['message'];
-    _user = json['user'] != null ? User.fromJson(json['user']) : null;
+    _userDetails = json['userDetails'] != null ? UserDetails.fromJson(json['userDetails']) : null;
   }
   String? _message;
-  User? _user;
+  UserDetails? _userDetails;
 
   String? get message => _message;
-  User? get user => _user;
+  UserDetails? get userDetails => _userDetails;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['message'] = _message;
-    if (_user != null) {
-      map['user'] = _user?.toJson();
+    if (_userDetails != null) {
+      map['userDetails'] = _userDetails?.toJson();
     }
     return map;
   }
 
 }
 
-class User {
-  User({
+class UserDetails {
+  UserDetails({
       String? id, 
       String? fullName, 
       String? email, 
@@ -37,8 +37,7 @@ class User {
       String? address, 
       String? dateOfBirth, 
       String? password, 
-      List<String>? kyc, 
-      String? rfc, 
+      List<dynamic>? kyc, 
       String? ine, 
       String? image, 
       String? role, 
@@ -58,7 +57,6 @@ class User {
     _dateOfBirth = dateOfBirth;
     _password = password;
     _kyc = kyc;
-    _rfc = rfc;
     _ine = ine;
     _image = image;
     _role = role;
@@ -71,7 +69,7 @@ class User {
     _v = v;
 }
 
-  User.fromJson(dynamic json) {
+  UserDetails.fromJson(dynamic json) {
     _id = json['_id'];
     _fullName = json['fullName'];
     _email = json['email'];
@@ -81,7 +79,6 @@ class User {
     _dateOfBirth = json['dateOfBirth'];
     _password = json['password'];
     _kyc = json['KYC'] != null ? json['KYC'].cast<String>() : [];
-    _rfc = json['RFC'];
     _ine = json['ine'];
     _image = json['image'];
     _role = json['role'];
@@ -101,8 +98,7 @@ class User {
   String? _address;
   String? _dateOfBirth;
   String? _password;
-  List<String>? _kyc;
-  String? _rfc;
+  List<dynamic>? _kyc;
   String? _ine;
   String? _image;
   String? _role;
@@ -122,8 +118,7 @@ class User {
   String? get address => _address;
   String? get dateOfBirth => _dateOfBirth;
   String? get password => _password;
-  List<String>? get kyc => _kyc;
-  String? get rfc => _rfc;
+  List<dynamic>? get kyc => _kyc;
   String? get ine => _ine;
   String? get image => _image;
   String? get role => _role;
@@ -145,8 +140,9 @@ class User {
     map['address'] = _address;
     map['dateOfBirth'] = _dateOfBirth;
     map['password'] = _password;
-    map['KYC'] = _kyc;
-    map['RFC'] = _rfc;
+    if (_kyc != null) {
+      map['KYC'] = _kyc?.map((v) => v.toJson()).toList();
+    }
     map['ine'] = _ine;
     map['image'] = _image;
     map['role'] = _role;

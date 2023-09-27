@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';

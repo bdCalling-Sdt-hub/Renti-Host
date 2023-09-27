@@ -73,7 +73,7 @@ class SignInController extends GetxController {
         SharedPreferenceHelper.userNameKey,
         signInResponseModel.user?.fullName.toString() ?? "");
 
-    if (emailVerification == true) {
+    if (emailVerification == false) {
       clearData();
       Get.offAllNamed(AppRoute.navigation);
       Utils.toastMessage("Successfully Signed In");

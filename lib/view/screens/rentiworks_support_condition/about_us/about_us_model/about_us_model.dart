@@ -6,14 +6,14 @@ class AboutUsModel {
 
   AboutUsModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    about = json['about'] != null ? new About.fromJson(json['about']) : null;
+    about = json['about'] != null ? About.fromJson(json['about']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    if (this.about != null) {
-      data['about'] = this.about!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    if (about != null) {
+      data['about'] = about!.toJson();
     }
     return data;
   }
@@ -37,12 +37,12 @@ class About {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['content'] = this.content;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['content'] = content;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
     return data;
   }
 }

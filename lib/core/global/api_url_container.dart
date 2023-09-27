@@ -36,4 +36,19 @@ class ApiUrlContainer {
 
   //Total Income
   static const String totalIncome = "dashboard/host-income/";
+
+  //Renti Fee My Payment \
+  static const String rentiFeeMyPayment = "dashboard/host-payment-list";
+
+  //User By ID
+  static const String userByID = "user/host-user/";
+
+  //All Rent List
+  static const String rentList = "rent/host-rent-list";
+
+  //All Rent List
+  static const String rentListByID = "rent/host-rent/";
+
+  //All card
+static const String allCard = "card/";
 }

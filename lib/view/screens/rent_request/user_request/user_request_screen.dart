@@ -53,8 +53,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                   padding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                   child: Column(
-                    children: List.generate(
-                      5,
+                    children: List.generate(5,
                           (index) => GestureDetector(
                         onTap: () {
                           Get.toNamed(AppRoute.userRequestDetails);

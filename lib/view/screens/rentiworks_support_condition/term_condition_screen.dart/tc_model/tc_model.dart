@@ -7,15 +7,15 @@ class TermConditionModel {
   TermConditionModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     termsCondition = json['termsCondition'] != null
-        ? new TermsCondition.fromJson(json['termsCondition'])
+        ? TermsCondition.fromJson(json['termsCondition'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    if (this.termsCondition != null) {
-      data['termsCondition'] = this.termsCondition!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    if (termsCondition != null) {
+      data['termsCondition'] = termsCondition!.toJson();
     }
     return data;
   }
@@ -40,12 +40,12 @@ class TermsCondition {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['content'] = this.content;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['content'] = content;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
     return data;
   }
 }
