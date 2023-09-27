@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/utils/app_utils.dart';
-import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_model/edit_profile_model.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 
 class EditProfileController extends GetxController {

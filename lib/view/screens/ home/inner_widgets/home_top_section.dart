@@ -4,13 +4,22 @@ import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class HomeTopSection extends StatelessWidget {
-  const HomeTopSection({super.key});
+  final String totalCar;
+  final String activeCar;
+  final String reservedCar;
+
+  const HomeTopSection(
+      {super.key,
+      required this.totalCar,
+      required this.activeCar,
+      required this.reservedCar});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        //Total Car section
         Expanded(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -29,16 +38,16 @@ class HomeTopSection extends StatelessWidget {
                 ),
               ],
             ),
-            child: const Center(
+            child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomText(
+                  const CustomText(
                       text: AppStaticStrings.totalCar,
                       fontSize: 12,
                       fontWeight: FontWeight.w500),
                   CustomText(
-                      text: AppStaticStrings.num,
+                      text: totalCar,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       top: 8,
@@ -49,6 +58,8 @@ class HomeTopSection extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 16),
+
+        //Total Active Car section
         Expanded(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -67,16 +78,16 @@ class HomeTopSection extends StatelessWidget {
                 ),
               ],
             ),
-            child: const Center(
+            child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomText(
+                  const CustomText(
                       text: AppStaticStrings.active,
                       fontSize: 12,
                       fontWeight: FontWeight.w500),
                   CustomText(
-                      text: AppStaticStrings.num,
+                      text: activeCar,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       top: 8,
@@ -89,6 +100,8 @@ class HomeTopSection extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
+
+        //Total Reserved Car section
         Expanded(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -107,16 +120,16 @@ class HomeTopSection extends StatelessWidget {
                 ),
               ],
             ),
-            child: const Center(
+            child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomText(
+                  const CustomText(
                       text: AppStaticStrings.reserved,
                       fontSize: 12,
                       fontWeight: FontWeight.w500),
                   CustomText(
-                      text: AppStaticStrings.num,
+                      text: reservedCar,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       top: 8,

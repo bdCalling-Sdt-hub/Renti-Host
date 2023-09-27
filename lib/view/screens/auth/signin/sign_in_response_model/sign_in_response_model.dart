@@ -34,8 +34,16 @@ class User {
   String? id;
   String? fullName;
   String? email;
+  String? phoneNumber;
+  String? gender;
+  String? address;
+  String? dateOfBirth;
   String? password;
+  String? kyc;
+  String? rfc;
+  String? creaditCardNumber;
   String? ine;
+  String? image;
   String? role;
   bool? emailVerified;
   bool? approved;
@@ -44,21 +52,21 @@ class User {
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
-  String? kyc;
-  String? rfc;
-  String? address;
-  String? creaditCardNumber;
-  String? dateOfBirth;
-  String? gender;
-  String? image;
-  String? phoneNumber;
 
   User({
     this.id,
     this.fullName,
     this.email,
+    this.phoneNumber,
+    this.gender,
+    this.address,
+    this.dateOfBirth,
     this.password,
+    this.kyc,
+    this.rfc,
+    this.creaditCardNumber,
     this.ine,
+    this.image,
     this.role,
     this.emailVerified,
     this.approved,
@@ -67,14 +75,6 @@ class User {
     this.createdAt,
     this.updatedAt,
     this.v,
-    this.kyc,
-    this.rfc,
-    this.address,
-    this.creaditCardNumber,
-    this.dateOfBirth,
-    this.gender,
-    this.image,
-    this.phoneNumber,
   });
 
   factory User.fromRawJson(String str) => User.fromJson(json.decode(str));
@@ -85,8 +85,16 @@ class User {
         id: json["_id"],
         fullName: json["fullName"],
         email: json["email"],
+        phoneNumber: json["phoneNumber"],
+        gender: json["gender"],
+        address: json["address"],
+        dateOfBirth: json["dateOfBirth"],
         password: json["password"],
+        kyc: json["KYC"],
+        rfc: json["RFC"],
+        creaditCardNumber: json["creaditCardNumber"],
         ine: json["ine"],
+        image: json["image"],
         role: json["role"],
         emailVerified: json["emailVerified"],
         approved: json["approved"],
@@ -99,22 +107,22 @@ class User {
             ? null
             : DateTime.parse(json["updatedAt"]),
         v: json["__v"],
-        kyc: json["KYC"],
-        rfc: json["RFC"],
-        address: json["address"],
-        creaditCardNumber: json["creaditCardNumber"],
-        dateOfBirth: json["dateOfBirth"],
-        gender: json["gender"],
-        image: json["image"],
-        phoneNumber: json["phoneNumber"],
       );
 
   Map<String, dynamic> toJson() => {
         "_id": id,
         "fullName": fullName,
         "email": email,
+        "phoneNumber": phoneNumber,
+        "gender": gender,
+        "address": address,
+        "dateOfBirth": dateOfBirth,
         "password": password,
+        "KYC": kyc,
+        "RFC": rfc,
+        "creaditCardNumber": creaditCardNumber,
         "ine": ine,
+        "image": image,
         "role": role,
         "emailVerified": emailVerified,
         "approved": approved,
@@ -123,13 +131,5 @@ class User {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
         "__v": v,
-        "KYC": kyc,
-        "RFC": rfc,
-        "address": address,
-        "creaditCardNumber": creaditCardNumber,
-        "dateOfBirth": dateOfBirth,
-        "gender": gender,
-        "image": image,
-        "phoneNumber": phoneNumber,
       };
 }

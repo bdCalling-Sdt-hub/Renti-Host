@@ -1,12 +1,9 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_controller/pp_controller.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_repo/pp_repo.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_response_model/pp_response_model.dart';
@@ -53,33 +50,32 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           ),
           body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-              child: FutureBuilder<PrivacyPolicyModel>(
-                  future: controller.privacyPolicy(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(
-                          child:
-                              CircularProgressIndicator()); // Show a loading indicator while waiting for data
-                    } else if (snapshot.hasError) {
-                      return Text(
-                          "Error: ${snapshot.error}"); // Show an error message if data fetch fails
-                    } else if (!snapshot.hasData) {
-                      return const Text(
-                          "No data available"); // Handle case where no data is available
-                    }
-                    PrivacyPolicyModel ppModel = snapshot.data!;
-                    return Expanded(
-                      child: CustomText(
-                        text: ppModel.privacyPolicy!.content.toString(),
-                        color: AppColors.whiteDarker,
-                        textAlign: TextAlign.justify,
-                      ),
-                    );
-                  }),
-            ),
+                FutureBuilder<PrivacyPolicyModel>(
+                    future: controller.privacyPolicy(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                            child:
+                                CircularProgressIndicator()); // Show a loading indicator while waiting for data
+                      } else if (snapshot.hasError) {
+                        return Text(
+                            "Error: ${snapshot.error}"); // Show an error message if data fetch fails
+                      } else if (!snapshot.hasData) {
+                        return const Text(
+                            "No data available"); // Handle case where no data is available
+                      }
+                      PrivacyPolicyModel ppModel = snapshot.data!;
+                      return SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 24),
+                        child: CustomText(
+                          text: ppModel.privacyPolicy!.content.toString(),
+                          color: AppColors.whiteDarker,
+                          textAlign: TextAlign.justify,
+                        ),
+                      );
+                    }),
           ),
         ),
       );

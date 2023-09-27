@@ -11,36 +11,23 @@ class ProfileController extends GetxController {
   ProfileController({required this.profileRepo});
 
   @override
-  void onReady() {
-    profile();
-    super.onReady();
-  }
-
-  @override
   void onInit() {
     profile();
     super.onInit();
   }
 
-  late bool isLoading = false;
-  late ProfileModel profileModel;
-
-  Future<void> profile() async {
-    isLoading = true;
-    update();
+  Future<ProfileModel> profile() async {
     ApiResponseModel responseModel = await profileRepo.privacyPolicy();
-    // Define the variable here
+    ProfileModel profileModel;
 
     if (responseModel.statusCode == 200) {
       profileModel =
           ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
     } else {
-      isLoading = false;
       Utils.toastMessage(responseModel.message);
-      update();
+      return ProfileModel();
     }
 
-    isLoading = false;
-    update();
+    return profileModel;
   }
 }

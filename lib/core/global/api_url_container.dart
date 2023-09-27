@@ -26,4 +26,7 @@ class ApiUrlContainer {
 
   //Edit Profile
   static const String editProfile = "user/update/";
+
+  //Home Section
+  static const String homeCarList = "car/host";
 }

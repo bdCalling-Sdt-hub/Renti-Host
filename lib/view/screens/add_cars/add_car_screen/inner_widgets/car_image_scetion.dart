@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 
+// ignore: must_be_immutable
 class CarImageSection extends StatelessWidget {
-  const CarImageSection({super.key});
+  CarImageSection(
+      {super.key, required this.homeCarListodel, required this.index});
+  HomeCarListModel homeCarListodel;
+  int index;
 
   @override
   Widget build(BuildContext context) {
@@ -15,23 +19,11 @@ class CarImageSection extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: AppColors.blueLight,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.add_photo_alternate_outlined, size: 40, color: AppColors.blueNormal),
-                  //const SizedBox(height: 16),
-                  /*CustomElevatedButton(
-                                onPressed: () {},
-                                titleText: AppStaticStrings.uploadPhoto,
-                                buttonWidth: double.maxFinite,
-                                titleSize: 10,buttonRadius: 4,
-                                buttonHeight: 32),*/
-                ],
-              ),
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          homeCarListodel.cars![index].image![0]))),
             ),
           ),
           const SizedBox(width: 8),
@@ -43,23 +35,11 @@ class CarImageSection extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: AppColors.blueLight,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.add_photo_alternate_outlined, size: 24, color: AppColors.blueNormal),
-                        /*const SizedBox(height: 16),
-                                  CustomElevatedButton(
-                                      onPressed: () {},
-                                      titleText: AppStaticStrings.uploadCarPhoto,
-                                      buttonWidth: double.maxFinite,
-                                      titleSize: 12,
-                                      buttonHeight: 32),*/
-                      ],
-                    ),
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                homeCarListodel.cars![index].image![0]))),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -68,23 +48,11 @@ class CarImageSection extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: AppColors.blueLight,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.add_photo_alternate_outlined, size: 24, color: AppColors.blueNormal),
-                        /*const SizedBox(height: 16),
-                                  CustomElevatedButton(
-                                      onPressed: () {},
-                                      titleText: AppStaticStrings.uploadCarPhoto,
-                                      buttonWidth: double.maxFinite,
-                                      titleSize: 12,
-                                      buttonHeight: 32),*/
-                      ],
-                    ),
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                homeCarListodel.cars![index].image![0]))),
                   ),
                 ),
               ],

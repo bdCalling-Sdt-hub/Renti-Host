@@ -6,14 +6,14 @@ class ProfileModel {
 
   ProfileModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
     return data;
   }
@@ -23,8 +23,16 @@ class User {
   String? sId;
   String? fullName;
   String? email;
+  String? phoneNumber;
+  String? gender;
+  String? address;
+  String? dateOfBirth;
   String? password;
+  String? kYC;
+  String? rFC;
+  String? creaditCardNumber;
   String? ine;
+  String? image;
   String? role;
   bool? emailVerified;
   bool? approved;
@@ -33,21 +41,21 @@ class User {
   String? createdAt;
   String? updatedAt;
   int? iV;
-  String? kYC;
-  String? rFC;
-  String? address;
-  String? creaditCardNumber;
-  String? dateOfBirth;
-  String? gender;
-  String? image;
-  String? phoneNumber;
 
   User(
       {this.sId,
       this.fullName,
       this.email,
+      this.phoneNumber,
+      this.gender,
+      this.address,
+      this.dateOfBirth,
       this.password,
+      this.kYC,
+      this.rFC,
+      this.creaditCardNumber,
       this.ine,
+      this.image,
       this.role,
       this.emailVerified,
       this.approved,
@@ -55,22 +63,22 @@ class User {
       this.oneTimeCode,
       this.createdAt,
       this.updatedAt,
-      this.iV,
-      this.kYC,
-      this.rFC,
-      this.address,
-      this.creaditCardNumber,
-      this.dateOfBirth,
-      this.gender,
-      this.image,
-      this.phoneNumber});
+      this.iV});
 
   User.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     fullName = json['fullName'];
     email = json['email'];
+    phoneNumber = json['phoneNumber'];
+    gender = json['gender'];
+    address = json['address'];
+    dateOfBirth = json['dateOfBirth'];
     password = json['password'];
+    kYC = json['KYC'];
+    rFC = json['RFC'];
+    creaditCardNumber = json['creaditCardNumber'];
     ine = json['ine'];
+    image = json['image'];
     role = json['role'];
     emailVerified = json['emailVerified'];
     approved = json['approved'];
@@ -79,39 +87,31 @@ class User {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
-    kYC = json['KYC'];
-    rFC = json['RFC'];
-    address = json['address'];
-    creaditCardNumber = json['creaditCardNumber'];
-    dateOfBirth = json['dateOfBirth'];
-    gender = json['gender'];
-    image = json['image'];
-    phoneNumber = json['phoneNumber'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['fullName'] = this.fullName;
-    data['email'] = this.email;
-    data['password'] = this.password;
-    data['ine'] = this.ine;
-    data['role'] = this.role;
-    data['emailVerified'] = this.emailVerified;
-    data['approved'] = this.approved;
-    data['isBanned'] = this.isBanned;
-    data['oneTimeCode'] = this.oneTimeCode;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    data['KYC'] = this.kYC;
-    data['RFC'] = this.rFC;
-    data['address'] = this.address;
-    data['creaditCardNumber'] = this.creaditCardNumber;
-    data['dateOfBirth'] = this.dateOfBirth;
-    data['gender'] = this.gender;
-    data['image'] = this.image;
-    data['phoneNumber'] = this.phoneNumber;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['fullName'] = fullName;
+    data['email'] = email;
+    data['phoneNumber'] = phoneNumber;
+    data['gender'] = gender;
+    data['address'] = address;
+    data['dateOfBirth'] = dateOfBirth;
+    data['password'] = password;
+    data['KYC'] = kYC;
+    data['RFC'] = rFC;
+    data['creaditCardNumber'] = creaditCardNumber;
+    data['ine'] = ine;
+    data['image'] = image;
+    data['role'] = role;
+    data['emailVerified'] = emailVerified;
+    data['approved'] = approved;
+    data['isBanned'] = isBanned;
+    data['oneTimeCode'] = oneTimeCode;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
     return data;
   }
 }

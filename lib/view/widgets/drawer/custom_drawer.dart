@@ -5,17 +5,19 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/popups/common_popup.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class CustomDrawer extends StatefulWidget {
-  const CustomDrawer({super.key});
+  CustomDrawer({super.key, required this.homeCarListModel});
+
+  HomeCarListModel homeCarListModel;
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
 }
-
 
 class _CustomDrawerState extends State<CustomDrawer> {
   bool changeColor = false;
@@ -23,21 +25,35 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0),),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(0),
+      ),
       width: 230,
       backgroundColor: AppColors.whiteLight,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 20,right: 20,bottom: 40),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 40),
         physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Drawer Top Section
             const SizedBox(height: 30),
-            const CustomImage(imageSrc: AppImages.profileImage, imageType: ImageType.png, size: 50),
-            const CustomText(text: AppStaticStrings.userName, fontSize: 16, fontWeight: FontWeight.w500,top: 8),
-            const CustomText(text: AppStaticStrings.userPhone, fontSize: 12, color: AppColors.whiteDarkHover,top: 8,bottom: 8),
-            const Divider(color: AppColors.blackLightHover,thickness: 1),
+            const CustomImage(
+                imageSrc: AppImages.profileImage,
+                imageType: ImageType.png,
+                size: 50),
+            const CustomText(
+                text: AppStaticStrings.userName,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                top: 8),
+            const CustomText(
+                text: AppStaticStrings.userPhone,
+                fontSize: 12,
+                color: AppColors.whiteDarkHover,
+                top: 8,
+                bottom: 8),
+            const Divider(color: AppColors.blackLightHover, thickness: 1),
 
             //Add cars Section
             GestureDetector(
@@ -46,32 +62,36 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.addCar,size: 18),
-                    CustomText(text: AppStaticStrings.addCar,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.addCar, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.addCar,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
             ),
             //All Car List Section
             GestureDetector(
-              onTap: () => Get.toNamed(AppRoute.seeAllCarList),
+              onTap: () => Get.toNamed(AppRoute.seeAllCarList,
+                  arguments: widget.homeCarListModel),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.carList,size: 18),
-                    CustomText(text: AppStaticStrings.carList,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.carList, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.carList,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -83,13 +103,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.userList,size: 14),
-                    CustomText(text: AppStaticStrings.userList,color: AppColors.whiteDarkHover,left: 12)
+                    CustomImage(imageSrc: AppIcons.userList, size: 14),
+                    CustomText(
+                        text: AppStaticStrings.userList,
+                        color: AppColors.whiteDarkHover,
+                        left: 12)
                   ],
                 ),
               ),
@@ -101,13 +123,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.rentList,size: 18),
-                    CustomText(text: AppStaticStrings.rentList,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.rentList, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.rentList,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -119,13 +143,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.reviews,size: 18),
-                    CustomText(text: AppStaticStrings.reviews,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.reviews, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.reviews,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -137,13 +163,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.income,size: 18),
-                    CustomText(text: AppStaticStrings.income,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.income, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.income,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -156,13 +184,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.notification,size: 18),
-                    CustomText(text: AppStaticStrings.notification,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.notification, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.notification,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -175,13 +205,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.adminInfo,size: 18),
-                    CustomText(text: AppStaticStrings.adminInfo,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.adminInfo, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.adminInfo,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -189,7 +221,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             //Divider
             const Padding(
               padding: EdgeInsets.only(top: 8),
-              child: Divider(color: AppColors.blackLightHover,thickness: 1),
+              child: Divider(color: AppColors.blackLightHover, thickness: 1),
             ),
             //Settings Section
             GestureDetector(
@@ -198,13 +230,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.settings,size: 18),
-                    CustomText(text: AppStaticStrings.settings,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.settings, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.settings,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -216,13 +250,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.howWorks,size: 18),
-                    CustomText(text: AppStaticStrings.howRentWorks,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.howWorks, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.howRentWorks,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -234,13 +270,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.termsConditions,size: 18),
-                    CustomText(text: AppStaticStrings.termsConditions,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.termsConditions, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.termsConditions,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -252,13 +290,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.support,size: 18),
-                    CustomText(text: AppStaticStrings.support,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.support, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.support,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -270,13 +310,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.termsConditions,size: 18),
-                    CustomText(text: AppStaticStrings.aboutUs,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(imageSrc: AppIcons.termsConditions, size: 18),
+                    CustomText(
+                        text: AppStaticStrings.aboutUs,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),
@@ -284,26 +326,37 @@ class _CustomDrawerState extends State<CustomDrawer> {
             //Divider
             const Padding(
               padding: EdgeInsets.only(top: 8),
-              child: Divider(color: AppColors.blackLightHover,thickness: 1),
+              child: Divider(color: AppColors.blackLightHover, thickness: 1),
             ),
             //LogOut Section
             GestureDetector(
-              onTap: () => showDialog(context: context, builder: (context) => CommonPopUp(title: AppStaticStrings.alertMessage, onTapYes: (){
-                Get.offAllNamed(AppRoute.signInScreen);
-              }, onTapNo: (){
-                Navigator.of(context).pop();
-              }),),
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) => CommonPopUp(
+                    title: AppStaticStrings.alertMessage,
+                    onTapYes: () {
+                      Get.offAllNamed(AppRoute.signInScreen);
+                    },
+                    onTapNo: () {
+                      Navigator.of(context).pop();
+                    }),
+              ),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.only(top: 8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(4)),
                 child: const Row(
                   children: [
-                    CustomImage(imageSrc: AppIcons.logOut,size: 18,imageColor: AppColors.whiteDarkHover),
-                    CustomText(text: AppStaticStrings.logOut,color: AppColors.whiteDarkHover,left: 8)
+                    CustomImage(
+                        imageSrc: AppIcons.logOut,
+                        size: 18,
+                        imageColor: AppColors.whiteDarkHover),
+                    CustomText(
+                        text: AppStaticStrings.logOut,
+                        color: AppColors.whiteDarkHover,
+                        left: 8)
                   ],
                 ),
               ),

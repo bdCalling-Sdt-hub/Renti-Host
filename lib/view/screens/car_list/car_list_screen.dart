@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
-import 'package:renti_host/data/controller/car/car_list/car_list_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/%20home/home_controller/home_carlist_controller.dart';
+import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/screens/car_list/inner_widgets/search_filter.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
@@ -18,130 +18,145 @@ class CarListScreen extends StatefulWidget {
 }
 
 class _CarListScreenState extends State<CarListScreen> {
-  final carListController = Get.put(CarListController());
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: true,
-      child: Obx(
-        () {
-          if (carListController.isLoading.value) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else {
-            return Scaffold(
-              backgroundColor: AppColors.whiteLight,
-              appBar: const CustomAppBar(
-                appBarContent: CustomBack(
-                    text: AppStaticStrings.carList,
-                    color: AppColors.blackNormal),
-              ),
-              body: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: Column(
-                  children: [
-                    const SearchFilter(),
-                    const SizedBox(height: 16),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        padding: const EdgeInsets.only(
-                            left: 20, right: 20, bottom: 24),
-                        child: GridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 8,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  crossAxisSpacing: 8,
-                                  mainAxisSpacing: 8,
-                                  mainAxisExtent: 170),
-                          itemBuilder: (context, index) => GestureDetector(
-                            onTap: () {
-                              Get.toNamed(AppRoute.carDetailsScreen);
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: AppColors.whiteLight,
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: const [
-                                  BoxShadow(
-                                    color: AppColors.shadowColor,
-                                    blurRadius: 8,
-                                    offset: Offset(0, 0),
-                                    spreadRadius: 0,
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 56,
-                                    decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.zero,
-                                        bottomRight: Radius.zero,
-                                        topLeft: Radius.circular(8),
-                                        topRight: Radius.circular(8),
-                                      ),
-                                      image: DecorationImage(
-                                          image: AssetImage(AppImages.blueCar),
-                                          fit: BoxFit.fill),
+    return GetBuilder<HomeCarListController>(builder: (controller) {
+      HomeCarListModel homeCarModel = controller.homeCarListModel;
+
+      if (controller.isLoading == true) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+      return SafeArea(
+          top: true,
+          child: Scaffold(
+            backgroundColor: AppColors.whiteLight,
+            appBar: const CustomAppBar(
+              appBarContent: CustomBack(
+                  text: AppStaticStrings.carList, color: AppColors.blackNormal),
+            ),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: Column(
+                children: [
+                  const SearchFilter(),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, bottom: 24),
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: homeCarModel.cars!.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                mainAxisExtent: 170),
+                        itemBuilder: (context, index) => GestureDetector(
+                          onTap: () {
+                            Get.toNamed(AppRoute.carDetailsScreen,
+                                arguments: [homeCarModel, index]);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.whiteLight,
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: AppColors.shadowColor,
+                                  blurRadius: 8,
+                                  offset: Offset(0, 0),
+                                  spreadRadius: 0,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 56,
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.zero,
+                                      bottomRight: Radius.zero,
+                                      topLeft: Radius.circular(8),
+                                      topRight: Radius.circular(8),
                                     ),
+                                    image: DecorationImage(
+                                        image: NetworkImage(homeCarModel
+                                            .cars![index].image![0]
+                                            .toString()),
+                                        fit: BoxFit.fill),
                                   ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            vertical: 8, horizontal: 20),
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 4, horizontal: 4),
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                          color: AppColors.greenLight,
-                                          borderRadius:
-                                              BorderRadius.circular(4),
-                                        ),
-                                        child: const CustomText(
-                                            text: AppStaticStrings.active,
-                                            color: AppColors.greenNormal,
-                                            fontSize: 10),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 20),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 4, horizontal: 4),
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: homeCarModel
+                                                    .cars![index].tripStatus ==
+                                                "Start"
+                                            ? AppColors.redLight
+                                            : AppColors.greenLight,
+                                        borderRadius: BorderRadius.circular(4),
                                       ),
-                                      const CustomText(
-                                          text: "Toyota Harrier", fontSize: 12),
-                                      const CustomText(
-                                          text: "2018",
-                                          fontSize: 10,
-                                          color: AppColors.whiteDarkActive),
-                                      const CustomText(
-                                          text: "61-10-TMQ",
-                                          fontSize: 10,
-                                          top: 4,
-                                          bottom: 4),
-                                      const CustomText(
-                                          text: AppStaticStrings.seeDetails,
-                                          fontSize: 10,
-                                          color: AppColors.blueNormal),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                      child: homeCarModel
+                                                  .cars![index].tripStatus ==
+                                              "Start"
+                                          ? CustomText(
+                                              text: AppStaticStrings.reserved
+                                                  .toString(),
+                                              color: AppColors.redNormal,
+                                              fontSize: 10)
+                                          : CustomText(
+                                              text: AppStaticStrings.active
+                                                  .toString(),
+                                              color: AppColors.greenNormal,
+                                              fontSize: 10),
+                                    ),
+                                    CustomText(
+                                        text: homeCarModel
+                                            .cars![index].carModelName
+                                            .toString(),
+                                        fontSize: 12),
+                                    CustomText(
+                                        text: homeCarModel.cars![index].year
+                                            .toString(),
+                                        fontSize: 10,
+                                        color: AppColors.whiteDarkActive),
+                                    CustomText(
+                                        text: homeCarModel
+                                            .cars![index].carLicenseNumber
+                                            .toString(),
+                                        fontSize: 10,
+                                        top: 4,
+                                        bottom: 4),
+                                    const CustomText(
+                                        text: AppStaticStrings.seeDetails,
+                                        fontSize: 10,
+                                        color: AppColors.blueNormal),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            );
-          }
-        },
-      ),
-    );
+            ),
+          ));
+    });
   }
 }
