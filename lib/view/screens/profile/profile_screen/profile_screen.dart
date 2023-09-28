@@ -146,10 +146,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             title: AppStaticStrings.ine,
                             description: creaditCardNumber,
                             icon: Icons.credit_card_outlined),
+
                         ProfileCard(
                             title: AppStaticStrings.email,
                             description: email,
                             icon: Icons.email_outlined),
+
+
                         ProfileCard(
                             title: AppStaticStrings.mobile,
                             description: phoneNumber,

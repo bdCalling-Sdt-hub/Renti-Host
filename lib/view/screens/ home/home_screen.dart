@@ -15,7 +15,9 @@ import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../core/helper/shear_preference_helper.dart';
 import '../../../service/api_service.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,8 +28,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _PendingApprovalScreenState extends State<HomeScreen> {
-  bool isApproved = false;
-  bool hasCarList = false;
+
+
+
+
 
   @override
   void initState() {
@@ -36,11 +40,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     var homeCarListController =
         Get.put(HomeCarListController(homeCarListRepo: Get.find()));
     homeCarListController.homeCarList();
-    Timer(const Duration(seconds: 10), () {
-      if (isApproved == true) {
-        Get.toNamed(AppRoute.homeScreen);
-      } else {}
-    });
+
     super.initState();
   }
 
@@ -69,33 +69,33 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
           //This is a message for Admin Approval....
-          floatingActionButton: isApproved
-              ? Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: AppColors.blueLight,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: InkWell(
-                    onTap: () {},
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(Icons.error_outline_outlined,
-                            size: 20, color: AppColors.blueNormal),
-                        CustomText(
-                            text: AppStaticStrings.waitForAdmin,
-                            color: AppColors.blueNormal,
-                            left: 16)
-                      ],
-                    ),
-                  ),
-                )
-              : const SizedBox(),
+          // floatingActionButton: isApproved ==false
+          //     ? Container(
+          //         margin:
+          //             const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          //         padding:
+          //             const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+          //         width: MediaQuery.of(context).size.width,
+          //         decoration: BoxDecoration(
+          //             color: AppColors.blueLight,
+          //             borderRadius: BorderRadius.circular(8)),
+          //         child: InkWell(
+          //           onTap: () {},
+          //           child: const Row(
+          //             mainAxisAlignment: MainAxisAlignment.center,
+          //             crossAxisAlignment: CrossAxisAlignment.center,
+          //             children: [
+          //               Icon(Icons.error_outline_outlined,
+          //                   size: 20, color: AppColors.blueNormal),
+          //               CustomText(
+          //                   text: AppStaticStrings.waitForAdmin,
+          //                   color: AppColors.blueNormal,
+          //                   left: 16)
+          //             ],
+          //           ),
+          //         ),
+          //       )
+          //     : const SizedBox(),
           drawer: const CustomDrawer(),
           appBar: CustomAppBar(
             appBarContent: Row(

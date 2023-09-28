@@ -9,6 +9,10 @@ class AboutUsController extends GetxController {
   AboutUsRepo aboutUsRepo;
   AboutUsController({required this.aboutUsRepo});
 
+
+
+
+
   Future<AboutUsModel> aboutUs() async {
     ApiResponseModel responseModel = await aboutUsRepo.aboutUS();
     AboutUsModel aboutUsModel; // Define the variable here

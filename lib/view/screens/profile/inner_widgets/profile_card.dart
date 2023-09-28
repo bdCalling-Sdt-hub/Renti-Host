@@ -35,16 +35,21 @@ class ProfileCard extends StatelessWidget {
         children: [
           Icon(icon, color: AppColors.whiteDarkHover, size: 18),
           const SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomText(
-                  text: title,
-                  fontSize: 12,
-                  color: AppColors.whiteDarkHover,
-                  bottom: 8),
-              CustomText(text: description, fontSize: 16)
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                    text: title,
+                    fontSize: 12,
+                    color: AppColors.whiteDarkHover,
+                    bottom: 8),
+                CustomText(
+
+                  overflow: TextOverflow.ellipsis,
+                    text: description, fontSize: 16)
+              ],
+            ),
           ),
         ],
       ),

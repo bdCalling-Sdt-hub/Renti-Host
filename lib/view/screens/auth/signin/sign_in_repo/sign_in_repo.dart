@@ -14,7 +14,7 @@ class SignInRepo {
     Map<String, String> params = {"email": email, "password": password};
 
     ApiResponseModel responseModel =
-        await apiService.request(uri, requestMethod, params, passHeader: false);
+        await apiService.request(uri, requestMethod, params, passHeader: true);
 
     return responseModel;
   }

@@ -1,5 +1,6 @@
 class ApiUrlContainer {
   static const String baseUrl = "http://192.168.10.14:3001/api/";
+  static const String baseUrl2 = "http://192.168.10.14:3000/api/";
 
   //13.52.186.90:3001
   //192.168.10.14:3001
@@ -54,5 +55,8 @@ class ApiUrlContainer {
   static const String rentListByID = "rent/host-rent/";
 
   //All card
-static const String allCard = "card/";
+  static const String allCard = "card/";
+
+  //All card
+  static const String adminInfo = "user/admin-info";
 }

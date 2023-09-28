@@ -7,26 +7,35 @@ import 'package:renti_host/view/screens/rent_request/user_request/rent_request_r
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_response_model/rent_request_response_model.dart';
 
 class RentRequestController extends GetxController {
-
   RentRequestRepo rentRequestRepo;
   RentRequestController({required this.rentRequestRepo});
 
-  Future<RentRequestResponseModel> rentRequest() async {
+  @override
+  void onInit() {
+    rentRequest();
+    super.onInit();
+  }
+
+  bool isloading = true;
+
+  RentRequestResponseModel rentRequestResponseModel =
+      RentRequestResponseModel();
+
+  Future<void> rentRequest() async {
     //Call the Api by using ApiResponse Model data
     ApiResponseModel responseModel = await rentRequestRepo.rentRequest();
     //Create a reference variable of RentRequestModel
-    RentRequestResponseModel rentRequestResponseModel;
 
     //Checking response data
     if (responseModel.statusCode == 200) {
       //get data by using reference model variable
-      rentRequestResponseModel = RentRequestResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-      print("$rentRequestResponseModel");
+      rentRequestResponseModel = RentRequestResponseModel.fromJson(
+          jsonDecode(responseModel.responseJson));
+
+      isloading = false;
+      update();
     } else {
       Utils.toastMessage(responseModel.message);
-      return RentRequestResponseModel();
     }
-    //Model response return
-    return rentRequestResponseModel;
   }
 }

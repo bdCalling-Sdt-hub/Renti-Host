@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -68,11 +69,7 @@ class _TermsConditionScreenState extends State<TermsConditionScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 24),
                         physics: const BouncingScrollPhysics(),
-                        child: CustomText(
-                          text: tcModel.termsCondition!.content.toString(),
-                          color: AppColors.whiteDarker,
-                          textAlign: TextAlign.justify,
-                        ),
+                        child: Html(data: tcModel.termsCondition!.content.toString(),)
                       );
                     }),
           ),

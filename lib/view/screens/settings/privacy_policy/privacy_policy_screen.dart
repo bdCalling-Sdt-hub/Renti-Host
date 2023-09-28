@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -69,11 +70,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                         physics: const BouncingScrollPhysics(),
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 24),
-                        child: CustomText(
-                          text: ppModel.privacyPolicy!.content.toString(),
-                          color: AppColors.whiteDarker,
-                          textAlign: TextAlign.justify,
-                        ),
+                        child: Html(data: ppModel.privacyPolicy!.content.toString(),)
                       );
                     }),
           ),

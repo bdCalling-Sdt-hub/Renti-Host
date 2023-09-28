@@ -45,8 +45,10 @@ class SignInController extends GetxController {
   }
 
   gotoNextStep(SignInResponseModel signInResponseModel) async {
-    bool emailVerification =
+    bool emailVerified =
         signInResponseModel.user?.emailVerified == false ? false : true;
+
+    bool approved = signInResponseModel.user!.approved == false ? false : true;
 
     /*if(remember){
       await signInRepo.apiService.sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, true);
@@ -58,11 +60,16 @@ class SignInController extends GetxController {
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.userIdKey,
         signInResponseModel.user?.id.toString() ?? "");
+
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.accessTokenKey,
         signInResponseModel.accessToken ?? "");
+
     await signInRepo.apiService.sharedPreferences
         .setString(SharedPreferenceHelper.accessTokenType, "Bearer");
+
+
+
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.userEmailKey,
         signInResponseModel.user?.email.toString() ?? "");
@@ -73,10 +80,12 @@ class SignInController extends GetxController {
         SharedPreferenceHelper.userNameKey,
         signInResponseModel.user?.fullName.toString() ?? "");
 
-    if (emailVerification == false) {
+    if (emailVerified == true && approved == true) {
       clearData();
       Get.offAllNamed(AppRoute.navigation);
       Utils.toastMessage("Successfully Signed In");
+    } else if (approved == false) {
+      Utils.toastMessage("Please wait for admin approve to log in");
     } else {
       Utils.toastMessage("Enter valid Email and Password");
     }
