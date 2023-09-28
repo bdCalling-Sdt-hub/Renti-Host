@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/car_image_scetion.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_information.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_user_information.dart';
@@ -45,7 +46,8 @@ class _StartTripScreenState extends State<StartTripScreen> {
                       fontWeight: FontWeight.w500,
                       bottom: 16),
                   // top Section with upload button
-                  const CarImageSection(),
+                  CarImageSection(
+                      homeCarListodel: HomeCarListModel(), index: 0),
                   const SizedBox(height: 16),
                   CustomElevatedButton(
                     onPressed: () {},

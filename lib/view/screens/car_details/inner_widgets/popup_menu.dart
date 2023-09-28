@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/view/screens/car_details/inner_widgets/delete_car_popup.dart';
+import 'package:renti_host/view/screens/%20home/home_controller/home_carlist_controller.dart';
+import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
+import 'package:renti_host/view/screens/car_details/delete_car_repo/delete_car_repo.dart';
+import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class PopUpMenu extends StatefulWidget {
-  const PopUpMenu({super.key});
-
+  const PopUpMenu(
+      {super.key, required this.homeCarListModel, required this.index});
+  final HomeCarListModel homeCarListModel;
+  final int index;
   @override
   State<PopUpMenu> createState() => _PopUpMenuState();
 }
@@ -42,7 +49,56 @@ class _PopUpMenuState extends State<PopUpMenu> {
                 context: context,
                 barrierDismissible: false, // user must tap button!
                 builder: (BuildContext context) {
-                  return const DeleteCarPopUp();
+                  return AlertDialog(
+                    title: Column(
+                      children: [
+                        const CustomText(
+                          text: AppStaticStrings.wantToDeleteCar,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 24.0, horizontal: 0),
+                          child: Divider(
+                            height: 1,
+                            color: AppColors.blackLightHover,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                                child: CustomElevatedButton(
+                                    onPressed: () {
+                                      DeleteCarRepo(apiService: Get.find())
+                                          .deleteCar(
+                                              carId: widget.homeCarListModel
+                                                  .cars![widget.index].id
+                                                  .toString());
+
+                                      var homeController =
+                                          Get.find<HomeCarListController>();
+                                      homeController.homeCarList();
+                                      Get.offNamed(AppRoute.navigation);
+                                    },
+                                    titleText: AppStaticStrings.yes,
+                                    buttonColor: AppColors.redLight,
+                                    titleColor: AppColors.redNormal,
+                                    buttonHeight: 48)),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: CustomElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  titleText: AppStaticStrings.no,
+                                  buttonHeight: 48),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
                 },
               );
             },

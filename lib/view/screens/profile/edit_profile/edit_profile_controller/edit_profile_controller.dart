@@ -1,46 +1,38 @@
-// import 'dart:convert';
-// import 'package:get/get.dart';
-// import 'package:renti_host/core/global/api_response_model.dart';
-// import 'package:renti_host/core/helper/shear_preference_helper.dart';
-// import 'package:renti_host/utils/app_utils.dart';
-// import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_model/edit_profile_model.dart';
-// import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:renti_host/core/global/api_response_model.dart';
+import 'package:renti_host/utils/app_utils.dart';
+import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 
-// class EditProfileController extends GetxController {
-//   EditProfileRepo editProfileRepo;
-//   EditProfileController({required this.editProfileRepo});
+class EditProfileController extends GetxController {
+  EditProfileRepo editProfileRepo;
+  EditProfileController({required this.editProfileRepo});
+  TextEditingController emailController = TextEditingController();
 
-//   Future<EditProfileModel> editProfile() async {
-//      final prefs = await SharedPreferences.getInstance();
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
-//     final id = prefs.getString(SharedPreferenceHelper.userIdKey);
-//     final id = prefs.getString(SharedPreferenceHelper.userEmailKey);
-//     final id = prefs.getString(SharedPreferenceHelper.userNameKey);
-//     final id = prefs.getString(SharedPreferenceHelper.userPhoneNumberKey);
-//     final id = prefs.getString(SharedPreferenceHelper.);
+  TextEditingController dateOfBirthController = TextEditingController();
+  TextEditingController creaditCardNumberController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
 
+  Future<void> editProfile() async {
+    ApiResponseModel responseModel = await editProfileRepo.editProfile(
+        email: emailController.text,
+        fullName: fullNameController.text,
+        phoneNumber: phoneNumberController.text,
+        image: "",
+        address: addressController.text,
+        dateOfBirth: dateOfBirthController.text,
+        creaditCardNumber: creaditCardNumberController.text,
+        gender: genderController.text);
 
-   
-//     ApiResponseModel responseModel = await editProfileRepo.editProfile(
-//         email: email,
-//         password: password,
-//         fullName: fullName,
-//         phoneNumber: phoneNumber,
-//         id: id,
-//         image: "",
-//         address: address);
-//     EditProfileModel editProfileModel; // Define the variable here
-
-//     if (responseModel.statusCode == 200) {
-//       editProfileModel =
-//           EditProfileModel.fromJson(jsonDecode(responseModel.responseJson));
-//     } else {
-//       Utils.toastMessage(responseModel.message);
-//       // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
-//       return EditProfileModel(); // Return a default value or handle the error accordingly.
-//     }
-
-//     return editProfileModel; // Return the variable here
-//   }
-// }
+    if (responseModel.statusCode == 200) {
+      Utils.toastMessage(responseModel.message);
+      update();
+    } else {
+      Utils.toastMessage(responseModel.message);
+    }
+  }
+}

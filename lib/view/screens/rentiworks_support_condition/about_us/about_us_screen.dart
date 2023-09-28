@@ -49,33 +49,32 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
           ),
           body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-              child: FutureBuilder<AboutUsModel>(
-                  future: controller.aboutUs(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(
-                          child:
-                              CircularProgressIndicator()); // Show a loading indicator while waiting for data
-                    } else if (snapshot.hasError) {
-                      return Text(
-                          "Error: ${snapshot.error}"); // Show an error message if data fetch fails
-                    } else if (!snapshot.hasData) {
-                      return const Text(
-                          "No data available"); // Handle case where no data is available
-                    }
-                    AboutUsModel tcModel = snapshot.data!;
-                    return Expanded(
-                      child: CustomText(
-                        text: tcModel.about!.content.toString(),
-                        color: AppColors.whiteDarker,
-                        textAlign: TextAlign.justify,
-                      ),
-                    );
-                  }),
-            ),
+                FutureBuilder<AboutUsModel>(
+                    future: controller.aboutUs(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                            child:
+                                CircularProgressIndicator()); // Show a loading indicator while waiting for data
+                      } else if (snapshot.hasError) {
+                        return Text(
+                            "Error: ${snapshot.error}"); // Show an error message if data fetch fails
+                      } else if (!snapshot.hasData) {
+                        return const Text(
+                            "No data available"); // Handle case where no data is available
+                      }
+                      AboutUsModel tcModel = snapshot.data!;
+                      return SingleChildScrollView(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 24),
+                        physics: const BouncingScrollPhysics(),
+                        child: CustomText(
+                          text: tcModel.about!.content.toString(),
+                          color: AppColors.whiteDarker,
+                          textAlign: TextAlign.justify,
+                        ),
+                      );
+                    }),
           ),
         ),
       );

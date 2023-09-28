@@ -28,6 +28,10 @@ class ApiUrlContainer {
   //Edit Profile
   static const String editProfile = "user/update/";
 
+  //Home Section
+  static const String homeCarList = "car/host";
+  static const String deleteCar = "car/delete/";
+
   //Rent Request All
   static const String rentRequestAll = "rent/all/";
 

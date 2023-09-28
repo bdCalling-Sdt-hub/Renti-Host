@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/car_image_scetion.dart';
 import 'package:renti_host/view/screens/car_details/inner_widgets/document_file_section.dart';
 import 'package:renti_host/view/screens/car_details/inner_widgets/popup_menu.dart';
@@ -17,21 +19,27 @@ class CarDetailsScreen extends StatefulWidget {
 }
 
 class _CarDetailsScreenState extends State<CarDetailsScreen> {
+  HomeCarListModel homeCarListModel = Get.arguments[0];
+  int index = Get.arguments[1];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomBack(
+              const CustomBack(
                   text: AppStaticStrings.carDetails,
                   color: AppColors.blackNormal),
-              PopUpMenu()
+              if (homeCarListModel.cars![index].tripStatus != "Start")
+                PopUpMenu(
+                  homeCarListModel: homeCarListModel,
+                  index: index,
+                )
             ],
           ),
         ),
@@ -40,15 +48,16 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CarImageSection(),
+              CarImageSection(homeCarListodel: homeCarListModel, index: index),
               const SizedBox(height: 16),
               //Car Name And Status Section
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomText(
-                      text: "Toyota Harrier",
+                  CustomText(
+                      text:
+                          homeCarListModel.cars![index].carModelName.toString(),
                       fontSize: 18,
                       color: AppColors.blueNormal,
                       fontWeight: FontWeight.w500),
@@ -56,33 +65,37 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     decoration: BoxDecoration(
-                      color: AppColors.redLight,
+                      color: homeCarListModel.cars![index].tripStatus == "Start"
+                          ? AppColors.redLight
+                          : AppColors.greenLight,
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child: const CustomText(
-                        text: AppStaticStrings.reserved,
-                        color: AppColors.redNormal,
+                    child: CustomText(
+                        text:
+                            homeCarListModel.cars![index].tripStatus == "Start"
+                                ? AppStaticStrings.reserved
+                                : AppStaticStrings.active,
+                        color:
+                            homeCarListModel.cars![index].tripStatus == "Start"
+                                ? AppColors.redNormal
+                                : AppColors.greenNormal,
                         fontSize: 10),
                   ),
                 ],
               ),
               const SizedBox(height: 8),
               //Cost Per Day
-              const Row(
-                children: [
-                  CustomText(text: "\$", fontSize: 16, fontWeight: FontWeight.w500),
-                  CustomText(
-                      text: "100", fontSize: 16, fontWeight: FontWeight.w500),
-                  CustomText(
-                      text: AppStaticStrings.perDay,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
-                ],
-              ),
+              CustomText(
+                  text:
+                      "\$${homeCarListModel.cars![index].hourlyRate.toString()}/day",
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
               const SizedBox(height: 24),
-              const ReservedDetails(),
+              ReservedDetails(homeCarListModel: homeCarListModel, index: index),
               const SizedBox(height: 16),
-              const DocumentFilesSection()
+              DocumentFilesSection(
+                documentsName: homeCarListModel.cars![index].kyc,
+              )
             ],
           ),
         ),

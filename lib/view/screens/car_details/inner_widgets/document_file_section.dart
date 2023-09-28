@@ -5,21 +5,14 @@ import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class DocumentFilesSection extends StatefulWidget {
-  const DocumentFilesSection({super.key});
+  final List<String>? documentsName;
+  const DocumentFilesSection({super.key, required this.documentsName});
 
   @override
   State<DocumentFilesSection> createState() => _DocumentFilesSectionState();
 }
 
 class _DocumentFilesSectionState extends State<DocumentFilesSection> {
-  List documentsName = [
-    "Circulation card",
-    "Environmental  verification hologram",
-    "REPUVE",
-    "Car insurance policy",
-    "Car License",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,7 +28,7 @@ class _DocumentFilesSectionState extends State<DocumentFilesSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: List.generate(
-              documentsName.length,
+              widget.documentsName!.length,
               (index) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16),
@@ -45,7 +38,13 @@ class _DocumentFilesSectionState extends State<DocumentFilesSection> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const CustomImage(imageSrc: AppIcons.pdfIcon, size: 25),
-                        CustomText(text: "${documentsName[index]}",fontSize: 12,left: 16),
+                        Expanded(
+                          child: CustomText(
+                              overflow: TextOverflow.ellipsis,
+                              text: widget.documentsName![index].toString(),
+                              fontSize: 12,
+                              left: 16),
+                        ),
                       ],
                     ),
                   ),
