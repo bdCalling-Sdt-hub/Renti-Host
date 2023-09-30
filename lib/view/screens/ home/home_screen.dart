@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -15,9 +14,7 @@ import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../core/helper/shear_preference_helper.dart';
 import '../../../service/api_service.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,11 +25,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _PendingApprovalScreenState extends State<HomeScreen> {
-
-
-
-
-
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
@@ -197,27 +189,30 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                       ),
 
                     //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const CustomText(
-                            text: AppStaticStrings.carsList,
-                            fontWeight: FontWeight.w600),
-                        GestureDetector(
-                          onTap: () {
-                            Get.toNamed(AppRoute.seeAllCarList,
-                                arguments: homeCarListModel);
-                          },
-                          child: const CustomText(
-                            text: AppStaticStrings.seeAll,
-                            color: AppColors.blueNormal,
+
+                    if (homeCarListModel.totalCar! < 0)
+                      const SizedBox(height: 16),
+                    if (homeCarListModel.totalCar! < 0)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const CustomText(
+                              text: AppStaticStrings.carsList,
+                              fontWeight: FontWeight.w600),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(AppRoute.seeAllCarList,
+                                  arguments: homeCarListModel);
+                            },
+                            child: const CustomText(
+                              text: AppStaticStrings.seeAll,
+                              color: AppColors.blueNormal,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    if (homeCarListModel.totalCar! >= 0)
+                        ],
+                      ),
+                    if (homeCarListModel.totalCar! > 0)
                       HomeCarList(
                         homeCarListModel: homeCarListModel,
                       )

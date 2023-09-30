@@ -2,29 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/rent_request/user_request/rent_request_response_model/rent_request_response_model.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
-class UserDetailsTopSection extends StatelessWidget {
-  const UserDetailsTopSection({super.key});
+class UserDetailsTopSection extends StatefulWidget {
+  const UserDetailsTopSection(
+      {super.key, required this.rentRequestResponseModel, required this.index});
+  final RentRequestResponseModel rentRequestResponseModel;
+  final int index;
 
   @override
+  State<UserDetailsTopSection> createState() => _UserDetailsTopSectionState();
+}
+
+class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
+  @override
   Widget build(BuildContext context) {
+    String img = widget
+        .rentRequestResponseModel.rentRequest![widget.index].userId!.image
+        .toString();
+
     return Row(
       children: [
         Expanded(
           child: Row(
             children: [
-              const CustomImage(
-                  imageSrc: AppImages.profileImage,
+              CustomImage(
+                  imageSrc: img == '' ? AppImages.profileImage : img,
                   imageType: ImageType.png,
                   size: 64),
               const SizedBox(width: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(
-                    text: AppStaticStrings.userName,
+                  CustomText(
+                    text: widget.rentRequestResponseModel
+                        .rentRequest![widget.index].userId!.fullName
+                        .toString(),
                     fontSize: 24,
                     fontWeight: FontWeight.w500,
                     color: AppColors.blueNormal,
@@ -43,7 +58,8 @@ class UserDetailsTopSection extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const CustomText(text: AppStaticStrings.rating, fontSize: 10, left: 8),
+                      const CustomText(
+                          text: AppStaticStrings.rating, fontSize: 10, left: 8),
                     ],
                   ),
                 ],
@@ -62,7 +78,8 @@ class UserDetailsTopSection extends StatelessWidget {
                 ),
                 child: const Icon(
                   Icons.call,
-                  size: 18,color: AppColors.blueNormal,
+                  size: 18,
+                  color: AppColors.blueNormal,
                 ),
               ),
             ),
@@ -76,7 +93,8 @@ class UserDetailsTopSection extends StatelessWidget {
                 ),
                 child: const Icon(
                   Icons.message,
-                  size: 18,color: AppColors.blueNormal,
+                  size: 18,
+                  color: AppColors.blueNormal,
                 ),
               ),
             ),

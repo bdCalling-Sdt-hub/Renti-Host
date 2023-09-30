@@ -50,6 +50,7 @@ class ApiUrlContainer {
 
   //All Rent List
   static const String rentList = "rent/host-rent-list";
+  static const String rentAccerpAndReject = "rent/accept/request/";
 
   //All Rent List
   static const String rentListByID = "rent/host-rent/";
