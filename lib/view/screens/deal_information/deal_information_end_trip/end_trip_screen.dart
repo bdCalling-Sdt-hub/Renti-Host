@@ -46,7 +46,7 @@ class _EndTripState extends State<EndTripScreen> {
                       bottom: 16),
                   // top Section with upload button
                   CarImageSection(
-                      homeCarListodel: HomeCarListModel(), index: 0),
+                      homeCarListModel: HomeCarListModel(), index: 0),
                   const SizedBox(height: 16),
                   const RentalInformation(),
                   const SizedBox(height: 24),

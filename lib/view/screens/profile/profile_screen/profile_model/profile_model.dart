@@ -9,20 +9,19 @@ class ProfileModel {
     this.user,
   });
 
-  factory ProfileModel.fromRawJson(String str) =>
-      ProfileModel.fromJson(json.decode(str));
+  factory ProfileModel.fromRawJson(String str) => ProfileModel.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
-        message: json["message"],
-        user: json["user"] == null ? null : User.fromJson(json["user"]),
-      );
+    message: json["message"],
+    user: json["user"] == null ? null : User.fromJson(json["user"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "message": message,
-        "user": user?.toJson(),
-      };
+    "message": message,
+    "user": user?.toJson(),
+  };
 }
 
 class User {
@@ -38,7 +37,7 @@ class User {
   String? rfc;
   String? creaditCardNumber;
   String? ine;
-  String? image;
+  List<dynamic>? image;
   String? role;
   bool? emailVerified;
   bool? approved;
@@ -77,56 +76,50 @@ class User {
   String toRawJson() => json.encode(toJson());
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["_id"],
-        fullName: json["fullName"],
-        email: json["email"],
-        phoneNumber: json["phoneNumber"],
-        gender: json["gender"],
-        address: json["address"],
-        dateOfBirth: json["dateOfBirth"],
-        password: json["password"],
-        kyc: json["KYC"] == null
-            ? []
-            : List<String>.from(json["KYC"]!.map((x) => x)),
-        rfc: json["RFC"],
-        creaditCardNumber: json["creaditCardNumber"],
-        ine: json["ine"],
-        image: json["image"],
-        role: json["role"],
-        emailVerified: json["emailVerified"],
-        approved: json["approved"],
-        isBanned: json["isBanned"],
-        oneTimeCode: json["oneTimeCode"],
-        createdAt: json["createdAt"] == null
-            ? null
-            : DateTime.parse(json["createdAt"]),
-        updatedAt: json["updatedAt"] == null
-            ? null
-            : DateTime.parse(json["updatedAt"]),
-        v: json["__v"],
-      );
+    id: json["_id"],
+    fullName: json["fullName"],
+    email: json["email"],
+    phoneNumber: json["phoneNumber"],
+    gender: json["gender"],
+    address: json["address"],
+    dateOfBirth: json["dateOfBirth"],
+    password: json["password"],
+    kyc: json["KYC"] == null ? [] : List<String>.from(json["KYC"]!.map((x) => x)),
+    rfc: json["RFC"],
+    creaditCardNumber: json["creaditCardNumber"],
+    ine: json["ine"],
+    image: json["image"],
+    role: json["role"],
+    emailVerified: json["emailVerified"],
+    approved: json["approved"],
+    isBanned: json["isBanned"],
+    oneTimeCode: json["oneTimeCode"],
+    createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
+    updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
+    v: json["__v"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "fullName": fullName,
-        "email": email,
-        "phoneNumber": phoneNumber,
-        "gender": gender,
-        "address": address,
-        "dateOfBirth": dateOfBirth,
-        "password": password,
-        "KYC": kyc == null ? [] : List<dynamic>.from(kyc!.map((x) => x)),
-        "RFC": rfc,
-        "creaditCardNumber": creaditCardNumber,
-        "ine": ine,
-        "image": image,
-        "role": role,
-        "emailVerified": emailVerified,
-        "approved": approved,
-        "isBanned": isBanned,
-        "oneTimeCode": oneTimeCode,
-        "createdAt": createdAt?.toIso8601String(),
-        "updatedAt": updatedAt?.toIso8601String(),
-        "__v": v,
-      };
+    "_id": id,
+    "fullName": fullName,
+    "email": email,
+    "phoneNumber": phoneNumber,
+    "gender": gender,
+    "address": address,
+    "dateOfBirth": dateOfBirth,
+    "password": password,
+    "KYC": kyc == null ? [] : List<dynamic>.from(kyc!.map((x) => x)),
+    "RFC": rfc,
+    "creaditCardNumber": creaditCardNumber,
+    "ine": ine,
+    "image": image,
+    "role": role,
+    "emailVerified": emailVerified,
+    "approved": approved,
+    "isBanned": isBanned,
+    "oneTimeCode": oneTimeCode,
+    "createdAt": createdAt?.toIso8601String(),
+    "updatedAt": updatedAt?.toIso8601String(),
+    "__v": v,
+  };
 }

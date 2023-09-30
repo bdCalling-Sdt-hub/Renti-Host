@@ -18,16 +18,19 @@ class ProfileController extends GetxController {
 
   ProfileModel profileModel = ProfileModel();
 
-  bool isloading = true;
+  bool isloading = false;
   Future<void> profile() async {
+    isloading = true;
+    update();
     ApiResponseModel responseModel = await profileRepo.privacyPolicy();
 
     if (responseModel.statusCode == 200) {
-      profileModel =
-          ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
+      profileModel = ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
       isloading = false;
       update();
     } else {
+      isloading = false;
+      update();
       Utils.toastMessage(responseModel.message);
     }
   }

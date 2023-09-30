@@ -2,37 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/user_list/user_list_response_model/user_list_response_model.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class UserListDialogBox extends StatefulWidget {
-  const UserListDialogBox({super.key});
+  const UserListDialogBox({super.key, required this.index, required this.userListResponseModel});
+
+  final int index;
+  final UserListResponseModel userListResponseModel;
 
   @override
   State<UserListDialogBox> createState() => _UserListDialogBoxState();
 }
 
 class _UserListDialogBoxState extends State<UserListDialogBox> {
-  List<Map<String, String>> dataList = [
-    {
-      "userName": AppStaticStrings.userName,
-      "userPic": AppImages.profileImage,
-      "ratingImage": AppImages.starImage,
-      "rating": "2.5",
-      "status": "Complete",
-      "Contact:": "+52 3645646464",
-      "Email:": "johndoe@gmail.com",
-      "tripNo": "01"
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        dataList.length,
-        (index) => Container(
+      children: [
+        Container(
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           decoration: ShapeDecoration(
@@ -63,18 +54,18 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                           width: 70,
                           height: 70,
                           decoration:
-                              const BoxDecoration(shape: BoxShape.circle),
+                          const BoxDecoration(shape: BoxShape.circle),
                           child: const CustomImage(
                               imageSrc: AppImages.profileImage,
                               imageType: ImageType.png),
                         ),
                         const SizedBox(width: 16),
-                        const Column(
+                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomText(
-                                text: AppStaticStrings.userName,
+                                text: widget.userListResponseModel.userList![widget.index].userId!.fullName.toString(),
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
                                 bottom: 8),
@@ -105,13 +96,13 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                         margin: const EdgeInsets.only(bottom: 8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
-                          color: dataList[index]["status"] == "Reserved"
+                          color: widget.userListResponseModel.userList![widget.index].sentRequest == "Active"
                               ? AppColors.redLight
                               : AppColors.greenLight,
                         ),
                         child: CustomText(
-                          text: dataList[index]["status"].toString(),
-                          color: dataList[index]["status"] == "Reserved"
+                          text: widget.userListResponseModel.userList![widget.index].sentRequest.toString(),
+                          color: widget.userListResponseModel.userList![widget.index].sentRequest == "Active"
                               ? AppColors.redNormal
                               : AppColors.greenNormal,
                           fontSize: 10,
@@ -153,37 +144,37 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 ],
               ),
               const SizedBox(height: 24),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomText(text: AppStaticStrings.contact,fontSize: 16,color: AppColors.whiteDarkHover),
-                  CustomText(text: dataList[index]["Contact:"].toString(),fontSize: 16,fontWeight:FontWeight.w500),
+                  CustomText(text: widget.userListResponseModel.userList![widget.index].userId!.phoneNumber.toString(),fontSize: 16,fontWeight:FontWeight.w500),
                 ],
               ),
               const SizedBox(height: 8),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomText(text: AppStaticStrings.email,fontSize: 16,color: AppColors.whiteDarkHover),
-                  CustomText(text: dataList[index]["Email:"].toString(),fontSize: 16,fontWeight:FontWeight.w500),
+                  CustomText(text: widget.userListResponseModel.userList![widget.index].userId!.email.toString(),fontSize: 16,fontWeight:FontWeight.w500),
                 ],
               ),
               const SizedBox(height: 8),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomText(text: AppStaticStrings.tripNo,fontSize: 16,color: AppColors.whiteDarkHover),
-                  CustomText(text: dataList[index]["tripNo"].toString(),fontSize: 16,fontWeight:FontWeight.w500),
+                  CustomText(text: widget.userListResponseModel.userList![widget.index].rentTripNumber.toString(),fontSize: 16,fontWeight:FontWeight.w500),
                 ],
               ),
               const SizedBox(height: 8),
             ],
           ),
-        ),
-      ),
+        )
+      ]
     );
   }
 }

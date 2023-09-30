@@ -3,8 +3,8 @@ import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.da
 
 // ignore: must_be_immutable
 class CarImageSection extends StatelessWidget {
-  CarImageSection({super.key, required this.homeCarListodel, required this.index});
-  HomeCarListModel homeCarListodel;
+  CarImageSection({super.key, required this.homeCarListModel, required this.index});
+  HomeCarListModel homeCarListModel;
   int index;
 
   @override
@@ -21,7 +21,7 @@ class CarImageSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(homeCarListodel.cars![index].image![0]))),
+                      image: NetworkImage(homeCarListModel.cars![index].image![0]))),
             ),
           ),
           const SizedBox(width: 8),
@@ -37,7 +37,7 @@ class CarImageSection extends StatelessWidget {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                                homeCarListodel.cars![index].image![0]))),
+                                homeCarListModel.cars![index].image![1]))),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -50,7 +50,7 @@ class CarImageSection extends StatelessWidget {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                                homeCarListodel.cars![index].image![0]))),
+                                homeCarListModel.cars![index].image![2]))),
                   ),
                 ),
               ],

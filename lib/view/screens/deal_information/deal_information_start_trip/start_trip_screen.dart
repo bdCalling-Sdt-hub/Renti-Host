@@ -47,7 +47,7 @@ class _StartTripScreenState extends State<StartTripScreen> {
                       bottom: 16),
                   // top Section with upload button
                   CarImageSection(
-                      homeCarListodel: HomeCarListModel(), index: 0),
+                      homeCarListModel: HomeCarListModel(), index: 0),
                   const SizedBox(height: 16),
                   CustomElevatedButton(
                     onPressed: () {},
