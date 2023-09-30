@@ -165,8 +165,7 @@ class AppRoute {
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: () => const UserRequestScreen()),
-    GetPage(
-        name: userRequestDetails, page: () => const UserRequestDetailsScreen()),
+    GetPage(name: userRequestDetails, page: () => UserRequestDetailsScreen()),
 
     //Message and Inner Screens
     GetPage(name: messageScreen, page: () => const MessageScreen()),

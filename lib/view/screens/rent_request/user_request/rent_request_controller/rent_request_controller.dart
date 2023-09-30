@@ -21,6 +21,8 @@ class RentRequestController extends GetxController {
   RentRequestResponseModel rentRequestResponseModel =
       RentRequestResponseModel();
 
+  List<RentRequestResponseModel> data = [];
+
   Future<void> rentRequest() async {
     //Call the Api by using ApiResponse Model data
     ApiResponseModel responseModel = await rentRequestRepo.rentRequest();
@@ -31,6 +33,8 @@ class RentRequestController extends GetxController {
       //get data by using reference model variable
       rentRequestResponseModel = RentRequestResponseModel.fromJson(
           jsonDecode(responseModel.responseJson));
+
+      // if(rentRequestResponseModel.rentRequest.){}
 
       isloading = false;
       update();

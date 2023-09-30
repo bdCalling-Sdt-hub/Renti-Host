@@ -4,8 +4,6 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/admin_info/admin_info_controller/admin_info_controller.dart';
 import 'package:renti_host/view/screens/admin_info/admin_info_repo/admin_info_repo.dart';
-import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_controller/about_us_controller.dart';
-import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_repo/about_us_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -55,11 +53,11 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
           body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>
                  SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText(
+                  const CustomText(
                       text: AppStaticStrings.hotlineNumber,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -71,12 +69,12 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(Icons.call, color: AppColors.blackNormal, size: 18),
+                      const Icon(Icons.call, color: AppColors.blackNormal, size: 18),
                       CustomText(text: controller.adminInfoModel.adminData![0].phoneNumber.toString(), fontSize: 18, left: 8),
                     ],
                   ),
-                  SizedBox(height: 24),
-                  CustomText(
+                  const SizedBox(height: 24),
+                  const CustomText(
                       text: AppStaticStrings.email,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -86,15 +84,15 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(Icons.email_outlined,
+                      const Icon(Icons.email_outlined,
                           color: AppColors.blackNormal, size: 18),
                       CustomText(text: controller.adminInfoModel.adminData![0].email.toString(), fontSize: 18, left: 8),
                     ],
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
 
 
-                  CustomText(
+                  const CustomText(
                       text: AppStaticStrings.officeAddress,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -104,7 +102,7 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(Icons.location_on_outlined,
+                      const Icon(Icons.location_on_outlined,
                           color: AppColors.blackNormal, size: 18),
                       CustomText(
                           text: controller.adminInfoModel.adminData![0].address.toString(),

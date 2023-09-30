@@ -3,14 +3,26 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/rent_request/user_request/rent_request_response_model/rent_request_response_model.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
-class RequestCarDetailsCard extends StatelessWidget {
-  const RequestCarDetailsCard({super.key});
+class RequestCarDetailsCard extends StatefulWidget {
+  const RequestCarDetailsCard(
+      {super.key, required this.rentRequestResponseModel, required this.index});
+  final RentRequestResponseModel rentRequestResponseModel;
+  final int index;
 
   @override
+  State<RequestCarDetailsCard> createState() => _RequestCarDetailsCardState();
+}
+
+class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
+  @override
   Widget build(BuildContext context) {
+    String carImg = widget
+        .rentRequestResponseModel.rentRequest![widget.index].carId!.image![0]
+        .toString();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -35,7 +47,7 @@ class RequestCarDetailsCard extends StatelessWidget {
               ),
             ],
           ),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
@@ -44,66 +56,44 @@ class RequestCarDetailsCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
-                      text: "Toyota Harrier",
+                      text: widget.rentRequestResponseModel
+                          .rentRequest![widget.index].carId!.carModelName
+                          .toString(),
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.blueDark,
                       textAlign: TextAlign.start,
                     ),
                     CustomText(
-                      text: "License no: 55-43-TBV ",
+                      text: widget.rentRequestResponseModel
+                          .rentRequest![widget.index].carId!.carLicenseNumber
+                          .toString(),
                       color: AppColors.whiteDarkActive,
                       top: 8,
                       bottom: 8,
                       textAlign: TextAlign.start,
                     ),
-                    Row(
-                      children: [
-                        CustomImage(imageSrc: AppIcons.fuelIcon, size: 16),
-                        Row(
-                          children: [
-                            CustomText(
-                              text: "10",
-                              color: AppColors.whiteDarkActive,
-                              left: 8,
-                              textAlign: TextAlign.start,
-                            ),
-                            CustomText(
-                                text: AppStaticStrings.km,
-                                color: AppColors.whiteDarkActive),
-                          ],
-                        ),
-                      ],
+                    CustomText(
+                      text: widget.rentRequestResponseModel
+                              .rentRequest![widget.index].carId!.totalRun
+                              .toString() ??
+                          "",
+                      color: AppColors.whiteDarkActive,
+                      textAlign: TextAlign.start,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    Row(
-                      children: [
-                        CustomText(
-                          text: "\$",
-                          color: AppColors.whiteDarkActive,
-                        ),
-                        CustomText(
-                          text: "25",
-                          color: AppColors.whiteDarkActive,
-                        ),
-                        CustomText(
-                          text: AppStaticStrings.hr,
-                          color: AppColors.whiteDarkActive,
-                        ),
-                      ],
+                    CustomText(
+                      text:
+                          "${widget.rentRequestResponseModel.rentRequest![widget.index].carId!.hourlyRate.toString()}\$/h" ??
+                              "",
+                      color: AppColors.whiteDarkActive,
                     ),
                   ],
                 ),
               ),
-              Expanded(
-                child: CustomImage(
-                  imageSrc: AppImages.redCarImage,
-                  imageType: ImageType.png,
-                  size: 66,
-                ),
-              ),
+              Expanded(child: Image.network(carImg)),
             ],
           ),
         ),

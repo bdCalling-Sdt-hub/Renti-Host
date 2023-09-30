@@ -9,7 +9,6 @@ import 'package:renti_host/view/screens/rentiworks_support_condition/term_condit
 import 'package:renti_host/view/screens/rentiworks_support_condition/term_condition_screen.dart/tc_repo/tc_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
-import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class TermsConditionScreen extends StatefulWidget {
   const TermsConditionScreen({super.key});

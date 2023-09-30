@@ -9,7 +9,6 @@ import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/ab
 import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_repo/about_us_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
-import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});

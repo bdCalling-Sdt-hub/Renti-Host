@@ -7,10 +7,10 @@ class RentiFeeMyPaymentModel {
 
   RentiFeeMyPaymentModel(
       {this.message,
-        this.myPayment,
-        this.rentiFee,
-        this.userPaymentList,
-        this.pagination});
+      this.myPayment,
+      this.rentiFee,
+      this.userPaymentList,
+      this.pagination});
 
   RentiFeeMyPaymentModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
@@ -57,19 +57,19 @@ class UserPaymentList {
 
   UserPaymentList(
       {this.income,
-        this.status,
-        this.carOwner,
-        this.totalAmount,
-        this.myPayment,
-        this.stripeFee,
-        this.rentiFee,
-        this.time,
-        this.method,
-        this.rentTripNumbers});
+      this.status,
+      this.carOwner,
+      this.totalAmount,
+      this.myPayment,
+      this.stripeFee,
+      this.rentiFee,
+      this.time,
+      this.method,
+      this.rentTripNumbers});
 
   UserPaymentList.fromJson(Map<String, dynamic> json) {
     income =
-    json['income'] != null ? new Income.fromJson(json['income']) : null;
+        json['income'] != null ? new Income.fromJson(json['income']) : null;
     status = json['status'];
     carOwner = json['carOwner'];
     totalAmount = json['totalAmount'];
@@ -113,15 +113,15 @@ class Income {
 
   Income(
       {this.sId,
-        this.paymentData,
-        this.userId,
-        this.hostId,
-        this.carId,
-        this.rentId,
-        this.payout,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.paymentData,
+      this.userId,
+      this.hostId,
+      this.carId,
+      this.rentId,
+      this.payout,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Income.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -204,49 +204,49 @@ class PaymentData {
 
   PaymentData(
       {this.id,
-        this.object,
-        this.amount,
-        this.amountCaptured,
-        this.amountRefunded,
-        this.application,
-        this.applicationFee,
-        this.applicationFeeAmount,
-        this.balanceTransaction,
-        this.billingDetails,
-        this.calculatedStatementDescriptor,
-        this.captured,
-        this.created,
-        this.currency,
-        this.customer,
-        this.description,
-        this.destination,
-        this.dispute,
-        this.disputed,
-        this.failureBalanceTransaction,
-        this.failureCode,
-        this.failureMessage,
-        this.invoice,
-        this.livemode,
-        this.onBehalfOf,
-        this.order,
-        this.outcome,
-        this.paid,
-        this.paymentIntent,
-        this.paymentMethod,
-        this.paymentMethodDetails,
-        this.receiptEmail,
-        this.receiptNumber,
-        this.receiptUrl,
-        this.refunded,
-        this.review,
-        this.shipping,
-        this.source,
-        this.sourceTransfer,
-        this.statementDescriptor,
-        this.statementDescriptorSuffix,
-        this.status,
-        this.transferData,
-        this.transferGroup});
+      this.object,
+      this.amount,
+      this.amountCaptured,
+      this.amountRefunded,
+      this.application,
+      this.applicationFee,
+      this.applicationFeeAmount,
+      this.balanceTransaction,
+      this.billingDetails,
+      this.calculatedStatementDescriptor,
+      this.captured,
+      this.created,
+      this.currency,
+      this.customer,
+      this.description,
+      this.destination,
+      this.dispute,
+      this.disputed,
+      this.failureBalanceTransaction,
+      this.failureCode,
+      this.failureMessage,
+      this.invoice,
+      this.livemode,
+      this.onBehalfOf,
+      this.order,
+      this.outcome,
+      this.paid,
+      this.paymentIntent,
+      this.paymentMethod,
+      this.paymentMethodDetails,
+      this.receiptEmail,
+      this.receiptNumber,
+      this.receiptUrl,
+      this.refunded,
+      this.review,
+      this.shipping,
+      this.source,
+      this.sourceTransfer,
+      this.statementDescriptor,
+      this.statementDescriptorSuffix,
+      this.status,
+      this.transferData,
+      this.transferGroup});
 
   PaymentData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -278,7 +278,7 @@ class PaymentData {
     onBehalfOf = json['on_behalf_of'];
     order = json['order'];
     outcome =
-    json['outcome'] != null ? new Outcome.fromJson(json['outcome']) : null;
+        json['outcome'] != null ? new Outcome.fromJson(json['outcome']) : null;
     paid = json['paid'];
     paymentIntent = json['payment_intent'];
     paymentMethod = json['payment_method'];
@@ -294,7 +294,7 @@ class PaymentData {
         ? new Shipping.fromJson(json['shipping'])
         : null;
     source =
-    json['source'] != null ? new Source.fromJson(json['source']) : null;
+        json['source'] != null ? new Source.fromJson(json['source']) : null;
     sourceTransfer = json['source_transfer'];
     statementDescriptor = json['statement_descriptor'];
     statementDescriptorSuffix = json['statement_descriptor_suffix'];
@@ -374,7 +374,7 @@ class BillingDetails {
 
   BillingDetails.fromJson(Map<String, dynamic> json) {
     address =
-    json['address'] != null ? new Address.fromJson(json['address']) : null;
+        json['address'] != null ? new Address.fromJson(json['address']) : null;
     email = json['email'];
     name = json['name'];
     phone = json['phone'];
@@ -402,11 +402,11 @@ class Address {
 
   Address(
       {this.city,
-        this.country,
-        this.line1,
-        this.line2,
-        this.postalCode,
-        this.state});
+      this.country,
+      this.line1,
+      this.line2,
+      this.postalCode,
+      this.state});
 
   Address.fromJson(Map<String, dynamic> json) {
     city = json['city'];
@@ -439,11 +439,11 @@ class Outcome {
 
   Outcome(
       {this.networkStatus,
-        this.reason,
-        this.riskLevel,
-        this.riskScore,
-        this.sellerMessage,
-        this.type});
+      this.reason,
+      this.riskLevel,
+      this.riskScore,
+      this.sellerMessage,
+      this.type});
 
   Outcome.fromJson(Map<String, dynamic> json) {
     networkStatus = json['network_status'];
@@ -510,30 +510,30 @@ class Card {
 
   Card(
       {this.amountAuthorized,
-        this.brand,
-        this.checks,
-        this.country,
-        this.expMonth,
-        this.expYear,
-        this.extendedAuthorization,
-        this.fingerprint,
-        this.funding,
-        this.incrementalAuthorization,
-        this.installments,
-        this.last4,
-        this.mandate,
-        this.multicapture,
-        this.network,
-        this.networkToken,
-        this.overcapture,
-        this.threeDSecure,
-        this.wallet});
+      this.brand,
+      this.checks,
+      this.country,
+      this.expMonth,
+      this.expYear,
+      this.extendedAuthorization,
+      this.fingerprint,
+      this.funding,
+      this.incrementalAuthorization,
+      this.installments,
+      this.last4,
+      this.mandate,
+      this.multicapture,
+      this.network,
+      this.networkToken,
+      this.overcapture,
+      this.threeDSecure,
+      this.wallet});
 
   Card.fromJson(Map<String, dynamic> json) {
     amountAuthorized = json['amount_authorized'];
     brand = json['brand'];
     checks =
-    json['checks'] != null ? new Checks.fromJson(json['checks']) : null;
+        json['checks'] != null ? new Checks.fromJson(json['checks']) : null;
     country = json['country'];
     expMonth = json['exp_month'];
     expYear = json['exp_year'];
@@ -685,7 +685,7 @@ class Shipping {
 
   Shipping.fromJson(Map<String, dynamic> json) {
     address =
-    json['address'] != null ? new Address.fromJson(json['address']) : null;
+        json['address'] != null ? new Address.fromJson(json['address']) : null;
     carrier = json['carrier'];
     name = json['name'];
     phone = json['phone'];
@@ -704,7 +704,6 @@ class Shipping {
     return data;
   }
 }
-
 
 class Source {
   String? id;
@@ -733,28 +732,28 @@ class Source {
 
   Source(
       {this.id,
-        this.object,
-        this.addressCity,
-        this.addressCountry,
-        this.addressLine1,
-        this.addressLine1Check,
-        this.addressLine2,
-        this.addressState,
-        this.addressZip,
-        this.addressZipCheck,
-        this.brand,
-        this.country,
-        this.customer,
-        this.cvcCheck,
-        this.dynamicLast4,
-        this.expMonth,
-        this.expYear,
-        this.fingerprint,
-        this.funding,
-        this.last4,
-        this.name,
-        this.tokenizationMethod,
-        this.wallet});
+      this.object,
+      this.addressCity,
+      this.addressCountry,
+      this.addressLine1,
+      this.addressLine1Check,
+      this.addressLine2,
+      this.addressState,
+      this.addressZip,
+      this.addressZipCheck,
+      this.brand,
+      this.country,
+      this.customer,
+      this.cvcCheck,
+      this.dynamicLast4,
+      this.expMonth,
+      this.expYear,
+      this.fingerprint,
+      this.funding,
+      this.last4,
+      this.name,
+      this.tokenizationMethod,
+      this.wallet});
 
   Source.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -820,10 +819,10 @@ class Pagination {
 
   Pagination(
       {this.totalDocuments,
-        this.totalPage,
-        this.currentPage,
-        this.previousPage,
-        this.nextPage});
+      this.totalPage,
+      this.currentPage,
+      this.previousPage,
+      this.nextPage});
 
   Pagination.fromJson(Map<String, dynamic> json) {
     totalDocuments = json['totalDocuments'];
