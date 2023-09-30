@@ -21,18 +21,12 @@ class HomeCarListController extends GetxController {
 
     if (responseModel.statusCode == 200) {
       isLoading = false;
-      homeCarListModel = HomeCarListModel.fromJson(jsonDecode(responseModel.responseJson));
+      homeCarListModel =
+          HomeCarListModel.fromJson(jsonDecode(responseModel.responseJson));
       update();
-      // update();
-    }
-
-    else {
+    } else {
       Utils.toastMessage(responseModel.message);
-      // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
-      // Return a default value or handle the error accordingly.
     }
-
-    // Return the variable here
   }
 
   @override

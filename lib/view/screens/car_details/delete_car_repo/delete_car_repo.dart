@@ -10,7 +10,7 @@ class DeleteCarRepo {
 
   Future<ApiResponseModel> deleteCar({required String carId}) async {
     String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.deleteCar}$carId";
-    print(uri);
+
     String requestMethod = ApiResponseMethod.deleteMethod;
 
     ApiResponseModel responseModel =

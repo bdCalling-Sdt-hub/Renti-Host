@@ -34,11 +34,11 @@ class User {
   String? address;
   String? dateOfBirth;
   String? password;
-  List<String>? kyc;
+  List<dynamic>? kyc;
   String? rfc;
   String? creaditCardNumber;
   String? ine;
-  String? image;
+  List<dynamic>? image;
   String? role;
   bool? emailVerified;
   bool? approved;
@@ -87,11 +87,13 @@ class User {
         password: json["password"],
         kyc: json["KYC"] == null
             ? []
-            : List<String>.from(json["KYC"]!.map((x) => x)),
+            : List<dynamic>.from(json["KYC"]!.map((x) => x)),
         rfc: json["RFC"],
         creaditCardNumber: json["creaditCardNumber"],
         ine: json["ine"],
-        image: json["image"],
+        image: json["image"] == null
+            ? []
+            : List<dynamic>.from(json["image"]!.map((x) => x)),
         role: json["role"],
         emailVerified: json["emailVerified"],
         approved: json["approved"],
@@ -119,7 +121,7 @@ class User {
         "RFC": rfc,
         "creaditCardNumber": creaditCardNumber,
         "ine": ine,
-        "image": image,
+        "image": image == null ? [] : List<dynamic>.from(image!.map((x) => x)),
         "role": role,
         "emailVerified": emailVerified,
         "approved": approved,

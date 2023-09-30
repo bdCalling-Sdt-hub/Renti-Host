@@ -14,7 +14,6 @@ import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
-
 import '../../../../service/api_service.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -41,6 +40,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var img = Get.arguments;
     return GetBuilder<EditProfileController>(builder: (controller) {
       return SafeArea(
         top: true,
@@ -215,7 +215,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   controller.editProfile();
                   final profileController = Get.find<ProfileController>();
                   profileController.profile();
-                  profileController.update();
+
                   Get.back();
                 },
                 titleText: AppStaticStrings.save),

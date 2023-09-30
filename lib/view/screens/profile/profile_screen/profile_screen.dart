@@ -1,10 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_controller/edit_profile_controller.dart';
 import 'package:renti_host/view/screens/profile/inner_widgets/profile_card.dart';
@@ -57,6 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       String dateOfBirth = profileModel.user!.dateOfBirth.toString();
       String gender = profileModel.user!.gender.toString();
       String address = profileModel.user!.address.toString();
+      String img = profileModel.user!.image.toString();
 
       return SafeArea(
         top: true,
@@ -79,8 +80,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         GestureDetector(
                           onTap: () {
                             controller.profile();
-                            Get.toNamed(AppRoute.editProfileScreen)!
-                                .then((value) => controller.profile());
+                            Get.toNamed(AppRoute.editProfileScreen,
+                                arguments: img);
 
                             editProfileController.fullNameController =
                                 TextEditingController(text: fullName);
@@ -116,16 +117,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
+                                    ClipOval(
+                                      child: CachedNetworkImage(
+                                        imageUrl: img,
+                                        placeholder: (context, url) =>
+                                            const CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
                                       ),
-                                      child: const CustomImage(
-                                          imageSrc: AppImages.profileImage,
-                                          imageType: ImageType.png,
-                                          size: 50),
                                     ),
                                     CustomText(
                                         text: fullName,
@@ -146,13 +145,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             title: AppStaticStrings.ine,
                             description: creaditCardNumber,
                             icon: Icons.credit_card_outlined),
-
                         ProfileCard(
                             title: AppStaticStrings.email,
                             description: email,
                             icon: Icons.email_outlined),
-
-
                         ProfileCard(
                             title: AppStaticStrings.mobile,
                             description: phoneNumber,

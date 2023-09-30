@@ -30,8 +30,8 @@ import 'package:renti_host/view/screens/rent_list/rent_list_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/user_request_screen.dart';
 import 'package:renti_host/view/screens/rent_request/user_request_details/user_request_details_screen.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/about_us/about_us_screen.dart';
-import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works_screen.dart';
-import 'package:renti_host/view/screens/rentiworks_support_condition/support_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works_screen/renti_works_screen.dart';
+import 'package:renti_host/view/screens/rentiworks_support_condition/support/support_screen.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/term_condition_screen.dart/term&condition_screen.dart';
 import 'package:renti_host/view/screens/review/all_review_screen.dart';
 import 'package:renti_host/view/screens/search/search_screen.dart';
@@ -163,7 +163,8 @@ class AppRoute {
 
     //Rent Request and Inner Screens
     GetPage(name: rentScreen, page: () => const UserRequestScreen()),
-    GetPage(name: userRequestDetails, page: () => UserRequestDetailsScreen()),
+    GetPage(
+        name: userRequestDetails, page: () => const UserRequestDetailsScreen()),
 
     //Message and Inner Screens
     GetPage(name: messageScreen, page: () => const MessageScreen()),

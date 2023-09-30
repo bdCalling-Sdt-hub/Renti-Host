@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -10,6 +11,7 @@ import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.da
 import 'package:renti_host/view/screens/%20home/home_repo/home_carlist_repo.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
+import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
@@ -43,8 +45,12 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  //var profileController = Get.find<ProfileController>();
+
   @override
   Widget build(BuildContext context) {
+    // String img = profileController.profileModel.user!.image.toString();
+
     return GetBuilder<HomeCarListController>(builder: (controller) {
       HomeCarListModel homeCarListModel = controller.homeCarListModel;
 
@@ -60,34 +66,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
           key: scaffoldKey,
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
-          //This is a message for Admin Approval....
-          // floatingActionButton: isApproved ==false
-          //     ? Container(
-          //         margin:
-          //             const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-          //         padding:
-          //             const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-          //         width: MediaQuery.of(context).size.width,
-          //         decoration: BoxDecoration(
-          //             color: AppColors.blueLight,
-          //             borderRadius: BorderRadius.circular(8)),
-          //         child: InkWell(
-          //           onTap: () {},
-          //           child: const Row(
-          //             mainAxisAlignment: MainAxisAlignment.center,
-          //             crossAxisAlignment: CrossAxisAlignment.center,
-          //             children: [
-          //               Icon(Icons.error_outline_outlined,
-          //                   size: 20, color: AppColors.blueNormal),
-          //               CustomText(
-          //                   text: AppStaticStrings.waitForAdmin,
-          //                   color: AppColors.blueNormal,
-          //                   left: 16)
-          //             ],
-          //           ),
-          //         ),
-          //       )
-          //     : const SizedBox(),
           drawer: const CustomDrawer(),
           appBar: CustomAppBar(
             appBarContent: Row(
@@ -130,11 +108,15 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                const CustomImage(
-                  imageSrc: AppImages.profileImage,
-                  imageType: ImageType.png,
-                  size: 40,
-                ),
+                // ClipOval(
+                //   child: CachedNetworkImage(
+                //     imageUrl: img,
+                //     placeholder: (context, url) =>
+                //         const CircularProgressIndicator(),
+                //     errorWidget: (context, url, error) =>
+                //         const Icon(Icons.error),
+                //   ),
+                // ),
               ],
             ),
           ),

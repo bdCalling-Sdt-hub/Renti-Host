@@ -39,7 +39,7 @@ class CarImageSection extends StatelessWidget {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                                homeCarListodel.cars![index].image![0]))),
+                                homeCarListodel.cars![index].image![1]))),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -52,7 +52,7 @@ class CarImageSection extends StatelessWidget {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                                homeCarListodel.cars![index].image![0]))),
+                                homeCarListodel.cars![index].image![2]))),
                   ),
                 ),
               ],

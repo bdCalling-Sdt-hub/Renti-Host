@@ -58,6 +58,12 @@ class ApiUrlContainer {
   //All card
   static const String allCard = "card/";
 
-  //All card
+  //adminInfo
   static const String adminInfo = "user/admin-info";
+
+  //support
+  static const String support = "support/";
+
+  //support
+  static const String howRentiWork = "howRentiWork";
 }
