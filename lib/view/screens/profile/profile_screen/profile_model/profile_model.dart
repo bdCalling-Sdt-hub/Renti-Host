@@ -1,26 +1,31 @@
+import 'dart:convert';
+
 class ProfileModel {
   String? message;
   User? user;
 
-  ProfileModel({this.message, this.user});
+  ProfileModel({
+    this.message,
+    this.user,
+  });
 
-  ProfileModel.fromJson(Map<String, dynamic> json) {
-    message = json['message'];
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
-  }
+  factory ProfileModel.fromRawJson(String str) => ProfileModel.fromJson(json.decode(str));
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    if (user != null) {
-      data['user'] = user!.toJson();
-    }
-    return data;
-  }
+  String toRawJson() => json.encode(toJson());
+
+  factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
+    message: json["message"],
+    user: json["user"] == null ? null : User.fromJson(json["user"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "message": message,
+    "user": user?.toJson(),
+  };
 }
 
 class User {
-  String? sId;
+  String? id;
   String? fullName;
   String? email;
   String? phoneNumber;
@@ -28,8 +33,8 @@ class User {
   String? address;
   String? dateOfBirth;
   String? password;
-  String? kYC;
-  String? rFC;
+  List<String>? kyc;
+  String? rfc;
   String? creaditCardNumber;
   String? ine;
   String? image;
@@ -37,81 +42,84 @@ class User {
   bool? emailVerified;
   bool? approved;
   String? isBanned;
-  String? oneTimeCode;
-  String? createdAt;
-  String? updatedAt;
-  int? iV;
+  dynamic oneTimeCode;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  int? v;
 
-  User(
-      {this.sId,
-      this.fullName,
-      this.email,
-      this.phoneNumber,
-      this.gender,
-      this.address,
-      this.dateOfBirth,
-      this.password,
-      this.kYC,
-      this.rFC,
-      this.creaditCardNumber,
-      this.ine,
-      this.image,
-      this.role,
-      this.emailVerified,
-      this.approved,
-      this.isBanned,
-      this.oneTimeCode,
-      this.createdAt,
-      this.updatedAt,
-      this.iV});
+  User({
+    this.id,
+    this.fullName,
+    this.email,
+    this.phoneNumber,
+    this.gender,
+    this.address,
+    this.dateOfBirth,
+    this.password,
+    this.kyc,
+    this.rfc,
+    this.creaditCardNumber,
+    this.ine,
+    this.image,
+    this.role,
+    this.emailVerified,
+    this.approved,
+    this.isBanned,
+    this.oneTimeCode,
+    this.createdAt,
+    this.updatedAt,
+    this.v,
+  });
 
-  User.fromJson(Map<String, dynamic> json) {
-    sId = json['_id'];
-    fullName = json['fullName'];
-    email = json['email'];
-    phoneNumber = json['phoneNumber'];
-    gender = json['gender'];
-    address = json['address'];
-    dateOfBirth = json['dateOfBirth'];
-    password = json['password'];
-    kYC = json['KYC'];
-    rFC = json['RFC'];
-    creaditCardNumber = json['creaditCardNumber'];
-    ine = json['ine'];
-    image = json['image'];
-    role = json['role'];
-    emailVerified = json['emailVerified'];
-    approved = json['approved'];
-    isBanned = json['isBanned'];
-    oneTimeCode = json['oneTimeCode'];
-    createdAt = json['createdAt'];
-    updatedAt = json['updatedAt'];
-    iV = json['__v'];
-  }
+  factory User.fromRawJson(String str) => User.fromJson(json.decode(str));
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['_id'] = sId;
-    data['fullName'] = fullName;
-    data['email'] = email;
-    data['phoneNumber'] = phoneNumber;
-    data['gender'] = gender;
-    data['address'] = address;
-    data['dateOfBirth'] = dateOfBirth;
-    data['password'] = password;
-    data['KYC'] = kYC;
-    data['RFC'] = rFC;
-    data['creaditCardNumber'] = creaditCardNumber;
-    data['ine'] = ine;
-    data['image'] = image;
-    data['role'] = role;
-    data['emailVerified'] = emailVerified;
-    data['approved'] = approved;
-    data['isBanned'] = isBanned;
-    data['oneTimeCode'] = oneTimeCode;
-    data['createdAt'] = createdAt;
-    data['updatedAt'] = updatedAt;
-    data['__v'] = iV;
-    return data;
-  }
+  String toRawJson() => json.encode(toJson());
+
+  factory User.fromJson(Map<String, dynamic> json) => User(
+    id: json["_id"],
+    fullName: json["fullName"],
+    email: json["email"],
+    phoneNumber: json["phoneNumber"],
+    gender: json["gender"],
+    address: json["address"],
+    dateOfBirth: json["dateOfBirth"],
+    password: json["password"],
+    kyc: json["KYC"] == null ? [] : List<String>.from(json["KYC"]!.map((x) => x)),
+    rfc: json["RFC"],
+    creaditCardNumber: json["creaditCardNumber"],
+    ine: json["ine"],
+    image: json["image"],
+    role: json["role"],
+    emailVerified: json["emailVerified"],
+    approved: json["approved"],
+    isBanned: json["isBanned"],
+    oneTimeCode: json["oneTimeCode"],
+    createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
+    updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
+    v: json["__v"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "_id": id,
+    "fullName": fullName,
+    "email": email,
+    "phoneNumber": phoneNumber,
+    "gender": gender,
+    "address": address,
+    "dateOfBirth": dateOfBirth,
+    "password": password,
+    "KYC": kyc == null ? [] : List<String>.from(kyc!.map((x) => x)),
+    "RFC": rfc,
+    "creaditCardNumber": creaditCardNumber,
+    "ine": ine,
+    "image": image,
+    "role": role,
+    "emailVerified": emailVerified,
+    "approved": approved,
+    "isBanned": isBanned,
+    "oneTimeCode": oneTimeCode,
+    "createdAt": createdAt?.toIso8601String(),
+    "updatedAt": updatedAt?.toIso8601String(),
+    "__v": v,
+  };
 }

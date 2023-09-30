@@ -53,8 +53,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(
-            text: AppStaticStrings.carModelName, bottom: 12, top: 16),
+        const CustomText(text: AppStaticStrings.carModelName, bottom: 12, top: 16),
 
         //Care Model Name Text and TextField with select year section
         SizedBox(
