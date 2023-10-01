@@ -5,11 +5,15 @@ class ApiUrlContainer {
   //13.52.186.90:3001
   //192.168.10.14:3001
 
+  //Auth
   static const String signInEndPoint = "user/sign-in";
   static const String signUpEndPoint = "user/signup";
   static const String forgotPassEndPoint = "user/forget-password";
   static const String oneTimeCodeEndPoint = "user/verify-code";
   static const String resetPassEndPoint = "user/verify-code";
+  static const String emailVerify = "user/verify";
+
+  //Car Add Update
 
   static const String carAddEndPoint = "car/add";
   static const String carListEndPoint = "car/add";
@@ -17,10 +21,10 @@ class ApiUrlContainer {
   //Privacy Policy
   static const String privacyPolicyEndPoint = "privacyPolicy/all";
 
-  //Privacy Policy
+  //termsConditionRouter
   static const String termsConditionEndPoint = "termsConditionRouter/all";
 
-  //Privacy Policy
+  //about
   static const String aboutUSEndPoint = "about/all";
 
   //Profile
@@ -52,15 +56,21 @@ class ApiUrlContainer {
   static const String rentList = "rent/host-rent-list";
   static const String rentAccerpAndReject = "rent/accept/request/";
 
-  //All Rent List
+  //host-rent
   static const String rentListByID = "rent/host-rent/";
 
   //All card
   static const String allCard = "card/";
 
-  //All card
+  //adminInfo
   static const String adminInfo = "user/admin-info";
 
   //All card
   static const String changePassword = "user/change-password";
+
+  //support
+  static const String support = "support/";
+
+  //howRentiWork
+  static const String howRentiWork = "howRentiWork";
 }

@@ -57,42 +57,61 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
               width: MediaQuery.of(context).size.width,
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                      height: 150,
-                      width: 150,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: AppColors.blueNormal,
-                            width: 2,
-                            strokeAlign: 1,
-                            style: BorderStyle.solid),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Container(
-                        margin: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                            color: AppColors.blueLight, shape: BoxShape.circle),
-                        height: 130,
-                        width: 130,
-                        child: const Icon(
-                          Icons.camera_alt_outlined,
-                          size: 50,
-                          color: AppColors.blueLightActive,
-                        ),
-                      ),
-                    ),
-                    const CustomText(
-                      top: 16,
-                      text: AppStaticStrings.uploadYourPhoto,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.blueNormal,
-                    ),
-                  ],
-                ),
+                child: GestureDetector(
+                    onTap: () {
+                      controller.openGallery();
+                    },
+                    child: controller.imageFile == null
+                        ? Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 20),
+                                height: 150,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: AppColors.blueNormal,
+                                      width: 2,
+                                      strokeAlign: 1,
+                                      style: BorderStyle.solid),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Container(
+                                  margin: const EdgeInsets.all(10),
+                                  decoration: const BoxDecoration(
+                                      color: AppColors.blueLight,
+                                      shape: BoxShape.circle),
+                                  height: 130,
+                                  width: 130,
+                                  child: const Icon(
+                                    Icons.camera_alt_outlined,
+                                    size: 50,
+                                    color: AppColors.blueLightActive,
+                                  ),
+                                ),
+                              ),
+                              const CustomText(
+                                top: 16,
+                                text: AppStaticStrings.uploadYourPhoto,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.blueNormal,
+                              ),
+                            ],
+                          )
+                        : Container(
+                            height: 350,
+                            width: double.infinity - 40,
+                            decoration:
+                                const BoxDecoration(shape: BoxShape.circle),
+                            child: ClipOval(
+                              child: Image.file(
+                                controller.imageFile!,
+                                fit: BoxFit
+                                    .cover, // Set BoxFit to cover to maintain aspect ratio and fill the circular area
+                              ),
+                            ),
+                          )),
               ),
             ),
           ),
@@ -100,9 +119,10 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
             child: CustomElevatedButton(
                 onPressed: () {
+                  controller.uploadMultipleFilesAndParams();
                   Get.toNamed(AppRoute.kycNumberVerification);
                 },
-                titleText: AppStaticStrings.continueNext),
+                titleText: AppStaticStrings.continuee),
           ),
         ),
       ),

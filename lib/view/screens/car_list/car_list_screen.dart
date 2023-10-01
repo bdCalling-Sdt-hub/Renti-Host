@@ -18,7 +18,6 @@ class CarListScreen extends StatefulWidget {
 }
 
 class _CarListScreenState extends State<CarListScreen> {
-
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeCarListController>(builder: (controller) {

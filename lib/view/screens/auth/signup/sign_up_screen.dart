@@ -49,7 +49,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //Full name And TextField
-                          const CustomText(text: AppStaticStrings.fullName, bottom: 12),
+                          const CustomText(
+                              text: AppStaticStrings.fullName, bottom: 12),
                           CustomTextField(
                             hintText: AppStaticStrings.enterFullName,
                             hintStyle: GoogleFonts.poppins(
@@ -246,10 +247,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 )),
-        bottomNavigationBar: Padding(padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
-              onPressed: () {Get.toNamed(AppRoute.signUpContinueScreen);},
-              titleText: AppStaticStrings.continueNext),
+              onPressed: () {
+                Get.toNamed(AppRoute.signUpContinueScreen);
+              },
+              titleText: AppStaticStrings.continuee),
         ),
       ),
     );

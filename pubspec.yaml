@@ -47,6 +47,7 @@ dependencies:
   flutter_rating_bar:
   dropdown_button2:
   http:
+  http_parser:
   shared_preferences:
   fluttertoast:
   file_picker:
@@ -54,6 +55,8 @@ dependencies:
   image_picker:
   flutter_html:
   cached_network_image:
+
+
 
 dev_dependencies:
   flutter_test:
