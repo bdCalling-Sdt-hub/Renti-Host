@@ -134,8 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     fontWeight: FontWeight.w500)
                               ],
                             ),
-                            const CustomImage(
-                                imageSrc: AppIcons.editProfileIcon, size: 24),
+                            const CustomImage(imageSrc: AppIcons.editProfileIcon, size: 24),
                           ],
                         ),
                       ),

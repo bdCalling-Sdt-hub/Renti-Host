@@ -31,7 +31,7 @@ class _UserDetailsState extends State<UserDetails> {
                 context: context,
                 builder: (BuildContext context) =>  Padding(
                   padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
-                  child: UserListDialogBox(index: index, userListResponseModel: widget.userListResponseModel,),
+                  child: UserListDialogBox(index: index, userListResponseModel: widget.userListResponseModel),
                 ),
               ),
               child: Container(
@@ -64,8 +64,7 @@ class _UserDetailsState extends State<UserDetails> {
                             height: 70,
                             width: 70,
                             margin: const EdgeInsets.only(right: 16),
-                            decoration:
-                                const BoxDecoration(shape: BoxShape.circle),
+                            decoration: const BoxDecoration(shape: BoxShape.circle),
                             child: Image.network(widget.userListResponseModel.userList![index].carId!.image![0],height: 80),
                           ),
                           Column(

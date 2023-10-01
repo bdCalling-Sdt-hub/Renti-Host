@@ -41,7 +41,7 @@ class User {
   String? rfc;
   String? creaditCardNumber;
   String? ine;
-  List<dynamic>? image;
+  String? image;
   String? role;
   bool? emailVerified;
   bool? approved;

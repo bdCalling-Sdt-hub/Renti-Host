@@ -60,4 +60,7 @@ class ApiUrlContainer {
 
   //All card
   static const String adminInfo = "user/admin-info";
+
+  //All card
+  static const String changePassword = "user/change-password";
 }

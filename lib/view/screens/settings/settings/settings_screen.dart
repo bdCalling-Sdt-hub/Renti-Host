@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
-import 'package:renti_host/view/screens/settings/settings/inner_widgets/dialog_box.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -16,12 +15,10 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  double value = 10;
 
   List settingData = [
     "Change Language",
     "Change Password",
-    "Notification Sound",
     "Payment Method",
     "Privacy Policy"
   ];
@@ -54,14 +51,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       } else if (index == 1) {
                         Get.toNamed(AppRoute.changePasswordScreen);
                       } else if (index == 2) {
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return const DialogBox();
-                            });
-                      } else if (index == 3) {
                         Get.toNamed(AppRoute.paymentMethodScreen);
-                      } else if (index == 4) {
+                      } else if (index == 3) {
                         Get.toNamed(AppRoute.privacyPolicyScreen);
                       }
                     },

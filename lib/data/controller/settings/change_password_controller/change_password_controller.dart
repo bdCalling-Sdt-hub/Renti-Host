@@ -3,12 +3,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ChangePasswordController extends GetxController{
 
-  final String apiUrl = 'http://103.161.9.106:3001/api/user/change-password';
+  final String apiUrl = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.changePassword}";
   final currentPassword = TextEditingController().obs;
   final newPassword = TextEditingController().obs;
   final reTypedPassword = TextEditingController().obs;

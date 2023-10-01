@@ -5,7 +5,6 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/user_list/inner_widgets/user_details.dart';
 import 'package:renti_host/view/screens/user_list/user_list_controller/user_list_controller.dart';
-import 'package:renti_host/view/screens/user_list/user_list_repo/single_user_repo.dart';
 import 'package:renti_host/view/screens/user_list/user_list_repo/user_list_repo.dart';
 import 'package:renti_host/view/screens/user_list/user_list_response_model/user_list_response_model.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -19,16 +18,12 @@ class UserListScreen extends StatefulWidget {
 }
 
 class _UserListScreenState extends State<UserListScreen> {
-
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(UserListRepo(apiService: Get.find()));
-    Get.put(SingleUserRepo(apiService: Get.find()));
     var controller = Get.put(UserListController(userListRepo: Get.find()));
-    //var controller1 = Get.put(SingleUserController(singleUserRepo: Get.find()));
     controller.userList();
-    //controller1.singleUser();
     super.initState();
   }
 
@@ -58,7 +53,7 @@ class _UserListScreenState extends State<UserListScreen> {
             ),
             body: LayoutBuilder(
               builder: (context, constraint) {
-                return  SingleChildScrollView(
+                return SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                   child: UserDetails(userListResponseModel: userListResponseModel),
                 );

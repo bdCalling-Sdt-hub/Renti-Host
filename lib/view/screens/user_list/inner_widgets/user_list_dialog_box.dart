@@ -17,7 +17,6 @@ class UserListDialogBox extends StatefulWidget {
 }
 
 class _UserListDialogBoxState extends State<UserListDialogBox> {
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,8 +35,8 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 color: AppColors.shadowColor,
                 blurRadius: 10,
                 offset: Offset(0, 1),
-                spreadRadius: 0,
-              )
+                spreadRadius: 0
+              ),
             ],
           ),
           child: Column(
@@ -53,23 +52,24 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                         Container(
                           width: 70,
                           height: 70,
-                          decoration:
-                          const BoxDecoration(shape: BoxShape.circle),
+                          decoration: const BoxDecoration(shape: BoxShape.circle),
                           child: const CustomImage(
                               imageSrc: AppImages.profileImage,
                               imageType: ImageType.png),
                         ),
                         const SizedBox(width: 16),
-                         Column(
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomText(
-                                text: widget.userListResponseModel.userList![widget.index].userId!.fullName.toString(),
+                                text: widget.userListResponseModel
+                                    .userList![widget.index].userId!.fullName
+                                    .toString(),
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
                                 bottom: 8),
-                            Row(
+                            const Row(
                               children: [
                                 CustomImage(
                                   imageSrc: AppImages.starImage,
@@ -80,7 +80,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                                     fontSize: 10,
                                     left: 8)
                               ],
-                            )
+                            ),
                           ],
                         ),
                       ],
@@ -96,13 +96,19 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                         margin: const EdgeInsets.only(bottom: 8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
-                          color: widget.userListResponseModel.userList![widget.index].sentRequest == "Active"
+                          color: widget.userListResponseModel
+                                      .userList![widget.index].sentRequest ==
+                                  "Active"
                               ? AppColors.redLight
                               : AppColors.greenLight,
                         ),
                         child: CustomText(
-                          text: widget.userListResponseModel.userList![widget.index].sentRequest.toString(),
-                          color: widget.userListResponseModel.userList![widget.index].sentRequest == "Active"
+                          text: widget.userListResponseModel
+                              .userList![widget.index].sentRequest
+                              .toString(),
+                          color: widget.userListResponseModel
+                                      .userList![widget.index].sentRequest ==
+                                  "Active"
                               ? AppColors.redNormal
                               : AppColors.greenNormal,
                           fontSize: 10,
@@ -148,8 +154,16 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomText(text: AppStaticStrings.contact,fontSize: 16,color: AppColors.whiteDarkHover),
-                  CustomText(text: widget.userListResponseModel.userList![widget.index].userId!.phoneNumber.toString(),fontSize: 16,fontWeight:FontWeight.w500),
+                  const CustomText(
+                      text: AppStaticStrings.contact,
+                      fontSize: 16,
+                      color: AppColors.whiteDarkHover),
+                  CustomText(
+                      text: widget.userListResponseModel.userList![widget.index]
+                          .userId!.phoneNumber
+                          .toString(),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
                 ],
               ),
               const SizedBox(height: 8),
@@ -157,8 +171,16 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomText(text: AppStaticStrings.email,fontSize: 16,color: AppColors.whiteDarkHover),
-                  CustomText(text: widget.userListResponseModel.userList![widget.index].userId!.email.toString(),fontSize: 16,fontWeight:FontWeight.w500),
+                  const CustomText(
+                      text: AppStaticStrings.email,
+                      fontSize: 16,
+                      color: AppColors.whiteDarkHover),
+                  CustomText(
+                      text: widget.userListResponseModel.userList![widget.index]
+                          .userId!.email
+                          .toString(),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
                 ],
               ),
               const SizedBox(height: 8),
@@ -166,15 +188,23 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomText(text: AppStaticStrings.tripNo,fontSize: 16,color: AppColors.whiteDarkHover),
-                  CustomText(text: widget.userListResponseModel.userList![widget.index].rentTripNumber.toString(),fontSize: 16,fontWeight:FontWeight.w500),
+                  const CustomText(
+                      text: AppStaticStrings.tripNo,
+                      fontSize: 16,
+                      color: AppColors.whiteDarkHover),
+                  CustomText(
+                      text: widget.userListResponseModel.userList![widget.index]
+                          .rentTripNumber
+                          .toString(),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
                 ],
               ),
               const SizedBox(height: 8),
             ],
           ),
-        )
-      ]
+        ),
+      ],
     );
   }
 }
