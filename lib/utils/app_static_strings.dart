@@ -33,7 +33,7 @@ class AppStaticStrings {
   static const String forgotPassword = "Forgot Password";
   static const String recoverPass =
       "Please enter your email address for recover your password.";
-  static const String continueNext = "Continue";
+  static const String continuee = "Continue";
 
   //Forgot Password OTP Screen All Strings
   static const String otp = "OTP";
@@ -79,6 +79,7 @@ class AppStaticStrings {
   static const String enterIneOrPassword = "Enter INE/Passport";
   static const String rfc = "RFC";
   static const String enterRFC = "Enter RFC";
+  static const String nOTEAllfilemust = "NOTE:  All file must be in PDF formet";
 
   //KYC Upload Image All Strings
   static const String selectPhoto = "Select Photo";
@@ -214,7 +215,8 @@ class AppStaticStrings {
   //Messages Screen All Strings
   static const String messages = "Messages";
   static const String bessieCooper = "Bessie Cooper";
-  static const String messageDemo = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium";
+  static const String messageDemo =
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium";
   static const String complete = "Complete";
 
   //Profile Screen All Strings
@@ -253,7 +255,6 @@ class AppStaticStrings {
   static const String addDebitCard = "Add Debit Card";
   static const String privacyPolicy = "Privacy Policy";
 
-
   //Start Trip Screen All Strings
   static const String carDealInformation = "Car Deal Information";
   static const String rentalInformation = "Rental Information";
@@ -273,7 +274,6 @@ class AppStaticStrings {
   static const String niceBehavior = "Nice Behavior.";
   static const String typeReview = "Type Review";
   static const String sendReview = "Send Review";
-
 
   //logOut pop up Strings
   static const String alertMessage = "You sure want to log out?";

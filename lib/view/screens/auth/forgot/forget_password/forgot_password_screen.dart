@@ -62,12 +62,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     ),
                   ),
                   // Email and TextField
-                  const CustomText(text: AppStaticStrings.email, top: 24, bottom: 12),
+                  const CustomText(
+                      text: AppStaticStrings.email, top: 24, bottom: 12),
                   Form(
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.always,
                     child: CustomTextField(
-                      textEditingController: forgotPassword.emailController.value,
+                      textEditingController:
+                          forgotPassword.emailController.value,
                       textInputAction: TextInputAction.done,
                       hintText: AppStaticStrings.enterEmail,
                       hintStyle: GoogleFonts.poppins(
@@ -96,9 +98,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           child: CustomElevatedButton(
               onPressed: () {
                 //Get.toNamed(AppRoute.forgotPasswordOTPScreen);
-                forgotPassword.resetPassword(forgotPassword.emailController.value.text);
+                forgotPassword
+                    .resetPassword(forgotPassword.emailController.value.text);
               },
-              titleText: AppStaticStrings.continueNext),
+              titleText: AppStaticStrings.continuee),
         ),
       ),
     );

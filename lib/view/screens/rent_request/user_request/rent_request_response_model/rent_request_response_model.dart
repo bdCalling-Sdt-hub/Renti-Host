@@ -140,6 +140,8 @@ class CarId {
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
+  double? averageRatings;
+  String? carType;
 
   CarId({
     this.id,
@@ -166,6 +168,8 @@ class CarId {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.averageRatings,
+    this.carType,
   });
 
   factory CarId.fromRawJson(String str) => CarId.fromJson(json.decode(str));
@@ -205,6 +209,8 @@ class CarId {
             ? null
             : DateTime.parse(json["updatedAt"]),
         v: json["__v"],
+        averageRatings: json["averageRatings"]?.toDouble(),
+        carType: json["carType"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -232,6 +238,8 @@ class CarId {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
         "__v": v,
+        "averageRatings": averageRatings,
+        "carType": carType,
       };
 }
 
@@ -244,11 +252,10 @@ class HostId {
   String? address;
   String? dateOfBirth;
   String? password;
-  List<dynamic>? kyc;
+  List<String>? kyc;
   String? rfc;
-  String? creaditCardNumber;
   String? ine;
-  List<dynamic>? image;
+  String? image;
   String? role;
   bool? emailVerified;
   bool? approved;
@@ -269,7 +276,6 @@ class HostId {
     this.password,
     this.kyc,
     this.rfc,
-    this.creaditCardNumber,
     this.ine,
     this.image,
     this.role,
@@ -297,13 +303,10 @@ class HostId {
         password: json["password"],
         kyc: json["KYC"] == null
             ? []
-            : List<dynamic>.from(json["KYC"]!.map((x) => x)),
+            : List<String>.from(json["KYC"]!.map((x) => x)),
         rfc: json["RFC"],
-        creaditCardNumber: json["creaditCardNumber"],
         ine: json["ine"],
-        image: json["image"] == null
-            ? []
-            : List<dynamic>.from(json["image"]!.map((x) => x)),
+        image: json["image"],
         role: json["role"],
         emailVerified: json["emailVerified"],
         approved: json["approved"],
@@ -329,9 +332,8 @@ class HostId {
         "password": password,
         "KYC": kyc == null ? [] : List<dynamic>.from(kyc!.map((x) => x)),
         "RFC": rfc,
-        "creaditCardNumber": creaditCardNumber,
         "ine": ine,
-        "image": image == null ? [] : List<dynamic>.from(image!.map((x) => x)),
+        "image": image,
         "role": role,
         "emailVerified": emailVerified,
         "approved": approved,
@@ -354,7 +356,7 @@ class UserId {
   String? password;
   List<dynamic>? kyc;
   String? ine;
-  dynamic image;
+  List<dynamic>? image;
   String? role;
   bool? emailVerified;
   bool? approved;
@@ -407,7 +409,9 @@ class UserId {
             ? []
             : List<dynamic>.from(json["KYC"]!.map((x) => x)),
         ine: json["ine"],
-        image: json["image"],
+        image: json["image"] == null
+            ? []
+            : List<dynamic>.from(json["image"]!.map((x) => x)),
         role: json["role"],
         emailVerified: json["emailVerified"],
         approved: json["approved"],
@@ -435,7 +439,7 @@ class UserId {
         "password": password,
         "KYC": kyc == null ? [] : List<dynamic>.from(kyc!.map((x) => x)),
         "ine": ine,
-        "image": image,
+        "image": image == null ? [] : List<dynamic>.from(image!.map((x) => x)),
         "role": role,
         "emailVerified": emailVerified,
         "approved": approved,

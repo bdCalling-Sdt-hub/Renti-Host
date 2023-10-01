@@ -91,9 +91,11 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
 
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-          child: CustomElevatedButton(onPressed: () {
-            Get.toNamed(AppRoute.addCarSpecialScreens);
-          }, titleText: AppStaticStrings.continueNext),
+          child: CustomElevatedButton(
+              onPressed: () {
+                Get.toNamed(AppRoute.addCarSpecialScreens);
+              },
+              titleText: AppStaticStrings.continuee),
         ),
       ),
     );

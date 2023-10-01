@@ -225,7 +225,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                         password: controller.confirmPasswordController.text);
                   }
                 },
-                titleText: AppStaticStrings.continueNext,
+                titleText: AppStaticStrings.continuee,
                 buttonWidth: double.maxFinite,
                 buttonHeight: 48)
           ],

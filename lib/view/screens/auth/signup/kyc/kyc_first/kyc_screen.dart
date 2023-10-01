@@ -128,7 +128,7 @@ class _KYCScreenState extends State<KYCScreen> {
                   ],
                 )*/
 
-                KYCAuthSection(),
+                    KYCAuthSection(),
               ),
             ),
           ),

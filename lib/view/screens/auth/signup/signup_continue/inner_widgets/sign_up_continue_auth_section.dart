@@ -42,7 +42,8 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: AppColors.whiteLight,
@@ -105,29 +106,32 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
             const SizedBox(height: 40),
 
             CustomElevatedButton(
-                onPressed: (){
-                  if(controller.phoneNumberController.text.isNotEmpty && controller.addressController.text.isNotEmpty){
-                    setDataToLocalStore(
-                        controller,
-                        phoneNumber: "${controller.phoneCode} ${controller.phoneNumberController.text}",
-                        address: controller.addressController.text
-                    );
-                  }else{
+                onPressed: () {
+                  if (controller.phoneNumberController.text.isNotEmpty &&
+                      controller.addressController.text.isNotEmpty) {
+                    setDataToLocalStore(controller,
+                        phoneNumber:
+                            "${controller.phoneCode} ${controller.phoneNumberController.text}",
+                        address: controller.addressController.text);
+                  } else {
                     Utils.toastMessage("InputField Can't be Empty");
                   }
                 },
-                buttonHeight: 48,buttonWidth: double.maxFinite,
-                titleText: AppStaticStrings.continueNext
-            ),
+                buttonHeight: 48,
+                buttonWidth: double.maxFinite,
+                titleText: AppStaticStrings.continuee),
           ],
         ),
       ),
     );
   }
-  setDataToLocalStore(SignUpController signUpController, {required String phoneNumber, required String address}) async{
 
-    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
-    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.address, address);
+  setDataToLocalStore(SignUpController signUpController,
+      {required String phoneNumber, required String address}) async {
+    await signUpController.signUpRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
+    await signUpController.signUpRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.address, address);
 
     if (kDebugMode) {
       print("phone number: $phoneNumber\n");

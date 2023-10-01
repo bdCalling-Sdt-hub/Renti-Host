@@ -39,16 +39,16 @@ class User {
   String? address;
   String? dateOfBirth;
   String? password;
-  List<dynamic>? kyc;
+  List<String>? kyc;
   String? rfc;
   String? creaditCardNumber;
   String? ine;
-  List<dynamic>? image;
+  String? image;
   String? role;
   bool? emailVerified;
   bool? approved;
   String? isBanned;
-  dynamic oneTimeCode;
+  String? oneTimeCode;
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
@@ -92,13 +92,11 @@ class User {
         password: json["password"],
         kyc: json["KYC"] == null
             ? []
-            : List<dynamic>.from(json["KYC"]!.map((x) => x)),
+            : List<String>.from(json["KYC"]!.map((x) => x)),
         rfc: json["RFC"],
         creaditCardNumber: json["creaditCardNumber"],
         ine: json["ine"],
-        image: json["image"] == null
-            ? []
-            : List<dynamic>.from(json["image"]!.map((x) => x)),
+        image: json["image"],
         role: json["role"],
         emailVerified: json["emailVerified"],
         approved: json["approved"],
@@ -126,7 +124,7 @@ class User {
         "RFC": rfc,
         "creaditCardNumber": creaditCardNumber,
         "ine": ine,
-        "image": image == null ? [] : List<dynamic>.from(image!.map((x) => x)),
+        "image": image,
         "role": role,
         "emailVerified": emailVerified,
         "approved": approved,

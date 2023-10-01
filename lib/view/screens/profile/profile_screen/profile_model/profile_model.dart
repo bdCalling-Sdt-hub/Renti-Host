@@ -34,11 +34,10 @@ class User {
   String? address;
   String? dateOfBirth;
   String? password;
-  List<dynamic>? kyc;
+  List<String>? kyc;
   String? rfc;
-  String? creaditCardNumber;
   String? ine;
-  List<dynamic>? image;
+  String? image;
   String? role;
   bool? emailVerified;
   bool? approved;
@@ -47,6 +46,7 @@ class User {
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
+  String? creaditCardNumber;
 
   User({
     this.id,
@@ -59,7 +59,6 @@ class User {
     this.password,
     this.kyc,
     this.rfc,
-    this.creaditCardNumber,
     this.ine,
     this.image,
     this.role,
@@ -70,6 +69,7 @@ class User {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.creaditCardNumber,
   });
 
   factory User.fromRawJson(String str) => User.fromJson(json.decode(str));
@@ -87,13 +87,10 @@ class User {
         password: json["password"],
         kyc: json["KYC"] == null
             ? []
-            : List<dynamic>.from(json["KYC"]!.map((x) => x)),
+            : List<String>.from(json["KYC"]!.map((x) => x)),
         rfc: json["RFC"],
-        creaditCardNumber: json["creaditCardNumber"],
         ine: json["ine"],
-        image: json["image"] == null
-            ? []
-            : List<dynamic>.from(json["image"]!.map((x) => x)),
+        image: json["image"],
         role: json["role"],
         emailVerified: json["emailVerified"],
         approved: json["approved"],
@@ -106,6 +103,7 @@ class User {
             ? null
             : DateTime.parse(json["updatedAt"]),
         v: json["__v"],
+        creaditCardNumber: json["creaditCardNumber"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -119,9 +117,8 @@ class User {
         "password": password,
         "KYC": kyc == null ? [] : List<dynamic>.from(kyc!.map((x) => x)),
         "RFC": rfc,
-        "creaditCardNumber": creaditCardNumber,
         "ine": ine,
-        "image": image == null ? [] : List<dynamic>.from(image!.map((x) => x)),
+        "image": image,
         "role": role,
         "emailVerified": emailVerified,
         "approved": approved,
@@ -130,5 +127,6 @@ class User {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
         "__v": v,
+        "creaditCardNumber": creaditCardNumber,
       };
 }

@@ -32,7 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 opacity: 0.5,
                 image: AssetImage(AppImages.splashImage),
                 fit: BoxFit.fill,
-                colorFilter: ColorFilter.mode(AppColors.blueNormal, BlendMode.dstATop),
+                colorFilter:
+                    ColorFilter.mode(AppColors.blueNormal, BlendMode.dstATop),
               ),
             ),
             child: Column(

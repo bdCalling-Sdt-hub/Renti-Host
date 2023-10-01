@@ -45,11 +45,11 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  //var profileController = Get.find<ProfileController>();
+  var profileController = Get.find<ProfileController>();
 
   @override
   Widget build(BuildContext context) {
-    // String img = profileController.profileModel.user!.image.toString();
+    String img = profileController.profileModel.user!.image.toString();
 
     return GetBuilder<HomeCarListController>(builder: (controller) {
       HomeCarListModel homeCarListModel = controller.homeCarListModel;
@@ -108,15 +108,21 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                // ClipOval(
-                //   child: CachedNetworkImage(
-                //     imageUrl: img,
-                //     placeholder: (context, url) =>
-                //         const CircularProgressIndicator(),
-                //     errorWidget: (context, url, error) =>
-                //         const Icon(Icons.error),
-                //   ),
-                // ),
+                SizedBox(
+                  height: 50,
+                  width: 50,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25),
+                    child: CachedNetworkImage(
+                      fit: BoxFit.fill,
+                      imageUrl: img,
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

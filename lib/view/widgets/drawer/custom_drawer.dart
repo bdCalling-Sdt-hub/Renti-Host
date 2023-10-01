@@ -46,12 +46,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
             children: [
               //Drawer Top Section
               const SizedBox(height: 30),
-              ClipOval(
-                child: CachedNetworkImage(
-                  imageUrl: img,
-                  placeholder: (context, url) =>
-                      const CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: ClipOval(
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: img,
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
                 ),
               ),
               CustomText(
