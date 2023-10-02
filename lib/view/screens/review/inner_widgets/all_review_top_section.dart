@@ -7,7 +7,23 @@ import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class AllReviewTopSection extends StatelessWidget {
-  const AllReviewTopSection({super.key});
+  final String userName;
+  final String carLicense;
+  final String date;
+  final String userImg;
+
+  final String carImg;
+  final String ratting;
+
+  const AllReviewTopSection({
+    super.key,
+    required this.userName,
+    required this.carLicense,
+    required this.date,
+    required this.userImg,
+    required this.carImg,
+    required this.ratting,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,24 +40,23 @@ class AllReviewTopSection extends StatelessWidget {
                 width: 70,
                 height: 70,
                 margin: const EdgeInsets.only(right: 8),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage(AppImages.profileImage),
-                      fit: BoxFit.fill),
+                      image: NetworkImage(userImg), fit: BoxFit.fill),
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(
-                    text: AppStaticStrings.userName,
+                  CustomText(
+                    text: userName,
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
                   RatingBarIndicator(
                     unratedColor: AppColors.whiteDark,
-                    rating: 5.0,
+                    rating: double.parse(ratting),
                     itemBuilder: (context, index) =>
                         const Icon(Icons.star, color: AppColors.ratingColor),
                     itemCount: 5,
@@ -60,7 +75,7 @@ class AllReviewTopSection extends StatelessWidget {
                               color: AppColors.whiteDarkHover),
                         ),
                         TextSpan(
-                          text: "NBG1234567",
+                          text: carLicense,
                           style: GoogleFonts.poppins(
                               fontSize: 10,
                               fontWeight: FontWeight.w400,
@@ -81,7 +96,7 @@ class AllReviewTopSection extends StatelessWidget {
                               color: AppColors.whiteDarkHover),
                         ),
                         TextSpan(
-                          text: "10 aug 2023",
+                          text: date,
                           style: GoogleFonts.poppins(
                               fontSize: 10,
                               fontWeight: FontWeight.w400,
@@ -98,9 +113,9 @@ class AllReviewTopSection extends StatelessWidget {
         Container(
           width: 70,
           height: 70,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AppImages.blueCar),
+                image: NetworkImage(carImg),
                 fit: BoxFit.fill,
               ),
               shape: BoxShape.circle),
