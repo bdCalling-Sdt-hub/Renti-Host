@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renti_host/core/helper/date_converter_helper.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -52,7 +53,7 @@ class _AllReviewScreenState extends State<AllReviewScreen> {
                     vertical: 24, horizontal: 20),
                 child: Column(
                   children: List.generate(
-                    6,
+                    reviewModel.review!.length,
                     (index) => Container(
                       padding: const EdgeInsetsDirectional.all(16),
                       margin: const EdgeInsetsDirectional.only(bottom: 8),
@@ -71,11 +72,27 @@ class _AllReviewScreenState extends State<AllReviewScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AllReviewTopSection(),
-                          SizedBox(height: 16),
+                          AllReviewTopSection(
+                            userName: reviewModel
+                                .review![index].userId!.fullName
+                                .toString(),
+                            ratting:
+                                reviewModel.review![index].rating.toString(),
+                            carLicense: reviewModel
+                                .review![index].carId!.carLicenseNumber
+                                .toString(),
+                            userImg: reviewModel.review![index].userId!.image
+                                .toString(),
+                            carImg: reviewModel.review![index].carId!.image![0]
+                                .toString(),
+                            date: DateConverter.formatDepositTimeWithAmFormat(
+                                reviewModel.review![index].carId!.createdAt
+                                    .toString()),
+                          ),
+                          const SizedBox(height: 16),
                           CustomText(
                             textAlign: TextAlign.start,
-                            text: reviewModel.review.toString(),
+                            text: reviewModel.review![index].comment.toString(),
                             color: AppColors.whiteDarkActive,
                             fontSize: 12,
                           ),

@@ -75,6 +75,6 @@ class ApiUrlContainer {
   static const String howRentiWork = "howRentiWork";
 
   //Review
-  static const String reviewGet = "review/all";
+  static const String reviewGet = "review/hostReview";
   static const String reviewPost = "review/";
 }
