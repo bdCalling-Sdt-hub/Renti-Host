@@ -88,7 +88,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                 },
                 buttonHeight: 52,
                 buttonWidth: double.infinity,
-                titleText: AppStaticStrings.continueNext,
+                titleText: AppStaticStrings.continuee,
               ),
             ],
           ),

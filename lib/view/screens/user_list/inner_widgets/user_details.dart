@@ -18,7 +18,6 @@ class UserDetails extends StatefulWidget {
 }
 
 class _UserDetailsState extends State<UserDetails> {
-
   @override
   Widget build(BuildContext context) {
     return GetBuilder<UserListController>(
@@ -29,9 +28,12 @@ class _UserDetailsState extends State<UserDetails> {
             return GestureDetector(
               onTap: () => showDialog(
                 context: context,
-                builder: (BuildContext context) =>  Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
-                  child: UserListDialogBox(index: index, userListResponseModel: widget.userListResponseModel),
+                builder: (BuildContext context) => Padding(
+                  padding:
+                      const EdgeInsetsDirectional.symmetric(horizontal: 20),
+                  child: UserListDialogBox(
+                      index: index,
+                      userListResponseModel: widget.userListResponseModel),
                 ),
               ),
               child: Container(
@@ -64,15 +66,25 @@ class _UserDetailsState extends State<UserDetails> {
                             height: 70,
                             width: 70,
                             margin: const EdgeInsets.only(right: 16),
-                            decoration: const BoxDecoration(shape: BoxShape.circle),
-                            child: Image.network(widget.userListResponseModel.userList![index].carId!.image![0],height: 80),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  widget.userListResponseModel.userList![index]
+                                      .carId!.image![0],
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomText(
-                                  text: widget.userListResponseModel.userList![index].userId!.fullName.toString(),
+                                  text: widget.userListResponseModel
+                                      .userList![index].userId!.fullName
+                                      .toString(),
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                   bottom: 8),
@@ -83,9 +95,7 @@ class _UserDetailsState extends State<UserDetails> {
                                     size: 12,
                                   ),
                                   CustomText(
-                                      text: "Rating",
-                                      fontSize: 10,
-                                      left: 8)
+                                      text: "Rating", fontSize: 10, left: 8)
                                 ],
                               ),
                             ],
@@ -103,13 +113,19 @@ class _UserDetailsState extends State<UserDetails> {
                           margin: const EdgeInsets.only(bottom: 8),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
-                            color: widget.userListResponseModel.userList![index].sentRequest == "Active"
+                            color: widget.userListResponseModel.userList![index]
+                                        .sentRequest ==
+                                    "Active"
                                 ? AppColors.redLight
                                 : AppColors.greenLight,
                           ),
                           child: CustomText(
-                            text: widget.userListResponseModel.userList![index].sentRequest.toString(),
-                            color: widget.userListResponseModel.userList![index].sentRequest == "Active"
+                            text: widget.userListResponseModel.userList![index]
+                                .sentRequest
+                                .toString(),
+                            color: widget.userListResponseModel.userList![index]
+                                        .sentRequest ==
+                                    "Active"
                                 ? AppColors.redNormal
                                 : AppColors.greenNormal,
                             fontSize: 10,
