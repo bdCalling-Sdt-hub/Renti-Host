@@ -16,6 +16,14 @@ class ReviewController extends GetxController {
     super.onInit();
   }
 
+  // String userName = "";
+  // String carLicense = "";
+  // String date = "";
+  // String userImg = "";
+
+  // String carImg = "";
+  // String ratting = "";
+
   ReviewModel reviewModel = ReviewModel();
   bool isloading = true;
   Future<void> review() async {
@@ -24,6 +32,7 @@ class ReviewController extends GetxController {
     if (responseModel.statusCode == 200) {
       reviewModel =
           ReviewModel.fromJson(jsonDecode(responseModel.responseJson));
+
       isloading = false;
       update();
     } else {

@@ -115,8 +115,8 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
-                  width: 50,
+                  height: 60,
+                  width: 40,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(25),
                     child: CachedNetworkImage(

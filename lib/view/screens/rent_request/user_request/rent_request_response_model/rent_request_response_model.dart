@@ -41,9 +41,9 @@ class RentRequest {
   DateTime? startDate;
   DateTime? endDate;
   String? payment;
-  UserId? userId;
+  Id? userId;
   CarId? carId;
-  HostId? hostId;
+  Id? hostId;
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
@@ -84,9 +84,9 @@ class RentRequest {
         endDate:
             json["endDate"] == null ? null : DateTime.parse(json["endDate"]),
         payment: json["payment"],
-        userId: json["userId"] == null ? null : UserId.fromJson(json["userId"]),
+        userId: json["userId"] == null ? null : Id.fromJson(json["userId"]),
         carId: json["carId"] == null ? null : CarId.fromJson(json["carId"]),
-        hostId: json["hostId"] == null ? null : HostId.fromJson(json["hostId"]),
+        hostId: json["hostId"] == null ? null : Id.fromJson(json["hostId"]),
         createdAt: json["createdAt"] == null
             ? null
             : DateTime.parse(json["createdAt"]),
@@ -130,9 +130,11 @@ class CarId {
   String? carSeats;
   String? totalRun;
   String? hourlyRate;
+  String? offerHourlyRate;
   String? registrationDate;
   int? popularity;
   String? gearType;
+  String? carType;
   String? specialCharacteristics;
   bool? activeReserve;
   String? tripStatus;
@@ -140,8 +142,6 @@ class CarId {
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
-  double? averageRatings;
-  String? carType;
 
   CarId({
     this.id,
@@ -158,9 +158,11 @@ class CarId {
     this.carSeats,
     this.totalRun,
     this.hourlyRate,
+    this.offerHourlyRate,
     this.registrationDate,
     this.popularity,
     this.gearType,
+    this.carType,
     this.specialCharacteristics,
     this.activeReserve,
     this.tripStatus,
@@ -168,8 +170,6 @@ class CarId {
     this.createdAt,
     this.updatedAt,
     this.v,
-    this.averageRatings,
-    this.carType,
   });
 
   factory CarId.fromRawJson(String str) => CarId.fromJson(json.decode(str));
@@ -195,9 +195,11 @@ class CarId {
         carSeats: json["carSeats"],
         totalRun: json["totalRun"],
         hourlyRate: json["hourlyRate"],
+        offerHourlyRate: json["offerHourlyRate"],
         registrationDate: json["registrationDate"],
         popularity: json["popularity"],
         gearType: json["gearType"],
+        carType: json["carType"],
         specialCharacteristics: json["specialCharacteristics"],
         activeReserve: json["activeReserve"],
         tripStatus: json["tripStatus"],
@@ -209,8 +211,6 @@ class CarId {
             ? null
             : DateTime.parse(json["updatedAt"]),
         v: json["__v"],
-        averageRatings: json["averageRatings"]?.toDouble(),
-        carType: json["carType"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -228,9 +228,11 @@ class CarId {
         "carSeats": carSeats,
         "totalRun": totalRun,
         "hourlyRate": hourlyRate,
+        "offerHourlyRate": offerHourlyRate,
         "registrationDate": registrationDate,
         "popularity": popularity,
         "gearType": gearType,
+        "carType": carType,
         "specialCharacteristics": specialCharacteristics,
         "activeReserve": activeReserve,
         "tripStatus": tripStatus,
@@ -238,12 +240,10 @@ class CarId {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
         "__v": v,
-        "averageRatings": averageRatings,
-        "carType": carType,
       };
 }
 
-class HostId {
+class Id {
   String? id;
   String? fullName;
   String? email;
@@ -254,7 +254,6 @@ class HostId {
   String? password;
   List<String>? kyc;
   String? rfc;
-  String? ine;
   String? image;
   String? role;
   bool? emailVerified;
@@ -264,8 +263,11 @@ class HostId {
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
+  String? creaditCardNumber;
+  String? ine;
+  int? averageRatings;
 
-  HostId({
+  Id({
     this.id,
     this.fullName,
     this.email,
@@ -276,7 +278,6 @@ class HostId {
     this.password,
     this.kyc,
     this.rfc,
-    this.ine,
     this.image,
     this.role,
     this.emailVerified,
@@ -286,13 +287,16 @@ class HostId {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.creaditCardNumber,
+    this.ine,
+    this.averageRatings,
   });
 
-  factory HostId.fromRawJson(String str) => HostId.fromJson(json.decode(str));
+  factory Id.fromRawJson(String str) => Id.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory HostId.fromJson(Map<String, dynamic> json) => HostId(
+  factory Id.fromJson(Map<String, dynamic> json) => Id(
         id: json["_id"],
         fullName: json["fullName"],
         email: json["email"],
@@ -305,7 +309,6 @@ class HostId {
             ? []
             : List<String>.from(json["KYC"]!.map((x) => x)),
         rfc: json["RFC"],
-        ine: json["ine"],
         image: json["image"],
         role: json["role"],
         emailVerified: json["emailVerified"],
@@ -319,6 +322,9 @@ class HostId {
             ? null
             : DateTime.parse(json["updatedAt"]),
         v: json["__v"],
+        creaditCardNumber: json["creaditCardNumber"],
+        ine: json["ine"],
+        averageRatings: json["averageRatings"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -332,7 +338,6 @@ class HostId {
         "password": password,
         "KYC": kyc == null ? [] : List<dynamic>.from(kyc!.map((x) => x)),
         "RFC": rfc,
-        "ine": ine,
         "image": image,
         "role": role,
         "emailVerified": emailVerified,
@@ -342,113 +347,8 @@ class HostId {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
         "__v": v,
-      };
-}
-
-class UserId {
-  String? id;
-  String? fullName;
-  String? email;
-  String? phoneNumber;
-  String? gender;
-  String? address;
-  String? dateOfBirth;
-  String? password;
-  List<dynamic>? kyc;
-  String? ine;
-  List<dynamic>? image;
-  String? role;
-  bool? emailVerified;
-  bool? approved;
-  String? isBanned;
-  dynamic oneTimeCode;
-  DateTime? createdAt;
-  DateTime? updatedAt;
-  int? v;
-  String? rfc;
-  String? creaditCardNumber;
-
-  UserId({
-    this.id,
-    this.fullName,
-    this.email,
-    this.phoneNumber,
-    this.gender,
-    this.address,
-    this.dateOfBirth,
-    this.password,
-    this.kyc,
-    this.ine,
-    this.image,
-    this.role,
-    this.emailVerified,
-    this.approved,
-    this.isBanned,
-    this.oneTimeCode,
-    this.createdAt,
-    this.updatedAt,
-    this.v,
-    this.rfc,
-    this.creaditCardNumber,
-  });
-
-  factory UserId.fromRawJson(String str) => UserId.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory UserId.fromJson(Map<String, dynamic> json) => UserId(
-        id: json["_id"],
-        fullName: json["fullName"],
-        email: json["email"],
-        phoneNumber: json["phoneNumber"],
-        gender: json["gender"],
-        address: json["address"],
-        dateOfBirth: json["dateOfBirth"],
-        password: json["password"],
-        kyc: json["KYC"] == null
-            ? []
-            : List<dynamic>.from(json["KYC"]!.map((x) => x)),
-        ine: json["ine"],
-        image: json["image"] == null
-            ? []
-            : List<dynamic>.from(json["image"]!.map((x) => x)),
-        role: json["role"],
-        emailVerified: json["emailVerified"],
-        approved: json["approved"],
-        isBanned: json["isBanned"],
-        oneTimeCode: json["oneTimeCode"],
-        createdAt: json["createdAt"] == null
-            ? null
-            : DateTime.parse(json["createdAt"]),
-        updatedAt: json["updatedAt"] == null
-            ? null
-            : DateTime.parse(json["updatedAt"]),
-        v: json["__v"],
-        rfc: json["RFC"],
-        creaditCardNumber: json["creaditCardNumber"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "_id": id,
-        "fullName": fullName,
-        "email": email,
-        "phoneNumber": phoneNumber,
-        "gender": gender,
-        "address": address,
-        "dateOfBirth": dateOfBirth,
-        "password": password,
-        "KYC": kyc == null ? [] : List<dynamic>.from(kyc!.map((x) => x)),
-        "ine": ine,
-        "image": image == null ? [] : List<dynamic>.from(image!.map((x) => x)),
-        "role": role,
-        "emailVerified": emailVerified,
-        "approved": approved,
-        "isBanned": isBanned,
-        "oneTimeCode": oneTimeCode,
-        "createdAt": createdAt?.toIso8601String(),
-        "updatedAt": updatedAt?.toIso8601String(),
-        "__v": v,
-        "RFC": rfc,
         "creaditCardNumber": creaditCardNumber,
+        "ine": ine,
+        "averageRatings": averageRatings,
       };
 }
