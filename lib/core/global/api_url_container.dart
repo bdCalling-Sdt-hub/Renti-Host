@@ -70,4 +70,8 @@ class ApiUrlContainer {
 
   //howRentiWork
   static const String howRentiWork = "howRentiWork";
+
+  //Review
+  static const String reviewGet = "review/all";
+  static const String reviewPost = "review/";
 }

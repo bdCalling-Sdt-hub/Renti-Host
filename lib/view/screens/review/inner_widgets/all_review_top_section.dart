@@ -99,12 +99,11 @@ class AllReviewTopSection extends StatelessWidget {
           width: 70,
           height: 70,
           decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(AppImages.blueCar),
-              fit: BoxFit.fill,
-            ),
-            shape: BoxShape.circle
-          ),
+              image: DecorationImage(
+                image: AssetImage(AppImages.blueCar),
+                fit: BoxFit.fill,
+              ),
+              shape: BoxShape.circle),
         ),
       ],
     );

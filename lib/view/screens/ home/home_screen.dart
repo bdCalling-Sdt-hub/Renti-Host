@@ -12,6 +12,7 @@ import 'package:renti_host/view/screens/%20home/home_repo/home_carlist_repo.dart
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
+import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
@@ -27,13 +28,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _PendingApprovalScreenState extends State<HomeScreen> {
+  var profileController = Get.find<ProfileController>();
+
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(HomeCarListRepo(apiService: Get.find()));
     var homeCarListController =
         Get.put(HomeCarListController(homeCarListRepo: Get.find()));
+
+    Get.put(ProfileRepo(apiService: Get.find()));
     homeCarListController.homeCarList();
+
+    profileController.profile();
 
     super.initState();
   }
@@ -45,12 +52,11 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  var profileController = Get.find<ProfileController>();
+  var img2 =
+      "https://github.com/rafsanopi/Weather/assets/45880457/3530ca44-cb33-4fe5-8751-9c5584a860a2";
 
   @override
   Widget build(BuildContext context) {
-    String img = profileController.profileModel.user!.image.toString();
-
     return GetBuilder<HomeCarListController>(builder: (controller) {
       HomeCarListModel homeCarListModel = controller.homeCarListModel;
 
@@ -115,7 +121,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(25),
                     child: CachedNetworkImage(
                       fit: BoxFit.fill,
-                      imageUrl: img,
+                      imageUrl: profileController.img,
                       placeholder: (context, url) =>
                           const CircularProgressIndicator(),
                       errorWidget: (context, url, error) =>
