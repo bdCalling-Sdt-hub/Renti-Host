@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -155,8 +156,7 @@ class SignUpController extends GetxController {
   String? imageUrl;
 
   void openGallery() async {
-    final pickedFile = await ImagePicker()
-        .pickImage(source: ImageSource.gallery, maxHeight: 120, maxWidth: 120);
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery, maxHeight: 120, maxWidth: 120);
 
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
@@ -165,8 +165,7 @@ class SignUpController extends GetxController {
   }
 
   void openCamera(BuildContext context) async {
-    final pickedFile = await ImagePicker()
-        .pickImage(source: ImageSource.camera, maxHeight: 120, maxWidth: 120);
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera, maxHeight: 120, maxWidth: 120);
 
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
@@ -177,8 +176,7 @@ class SignUpController extends GetxController {
   Future<void> uploadMultipleFilesAndParams() async {
     // Create a new multipart request
     var request = http.MultipartRequest(
-      'POST',
-      Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
+      'POST', Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
     );
 
     // Add the KYC files to the request
@@ -191,11 +189,15 @@ class SignUpController extends GetxController {
           );
           request.files.add(multipartFile);
         } catch (e) {
-          print('Error: $e');
+          if (kDebugMode) {
+            print('Error: $e');
+          }
           // Handle the missing file gracefully, e.g., skip it or show an error message.
         }
       } else {
-        print('File does not exist: ${file.path}');
+        if (kDebugMode) {
+          print('File does not exist: ${file.path}');
+        }
         return;
         // Handle the missing file gracefully, e.g., skip it or show an error message.
       }
@@ -216,8 +218,7 @@ class SignUpController extends GetxController {
       "phoneNumber": "$phoneCode ${phoneNumberController.text.toString()}",
       "gender": genderList[selectedGender],
       "address": addressController.text.toString(),
-      "dateOfBirth":
-          "${dateController.text.toString()}/${monthController.text.toString()}/${yearController.text.toString()}",
+      "dateOfBirth": "${dateController.text.toString()}/${monthController.text.toString()}/${yearController.text.toString()}",
       "password": passwordController.text.toString(),
       "ineNumber": ineNumberController.text.toString(),
       "RFC": rfcController.text.toString(),
@@ -234,12 +235,18 @@ class SignUpController extends GetxController {
     try {
       var response = await request.send();
       if (response.statusCode == 201) {
-        print('Files uploaded successfully');
+        if (kDebugMode) {
+          print('Files uploaded successfully');
+        }
       } else {
-        print('File upload failed with status code: ${response.statusCode}');
+        if (kDebugMode) {
+          print('File upload failed with status code: ${response.statusCode}');
+        }
       }
     } catch (e) {
-      print('Error sending request: $e');
+      if (kDebugMode) {
+        print('Error sending request: $e');
+      }
     }
   }
 }

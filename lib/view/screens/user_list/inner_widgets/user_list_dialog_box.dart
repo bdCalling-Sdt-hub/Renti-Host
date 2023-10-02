@@ -7,7 +7,8 @@ import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class UserListDialogBox extends StatefulWidget {
-  const UserListDialogBox({super.key, required this.index, required this.userListResponseModel});
+  const UserListDialogBox(
+      {super.key, required this.index, required this.userListResponseModel});
 
   final int index;
   final UserListResponseModel userListResponseModel;
@@ -32,11 +33,10 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
             ),
             shadows: const [
               BoxShadow(
-                color: AppColors.shadowColor,
-                blurRadius: 10,
-                offset: Offset(0, 1),
-                spreadRadius: 0
-              ),
+                  color: AppColors.shadowColor,
+                  blurRadius: 10,
+                  offset: Offset(0, 1),
+                  spreadRadius: 0),
             ],
           ),
           child: Column(
@@ -52,10 +52,16 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                         Container(
                           width: 70,
                           height: 70,
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
-                          child: const CustomImage(
-                              imageSrc: AppImages.profileImage,
-                              imageType: ImageType.png),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                widget.userListResponseModel
+                                    .userList![widget.index].userId!.image
+                                    .toString(),
+                              ),
+                            ),
+                          ),
                         ),
                         const SizedBox(width: 16),
                         Column(
@@ -69,16 +75,22 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
                                 bottom: 8),
-                            const Row(
+                            Row(
                               children: [
-                                CustomImage(
+                                const CustomImage(
                                   imageSrc: AppImages.starImage,
                                   size: 12,
                                 ),
                                 CustomText(
-                                    text: AppStaticStrings.rating,
-                                    fontSize: 10,
-                                    left: 8)
+                                  text: widget
+                                      .userListResponseModel
+                                      .userList![widget.index]
+                                      .userId!
+                                      .averageRatings
+                                      .toString(),
+                                  fontSize: 10,
+                                  left: 8,
+                                )
                               ],
                             ),
                           ],
@@ -91,28 +103,22 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                         margin: const EdgeInsets.only(bottom: 8),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: widget.userListResponseModel
-                                      .userList![widget.index].sentRequest ==
-                                  "Active"
-                              ? AppColors.redLight
-                              : AppColors.greenLight,
-                        ),
-                        child: CustomText(
-                          text: widget.userListResponseModel
-                              .userList![widget.index].sentRequest
-                              .toString(),
-                          color: widget.userListResponseModel
-                                      .userList![widget.index].sentRequest ==
-                                  "Active"
-                              ? AppColors.redNormal
-                              : AppColors.greenNormal,
+                            borderRadius: BorderRadius.circular(4),
+                            color: widget.userListResponseModel.userList![widget.index].requestStatus == "Completed" ? AppColors.greenLight : AppColors.redLight),
+                        child: widget.userListResponseModel.userList![widget.index].requestStatus == "Completed" ?
+                        CustomText(
+                          text: widget.userListResponseModel.userList![widget.index].requestStatus.toString(),
+                          color: AppColors.greenNormal,
                           fontSize: 10,
-                        ),
+                        ) :
+                        const CustomText(
+                          text: "Reserved",
+                          color: AppColors.redNormal,
+                          fontSize: 10,
+                        ) ,
                       ),
                       const SizedBox(height: 8),
                       Row(

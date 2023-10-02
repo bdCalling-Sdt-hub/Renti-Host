@@ -11,30 +11,31 @@ class UserListController extends GetxController {
   UserListRepo userListRepo;
   UserListController({required this.userListRepo});
 
-  bool isLoading = true;
+  bool isLoading = false;
+  List<UserList> userList = [];
 
   UserListResponseModel userListResponseModel = UserListResponseModel();
 
-  Future<UserListResponseModel> userList() async {
+  Future<void> userListData() async {
     isLoading = true;
     update();
+
     ApiResponseModel responseModel = await userListRepo.userList();
-     // Define the variable here
 
     if (responseModel.statusCode == 200) {
       userListResponseModel = UserListResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-      isLoading = false;
-      update();
+      List<UserList>? tempList = userListResponseModel.userList;
+      if(tempList != null && tempList.isNotEmpty){
+        userList.addAll(tempList);
+      }
       if (kDebugMode) {
         print("$userListResponseModel");
       }
     } else {
-      isLoading = false;
-      update();
       Utils.toastMessage(responseModel.message);
-      // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
-      return UserListResponseModel(); // Return a default value or handle the error accordingly.
+
     }
-    return userListResponseModel; // Return the variable here
+    isLoading = false;
+    update();// Return the variable here
   }
 }

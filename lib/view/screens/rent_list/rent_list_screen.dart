@@ -63,10 +63,8 @@ class _RentListScreenState extends State<RentListScreen> {
                       rentListModel.rentedCars!.length,
                       (index) => rentListModel.rentedCars![index].requestStatus.toString() != "Completed" &&
                               rentListModel.rentedCars![index].payment.toString() != "Completed" &&
-                              rentListModel.rentedCars![index].requestStatus.toString() != "Rejected" /*&&
-                              rentListModel.rentedCars![index].requestStatus
-                                      .toString() ==
-                                  "Accepted"*/
+                              rentListModel.rentedCars![index].requestStatus.toString() != "Rejected" &&
+                              rentListModel.rentedCars![index].requestStatus.toString() == "Accepted"
                           ? GestureDetector(
                               onTap: () => showDialog(
                                 context: context,
@@ -92,11 +90,8 @@ class _RentListScreenState extends State<RentListScreen> {
                                   ],
                                 ),
                                 child: RentDetailsTopSection(
-                                  image: rentListModel.rentedCars![index]
-                                          .userId!.image!.isEmpty
-                                      ? AppImages.profileImage
-                                      : rentListModel
-                                          .rentedCars![index].userId!.image![0]
+                                  image: rentListModel.rentedCars![index].userId!.image!.isEmpty ? AppImages.profileImage
+                                      : rentListModel.rentedCars![index].userId!.image
                                           .toString(),
                                   carName: rentListModel
                                       .rentedCars![index].userId!.fullName

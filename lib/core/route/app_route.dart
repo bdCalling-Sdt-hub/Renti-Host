@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:renti_host/view/screens/%20home/home_screen.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_documents/add_car_documents.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/add_car_screen.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_specification/add_car_specification_screen.dart';
@@ -130,7 +129,7 @@ class AppRoute {
     GetPage(name: navigation, page: () => const CustomNavBar()),
 
     //Home and Inner Screens
-    GetPage(name: homeScreen, page: () => const HomeScreen()),
+    //GetPage(name: homeScreen, page: () =>  HomeScreen(image: "")),
     GetPage(name: searchScreen, page: () => const SearchScreen()),
     GetPage(name: addCarsScreens, page: () => const AddCarsScreen()),
     GetPage(name: addCarsDocument, page: () => const AddCarDocuments()),

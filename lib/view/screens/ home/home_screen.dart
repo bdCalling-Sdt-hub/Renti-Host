@@ -21,7 +21,8 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 import '../../../service/api_service.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+   const HomeScreen({super.key, required this.image});
+   final String image;
 
   @override
   State<HomeScreen> createState() => _PendingApprovalScreenState();
@@ -34,8 +35,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(HomeCarListRepo(apiService: Get.find()));
-    var homeCarListController =
-        Get.put(HomeCarListController(homeCarListRepo: Get.find()));
+    var homeCarListController = Get.put(HomeCarListController(homeCarListRepo: Get.find()));
 
     Get.put(ProfileRepo(apiService: Get.find()));
     homeCarListController.homeCarList();
@@ -52,8 +52,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  var img2 =
-      "https://github.com/rafsanopi/Weather/assets/45880457/3530ca44-cb33-4fe5-8751-9c5584a860a2";
+  var img2 = "https://github.com/rafsanopi/Weather/assets/45880457/3530ca44-cb33-4fe5-8751-9c5584a860a2";
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +69,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         child: Scaffold(
           backgroundColor: AppColors.whiteLight,
           key: scaffoldKey,
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           drawer: const CustomDrawer(),
           appBar: CustomAppBar(
             appBarContent: Row(
@@ -121,7 +119,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(25),
                     child: CachedNetworkImage(
                       fit: BoxFit.fill,
-                      imageUrl: profileController.img,
+                      imageUrl: widget.image,
                       placeholder: (context, url) =>
                           const CircularProgressIndicator(),
                       errorWidget: (context, url, error) =>
@@ -136,8 +134,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
             builder: (BuildContext context, BoxConstraints constraints) {
               return SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -207,9 +204,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         ],
                       ),
                     if (homeCarListModel.totalCar! > 0)
-                      HomeCarList(
-                        homeCarListModel: homeCarListModel,
-                      )
+                      HomeCarList(homeCarListModel: homeCarListModel)
                   ],
                 ),
               );

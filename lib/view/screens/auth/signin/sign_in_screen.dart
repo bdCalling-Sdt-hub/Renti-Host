@@ -56,8 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   )
                 : LayoutBuilder(
-                    builder:
-                        (BuildContext context, BoxConstraints constraints) =>
+                    builder: (BuildContext context, BoxConstraints constraints) =>
                             CustomContainer(
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
@@ -74,8 +73,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 Get.toNamed(AppRoute.signUpScreen);
                               },
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 24),
+                                padding: const EdgeInsets.symmetric(vertical: 24),
                                 child: RichText(
                                   text: TextSpan(
                                     text: AppStaticStrings.haveAnAccount,
