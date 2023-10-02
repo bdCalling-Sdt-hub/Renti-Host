@@ -3,12 +3,12 @@ import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/service/api_service.dart';
 
-class ProfileRepo {
+class ReviewRepo {
   ApiService apiService;
-  ProfileRepo({required this.apiService});
+  ReviewRepo({required this.apiService});
 
-  Future<ApiResponseModel> profileRepo() async {
-    String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.profile}";
+  Future<ApiResponseModel> reviewRepo() async {
+    String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.reviewGet}";
     String requestMethod = ApiResponseMethod.getMethod;
 
     ApiResponseModel responseModel =

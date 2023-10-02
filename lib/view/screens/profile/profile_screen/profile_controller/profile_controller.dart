@@ -16,21 +16,20 @@ class ProfileController extends GetxController {
     super.onInit();
   }
 
+  String img = "";
   ProfileModel profileModel = ProfileModel();
 
-  bool isloading = false;
+  bool isloading = true;
   Future<void> profile() async {
-    isloading = true;
-    update();
-    ApiResponseModel responseModel = await profileRepo.privacyPolicy();
+    ApiResponseModel responseModel = await profileRepo.profileRepo();
 
     if (responseModel.statusCode == 200) {
-      profileModel = ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
+      profileModel =
+          ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
+      img = profileModel.user!.image.toString();
       isloading = false;
       update();
     } else {
-      isloading = false;
-      update();
       Utils.toastMessage(responseModel.message);
     }
   }
