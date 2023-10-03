@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,6 @@ import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_controller/edit_profile_controller.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
-import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -65,17 +65,28 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
-                              Container(
-                                height: 150,
-                                width: double.infinity - 40,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                          img,
-                                        ),
-                                        fit: BoxFit.contain)),
-                              ),
+                              controller.imageFile == null
+                                  ? Container(
+                                      height: 150,
+                                      width: double.infinity - 40,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                              image: NetworkImage(
+                                                img,
+                                              ),
+                                              fit: BoxFit.contain)),
+                                    )
+                                  : Container(
+                                      height: 150,
+                                      width: double.infinity - 40,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                              image: FileImage(File(
+                                                  controller.imageFile!.path)),
+                                              fit: BoxFit.contain)),
+                                    ),
                               Align(
                                 alignment: Alignment.bottomCenter,
                                 child: GestureDetector(
@@ -220,10 +231,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: CustomElevatedButton(
                 onPressed: () {
                   controller.editProfile();
-                  final profileController = Get.find<ProfileController>();
-                  profileController.profile();
-
-                  Get.back();
                 },
                 titleText: AppStaticStrings.save),
           ),
