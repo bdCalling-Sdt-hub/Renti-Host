@@ -1,10 +1,28 @@
+import 'dart:io';
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 
 class EditProfileController extends GetxController {
+  File? imageFile;
+  final imagePicker = ImagePicker();
+  void openGallery() async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxHeight: 120,
+      maxWidth: 120,
+    );
+
+    if (pickedFile != null) {
+      imageFile = File(pickedFile.path);
+      update();
+    }
+  }
+
   EditProfileRepo editProfileRepo;
   EditProfileController({required this.editProfileRepo});
   TextEditingController emailController = TextEditingController();

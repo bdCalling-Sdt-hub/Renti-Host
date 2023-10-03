@@ -9,20 +9,22 @@ import 'package:image_picker/image_picker.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_repo/sign_up_repo.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_response_model/sign_up_response_model.dart';
 import 'package:flutter/foundation.dart';
 
 class SignUpController extends GetxController {
   SignUpRepo signUpRepo;
+
   SignUpController({required this.signUpRepo});
 
   bool isSubmit = false;
 
   TextEditingController fullNameController =
-      TextEditingController(text: kReleaseMode ? "" : "Md Babul Mirdha");
+      TextEditingController(text: kReleaseMode ? "" : "Rafsan");
   TextEditingController emailController =
-      TextEditingController(text: kReleaseMode ? "" : "babumirdha11@gm.com");
+      TextEditingController(text: kReleaseMode ? "" : "r11@gm.com");
   TextEditingController dateController =
       TextEditingController(text: kReleaseMode ? "" : "03/10/2023");
   TextEditingController monthController =
@@ -151,23 +153,32 @@ class SignUpController extends GetxController {
   }
 
   void removeIneOrPassportFile() {
-    uploadINEOrPassport = null;
-    ineOrPassportFileName = "";
-    kycDocFiles.removeAt(0);
+    if (kycDocFiles.contains(uploadINEOrPassport)) {
+      kycDocFiles.remove(uploadINEOrPassport);
+      uploadINEOrPassport = null;
+      ineOrPassportFileName = "";
+    }
+
     update();
   }
 
   void removeTaxStampsFile() {
-    uploadTaxStampsKey = null;
-    taxStampKeyFileName = "";
-    kycDocFiles.removeAt(1);
+    if (kycDocFiles.contains(uploadTaxStampsKey)) {
+      kycDocFiles.remove(uploadTaxStampsKey);
+      uploadTaxStampsKey = null;
+      taxStampKeyFileName = "";
+    }
+
+    // kycDocFiles.removeAt(1);
     update();
   }
 
   void removeTaxCerStampsFile() {
-    uploadCerStampsKey = null;
-    cerStampKeyFileName = "";
-    kycDocFiles.removeAt(2);
+    if (kycDocFiles.contains(uploadCerStampsKey)) {
+      kycDocFiles.remove(uploadCerStampsKey);
+      cerStampKeyFileName = "";
+      uploadCerStampsKey = null;
+    }
     update();
   }
 
@@ -176,8 +187,11 @@ class SignUpController extends GetxController {
   String? imageUrl;
 
   void openGallery() async {
-    final pickedFile = await ImagePicker()
-        .pickImage(source: ImageSource.gallery, maxHeight: 120, maxWidth: 120);
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxHeight: 120,
+      maxWidth: 120,
+    );
 
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
@@ -258,10 +272,9 @@ class SignUpController extends GetxController {
       var response = await request.send();
 
       if (response.statusCode == 201) {
-        print('Files uploaded successfully');
+        Get.toNamed(AppRoute.kycNumberVerification);
       } else {
-        print('File upload failed with status code: ${response.statusCode}');
-        print('Response body: ${response.stream.bytesToString()}');
+        Utils.toastMessage("Somethings went wrong ${response.statusCode}");
       }
     } catch (e, s) {
       print('Error sending request: $e');

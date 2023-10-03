@@ -62,20 +62,26 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Center(
-                            child: Stack(
-                              children: [
-                                Container(
-                                  decoration: const BoxDecoration(
-                                      shape: BoxShape.circle),
-                                  child: const CustomImage(
-                                      imageSrc: AppImages.profileImage,
-                                      imageType: ImageType.png,
-                                      size: 100),
-                                ),
-                                Positioned(
-                                  bottom: 0,
-                                  right: 0,
+                          Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              Container(
+                                height: 150,
+                                width: double.infinity - 40,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                          img,
+                                        ),
+                                        fit: BoxFit.contain)),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    controller.openGallery();
+                                  },
                                   child: Container(
                                     padding: const EdgeInsets.all(6),
                                     decoration: const BoxDecoration(
@@ -86,9 +92,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         size: 24),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
+
                           //Name and TextField
                           const CustomText(
                               text: AppStaticStrings.name1,

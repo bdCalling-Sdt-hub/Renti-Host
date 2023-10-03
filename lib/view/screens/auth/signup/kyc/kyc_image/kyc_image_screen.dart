@@ -56,6 +56,7 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                 physics: const BouncingScrollPhysics(),
                 child: GestureDetector(
                     onTap: () {
@@ -100,17 +101,15 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
                             ],
                           )
                         : Container(
-                            height: 350,
+                            height: 150,
                             width: double.infinity - 40,
-                            decoration:
-                                const BoxDecoration(shape: BoxShape.circle),
-                            child: ClipOval(
-                              child: Image.file(
-                                controller.imageFile!,
-                                fit: BoxFit
-                                    .cover, // Set BoxFit to cover to maintain aspect ratio and fill the circular area
-                              ),
-                            ),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: FileImage(
+                                      controller.imageFile!,
+                                    ),
+                                    fit: BoxFit.contain)),
                           )),
               ),
             ),
@@ -120,7 +119,6 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
             child: CustomElevatedButton(
                 onPressed: () {
                   controller.uploadMultipleFilesAndParams();
-                  Get.toNamed(AppRoute.kycNumberVerification);
                 },
                 titleText: AppStaticStrings.continuee),
           ),
