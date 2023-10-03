@@ -50,9 +50,7 @@ class _SupportScreenState extends State<SupportScreen> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 24),
                     child: Html(
-                      data:
-                          controller.supportModel.support!.content.toString() ??
-                              "",
+                      data: controller.supportModel.support!.content.toString(),
                     )),
           );
         }),
