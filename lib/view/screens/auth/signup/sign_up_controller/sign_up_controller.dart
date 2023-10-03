@@ -11,6 +11,7 @@ import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_repo/sign_up_repo.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_response_model/sign_up_response_model.dart';
+import 'package:flutter/foundation.dart';
 
 class SignUpController extends GetxController {
   SignUpRepo signUpRepo;
@@ -18,20 +19,34 @@ class SignUpController extends GetxController {
 
   bool isSubmit = false;
 
-  TextEditingController fullNameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController dateController = TextEditingController();
-  TextEditingController monthController = TextEditingController();
-  TextEditingController yearController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-  TextEditingController creditCardNumberController = TextEditingController();
-  TextEditingController expireDateController = TextEditingController();
-  TextEditingController cvvController = TextEditingController();
-  TextEditingController ineNumberController = TextEditingController();
-  TextEditingController rfcController = TextEditingController();
+  TextEditingController fullNameController =
+      TextEditingController(text: kReleaseMode ? "" : "Md Babul Mirdha");
+  TextEditingController emailController =
+      TextEditingController(text: kReleaseMode ? "" : "babumirdha11@gm.com");
+  TextEditingController dateController =
+      TextEditingController(text: kReleaseMode ? "" : "03/10/2023");
+  TextEditingController monthController =
+      TextEditingController(text: kReleaseMode ? "" : "10");
+  TextEditingController yearController =
+      TextEditingController(text: kReleaseMode ? "" : "2023");
+  TextEditingController passwordController =
+      TextEditingController(text: kReleaseMode ? "" : "123456");
+  TextEditingController confirmPasswordController =
+      TextEditingController(text: kReleaseMode ? "" : "123456");
+  TextEditingController phoneNumberController =
+      TextEditingController(text: kReleaseMode ? "" : "01998078388");
+  TextEditingController addressController =
+      TextEditingController(text: kReleaseMode ? "" : "Dhaka");
+  TextEditingController creditCardNumberController =
+      TextEditingController(text: kReleaseMode ? "" : "1234567890");
+  TextEditingController expireDateController =
+      TextEditingController(text: kReleaseMode ? "" : "2023");
+  TextEditingController cvvController =
+      TextEditingController(text: kReleaseMode ? "" : "123");
+  TextEditingController ineNumberController =
+      TextEditingController(text: kReleaseMode ? "" : "11");
+  TextEditingController rfcController =
+      TextEditingController(text: kReleaseMode ? "" : "11");
 
   List<String> genderList = ["Male", "Female", "Others"];
   int selectedGender = 0;
@@ -95,9 +110,11 @@ class SignUpController extends GetxController {
 
     if (result != null && result.files.isNotEmpty) {
       uploadINEOrPassport = File(result.files.single.path.toString());
-      ineOrPassportFileName = result.files.single.name;
+      // ineOrPassportFileName = result.files.single.name;
 
       kycDocFiles.add(uploadINEOrPassport!);
+      print(kycDocFiles);
+
       update();
     }
   }
@@ -112,6 +129,7 @@ class SignUpController extends GetxController {
       uploadTaxStampsKey = File(result.files.single.path.toString());
       taxStampKeyFileName = result.files.single.name;
       kycDocFiles.add(uploadTaxStampsKey!);
+      print(kycDocFiles);
       update();
     }
   }
@@ -126,6 +144,8 @@ class SignUpController extends GetxController {
       uploadCerStampsKey = File(result.files.single.path.toString());
       cerStampKeyFileName = result.files.single.name;
       kycDocFiles.add(uploadCerStampsKey!);
+      print(kycDocFiles);
+
       update();
     }
   }
@@ -186,14 +206,14 @@ class SignUpController extends GetxController {
       // Add the KYC files to the request
       for (var file in kycDocFiles) {
         if (file.existsSync()) {
-          var fileBytes = await file.readAsBytes(); // Read file as bytes
-          var multipartFile = http.MultipartFile.fromBytes(
-            'KYC[]', // Use 'KYC[]' to indicate multiple files with the same field name
-            fileBytes,
-            filename: 'kyc.pdf', // Provide a filename for the uploaded PDF
-            contentType: MediaType('application', 'pdf'), // Set content type
-          );
-          request.files.add(multipartFile);
+          try {
+            var multipartFile = await http.MultipartFile.fromPath(
+                'KYC', file.path,
+                contentType: MediaType('application', 'pdf'));
+            request.files.add(multipartFile);
+          } on Exception catch (e) {
+            print("Error is :${e.toString()}");
+          }
         } else {
           print('File does not exist: ${file.path}');
           // Handle the missing file gracefully, e.g., skip it or show an error message.
@@ -202,14 +222,15 @@ class SignUpController extends GetxController {
 
       // Add the image file to the request
       if (imageFile != null && imageFile!.existsSync()) {
-        var imageBytes = await imageFile!.readAsBytes(); // Read image as bytes
-        var img = http.MultipartFile.fromBytes(
-          'image',
-          imageBytes,
-          filename: 'image.jpg', // Provide a filename for the uploaded image
-          contentType: MediaType('image', 'jpeg'), // Set content type
-        );
-        request.files.add(img);
+        try {
+          var img = await http.MultipartFile.fromPath('image', imageFile!.path,
+              contentType: MediaType('image', 'jpeg'));
+
+          request.files.add(img);
+        } on Exception catch (e) {
+          print('Error adding image file to request: $e');
+          // Handle the error gracefully, e.g., show an error message to the user.
+        }
       }
 
       // Add the parameters to the request
@@ -222,11 +243,16 @@ class SignUpController extends GetxController {
         "dateOfBirth":
             "${dateController.text}/${monthController.text}/${yearController.text}",
         "password": passwordController.text,
-        "ineNumber": ineNumberController.text,
+        "ine": ineNumberController.text,
         "RFC": rfcController.text,
+        "role": "host"
       };
 
-      request.fields.addAll(params);
+      params.forEach((key, value) {
+        request.fields[key] = value;
+      });
+
+      request.headers['Content-Type'] = 'multipart/form-data';
 
       // Send the request
       var response = await request.send();
@@ -235,10 +261,11 @@ class SignUpController extends GetxController {
         print('Files uploaded successfully');
       } else {
         print('File upload failed with status code: ${response.statusCode}');
-        print('Response body: ${await response.stream.bytesToString()}');
+        print('Response body: ${response.stream.bytesToString()}');
       }
-    } catch (e) {
+    } catch (e, s) {
       print('Error sending request: $e');
+      print('Error s: $s');
     }
   }
 }
