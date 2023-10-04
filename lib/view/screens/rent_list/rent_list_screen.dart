@@ -38,12 +38,6 @@ class _RentListScreenState extends State<RentListScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<RentListController>(
       builder: (controller) {
-        RentListModel rentListModel = controller.rentListModel;
-        if (controller.isLoading == true) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
         return SafeArea(
           top: true,
           child: Scaffold(
@@ -53,70 +47,86 @@ class _RentListScreenState extends State<RentListScreen> {
                   text: AppStaticStrings.rentList,
                   color: AppColors.blackNormal),
             ),
-            body: LayoutBuilder(
-              builder: (context, constraint) {
-                return SingleChildScrollView(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                      vertical: 24, horizontal: 20),
-                  child: Column(
-                    children: List.generate(
-                      rentListModel.rentedCars!.length,
-                      (index) => rentListModel.rentedCars![index].requestStatus.toString() != "Completed" &&
-                              rentListModel.rentedCars![index].payment.toString() != "Completed" &&
-                              rentListModel.rentedCars![index].requestStatus.toString() != "Rejected" &&
-                              rentListModel.rentedCars![index].requestStatus.toString() == "Accepted"
-                          ? GestureDetector(
-                              onTap: () => showDialog(
-                                context: context,
-                                builder: (BuildContext context) =>
-                                    RentDetailsAlert(
-                                  index: index,
-                                  rentListModel: rentListModel,
-                                ),
-                              ),
-                              child: Container(
-                                padding: const EdgeInsetsDirectional.all(8),
-                                margin:
-                                    const EdgeInsetsDirectional.only(bottom: 8),
-                                decoration: BoxDecoration(
-                                  color: AppColors.whiteLight,
-                                  borderRadius: BorderRadius.circular(8),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: AppColors.shadowColor,
-                                      blurRadius: 10,
-                                      offset: Offset(0, 1),
+            body: GetBuilder<RentListController>(
+              builder: (controller) {
+                RentListModel rentListModel = controller.rentListModel;
+                if (controller.isLoading == true) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                return LayoutBuilder(
+                  builder: (context, constraint) {
+                    return SingleChildScrollView(
+                      padding: const EdgeInsetsDirectional.symmetric(
+                          vertical: 24, horizontal: 20),
+                      child: Column(
+                        children: List.generate(
+                          rentListModel.rentedCars!.length,
+                          (index) => rentListModel.rentedCars![index].requestStatus.toString() != "Completed" &&
+                                  rentListModel.rentedCars![index].payment.toString() != "Completed" &&
+                                  rentListModel.rentedCars![index].requestStatus.toString() != "Rejected" &&
+                                  rentListModel.rentedCars![index].requestStatus.toString() == "Accepted" &&
+                              rentListModel.rentedCars![index].carId != null
+                              ? GestureDetector(
+                                  onTap: () => showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        RentDetailsAlert(
+                                      index: index,
+                                      rentListModel: rentListModel,
                                     ),
-                                  ],
-                                ),
-                                child: RentDetailsTopSection(
-                                  image: rentListModel.rentedCars![index].userId!.image!.isEmpty ? AppImages.profileImage
-                                      : rentListModel.rentedCars![index].userId!.image
+                                  ),
+                                  child: Container(
+                                    padding: const EdgeInsetsDirectional.all(8),
+                                    margin: const EdgeInsetsDirectional.only(
+                                        bottom: 8),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.whiteLight,
+                                      borderRadius: BorderRadius.circular(8),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color: AppColors.shadowColor,
+                                          blurRadius: 10,
+                                          offset: Offset(0, 1),
+                                        ),
+                                      ],
+                                    ),
+                                    child: RentDetailsTopSection(
+                                      image: rentListModel.rentedCars![index]
+                                              .userId!.image!.isEmpty
+                                          ? AppImages.profileImage
+                                          : rentListModel
+                                              .rentedCars![index].userId!.image
+                                              .toString(),
+                                      carName: rentListModel
+                                          .rentedCars![index].userId!.fullName
                                           .toString(),
-                                  carName: rentListModel
-                                      .rentedCars![index].userId!.fullName
-                                      .toString(),
-                                  carModel: rentListModel
-                                      .rentedCars![index].carId!.year
-                                      .toString(),
-                                  requestStatus: rentListModel
-                                      .rentedCars![index].requestStatus
-                                      .toString(),
-                                  carLicense: rentListModel.rentedCars![index]
-                                      .carId!.carLicenseNumber
-                                      .toString(),
-                                  payment: rentListModel
-                                      .rentedCars![index].payment
-                                      .toString(),
-                                  tripStatus: rentListModel
-                                      .rentedCars![index].carId!.tripStatus
-                                      .toString(),
-                                ),
-                              ),
-                            )
-                          : const SizedBox(),
-                    ),
-                  ),
+                                      carModel: rentListModel
+                                          .rentedCars![index].carId!.year
+                                          .toString(),
+                                      requestStatus: rentListModel
+                                          .rentedCars![index].requestStatus
+                                          .toString(),
+                                      carLicense: rentListModel
+                                          .rentedCars![index]
+                                          .carId!
+                                          .carLicenseNumber
+                                          .toString(),
+                                      payment: rentListModel
+                                          .rentedCars![index].payment
+                                          .toString(),
+                                      tripStatus: rentListModel
+                                          .rentedCars![index].carId!.tripStatus
+                                          .toString(),
+                                    ),
+                                  ),
+                                )
+                              : const SizedBox(),
+                        ),
+                      ),
+                    );
+                  },
                 );
               },
             ),

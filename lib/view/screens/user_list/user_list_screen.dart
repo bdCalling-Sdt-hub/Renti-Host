@@ -53,8 +53,7 @@ class _UserListScreenState extends State<UserListScreen> {
             return LayoutBuilder(
               builder: (context, constraint) {
                 return const SingleChildScrollView(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                   child: UserDetails(),
                 );
               },

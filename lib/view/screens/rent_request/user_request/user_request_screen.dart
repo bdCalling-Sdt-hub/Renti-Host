@@ -22,8 +22,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(RentRequestRepo(apiService: Get.find()));
-    var controller =
-        Get.put(RentRequestController(rentRequestRepo: Get.find()));
+    var controller = Get.put(RentRequestController(rentRequestRepo: Get.find()));
     controller.rentRequest();
     super.initState();
   }
@@ -46,88 +45,80 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
               fontSize: 18,
               fontWeight: FontWeight.w600),
         ),
-        body: GetBuilder<RentRequestController>(builder: (controller) {
-          if (controller.isloading == true) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return LayoutBuilder(
-            builder: (context, constraint) {
-              return SingleChildScrollView(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                child: Column(
-                  children: List.generate(
-                    controller.rentRequestResponseModel.rentRequest!.length,
-                    (index) {
-                      String startDateString = controller
-                          .rentRequestResponseModel
-                          .rentRequest![index]
-                          .startDate
-                          .toString();
-
-                      String endDateString = controller
-                          .rentRequestResponseModel.rentRequest![index].endDate
-                          .toString();
-
-                      // Define a regular expression pattern to match the date part
-                      RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
-
-                      // Use the regular expression to extract the date part
-                      String formattedStartDate =
-                          datePattern.firstMatch(startDateString)?.group(0) ??
-                              '';
-                      String formattedEndDate =
-                          datePattern.firstMatch(endDateString)?.group(0) ?? '';
-
-                      return GestureDetector(
-                        onTap: () {
-                          Get.toNamed(AppRoute.userRequestDetails, arguments: [
-                            controller.rentRequestResponseModel,
-                            index,
-                          ]);
-                        },
-                        child: controller.rentRequestResponseModel
-                                    .rentRequest![index].requestStatus ==
-                                "Pending"
-                            ? Container(
-                                padding: const EdgeInsets.all(16),
-                                margin: const EdgeInsetsDirectional.only(
-                                    bottom: 24),
-                                decoration: BoxDecoration(
-                                  color: AppColors.whiteLight,
-                                  borderRadius: BorderRadius.circular(8),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: AppColors.shadowColor,
-                                      blurRadius: 10,
-                                      offset: Offset(0, 1),
-                                    ),
-                                  ],
-                                ),
-                                child: UserRequestCard(
-                                  id: controller.rentRequestResponseModel
-                                      .rentRequest![index].id
-                                      .toString(),
-                                  name: controller.rentRequestResponseModel
-                                      .rentRequest![index].userId!.fullName
-                                      .toString(),
-                                  endDate: formattedEndDate,
-                                  image: controller.rentRequestResponseModel
-                                      .rentRequest![index].userId!.image
-                                      .toString(),
-                                  startDate: formattedStartDate,
-                                ))
-                            : const SizedBox(),
-                      );
-                    },
-                  ),
-                ),
+        body: GetBuilder<RentRequestController>(
+          builder: (controller) {
+            if (controller.isloading == true) {
+              return const Center(
+                child: CircularProgressIndicator(),
               );
-            },
-          );
-        }),
+            }
+            return LayoutBuilder(
+              builder: (context, constraint) {
+                return SingleChildScrollView(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                  child: Column(
+                    children: List.generate(
+                      controller.rentRequestResponseModel.rentRequest!.length,
+                      (index) {
+                        String startDateString = controller.rentRequestResponseModel.rentRequest![index].startDate.toString();
+
+                        String endDateString = controller.rentRequestResponseModel.rentRequest![index].endDate.toString();
+
+                        // Define a regular expression pattern to match the date part
+                        RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
+
+                        // Use the regular expression to extract the date part
+                        String formattedStartDate = datePattern.firstMatch(startDateString)?.group(0) ?? '';
+                        String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
+
+                        return GestureDetector(
+                          onTap: () {
+                            Get.toNamed(AppRoute.userRequestDetails,
+                                arguments: [
+                                  controller.rentRequestResponseModel, index,
+                                ]);
+                          },
+                          child: controller.rentRequestResponseModel.rentRequest![index].requestStatus == "Pending"
+                              && controller.rentRequestResponseModel.rentRequest![index].carId == null
+                              ? Container(
+                                  padding: const EdgeInsets.all(16),
+                                  margin: const EdgeInsetsDirectional.only(bottom: 24),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.whiteLight,
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color: AppColors.shadowColor,
+                                        blurRadius: 10,
+                                        offset: Offset(0, 1),
+                                      ),
+                                    ],
+                                  ),
+                                  child: UserRequestCard(
+                                    id: controller.rentRequestResponseModel
+                                        .rentRequest![index].id
+                                        .toString(),
+                                    name: controller.rentRequestResponseModel
+                                        .rentRequest![index].userId!.fullName
+                                        .toString(),
+                                    endDate: formattedEndDate,
+                                    image: controller.rentRequestResponseModel
+                                        .rentRequest![index].userId!.image
+                                        .toString(),
+                                    startDate: formattedStartDate,
+                                  ),
+                                )
+                              : const SizedBox(),
+                        );
+                      },
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

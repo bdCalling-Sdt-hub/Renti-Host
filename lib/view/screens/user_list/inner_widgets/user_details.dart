@@ -56,52 +56,51 @@ class UserDetails extends StatelessWidget {
                     ],
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        flex: 3,
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 70,
-                              width: 70,
-                              margin: const EdgeInsets.only(right: 16),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                    controller.userList[index].userId!.image.toString(),
-                                  ),
-                                  fit: BoxFit.fill,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            margin: const EdgeInsets.only(right: 8),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  controller.userList[index].userId!.image.toString(),
                                 ),
+                                fit: BoxFit.fill,
                               ),
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CustomText(
-                                    text:controller.userList[index].userId!.fullName
-                                        .toString(),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    bottom: 8),
-                                 Row(
-                                  children: [
-                                    const CustomImage(
-                                      imageSrc: AppImages.starImage,
-                                      size: 12,
-                                    ),
-                                    CustomText(
-                                        text: "(${controller.userList[index].userId!.averageRatings.toString()})", fontSize: 10,left: 4)
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomText(
+                                  text:controller.userList[index].userId!.fullName.toString(),
+                                  fontSize: 18,maxLines: 2,
+                                  fontWeight: FontWeight.w500,
+                                  bottom: 8),
+
+                               controller.userList[index].userId!.averageRatings != null ?
+                               Row(
+                                children: [
+                                  const CustomImage(
+                                    imageSrc: AppImages.starImage,
+                                    size: 12,
+                                  ),
+                                  CustomText(text: "(${controller.userList[index].userId!.averageRatings.toString()})", fontSize: 10,left: 4)
+                                ],
+                              ) : const SizedBox(),
+                            ],
+                          ),
+                        ],
                       ),
+
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -118,7 +117,8 @@ class UserDetails extends StatelessWidget {
                               color: AppColors.greenNormal,
                               fontSize: 10,
                             ) :
-                            const CustomText(
+                               // controller.userList[index].carId!.tripStatus == "Start"?
+                            CustomText(
                               text: "Reserved",
                               color: AppColors.redNormal,
                               fontSize: 10,
