@@ -28,8 +28,7 @@ class HomeCarListModel {
         totalCar: json["totalCar"],
         activeCar: json["activeCar"],
         reservedCar: json["reservedCar"],
-        cars: json["cars"] == null
-            ? []
+        cars: json["cars"] == null ? []
             : List<Car>.from(json["cars"]!.map((x) => Car.fromJson(x))),
         pagination: json["pagination"] == null
             ? null
@@ -51,7 +50,7 @@ class HomeCarListModel {
 class Car {
   String? id;
   String? carModelName;
-  dynamic image;
+  dynamic ?image;
   int? year;
   String? carLicenseNumber;
   String? carDescription;

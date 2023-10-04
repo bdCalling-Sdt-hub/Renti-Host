@@ -10,16 +10,25 @@ class CardDetailsController extends GetxController {
   CardDetailsRepo cardDetailsRepo;
   CardDetailsController({required this.cardDetailsRepo});
 
+  bool isLoading = false;
+  CardDetailsModel cardDetailsModel = CardDetailsModel();
+
   Future<CardDetailsModel> cardDetails() async {
+    isLoading = true;
+    update();
+
     ApiResponseModel responseModel = await cardDetailsRepo.cardDetails();
-    CardDetailsModel cardDetailsModel; // Define the variable here
 
     if (responseModel.statusCode == 200) {
       cardDetailsModel = CardDetailsModel.fromJson(jsonDecode(responseModel.responseJson));
+      isLoading = false;
+      update();
       if (kDebugMode) {
         print("$cardDetailsModel");
       }
     } else {
+      isLoading = false;
+      update();
       Utils.toastMessage(responseModel.message);
       // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
       return CardDetailsModel(); // Return a default value or handle the error accordingly.

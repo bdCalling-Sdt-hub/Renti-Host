@@ -137,8 +137,7 @@ class _CarListScreenState extends State<CarListScreen> {
                                             .toString(),
                                         fontSize: 12),
                                     CustomText(
-                                        text: homeCarModel.cars![index].year
-                                            .toString(),
+                                        text: homeCarModel.cars![index].year.toString(),
                                         fontSize: 10,
                                         color: AppColors.whiteDarkActive),
                                     CustomText(

@@ -110,6 +110,7 @@ class AppStaticStrings {
   static const String userName = "John Doe";
   static const String userPhone = "+5237455372562";
   static const String addCar = "Add Car";
+  static const String addCarDocument = "Add Car Documents";
   static const String carList = "Car List";
   static const String userList = "User List";
   static const String rentList = "Rent List";
@@ -153,11 +154,11 @@ class AppStaticStrings {
   static const String startDate1 = "Start Date: ";
   static const String endDate = "End";
   static const String endDate1 = "End Date: ";
-  static const String addCarList = "1. Upload car license\n"
-      "2. Upload car insurance Policy\n"
-      "3. Upload circulation card\n"
-      "4. Upload car invoice\n"
-      "5. Upload REPUVE (non theft report)";
+  static const String addCarLic = "1. Upload car license";
+  static const String addCarIncPolicy = "2. Upload car insurance Policy";
+  static const String addCirculation = "3. Upload circulation card";
+  static const String addCarInvoice = "4. Upload car invoice";
+  static const String addCarRepuve = "5. Upload REPUVE (non theft report)";
 
   //Add Cars Special Screen All String
   static const String specialCharacteristics = "Special Characteristics";

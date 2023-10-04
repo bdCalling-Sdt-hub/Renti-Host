@@ -24,8 +24,7 @@ class ProfileController extends GetxController {
     ApiResponseModel responseModel = await profileRepo.profileRepo();
 
     if (responseModel.statusCode == 200) {
-      profileModel =
-          ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
+      profileModel = ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
       img = profileModel.user!.image.toString();
       isloading = false;
       update();

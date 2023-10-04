@@ -12,7 +12,6 @@ import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
-
 class PaymentMethodScreen extends StatefulWidget {
   const PaymentMethodScreen({super.key});
 
@@ -21,12 +20,12 @@ class PaymentMethodScreen extends StatefulWidget {
 }
 
 class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
-
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(CardDetailsRepo(apiService: Get.find()));
-    var controller = Get.put(CardDetailsController(cardDetailsRepo:  Get.find()));
+    var controller =
+        Get.put(CardDetailsController(cardDetailsRepo: Get.find()));
     controller.cardDetails();
     super.initState();
   }
@@ -48,82 +47,102 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               text: AppStaticStrings.paymentMethod,
               color: AppColors.blackNormal),
         ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                children: List.generate(
-                  4,
-                  (index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: InkWell(
-                        onTap: () {
-                          Get.toNamed(AppRoute.cardDetailsScreen);
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                  color: AppColors.whiteNormalActive, width: 1)),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  CustomImage(
-                                    imageSrc: AppImages.debitCardImage,
-                                    size: 40,
+        body: GetBuilder<CardDetailsController>(
+          builder: (controller) {
+            if (controller.isLoading == true) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            return SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  controller.cardDetailsModel.card!.length == 0
+                      ? Column(
+                          children: List.generate(
+                            controller.cardDetailsModel.card!.length,
+                            (index) {
+                              return Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.toNamed(AppRoute.cardDetailsScreen);
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(
+                                          color: AppColors.whiteNormalActive,
+                                          width: 1),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            CustomImage(
+                                              imageSrc:
+                                                  AppImages.debitCardImage,
+                                              size: 40,
+                                            ),
+                                            CustomText(
+                                              text: 'Debit Card',
+                                              fontSize: 16,
+                                              left: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ],
+                                        ),
+                                        Icon(Icons.arrow_forward_ios,
+                                            size: 16,
+                                            color: AppColors.blackNormal),
+                                      ],
+                                    ),
                                   ),
-                                  CustomText(
-                                    text: 'Debit Card',
-                                    fontSize: 16,
-                                    left: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ],
-                              ),
-                              Icon(Icons.arrow_forward_ios,
-                                  size: 16, color: AppColors.blackNormal),
-                            ],
+                                ),
+                              );
+                            },
                           ),
+                        )
+                      : const SizedBox(),
+                  const SizedBox(height: 24),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(AppRoute.addNewCardScreen);
+                    },
+                    child: const Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.add_circle_outline,
+                          color: AppColors.blueNormal,
+                          size: 24,
                         ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(height: 24),
-              GestureDetector(
-                onTap: () {
-                  Get.toNamed(AppRoute.addNewCardScreen);
-                },
-                child: const Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Icon(
-                      Icons.add_circle_outline,
-                      color: AppColors.blueNormal,
-                      size: 24,
+                        CustomText(
+                          text: AppStaticStrings.addNew,
+                          color: AppColors.blueNormal,
+                          fontSize: 18,
+                          left: 8,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ],
                     ),
-                    CustomText(
-                      text: AppStaticStrings.addNew,
-                      color: AppColors.blueNormal,
-                      fontSize: 18,left: 8,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );

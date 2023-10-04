@@ -9,13 +9,11 @@ class RentListRepo {
 
   Future<ApiResponseModel> rentList() async {
     //Rent Request Url
-    String uri =
-        "${ApiUrlContainer.baseUrl}${ApiUrlContainer.rentAccerpAndReject}";
+    String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.rentList}";
     //Rent Request Method
     String requestMethod = ApiResponseMethod.getMethod;
     //Sent Request by using ApiResponseModel and send header Authorization
-    ApiResponseModel responseModel =
-        await apiService.request(uri, requestMethod, null, passHeader: true);
+    ApiResponseModel responseModel = await apiService.request(uri, requestMethod, null, passHeader: true);
     //Return The Response
     return responseModel;
   }

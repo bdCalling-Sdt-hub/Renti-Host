@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/view/screens/%20home/home_screen.dart';
@@ -17,16 +18,16 @@ class CustomNavBar extends StatefulWidget {
 
 class _CustomNavBarState extends State<CustomNavBar> {
   int selectedIndex = 0;
-
-  static const List<Widget> screens = <Widget>[
-    HomeScreen(),
-    UserRequestScreen(),
-    MessageScreen(),
-    ProfileScreen()
-  ];
+  final String image = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> screens = <Widget>[
+      HomeScreen(image: image),
+      UserRequestScreen(),
+      MessageScreen(),
+      ProfileScreen()
+    ];
     List<Widget> manuBarItems = [
       MenuBarItems(
           text: "Home",

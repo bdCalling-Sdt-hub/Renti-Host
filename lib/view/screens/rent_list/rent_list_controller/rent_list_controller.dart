@@ -10,17 +10,28 @@ class RentListController extends GetxController {
   RentListRepo rentListRepo;
   RentListController({required this.rentListRepo});
 
+  bool isLoading = false;
+
+  RentListModel rentListModel = RentListModel();
+
   Future<RentListModel> rentList() async {
+    isLoading = true;
+    update();
     ApiResponseModel responseModel = await rentListRepo.rentList();
-    RentListModel rentListModel; // Define the variable here
+    // Define the variable here
 
     if (responseModel.statusCode == 200) {
       rentListModel = RentListModel.fromJson(jsonDecode(responseModel.responseJson));
+      isLoading = false;
+      update();
       if (kDebugMode) {
         print("$rentListModel");
       }
     } else {
+      isLoading = false;
+      update();
       Utils.toastMessage(responseModel.message);
+
       // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
       return RentListModel(); // Return a default value or handle the error accordingly.
     }

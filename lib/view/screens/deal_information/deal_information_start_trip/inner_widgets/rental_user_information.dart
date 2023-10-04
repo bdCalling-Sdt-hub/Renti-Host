@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/rent_list/rent_list_model/rent_list_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class RentalUserInformation extends StatelessWidget {
-  const RentalUserInformation({super.key});
+  const RentalUserInformation({super.key, required this.rentListModel, required this.index});
+
+  final RentListModel rentListModel;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(
+        const CustomText(
             text: AppStaticStrings.userInformation,
             fontSize: 16,
             fontWeight: FontWeight.w500,
@@ -20,33 +24,33 @@ class RentalUserInformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomText(
+            const CustomText(
                 text: AppStaticStrings.name,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
-                text: "Ahmed",
+                text: rentListModel.rentedCars![index].userId!.fullName.toString(),
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomText(
+            const CustomText(
                 text: AppStaticStrings.iNE,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
-                text: "123456789",
+                text: rentListModel.rentedCars![index].userId!.ine.toString(),
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],
         ),
-        SizedBox(height: 8),
-        Row(
+        const SizedBox(height: 8),
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -60,17 +64,17 @@ class RentalUserInformation extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ],
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomText(
+            const CustomText(
                 text: AppStaticStrings.pickUpLocation,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
-                text: "Mexico",
+                text: rentListModel.rentedCars![index].hostId!.address.toString(),
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],

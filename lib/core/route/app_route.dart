@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:renti_host/view/screens/%20home/home_screen.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_documents/add_car_documents.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/add_car_screen.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_specification/add_car_specification_screen.dart';
 import 'package:renti_host/view/screens/admin_info/admin_info_screen.dart';
@@ -67,6 +67,7 @@ class AppRoute {
   static const String homeScreen = "/home_screen";
   static const String searchScreen = "/search_screen";
   static const String addCarsScreens = "/add_cars_screen";
+  static const String addCarsDocument = "/add_car_documents";
   static const String addCarSpecialScreens = "/add_car_special_screen";
   static const String seeAllCarList = "/car_list_screen";
   static const String carDetailsScreen = "/car_details_screen";
@@ -128,11 +129,11 @@ class AppRoute {
     GetPage(name: navigation, page: () => const CustomNavBar()),
 
     //Home and Inner Screens
-    GetPage(name: homeScreen, page: () => const HomeScreen()),
+    //GetPage(name: homeScreen, page: () =>  HomeScreen(image: "")),
     GetPage(name: searchScreen, page: () => const SearchScreen()),
     GetPage(name: addCarsScreens, page: () => const AddCarsScreen()),
-    GetPage(
-        name: addCarSpecialScreens, page: () => const AddCarSpecialScreen()),
+    GetPage(name: addCarsDocument, page: () => const AddCarDocuments()),
+    GetPage(name: addCarSpecialScreens, page: () => const AddCarSpecialScreen()),
     GetPage(name: seeAllCarList, page: () => const CarListScreen()),
     GetPage(name: carDetailsScreen, page: () => const CarDetailsScreen()),
     GetPage(name: userListScreen, page: () => const UserListScreen()),

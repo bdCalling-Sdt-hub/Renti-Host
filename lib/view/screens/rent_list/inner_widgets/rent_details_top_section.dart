@@ -5,19 +5,22 @@ import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class RentDetailsTopSection extends StatelessWidget {
-  const RentDetailsTopSection(
-      {super.key,
-      required this.image,
-      required this.carName,
-      required this.carModel,
-      required this.status,
-      required this.carLicense});
+   const RentDetailsTopSection({super.key,
+    required this.image,
+    required this.carName,
+    required this.carModel,
+    required this.requestStatus,
+    required this.carLicense,
+    required this.payment,
+    required this.tripStatus});
 
   final String image;
   final String carName;
   final String carModel;
-  final String status;
+  final String requestStatus;
   final String carLicense;
+  final String payment;
+  final String tripStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +37,7 @@ class RentDetailsTopSection extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                    image: AssetImage(
-                      image,
-                    ),
+                    image: NetworkImage(image),
                     fit: BoxFit.fill),
               ),
             ),
@@ -97,20 +98,29 @@ class RentDetailsTopSection extends StatelessWidget {
             ),
           ],
         ),
+        tripStatus == "Pending" ?
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           margin: const EdgeInsets.only(bottom: 8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: status == "Reserved"
-                ? AppColors.redLight
-                : AppColors.greenLight,
+            color:  AppColors.greenLight
           ),
-          child: CustomText(
-            text: status,
-            color: status == "Reserved"
-                ? AppColors.redNormal
-                : AppColors.greenNormal,
+          child: const CustomText(
+            text: AppStaticStrings.active,
+            color: AppColors.greenNormal,
+            fontSize: 10,
+          ),
+        ) :  Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+          margin: const EdgeInsets.only(bottom: 8),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              color:  AppColors.redLight
+          ),
+          child: const CustomText(
+            text: AppStaticStrings.reserved,
+            color: AppColors.redNormal,
             fontSize: 10,
           ),
         ),

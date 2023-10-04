@@ -1,11 +1,10 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_data/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_body_section.dart';
-import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_bottom_section.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -26,7 +25,6 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        extendBody: true,
         // App Bar
         appBar: const CustomAppBar(
           appBarContent: CustomBack(
@@ -39,7 +37,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DottedBorder(
+              /*DottedBorder(
                 padding: const EdgeInsets.all(0),
                 borderType: BorderType.RRect,
                 radius: const Radius.circular(8),
@@ -78,25 +76,23 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                 buttonWidth: double.maxFinite,
                 buttonHeight: 48,
                 buttonBorderColor: AppColors.blueNormal,
-              ),
+              ),*/
 
               /*CarImageSection(),*/
 
               const AddCarBodySection(),
               const SizedBox(height: 16),
-              const AddCarBottomSection()
+              CustomElevatedButton(
+                onPressed: () {
+                  Get.toNamed(AppRoute.addCarsDocument);
+                },
+                buttonHeight: 52,
+                buttonWidth: double.infinity,
+                titleText: AppStaticStrings.continuee,
+              ),
             ],
           ),
-        ),
-
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-          child: CustomElevatedButton(
-              onPressed: () {
-                Get.toNamed(AppRoute.addCarSpecialScreens);
-              },
-              titleText: AppStaticStrings.continuee),
-        ),
+        )
       ),
     );
   }

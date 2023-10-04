@@ -20,6 +20,7 @@ class AddCarSpecialScreen extends StatefulWidget {
 
 class _CarDetailsState extends State<AddCarSpecialScreen> {
   bool isClicked = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,36 +28,57 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
         extendBody: true,
-        appBar: const CustomAppBar(appBarContent: CustomBack(text: AppStaticStrings.addCar,color: AppColors.blackNormal),),
+        appBar: const CustomAppBar(
+          appBarContent: CustomBack(
+              text: AppStaticStrings.addCar, color: AppColors.blackNormal),
+        ),
         body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomText(text: AppStaticStrings.specialCharacteristics,fontWeight: FontWeight.w600),
+              //const CustomText(text: AppStaticStrings.specialCharacteristics,fontWeight: FontWeight.w600),
 
               // Car license Text and TextField
-              const CustomText(text: AppStaticStrings.carColor,top: 16,bottom: 12),
-              CustomTextField(hintText: AppStaticStrings.enterCarColor,hintStyle: AppStaticStrings.hintStyle),
+              const CustomText(
+                  text: AppStaticStrings.carColor, bottom: 12, top: 16),
+              CustomTextField(
+                  hintText: AppStaticStrings.enterCarColor,
+                  hintStyle: AppStaticStrings.hintStyle),
 
               //Car Doors Text and TextField
-              const CustomText(text: AppStaticStrings.carDoors,top: 16,bottom: 12),
-              CustomTextField(hintText: AppStaticStrings.typeNumber,hintStyle: AppStaticStrings.hintStyle),
+              const CustomText(
+                  text: AppStaticStrings.carDoors, top: 16, bottom: 12),
+              CustomTextField(
+                  hintText: AppStaticStrings.typeNumber,
+                  hintStyle: AppStaticStrings.hintStyle),
 
               //Car Seats Text and TextField
-              const CustomText(text: AppStaticStrings.carSeats,top: 16,bottom: 12),
-              CustomTextField(hintText: AppStaticStrings.typeNumber,hintStyle: AppStaticStrings.hintStyle),
+              const CustomText(
+                  text: AppStaticStrings.carSeats, top: 16, bottom: 12),
+              CustomTextField(
+                  hintText: AppStaticStrings.typeNumber,
+                  hintStyle: AppStaticStrings.hintStyle),
 
               //Total Run Text and TextField
-              const CustomText(text: AppStaticStrings.totalRun,top: 16,bottom: 12),
-              CustomTextField(hintText: AppStaticStrings.enterTotalKM,hintStyle: AppStaticStrings.hintStyle),
+              const CustomText(
+                  text: AppStaticStrings.totalRun, top: 16, bottom: 12),
+              CustomTextField(
+                  hintText: AppStaticStrings.enterTotalKM,
+                  hintStyle: AppStaticStrings.hintStyle),
 
               //Gear Type Text and TextField
-              const CustomText(text: AppStaticStrings.gearType,top: 16,bottom: 12),
-              CustomTextField(hintText: AppStaticStrings.enterGearType,hintStyle: AppStaticStrings.hintStyle),
+              const CustomText(
+                  text: AppStaticStrings.gearType, top: 16, bottom: 12),
+              CustomTextField(
+                  hintText: AppStaticStrings.enterGearType,
+                  hintStyle: AppStaticStrings.hintStyle),
 
               //Gear Type Text and TextField
-              const CustomText(text: AppStaticStrings.registrationDate1,top: 16,bottom: 12),
+              const CustomText(
+                  text: AppStaticStrings.registrationDate1,
+                  top: 16,
+                  bottom: 12),
               TextFormField(
                 showCursor: true,
                 style: GoogleFonts.poppins(
@@ -92,15 +114,13 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
 
               const SizedBox(height: 16),
               const CarService(),
-              const SizedBox(height: 80),
+              CustomElevatedButton(onPressed: (){
+                Get.offAllNamed(AppRoute.navigation);
+              }, titleText: AppStaticStrings.addCar,buttonWidth: double.maxFinite,buttonHeight: 52),
+
+              const SizedBox(height: 24),
             ],
           ),
-        ),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
-          child: CustomElevatedButton(onPressed: (){
-            Get.offAllNamed(AppRoute.navigation);
-          }, titleText: AppStaticStrings.addCar),
         ),
       ),
     );

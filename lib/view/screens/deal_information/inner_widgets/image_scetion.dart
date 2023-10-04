@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 
-// ignore: must_be_immutable
-class CarImageSection extends StatelessWidget {
-  CarImageSection(
-      {super.key, required this.homeCarListModel, required this.index});
-  HomeCarListModel homeCarListModel;
-  int index;
+class DealImageSection extends StatelessWidget {
+  const DealImageSection({super.key, required this.image1, required this.image2, required this.image3});
+
+  final String image1;
+  final String image2;
+  final String image3;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +21,7 @@ class CarImageSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(
-                          homeCarListModel.cars![index].image![0]))),
+                      image: NetworkImage(image1))),
             ),
           ),
           const SizedBox(width: 8),
@@ -39,7 +37,7 @@ class CarImageSection extends StatelessWidget {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                                homeCarListModel.cars![index].image![1]))),
+                                image2))),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -52,7 +50,7 @@ class CarImageSection extends StatelessWidget {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                                homeCarListModel.cars![index].image![2]))),
+                                image3))),
                   ),
                 ),
               ],
