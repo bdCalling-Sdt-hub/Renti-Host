@@ -5,6 +5,8 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_data/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_body_section.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_image.dart';
+import 'package:renti_host/view/screens/deal_information/inner_widgets/image_scetion.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -78,7 +80,9 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                 buttonBorderColor: AppColors.blueNormal,
               ),*/
 
-              /*CarImageSection(),*/
+             /* CarImageSection(),*/
+
+              AddCarImage(),
 
               const AddCarBodySection(),
               const SizedBox(height: 16),

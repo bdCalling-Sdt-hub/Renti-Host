@@ -48,10 +48,11 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                   Expanded(
                     flex: 2,
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          width: 70,
-                          height: 70,
+                          width: 60,
+                          height: 60,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -63,7 +64,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 16),
+                        const SizedBox(width: 8),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +73,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                                 text: widget.userListResponseModel
                                     .userList![widget.index].userId!.fullName
                                     .toString(),
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 bottom: 8),
                             Row(

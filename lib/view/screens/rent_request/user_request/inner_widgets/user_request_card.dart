@@ -47,45 +47,48 @@ class _UserRequestCardState extends State<UserRequestCard> {
                   imageType: ImageType.png,
                   size: 50),
               const SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomText(
-                      text: widget.name,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500),
-                  const SizedBox(height: 8),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: List.generate(
-                          5,
-                          (index) => const CustomImage(
-                            imageSrc: AppImages.starImage,
-                            size: 12,
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText(
+                        text: widget.name,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                    const SizedBox(height: 8),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: List.generate(
+                            5,
+                            (index) => const CustomImage(
+                              imageSrc: AppImages.starImage,
+                              size: 12,
+                            ),
                           ),
                         ),
-                      ),
-                      const CustomText(
-                          text: AppStaticStrings.rating, fontSize: 10, left: 8),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Icon(Icons.calendar_month,
-                          size: 14, color: AppColors.whiteDarkActive),
-                      CustomText(
-                          text: "${widget.startDate}-${widget.endDate}",
-                          color: AppColors.whiteDarkActive,
-                          left: 8),
-                    ],
-                  ),
-                ],
+                        const CustomText(
+                            text: AppStaticStrings.rating, fontSize: 10, left: 8),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.calendar_month,
+                            size: 14, color: AppColors.whiteDarkActive),
+                        CustomText(
+                            text: "${widget.startDate}-${widget.endDate}",
+                            color: AppColors.whiteDarkActive,
+                            left: 8),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

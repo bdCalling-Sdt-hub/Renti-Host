@@ -24,8 +24,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(CardDetailsRepo(apiService: Get.find()));
-    var controller =
-        Get.put(CardDetailsController(cardDetailsRepo: Get.find()));
+    var controller = Get.put(CardDetailsController(cardDetailsRepo: Get.find()));
     controller.cardDetails();
     super.initState();
   }
@@ -61,59 +60,59 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  controller.cardDetailsModel.card!.length == 0
-                      ? Column(
-                          children: List.generate(
-                            controller.cardDetailsModel.card!.length,
-                            (index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    Get.toNamed(AppRoute.cardDetailsScreen);
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(16),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(
-                                          color: AppColors.whiteNormalActive,
-                                          width: 1),
-                                    ),
-                                    child: const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            CustomImage(
-                                              imageSrc:
-                                                  AppImages.debitCardImage,
-                                              size: 40,
-                                            ),
-                                            CustomText(
-                                              text: 'Debit Card',
-                                              fontSize: 16,
-                                              left: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ],
-                                        ),
-                                        Icon(Icons.arrow_forward_ios,
-                                            size: 16,
-                                            color: AppColors.blackNormal),
-                                      ],
+                  controller.cardDetailsModel.card!.isNotEmpty
+                      ? Padding(
+                        padding: const EdgeInsets.only(top: 24),
+                        child: Column(
+                            children: List.generate(
+                              controller.cardDetailsModel.card!.length,
+                              (index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Get.toNamed(AppRoute.cardDetailsScreen,arguments: []);
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(16),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        border: Border.all(
+                                            color: AppColors.whiteNormalActive,
+                                            width: 1),
+                                      ),
+                                      child: const Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              CustomImage(
+                                                imageSrc: AppImages.debitCardImage,
+                                                size: 40,
+                                              ),
+                                              CustomText(
+                                                text: 'Debit Card',
+                                                fontSize: 16,
+                                                left: 16,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ],
+                                          ),
+                                          Icon(Icons.arrow_forward_ios,
+                                              size: 16,
+                                              color: AppColors.blackNormal),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
-                        )
+                      )
                       : const SizedBox(),
                   const SizedBox(height: 24),
                   GestureDetector(
