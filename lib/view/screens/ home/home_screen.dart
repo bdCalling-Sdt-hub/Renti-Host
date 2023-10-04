@@ -12,7 +12,6 @@ import 'package:renti_host/view/screens/%20home/home_repo/home_carlist_repo.dart
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
-import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
@@ -23,14 +22,11 @@ import '../../../service/api_service.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-
   @override
   State<HomeScreen> createState() => _PendingApprovalScreenState();
 }
 
 class _PendingApprovalScreenState extends State<HomeScreen> {
-  var profileController = Get.find<ProfileController>();
-
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
@@ -38,10 +34,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     var homeCarListController =
         Get.put(HomeCarListController(homeCarListRepo: Get.find()));
 
-    Get.put(ProfileRepo(apiService: Get.find()));
     homeCarListController.homeCarList();
 
-    profileController.profile();
+    Get.find<ProfileController>();
 
     super.initState();
   }
@@ -52,9 +47,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
   void dispose() {
     super.dispose();
   }
-
-  var img2 =
-      "https://github.com/rafsanopi/Weather/assets/45880457/3530ca44-cb33-4fe5-8751-9c5584a860a2";
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +63,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               GestureDetector(
-                onTap: () {scaffoldKey.currentState!.openDrawer();},
+                onTap: () {
+                  scaffoldKey.currentState!.openDrawer();
+                },
                 child: const Icon(Icons.menu,
                     color: AppColors.blueNormal, size: 40),
               ),
@@ -104,21 +98,19 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 50,
-                width: 40,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: profileController.img,
-                    placeholder: (context, url) =>
-                        const CircularProgressIndicator(),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
-                  ),
-                ),
-              ),
+              GetBuilder<ProfileController>(builder: (controller) {
+                return Container(
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            controller.img,
+                          ))),
+                  height: 50,
+                  width: 40,
+                );
+              }),
             ],
           ),
         ),

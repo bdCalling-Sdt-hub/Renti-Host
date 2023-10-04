@@ -39,27 +39,6 @@ class EditProfileController extends GetxController {
   TextEditingController creaditCardNumberController = TextEditingController();
   TextEditingController genderController = TextEditingController();
 
-  // Future<void> editProfile() async {
-  //   ApiResponseModel responseModel = await editProfileRepo.editProfile(
-  //       email: emailController.text,
-  //       fullName: fullNameController.text,
-  //       phoneNumber: phoneNumberController.text,
-  //       image: "",
-  //       address: addressController.text,
-  //       dateOfBirth: dateOfBirthController.text,
-  //       creaditCardNumber: creaditCardNumberController.text,
-  //       gender: genderController.text);
-
-  //   if (responseModel.statusCode == 200) {
-  //     Utils.toastMessage(responseModel.message);
-  //     update();
-  //   } else {
-  //     Utils.toastMessage(responseModel.message);
-  //   }
-  // }
-
-  //
-  //
   Future<void> editProfile() async {
     final prefs = await SharedPreferences.getInstance();
     final userID = prefs.getString(SharedPreferenceHelper.userIdKey);

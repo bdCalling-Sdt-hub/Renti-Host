@@ -35,7 +35,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 40),
         physics: const BouncingScrollPhysics(),
         child: GetBuilder<ProfileController>(builder: (controller) {
-          String img = controller.profileModel.user!.image.toString();
           String fullName = controller.profileModel.user!.fullName.toString();
           String phoneNumber =
               controller.profileModel.user!.phoneNumber.toString();
@@ -51,7 +50,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 child: ClipOval(
                   child: CachedNetworkImage(
                     fit: BoxFit.cover,
-                    imageUrl: img,
+                    imageUrl: controller.img,
                     placeholder: (context, url) =>
                         const CircularProgressIndicator(),
                     errorWidget: (context, url, error) =>

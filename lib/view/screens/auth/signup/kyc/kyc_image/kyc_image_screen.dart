@@ -117,7 +117,7 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
             child: CustomElevatedButton(
                 onPressed: () {
-                  controller.uploadMultipleFilesAndParams();
+                  controller.signUpMultipleFilesAndParams();
                 },
                 titleText: AppStaticStrings.continuee),
           ),

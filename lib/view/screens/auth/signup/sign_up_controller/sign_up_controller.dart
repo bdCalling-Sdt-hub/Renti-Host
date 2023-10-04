@@ -12,7 +12,6 @@ import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_repo/sign_up_repo.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_response_model/sign_up_response_model.dart';
-import 'package:flutter/foundation.dart';
 
 class SignUpController extends GetxController {
   SignUpRepo signUpRepo;
@@ -21,34 +20,20 @@ class SignUpController extends GetxController {
 
   bool isSubmit = false;
 
-  TextEditingController fullNameController =
-      TextEditingController( );
-  TextEditingController emailController =
-      TextEditingController();
-  TextEditingController dateController =
-      TextEditingController();
-  TextEditingController monthController =
-      TextEditingController();
-  TextEditingController yearController =
-      TextEditingController();
-  TextEditingController passwordController =
-      TextEditingController();
-  TextEditingController confirmPasswordController =
-      TextEditingController();
-  TextEditingController phoneNumberController =
-      TextEditingController();
-  TextEditingController addressController =
-      TextEditingController();
-  TextEditingController creditCardNumberController =
-      TextEditingController();
-  TextEditingController expireDateController =
-      TextEditingController();
-  TextEditingController cvvController =
-      TextEditingController();
-  TextEditingController ineNumberController =
-      TextEditingController();
-  TextEditingController rfcController =
-      TextEditingController();
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController monthController = TextEditingController();
+  TextEditingController yearController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController creditCardNumberController = TextEditingController();
+  TextEditingController expireDateController = TextEditingController();
+  TextEditingController cvvController = TextEditingController();
+  TextEditingController ineNumberController = TextEditingController();
+  TextEditingController rfcController = TextEditingController();
 
   List<String> genderList = ["Male", "Female", "Others"];
   int selectedGender = 0;
@@ -147,7 +132,6 @@ class SignUpController extends GetxController {
       cerStampKeyFileName = result.files.single.name;
       kycDocFiles.add(uploadCerStampsKey!);
 
-
       update();
     }
   }
@@ -209,7 +193,7 @@ class SignUpController extends GetxController {
     }
   }
 
-  Future<void> uploadMultipleFilesAndParams() async {
+  Future<void> signUpMultipleFilesAndParams() async {
     try {
       var request = http.MultipartRequest(
         'POST',

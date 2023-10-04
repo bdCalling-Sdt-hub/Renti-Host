@@ -89,6 +89,7 @@ class AppStaticStrings {
   static const String mobileVerification = "Mobile Number Verification";
   static const String weHaveSent =
       "We have sent you an OTP code on your mobile number. Please enter the OTP code.";
+  static const String carType = "Car Type";
 
   //Kyc Email Verification Screen All Strings
   static const String emailVerification = "Email Verification";

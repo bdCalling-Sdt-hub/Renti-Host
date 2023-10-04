@@ -6,6 +6,8 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_specification/inner_widgets/car_service.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_specification/inner_widgets/car_type.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_specification/inner_widgets/gear_type.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -39,6 +41,9 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //Type of car Standered or Luxurious
+                const CarType(),
+                const GearType(),
                 //const CustomText(text: AppStaticStrings.specialCharacteristics,fontWeight: FontWeight.w600),
 
                 // Car license Text and TextField
@@ -71,14 +76,6 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                 CustomTextField(
                     textEditingController: controller.totalRun,
                     hintText: AppStaticStrings.enterTotalKM,
-                    hintStyle: AppStaticStrings.hintStyle),
-
-                //Gear Type Text and TextField
-                const CustomText(
-                    text: AppStaticStrings.gearType, top: 16, bottom: 12),
-                CustomTextField(
-                    textEditingController: controller.gearType,
-                    hintText: AppStaticStrings.enterGearType,
                     hintStyle: AppStaticStrings.hintStyle),
 
                 //Gear Type Text and TextField
@@ -124,7 +121,7 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                 const CarService(),
                 CustomElevatedButton(
                     onPressed: () {
-                      Get.offAllNamed(AppRoute.navigation);
+                      controller.addCarMultipleFilesAndParams();
                     },
                     titleText: AppStaticStrings.addCar,
                     buttonWidth: double.maxFinite,

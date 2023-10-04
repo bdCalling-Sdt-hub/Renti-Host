@@ -31,23 +31,28 @@ class _PopUpMenuState extends State<PopUpMenu> {
       elevation: 1,
       position: PopupMenuPosition.under,
       itemBuilder: (context) => [
-        const PopupMenuItem(
-            child: Row(
-          children: [
-            Icon(
-              Icons.edit_note_outlined,
-              size: 20,
-              color: AppColors.blackNormal,
-            ),
-            CustomText(text: AppStaticStrings.editCar, left: 16),
-          ],
+        PopupMenuItem(
+            child: GestureDetector(
+          onTap: () {
+            // Get.toNamed(AppRoute.addCarsScreens);
+          },
+          child: const Row(
+            children: [
+              Icon(
+                Icons.edit_note_outlined,
+                size: 20,
+                color: AppColors.blackNormal,
+              ),
+              CustomText(text: AppStaticStrings.editCar, left: 16),
+            ],
+          ),
         )),
         PopupMenuItem(
           child: InkWell(
             onTap: () {
               showDialog<void>(
                 context: context,
-                barrierDismissible: false, // user must tap button!
+                barrierDismissible: false,
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: Column(

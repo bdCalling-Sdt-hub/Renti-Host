@@ -56,12 +56,14 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CustomText(
-                      text: homeCarListModel.cars![index].carModelName.toString(),
+                      text:
+                          homeCarListModel.cars![index].carModelName.toString(),
                       fontSize: 18,
                       color: AppColors.blueNormal,
                       fontWeight: FontWeight.w500),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     decoration: BoxDecoration(
                       color: homeCarListModel.cars![index].tripStatus == "Start"
                           ? AppColors.redLight
@@ -69,10 +71,12 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: CustomText(
-                        text: homeCarListModel.cars![index].tripStatus == "Start"
+                        text:
+                            homeCarListModel.cars![index].tripStatus == "Start"
                                 ? AppStaticStrings.reserved
                                 : AppStaticStrings.active,
-                        color: homeCarListModel.cars![index].tripStatus == "Start"
+                        color:
+                            homeCarListModel.cars![index].tripStatus == "Start"
                                 ? AppColors.redNormal
                                 : AppColors.greenNormal,
                         fontSize: 10),
@@ -82,13 +86,15 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
               const SizedBox(height: 8),
               //Cost Per Day
               CustomText(
-                  text: "\$${homeCarListModel.cars![index].hourlyRate.toString()}/day",
+                  text:
+                      "\$${homeCarListModel.cars![index].hourlyRate.toString()}/day",
                   fontSize: 16,
                   fontWeight: FontWeight.w500),
               const SizedBox(height: 24),
               ReservedDetails(homeCarListModel: homeCarListModel, index: index),
               const SizedBox(height: 16),
-              DocumentFilesSection(documentsName: homeCarListModel.cars![index].kyc),
+              DocumentFilesSection(
+                  documentsName: homeCarListModel.cars![index].kyc),
             ],
           ),
         ),

@@ -12,8 +12,8 @@ class CarService extends StatefulWidget {
 }
 
 class _CarServiceState extends State<CarService> {
-  List<String> seatList = ["Baby Car Seat", " Sunroof", ' Bluetooth', 'GPS'];
-  int selectedItem = 1;
+  List<String> seatList = ["Baby Car Seat", "Sunroof", 'Bluetooth', 'GPS'];
+  int selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _CarServiceState extends State<CarService> {
                 setState(() {
                   selectedItem = index;
                   controller.selectedText = seatList[selectedItem];
-                  print(controller.selectedYear);
+                  print(controller.selectedText);
                 });
               },
               child: Padding(

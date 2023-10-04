@@ -17,6 +17,7 @@ class ApiUrlContainer {
 
   static const String carAddEndPoint = "car/add";
   static const String carListEndPoint = "car/add";
+  static const String carUpdate = "car/update/";
 
   //Privacy Policy
   static const String privacyPolicyEndPoint = "privacyPolicy/all";

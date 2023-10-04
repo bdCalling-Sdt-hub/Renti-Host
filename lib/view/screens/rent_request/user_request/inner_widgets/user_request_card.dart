@@ -71,7 +71,9 @@ class _UserRequestCardState extends State<UserRequestCard> {
                           ),
                         ),
                         const CustomText(
-                            text: AppStaticStrings.rating, fontSize: 10, left: 8),
+                            text: AppStaticStrings.rating,
+                            fontSize: 10,
+                            left: 8),
                       ],
                     ),
                     const SizedBox(height: 8),

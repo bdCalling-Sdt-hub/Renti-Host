@@ -18,7 +18,7 @@ class ProfileCard extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: AppColors.whiteLight,
         borderRadius: BorderRadius.circular(8),
@@ -45,9 +45,9 @@ class ProfileCard extends StatelessWidget {
                     color: AppColors.whiteDarkHover,
                     bottom: 8),
                 CustomText(
-
-                  overflow: TextOverflow.ellipsis,
-                    text: description, fontSize: 16)
+                    overflow: TextOverflow.ellipsis,
+                    text: description,
+                    fontSize: 16)
               ],
             ),
           ),
