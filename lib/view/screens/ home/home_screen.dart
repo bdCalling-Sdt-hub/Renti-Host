@@ -12,6 +12,7 @@ import 'package:renti_host/view/screens/%20home/home_repo/home_carlist_repo.dart
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
+import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
@@ -37,6 +38,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     homeCarListController.homeCarList();
 
     Get.find<ProfileController>();
+    Get.put(ProfileRepo(apiService: Get.find()));
 
     super.initState();
   }
@@ -99,6 +101,11 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 ),
               ),
               GetBuilder<ProfileController>(builder: (controller) {
+                if (controller.isloading == true) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
                 return Container(
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
