@@ -5,7 +5,7 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/device_utils.dart';
-import 'package:renti_host/view/screens/add_cars/add_car_data/add_car_controller/add_car_controller.dart';
+import 'package:renti_host/view/screens/add_cars/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -261,7 +261,8 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                 const CustomText(
                   text: AppStaticStrings.addCarInvoice,
                   color: AppColors.whiteDarkActive,
-                  top: 16,bottom: 8,
+                  top: 16,
+                  bottom: 8,
                   textAlign: TextAlign.start,
                 ),
 
@@ -327,7 +328,8 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                 const CustomText(
                   text: AppStaticStrings.addCarRepuve,
                   color: AppColors.whiteDarkActive,
-                  top: 16,bottom: 8,
+                  top: 16,
+                  bottom: 8,
                   textAlign: TextAlign.start,
                 ),
 

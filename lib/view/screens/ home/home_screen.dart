@@ -21,7 +21,8 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 import '../../../service/api_service.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final  String image;
+  const HomeScreen({super.key, required this.image});
 
   @override
   State<HomeScreen> createState() => _PendingApprovalScreenState();
