@@ -97,7 +97,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
               onPressed: () {
-                //Get.toNamed(AppRoute.forgotPasswordOTPScreen);
                 forgotPassword
                     .resetPassword(forgotPassword.emailController.value.text);
               },

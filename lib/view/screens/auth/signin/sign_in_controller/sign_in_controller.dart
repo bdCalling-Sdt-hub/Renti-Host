@@ -68,8 +68,6 @@ class SignInController extends GetxController {
     await signInRepo.apiService.sharedPreferences
         .setString(SharedPreferenceHelper.accessTokenType, "Bearer");
 
-
-
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.userEmailKey,
         signInResponseModel.user?.email.toString() ?? "");
@@ -79,6 +77,10 @@ class SignInController extends GetxController {
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.userNameKey,
         signInResponseModel.user?.fullName.toString() ?? "");
+
+    if (emailVerified == false) {
+      Get.offNamed(AppRoute.forgotPasswordOTPScreen);
+    }
 
     if (emailVerified == true && approved == true) {
       clearData();

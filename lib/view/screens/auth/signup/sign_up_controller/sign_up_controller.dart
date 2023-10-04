@@ -22,33 +22,33 @@ class SignUpController extends GetxController {
   bool isSubmit = false;
 
   TextEditingController fullNameController =
-      TextEditingController(text: kReleaseMode ? "" : "Rafsan");
+      TextEditingController( );
   TextEditingController emailController =
-      TextEditingController(text: kReleaseMode ? "" : "r11@gm.com");
+      TextEditingController();
   TextEditingController dateController =
-      TextEditingController(text: kReleaseMode ? "" : "03/10/2023");
+      TextEditingController();
   TextEditingController monthController =
-      TextEditingController(text: kReleaseMode ? "" : "10");
+      TextEditingController();
   TextEditingController yearController =
-      TextEditingController(text: kReleaseMode ? "" : "2023");
+      TextEditingController();
   TextEditingController passwordController =
-      TextEditingController(text: kReleaseMode ? "" : "123456");
+      TextEditingController();
   TextEditingController confirmPasswordController =
-      TextEditingController(text: kReleaseMode ? "" : "123456");
+      TextEditingController();
   TextEditingController phoneNumberController =
-      TextEditingController(text: kReleaseMode ? "" : "01998078388");
+      TextEditingController();
   TextEditingController addressController =
-      TextEditingController(text: kReleaseMode ? "" : "Dhaka");
+      TextEditingController();
   TextEditingController creditCardNumberController =
-      TextEditingController(text: kReleaseMode ? "" : "1234567890");
+      TextEditingController();
   TextEditingController expireDateController =
-      TextEditingController(text: kReleaseMode ? "" : "2023");
+      TextEditingController();
   TextEditingController cvvController =
-      TextEditingController(text: kReleaseMode ? "" : "123");
+      TextEditingController();
   TextEditingController ineNumberController =
-      TextEditingController(text: kReleaseMode ? "" : "11");
+      TextEditingController();
   TextEditingController rfcController =
-      TextEditingController(text: kReleaseMode ? "" : "11");
+      TextEditingController();
 
   List<String> genderList = ["Male", "Female", "Others"];
   int selectedGender = 0;
@@ -131,7 +131,7 @@ class SignUpController extends GetxController {
       uploadTaxStampsKey = File(result.files.single.path.toString());
       taxStampKeyFileName = result.files.single.name;
       kycDocFiles.add(uploadTaxStampsKey!);
-      print(kycDocFiles);
+
       update();
     }
   }
@@ -146,7 +146,7 @@ class SignUpController extends GetxController {
       uploadCerStampsKey = File(result.files.single.path.toString());
       cerStampKeyFileName = result.files.single.name;
       kycDocFiles.add(uploadCerStampsKey!);
-      print(kycDocFiles);
+
 
       update();
     }

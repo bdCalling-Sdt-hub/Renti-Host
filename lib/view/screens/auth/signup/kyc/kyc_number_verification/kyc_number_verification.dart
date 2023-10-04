@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/data/controller/auth/otp_controller/forgot_pass_repo.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_number_verification/kyc_email_veri_repo/kyc_email_veri_repo.dart';
+import 'package:renti_host/view/screens/auth/signup/kyc/kyc_number_verification/resend_otp_repo/resend_otp_repo.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
@@ -23,6 +25,8 @@ class KYCNumberVerification extends StatefulWidget {
 }
 
 class _KYCNumberVerificationState extends State<KYCNumberVerification> {
+  final forgotPassword = Get.put(ForgetPasswordController());
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -105,7 +109,10 @@ class _KYCNumberVerificationState extends State<KYCNumberVerification> {
                       children: [
                         const CustomText(text: AppStaticStrings.notGetOTP),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            ResentOtp.resendOtp(
+                                email: controller.emailController.text);
+                          },
                           child: const CustomText(
                             text: AppStaticStrings.resendOTP,
                             color: AppColors.blueNormal,
