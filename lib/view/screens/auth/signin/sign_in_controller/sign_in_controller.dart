@@ -45,7 +45,6 @@ class SignInController extends GetxController {
 
   gotoNextStep(SignInResponseModel signInResponseModel) async {
     bool emailVerified = signInResponseModel.user?.emailVerified == false ? false : true;
-    var image = signInResponseModel.user!.image;
 
     bool approved = signInResponseModel.user!.approved == false ? false : true;
 
@@ -78,10 +77,11 @@ class SignInController extends GetxController {
 
     if (emailVerified == true && approved == true) {
       clearData();
-      Get.offAllNamed(AppRoute.navigation,arguments: image);
+      Get.offAllNamed(AppRoute.navigation);
       Utils.toastMessage("Successfully Signed In");
     } else if (approved == false) {
-      Utils.toastMessage("Please wait for admin approve to log in");
+      //Utils.toastMessage("Please wait for admin approve to log in");
+      Utils.popUp("Please wait for admin approve to log in", () => signInUser(),);
     } else {
       Utils.toastMessage("Enter valid Email and Password");
     }
