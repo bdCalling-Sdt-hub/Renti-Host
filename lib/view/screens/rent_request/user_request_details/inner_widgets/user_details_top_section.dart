@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
@@ -28,10 +29,20 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
         Expanded(
           child: Row(
             children: [
-              CustomImage(
-                  imageSrc: img == '' ? AppImages.profileImage : img,
-                  imageType: ImageType.png,
-                  size: 64),
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: ClipOval(
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: img,
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
+                ),
+              ),
               const SizedBox(width: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -97,8 +97,11 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                                           .rentRequest![index].requestStatus ==
                                       "Pending" &&
                                   controller.rentRequestResponseModel
-                                          .rentRequest![index].carId ==
-                                      null
+                                          .rentRequest![index].carId !=
+                                      null &&
+                                  controller.rentRequestResponseModel
+                                          .rentRequest![index].sentRequest !=
+                                      "Cancel"
                               ? Container(
                                   padding: const EdgeInsets.all(16),
                                   margin: const EdgeInsetsDirectional.only(

@@ -33,7 +33,8 @@ class SignInController extends GetxController {
         password: passwordController.text.toString());
 
     if (responseModel.statusCode == 200) {
-      SignInResponseModel signInResponseModel = SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
+      SignInResponseModel signInResponseModel =
+          SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       await gotoNextStep(signInResponseModel);
     } else {
       Utils.toastMessage("Authentication failed");
@@ -44,33 +45,31 @@ class SignInController extends GetxController {
   }
 
   gotoNextStep(SignInResponseModel signInResponseModel) async {
-    bool emailVerified = signInResponseModel.user?.emailVerified == false ? false : true;
-    var image = signInResponseModel.user!.image;
+    bool emailVerified =
+        signInResponseModel.user?.emailVerified == false ? false : true;
 
     bool approved = signInResponseModel.user!.approved == false ? false : true;
 
-    /*if(remember){
-      await signInRepo.apiService.sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, true);
-    }
-    else{
-      await signInRepo.apiService.sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
-    }*/
-
-    await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
-
-    await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenKey, signInResponseModel.accessToken ?? "");
-
-    await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenType, "Bearer");
+    await signInRepo.apiService.sharedPreferences.setString(
+        SharedPreferenceHelper.userIdKey,
+        signInResponseModel.user?.id.toString() ?? "");
 
     await signInRepo.apiService.sharedPreferences.setString(
-        SharedPreferenceHelper.userEmailKey,
-        signInResponseModel.user?.email.toString() ?? "");
-    await signInRepo.apiService.sharedPreferences.setString(
-        SharedPreferenceHelper.userPhoneNumberKey,
-        signInResponseModel.user?.phoneNumber.toString() ?? "");
-    await signInRepo.apiService.sharedPreferences.setString(
-        SharedPreferenceHelper.userNameKey,
-        signInResponseModel.user?.fullName.toString() ?? "");
+        SharedPreferenceHelper.accessTokenKey,
+        signInResponseModel.accessToken ?? "");
+
+    await signInRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.accessTokenType, "Bearer");
+
+    // await signInRepo.apiService.sharedPreferences.setString(
+    //     SharedPreferenceHelper.userEmailKey,
+    //     signInResponseModel.user?.email.toString() ?? "");
+    // await signInRepo.apiService.sharedPreferences.setString(
+    //     SharedPreferenceHelper.userPhoneNumberKey,
+    //     signInResponseModel.user?.phoneNumber.toString() ?? "");
+    // await signInRepo.apiService.sharedPreferences.setString(
+    //     SharedPreferenceHelper.userNameKey,
+    //     signInResponseModel.user?.fullName.toString() ?? "");
 
     if (emailVerified == false) {
       Get.offNamed(AppRoute.forgotPasswordOTPScreen);
@@ -78,7 +77,9 @@ class SignInController extends GetxController {
 
     if (emailVerified == true && approved == true) {
       clearData();
-      Get.offAllNamed(AppRoute.navigation,arguments: image);
+      Get.offAllNamed(
+        AppRoute.navigation,
+      );
       Utils.toastMessage("Successfully Signed In");
     } else if (approved == false) {
       Utils.toastMessage("Please wait for admin approve to log in");
