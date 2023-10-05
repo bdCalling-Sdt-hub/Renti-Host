@@ -222,17 +222,20 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   color: AppColors.whiteNormalActive),
                             ),
                           ),
+
+                          SizedBox(height: 24),
+
+                          CustomElevatedButton(
+                              onPressed: () {
+                                controller.editProfile();
+                              },
+                              buttonWidth: double.maxFinite,
+                              buttonHeight: 52,
+                              titleText: AppStaticStrings.save),
+                          SizedBox(height: 24),
                         ],
                       ),
                     )),
-          ),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-            child: CustomElevatedButton(
-                onPressed: () {
-                  controller.editProfile();
-                },
-                titleText: AppStaticStrings.save),
           ),
         ),
       );

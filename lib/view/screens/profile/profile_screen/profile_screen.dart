@@ -58,6 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       String gender = profileModel.user!.gender.toString();
       String address = profileModel.user!.address.toString();
       String img = profileModel.user!.image.toString();
+      String ine = profileModel.user!.ine.toString();
 
       return SafeArea(
         top: true,
@@ -148,7 +149,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         ProfileCard(
                             title: AppStaticStrings.ine,
-                            description: creaditCardNumber,
+                            description: ine,
                             icon: Icons.credit_card_outlined),
                         ProfileCard(
                             title: AppStaticStrings.email,

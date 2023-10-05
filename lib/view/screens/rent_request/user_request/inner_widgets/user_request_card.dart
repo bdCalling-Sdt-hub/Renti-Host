@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -40,12 +41,20 @@ class _UserRequestCardState extends State<UserRequestCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CustomImage(
-                  imageSrc: widget.image == ""
-                      ? AppImages.profileImage
-                      : widget.image,
-                  imageType: ImageType.png,
-                  size: 50),
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: ClipOval(
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: widget.image,
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
+                ),
+              ),
               const SizedBox(width: 16),
               Padding(
                 padding: const EdgeInsets.only(right: 8),

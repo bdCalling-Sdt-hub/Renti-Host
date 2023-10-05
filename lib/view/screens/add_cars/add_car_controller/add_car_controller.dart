@@ -15,27 +15,20 @@ class AddCarController extends GetxController {
   //Text Editing Controllers
 
   //AddCar Section-1
-  final TextEditingController carModelName =
-      TextEditingController(text: "BMW-420");
-  final TextEditingController carLicenseNumber =
-      TextEditingController(text: "A1213edfr4r");
-  final TextEditingController carDescription =
-      TextEditingController(text: "Very Fast");
-  final TextEditingController carRentAmmount =
-      TextEditingController(text: "1090");
-  final TextEditingController insuranceStartDate =
-      TextEditingController(text: "12-10-2023");
-  final TextEditingController insuranceEndDate =
-      TextEditingController(text: "20-10-2023");
+  final TextEditingController carModelName = TextEditingController();
+  final TextEditingController carLicenseNumber = TextEditingController();
+  final TextEditingController carDescription = TextEditingController();
+  final TextEditingController carRentAmmount = TextEditingController();
+  final TextEditingController insuranceStartDate = TextEditingController();
+  final TextEditingController insuranceEndDate = TextEditingController();
 
   //AddCar Section-2
-  final TextEditingController carColor = TextEditingController(text: "Black");
-  final TextEditingController carDoor = TextEditingController(text: "4");
-  final TextEditingController carSeats = TextEditingController(text: "4");
-  final TextEditingController totalRun = TextEditingController(text: "30");
-  final TextEditingController gearType = TextEditingController(text: "Manual");
-  final TextEditingController registrationDate =
-      TextEditingController(text: "22-08-2025");
+  final TextEditingController carColor = TextEditingController();
+  final TextEditingController carDoor = TextEditingController();
+  final TextEditingController carSeats = TextEditingController();
+  final TextEditingController totalRun = TextEditingController();
+  final TextEditingController gearType = TextEditingController();
+  final TextEditingController registrationDate = TextEditingController();
 
   //String Data
 
