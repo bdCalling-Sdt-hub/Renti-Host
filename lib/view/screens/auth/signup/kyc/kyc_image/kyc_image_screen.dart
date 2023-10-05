@@ -40,8 +40,8 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SignUpController>(
-      builder: (controller) => SafeArea(
+    return GetBuilder<SignUpController>(builder: (controller) {
+      return SafeArea(
         top: true,
         child: Scaffold(
           extendBody: true,
@@ -122,7 +122,7 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
                 titleText: AppStaticStrings.continuee),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

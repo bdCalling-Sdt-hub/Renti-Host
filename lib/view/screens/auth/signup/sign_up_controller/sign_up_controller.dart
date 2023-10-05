@@ -41,6 +41,8 @@ class SignUpController extends GetxController {
   File? profileImage;
   String phoneCode = "+52";
 
+  bool isloading = false;
+
   // void initialState(){
   //   isSubmit = true;
   //   update();
@@ -51,36 +53,36 @@ class SignUpController extends GetxController {
   //   update();
   // }
 
-  Future<void> signUpUser() async {
-    ApiResponseModel responseModel = await signUpRepo.createUser(
-        fullName: fullNameController.text.toString(),
-        email: emailController.text.toString(),
-        phoneNumber: "$phoneCode ${phoneNumberController.text.toString()}",
-        gender: genderList[selectedGender],
-        address: addressController.text.toString(),
-        dateOfBirth:
-            "${dateController.text.toString()}/${monthController.text.toString()}/${yearController.text.toString()}",
-        password: passwordController.text.toString(),
-        kycImages: kycDocFiles,
-        ineNumber: ineNumberController.text.toString(),
-        profileImage: profileImage!,
-        rfc: rfcController.text.toString());
+  // Future<void> signUpUser() async {
+  //   ApiResponseModel responseModel = await signUpRepo.createUser(
+  //       fullName: fullNameController.text.toString(),
+  //       email: emailController.text.toString(),
+  //       phoneNumber: "$phoneCode ${phoneNumberController.text.toString()}",
+  //       gender: genderList[selectedGender],
+  //       address: addressController.text.toString(),
+  //       dateOfBirth:
+  //           "${dateController.text.toString()}/${monthController.text.toString()}/${yearController.text.toString()}",
+  //       password: passwordController.text.toString(),
+  //       kycImages: kycDocFiles,
+  //       ineNumber: ineNumberController.text.toString(),
+  //       profileImage: profileImage!,
+  //       rfc: rfcController.text.toString());
 
-    if (responseModel.statusCode == 200) {
-      SignUpResponseModel signUpResponseModel =
-          SignUpResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-      gotoNextStep(signUpResponseModel);
-    } else {}
-  }
+  //   if (responseModel.statusCode == 200) {
+  //     SignUpResponseModel signUpResponseModel =
+  //         SignUpResponseModel.fromJson(jsonDecode(responseModel.responseJson));
+  //     gotoNextStep(signUpResponseModel);
+  //   } else {}
+  // }
 
   void changeGender(int index) {
     selectedGender = index;
     update();
   }
 
-  void gotoNextStep(SignUpResponseModel signUpResponseModel) {
-    Get.offAndToNamed(AppRoute.navigation);
-  }
+  // void gotoNextStep(SignUpResponseModel signUpResponseModel) {
+  //   Get.offAndToNamed(AppRoute.navigation);
+  // }
 
   File? uploadINEOrPassport;
   File? uploadTaxStampsKey;
@@ -195,6 +197,8 @@ class SignUpController extends GetxController {
 
   Future<void> signUpMultipleFilesAndParams() async {
     try {
+      isloading = true;
+      update();
       var request = http.MultipartRequest(
         'POST',
         Uri.parse(
@@ -256,9 +260,13 @@ class SignUpController extends GetxController {
       var response = await request.send();
 
       if (response.statusCode == 201) {
+        isloading = false;
+        update();
         Get.toNamed(AppRoute.kycNumberVerification);
       } else {
-        Utils.toastMessage("Somethings went wrong ${response.statusCode}");
+        print("Somethings went wrong ${response.statusCode}");
+        print(
+            "Somethings went wrong ${response.stream.asBroadcastStream.toString()}");
       }
     } catch (e, s) {
       print('Error sending request: $e');
