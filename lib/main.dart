@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/utils/language/languages.dart';
 import 'core/di_service/dependency_injection.dart' as di;
 
@@ -9,6 +10,9 @@ import 'core/di_service/dependency_injection.dart' as di;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await di.initDependency();
+  final socketService = SocketService();
+  socketService.connectToSocket();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

@@ -61,15 +61,15 @@ class SignInController extends GetxController {
     await signInRepo.apiService.sharedPreferences
         .setString(SharedPreferenceHelper.accessTokenType, "Bearer");
 
-    // await signInRepo.apiService.sharedPreferences.setString(
-    //     SharedPreferenceHelper.userEmailKey,
-    //     signInResponseModel.user?.email.toString() ?? "");
-    // await signInRepo.apiService.sharedPreferences.setString(
-    //     SharedPreferenceHelper.userPhoneNumberKey,
-    //     signInResponseModel.user?.phoneNumber.toString() ?? "");
-    // await signInRepo.apiService.sharedPreferences.setString(
-    //     SharedPreferenceHelper.userNameKey,
-    //     signInResponseModel.user?.fullName.toString() ?? "");
+     await signInRepo.apiService.sharedPreferences.setString(
+         SharedPreferenceHelper.userEmailKey,
+         signInResponseModel.user?.email.toString() ?? "");
+     await signInRepo.apiService.sharedPreferences.setString(
+        SharedPreferenceHelper.userPhoneNumberKey,
+        signInResponseModel.user?.phoneNumber.toString() ?? "");
+     await signInRepo.apiService.sharedPreferences.setString(
+         SharedPreferenceHelper.userNameKey,
+         signInResponseModel.user?.fullName.toString() ?? "");
 
     if (emailVerified == false) {
       Get.offNamed(AppRoute.forgotPasswordOTPScreen);
@@ -77,14 +77,12 @@ class SignInController extends GetxController {
 
     if (emailVerified == true && approved == true) {
       clearData();
-      Get.offAllNamed(
-        AppRoute.navigation,
-      );
-      Utils.toastMessage("Successfully Signed In");
+      Get.offAllNamed(AppRoute.navigation);
+      Utils.snackBar("Successful","Successfully Signed In");
     } else if (approved == false) {
-      Utils.toastMessage("Please wait for admin approve to log in");
+      Utils.snackBar("Successful","Please wait for admin approve to log in");
     } else {
-      Utils.toastMessage("Enter valid Email and Password");
+      Utils.snackBar("Error","Enter valid Email and Password");
     }
   }
 

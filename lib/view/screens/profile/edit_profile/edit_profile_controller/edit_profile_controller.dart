@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -59,7 +60,9 @@ class EditProfileController extends GetxController {
 
           request.files.add(img);
         } on Exception catch (e) {
-          print('Error adding image file to request: $e');
+          if (kDebugMode) {
+            print('Error adding image file to request: $e');
+          }
           // Handle the error gracefully, e.g., show an error message to the user.
         }
       }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:renti_host/core/global/api_url_container.dart';
+import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,24 +15,28 @@ class ChangePasswordController extends GetxController{
   final newPassword = TextEditingController().obs;
   final reTypedPassword = TextEditingController().obs;
 
-  RxBool loading = false.obs;
+  bool loading = false;
 
   Future<void> changePass (String current, String newPass,String conPass) async{
     try {
+      loading = true;
+      update();
       final prefs = await SharedPreferences.getInstance();
-      final accessToken = prefs.getString('email');
+      final userEmail = prefs.getString(SharedPreferenceHelper.userEmailKey);
       final response = await http.post(
         Uri.parse(apiUrl),
         headers: {
           'Content-Type': 'application/json',
         },
         body: jsonEncode({
-          'email': "$accessToken",
+          'email': "$userEmail",
           'currentPassword': currentPassword.value.text,
           'newPassword': newPassword.value.text,
           'reTypedPassword': reTypedPassword.value.text,
         }),
       );
+
+      print("${userEmail}");
 
       if (response.statusCode == 200) {
         clearData();
@@ -41,7 +46,9 @@ class ChangePasswordController extends GetxController{
           print('Password changed successfully');
         }
         Get.back();
-        Utils.toastMessage("Password changed successfully");
+        loading = false;
+        update();
+        Utils.snackBar("Successful","Password changed successfully");
       } else {
         // Password Change failed
         // You can handle errors here, e.g., show a snack bar or dialog
@@ -49,7 +56,9 @@ class ChangePasswordController extends GetxController{
           print('Password changed failed');
           print(response.statusCode);
         }
-        Utils.toastMessage('New password and Confirm password do not match');
+        loading = false;
+        update();
+        Utils.snackBar("Error",'New password and Confirm password do not match');
       }
     } catch (error) {
       // Handle any network or other errors
@@ -59,7 +68,8 @@ class ChangePasswordController extends GetxController{
     }
   }
   void clearData() {
-    loading = false.obs;
+    loading = false;
+    update();
     currentPassword.value.text = '';
     newPassword.value.text = '';
     reTypedPassword.value.text = '';

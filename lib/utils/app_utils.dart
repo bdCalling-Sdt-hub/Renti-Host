@@ -32,7 +32,7 @@ class Utils {
   }
 
   static snackBar(String title, String message) {
-    Get.snackbar(title, message);
+    Get.snackbar(title, message,snackPosition: SnackPosition.BOTTOM,backgroundColor: AppColors.blueNormal,colorText: AppColors.whiteLight);
   }
 
   static popUp (String title,VoidCallback onTap){

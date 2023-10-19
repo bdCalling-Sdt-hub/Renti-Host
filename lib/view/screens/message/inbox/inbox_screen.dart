@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
@@ -19,7 +20,36 @@ class InboxScreen extends StatefulWidget {
 }
 
 class _InboxScreenState extends State<InboxScreen> {
-  List<ChatMessage> messages = [
+
+  TextEditingController messageController = TextEditingController();
+  List<ChatMessage> messages = [];
+  SocketService socketService = SocketService();
+
+  @override
+  void initState() {
+    socketService.connectToSocket();
+
+    //TODO-
+    socketService.joinRoom("651c1438254d5546b335bd43");
+    socketService.addNewChat(
+        {
+          "participants": [
+            "651c1438254d5546b335bd43",
+            "652268230cbb1643391e3563"
+          ]
+        },
+        "651c1438254d5546b335bd43"
+    );
+    socketService.joinChat("652fa06617dfc17c83bb5f63");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+ /* List<ChatMessage> messages = [
     ChatMessage(
         messageContent: "Lorem ipsum dolor sit amet consectetur. Fringilla vitae dolor.",
         messageType: "sender"),
@@ -40,7 +70,7 @@ class _InboxScreenState extends State<InboxScreen> {
     ChatMessage(
         messageContent: "Lorem ipsum dolor sit amet\nconsectetur. Enim posuere aenean enim malesuada diam donec augue facilisi.",
         messageType: "receiver"),
-  ];
+  ];*/
 
   @override
   Widget build(BuildContext context) {

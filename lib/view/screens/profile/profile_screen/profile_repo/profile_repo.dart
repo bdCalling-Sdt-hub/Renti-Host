@@ -11,8 +11,7 @@ class ProfileRepo {
     String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.profile}";
     String requestMethod = ApiResponseMethod.getMethod;
 
-    ApiResponseModel responseModel =
-        await apiService.request(uri, requestMethod, null, passHeader: true);
+    ApiResponseModel responseModel = await apiService.request(uri, requestMethod, null, passHeader: true);
 
     return responseModel;
   }

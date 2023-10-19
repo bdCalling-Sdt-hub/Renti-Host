@@ -46,15 +46,16 @@ dependencies:
   flutter_slidable:
   flutter_rating_bar:
   dropdown_button2:
-  http: ^1.1.0
-  http_parser: ^4.0.0
+  http:
+  http_parser:
   shared_preferences:
   fluttertoast:
   file_picker:
   open_file:
   image_picker:
-  flutter_html: ^3.0.0-beta.2
-  cached_network_image: ^3.3.0
+  flutter_html:
+  cached_network_image:
+  socket_io_client:
  
 
 dev_dependencies:

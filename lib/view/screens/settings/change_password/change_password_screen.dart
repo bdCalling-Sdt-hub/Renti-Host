@@ -43,7 +43,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               children: [
                 Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  //autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -53,7 +53,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       ),
                       CustomTextField(
                         textEditingController: controller.currentPassword.value,
-                        textInputAction: TextInputAction.done,
+                        textInputAction: TextInputAction.next,
                         hintText: AppStaticStrings.enterCurrentPassword,
                         hintStyle: GoogleFonts.poppins(
                             fontSize: 14,
@@ -75,7 +75,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       ),
                       CustomTextField(
                         textEditingController: controller.newPassword.value,
-                        textInputAction: TextInputAction.done,
+                        textInputAction: TextInputAction.next,
                         hintText: AppStaticStrings.enterNewPassword,
                         hintStyle: GoogleFonts.poppins(
                             fontSize: 14,

@@ -21,8 +21,7 @@ class EditProfileRepo {
     final prefs = await SharedPreferences.getInstance();
     final userID = prefs.getString(SharedPreferenceHelper.userIdKey);
 
-    String uri =
-        "${ApiUrlContainer.baseUrl}${ApiUrlContainer.editProfile + userID.toString()}";
+    String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.editProfile + userID.toString()}";
 
     String requestMethod = ApiResponseMethod.postMethod;
     Map<String, dynamic> params = {

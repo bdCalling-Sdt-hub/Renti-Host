@@ -7,6 +7,7 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_controller/edit_profile_controller.dart';
+import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 import 'package:renti_host/view/screens/profile/inner_widgets/profile_card.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_model/profile_model.dart';
@@ -28,6 +29,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(ProfileRepo(apiService: Get.find()));
     var pC = Get.put(ProfileController(profileRepo: Get.find()));
+    Get.put(EditProfileRepo(apiService: Get.find()));
+    Get.put(EditProfileController(editProfileRepo: Get.find()));
     pC.profile();
 
     super.initState();
@@ -52,8 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       String fullName = profileModel.user!.fullName.toString();
       String email = profileModel.user!.email.toString();
       String phoneNumber = profileModel.user!.phoneNumber.toString();
-      String creaditCardNumber =
-          profileModel.user!.creaditCardNumber.toString();
+      String creaditCardNumber = profileModel.user!.creaditCardNumber.toString();
       String dateOfBirth = profileModel.user!.dateOfBirth.toString();
       String gender = profileModel.user!.gender.toString();
       String address = profileModel.user!.address.toString();

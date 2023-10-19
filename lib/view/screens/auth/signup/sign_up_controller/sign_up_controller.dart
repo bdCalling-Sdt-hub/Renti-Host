@@ -1,17 +1,15 @@
-import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_repo/sign_up_repo.dart';
-import 'package:renti_host/view/screens/auth/signup/sign_up_response_model/sign_up_response_model.dart';
 
 class SignUpController extends GetxController {
   SignUpRepo signUpRepo;
@@ -43,46 +41,10 @@ class SignUpController extends GetxController {
 
   bool isloading = false;
 
-  // void initialState(){
-  //   isSubmit = true;
-  //   update();
-
-  //   signUpUser();
-
-  //   isSubmit = false;
-  //   update();
-  // }
-
-  // Future<void> signUpUser() async {
-  //   ApiResponseModel responseModel = await signUpRepo.createUser(
-  //       fullName: fullNameController.text.toString(),
-  //       email: emailController.text.toString(),
-  //       phoneNumber: "$phoneCode ${phoneNumberController.text.toString()}",
-  //       gender: genderList[selectedGender],
-  //       address: addressController.text.toString(),
-  //       dateOfBirth:
-  //           "${dateController.text.toString()}/${monthController.text.toString()}/${yearController.text.toString()}",
-  //       password: passwordController.text.toString(),
-  //       kycImages: kycDocFiles,
-  //       ineNumber: ineNumberController.text.toString(),
-  //       profileImage: profileImage!,
-  //       rfc: rfcController.text.toString());
-
-  //   if (responseModel.statusCode == 200) {
-  //     SignUpResponseModel signUpResponseModel =
-  //         SignUpResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-  //     gotoNextStep(signUpResponseModel);
-  //   } else {}
-  // }
-
   void changeGender(int index) {
     selectedGender = index;
     update();
   }
-
-  // void gotoNextStep(SignUpResponseModel signUpResponseModel) {
-  //   Get.offAndToNamed(AppRoute.navigation);
-  // }
 
   File? uploadINEOrPassport;
   File? uploadTaxStampsKey;
@@ -102,7 +64,9 @@ class SignUpController extends GetxController {
       // ineOrPassportFileName = result.files.single.name;
 
       kycDocFiles.add(uploadINEOrPassport!);
-      print(kycDocFiles);
+      if (kDebugMode) {
+        print(kycDocFiles);
+      }
 
       update();
     }
@@ -214,10 +178,14 @@ class SignUpController extends GetxController {
                 contentType: MediaType('application', 'pdf'));
             request.files.add(multipartFile);
           } on Exception catch (e) {
-            print("Error is :${e.toString()}");
+            if (kDebugMode) {
+              print("Error is :${e.toString()}");
+            }
           }
         } else {
-          print('File does not exist: ${file.path}');
+          if (kDebugMode) {
+            print('File does not exist: ${file.path}');
+          }
           // Handle the missing file gracefully, e.g., skip it or show an error message.
         }
       }
@@ -230,7 +198,9 @@ class SignUpController extends GetxController {
 
           request.files.add(img);
         } on Exception catch (e) {
-          print('Error adding image file to request: $e');
+          if (kDebugMode) {
+            print('Error adding image file to request: $e');
+          }
           // Handle the error gracefully, e.g., show an error message to the user.
         }
       }
@@ -242,8 +212,7 @@ class SignUpController extends GetxController {
         "phoneNumber": "$phoneCode ${phoneNumberController.text}",
         "gender": genderList[selectedGender],
         "address": addressController.text,
-        "dateOfBirth":
-            "${dateController.text}/${monthController.text}/${yearController.text}",
+        "dateOfBirth": "${dateController.text}/${monthController.text}/${yearController.text}",
         "password": passwordController.text,
         "ine": ineNumberController.text,
         "RFC": rfcController.text,
@@ -263,14 +232,24 @@ class SignUpController extends GetxController {
         isloading = false;
         update();
         Get.toNamed(AppRoute.kycNumberVerification);
+        Utils.snackBar("Successful", "Sign Up Successful");
       } else {
-        print("Somethings went wrong ${response.statusCode}");
-        print(
-            "Somethings went wrong ${response.stream.asBroadcastStream.toString()}");
+        if (kDebugMode) {
+          print("Somethings went wrong ${response.statusCode}");
+        }
+        if (kDebugMode) {
+          print("Somethings went wrong ${response.stream.asBroadcastStream.toString()}");
+        }
+        Utils.snackBar("Error", "Somethings went wrong");
       }
     } catch (e, s) {
-      print('Error sending request: $e');
-      print('Error s: $s');
+      if (kDebugMode) {
+        print('Error sending request: $e');
+      }
+      if (kDebugMode) {
+        print('Error s: $s');
+      }
+      Utils.snackBar("Error", "Somethings went wrong");
     }
   }
 }

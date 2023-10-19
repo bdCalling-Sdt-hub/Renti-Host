@@ -32,8 +32,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(HomeCarListRepo(apiService: Get.find()));
-    var homeCarListController =
-        Get.put(HomeCarListController(homeCarListRepo: Get.find()));
+    var homeCarListController = Get.put(HomeCarListController(homeCarListRepo: Get.find()));
 
     homeCarListController.homeCarList();
 
