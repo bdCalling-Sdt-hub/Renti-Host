@@ -64,8 +64,7 @@ class ApiService extends GetxService {
           ApiAuthorizationResponseModel authorizationResponseModel =
               ApiAuthorizationResponseModel.fromJson(jsonDecode(response.body));
           if (authorizationResponseModel.message == 'Unauthenticated') {
-            sharedPreferences.setBool(
-                SharedPreferenceHelper.rememberMeKey, false);
+            sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
             sharedPreferences.remove(SharedPreferenceHelper.token);
             Get.offAllNamed(AppRoute.signInScreen);
           }
@@ -97,10 +96,8 @@ class ApiService extends GetxService {
 
   initToken() {
     if (sharedPreferences.containsKey(SharedPreferenceHelper.accessTokenKey)) {
-      String? t =
-          sharedPreferences.getString(SharedPreferenceHelper.accessTokenKey);
-      String? tType =
-          sharedPreferences.getString(SharedPreferenceHelper.accessTokenType);
+      String? t = sharedPreferences.getString(SharedPreferenceHelper.accessTokenKey);
+      String? tType = sharedPreferences.getString(SharedPreferenceHelper.accessTokenType);
       token = t ?? '';
       tokenType = tType ?? 'Bearer';
     } else {

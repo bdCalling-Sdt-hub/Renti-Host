@@ -6,6 +6,7 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/profile/profile_screen/profile_model/profile_model.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/container/custon_container.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
@@ -22,25 +23,51 @@ class InboxScreen extends StatefulWidget {
 class _InboxScreenState extends State<InboxScreen> {
 
   TextEditingController messageController = TextEditingController();
-  List<ChatMessage> messages = [];
+  List<ChatMessage> allMessages = [];
   SocketService socketService = SocketService();
+
+  ProfileModel profileModel = ProfileModel();
+
+  hostMsg({required String hostUid, required String userUid}) {
+    socketService.connectToSocket();
+    socketService.joinRoom(hostUid);
+    socketService.addNewChat({
+      "participants": [userUid, hostUid],
+    }, hostUid);
+    socketService.joinChat(hostUid);
+    // socketService.addNewMessage("Hiii", hostUid, hostUid);
+    socketService.getAllChats(hostUid);
+  }
+
+  userMsg({required String hostUid, required String userUid}) {
+    socketService.connectToSocket();
+    socketService.joinRoom(userUid);
+    socketService.addNewChat({
+      "participants": [hostUid, userUid],
+    }, hostUid);
+    socketService.joinChat(userUid);
+    // socketService.addNewMessage("Hiii", userUid, userUid);
+    socketService.getAllChats(userUid);
+  }
 
   @override
   void initState() {
     socketService.connectToSocket();
 
     //TODO-
-    socketService.joinRoom("651c1438254d5546b335bd43");
+    socketService.joinRoom("651551cf1ae339b4d6643733");
     socketService.addNewChat(
         {
           "participants": [
-            "651c1438254d5546b335bd43",
-            "652268230cbb1643391e3563"
+            "651551cf1ae339b4d6643733",
+            "653117d450aadb8b4f822fc1"
           ]
         },
-        "651c1438254d5546b335bd43"
+        "651551cf1ae339b4d6643733"
     );
-    socketService.joinChat("652fa06617dfc17c83bb5f63");
+    socketService.joinChat("653351d670ad16ac98ea1a7f");
+    socketService.addNewMessage("Hello", "651551cf1ae339b4d6643733", "653117d450aadb8b4f822fc1");
+    socketService.getAllChats("651551cf1ae339b4d6643733");
     super.initState();
   }
 
@@ -49,7 +76,8 @@ class _InboxScreenState extends State<InboxScreen> {
     super.dispose();
   }
 
- /* List<ChatMessage> messages = [
+
+  List<ChatMessage> messages = [
     ChatMessage(
         messageContent: "Lorem ipsum dolor sit amet consectetur. Fringilla vitae dolor.",
         messageType: "sender"),
@@ -70,7 +98,7 @@ class _InboxScreenState extends State<InboxScreen> {
     ChatMessage(
         messageContent: "Lorem ipsum dolor sit amet\nconsectetur. Enim posuere aenean enim malesuada diam donec augue facilisi.",
         messageType: "receiver"),
-  ];*/
+  ];
 
   @override
   Widget build(BuildContext context) {

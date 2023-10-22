@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/message/messages/inner_widgets/message_list.dart';
@@ -13,6 +14,35 @@ class MessageScreen extends StatefulWidget {
 }
 
 class _MessageScreenState extends State<MessageScreen> {
+
+  SocketService socketService = SocketService();
+
+  @override
+  void initState() {
+    socketService.connectToSocket();
+
+    //TODO-
+    /*socketService.joinRoom("651551cf1ae339b4d6643733");
+    socketService.addNewChat(
+        {
+          "participants": [
+            "651551cf1ae339b4d6643733",
+            "653117d450aadb8b4f822fc1"
+          ]
+        },
+        "651551cf1ae339b4d6643733"
+    );
+    socketService.joinChat("653351d670ad16ac98ea1a7f");*/
+    socketService.joinRoom("651551cf1ae339b4d6643733");
+    socketService.getAllChats("651551cf1ae339b4d6643733");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
