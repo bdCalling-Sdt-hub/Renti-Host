@@ -39,7 +39,7 @@ class AddNewCardScreen extends StatelessWidget {
                     text: 'Account Holder Name', fontSize: 16, bottom: 12),
                 CustomTextField(
                   textInputAction: TextInputAction.done,
-                  hintText: AppStaticStrings.enterEmail,
+                  hintText: "Enter email".tr,
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -47,17 +47,17 @@ class AddNewCardScreen extends StatelessWidget {
                       color: AppColors.whiteNormalActive),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return AppStaticStrings.notBeEmpty;
+                      return "This field can not be empty".tr;
                     } else if (!value.contains(RegExp('@'))) {
-                      return AppStaticStrings.enterValidEmail;
+                      return "Please enter a valid email".tr;
                     } else {
                       return null;
                     }
                   },
                 ),
 
-                const CustomText(
-                    text: AppStaticStrings.phoneNumber, bottom: 12, top: 8),
+                CustomText(
+                    text: "Phone Number".tr, bottom: 12, top: 8),
                 //Country Flag and Enter Phone Number TextField
                 SizedBox(
                   height: 56,
@@ -81,7 +81,7 @@ class AddNewCardScreen extends StatelessWidget {
                             CustomImage(
                                 imageSrc: AppImages.flagImage, size: 40),
                             CustomText(
-                                text: AppStaticStrings.phone,
+                                text: "+52",
                                 left: 10,
                                 color: AppColors.whiteNormalActive)
                           ],
@@ -91,7 +91,7 @@ class AddNewCardScreen extends StatelessWidget {
                       Expanded(
                         child: CustomTextField(
                           keyboardType: TextInputType.phone,
-                          hintText: AppStaticStrings.enterPhoneNumber,
+                          hintText: "Enter phone number".tr,
                           hintStyle: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -103,11 +103,11 @@ class AddNewCardScreen extends StatelessWidget {
                   ),
                 ),
 
-                const CustomText(
-                    text: AppStaticStrings.email, top: 8, bottom: 12),
+                 CustomText(
+                    text: "Email".tr, top: 8, bottom: 12),
                 CustomTextField(
                   textInputAction: TextInputAction.done,
-                  hintText: AppStaticStrings.enterEmail,
+                  hintText: "Enter email".tr,
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -115,9 +115,9 @@ class AddNewCardScreen extends StatelessWidget {
                       color: AppColors.whiteNormalActive),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return AppStaticStrings.notBeEmpty;
+                      return "This field can not be empty".tr;
                     } else if (!value.contains(RegExp('@'))) {
-                      return AppStaticStrings.enterValidEmail;
+                      return "Please enter a valid email".tr;
                     } else {
                       return null;
                     }
@@ -130,7 +130,7 @@ class AddNewCardScreen extends StatelessWidget {
                     bottom: 12),
                 CustomTextField(
                   textInputAction: TextInputAction.done,
-                  hintText: AppStaticStrings.enterEmail,
+                  hintText: "Enter email".tr,
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -138,9 +138,9 @@ class AddNewCardScreen extends StatelessWidget {
                       color: AppColors.whiteNormalActive),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return AppStaticStrings.notBeEmpty;
+                      return "This field can not be empty".tr;
                     } else if (!value.contains(RegExp('@'))) {
-                      return AppStaticStrings.enterValidEmail;
+                      return "Please enter a valid email".tr;
                     } else {
                       return null;
                     }

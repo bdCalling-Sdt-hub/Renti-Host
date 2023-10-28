@@ -6,7 +6,6 @@ import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -34,7 +33,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomText(text: AppStaticStrings.phoneNumber, bottom: 12),
+            CustomText(text: "Phone Number".tr, bottom: 12),
             //Country Flag and Enter Phone Number TextField
             SizedBox(
               height: 56,
@@ -42,8 +41,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: AppColors.whiteLight,
@@ -56,7 +54,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                       children: [
                         CustomImage(imageSrc: AppImages.flagImage, size: 40),
                         CustomText(
-                            text: AppStaticStrings.phone,
+                            text: "+52",
                             left: 10,
                             color: AppColors.whiteNormalActive)
                       ],
@@ -67,7 +65,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                     child: CustomTextField(
                       textEditingController: controller.phoneNumberController,
                       keyboardType: TextInputType.phone,
-                      hintText: AppStaticStrings.enterPhoneNumber,
+                      hintText: "Enter phone number".tr,
                       hintStyle: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -79,8 +77,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
             ),
 
             //Address Text and TextField
-            const CustomText(
-                text: AppStaticStrings.address, top: 16, bottom: 12),
+            CustomText(text: "Address".tr, top: 16, bottom: 12),
             Container(
               height: 100,
               decoration: BoxDecoration(
@@ -95,7 +92,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                 textEditingController: controller.addressController,
                 textInputAction: TextInputAction.done,
                 fieldBorderColor: AppColors.whiteLight,
-                hintText: AppStaticStrings.enterAddress,
+                hintText: "Enter your address".tr,
                 hintStyle: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -110,16 +107,15 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                   if (controller.phoneNumberController.text.isNotEmpty &&
                       controller.addressController.text.isNotEmpty) {
                     setDataToLocalStore(controller,
-                        phoneNumber:
-                            "${controller.phoneCode} ${controller.phoneNumberController.text}",
+                        phoneNumber: "${controller.phoneCode} ${controller.phoneNumberController.text}",
                         address: controller.addressController.text);
                   } else {
-                    Utils.toastMessage("InputField Can't be Empty");
+                    Utils.toastMessage("InputField Can't be Empty".tr);
                   }
                 },
                 buttonHeight: 48,
                 buttonWidth: double.maxFinite,
-                titleText: AppStaticStrings.continuee),
+                titleText: "Continue".tr),
           ],
         ),
       ),

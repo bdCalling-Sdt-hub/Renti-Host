@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/service/socket_service.dart';
-import 'package:renti_host/utils/language/languages.dart';
+import 'package:renti_host/view/screens/select_language/language/languages.dart';
+import 'package:renti_host/view/screens/select_language/language_controller/language_controller.dart';
 import 'core/di_service/dependency_injection.dart' as di;
 
 
@@ -12,6 +14,8 @@ void main() async{
   await di.initDependency();
   final socketService = SocketService();
   socketService.connectToSocket();
+  await ScreenUtil.ensureScreenSize();
+  await Get.put(LanguageController()).initStorage();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -31,8 +35,8 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.noTransition,
       transitionDuration: const Duration(milliseconds: 200),
       translations: Languages(),
-      locale: const Locale("en" , "US"),
-      fallbackLocale: const Locale("en" , "US"),
+      locale: Get.find<LanguageController>().language.val ? const Locale("en" , "US") : const Locale("es", "MX"),
+      fallbackLocale:const Locale("en" , "US"),
       initialRoute: AppRoute.splashScreen,
       navigatorKey: Get.key,
       getPages: AppRoute.routes,

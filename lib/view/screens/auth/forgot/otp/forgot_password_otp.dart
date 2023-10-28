@@ -5,7 +5,6 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:renti_host/data/controller/auth/forget_password_controller/forgot_pass_otp_repo.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -29,9 +28,9 @@ class _ForgotPassOTPState extends State<ForgotPassOTP> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.blueNormal,
-        appBar: const CustomAppBar(
+        appBar:  CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.otp,
+            text: "OTP".tr,
           ),
         ),
         body: LayoutBuilder(
@@ -44,8 +43,8 @@ class _ForgotPassOTPState extends State<ForgotPassOTP> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(
-                    text: AppStaticStrings.otpCode,
+                   CustomText(
+                    text: "Please enter the OTP code.".tr,
                     fontSize: 16,
                     bottom: 24,
                   ),
@@ -94,11 +93,11 @@ class _ForgotPassOTPState extends State<ForgotPassOTP> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const CustomText(text: AppStaticStrings.notGetOTP),
+                       CustomText(text: "Did not get the OTP?".tr),
                       GestureDetector(
                         onTap: () {},
-                        child: const CustomText(
-                          text: AppStaticStrings.resendOTP,
+                        child:  CustomText(
+                          text: "Resend OTP".tr,
                           color: AppColors.blueNormal,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
@@ -117,7 +116,7 @@ class _ForgotPassOTPState extends State<ForgotPassOTP> {
             onPressed: () {
               otpController.verifyOTP(otpController.controllerOTP.value.text, otpController.forgetPassController.emailController.value.text);
             },
-            titleText: AppStaticStrings.verify,
+            titleText: "Verify".tr,
           ),
         ),
       ),

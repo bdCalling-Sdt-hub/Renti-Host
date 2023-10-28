@@ -6,7 +6,6 @@ import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/data/controller/auth/otp_controller/forgot_pass_repo.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_number_verification/kyc_email_veri_repo/kyc_email_veri_repo.dart';
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_number_verification/resend_otp_repo/resend_otp_repo.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
@@ -34,8 +33,8 @@ class _KYCNumberVerificationState extends State<KYCNumberVerification> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.blueNormal,
-        appBar: const CustomAppBar(
-          appBarContent: CustomBack(text: AppStaticStrings.mobileVerification),
+        appBar: CustomAppBar(
+          appBarContent: CustomBack(text: "Mobile Number Verification".tr),
         ),
         body: GetBuilder<SignUpController>(builder: (controller) {
           return LayoutBuilder(
@@ -48,8 +47,8 @@ class _KYCNumberVerificationState extends State<KYCNumberVerification> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CustomText(
-                      text: AppStaticStrings.weHaveSent,
+                    CustomText(
+                      text: "weHaveSent".tr,
                       fontSize: 16,
                       textAlign: TextAlign.start,
                       bottom: 24,
@@ -107,14 +106,14 @@ class _KYCNumberVerificationState extends State<KYCNumberVerification> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const CustomText(text: AppStaticStrings.notGetOTP),
+                         CustomText(text: "Did not get the OTP?".tr),
                         GestureDetector(
                           onTap: () {
                             ResentOtp.resendOtp(
                                 email: controller.emailController.text);
                           },
-                          child: const CustomText(
-                            text: AppStaticStrings.resendOTP,
+                          child:  CustomText(
+                            text: "Resend OTP".tr,
                             color: AppColors.blueNormal,
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -134,7 +133,7 @@ class _KYCNumberVerificationState extends State<KYCNumberVerification> {
               onPressed: () {
                 Get.toNamed(AppRoute.kycEmailVerification);
               },
-              titleText: AppStaticStrings.verify),
+              titleText: "Verify".tr),
         ),
       ),
     );

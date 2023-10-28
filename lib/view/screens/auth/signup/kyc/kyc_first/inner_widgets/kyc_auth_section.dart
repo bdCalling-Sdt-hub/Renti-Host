@@ -6,7 +6,6 @@ import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -29,16 +28,16 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //Upload INE or Passport Text and File..
-          const CustomText(
-            text: AppStaticStrings.nOTEAllfilemust,
+          CustomText(
+            text: "NOTE:  All file must be in PDF format".tr,
             color: AppColors.whiteDarkActive,
             fontWeight: FontWeight.bold,
             top: 16,
             bottom: 8,
             textAlign: TextAlign.start,
           ),
-          const CustomText(
-            text: AppStaticStrings.uploadINE,
+          CustomText(
+            text: "1. Upload INE/Passport".tr,
             color: AppColors.whiteDarkActive,
             top: 16,
             bottom: 8,
@@ -105,8 +104,8 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                 ),
 
           //Upload Text Stamps Key Extension Text and File..
-          const CustomText(
-            text: AppStaticStrings.uploadTax,
+          CustomText(
+            text: "2. Tax stamps .key extension file".tr,
             color: AppColors.whiteDarkActive,
             top: 16,
             bottom: 8,
@@ -173,8 +172,8 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                 ),
 
           //Upload Text Stamps Key Extension Text and File..
-          const CustomText(
-            text: AppStaticStrings.uploadCer,
+          CustomText(
+            text: "3. Tax stamps .cer extension file".tr,
             color: AppColors.whiteDarkActive,
             top: 16,
             textAlign: TextAlign.start,
@@ -240,8 +239,8 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                 ),
 
           //INE/Passport Text and TextField
-          const CustomText(
-            text: AppStaticStrings.ineOrPassport,
+          CustomText(
+            text: "INE/Passport".tr,
             top: 16,
             bottom: 12,
             textAlign: TextAlign.start,
@@ -249,7 +248,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
           CustomTextField(
             textEditingController: controller.ineNumberController,
             textInputAction: TextInputAction.done,
-            hintText: AppStaticStrings.enterIneOrPassword,
+            hintText: "Enter INE/Passport".tr,
             hintStyle: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
@@ -257,8 +256,8 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
           ),
 
           //RFC Text and TextField
-          const CustomText(
-            text: AppStaticStrings.rfc,
+          CustomText(
+            text: "RFC".tr,
             top: 16,
             bottom: 12,
             textAlign: TextAlign.start,
@@ -266,7 +265,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
           CustomTextField(
             textEditingController: controller.rfcController,
             textInputAction: TextInputAction.done,
-            hintText: AppStaticStrings.enterRFC,
+            hintText: "Enter RFC".tr,
             hintStyle: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
@@ -290,7 +289,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
               },
               buttonWidth: double.maxFinite,
               buttonHeight: 48,
-              titleText: AppStaticStrings.continuee)
+              titleText: "Continue".tr)
         ],
       ),
     );

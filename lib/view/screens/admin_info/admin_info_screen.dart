@@ -74,8 +74,8 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
                     ],
                   ),
                   const SizedBox(height: 24),
-                  const CustomText(
-                      text: AppStaticStrings.email,
+                   CustomText(
+                      text: "Email".tr,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.blueNormal,

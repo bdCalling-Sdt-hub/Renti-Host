@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_repo/sign_up_repo.dart';
@@ -47,9 +46,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Scaffold(
           extendBody: true,
           backgroundColor: AppColors.blueNormal,
-          appBar: const CustomAppBar(
+          appBar:  CustomAppBar(
             appBarContent: CustomBack(
-              text: AppStaticStrings.signUp,
+              text: "Sign Up".tr,
             ),
           ),
           body: LayoutBuilder(

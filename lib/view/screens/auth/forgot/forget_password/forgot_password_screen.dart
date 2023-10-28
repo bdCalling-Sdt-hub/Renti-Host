@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/data/controller/auth/otp_controller/forgot_pass_repo.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -31,9 +30,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.blueNormal,
-        appBar: const CustomAppBar(
+        appBar:  CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.forgotPassword,
+            text: "Forgot Password".tr,
           ),
         ),
         body: LayoutBuilder(
@@ -46,8 +45,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(
-                    text: AppStaticStrings.recoverPass,
+                   CustomText(
+                    text: "Please enter your email address for recover your password.".tr,
                     textAlign: TextAlign.start,
                     fontSize: 16,
                     bottom: 24,
@@ -62,8 +61,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     ),
                   ),
                   // Email and TextField
-                  const CustomText(
-                      text: AppStaticStrings.email, top: 24, bottom: 12),
+                   CustomText(
+                      text: "Email".tr, top: 24, bottom: 12),
                   Form(
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.always,
@@ -71,7 +70,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       textEditingController:
                           forgotPassword.emailController.value,
                       textInputAction: TextInputAction.done,
-                      hintText: AppStaticStrings.enterEmail,
+                      hintText: "Enter password".tr,
                       hintStyle: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -79,9 +78,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           color: AppColors.whiteNormalActive),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return AppStaticStrings.notBeEmpty;
-                        } else if (!value.contains(RegExp('@'))) {
-                          return AppStaticStrings.enterValidEmail;
+                          return "This field can not be empty".tr;
+                        } else if (value.length < 6) {
+                          return "Password should be more than 6 characters".tr;
                         } else {
                           return null;
                         }
@@ -97,10 +96,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: CustomElevatedButton(
               onPressed: () {
-                forgotPassword
-                    .resetPassword(forgotPassword.emailController.value.text);
+                forgotPassword.resetPassword(forgotPassword.emailController.value.text);
               },
-              titleText: AppStaticStrings.continuee),
+              titleText: "Continue".tr),
         ),
       ),
     );

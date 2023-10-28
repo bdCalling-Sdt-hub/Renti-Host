@@ -52,17 +52,17 @@ class _SplashScreenState extends State<SplashScreen> {
                       onTap: () {
                         Get.toNamed(AppRoute.selectLanguageScreen);
                       },
-                      child: const Row(
+                      child:  Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomText(
-                            text: AppStaticStrings.english,
+                            text: "English".tr,
                             color: AppColors.whiteLight,
                             fontSize: 16,
                             right: 8,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios_outlined,
                             color: AppColors.whiteLight,
                             size: 14,
@@ -75,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       onPressed: () {
                         Get.toNamed(AppRoute.signInScreen);
                       },
-                      titleText: AppStaticStrings.getStarted,
+                      titleText: "Get Started".tr,
                       buttonWidth: double.maxFinite,
                       buttonColor: AppColors.whiteLight,
                       titleColor: AppColors.blueNormal,

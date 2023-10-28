@@ -399,7 +399,7 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                   },
                   buttonHeight: 52,
                   buttonWidth: double.infinity,
-                  titleText: AppStaticStrings.continuee,
+                  titleText: "Continue".tr,
                 ),
 
                 const SizedBox(height: 24),

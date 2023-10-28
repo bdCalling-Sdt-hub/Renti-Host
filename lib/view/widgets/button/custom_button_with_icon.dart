@@ -36,7 +36,7 @@ class CustomElevatedButtonWithIcon extends StatelessWidget {
       this.buttonBorderWidth = 1,
       this.buttonWidth = double.maxFinite,
       this.iconSize = 30,
-      this.left = 16,
+      this.left = 8,
       required this.iconSrc,
       super.key});
 
