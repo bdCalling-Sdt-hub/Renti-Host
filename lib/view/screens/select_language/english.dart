@@ -81,6 +81,12 @@ Map<String, String> english = {
   "Mobile Number Verification" : "Mobile Number Verification",
   "weHaveSent" : "We have sent you an OTP code on your mobile number. Please enter the OTP code.",
 
+  "Email Verification" : "Email Verification",
+  "weSentEmail" : "We have sent you a link to your email address. Please check to confirm your account.",
+  "Resend Email" : "Resend Email",
+  "Did not get the email?" : "Did not get the email?",
+
+
 
 
 

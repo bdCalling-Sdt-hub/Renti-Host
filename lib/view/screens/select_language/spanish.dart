@@ -81,6 +81,10 @@ Map<String, String> spanish = {
   "Mobile Number Verification" : "Verificación del número de teléfono",
   "weHaveSent" : "Le hemos enviado un código OTP a su número de teléfono móvil. Ingrese el código OTP.",
 
+  "Email Verification" : "Verificacion de email",
+  "weSentEmail" : "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
+  "Resend Email" : "Reenviar email",
+  "Did not get the email?" : "¿No recibiste el email?",
 
 
 

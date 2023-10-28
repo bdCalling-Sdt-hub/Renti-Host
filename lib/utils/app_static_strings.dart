@@ -7,11 +7,6 @@ class AppStaticStrings {
 
   static const String carType = "Car Type";
 
-  //Kyc Email Verification Screen All Strings
-  static const String emailVerification = "Email Verification";
-  static const String weSentEmail = "We have sent you a link on your email address. Please check for confirm your account.";
-  static const String resendEmail = "Resend Email";
-  static const String getTheEmail = "Did not get the email?";
 
   //Home Screen All Strings
   static const String searchCar = "Search cars...";
