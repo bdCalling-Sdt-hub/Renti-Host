@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/select_language/language_controller/language_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -18,29 +18,20 @@ class SelectLanguageScreen extends StatefulWidget {
 
 class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
   List<String> languageName = [
-    'English',
-    'English UK',
-    'Hindi',
-    'Spanish',
-    'Japanese',
-    'Chinese',
-    'Dutch',
-    'Korean',
-    'Swedish',
-    'Bangla',
-    'Bangla',
-    'Bangla',
-    'Bangla',
-    'Bangla',
+    'English'.tr,
+    'Spanish'.tr,
   ];
   int selectedItem = 0;
+
+  final prefs = Get.find<LanguageController>();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: true,
       child: Scaffold(
         extendBody: true,
-        appBar: const CustomAppBar(appBarContent: CustomBack(text: AppStaticStrings.selectLanguage,),),
+        appBar:  CustomAppBar(appBarContent: CustomBack(text: "Select Language".tr),),
         backgroundColor: AppColors.blueNormal,
         body: CustomContainer(
           height: MediaQuery.of(context).size.height,
@@ -111,6 +102,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                   },
                 ),
               ),
+
             ),
           ),
         ),
@@ -118,7 +110,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
           child: CustomElevatedButton(
               onPressed: () {
                 Get.toNamed(AppRoute.signInScreen);
-              }, titleText: AppStaticStrings.confirm),
+              }, titleText: "Confirm".tr),
         ),
       ),
     );

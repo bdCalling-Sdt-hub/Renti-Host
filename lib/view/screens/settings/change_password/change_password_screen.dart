@@ -43,7 +43,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               children: [
                 Form(
                   key: _formKey,
-                  //autovalidateMode: AutovalidateMode.onUserInteraction,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -62,14 +62,16 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                             color: AppColors.whiteNormalActive),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppStaticStrings.notBeEmpty;
+                            return "This field can not be empty".tr;
+                          } else if (value.length < 6) {
+                            return "Password should be more than 6 characters".tr;
                           } else {
                             return null;
                           }
                         },
                       ),
-                      const CustomText(
-                        text: AppStaticStrings.newPassword,
+                       CustomText(
+                        text: "New Password".tr,
                         top: 16,
                         bottom: 12,
                       ),
@@ -84,14 +86,16 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                             color: AppColors.whiteNormalActive),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppStaticStrings.notBeEmpty;
+                            return "This field can not be empty".tr;
+                          } else if (value.length < 6) {
+                            return "Password should be more than 6 characters".tr;
                           } else {
                             return null;
                           }
                         },
                       ),
-                      const CustomText(
-                        text: AppStaticStrings.confirmPassword,
+                       CustomText(
+                        text: "Confirm Password".tr,
                         top: 16,
                         bottom: 12,
                       ),
@@ -106,7 +110,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                             color: AppColors.whiteNormalActive),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppStaticStrings.notBeEmpty;
+                            return "This field can not be empty".tr;
+                          } else if (value.length < 6) {
+                            return "Password should be more than 6 characters".tr;
                           } else {
                             return null;
                           }
@@ -114,8 +120,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       ),
                       GestureDetector(
                         onTap: () {},
-                        child: const CustomText(
-                          text: AppStaticStrings.forgotPass,
+                        child: CustomText(
+                          text: "Forgot Password?".tr,
                           color: AppColors.blueNormal,
                           fontSize: 16,top: 24,
                         ),

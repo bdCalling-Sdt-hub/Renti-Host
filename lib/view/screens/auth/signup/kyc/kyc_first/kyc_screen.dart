@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_first/inner_widgets/kyc_auth_section.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
@@ -37,8 +36,8 @@ class _KYCScreenState extends State<KYCScreen> {
         child: Scaffold(
           extendBody: true,
           backgroundColor: AppColors.blueNormal,
-          appBar: const CustomAppBar(
-            appBarContent: CustomBack(text: AppStaticStrings.kyc),
+          appBar: CustomAppBar(
+            appBarContent: CustomBack(text: "KYC".tr),
           ),
           body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =>

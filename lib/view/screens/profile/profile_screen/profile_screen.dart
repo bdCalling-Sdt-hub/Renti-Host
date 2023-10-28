@@ -44,140 +44,141 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     var editProfileController = Get.find<EditProfileController>();
-    return GetBuilder<ProfileController>(builder: (controller) {
-      if (controller.isloading == true) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-      ProfileModel profileModel = controller.profileModel;
+    return GetBuilder<ProfileController>(
+      builder: (controller) {
+        if (controller.isloading == true) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        ProfileModel profileModel = controller.profileModel;
 
-      String fullName = profileModel.user!.fullName.toString();
-      String email = profileModel.user!.email.toString();
-      String phoneNumber = profileModel.user!.phoneNumber.toString();
-      String creaditCardNumber = profileModel.user!.creaditCardNumber.toString();
-      String dateOfBirth = profileModel.user!.dateOfBirth.toString();
-      String gender = profileModel.user!.gender.toString();
-      String address = profileModel.user!.address.toString();
-      String img = profileModel.user!.image.toString();
-      String ine = profileModel.user!.ine.toString();
+        String fullName = profileModel.user!.fullName.toString();
+        String email = profileModel.user!.email.toString();
+        String phoneNumber = profileModel.user!.phoneNumber.toString();
+        String creaditCardNumber =
+            profileModel.user!.creaditCardNumber.toString();
+        String dateOfBirth = profileModel.user!.dateOfBirth.toString();
+        String gender = profileModel.user!.gender.toString();
+        String address = profileModel.user!.address.toString();
+        String img = profileModel.user!.image.toString();
+        String ine = profileModel.user!.ine.toString();
 
-      return SafeArea(
-        top: true,
-        child: Scaffold(
-          backgroundColor: AppColors.whiteLight,
-          appBar: const CustomAppBar(
-            appBarContent: CustomText(
-              text: AppStaticStrings.profile,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+        return SafeArea(
+          top: true,
+          child: Scaffold(
+            backgroundColor: AppColors.whiteLight,
+            appBar: const CustomAppBar(
+              appBarContent: CustomText(
+                text: AppStaticStrings.profile,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-          body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 24),
-                    child: Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            controller.profile();
-                            Get.toNamed(AppRoute.editProfileScreen,
-                                arguments: img);
+            body: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  SingleChildScrollView(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        controller.profile();
+                        Get.toNamed(AppRoute.editProfileScreen, arguments: img);
 
-                            editProfileController.fullNameController =
-                                TextEditingController(text: fullName);
+                        editProfileController.fullNameController =
+                            TextEditingController(text: fullName);
 
-                            editProfileController.emailController =
-                                TextEditingController(text: email);
+                        editProfileController.emailController =
+                            TextEditingController(text: email);
 
-                            editProfileController.creaditCardNumberController =
-                                TextEditingController(text: creaditCardNumber);
+                        editProfileController.creaditCardNumberController =
+                            TextEditingController(text: creaditCardNumber);
 
-                            editProfileController.phoneNumberController =
-                                TextEditingController(text: phoneNumber);
+                        editProfileController.phoneNumberController =
+                            TextEditingController(text: phoneNumber);
 
-                            editProfileController.dateOfBirthController =
-                                TextEditingController(text: dateOfBirth);
+                        editProfileController.dateOfBirthController =
+                            TextEditingController(text: dateOfBirth);
 
-                            editProfileController.genderController =
-                                TextEditingController(text: gender);
+                        editProfileController.genderController =
+                            TextEditingController(text: gender);
 
-                            editProfileController.addressController =
-                                TextEditingController(text: address);
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            padding: const EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: AppColors.blueNormal,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                        editProfileController.addressController =
+                            TextEditingController(text: address);
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.blueNormal,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
                               children: [
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 50,
-                                      width: 50,
-                                      child: ClipOval(
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: img,
-                                          placeholder: (context, url) =>
-                                              const CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.error),
-                                        ),
-                                      ),
+                                SizedBox(
+                                  height: 50,
+                                  width: 50,
+                                  child: ClipOval(
+                                    child: CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl: img,
+                                      placeholder: (context, url) =>
+                                          const CircularProgressIndicator(),
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
                                     ),
-                                    CustomText(
-                                        text: fullName,
-                                        color: AppColors.whiteLight,
-                                        left: 16,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500)
-                                  ],
+                                  ),
                                 ),
-                                const CustomImage(
-                                    imageSrc: AppIcons.editProfileIcon,
-                                    size: 24),
+                                CustomText(
+                                    text: fullName,
+                                    color: AppColors.whiteLight,
+                                    left: 16,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500)
                               ],
                             ),
-                          ),
+                            const CustomImage(imageSrc: AppIcons.editProfileIcon, size: 24),
+                          ],
                         ),
-                        ProfileCard(
-                            title: AppStaticStrings.ine,
-                            description: ine,
-                            icon: Icons.credit_card_outlined),
-                        ProfileCard(
-                            title: AppStaticStrings.email,
-                            description: email,
-                            icon: Icons.email_outlined),
-                        ProfileCard(
-                            title: AppStaticStrings.mobile,
-                            description: phoneNumber,
-                            icon: Icons.phone),
-                        ProfileCard(
-                            title: AppStaticStrings.dateOfBirth,
-                            description: dateOfBirth,
-                            icon: Icons.cake),
-                        ProfileCard(
-                            title: AppStaticStrings.gender,
-                            description: gender,
-                            icon: Icons.female_outlined),
-                        ProfileCard(
-                            title: AppStaticStrings.address,
-                            description: address,
-                            icon: Icons.location_on_outlined),
-                      ],
-                    )),
+                      ),
+                    ),
+                    ProfileCard(
+                        title: AppStaticStrings.ine,
+                        description: ine,
+                        icon: Icons.credit_card_outlined),
+                    ProfileCard(
+                        title: "Email".tr,
+                        description: email,
+                        icon: Icons.email_outlined),
+                    ProfileCard(
+                        title: AppStaticStrings.mobile,
+                        description: phoneNumber,
+                        icon: Icons.phone),
+                    ProfileCard(
+                        title: "Date of Birth".tr,
+                        description: dateOfBirth,
+                        icon: Icons.cake),
+                    ProfileCard(
+                        title: "Gender".tr,
+                        description: gender,
+                        icon: Icons.female_outlined),
+                    ProfileCard(
+                        title: "Address".tr,
+                        description: address,
+                        icon: Icons.location_on_outlined),
+                  ],
+                ),
+              ),
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

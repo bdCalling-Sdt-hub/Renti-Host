@@ -78,7 +78,7 @@ class RentDetailsAlert extends StatelessWidget {
                   title: AppStaticStrings.contact, data: rentListModel.rentedCars![index].userId!.phoneNumber.toString()),
               const SizedBox(height: 8),
                CustomRentDetails(
-                  title: AppStaticStrings.email1, data: rentListModel.rentedCars![index].userId!.email.toString()),
+                  title: "Email:".tr, data: rentListModel.rentedCars![index].userId!.email.toString()),
               const SizedBox(height: 8),
                CustomRentDetails(
                   title: AppStaticStrings.iNE, data: rentListModel.rentedCars![index].userId!.ine.toString()),

@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -31,10 +30,10 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Full name And TextField
-            const CustomText(text: AppStaticStrings.fullName, bottom: 12),
+             CustomText(text: "Full Name".tr, bottom: 12),
             CustomTextField(
               textEditingController: controller.fullNameController,
-              hintText: AppStaticStrings.enterFullName,
+              hintText: "Enter full name".tr,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -42,15 +41,15 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
             ),
 
             //Email and TextField
-            const CustomText(
-              text: AppStaticStrings.email,
+             CustomText(
+              text: "Email".tr,
               top: 16,
               bottom: 12,
             ),
             CustomTextField(
               textEditingController: controller.emailController,
               textInputAction: TextInputAction.done,
-              hintText: AppStaticStrings.enterEmail,
+              hintText: "Enter email".tr,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -58,9 +57,9 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   color: AppColors.whiteNormalActive),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return AppStaticStrings.notBeEmpty;
+                  return "This field can not be empty".tr;
                 } else if (!value.contains(RegExp('@'))) {
-                  return AppStaticStrings.enterValidEmail;
+                  return "Please enter a valid email".tr;
                 } else {
                   return null;
                 }
@@ -68,8 +67,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
             ),
 
             //Gender Selection
-            const CustomText(
-                text: AppStaticStrings.gender, top: 16, bottom: 12),
+             CustomText(text: "Gender".tr, top: 16, bottom: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
@@ -104,15 +102,15 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
             ),
 
             //Date Of Birth
-            const CustomText(
-                text: AppStaticStrings.dateOfBirth, top: 16, bottom: 12),
+             CustomText(
+                text: "Date of Birth".tr, top: 16, bottom: 12),
             Row(
               children: [
                 Expanded(
                   child: CustomTextField(
                     keyboardType: TextInputType.datetime,
                     textEditingController: controller.dateController,
-                    hintText: AppStaticStrings.dd,
+                    hintText: "DD",
                     hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -125,7 +123,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   child: CustomTextField(
                     keyboardType: TextInputType.datetime,
                     textEditingController: controller.monthController,
-                    hintText: AppStaticStrings.mm,
+                    hintText: "MM",
                     hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -138,7 +136,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   child: CustomTextField(
                     keyboardType: TextInputType.datetime,
                     textEditingController: controller.yearController,
-                    hintText: AppStaticStrings.yy,
+                    hintText: "YY",
                     hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -150,13 +148,13 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
             ),
 
             //Password Text and TextField
-            const CustomText(
-                text: AppStaticStrings.password, bottom: 12, top: 16),
+             CustomText(
+                text: "Password".tr, bottom: 12, top: 16),
             CustomTextField(
               textEditingController: controller.passwordController,
               isPassword: true,
               isPrefixIcon: true,
-              hintText: AppStaticStrings.enterPassword,
+              hintText: "Enter password".tr,
               keyboardType: TextInputType.visiblePassword,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
@@ -165,9 +163,9 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   color: AppColors.whiteNormalActive),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return AppStaticStrings.notBeEmpty;
+                  return "This field can not be empty".tr;
                 } else if (value.length < 6) {
-                  return AppStaticStrings.passwordShouldBe;
+                  return "Password should be more than 6 characters".tr;
                 } else {
                   return null;
                 }
@@ -175,14 +173,13 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
             ),
 
             //Confirm Password Text and TextField
-            const CustomText(
-                text: AppStaticStrings.confirmPassword, bottom: 12, top: 16),
+             CustomText(text: "Confirm Password".tr, bottom: 12, top: 16),
             CustomTextField(
               textEditingController: controller.confirmPasswordController,
               isPassword: true,
               textInputAction: TextInputAction.done,
               isPrefixIcon: true,
-              hintText: AppStaticStrings.confirmPassword,
+              hintText: "Confirm Password".tr,
               keyboardType: TextInputType.visiblePassword,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
@@ -191,9 +188,9 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   color: AppColors.whiteNormalActive),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return AppStaticStrings.notBeEmpty;
+                  return "This field can not be empty".tr;
                 } else if (value.length < 6) {
-                  return AppStaticStrings.passwordShouldBe;
+                  return "Password should be more than 6 characters".tr;
                 } else {
                   return null;
                 }
@@ -218,14 +215,12 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                     setDataToLocalStore(controller,
                         fullName: controller.fullNameController.text,
                         email: controller.emailController.text,
-                        gender: controller.genderList[controller.selectedGender]
-                            .toString(),
-                        dob:
-                            "${controller.dateController.text}/${controller.monthController.text}/${controller.yearController.text}",
+                        gender: controller.genderList[controller.selectedGender].toString(),
+                        dob: "${controller.dateController.text}/${controller.monthController.text}/${controller.yearController.text}",
                         password: controller.confirmPasswordController.text);
                   }
                 },
-                titleText: AppStaticStrings.continuee,
+                titleText: "Continue".tr,
                 buttonWidth: double.maxFinite,
                 buttonHeight: 48)
           ],
@@ -240,16 +235,11 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
       required String gender,
       required String dob,
       required String password}) async {
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.fullName, fullName);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.email, email);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.gender, gender);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.dob, dob);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.password, password);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.fullName, fullName);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.email, email);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.gender, gender);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.dob, dob);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.password, password);
 
     Get.toNamed(AppRoute.signUpContinueScreen);
   }

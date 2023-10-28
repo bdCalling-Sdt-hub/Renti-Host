@@ -25,6 +25,7 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
@@ -41,204 +42,197 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     var img = Get.arguments;
-    return GetBuilder<EditProfileController>(builder: (controller) {
-      return SafeArea(
-        top: true,
-        child: Scaffold(
-          extendBody: true,
-          backgroundColor: AppColors.whiteLight,
-          appBar: const CustomAppBar(
-            appBarContent: CustomBack(
-                text: AppStaticStrings.profileEdit,
-                color: AppColors.blackNormal),
-          ),
-          body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 24),
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+    return GetBuilder<EditProfileController>(
+      builder: (controller) {
+        return SafeArea(
+          top: true,
+          child: Scaffold(
+            extendBody: true,
+            backgroundColor: AppColors.whiteLight,
+            appBar: const CustomAppBar(
+              appBarContent: CustomBack(
+                  text: AppStaticStrings.profileEdit,
+                  color: AppColors.blackNormal),
+            ),
+            body: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  SingleChildScrollView(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
-                          Stack(
-                            alignment: Alignment.bottomCenter,
-                            children: [
-                              controller.imageFile == null
-                                  ? Container(
-                                      height: 150,
-                                      width: double.infinity - 40,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          image: DecorationImage(
-                                              image: NetworkImage(
-                                                img,
-                                              ),
-                                              fit: BoxFit.contain)),
-                                    )
-                                  : Container(
-                                      height: 150,
-                                      width: double.infinity - 40,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          image: DecorationImage(
-                                              image: FileImage(File(
-                                                  controller.imageFile!.path)),
-                                              fit: BoxFit.contain)),
-                                    ),
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    controller.openGallery();
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(6),
-                                    decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: AppColors.blueNormal),
-                                    child: const CustomImage(
-                                        imageSrc: AppIcons.cameraIcon,
-                                        size: 24),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          //Name and TextField
-                          const CustomText(
-                              text: AppStaticStrings.name1,
-                              bottom: 12,
-                              top: 16),
-                          CustomTextField(
-                            textEditingController:
-                                controller.fullNameController,
-                            hintText: AppStaticStrings.enterFullName,
-                            hintStyle: GoogleFonts.poppins(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.whiteNormalActive),
-                          ),
-
-                          //Email and TextField
-                          const CustomText(
-                              text: AppStaticStrings.email, top: 8, bottom: 12),
-                          CustomTextField(
-                            readOnly: true,
-                            textEditingController: controller.emailController,
-                            textInputAction: TextInputAction.done,
-                            hintText: AppStaticStrings.enterEmail,
-                            hintStyle: GoogleFonts.poppins(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                letterSpacing: 1,
-                                color: AppColors.whiteNormalActive),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return AppStaticStrings.notBeEmpty;
-                              } else if (!value.contains(RegExp('@'))) {
-                                return AppStaticStrings.enterValidEmail;
-                              } else {
-                                return null;
-                              }
-                            },
-                          ),
-
-                          //Phone Number Text and TextField
-                          const CustomText(
-                            text: AppStaticStrings.phoneNumber,
-                            bottom: 12,
-                            top: 8,
-                          ),
-                          SizedBox(
-                            height: 56,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 8),
+                          controller.imageFile == null
+                              ? Container(
+                                  height: 150,
+                                  width: double.infinity - 40,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: AppColors.whiteLight,
-                                    border: Border.all(
-                                        color: AppColors.whiteDark,
-                                        width: 1.0,
-                                        style: BorderStyle.solid),
-                                  ),
-                                  child: const Row(
-                                    children: [
-                                      CustomImage(
-                                          imageSrc: AppImages.flagImage,
-                                          size: 40),
-                                      CustomText(
-                                          text: AppStaticStrings.phone,
-                                          left: 10,
-                                          color: AppColors.whiteNormalActive)
-                                    ],
-                                  ),
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            img,
+                                          ),
+                                          fit: BoxFit.contain)),
+                                )
+                              : Container(
+                                  height: 150,
+                                  width: double.infinity - 40,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: FileImage(
+                                              File(controller.imageFile!.path)),
+                                          fit: BoxFit.contain)),
                                 ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: CustomTextField(
-                                    textEditingController:
-                                        controller.phoneNumberController,
-                                    keyboardType: TextInputType.phone,
-                                    hintText: AppStaticStrings.enterPhoneNumber,
-                                    hintStyle: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: AppColors.whiteNormalActive),
-                                  ),
-                                ),
-                              ],
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: GestureDetector(
+                              onTap: () {
+                                controller.openGallery();
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(6),
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.blueNormal),
+                                child: const CustomImage(
+                                    imageSrc: AppIcons.cameraIcon, size: 24),
+                              ),
                             ),
                           ),
-                          const CustomText(
-                              text: AppStaticStrings.address,
-                              top: 8,
-                              bottom: 12),
-                          Container(
-                            height: 100,
-                            decoration: BoxDecoration(
+                        ],
+                      ),
+
+                      //Name and TextField
+                      const CustomText(
+                          text: AppStaticStrings.name1, bottom: 12, top: 16),
+                      CustomTextField(
+                        textEditingController: controller.fullNameController,
+                        hintText: "Enter full name".tr,
+                        hintStyle: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.whiteNormalActive),
+                      ),
+
+                      //Email and TextField
+                      CustomText(text: "Email".tr, top: 8, bottom: 12),
+                      CustomTextField(
+                        readOnly: true,
+                        textEditingController: controller.emailController,
+                        textInputAction: TextInputAction.done,
+                        hintText: "Enter email".tr,
+                        hintStyle: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 1,
+                            color: AppColors.whiteNormalActive),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "This field can not be empty".tr;
+                          } else if (!value.contains(RegExp('@'))) {
+                            return "Please enter a valid email".tr;
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+
+                      //Phone Number Text and TextField
+                      CustomText(
+                        text: "Phone Number".tr,
+                        bottom: 12,
+                        top: 8,
+                      ),
+                      SizedBox(
+                        height: 56,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 8),
+                              decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 color: AppColors.whiteLight,
                                 border: Border.all(
-                                    color: AppColors.whiteNormalActive,
-                                    style: BorderStyle.solid,
+                                    color: AppColors.whiteDark,
                                     width: 1.0,
-                                    strokeAlign: 1)),
-                            child: CustomTextField(
-                              textEditingController:
-                                  controller.addressController,
-                              textInputAction: TextInputAction.done,
-                              fieldBorderColor: AppColors.whiteLight,
-                              hintText: AppStaticStrings.enterAddress,
-                              hintStyle: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.whiteNormalActive),
+                                    style: BorderStyle.solid),
+                              ),
+                              child:  Row(
+                                children: [
+                                  const CustomImage(imageSrc: AppImages.flagImage, size: 40),
+                                  CustomText(
+                                      text: "Phone Number".tr,
+                                      left: 10,
+                                      color: AppColors.whiteNormalActive)
+                                ],
+                              ),
                             ),
-                          ),
-
-                          SizedBox(height: 24),
-
-                          CustomElevatedButton(
-                              onPressed: () {
-                                controller.editProfile();
-                              },
-                              buttonWidth: double.maxFinite,
-                              buttonHeight: 52,
-                              titleText: AppStaticStrings.save),
-                          SizedBox(height: 24),
-                        ],
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: CustomTextField(
+                                textEditingController:
+                                controller.phoneNumberController,
+                                keyboardType: TextInputType.phone,
+                                hintText: "Enter phone number".tr,
+                                hintStyle: GoogleFonts.poppins(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.whiteNormalActive),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    )),
+                      CustomText(text: "Address".tr, top: 8, bottom: 12),
+                      Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.whiteLight,
+                          border: Border.all(
+                              color: AppColors.whiteNormalActive,
+                              style: BorderStyle.solid,
+                              width: 1.0,
+                              strokeAlign: 1),
+                        ),
+                        child: CustomTextField(
+                          textEditingController: controller.addressController,
+                          textInputAction: TextInputAction.done,
+                          fieldBorderColor: AppColors.whiteLight,
+                          hintText: "Enter your address".tr,
+                          hintStyle: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.whiteNormalActive),
+                        ),
+                      ),
+
+                      const SizedBox(height: 24),
+
+                      CustomElevatedButton(
+                          onPressed: () {
+                            controller.editProfile();
+                          },
+                          buttonWidth: double.maxFinite,
+                          buttonHeight: 52,
+                          titleText: AppStaticStrings.save),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

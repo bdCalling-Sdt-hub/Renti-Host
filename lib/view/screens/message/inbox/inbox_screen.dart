@@ -220,7 +220,7 @@ class _InboxScreenState extends State<InboxScreen> {
                     child: CustomTextField(
                       textInputAction: TextInputAction.done,
                       fieldBorderColor: AppColors.whiteLight,
-                      hintText: AppStaticStrings.enterAddress,
+                      hintText: "Enter your address".tr,
                       hintStyle: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,

@@ -56,6 +56,8 @@ dependencies:
   flutter_html:
   cached_network_image:
   socket_io_client:
+  get_storage:
+  flutter_screenutil:
  
 
 dev_dependencies:

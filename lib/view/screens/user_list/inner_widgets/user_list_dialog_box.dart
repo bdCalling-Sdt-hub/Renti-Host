@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -178,8 +179,8 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.email,
+                   CustomText(
+                      text: "Email".tr,
                       fontSize: 16,
                       color: AppColors.whiteDarkHover),
                   CustomText(

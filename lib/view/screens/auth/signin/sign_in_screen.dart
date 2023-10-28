@@ -42,9 +42,9 @@ class _SignInScreenState extends State<SignInScreen> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             backgroundColor: AppColors.blueNormal,
-            appBar: const CustomAppBar(
+            appBar:  CustomAppBar(
               appBarContent: CustomText(
-                  text: AppStaticStrings.signIn,
+                  text: "Sign In".tr,
                   fontSize: 18,
                   color: AppColors.whiteLight),
             ),
@@ -76,14 +76,14 @@ class _SignInScreenState extends State<SignInScreen> {
                                 padding: const EdgeInsets.symmetric(vertical: 24),
                                 child: RichText(
                                   text: TextSpan(
-                                    text: AppStaticStrings.haveAnAccount,
+                                    text: "Don’t have an account? ".tr,
                                     style: GoogleFonts.poppins(
                                         color: AppColors.blackNormal,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500),
                                     children: [
                                       TextSpan(
-                                        text: AppStaticStrings.signUp,
+                                        text: "Sign Up".tr,
                                         style: GoogleFonts.poppins(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500,

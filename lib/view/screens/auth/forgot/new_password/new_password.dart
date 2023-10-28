@@ -29,9 +29,9 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.blueNormal,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.setNewPass,
+            text: "Set a new password".tr,
           ),
         ),
         body: LayoutBuilder(
@@ -44,7 +44,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(text: AppStaticStrings.yourPassMust, fontSize: 16),
+                   CustomText(text: "Your password must have 8-10 characters.".tr, fontSize: 16,textAlign: TextAlign.start),
                   Form(
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.always,
@@ -52,15 +52,15 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         //New Password Text and TextField
-                        const CustomText(
-                            text: AppStaticStrings.newPassword,
+                         CustomText(
+                            text:"New Password".tr,
                             top: 24,
                             bottom: 12),
                         CustomTextField(
                           isPassword: true,
                           textEditingController: newPassController.newPasswordController.value,
-                          textInputAction: TextInputAction.done,
-                          hintText: AppStaticStrings.enterPassword,
+                          textInputAction: TextInputAction.next,
+                          hintText: "Enter password".tr,
                           suffixIconColor: AppColors.whiteNormalActive,
                           hintStyle: GoogleFonts.poppins(
                               fontSize: 14,
@@ -68,9 +68,9 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                               color: AppColors.whiteNormalActive),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return AppStaticStrings.notBeEmpty;
+                              return "This field can not be empty".tr;
                             } else if (value.length < 6) {
-                              return AppStaticStrings.passwordShouldBe;
+                              return "Password should be more than 6 characters".tr;
                             } else {
                               return null;
                             }
@@ -78,15 +78,15 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                         ),
 
                         //Confirm Password Text and TextField
-                        const CustomText(
-                            text: AppStaticStrings.confirmPassword,
+                         CustomText(
+                            text: "Confirm Password".tr,
                             top: 24,
                             bottom: 12),
                         CustomTextField(
                           isPassword: true,
                           textEditingController: newPassController.confirmPasswordController.value,
                           textInputAction: TextInputAction.done,
-                          hintText: AppStaticStrings.enterPassword,
+                          hintText: "Enter password".tr,
                           suffixIconColor: AppColors.whiteNormalActive,
                           hintStyle: GoogleFonts.poppins(
                               fontSize: 14,
@@ -94,9 +94,9 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                               color: AppColors.whiteNormalActive),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return AppStaticStrings.notBeEmpty;
+                              return "This field can not be empty".tr;
                             } else if (value.length < 6) {
-                              return AppStaticStrings.passwordShouldBe;
+                              return "Password should be more than 6 characters".tr;
                             } else {
                               return null;
                             }
@@ -118,10 +118,10 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                  newPassController.resetPassword(newPassController.forgetPassController.emailController.value.text, newPassController.confirmPasswordController.value.text);
                }
                else{
-                 Utils.toastMessageCenter("New password and Current password does not match");
+                 Utils.toastMessageCenter("New password and Current password does not match".tr);
                }
               },
-              titleText: AppStaticStrings.reset),
+              titleText: "Reset".tr),
         ),
       ),
     );

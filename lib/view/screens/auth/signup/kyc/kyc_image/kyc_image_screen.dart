@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -40,24 +39,26 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SignUpController>(builder: (controller) {
-      return SafeArea(
-        top: true,
-        child: Scaffold(
-          extendBody: true,
-          backgroundColor: AppColors.blueNormal,
-          appBar: const CustomAppBar(
-            appBarContent: CustomBack(text: AppStaticStrings.selectPhoto),
-          ),
-          body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                CustomContainer(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-                physics: const BouncingScrollPhysics(),
-                child: GestureDetector(
+    return GetBuilder<SignUpController>(
+      builder: (controller) {
+        return SafeArea(
+          top: true,
+          child: Scaffold(
+            extendBody: true,
+            backgroundColor: AppColors.blueNormal,
+            appBar: CustomAppBar(
+              appBarContent: CustomBack(text: "Select Photo".tr),
+            ),
+            body: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  CustomContainer(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: SingleChildScrollView(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                  physics: const BouncingScrollPhysics(),
+                  child: GestureDetector(
                     onTap: () {
                       controller.openGallery();
                     },
@@ -90,9 +91,9 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
                                   ),
                                 ),
                               ),
-                              const CustomText(
+                              CustomText(
                                 top: 16,
-                                text: AppStaticStrings.uploadYourPhoto,
+                                text: "Upload Your Photo".tr,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.blueNormal,
@@ -103,26 +104,27 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
                             height: 150,
                             width: double.infinity - 40,
                             decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: FileImage(
-                                      controller.imageFile!,
-                                    ),
-                                    fit: BoxFit.contain)),
-                          )),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: FileImage(controller.imageFile!),
+                                  fit: BoxFit.contain),
+                            ),
+                          ),
+                  ),
+                ),
               ),
             ),
+            bottomNavigationBar: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              child: CustomElevatedButton(
+                  onPressed: () {
+                    controller.signUpMultipleFilesAndParams();
+                  },
+                  titleText: "Continue".tr),
+            ),
           ),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-            child: CustomElevatedButton(
-                onPressed: () {
-                  controller.signUpMultipleFilesAndParams();
-                },
-                titleText: AppStaticStrings.continuee),
-          ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
