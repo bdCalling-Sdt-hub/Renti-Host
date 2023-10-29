@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_response_model/rent_request_response_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -43,8 +43,8 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CustomText(
-                  text: AppStaticStrings.rentDate,
+              CustomText(
+                  text: "Rent date: ".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
               CustomText(
@@ -58,8 +58,8 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CustomText(
-                  text: AppStaticStrings.totalTime,
+               CustomText(
+                  text:"Total time: ".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
               CustomText(
@@ -74,15 +74,14 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CustomText(
-                  text: AppStaticStrings.contact,
+              CustomText(
+                  text: "Contact: ".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
               CustomText(
                   text: widget.rentRequestResponseModel
                           .rentRequest![widget.index].userId!.phoneNumber
-                          .toString() ??
-                      "",
+                          .toString() ?? "",
                   fontSize: 16,
                   fontWeight: FontWeight.w500),
             ],
@@ -92,8 +91,8 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CustomText(
-                  text: AppStaticStrings.totalAmount,
+              CustomText(
+                  text: "Total amount:".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
               CustomText(

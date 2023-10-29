@@ -3,7 +3,6 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/term_condition_screen.dart/tc_controller/tc_controller.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/term_condition_screen.dart/tc_model/tc_model.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/term_condition_screen.dart/tc_repo/tc_repo.dart';
@@ -41,9 +40,9 @@ class _TermsConditionScreenState extends State<TermsConditionScreen> {
         top: true,
         child: Scaffold(
           backgroundColor: AppColors.whiteLight,
-          appBar: const CustomAppBar(
+          appBar: CustomAppBar(
             appBarContent: CustomBack(
-              text: AppStaticStrings.termsConditions,
+              text: "Terms & Conditions".tr,
               color: AppColors.blackNormal,
             ),
           ),

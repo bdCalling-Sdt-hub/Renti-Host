@@ -34,112 +34,114 @@ class _UserRequestCardState extends State<UserRequestCard> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<RentRequestController>(builder: (controller) {
-      return Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 50,
-                child: ClipOval(
-                  child: CachedNetworkImage(
-                    fit: BoxFit.cover,
-                    imageUrl: widget.image,
-                    placeholder: (context, url) =>
-                        const CircularProgressIndicator(),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+    return GetBuilder<RentRequestController>(
+      builder: (controller) {
+        return Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 50,
+                  width: 50,
+                  child: ClipOval(
+                    child: CachedNetworkImage(
+                      fit: BoxFit.cover,
+                      imageUrl: widget.image,
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 16),
-              Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomText(
-                        text: widget.name,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500),
-                    const SizedBox(height: 8),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: List.generate(
-                            5,
-                            (index) => const CustomImage(
-                              imageSrc: AppImages.starImage,
-                              size: 12,
+                const SizedBox(width: 16),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(
+                          text: widget.name,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500),
+                      const SizedBox(height: 8),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: List.generate(
+                              5,
+                              (index) => const CustomImage(
+                                imageSrc: AppImages.starImage,
+                                size: 12,
+                              ),
                             ),
                           ),
-                        ),
-                        const CustomText(
-                            text: AppStaticStrings.rating,
-                            fontSize: 10,
-                            left: 8),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Icon(Icons.calendar_month,
-                            size: 14, color: AppColors.whiteDarkActive),
-                        CustomText(
-                            text: "${widget.startDate}-${widget.endDate}",
-                            color: AppColors.whiteDarkActive,
-                            left: 8),
-                      ],
-                    ),
-                  ],
+                           const CustomText(
+                              text: "",
+                              fontSize: 10,
+                              left: 8),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(Icons.calendar_month,
+                              size: 14, color: AppColors.whiteDarkActive),
+                          CustomText(
+                              text: "${widget.startDate}-${widget.endDate}",
+                              color: AppColors.whiteDarkActive,
+                              left: 8),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: CustomElevatedButton(
-                  onPressed: () {
-                    rentReqRepo.rentRequest(
-                        request: Request.rejected, id: widget.id);
-                    controller.rentRequest();
-                  },
-                  titleText: AppStaticStrings.cancel,
-                  buttonColor: AppColors.redLight,
-                  titleColor: AppColors.redNormal,
-                  buttonHeight: 48,
-                  titleWeight: FontWeight.w500,
+              ],
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: CustomElevatedButton(
+                    onPressed: () {
+                      rentReqRepo.rentRequest(
+                          request: Request.rejected, id: widget.id);
+                      controller.rentRequest();
+                    },
+                    titleText: "Cancel".tr,
+                    buttonColor: AppColors.redLight,
+                    titleColor: AppColors.redNormal,
+                    buttonHeight: 48,
+                    titleWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              Expanded(
-                child: CustomElevatedButton(
-                  onPressed: () {
-                    rentReqRepo.rentRequest(
-                        request: Request.accepted, id: widget.id);
-                    controller.rentRequest();
-                  },
-                  titleText: AppStaticStrings.approve,
-                  buttonHeight: 48,
-                  titleWeight: FontWeight.w500,
+                const SizedBox(
+                  width: 8,
                 ),
-              ),
-            ],
-          ),
-        ],
-      );
-    });
+                Expanded(
+                  child: CustomElevatedButton(
+                    onPressed: () {
+                      rentReqRepo.rentRequest(
+                          request: Request.accepted, id: widget.id);
+                      controller.rentRequest();
+                    },
+                    titleText: "Approve".tr,
+                    buttonHeight: 48,
+                    titleWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
   }
 }

@@ -42,9 +42,9 @@ class _RentListScreenState extends State<RentListScreen> {
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
-            appBar: const CustomAppBar(
+            appBar: CustomAppBar(
               appBarContent: CustomBack(
-                  text: AppStaticStrings.rentList,
+                  text: "Rent List".tr,
                   color: AppColors.blackNormal),
             ),
             body: GetBuilder<RentListController>(

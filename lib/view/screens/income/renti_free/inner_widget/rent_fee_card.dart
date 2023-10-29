@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/start_end_date/start_end_date.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -130,7 +130,7 @@ class _RentFeeCardState extends State<RentFeeCard> {
                             TextSpan(
                               children: [
                                 TextSpan(
-                                  text: AppStaticStrings.transitionNo,
+                                  text: "Transition no: ".tr,
                                   style: GoogleFonts.poppins(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
@@ -156,7 +156,7 @@ class _RentFeeCardState extends State<RentFeeCard> {
                                 TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: AppStaticStrings.tripNo,
+                                      text: "Trip no: ".tr,
                                       style: GoogleFonts.poppins(
                                         fontSize: 10,
                                         fontWeight: FontWeight.w400,

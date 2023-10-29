@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -34,7 +34,7 @@ class CommonPopUp extends StatelessWidget {
               Expanded(
                 child: CustomElevatedButton(
                   onPressed: onTapYes,
-                  titleText: AppStaticStrings.yes,
+                  titleText: "Yes".tr,
                   buttonColor: AppColors.redLight,
                   titleColor: AppColors.redNormal,
                   buttonHeight: 48,
@@ -44,7 +44,7 @@ class CommonPopUp extends StatelessWidget {
               Expanded(
                 child: CustomElevatedButton(
                   onPressed: onTapNo,
-                  titleText: AppStaticStrings.no,
+                  titleText: "No".tr,
                   buttonHeight: 48,
                 ),
               ),

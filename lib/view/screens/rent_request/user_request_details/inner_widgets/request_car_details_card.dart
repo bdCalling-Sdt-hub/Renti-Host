@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_response_model/rent_request_response_model.dart';
-import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class RequestCarDetailsCard extends StatefulWidget {
@@ -26,8 +23,8 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(
-            text: AppStaticStrings.carDetails,
+        CustomText(
+            text: "Car details".tr,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             color: AppColors.blackNormal),
@@ -81,13 +78,9 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
                       color: AppColors.whiteDarkActive,
                       textAlign: TextAlign.start,
                     ),
-                    const SizedBox(
-                      height: 8,
-                    ),
+                    const SizedBox(height: 8),
                     CustomText(
-                      text:
-                          "${widget.rentRequestResponseModel.rentRequest![widget.index].carId!.hourlyRate.toString()}\$/h" ??
-                              "",
+                      text: "${widget.rentRequestResponseModel.rentRequest![widget.index].carId!.hourlyRate.toString()}\$/h" ?? "",
                       color: AppColors.whiteDarkActive,
                     ),
                   ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -112,8 +111,8 @@ class _HomeCarListState extends State<HomeCarList> {
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                           ),
-                                          child: const CustomText(
-                                              text: AppStaticStrings.reserved,
+                                          child: CustomText(
+                                              text: "Reserved".tr,
                                               fontSize: 10,
                                               color: AppColors.redNormal),
                                         )
@@ -127,8 +126,8 @@ class _HomeCarListState extends State<HomeCarList> {
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                           ),
-                                          child: const CustomText(
-                                            text: AppStaticStrings.active,
+                                          child: CustomText(
+                                            text: "Active".tr,
                                             fontSize: 10,
                                             color: AppColors.greenNormal,
                                           ),
@@ -148,8 +147,8 @@ class _HomeCarListState extends State<HomeCarList> {
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.whiteDarker),
-                                      const CustomText(
-                                          text: AppStaticStrings.perDay,
+                                      CustomText(
+                                          text: "/day".tr,
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.whiteDarker),

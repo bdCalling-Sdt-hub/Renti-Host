@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class RentDetailsTopSection extends StatelessWidget {
@@ -56,7 +56,7 @@ class RentDetailsTopSection extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: AppStaticStrings.carLic,
+                        text: "Car license no: ".tr,
                         style: GoogleFonts.poppins(
                             fontSize: 10,
                             fontWeight: FontWeight.w400,
@@ -78,7 +78,7 @@ class RentDetailsTopSection extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: AppStaticStrings.carYear,
+                        text: "Car year:".tr,
                         style: GoogleFonts.poppins(
                             fontSize: 10,
                             fontWeight: FontWeight.w400,
@@ -106,8 +106,8 @@ class RentDetailsTopSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             color:  AppColors.greenLight
           ),
-          child: const CustomText(
-            text: AppStaticStrings.active,
+          child: CustomText(
+            text: "Active".tr,
             color: AppColors.greenNormal,
             fontSize: 10,
           ),
@@ -118,8 +118,8 @@ class RentDetailsTopSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
               color:  AppColors.redLight
           ),
-          child: const CustomText(
-            text: AppStaticStrings.reserved,
+          child: CustomText(
+            text: "Reserved".tr,
             color: AppColors.redNormal,
             fontSize: 10,
           ),

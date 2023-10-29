@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/income/income/income_controller/income_controller.dart';
 import 'package:renti_host/view/screens/income/income/income_repo/income_repo.dart';
 import 'package:renti_host/view/screens/income/income/inner_widgets/income_category.dart';
@@ -40,9 +39,9 @@ class _IncomeScreenState extends State<IncomeScreen> {
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
-            appBar: const CustomAppBar(
+            appBar: CustomAppBar(
               appBarContent: CustomBack(
-                  text: AppStaticStrings.income, color: AppColors.blackNormal),
+                  text: "Income".tr, color: AppColors.blackNormal),
             ),
             body: LayoutBuilder(
               builder: (context, constraint) {
@@ -67,17 +66,17 @@ class _IncomeScreenState extends State<IncomeScreen> {
                             ),
                           ],
                         ),
-                        child: const Column(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomText(
-                              text: AppStaticStrings.totalIncome,
+                              text: 'Total Income'.tr,
                               color: AppColors.whiteLight,
                               fontSize: 18,
                               bottom: 16,
                               fontWeight: FontWeight.w600,
                             ),
-                            CustomText(
+                            const CustomText(
                               text: '\$ 1,20,000.00',
                               color: AppColors.whiteLight,
                               fontSize: 40,

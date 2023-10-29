@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class HomeTopSection extends StatelessWidget {
@@ -42,8 +42,8 @@ class HomeTopSection extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.totalCar,
+                   CustomText(
+                      text: "Total car".tr,
                       fontSize: 12,
                       fontWeight: FontWeight.w500),
                   CustomText(
@@ -82,8 +82,8 @@ class HomeTopSection extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.active,
+                  CustomText(
+                      text: "Active".tr,
                       fontSize: 12,
                       fontWeight: FontWeight.w500),
                   CustomText(
@@ -97,9 +97,7 @@ class HomeTopSection extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          width: 16,
-        ),
+        const SizedBox(width: 16),
 
         //Total Reserved Car section
         Expanded(
@@ -124,8 +122,8 @@ class HomeTopSection extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.reserved,
+                  CustomText(
+                      text: "Reserved".tr,
                       fontSize: 12,
                       fontWeight: FontWeight.w500),
                   CustomText(

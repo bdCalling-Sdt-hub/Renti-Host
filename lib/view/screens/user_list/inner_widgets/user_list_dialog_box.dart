@@ -162,8 +162,8 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.contact,
+                  CustomText(
+                      text: "Contact: ".tr,
                       fontSize: 16,
                       color: AppColors.whiteDarkHover),
                   CustomText(
@@ -196,8 +196,8 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.tripNo,
+                  CustomText(
+                      text: "Trip no: ".tr,
                       fontSize: 16,
                       color: AppColors.whiteDarkHover),
                   CustomText(

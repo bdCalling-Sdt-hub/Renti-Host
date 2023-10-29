@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class AllReviewTopSection extends StatelessWidget {
@@ -67,7 +67,7 @@ class AllReviewTopSection extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: AppStaticStrings.carLic,
+                          text: "Car license no: ".tr,
                           style: GoogleFonts.poppins(
                               fontSize: 10,
                               fontWeight: FontWeight.w400,
@@ -88,7 +88,7 @@ class AllReviewTopSection extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: AppStaticStrings.date,
+                          text: 'Date: '.tr,
                           style: GoogleFonts.poppins(
                               fontSize: 10,
                               fontWeight: FontWeight.w400,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -18,8 +18,8 @@ class _DocumentFilesSectionState extends State<DocumentFilesSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(
-            text: AppStaticStrings.documents,
+        CustomText(
+            text: "Documents".tr,
             fontSize: 18,
             fontWeight: FontWeight.w500),
         const SizedBox(height: 16),

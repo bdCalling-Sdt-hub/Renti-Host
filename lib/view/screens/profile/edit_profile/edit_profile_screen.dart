@@ -169,7 +169,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 children: [
                                   const CustomImage(imageSrc: AppImages.flagImage, size: 40),
                                   CustomText(
-                                      text: "Phone Number".tr,
+                                      text: "+52".tr,
                                       left: 10,
                                       color: AppColors.whiteNormalActive)
                                 ],

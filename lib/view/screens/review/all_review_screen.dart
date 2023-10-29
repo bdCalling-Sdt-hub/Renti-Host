@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/helper/date_converter_helper.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/review/inner_widgets/all_review_top_section.dart';
 import 'package:renti_host/view/screens/review/review_controller/review_controller.dart';
 import 'package:renti_host/view/screens/review/review_model/review_model.dart';
@@ -34,9 +33,9 @@ class _AllReviewScreenState extends State<AllReviewScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-              text: AppStaticStrings.allReviews, color: AppColors.blackNormal),
+              text: 'All reviews'.tr, color: AppColors.blackNormal),
         ),
         body: GetBuilder<ReviewController>(builder: (controller) {
           if (controller.isloading == true) {
@@ -57,8 +56,7 @@ class _AllReviewScreenState extends State<AllReviewScreen> {
                           ? const SizedBox()
                           : Container(
                               padding: const EdgeInsetsDirectional.all(16),
-                              margin:
-                                  const EdgeInsetsDirectional.only(bottom: 8),
+                              margin: const EdgeInsetsDirectional.only(bottom: 8),
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                 color: AppColors.whiteLight,

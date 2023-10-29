@@ -31,9 +31,9 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-              text: AppStaticStrings.userDetails, color: AppColors.blackNormal),
+              text: "User details".tr, color: AppColors.blackNormal),
         ),
         body: GetBuilder<RentRequestController>(builder: (controller) {
           return LayoutBuilder(builder: (context, constraint) {
@@ -67,15 +67,13 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
                           controller.rentRequest();
                           navigator!.pop();
                         },
-                        titleText: AppStaticStrings.cancel,
+                        titleText: "Cancel".tr,
                         buttonHeight: 48,
                         titleWeight: FontWeight.w500,
                         buttonColor: AppColors.redLight,
                         titleColor: AppColors.redNormal,
                       )),
-                      const SizedBox(
-                        width: 8,
-                      ),
+                      const SizedBox(width: 8),
                       Expanded(
                           child: CustomElevatedButton(
                         onPressed: () {
@@ -88,7 +86,7 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
                           controller.rentRequest();
                           navigator!.pop();
                         },
-                        titleText: AppStaticStrings.approve,
+                        titleText: "Approve".tr,
                         buttonHeight: 48,
                         titleWeight: FontWeight.w500,
                       )),

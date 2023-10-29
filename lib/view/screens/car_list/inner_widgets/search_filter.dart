@@ -57,7 +57,7 @@ class _SearchFilterState extends State<SearchFilter> {
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.search_outlined,
                         size: 20, color: AppColors.whiteNormalActive),
-                    hintText: AppStaticStrings.searchCarBy,
+                    hintText: "search car by company...".tr,
                     hintStyle: AppStaticStrings.hintStyle,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),

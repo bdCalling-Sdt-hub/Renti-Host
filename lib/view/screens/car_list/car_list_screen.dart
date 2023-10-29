@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/%20home/home_controller/home_carlist_controller.dart';
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/screens/car_list/inner_widgets/search_filter.dart';
@@ -20,15 +19,16 @@ class CarListScreen extends StatefulWidget {
 class _CarListScreenState extends State<CarListScreen> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeCarListController>(builder: (controller) {
-      HomeCarListModel homeCarModel = controller.homeCarListModel;
+    return GetBuilder<HomeCarListController>(
+      builder: (controller) {
+        HomeCarListModel homeCarModel = controller.homeCarListModel;
 
-      if (controller.isLoading == true) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-      return SafeArea(
+        if (controller.isLoading == true) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        return SafeArea(
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
@@ -41,7 +41,7 @@ class _CarListScreenState extends State<CarListScreen> {
                     // navigator!.pop();
                     navigator!.pop();
                   },
-                  text: AppStaticStrings.carList,
+                  text: "Cars List".tr,
                   color: AppColors.blackNormal),
             ),
             body: Padding(
@@ -121,13 +121,11 @@ class _CarListScreenState extends State<CarListScreen> {
                                                   .cars![index].tripStatus ==
                                               "Start"
                                           ? CustomText(
-                                              text: AppStaticStrings.reserved
-                                                  .toString(),
+                                              text: "Reserved".toString(),
                                               color: AppColors.redNormal,
                                               fontSize: 10)
                                           : CustomText(
-                                              text: AppStaticStrings.active
-                                                  .toString(),
+                                              text: "Active".toString(),
                                               color: AppColors.greenNormal,
                                               fontSize: 10),
                                     ),
@@ -148,8 +146,8 @@ class _CarListScreenState extends State<CarListScreen> {
                                         fontSize: 10,
                                         top: 4,
                                         bottom: 4),
-                                    const CustomText(
-                                        text: AppStaticStrings.seeDetails,
+                                    CustomText(
+                                        text: "See details".tr,
                                         fontSize: 10,
                                         color: AppColors.blueNormal),
                                   ],
@@ -164,7 +162,9 @@ class _CarListScreenState extends State<CarListScreen> {
                 ],
               ),
             ),
-          ));
-    });
+          ),
+        );
+      },
+    );
   }
 }

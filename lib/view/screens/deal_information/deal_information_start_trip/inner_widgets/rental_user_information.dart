@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_list/rent_list_model/rent_list_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -15,8 +15,8 @@ class RentalUserInformation extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(
-            text: AppStaticStrings.userInformation,
+        CustomText(
+            text: "User Information".tr,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             bottom: 16),
@@ -24,8 +24,8 @@ class RentalUserInformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.name,
+            CustomText(
+                text: "Name:".tr,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
@@ -39,8 +39,8 @@ class RentalUserInformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.iNE,
+            CustomText(
+                text: "INE:".tr,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
@@ -50,15 +50,15 @@ class RentalUserInformation extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomText(
-                text: AppStaticStrings.drivingLicense,
+                text: "Driving license no:".tr,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
-            CustomText(
+            const CustomText(
                 text: "61-10-2022",
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
@@ -69,8 +69,8 @@ class RentalUserInformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.pickUpLocation,
+            CustomText(
+                text: "Pickup location:".tr,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(

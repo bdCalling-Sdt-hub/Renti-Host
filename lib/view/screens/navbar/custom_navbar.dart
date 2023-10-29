@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/view/screens/%20home/home_screen.dart';
@@ -34,22 +35,22 @@ class _CustomNavBarState extends State<CustomNavBar> {
     ];
     List<Widget> manuBarItems = [
       MenuBarItems(
-          text: "Home",
+          text: "Home".tr,
           index: 0,
           selectedIndex: selectedIndex,
           image: AppIcons.home),
       MenuBarItems(
-          text: "Rent",
+          text: "Rent".tr,
           index: 1,
           selectedIndex: selectedIndex,
           image: AppIcons.rentList),
       MenuBarItems(
-          text: "Message",
+          text: "Message".tr,
           index: 2,
           selectedIndex: selectedIndex,
           image: AppIcons.message),
       MenuBarItems(
-          text: "Profile",
+          text: "Profile".tr,
           index: 3,
           selectedIndex: selectedIndex,
           image: AppIcons.userList),

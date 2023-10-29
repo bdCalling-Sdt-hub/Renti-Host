@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
@@ -13,7 +12,7 @@ class CarType extends StatefulWidget {
 }
 
 class _CarTypeState extends State<CarType> {
-  List<String> types = ["Standard", "Luxury"];
+  List<String> types = ["Standard".tr, "Luxury".tr];
   int selectedItem = 0;
 
   @override
@@ -22,7 +21,7 @@ class _CarTypeState extends State<CarType> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomText(text: AppStaticStrings.carType, bottom: 12, top: 16),
+          CustomText(text: "Car Type".tr, bottom: 12, top: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
@@ -54,7 +53,7 @@ class _CarTypeState extends State<CarType> {
                         ),
                         const SizedBox(width: 10),
                         CustomText(
-                          text: types[index],
+                          text: types[index].tr,
                         ),
                       ],
                     ),

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -26,9 +25,9 @@ class _FilledBoxState extends State<EndTripReviewScreen> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-              text: AppStaticStrings.review, color: AppColors.blackNormal),
+              text: "Review".tr, color: AppColors.blackNormal),
         ),
         body: LayoutBuilder(
           builder: (context, constraint) {
@@ -38,8 +37,8 @@ class _FilledBoxState extends State<EndTripReviewScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // rating section
-                  const CustomText(
-                      text: AppStaticStrings.giveUsRating,
+                  CustomText(
+                      text: "Give us rating out of 5".tr,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       bottom: 16),
@@ -47,7 +46,7 @@ class _FilledBoxState extends State<EndTripReviewScreen> {
                     unratedColor: AppColors.whiteDark,
                     rating: 4.60,
                     itemBuilder: (context, index) =>
-                        const Icon(Icons.star, color: AppColors.ratingColor),
+                    const Icon(Icons.star, color: AppColors.ratingColor),
                     itemCount: 5,
                     itemSize: 40.0,
                     direction: Axis.horizontal,
@@ -64,7 +63,7 @@ class _FilledBoxState extends State<EndTripReviewScreen> {
                           children: [
                             CustomElevatedButton(
                               onPressed: () {},
-                              titleText: AppStaticStrings.niceBehavior,
+                              titleText: "Nice Behavior.".tr,
                               buttonHeight: 42,
                               buttonColor: AppColors.blueLight,
                               titleColor: AppColors.blueNormal,
@@ -94,7 +93,7 @@ class _FilledBoxState extends State<EndTripReviewScreen> {
                     child: CustomTextField(
                       textInputAction: TextInputAction.done,
                       fieldBorderColor: AppColors.whiteLight,
-                      hintText: AppStaticStrings.typeReview,
+                      hintText: "Type Review".tr,
                       hintStyle: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -112,7 +111,7 @@ class _FilledBoxState extends State<EndTripReviewScreen> {
               onPressed: () {
                 Get.offAllNamed(AppRoute.navigation);
               },
-              titleText: AppStaticStrings.sendReview,
+              titleText: "Send Review".tr,
               buttonHeight: 48,
               titleWeight: FontWeight.w500),
         ),

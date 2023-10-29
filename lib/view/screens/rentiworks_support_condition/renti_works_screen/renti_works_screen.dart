@@ -3,7 +3,6 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works_screen/renti_works_controller/renti_works_controller.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works_screen/renti_works_repo/renti_works_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -33,9 +32,9 @@ class _RentiWorkScreenState extends State<RentiWorkScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.howRentWorks,
+            text: "How Renti Works".tr,
             color: AppColors.blackNormal,
           ),
         ),

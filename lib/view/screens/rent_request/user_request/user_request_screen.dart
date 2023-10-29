@@ -40,9 +40,9 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomText(
-              text: AppStaticStrings.usersRequest,
+              text: "Users Request".tr,
               fontSize: 18,
               fontWeight: FontWeight.w600),
         ),

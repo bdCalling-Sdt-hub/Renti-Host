@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class ReservedDetails extends StatelessWidget {
-  const ReservedDetails(
-      {super.key, required this.homeCarListModel, required this.index});
+  const ReservedDetails({super.key, required this.homeCarListModel, required this.index});
   final HomeCarListModel homeCarListModel;
   final int index;
   @override
@@ -17,8 +16,8 @@ class ReservedDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.carModel,
+            CustomText(
+                text: "Car model: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
             CustomText(
@@ -32,8 +31,8 @@ class ReservedDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.numberOfDoors,
+            CustomText(
+                text: "Number of Doors: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
             CustomText(
@@ -42,15 +41,13 @@ class ReservedDetails extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ],
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.seats,
+            CustomText(
+                text: "Seats: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
             CustomText(
@@ -59,15 +56,13 @@ class ReservedDetails extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ],
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.carColor1,
+            CustomText(
+                text: "Car Color: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
             CustomText(
@@ -76,15 +71,13 @@ class ReservedDetails extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ],
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.carLicense,
+            CustomText(
+                text: "Car license no: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
             CustomText(
@@ -93,15 +86,13 @@ class ReservedDetails extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ],
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.registrationDate,
+            CustomText(
+                text: "Registration date: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
             CustomText(
@@ -110,15 +101,13 @@ class ReservedDetails extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ],
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomText(
-                text: AppStaticStrings.insuranceDate1,
+            CustomText(
+                text: "Insurance date: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
             CustomText(
@@ -133,32 +122,28 @@ class ReservedDetails extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 8,
-            ),
-            const Row(
+            const SizedBox(height: 8),
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomText(
-                    text: AppStaticStrings.reservation,
+                    text: "Reservation: ".tr,
                     fontSize: 16,
                     color: AppColors.whiteDarkHover),
-                CustomText(
+                const CustomText(
                     text: "10 aug 2023 - 11 aug 2024",
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
               ],
             ),
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const CustomText(
-                    text: AppStaticStrings.userName1,
+                CustomText(
+                    text: "User name: ".tr,
                     fontSize: 16,
                     color: AppColors.whiteDarkHover),
                 CustomText(
@@ -167,36 +152,31 @@ class ReservedDetails extends StatelessWidget {
                     fontWeight: FontWeight.w500),
               ],
             ),
-            const SizedBox(
-              height: 8,
-            ),
-            const Row(
+            const SizedBox(height: 8),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomText(
-                    text: AppStaticStrings.transitionNo,
+                    text: "Transition no: ".tr,
                     fontSize: 16,
                     color: AppColors.whiteDarkHover),
-                CustomText(
+                const CustomText(
                     text: "1125442024",
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
               ],
             ),
-            const SizedBox(
-              height: 8,
-            ),
-            const Row(
+            const SizedBox(height: 8),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomText(
-                    text: AppStaticStrings.tripNo,
+                    text: "Trip no: ".tr,
                     fontSize: 16,
                     color: AppColors.whiteDarkHover),
-                CustomText(
-                    text: "10", fontSize: 16, fontWeight: FontWeight.w500),
+                const CustomText(text: "10", fontSize: 16, fontWeight: FontWeight.w500),
               ],
             ),
           ],

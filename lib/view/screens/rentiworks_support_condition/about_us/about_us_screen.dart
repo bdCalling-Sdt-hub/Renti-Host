@@ -41,9 +41,9 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
         top: true,
         child: Scaffold(
           backgroundColor: AppColors.whiteLight,
-          appBar: const CustomAppBar(
+          appBar: CustomAppBar(
             appBarContent: CustomBack(
-              text: AppStaticStrings.aboutUs,
+              text: "About Us".tr,
               color: AppColors.blackNormal,
             ),
           ),

@@ -57,41 +57,41 @@ class RentDetailsAlert extends StatelessWidget {
                   carLicense: rentListModel.rentedCars![index].carId!.carLicenseNumber.toString(), payment: rentListModel.rentedCars![index].requestStatus.toString(),
                  tripStatus: rentListModel.rentedCars![index].carId!.tripStatus.toString()),
               const SizedBox(height: 16),
-               CustomRentDetails(title: AppStaticStrings.tripNo, data: "${rentListModel.rentedCars![index].rentTripNumber}"),
+               CustomRentDetails(title: "Trip no: ".tr, data: "${rentListModel.rentedCars![index].rentTripNumber}"),
               const SizedBox(height: 8),
                CustomRentDetails(
-                  title: AppStaticStrings.startDate1, data: formattedStartDate),
+                  title: "Start Date: ".tr, data: formattedStartDate),
               const SizedBox(height: 8),
                CustomRentDetails(
-                  title: AppStaticStrings.endDate1, data: formattedEndDate),
-              const CustomText(
-                  text: AppStaticStrings.userInformation,
+                  title: "End Date: ".tr, data: formattedEndDate),
+              CustomText(
+                  text: "User Information".tr,
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                   top: 24,
                   bottom: 16),
                CustomRentDetails(
-                  title: AppStaticStrings.name,
+                  title: "Name:".tr,
                   data: rentListModel.rentedCars![index].userId!.fullName.toString()),
               const SizedBox(height: 8),
                CustomRentDetails(
-                  title: AppStaticStrings.contact, data: rentListModel.rentedCars![index].userId!.phoneNumber.toString()),
+                  title: "Contact: ".tr, data: rentListModel.rentedCars![index].userId!.phoneNumber.toString()),
               const SizedBox(height: 8),
                CustomRentDetails(
                   title: "Email:".tr, data: rentListModel.rentedCars![index].userId!.email.toString()),
               const SizedBox(height: 8),
                CustomRentDetails(
-                  title: AppStaticStrings.iNE, data: rentListModel.rentedCars![index].userId!.ine.toString()),
+                  title: "INE:".tr, data: rentListModel.rentedCars![index].userId!.ine.toString()),
               const SizedBox(height: 8),
-              const CustomRentDetails(
-                  title: AppStaticStrings.drivingLicense, data: 'ACD1234566'),
+              CustomRentDetails(
+                  title: "Driving license no:".tr, data: 'ACD1234566'),
               const SizedBox(height: 24),
 
               //This Button Only Show When Reserve Status card Clicked
               rentListModel.rentedCars![index].carId!.tripStatus.toString() == "" ? const SizedBox()
                   : CustomElevatedButton(onPressed: (){
                 Get.toNamed(AppRoute.startTripScreen,arguments: [rentListModel, index]);
-              }, titleText: AppStaticStrings.seeDetails,buttonWidth: double.maxFinite,buttonHeight: 48)
+              }, titleText: "See details".tr,buttonWidth: double.maxFinite,buttonHeight: 48)
             ],
           ),
         ),

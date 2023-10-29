@@ -37,7 +37,7 @@ class SignInController extends GetxController {
           SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       await gotoNextStep(signInResponseModel);
     } else {
-      Utils.toastMessage("Authentication failed");
+      Utils.snackBar("Error","Authentication failed");
     }
 
     isSubmit = false;

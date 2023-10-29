@@ -39,9 +39,9 @@ class _UserListScreenState extends State<UserListScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-              text: AppStaticStrings.userList, color: AppColors.blackNormal),
+              text: "User List".tr, color: AppColors.blackNormal),
         ),
         body: GetBuilder<UserListController>(
           builder: (controller) {

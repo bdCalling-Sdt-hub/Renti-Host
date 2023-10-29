@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 
 class StartEndDate extends StatelessWidget {
    StartEndDate({super.key});
@@ -29,7 +29,7 @@ class StartEndDate extends StatelessWidget {
             TextSpan(
               children: [
                 TextSpan(
-                  text: AppStaticStrings.start,
+                  text: "Start: ".tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.blackNormal,
                     fontSize: 10,
@@ -51,7 +51,7 @@ class StartEndDate extends StatelessWidget {
             TextSpan(
               children: [
                 TextSpan(
-                  text: AppStaticStrings.end,
+                  text: "End: ".tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.blackNormal,
                     fontSize: 10,

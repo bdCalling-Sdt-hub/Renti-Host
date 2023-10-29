@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -16,9 +17,9 @@ class NotificationScreen extends StatelessWidget {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.notification,
+            text: "Notification".tr,
             color: AppColors.blackNormal,
           ),
         ),
@@ -118,8 +119,8 @@ class NotificationScreen extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const CustomText(
-                                  text: AppStaticStrings.userName,
+                              CustomText(
+                                  text: "UserName",
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                   bottom: 8),
@@ -137,7 +138,7 @@ class NotificationScreen extends StatelessWidget {
                                     direction: Axis.horizontal,
                                   ),
                                   const CustomText(
-                                      text: AppStaticStrings.rating,
+                                      text: "",
                                       fontSize: 10,
                                       fontWeight: FontWeight.w500,
                                       left: 8),

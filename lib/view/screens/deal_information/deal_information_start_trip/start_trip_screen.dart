@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_information.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_user_information.dart';
 import 'package:renti_host/view/screens/deal_information/inner_widgets/image_scetion.dart';
@@ -30,9 +29,9 @@ class _StartTripScreenState extends State<StartTripScreen> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-              text: AppStaticStrings.carDealInformation,
+              text: "Car Deal Information".tr,
               color: AppColors.blackNormal),
         ),
         body: LayoutBuilder(
@@ -43,8 +42,8 @@ class _StartTripScreenState extends State<StartTripScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(
-                      text: AppStaticStrings.uploadCarPhoto,
+                  CustomText(
+                      text: "Upload Car Photo".tr,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       bottom: 16),
@@ -59,7 +58,7 @@ class _StartTripScreenState extends State<StartTripScreen> {
                   const SizedBox(height: 16),
                   CustomElevatedButton(
                     onPressed: () {},
-                    titleText: AppStaticStrings.uploadCarPhoto,
+                    titleText: "Upload Car Photo".tr,
                     buttonHeight: 48,
                     titleSize: 16,
                     titleWeight: FontWeight.w500,
@@ -69,14 +68,13 @@ class _StartTripScreenState extends State<StartTripScreen> {
                   RentalInformation(index: index, rentListModel: rentListModel),
                   const SizedBox(height: 24),
                   //User Information Section
-                  RentalUserInformation(
-                      index: index, rentListModel: rentListModel),
+                  RentalUserInformation(index: index, rentListModel: rentListModel),
                   const SizedBox(height: 24),
                   CustomElevatedButton(
                       onPressed: () {
                         Get.toNamed(AppRoute.endTripScreen,arguments: [rentListModel,index]);
                       },
-                      titleText: AppStaticStrings.startTrip,
+                      titleText: "Start trip".tr,
                       buttonHeight: 48,buttonWidth: double.maxFinite),
                 ],
               ),

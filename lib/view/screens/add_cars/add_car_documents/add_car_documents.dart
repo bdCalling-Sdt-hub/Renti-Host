@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -41,21 +40,21 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
         backgroundColor: AppColors.whiteLight,
         extendBody: true,
         // App Bar
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.addCarDocument,
+            text: "Add Car Documentation".tr,
             color: AppColors.blackNormal,
           ),
         ),
         body: GetBuilder<AddCarController>(
           builder: (controller) => SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //Upload Car License Text and File..
-                const CustomText(
-                  text: AppStaticStrings.addCarLic,
+                CustomText(
+                  text: "1. Upload car license".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   bottom: 8,
@@ -123,8 +122,8 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                       ),
 
                 //Upload Car Insurance Policy Text and File..
-                const CustomText(
-                  text: AppStaticStrings.addCarIncPolicy,
+                CustomText(
+                  text: "2. Upload car insurance Policy".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   bottom: 8,
@@ -192,8 +191,8 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                       ),
 
                 //Upload Circulation Card Text and File..
-                const CustomText(
-                  text: AppStaticStrings.addCirculation,
+                CustomText(
+                  text: "3. Upload circulation card".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   textAlign: TextAlign.start,
@@ -258,8 +257,8 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                       ),
 
                 //Upload Car Invoice Text and File..
-                const CustomText(
-                  text: AppStaticStrings.addCarInvoice,
+                CustomText(
+                  text: "4. Upload car invoice".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   bottom: 8,
@@ -325,8 +324,8 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                       ),
 
                 //Upload REPUVE Text and File..
-                const CustomText(
-                  text: AppStaticStrings.addCarRepuve,
+                CustomText(
+                  text: "5. Upload REPUVE (nontheft report)".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   bottom: 8,
@@ -401,7 +400,6 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                   buttonWidth: double.infinity,
                   titleText: "Continue".tr,
                 ),
-
                 const SizedBox(height: 24),
               ],
             ),

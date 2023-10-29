@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_response_model/rent_request_response_model.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -70,7 +69,7 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
                         ),
                       ),
                       const CustomText(
-                          text: AppStaticStrings.rating, fontSize: 10, left: 8),
+                          text: "", fontSize: 10, left: 8),
                     ],
                   ),
                 ],

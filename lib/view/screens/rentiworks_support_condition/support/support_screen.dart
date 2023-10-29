@@ -3,7 +3,6 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/support/support_controller/support_controller.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/support/support_repo/support_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -32,9 +31,9 @@ class _SupportScreenState extends State<SupportScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar:  CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.support,
+            text: "Support".tr,
             color: AppColors.blackNormal,
           ),
         ),

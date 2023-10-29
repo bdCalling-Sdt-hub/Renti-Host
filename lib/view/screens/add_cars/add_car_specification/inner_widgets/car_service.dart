@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -12,52 +13,60 @@ class CarService extends StatefulWidget {
 }
 
 class _CarServiceState extends State<CarService> {
-  List<String> seatList = ["Baby Car Seat", "Sunroof", 'Bluetooth', 'GPS'];
+  List<String> seatList = [
+    "Baby Car Seat".tr,
+    "Sunroof".tr,
+    'Bluetooth'.tr,
+    'GPS'.tr
+  ];
   int selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AddCarController>(builder: (controller) {
-      return Column(
-        children: List.generate(
-          seatList.length,
-          (index) {
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedItem = index;
-                  controller.selectedText = seatList[selectedItem];
-                  print(controller.selectedText);
-                });
-              },
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 20,
-                      width: 20,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: index == selectedItem
-                            ? AppColors.blueNormal
-                            : AppColors.whiteLight,
-                        border:
-                            Border.all(color: AppColors.blueLight, width: 1),
+    return GetBuilder<AddCarController>(
+      builder: (controller) {
+        return Column(
+          children: List.generate(
+            seatList.length,
+            (index) {
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedItem = index;
+                    controller.selectedText = seatList[selectedItem].tr;
+                    if (kDebugMode) {
+                      print(controller.selectedText);
+                    }
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: index == selectedItem
+                              ? AppColors.blueNormal
+                              : AppColors.whiteLight,
+                          border:
+                              Border.all(color: AppColors.blueLight, width: 1),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    CustomText(
-                      text: seatList[index],
-                    ),
-                  ],
+                      const SizedBox(width: 10),
+                      CustomText(
+                        text: seatList[index].tr,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-        ),
-      );
-    });
+              );
+            },
+          ),
+        );
+      },
+    );
   }
 }

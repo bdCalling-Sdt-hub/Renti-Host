@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/income/my_payment/inner_widgets/pyment_details_card.dart';
 import 'package:renti_host/view/screens/income/renti_fee_my_payment_controller/renti_fee_my_payment_controller.dart';
 import 'package:renti_host/view/screens/income/renti_fee_my_payment_repo/renti_fee_my_payment_repo.dart';
@@ -40,9 +39,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
-            appBar: const CustomAppBar(
+            appBar: CustomAppBar(
               appBarContent: CustomBack(
-                text: AppStaticStrings.myPayment,
+                text: 'My Payment'.tr,
                 color: AppColors.blackNormal,
               ),
             ),

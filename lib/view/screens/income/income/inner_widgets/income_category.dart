@@ -9,7 +9,7 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 class IncomeCategory extends StatelessWidget {
   IncomeCategory({super.key});
 
-  final List incomeList = ["Weekly Income", "Renti Fee", "My Payment"];
+  final List incomeList = ["Weekly Income".tr, "Renti Fee".tr, "My Payment".tr];
 
   @override
   Widget build(BuildContext context) {

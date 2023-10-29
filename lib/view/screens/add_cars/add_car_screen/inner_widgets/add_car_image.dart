@@ -10,142 +10,148 @@ class AddCarImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AddCarController>(builder: (controller) {
-      return SizedBox(
-        height: 150,
-        child: Row(
-          children: [
-            //First Image
+    return GetBuilder<AddCarController>(
+      builder: (controller) {
+        return SizedBox(
+          height: 150,
+          child: Row(
+            children: [
+              //First Image
 
-            controller.firstImg == null
-                ? Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        controller.openGallery(index: 0);
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(16),
-                        height: 150,
-                        width: double.infinity - 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: AppColors.whiteDark),
-                        ),
-                        child: const Icon(Icons.image),
-                      ),
-                    ),
-                  )
-                : Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        controller.openGallery(index: 0);
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(16),
-                        height: 150,
-                        width: double.infinity - 40,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.whiteDark),
+              controller.firstImg == null
+                  ? Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          controller.openGallery(index: 0);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(16),
+                          height: 150,
+                          width: double.infinity - 40,
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
-                                image:
-                                    FileImage(File(controller.firstImg!.path)),
-                                fit: BoxFit.cover)),
+                            border: Border.all(color: AppColors.whiteDark),
+                          ),
+                          child: const Icon(Icons.add_photo_alternate_outlined),
+                        ),
+                      ),
+                    )
+                  : Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          controller.openGallery(index: 0);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(16),
+                          height: 150,
+                          width: double.infinity - 40,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: AppColors.whiteDark),
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                  image: FileImage(
+                                      File(controller.firstImg!.path)),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
                     ),
-                  ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Column(
-                children: [
-                  //Second Image
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  children: [
+                    //Second Image
 
-                  controller.secondImg == null
-                      ? Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              controller.openGallery(index: 1);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(16),
-                              height: 150,
-                              width: double.infinity - 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: AppColors.whiteDark),
-                              ),
-                              child: const Icon(Icons.image),
-                            ),
-                          ),
-                        )
-                      : Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              controller.openGallery(index: 1);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(16),
-                              height: 150,
-                              width: double.infinity - 40,
-                              decoration: BoxDecoration(
+                    controller.secondImg == null
+                        ? Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                controller.openGallery(index: 1);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                height: 150,
+                                width: double.infinity - 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
                                   border:
                                       Border.all(color: AppColors.whiteDark),
-                                  borderRadius: BorderRadius.circular(8),
-                                  image: DecorationImage(
-                                      image: FileImage(
-                                          File(controller.secondImg!.path)),
-                                      fit: BoxFit.cover)),
-                            ),
-                          ),
-                        ),
-                  const SizedBox(height: 8),
-
-                  //Third Image
-
-                  controller.thirdImg == null
-                      ? Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              controller.openGallery(index: 2);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(16),
-                              height: 150,
-                              width: double.infinity - 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: AppColors.whiteDark),
+                                ),
+                                child: const Icon(
+                                    Icons.add_photo_alternate_outlined),
                               ),
-                              child: const Icon(Icons.image),
+                            ),
+                          )
+                        : Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                controller.openGallery(index: 1);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                height: 150,
+                                width: double.infinity - 40,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: AppColors.whiteDark),
+                                    borderRadius: BorderRadius.circular(8),
+                                    image: DecorationImage(
+                                        image: FileImage(
+                                            File(controller.secondImg!.path)),
+                                        fit: BoxFit.cover)),
+                              ),
                             ),
                           ),
-                        )
-                      : Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              controller.openGallery(index: 2);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(16),
-                              height: 150,
-                              width: double.infinity - 40,
-                              decoration: BoxDecoration(
+                    const SizedBox(height: 8),
+
+                    //Third Image
+
+                    controller.thirdImg == null
+                        ? Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                controller.openGallery(index: 2);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                height: 150,
+                                width: double.infinity - 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
                                   border:
                                       Border.all(color: AppColors.whiteDark),
-                                  borderRadius: BorderRadius.circular(8),
-                                  image: DecorationImage(
-                                      image: FileImage(
-                                          File(controller.thirdImg!.path)),
-                                      fit: BoxFit.cover)),
+                                ),
+                                child: const Icon(
+                                    Icons.add_photo_alternate_outlined),
+                              ),
+                            ),
+                          )
+                        : Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                controller.openGallery(index: 2);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                height: 150,
+                                width: double.infinity - 40,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: AppColors.whiteDark),
+                                    borderRadius: BorderRadius.circular(8),
+                                    image: DecorationImage(
+                                        image: FileImage(
+                                            File(controller.thirdImg!.path)),
+                                        fit: BoxFit.cover)),
+                              ),
                             ),
                           ),
-                        ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      );
-    });
+            ],
+          ),
+        );
+      },
+    );
   }
 }
