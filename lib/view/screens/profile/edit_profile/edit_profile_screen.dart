@@ -49,9 +49,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: Scaffold(
             extendBody: true,
             backgroundColor: AppColors.whiteLight,
-            appBar: const CustomAppBar(
+            appBar: CustomAppBar(
               appBarContent: CustomBack(
-                  text: AppStaticStrings.profileEdit,
+                  text: "Profile Edit".tr,
                   color: AppColors.blackNormal),
             ),
             body: LayoutBuilder(
@@ -109,8 +109,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
 
                       //Name and TextField
-                      const CustomText(
-                          text: AppStaticStrings.name1, bottom: 12, top: 16),
+                      CustomText(
+                          text: "Name".tr, bottom: 12, top: 16),
                       CustomTextField(
                         textEditingController: controller.fullNameController,
                         hintText: "Enter full name".tr,
@@ -223,7 +223,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           },
                           buttonWidth: double.maxFinite,
                           buttonHeight: 52,
-                          titleText: AppStaticStrings.save),
+                          titleText: "Save".tr),
                       const SizedBox(height: 24),
                     ],
                   ),

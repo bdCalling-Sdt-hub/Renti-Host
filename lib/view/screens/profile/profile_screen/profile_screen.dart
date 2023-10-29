@@ -5,7 +5,6 @@ import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_controller/edit_profile_controller.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 import 'package:renti_host/view/screens/profile/inner_widgets/profile_card.dart';
@@ -68,9 +67,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
-            appBar: const CustomAppBar(
+            appBar: CustomAppBar(
               appBarContent: CustomText(
-                text: AppStaticStrings.profile,
+                text: "Profile".tr,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -149,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     ProfileCard(
-                        title: AppStaticStrings.ine,
+                        title: "INE".tr,
                         description: ine,
                         icon: Icons.credit_card_outlined),
                     ProfileCard(
@@ -157,7 +156,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         description: email,
                         icon: Icons.email_outlined),
                     ProfileCard(
-                        title: AppStaticStrings.mobile,
+                        title: "Mobile".tr,
                         description: phoneNumber,
                         icon: Icons.phone),
                     ProfileCard(

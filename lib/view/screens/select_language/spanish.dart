@@ -21,13 +21,15 @@ Map<String, String> spanish = {
   "Apple": "Manzana",
   "Don’t have an account? ": "¿No tienes una cuenta? ",
   "This field can not be empty": "Este campo no puede estar vacío",
-  "Password should be more than 6 characters": "La contraseña debe tener más de 6 caracteres",
+  "Password should be more than 6 characters":
+      "La contraseña debe tener más de 6 caracteres",
   "Successful": "Exitosa",
   "Failed": "Fallida",
 
   //Forget Password Screen
   "Forgot Password": "Has olvidado tu contraseña",
-  "Please enter your email address for recover your password.": "Por favor ingrese su dirección de correo electrónico para recuperar su contraseña.",
+  "Please enter your email address for recover your password.":
+      "Por favor ingrese su dirección de correo electrónico para recuperar su contraseña.",
   "Continue": "Continuar",
 
   //OTP Screen
@@ -39,8 +41,10 @@ Map<String, String> spanish = {
 
   //Set New Password
   "Set a new password": "Establecer una nueva contraseña",
-  "Your password must have 8-10 characters.": "Su contraseña debe tener entre 8 y 10 caracteres.",
-  "New password and Current password does not match": "La nueva contraseña y la contraseña actual no coinciden",
+  "Your password must have 8-10 characters.":
+      "Su contraseña debe tener entre 8 y 10 caracteres.",
+  "New password and Current password does not match":
+      "La nueva contraseña y la contraseña actual no coinciden",
   "Reset": "Reiniciar",
   "Confirm Password": "Confirmar Contraseña",
   "New Password": "Nueva contraseña",
@@ -54,7 +58,10 @@ Map<String, String> spanish = {
   "Female": "Femenino",
   "Others": "Otras",
   "Date of Birth": "Fecha de nacimiento",
-
+  "Mobile": "Móvil",
+  "Profile Edit": "Editar perfil",
+  "Name": "Nombre",
+  "Save": "Ahorrar",
 
   //Sign Up Continue Screen
   "Phone Number": "Número de teléfono",
@@ -66,10 +73,13 @@ Map<String, String> spanish = {
   //KYC Screen
   "KYC": "KYC",
   "Upload": "Subir",
-  "NOTE:  All file must be in PDF format": "NOTA: Todo el archivo debe estar en formato PDF",
+  "NOTE:  All file must be in PDF format":
+      "NOTA: Todo el archivo debe estar en formato PDF",
   "1. Upload INE/Passport": "1. Cargar IN/Pasaporte",
-  "2. Tax stamps .key extension file": "2. Archivo de extensión .key de sellos fiscales",
-  "3. Tax stamps .cer extension file": "3. Archivo de extensión .cer de sellos fiscales",
+  "2. Tax stamps .key extension file":
+      "2. Archivo de extensión .key de sellos fiscales",
+  "3. Tax stamps .cer extension file":
+      "3. Archivo de extensión .cer de sellos fiscales",
   "INE/Passport": "INE/Pasaporte",
   "Enter INE/Passport": "Ingrese IN/Pasaporte",
   "RFC": "RFC",
@@ -79,20 +89,22 @@ Map<String, String> spanish = {
 
   //KYC Phone Number Verification Screen All Strings
   "Mobile Number Verification": "Verificación del número de teléfono",
-  "weHaveSent": "Le hemos enviado un código OTP a su número de teléfono móvil. Ingrese el código OTP.",
+  "weHaveSent":
+      "Le hemos enviado un código OTP a su número de teléfono móvil. Ingrese el código OTP.",
 
   "Email Verification": "Verificacion de email",
-  "weSentEmail": "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
+  "weSentEmail":
+      "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
   "Resend Email": "Reenviar email",
   "Did not get the email?": "¿No recibiste el email?",
-
 
   //Home Screen
   "Search cars...": "Buscar coches...",
   "Total car": "Coche total",
   "Active": "Activa",
   "Reserved": "Reservada",
-  "Please wait for admin’s approval.": "Espere la aprobación del administrador.",
+  "Please wait for admin’s approval.":
+      "Espere la aprobación del administrador.",
   "Add New Car": "Agregar auto nuevo",
   "Cars List": "Lista de coches",
   "See all": "Ver todo",
@@ -103,7 +115,6 @@ Map<String, String> spanish = {
   "Rent": "Alquilar",
   "Message": "Mensaje",
   "Profile": "Perfil",
-
 
   //Drawer Section
   "Add Car": "Agregar auto",
@@ -130,7 +141,6 @@ Map<String, String> spanish = {
 
   "Start: ": "Comenzar: ",
   "End: ": "Fin: ",
-
 
   //Add Car Screen
   "Car Model Name": "Nombre del modelo de coche",
@@ -172,15 +182,13 @@ Map<String, String> spanish = {
   //Admin Information
   'Hotline Number': 'Número de línea directa',
   'Office Address': 'Dirección de la oficina',
-  'Weekly Income' : 'Ingresos semanales',
-  'Total Income' : 'Ingresos totales',
+  'Weekly Income': 'Ingresos semanales',
+  'Total Income': 'Ingresos totales',
   //"Weekly Income": "Ingresos semanales",
-  "Renti Fee" : "Tarifa de alquiler",
-  "My Payment" : "Mi pago",
-  'All reviews' : 'Todas las reseñas',
-  'Date: ' : 'Fecha: ',
-
-
+  "Renti Fee": "Tarifa de alquiler",
+  "My Payment": "Mi pago",
+  'All reviews': 'Todas las reseñas',
+  'Date: ': 'Fecha: ',
 
   //Car Details Screen
   "Car model: ": "Modelo de auto: ",
@@ -188,49 +196,67 @@ Map<String, String> spanish = {
   "Seats: ": "Asientos: ",
   "Car Color: ": "Color del coche: ",
   "Car license no: ": "Número de licencia de coche: ",
-  'Car License No: ' : 'Número de licencia de automóvil: ',
+  'Car License No: ': 'Número de licencia de automóvil: ',
   "Registration date: ": "Fecha de Registro: ",
   "Insurance date: ": "Fecha de seguro: ",
   "Reservation: ": "Reserva: ",
-  "User name: " : "Nombre de usuario: ",
-  "Transition no: " : "Nº de transición: ",
-  "Trip no: " :"Nº de viaje: ",
-  "Edit Car":"Editar coche",
-  "You sure want to Delete Car?" : "¿Seguro que quieres eliminar el coche?",
-  "Delete Car" : "Eliminar coche",
-  "Documents" : "Documentos",
-  "Gear Type:" :"Tipo de equipo:",
-  "Rental time:" : "Tiempo de alquiler:",
-  "Rental Date:" :"Fecha de alquiler:",
-  "Rental Information" :"Información de alquiler",
-  "Car year:" : "Año del coche:",
-  "search car by company..." : "buscar coche por empresa...",
-
+  "User name: ": "Nombre de usuario: ",
+  "Transition no: ": "Nº de transición: ",
+  "Trip no: ": "Nº de viaje: ",
+  "Edit Car": "Editar coche",
+  "You sure want to Delete Car?": "¿Seguro que quieres eliminar el coche?",
+  "Delete Car": "Eliminar coche",
+  "Documents": "Documentos",
+  "Gear Type:": "Tipo de equipo:",
+  "Rental time:": "Tiempo de alquiler:",
+  "Rental Date:": "Fecha de alquiler:",
+  "Rental Information": "Información de alquiler",
+  "Car year:": "Año del coche:",
+  "search car by company...": "buscar coche por empresa...",
 
   //Start Trip End Trip Screen
-  "Car Deal Information" :"Información sobre ofertas de automóviles",
-  "Start trip" : "Iniciar viaje",
-  "User Information" : "Informacion del usuario",
-  "Name:" : "Nombre:",
-  "INE:" : "INE:",
-  "Driving license no:" : "Permiso de conducir no:",
-  "Pickup location:" : "Lugar de recogida:",
-  "End trip" : "Fin del viaje",
-  "Give us rating out of 5" :"Danos una calificación sobre 5",
-  "Review" : "Revisar",
-  "Nice Behavior." :"Buen comportamiento.",
-  "Type Review" : "Tipo de revisión",
-  "Send Review" :"Enviar reseña",
+  "Car Deal Information": "Información sobre ofertas de automóviles",
+  "Start trip": "Iniciar viaje",
+  "User Information": "Informacion del usuario",
+  "Name:": "Nombre:",
+  "INE:": "INE:",
+  "Driving license no:": "Permiso de conducir no:",
+  "Pickup location:": "Lugar de recogida:",
+  "End trip": "Fin del viaje",
+  "Give us rating out of 5": "Danos una calificación sobre 5",
+  "Review": "Revisar",
+  "Nice Behavior.": "Buen comportamiento.",
+  "Type Review": "Tipo de revisión",
+  "Send Review": "Enviar reseña",
 
   //Rent Request Screen
-  "Users Request" : "Solicitud de usuarios",
-  "Cancel" :"Cancelar",
-  "Approve" : "Aprobar",
-  "User details" :"Detalles de usuario",
-  "Rent date: " :"Fecha de alquiler: ",
-  "Total time: " : "Tiempo Total: ",
-  "Contact: " :"Contacto: ",
-  "Total amount:" : "Cantidad total:",
+  "Users Request": "Solicitud de usuarios",
+  "Cancel": "Cancelar",
+  "Approve": "Aprobar",
+  "User details": "Detalles de usuario",
+  "Rent date: ": "Fecha de alquiler: ",
+  "Total time: ": "Tiempo Total: ",
+  "Contact: ": "Contacto: ",
+  "Total amount:": "Cantidad total:",
 
+  //Message
+  "Messages": "Mensajes",
+
+  //Settings Screen
+  "Change Password": "Completa",
+  "Current Password": "Contraseña actual",
+  "Enter Current Password": "Introducir la contraseña actual",
+  "Enter New Password": "Ingrese nueva clave",
+  "Enter Confirm Password": "Ingrese Confirmar Contraseña",
+  "Add Card": "Agregar tarjeta",
+  "Add New Card": "Agregar nueva tarjeta",
+  'Account Holder Name': 'Nombre del titular de la cuenta',
+  "Enter Account Number": "Ingrese el número de cuenta",
+  "Change Language": "Cambiar idioma",
+  "Payment Method": "Método de pago",
+  "Privacy Policy": "Política de privacidad",
+
+  "You sure want to delete the message?": "¿Seguro que quieres borrar el mensaje?",
+  "Language Changed Successfully": "El idioma cambió con éxito",
 
 };

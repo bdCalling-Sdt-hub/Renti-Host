@@ -16,10 +16,10 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
 
   List settingData = [
-    "Change Language",
-    "Change Password",
-    "Payment Method",
-    "Privacy Policy"
+    "Change Language".tr,
+    "Change Password".tr,
+    "Payment Method".tr,
+    "Privacy Policy".tr
   ];
 
   @override
@@ -80,7 +80,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomText(
-                            text: settingData[index],
+                            text: "${settingData[index]}".tr,
                             fontSize: 16,
                           ),
                           const Icon(

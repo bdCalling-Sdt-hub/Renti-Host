@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_static_strings.dart';
@@ -49,9 +50,9 @@ class _MessageScreenState extends State<MessageScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomText(
-              text: AppStaticStrings.messages,
+              text: "Messages".tr,
               fontSize: 18,
               fontWeight: FontWeight.w600),
         ),

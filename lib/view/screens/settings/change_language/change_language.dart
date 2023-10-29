@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -13,29 +14,24 @@ class ChangeLanguageScreen extends StatefulWidget {
 }
 
 class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
-  List<String> languageName = [
-    'English',
-    'English UK',
-    'Hindi',
-    'Spanish',
-    'Japanese',
-    'Chinese',
-    'Dutch',
-    'Korean',
-    'Swedish',
-    'Bangla'
-  ];
-  int selectedItem = 0;
+
+  int selectedItem = -1;
 
   @override
   Widget build(BuildContext context) {
+
+    List<String> languageName = [
+      'English'.tr,
+      'Spanish'.tr,
+    ];
+
     return SafeArea(
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.changeLanguage,
+            text: "Change Language".tr,
             color: AppColors.blackNormal,
           ),
         ),
@@ -54,7 +50,9 @@ class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
                         onTap: () {
                           setState(() {
                             selectedItem = index;
+                            selectedItem == 0 ? Get.updateLocale(const Locale("en", "US")) : Get.updateLocale(const Locale("es" , "MX"));
                           });
+                          Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
                         },
                         child: Container(
                           height: 52,

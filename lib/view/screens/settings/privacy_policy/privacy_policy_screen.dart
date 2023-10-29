@@ -3,7 +3,6 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_controller/pp_controller.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_repo/pp_repo.dart';
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_response_model/pp_response_model.dart';
@@ -42,9 +41,9 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
-            appBar: const CustomAppBar(
+            appBar: CustomAppBar(
               appBarContent: CustomBack(
-                text: AppStaticStrings.privacyPolicy,
+                text: "Privacy Policy".tr,
                 color: AppColors.blackNormal,
               ),
             ),

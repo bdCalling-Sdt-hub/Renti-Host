@@ -4,7 +4,6 @@ import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/settings/payment_method_section/payment_method/card_details_controller/card_details_controller.dart';
 import 'package:renti_host/view/screens/settings/payment_method_section/payment_method/card_details_repo/card_details_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -41,9 +40,9 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-              text: AppStaticStrings.paymentMethod,
+              text: "Payment Method".tr,
               color: AppColors.blackNormal),
         ),
         body: GetBuilder<CardDetailsController>(
@@ -119,17 +118,17 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                     onTap: () {
                       Get.toNamed(AppRoute.addNewCardScreen);
                     },
-                    child: const Row(
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.add_circle_outline,
                           color: AppColors.blueNormal,
                           size: 24,
                         ),
                         CustomText(
-                          text: AppStaticStrings.addNew,
+                          text: "Add New Card".tr,
                           color: AppColors.blueNormal,
                           fontSize: 18,
                           left: 8,

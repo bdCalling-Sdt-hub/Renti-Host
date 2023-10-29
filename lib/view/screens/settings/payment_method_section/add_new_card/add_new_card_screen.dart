@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -21,9 +20,9 @@ class AddNewCardScreen extends StatelessWidget {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-            text: AppStaticStrings.addNewCard,
+            text: "Add New Card".tr,
             color: AppColors.blackNormal,
           ),
         ),
@@ -35,8 +34,8 @@ class AddNewCardScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomText(
-                    text: 'Account Holder Name', fontSize: 16, bottom: 12),
+                CustomText(
+                    text: 'Account Holder Name'.tr, fontSize: 16, bottom: 12),
                 CustomTextField(
                   textInputAction: TextInputAction.done,
                   hintText: "Enter email".tr,
@@ -124,8 +123,8 @@ class AddNewCardScreen extends StatelessWidget {
                   },
                 ),
 
-                const CustomText(
-                    text: AppStaticStrings.enterAccountNumber,
+                CustomText(
+                    text: "Enter Account Number".tr,
                     top: 8,
                     bottom: 12),
                 CustomTextField(
@@ -154,7 +153,7 @@ class AddNewCardScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
           child: CustomElevatedButton(onPressed: (){
             Get.back();
-          }, titleText: AppStaticStrings.addNew,buttonHeight: 48),
+          }, titleText: "Add Card".tr,buttonHeight: 48),
         ),
       ),
     );

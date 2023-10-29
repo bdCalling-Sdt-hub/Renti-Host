@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
@@ -119,9 +118,8 @@ class CardDetailsScreen extends StatelessWidget {
                     }
                   },
                 ),
-
-                const CustomText(
-                    text: AppStaticStrings.enterAccountNumber,
+                CustomText(
+                    text: "Enter Account Number".tr,
                     top: 8,
                     bottom: 12),
                 CustomTextField(

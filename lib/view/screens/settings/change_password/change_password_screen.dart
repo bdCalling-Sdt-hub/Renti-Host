@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/data/controller/settings/change_password_controller/change_password_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -29,9 +28,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: const CustomAppBar(
+        appBar:  CustomAppBar(
           appBarContent: CustomBack(
-              text: AppStaticStrings.changePassword,
+              text: "Change Password".tr,
               color: AppColors.blackNormal),
         ),
         body: LayoutBuilder(
@@ -47,14 +46,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const CustomText(
-                        text: AppStaticStrings.currentPassword,
+                      CustomText(
+                        text: "Current Password".tr,
                         bottom: 12,
                       ),
                       CustomTextField(
                         textEditingController: controller.currentPassword.value,
                         textInputAction: TextInputAction.next,
-                        hintText: AppStaticStrings.enterCurrentPassword,
+                        hintText: "Enter Current Password".tr,
                         hintStyle: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -78,7 +77,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       CustomTextField(
                         textEditingController: controller.newPassword.value,
                         textInputAction: TextInputAction.next,
-                        hintText: AppStaticStrings.enterNewPassword,
+                        hintText: "Enter New Password".tr,
                         hintStyle: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -102,7 +101,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       CustomTextField(
                         textEditingController: controller.reTypedPassword.value,
                         textInputAction: TextInputAction.done,
-                        hintText: AppStaticStrings.enterConfirmPassword,
+                        hintText: "Enter Confirm Password".tr,
                         hintStyle: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -138,7 +137,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
           child: CustomElevatedButton(onPressed: (){
             controller.changePass(controller.currentPassword.value.text, controller.currentPassword.value.text, controller.reTypedPassword.value.text);
-          }, titleText: AppStaticStrings.save),
+          }, titleText: "Save".tr),
         ),
       ),
     );

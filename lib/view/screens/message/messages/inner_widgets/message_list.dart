@@ -83,7 +83,7 @@ class MessageList extends StatelessWidget {
                             context: context,
                             builder: (context) {
                               return CommonPopUp(
-                                  title: AppStaticStrings.deleteMessage,
+                                  title: "You sure want to delete the message?".tr,
                                   onTapYes: () {},
                                   onTapNo: () {});
                             },

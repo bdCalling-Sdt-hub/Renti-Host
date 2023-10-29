@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/select_language/language_controller/language_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
@@ -17,21 +18,22 @@ class SelectLanguageScreen extends StatefulWidget {
 }
 
 class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
-  List<String> languageName = [
-    'English'.tr,
-    'Spanish'.tr,
-  ];
-  int selectedItem = 0;
+
+  int selectedItem = -1;
 
   final prefs = Get.find<LanguageController>();
 
   @override
   Widget build(BuildContext context) {
+    List<String> languageName = [
+      'English'.tr,
+      'Spanish'.tr,
+    ];
     return SafeArea(
       top: true,
       child: Scaffold(
         extendBody: true,
-        appBar:  CustomAppBar(appBarContent: CustomBack(text: "Select Language".tr),),
+        appBar:  CustomAppBar(appBarContent: CustomBack(text: "Select Language".tr)),
         backgroundColor: AppColors.blueNormal,
         body: CustomContainer(
           height: MediaQuery.of(context).size.height,
@@ -50,7 +52,9 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                       onTap: () {
                         setState(() {
                           selectedItem = index;
+                          selectedItem == 0 ? Get.updateLocale(const Locale("en", "US")) : Get.updateLocale(const Locale("es" , "MX"));
                         });
+                        Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
                       },
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 8),
