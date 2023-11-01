@@ -27,6 +27,15 @@ class SignUpController extends GetxController {
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController addressController = TextEditingController();
+
+
+  TextEditingController countryController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController laneController = TextEditingController();
+  TextEditingController postalController = TextEditingController();
+
+
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
   TextEditingController cvvController = TextEditingController();

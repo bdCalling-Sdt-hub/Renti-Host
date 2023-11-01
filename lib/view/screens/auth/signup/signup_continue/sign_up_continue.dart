@@ -57,7 +57,7 @@ class _SignUpContinueScreenState extends State<SignUpContinueScreen> {
       ),
     );
   }
-  setDataToLocalStore(SignUpController signUpController, {required String phoneNumber, required String address}) async{
+  /*setDataToLocalStore(SignUpController signUpController, {required String phoneNumber, required String address}) async{
 
     await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
     await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.address, address);
@@ -70,5 +70,5 @@ class _SignUpContinueScreenState extends State<SignUpContinueScreen> {
     }
 
     Get.toNamed(AppRoute.kycScreen);
-  }
+  }*/
 }

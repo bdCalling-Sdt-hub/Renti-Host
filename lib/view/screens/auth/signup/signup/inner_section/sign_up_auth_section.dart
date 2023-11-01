@@ -203,14 +203,14 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                 onPressed: () {
                   if (controller.passwordController.text !=
                       controller.confirmPasswordController.text) {
-                    Utils.toastMessageCenter("Password Doesn't Match");
+                    Utils.snackBar("Error","Password Doesn't Match");
                   } else if (controller.fullNameController.text.isEmpty ||
                       controller.emailController.text.isEmpty ||
                       controller.genderList.isEmpty) {
-                    Utils.toastMessageCenter("Input Field Can't be Empty");
+                    Utils.snackBar("Error","Input Field Can't be Empty");
                   } else if (controller.passwordController.text.isEmpty ||
                       controller.emailController.text.isEmpty) {
-                    Utils.toastMessageCenter("Input Field Can't Be Empty");
+                    Utils.snackBar("Error","Input Field Can't Be Empty");
                   } else {
                     setDataToLocalStore(controller,
                         fullName: controller.fullNameController.text,

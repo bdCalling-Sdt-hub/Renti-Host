@@ -22,10 +22,10 @@ Map<String, String> english = {
   "Don’t have an account? ": "Don’t have an account? ",
   "This field can not be empty": "This field can not be empty",
   "Please enter a valid email": "Please enter a valid email",
-  "Password should be more than 6 characters":
-      "Password should be more than 6 characters",
+  "Password should be more than 6 characters": "Password should be more than 6 characters",
   "Successful": "Successful",
   "Failed": "Failed",
+  "Successfully Signed In" : "Successfully Signed In",
 
   //Forget Password Screen
   "Forgot Password": "Forgot Password",
@@ -109,6 +109,10 @@ Map<String, String> english = {
   "Rent": "Rent",
   "Message": "Message",
   "Profile": "Profile",
+  "Please wait for admin approve to log in" : "Please wait for admin approve to log in",
+  "Error" : "Error",
+  "Enter valid Email and Password" : "Enter valid Email and Password",
+  "Authentication failed" : "Authentication failed",
 
   //Drawer Section
   "Add Car": "Add Car",

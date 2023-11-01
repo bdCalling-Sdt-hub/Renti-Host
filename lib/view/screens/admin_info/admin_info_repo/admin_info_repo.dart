@@ -9,7 +9,7 @@ class AdminInfoRepo {
 
   Future<ApiResponseModel> adminInfo() async {
     String uri =
-        "${ApiUrlContainer.baseUrl2}${ApiUrlContainer.adminInfo}";
+        "${ApiUrlContainer.baseUrl}${ApiUrlContainer.adminInfo}";
     String requestMethod = ApiResponseMethod.getMethod;
 
     ApiResponseModel responseModel =

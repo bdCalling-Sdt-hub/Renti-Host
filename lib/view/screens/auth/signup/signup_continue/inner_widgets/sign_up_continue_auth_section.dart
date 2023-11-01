@@ -29,7 +29,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
     return GetBuilder<SignUpController>(
       builder: (controller) => Form(
         key: formKey,
-        autovalidateMode: AutovalidateMode.always,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -81,13 +81,9 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
             Container(
               height: 100,
               decoration: BoxDecoration(
+                border: Border.all(color: AppColors.whiteNormalActive),
                   borderRadius: BorderRadius.circular(8),
-                  color: AppColors.whiteLight,
-                  border: Border.all(
-                      color: AppColors.whiteNormalActive,
-                      style: BorderStyle.solid,
-                      width: 1.0,
-                      strokeAlign: 1)),
+                  color: AppColors.whiteLight),
               child: CustomTextField(
                 textEditingController: controller.addressController,
                 textInputAction: TextInputAction.done,
@@ -100,7 +96,62 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               ),
             ),
 
-            const SizedBox(height: 40),
+            const CustomText(text: "Country", top: 16,bottom: 12),
+            CustomTextField(
+              textEditingController: controller.countryController,
+              keyboardType: TextInputType.phone,
+              hintText: "Type country name",
+              hintStyle: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.whiteNormalActive),
+            ),
+
+            const CustomText(text: "City", top: 16,bottom: 12),
+            CustomTextField(
+              textEditingController: controller.cityController,
+              keyboardType: TextInputType.phone,
+              hintText: "Type city name",
+              hintStyle: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.whiteNormalActive),
+            ),
+
+            const CustomText(text: "State", top: 16,bottom: 12),
+            CustomTextField(
+              textEditingController: controller.stateController,
+              keyboardType: TextInputType.phone,
+              hintText: "Type state name",
+              hintStyle: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.whiteNormalActive),
+            ),
+
+            const CustomText(text: "Lane no.", top: 16,bottom: 12),
+            CustomTextField(
+              textEditingController: controller.laneController,
+              keyboardType: TextInputType.phone,
+              hintText: "Type lane no.",
+              hintStyle: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.whiteNormalActive),
+            ),
+
+            const CustomText(text: "Postal Code", top: 16,bottom: 12),
+            CustomTextField(
+              textEditingController: controller.postalController,
+              keyboardType: TextInputType.phone,
+              hintText: "Type postal code",
+              hintStyle: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.whiteNormalActive),
+            ),
+
+            const SizedBox(height: 44),
 
             CustomElevatedButton(
                 onPressed: () {
@@ -108,9 +159,14 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                       controller.addressController.text.isNotEmpty) {
                     setDataToLocalStore(controller,
                         phoneNumber: "${controller.phoneCode} ${controller.phoneNumberController.text}",
-                        address: controller.addressController.text);
+                        address: controller.addressController.text,
+                    country: controller.countryController.text,
+                    city:  controller.cityController.text,
+                    state:  controller.stateController.text,
+                    lane: controller.stateController.text,
+                    postal: controller.postalController.text);
                   } else {
-                    Utils.toastMessage("InputField Can't be Empty".tr);
+                    Utils.snackBar("Error","InputField Can't be Empty".tr);
                   }
                 },
                 buttonHeight: 48,
@@ -123,11 +179,16 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
   }
 
   setDataToLocalStore(SignUpController signUpController,
-      {required String phoneNumber, required String address}) async {
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.address, address);
+      {required String phoneNumber, required String address,
+        required String country, required String city,
+        required String state, required String lane, required String postal}) async {
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.address, address);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.country, country);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.city, city);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.state, state);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.lane, lane);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.postal, postal);
 
     if (kDebugMode) {
       print("phone number: $phoneNumber\n");
@@ -135,7 +196,6 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
     if (kDebugMode) {
       print("address: $address\n");
     }
-
-    Get.toNamed(AppRoute.kycScreen);
+    Get.toNamed(AppRoute.signUpBankScreen);
   }
 }

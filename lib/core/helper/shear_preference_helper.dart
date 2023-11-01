@@ -31,6 +31,13 @@ class SharedPreferenceHelper {
   static const String password = 'password';
   static const String phoneNumber = 'phoneNumber';
   static const String address = 'address';
+
+  static const String country = 'country';
+  static const String city = 'city';
+  static const String state = 'state';
+  static const String lane = 'lane';
+  static const String postal = 'postal';
+
   static const String ineOrPassport = "ineOrPassport";
   static const String taxStampsKey = "taxStampsKey";
   static const String taxStampsCer = "taxStampsCer";

@@ -33,11 +33,11 @@ class SignInController extends GetxController {
         password: passwordController.text.toString());
 
     if (responseModel.statusCode == 200) {
-      SignInResponseModel signInResponseModel =
-          SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
+      clearData();
+      SignInResponseModel signInResponseModel = SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       await gotoNextStep(signInResponseModel);
     } else {
-      Utils.snackBar("Error","Authentication failed");
+      Utils.snackBar("Error".tr,"Authentication failed".tr);
     }
 
     isSubmit = false;
@@ -78,11 +78,11 @@ class SignInController extends GetxController {
     if (emailVerified == true && approved == true) {
       clearData();
       Get.offAllNamed(AppRoute.navigation);
-      Utils.snackBar("Successful","Successfully Signed In");
+      Utils.snackBar("Successful".tr,"Successfully Signed In".tr);
     } else if (approved == false) {
-      Utils.snackBar("Successful","Please wait for admin approve to log in");
+      Utils.snackBar("Successful".tr,"Please wait for admin approve to log in".tr);
     } else {
-      Utils.snackBar("Error","Enter valid Email and Password");
+      Utils.snackBar("Error".tr,"Enter valid Email and Password".tr);
     }
   }
 
@@ -97,4 +97,6 @@ class SignInController extends GetxController {
     emailController.text = "";
     passwordController.text = "";
   }
+
 }
+

@@ -8,6 +8,7 @@ Map<String, String> spanish = {
   "Spanish": "Española",
   "Confirm": "Confirmar",
 
+
   //Sign In Screen
   "Sign In": "Iniciar sesión",
   "Email": "Correo electrónico",
@@ -22,9 +23,10 @@ Map<String, String> spanish = {
   "Don’t have an account? ": "¿No tienes una cuenta? ",
   "This field can not be empty": "Este campo no puede estar vacío",
   "Password should be more than 6 characters":
-      "La contraseña debe tener más de 6 caracteres",
+  "La contraseña debe tener más de 6 caracteres",
   "Successful": "Exitosa",
   "Failed": "Fallida",
+  "Successfully Signed In" : "Connexion réussie",
 
   //Forget Password Screen
   "Forgot Password": "Has olvidado tu contraseña",
@@ -93,8 +95,7 @@ Map<String, String> spanish = {
       "Le hemos enviado un código OTP a su número de teléfono móvil. Ingrese el código OTP.",
 
   "Email Verification": "Verificacion de email",
-  "weSentEmail":
-      "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
+  "weSentEmail": "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
   "Resend Email": "Reenviar email",
   "Did not get the email?": "¿No recibiste el email?",
 
@@ -115,6 +116,10 @@ Map<String, String> spanish = {
   "Rent": "Alquilar",
   "Message": "Mensaje",
   "Profile": "Perfil",
+  "Please wait for admin approve to log in" : "Veuillez attendre l'approbation de l'administrateur pour vous connecter",
+  "Error" : "Erreur",
+  "Enter valid Email and Password" : "Entrez un e-mail et un mot de passe valides",
+  "Authentication failed" : "Authentification échouée",
 
   //Drawer Section
   "Add Car": "Agregar auto",

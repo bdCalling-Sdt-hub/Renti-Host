@@ -11,6 +11,7 @@ import 'package:renti_host/view/screens/auth/signup/kyc/kyc_email_verification/k
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_first/kyc_screen.dart';
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_image/kyc_image_screen.dart';
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_number_verification/kyc_number_verification.dart';
+import 'package:renti_host/view/screens/auth/signup/sign_up_bank/sign_up_bank.dart';
 import 'package:renti_host/view/screens/auth/signup/signup/sign_up_screen.dart';
 import 'package:renti_host/view/screens/auth/signup/signup_continue/sign_up_continue.dart';
 import 'package:renti_host/view/screens/car_details/car_details_screen.dart';
@@ -56,6 +57,7 @@ class AppRoute {
 
   static const String signUpScreen = "/sign_up_screen";
   static const String signUpContinueScreen = "/sign_up_continue_screen";
+  static const String signUpBankScreen = "/sign_up_bank_screen";
   static const String kycScreen = "/kyc_screen";
   static const String kycImageScreen = "/kyc_upload_image";
   static const String kycNumberVerification = "/kyc_number_verification";
@@ -117,8 +119,8 @@ class AppRoute {
     GetPage(name: newPasswordScreen, page: () => const NewPasswordScreen()),
 
     GetPage(name: signUpScreen, page: () => const SignUpScreen()),
-    GetPage(
-        name: signUpContinueScreen, page: () => const SignUpContinueScreen()),
+    GetPage(name: signUpContinueScreen, page: () => const SignUpContinueScreen()),
+    GetPage(name: signUpBankScreen, page: () => const SignUpBank()),
     GetPage(name: kycScreen, page: () => const KYCScreen()),
     GetPage(name: kycImageScreen, page: () => const KYCImageScreen()),
     GetPage(

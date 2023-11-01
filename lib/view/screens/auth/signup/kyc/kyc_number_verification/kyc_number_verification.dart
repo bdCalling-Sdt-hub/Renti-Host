@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:renti_host/core/route/app_route.dart';
-import 'package:renti_host/data/controller/auth/otp_controller/forgot_pass_repo.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/view/screens/auth/signup/kyc/kyc_number_verification/kyc_email_veri_repo/kyc_email_veri_repo.dart';
@@ -24,7 +23,6 @@ class KYCNumberVerification extends StatefulWidget {
 }
 
 class _KYCNumberVerificationState extends State<KYCNumberVerification> {
-  final forgotPassword = Get.put(ForgetPasswordController());
 
   @override
   Widget build(BuildContext context) {
