@@ -38,6 +38,10 @@ class SharedPreferenceHelper {
   static const String lane = 'lane';
   static const String postal = 'postal';
 
+  static const String account = 'account';
+  static const String holder = 'holder';
+  static const String holderType = 'holderType';
+
   static const String ineOrPassport = "ineOrPassport";
   static const String taxStampsKey = "taxStampsKey";
   static const String taxStampsCer = "taxStampsCer";

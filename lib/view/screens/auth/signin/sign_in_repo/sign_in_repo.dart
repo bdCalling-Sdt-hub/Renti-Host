@@ -7,14 +7,12 @@ class SignInRepo {
   ApiService apiService;
   SignInRepo({required this.apiService});
 
-  Future<ApiResponseModel> signInUser(
-      {required String email, required String password}) async {
+  Future<ApiResponseModel> signInUser({required String email, required String password}) async {
     String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.signInEndPoint}";
     String requestMethod = ApiResponseMethod.postMethod;
     Map<String, String> params = {"email": email, "password": password};
 
-    ApiResponseModel responseModel =
-        await apiService.request(uri, requestMethod, params, passHeader: true);
+    ApiResponseModel responseModel = await apiService.request(uri, requestMethod, params, passHeader: false);
 
     return responseModel;
   }

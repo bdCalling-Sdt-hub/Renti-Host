@@ -29,10 +29,7 @@ class ApiService {
             "Authorization": "$tokenType $token",
           });
         } else {
-          response = await http.post(
-            url,
-            body: params,
-          );
+          response = await http.post(url, body: params);
         }
       }
 

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
@@ -32,6 +33,12 @@ class SignInController extends GetxController {
         email: emailController.text.toString(),
         password: passwordController.text.toString());
 
+    if (kDebugMode) {
+      print(responseModel.statusCode);
+      print(emailController.text);
+      print(passwordController.text);
+    }
+
     if (responseModel.statusCode == 200) {
       clearData();
       SignInResponseModel signInResponseModel = SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
@@ -45,8 +52,7 @@ class SignInController extends GetxController {
   }
 
   gotoNextStep(SignInResponseModel signInResponseModel) async {
-    bool emailVerified =
-        signInResponseModel.user?.emailVerified == false ? false : true;
+    bool emailVerified = signInResponseModel.user?.emailVerified == false ? false : true;
 
     bool approved = signInResponseModel.user!.approved == false ? false : true;
 

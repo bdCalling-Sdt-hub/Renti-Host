@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
+import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/forgot/forget_password/forget_password_model/foget_password_model.dart';
 import 'package:renti_host/view/screens/auth/forgot/forget_password/forget_password_repo/forget_password_repo.dart';
 
@@ -30,7 +31,7 @@ class ForgetPasswordController extends GetxController {
       }
     } else {
       ForgetPassModel forgetPasswordModel = ForgetPassModel.fromJson(jsonDecode(responseModel.responseJson));
-      Get.snackbar("Error".tr, forgetPasswordModel.message.toString());
+      Utils.snackBar("Error", forgetPasswordModel.message.toString());
       if (kDebugMode) {
         print("status code: ${responseModel.statusCode}");
       }

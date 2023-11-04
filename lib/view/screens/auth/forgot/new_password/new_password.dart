@@ -71,7 +71,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                               textEditingController:
                                   controller.passwordController,
                               textInputAction: TextInputAction.next,
-                              hintText: "Enter password".tr,
+                              hintText: "Enter password",
                               suffixIconColor: AppColors.whiteNormalActive,
                               hintStyle: GoogleFonts.poppins(
                                   fontSize: 14,
@@ -79,10 +79,11 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                                   color: AppColors.whiteNormalActive),
                               validator: (value) {
                                 if (value.isEmpty) {
-                                  return "Please enter your password".tr;
-                                } else if (controller.passwordController.text !=
-                                    controller.confirmPasswordController.text) {
-                                  return "Password doesn't match".tr;
+                                  return "Please enter your password";
+                                } else if (value.length < 8) {
+                                  return "Please use 8 character long password".tr;
+                                }else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(controller.passwordController.text)) {
+                                  return "Please use uppercase,lowercase,spacial character and number";
                                 }
                                 return null;
                               },
@@ -106,21 +107,13 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                                   color: AppColors.whiteNormalActive),
                               validator: (value) {
                                 if (value.isEmpty) {
-                                  return "Please enter your password".tr;
-                                } else if (!RegExp(
-                                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                                    .hasMatch(
-                                        controller.passwordController.text)) {
-                                  return "Please use uppercase,lowercase,spacial character and number"
-                                      .tr;
+                                  return "Please enter your password";
                                 } else if (value.length < 8) {
-                                  return "Please use 8 character long password"
-                                      .tr;
-                                } else if (controller
-                                        .passwordController.value !=
-                                    controller
-                                        .confirmPasswordController.value) {
-                                  return "Password does not match!".tr;
+                                  return "Please use 8 character long password".tr;
+                                } else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(controller.passwordController.text)) {
+                                  return "Please use uppercase,lowercase,spacial character and number";
+                                } else if (controller.passwordController.value != controller.confirmPasswordController.value) {
+                                  return "Password does not match!";
                                 }
                                 return null;
                               },
@@ -136,7 +129,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                 physics: const ClampingScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                 child: controller.isSubmit
-                    ? const CircularProgressIndicator()
+                    ? const Center(child: CircularProgressIndicator())
                     : CustomElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {

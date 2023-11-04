@@ -13,6 +13,7 @@ class ResetPasswordRepo{
     String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.resetPassEndPoint}";
     String requestMethod = ApiResponseMethod.postMethod;
     final String? email = apiService.sharedPreferences.getString(SharedPreferenceHelper.userEmailKey);
+
     Map<String, dynamic> params = {
       "email" : email??"",
       "password" : password

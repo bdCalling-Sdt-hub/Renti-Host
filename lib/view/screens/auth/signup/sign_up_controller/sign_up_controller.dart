@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -18,29 +19,34 @@ class SignUpController extends GetxController {
 
   bool isSubmit = false;
 
-  TextEditingController fullNameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController dateController = TextEditingController();
-  TextEditingController monthController = TextEditingController();
-  TextEditingController yearController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
+  TextEditingController fullNameController = TextEditingController(text: "Md.Nahiduzzaman");
+  TextEditingController emailController = TextEditingController(text: "nahid@gmaiil.com");
+  TextEditingController dateController = TextEditingController(text: "11");
+  TextEditingController monthController = TextEditingController(text: "06");
+  TextEditingController yearController = TextEditingController(text: "1998");
+  TextEditingController passwordController = TextEditingController(text: "11223344");
+  TextEditingController confirmPasswordController = TextEditingController(text: "11223344");
+  TextEditingController phoneNumberController = TextEditingController(text: "01999923399");
+  TextEditingController addressController = TextEditingController(text: "Dhaka");
 
 
-  TextEditingController countryController = TextEditingController();
-  TextEditingController cityController = TextEditingController();
-  TextEditingController stateController = TextEditingController();
-  TextEditingController laneController = TextEditingController();
-  TextEditingController postalController = TextEditingController();
+  TextEditingController countryController = TextEditingController(text: "Dhaka");
+  TextEditingController cityController = TextEditingController(text: "Dhaka");
+  TextEditingController stateController = TextEditingController(text: "Dhaka");
+  TextEditingController laneController = TextEditingController(text: "11");
+  TextEditingController postalController = TextEditingController(text: "1212");
+
+
+  TextEditingController accountController = TextEditingController(text: "000000001234567897");
+  TextEditingController accountHolderController = TextEditingController(text: "Nahid");
+  TextEditingController accountTypeController = TextEditingController(text: "Individul");
 
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
-  TextEditingController ineNumberController = TextEditingController();
-  TextEditingController rfcController = TextEditingController();
+  TextEditingController ineNumberController = TextEditingController(text: "123456789");
+  TextEditingController rfcController = TextEditingController(text: "123456789");
 
   List<String> genderList = ["Male", "Female", "Others"];
   int selectedGender = 0;
@@ -174,8 +180,7 @@ class SignUpController extends GetxController {
       update();
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse(
-            "${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
+        Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
       );
 
       // Add the KYC files to the request
@@ -214,17 +219,34 @@ class SignUpController extends GetxController {
         }
       }
 
+      Map <String, String> address ={
+        "city": cityController.text,
+        "country": countryController.text,
+        "line1": laneController.text,
+        "state": stateController.text
+      };
+      final String addresses = jsonEncode(address);
+
+      Map <String, String> bankInfo ={
+        "account_number": accountController.text,
+        "account_holder_name": accountHolderController.text,
+        "account_holder_type": accountTypeController.text
+
+      };
+      final String bankInformation = jsonEncode(bankInfo);
+
       // Add the parameters to the request
       Map<String, String> params = {
         "fullName": fullNameController.text,
         "email": emailController.text,
         "phoneNumber": "$phoneCode ${phoneNumberController.text}",
         "gender": genderList[selectedGender],
-        "address": addressController.text,
+        "address": addresses,
         "dateOfBirth": "${dateController.text}/${monthController.text}/${yearController.text}",
         "password": passwordController.text,
         "ine": ineNumberController.text,
         "RFC": rfcController.text,
+        "bankInfo" : bankInformation,
         "role": "host"
       };
 
@@ -236,6 +258,10 @@ class SignUpController extends GetxController {
 
       // Send the request
       var response = await request.send();
+
+      if (kDebugMode) {
+        print(params);
+      }
 
       if (response.statusCode == 201) {
         isloading = false;
@@ -262,3 +288,12 @@ class SignUpController extends GetxController {
     }
   }
 }
+
+/*"bankInfo[account_number]": accountController.text,
+        "bankInfo[account_holder_name]": accountHolderController.text,
+        "bankInfo[account_holder_type]": accountTypeController.text,
+        "address[country]" : countryController.text,
+        "address[city]" : cityController.text,
+        "address[line1]" : laneController.text,
+        "address[postal_code]" : postalController.text,
+        "address[state]" : stateController.text,*/

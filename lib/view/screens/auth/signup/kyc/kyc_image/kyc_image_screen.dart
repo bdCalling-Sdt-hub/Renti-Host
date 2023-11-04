@@ -55,8 +55,7 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: SingleChildScrollView(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                   physics: const BouncingScrollPhysics(),
                   child: GestureDetector(
                     onTap: () {
@@ -114,9 +113,12 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
                 ),
               ),
             ),
-            bottomNavigationBar: Padding(
+            bottomNavigationBar: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-              child: CustomElevatedButton(
+              child: controller.isloading
+                  ? const Center(child:  CircularProgressIndicator())
+                  : CustomElevatedButton(
                   onPressed: () {
                     controller.signUpMultipleFilesAndParams();
                   },

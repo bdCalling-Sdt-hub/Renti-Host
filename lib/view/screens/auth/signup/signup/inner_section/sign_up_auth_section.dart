@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -30,7 +29,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Full name And TextField
-             CustomText(text: "Full Name".tr, bottom: 12),
+            CustomText(text: "Full Name".tr, bottom: 12),
             CustomTextField(
               textEditingController: controller.fullNameController,
               hintText: "Enter full name".tr,
@@ -38,10 +37,15 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: AppColors.whiteNormalActive),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "This field can not be empty".tr;
+                }return null;
+              },
             ),
 
             //Email and TextField
-             CustomText(
+            CustomText(
               text: "Email".tr,
               top: 16,
               bottom: 12,
@@ -58,8 +62,8 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "This field can not be empty".tr;
-                } else if (!value.contains(RegExp('@'))) {
-                  return "Please enter a valid email".tr;
+                } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(controller.emailController.text)) {
+                  return "Please enter your valid email".tr;
                 } else {
                   return null;
                 }
@@ -67,7 +71,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
             ),
 
             //Gender Selection
-             CustomText(text: "Gender".tr, top: 16, bottom: 12),
+            CustomText(text: "Gender".tr, top: 16, bottom: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
@@ -102,8 +106,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
             ),
 
             //Date Of Birth
-             CustomText(
-                text: "Date of Birth".tr, top: 16, bottom: 12),
+            CustomText(text: "Date of Birth".tr, top: 16, bottom: 12),
             Row(
               children: [
                 Expanded(
@@ -116,6 +119,12 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                       fontWeight: FontWeight.w400,
                       color: AppColors.whiteNormalActive,
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "This field can not be empty".tr;
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -129,6 +138,12 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                       fontWeight: FontWeight.w400,
                       color: AppColors.whiteNormalActive,
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "This field can not be empty".tr;
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -142,14 +157,19 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                       fontWeight: FontWeight.w400,
                       color: AppColors.whiteNormalActive,
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "This field can not be empty".tr;
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ],
             ),
 
             //Password Text and TextField
-             CustomText(
-                text: "Password".tr, bottom: 12, top: 16),
+            CustomText(text: "Password".tr, bottom: 12, top: 16),
             CustomTextField(
               textEditingController: controller.passwordController,
               isPassword: true,
@@ -166,14 +186,13 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   return "This field can not be empty".tr;
                 } else if (value.length < 6) {
                   return "Password should be more than 6 characters".tr;
-                } else {
-                  return null;
                 }
+                return null;
               },
             ),
 
             //Confirm Password Text and TextField
-             CustomText(text: "Confirm Password".tr, bottom: 12, top: 16),
+            CustomText(text: "Confirm Password".tr, bottom: 12, top: 16),
             CustomTextField(
               textEditingController: controller.confirmPasswordController,
               isPassword: true,
@@ -191,6 +210,9 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   return "This field can not be empty".tr;
                 } else if (value.length < 6) {
                   return "Password should be more than 6 characters".tr;
+                } else if (controller.confirmPasswordController.text !=
+                    controller.passwordController.text) {
+                  return "Password doesn't match".tr;
                 } else {
                   return null;
                 }
@@ -201,17 +223,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
 
             CustomElevatedButton(
                 onPressed: () {
-                  if (controller.passwordController.text !=
-                      controller.confirmPasswordController.text) {
-                    Utils.snackBar("Error","Password Doesn't Match");
-                  } else if (controller.fullNameController.text.isEmpty ||
-                      controller.emailController.text.isEmpty ||
-                      controller.genderList.isEmpty) {
-                    Utils.snackBar("Error","Input Field Can't be Empty");
-                  } else if (controller.passwordController.text.isEmpty ||
-                      controller.emailController.text.isEmpty) {
-                    Utils.snackBar("Error","Input Field Can't Be Empty");
-                  } else {
+                  if (_formKey.currentState!.validate()) {
                     setDataToLocalStore(controller,
                         fullName: controller.fullNameController.text,
                         email: controller.emailController.text,
@@ -235,11 +247,16 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
       required String gender,
       required String dob,
       required String password}) async {
-    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.fullName, fullName);
-    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.email, email);
-    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.gender, gender);
-    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.dob, dob);
-    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.password, password);
+    await signUpController.signUpRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.fullName, fullName);
+    await signUpController.signUpRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.email, email);
+    await signUpController.signUpRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.gender, gender);
+    await signUpController.signUpRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.dob, dob);
+    await signUpController.signUpRepo.apiService.sharedPreferences
+        .setString(SharedPreferenceHelper.password, password);
 
     Get.toNamed(AppRoute.signUpContinueScreen);
   }
