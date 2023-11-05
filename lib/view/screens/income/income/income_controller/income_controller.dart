@@ -9,10 +9,11 @@ import 'package:renti_host/view/screens/income/income/income_response_model/inco
 class IncomeController extends GetxController {
   IncomeRepo incomeRepo;
   IncomeController({required this.incomeRepo});
+  IncomeResponseModel incomeResponseModel = IncomeResponseModel();
 
   Future<IncomeResponseModel> totalIncome() async {
     ApiResponseModel responseModel = await incomeRepo.totalIncome();
-    IncomeResponseModel incomeResponseModel; // Define the variable here
+    // Define the variable here
 
     if (responseModel.statusCode == 200) {
       incomeResponseModel = IncomeResponseModel.fromJson(jsonDecode(responseModel.responseJson));

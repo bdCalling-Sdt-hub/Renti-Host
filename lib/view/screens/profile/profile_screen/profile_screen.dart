@@ -118,30 +118,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Row(
-                              children: [
-                                SizedBox(
-                                  height: 50,
-                                  width: 50,
-                                  child: ClipOval(
-                                    child: CachedNetworkImage(
-                                      fit: BoxFit.cover,
-                                      imageUrl: img,
-                                      placeholder: (context, url) =>
-                                          const CircularProgressIndicator(),
-                                      errorWidget: (context, url, error) =>
-                                          const Icon(Icons.error),
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    height: 50,
+                                    width: 50,
+                                    child: ClipOval(
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl: img,
+                                        placeholder: (context, url) =>
+                                            const CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                CustomText(
-                                    text: fullName,
-                                    color: AppColors.whiteLight,
-                                    left: 16,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500)
-                              ],
+                                  Flexible(
+                                    child: CustomText(
+                                      overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.start,
+                                        maxLines: 2,
+                                        text: fullName,
+                                        color: AppColors.whiteLight,
+                                        left: 16,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
                             ),
+                            const SizedBox(width: 16),
                             const CustomImage(imageSrc: AppIcons.editProfileIcon, size: 24),
                           ],
                         ),

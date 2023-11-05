@@ -177,6 +177,9 @@ Map<String, String> english = {
   "Baby Car Seat": "Baby Car Seat",
   "Sunroof": "Sunroof",
   'Car License No: ': 'Car License No: ',
+  "Image File Can't be Empty" : "Image File Can't be Empty",
+  "File Can't be Empty" : "File Can't be Empty",
+  "Successfully car added" : "Successfully car added",
 
   //Admin Information
   'Hotline Number': 'Hotline Number',

@@ -80,22 +80,38 @@ class _SignUpBankState extends State<SignUpBank> {
                           },
                         ),
 
-                        const CustomText(text: "Account Holder Type",top: 16,bottom: 12),
-                        CustomTextField(
-                          textEditingController: controller.accountTypeController,
-                          keyboardType: TextInputType.text,
-                          textInputAction: TextInputAction.done,
-                          hintText: "Type account holder type",
-                          hintStyle: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.whiteNormalActive),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "This field can not be empty".tr;
-                            }
-                            return null;
-                          },
+                        const CustomText(text: "Account Holder Type",top: 16,bottom: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                            controller.accountType.length,
+                                (index) => GestureDetector(
+                              onTap: () => controller.changeAccountType(index),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 20,
+                                    width: 20,
+                                    padding: const EdgeInsetsDirectional.all(0.5),
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        border: Border.all(
+                                          color: AppColors.blackNormal.withOpacity(0.2),
+                                        ),
+                                        shape: BoxShape.circle),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: index == controller.selectedAccount
+                                              ? AppColors.blueDark
+                                              : Colors.transparent,
+                                          shape: BoxShape.circle),
+                                    ),
+                                  ),
+                                  CustomText(text: controller.accountType[index], left: 8,right: 16),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),

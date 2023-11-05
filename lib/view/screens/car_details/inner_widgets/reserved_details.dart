@@ -20,10 +20,14 @@ class ReservedDetails extends StatelessWidget {
                 text: "Car model: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
-            CustomText(
-                text: homeCarListModel.cars![index].carModelName.toString(),
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+            const SizedBox(width: 24),
+            Flexible(
+              child: CustomText(
+                maxLines: 1,overflow: TextOverflow.ellipsis,
+                  text: homeCarListModel.cars![index].carModelName.toString(),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -35,10 +39,15 @@ class ReservedDetails extends StatelessWidget {
                 text: "Number of Doors: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
-            CustomText(
-                text: homeCarListModel.cars![index].carDoors.toString(),
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+            const SizedBox(width: 24),
+            Flexible(
+              child: CustomText(
+                maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  text: homeCarListModel.cars![index].carDoors.toString(),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -50,10 +59,14 @@ class ReservedDetails extends StatelessWidget {
                 text: "Seats: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
-            CustomText(
-                text: homeCarListModel.cars![index].carSeats.toString(),
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+            const SizedBox(width: 24),
+            Flexible(
+              child: CustomText(
+                maxLines: 1,overflow: TextOverflow.ellipsis,
+                  text: homeCarListModel.cars![index].carSeats.toString(),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -65,10 +78,14 @@ class ReservedDetails extends StatelessWidget {
                 text: "Car Color: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
-            CustomText(
-                text: homeCarListModel.cars![index].carColor.toString(),
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+            const SizedBox(width: 24),
+            Flexible(
+              child: CustomText(
+                maxLines: 1,overflow: TextOverflow.ellipsis,
+                  text: homeCarListModel.cars![index].carColor.toString(),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -80,10 +97,14 @@ class ReservedDetails extends StatelessWidget {
                 text: "Car license no: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
-            CustomText(
-                text: homeCarListModel.cars![index].carLicenseNumber.toString(),
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+            const SizedBox(width: 24),
+            Flexible(
+              child: CustomText(
+                maxLines: 1,overflow: TextOverflow.ellipsis,
+                  text: homeCarListModel.cars![index].carLicenseNumber.toString(),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -95,10 +116,14 @@ class ReservedDetails extends StatelessWidget {
                 text: "Registration date: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
-            CustomText(
-                text: homeCarListModel.cars![index].registrationDate.toString(),
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+            const SizedBox(width: 24),
+            Flexible(
+              child: CustomText(
+                maxLines: 1,overflow: TextOverflow.ellipsis,
+                  text: homeCarListModel.cars![index].registrationDate.toString(),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -110,15 +135,17 @@ class ReservedDetails extends StatelessWidget {
                 text: "Insurance date: ".tr,
                 fontSize: 16,
                 color: AppColors.whiteDarkHover),
+            const SizedBox(width: 24),
             CustomText(
-                text:
-                    homeCarListModel.cars![index].insuranceStartDate.toString(),
+              maxLines: 1,overflow: TextOverflow.ellipsis,
+                text: homeCarListModel.cars![index].insuranceEndDate.toString(),
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],
         ),
 
         //This Section Needed When car in Reserved
+        homeCarListModel.cars![index].tripStatus == "Start" ?
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -131,7 +158,9 @@ class ReservedDetails extends StatelessWidget {
                     text: "Reservation: ".tr,
                     fontSize: 16,
                     color: AppColors.whiteDarkHover),
+                const SizedBox(width: 24),
                 const CustomText(
+                    maxLines: 1,overflow: TextOverflow.ellipsis,
                     text: "10 aug 2023 - 11 aug 2024",
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
@@ -146,8 +175,10 @@ class ReservedDetails extends StatelessWidget {
                     text: "User name: ".tr,
                     fontSize: 16,
                     color: AppColors.whiteDarkHover),
+                const SizedBox(width: 24),
                 CustomText(
-                    text: homeCarListModel.cars![index].carDoors.toString(),
+                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                    text: homeCarListModel.cars![index].userId.toString(),
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
               ],
@@ -180,7 +211,7 @@ class ReservedDetails extends StatelessWidget {
               ],
             ),
           ],
-        ),
+        ) : const SizedBox(),
       ],
     );
   }

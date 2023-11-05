@@ -59,6 +59,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   ),
                 ),
                 CustomText(
+                  textAlign: TextAlign.start,
                     text: fullName,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -91,7 +92,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               text: "Add Car".tr,
                               color: AppColors.whiteDarkHover,
                               left: 8),
-                        )
+                        ),
                       ],
                     ),
                   ),

@@ -58,7 +58,13 @@ dependencies:
   socket_io_client:
   get_storage:
   flutter_screenutil:
- 
+  url_launcher:
+  flutter_downloader:
+  path:
+  flutter_local_notifications:
+  connectivity_plus:
+
+
 
 dev_dependencies:
   flutter_test:

@@ -35,8 +35,7 @@ class _CarTypeState extends State<CarType> {
                     });
                   },
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                     child: Row(
                       children: [
                         Container(

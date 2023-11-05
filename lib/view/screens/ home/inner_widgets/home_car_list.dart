@@ -41,8 +41,7 @@ class _HomeCarListState extends State<HomeCarList> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.toNamed(AppRoute.carDetailsScreen,
-                      arguments: [widget.homeCarListModel, index]);
+                  Get.toNamed(AppRoute.carDetailsScreen, arguments: [widget.homeCarListModel, index]);
                 },
                 child: Container(
                   margin: const EdgeInsets.only(top: 16.0),
@@ -54,8 +53,7 @@ class _HomeCarListState extends State<HomeCarList> {
                       Container(
                         height: 70,
                         width: 140,
-                        padding: const EdgeInsetsDirectional.symmetric(
-                            vertical: 8, horizontal: 8),
+                        padding: const EdgeInsetsDirectional.symmetric(vertical: 8, horizontal: 8),
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 fit: BoxFit.fill,
@@ -66,8 +64,7 @@ class _HomeCarListState extends State<HomeCarList> {
                       ),
                       Expanded(
                         child: Container(
-                          padding: const EdgeInsetsDirectional.symmetric(
-                              vertical: 8, horizontal: 8),
+                          padding: const EdgeInsetsDirectional.symmetric(vertical: 8, horizontal: 8),
                           decoration: BoxDecoration(
                             borderRadius: const BorderRadius.only(
                               topRight: Radius.circular(8),
@@ -83,24 +80,19 @@ class _HomeCarListState extends State<HomeCarList> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Expanded(
                                     child: CustomText(
-                                        text: widget.homeCarListModel
-                                            .cars![index].carModelName
-                                            .toString(),
-                                        maxLines: 1,
+                                        text: widget.homeCarListModel.cars![index].carModelName.toString(),
+                                        maxLines: 1,overflow: TextOverflow.ellipsis,
                                         fontWeight: FontWeight.w700,
                                         color: AppColors.blueNormal,
                                         textAlign: TextAlign.start,
                                         right: 10),
                                   ),
-                                  widget.homeCarListModel.cars![index]
-                                              .tripStatus ==
-                                          "Start"
+                                  widget.homeCarListModel.cars![index].tripStatus == "Start"
                                       ? Container(
                                           alignment: Alignment.center,
                                           padding: const EdgeInsetsDirectional

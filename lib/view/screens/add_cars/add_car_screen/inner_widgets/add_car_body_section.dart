@@ -51,104 +51,119 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
 
     return GetBuilder<AddCarController>(
       builder: (controller) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(text: "Car Model Name".tr, bottom: 12, top: 16),
+        return Form(
+          key: controller.formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(text: "Car Model Name".tr, bottom: 12, top: 16),
 
-            //Care Model Name Text and TextField with select year section
-            SizedBox(
-              child: Row(
+              //Care Model Name Text and TextField with select year section
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    flex: 2,
                     child: CustomTextField(
                       textEditingController: controller.carModelName,
+                      textInputAction: TextInputAction.next,
                       hintText: "Enter car name".tr,
                       hintStyle: hintStyle,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "This field can not be empty".tr;
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.whiteNormalActive),
-                        // Set border color
-                        borderRadius:
-                            BorderRadius.circular(10.0), // Set border radius
+                  Container(
+                    height: 60,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: AppColors.whiteNormalActive),
+                      // Set border color
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Set border radius
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: DropdownButton<String>(
+                      underline: Container(
+                        height: 0,
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: DropdownButton<String>(
-                        underline: Container(
-                          height: 0,
-                        ),
-                        value: controller.selectedYear.toString(),
-                        onChanged: (newValue) {
-                          setState(() {
-                            controller.selectedYear = newValue!;
-                          });
-                        },
-                        items: timeList.map((String year) {
-                          return DropdownMenuItem<String>(
-                            value: year,
-                            child: Text(year),
-                          );
-                        }).toList(),
-                      ),
+                      value: controller.selectedYear.toString(),
+                      onChanged: (newValue) {
+                        setState(() {
+                          controller.selectedYear = newValue!;
+                        });
+                      },
+                      items: timeList.map((String year) {
+                        return DropdownMenuItem<String>(
+                          value: year,
+                          child: Text(year),
+                        );
+                      }).toList(),
                     ),
                   ),
                 ],
               ),
-            ),
 
-            //Car license and TextField
-            CustomText(text: "Car License Number".tr, top: 16, bottom: 12),
-            CustomTextField(
+              //Car license and TextField
+              CustomText(text: "Car License Number".tr, top: 16, bottom: 12),
+              CustomTextField(
                 textEditingController: controller.carLicenseNumber,
+                textInputAction: TextInputAction.next,
                 hintText: "Enter license number".tr,
-                hintStyle: hintStyle),
-
-            //Car Description and TextField
-            CustomText(text: "Car Description".tr, top: 16, bottom: 12),
-            Container(
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: AppColors.whiteLight,
-                border: Border.all(
-                  color: AppColors.whiteNormalActive,
-                  style: BorderStyle.solid,
-                  width: 1.0,
-                  strokeAlign: 1,
-                ),
+                hintStyle: hintStyle,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "This field can not be empty".tr;
+                  }
+                  return null;
+                },
               ),
-              child: CustomTextField(
+
+              //Car Description and TextField
+              CustomText(text: "Car Description".tr, top: 16, bottom: 12),
+              CustomTextField(
                 textEditingController: controller.carDescription,
-                textInputAction: TextInputAction.done,
-                fieldBorderColor: AppColors.whiteLight,
+                textInputAction: TextInputAction.next,
                 hintText: "Enter Description".tr,
                 hintStyle: hintStyle,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "This field can not be empty".tr;
+                  }
+                  return null;
+                },
               ),
-            ),
 
-            //Set Rent Amount and TextField
-            CustomText(text: "Set Rent Amount".tr, top: 16, bottom: 12),
-            CustomTextField(
+              //Set Rent Amount and TextField
+              CustomText(text: "Set Rent Amount".tr, top: 16, bottom: 12),
+              CustomTextField(
                 textEditingController: controller.carRentAmmount,
                 hintText: "Enter Amount".tr,
-                hintStyle: hintStyle),
+                textInputAction: TextInputAction.next,
+                hintStyle: hintStyle,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "This field can not be empty".tr;
+                  }
+                  return null;
+                },
+              ),
 
-            //Insurance Date And Selected Date section
-            CustomText(text: "Insurance Date".tr, top: 16, bottom: 12),
-            SizedBox(
-              height: 56,
-              child: Row(
+              //Insurance Date And Selected Date section
+              CustomText(text: "Insurance Date".tr, top: 16, bottom: 12),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: TextFormField(
                       controller: controller.insuranceStartDate,
                       showCursor: true,
+                      textInputAction: TextInputAction.next,
                       style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -175,12 +190,19 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                               color: AppColors.whiteNormalActive, width: 1),
                         ),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "This field can not be empty".tr;
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: TextFormField(
                       controller: controller.insuranceEndDate,
+                      textInputAction: TextInputAction.done,
                       showCursor: true,
                       style: GoogleFonts.poppins(
                           fontSize: 14,
@@ -208,12 +230,18 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                               color: AppColors.whiteNormalActive, width: 1),
                         ),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "This field can not be empty".tr;
+                        }
+                        return null;
+                      },
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

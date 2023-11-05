@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/auth/signin/inner_widget/sign_in_auth.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_controller/sign_in_controller.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_repo/sign_in_repo.dart';

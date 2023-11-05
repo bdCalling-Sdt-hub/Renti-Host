@@ -183,6 +183,9 @@ Map<String, String> spanish = {
   "Registration Date": "Fecha de Registro",
   "Baby Car Seat": "Asiento de coche de bebé",
   "Sunroof": "Techo corredizo",
+  "Image File Can't be Empty" : "El archivo de imagen no puede estar vacío",
+  "File Can't be Empty" : "El archivo no puede estar vacío",
+  "Successfully car added" : "Coche añadido con éxito",
 
   //Admin Information
   'Hotline Number': 'Número de línea directa',

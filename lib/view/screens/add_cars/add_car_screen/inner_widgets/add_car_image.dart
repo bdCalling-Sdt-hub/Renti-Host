@@ -17,7 +17,6 @@ class AddCarImage extends StatelessWidget {
           child: Row(
             children: [
               //First Image
-
               controller.firstImg == null
                   ? Expanded(
                       child: GestureDetector(
@@ -135,13 +134,13 @@ class AddCarImage extends StatelessWidget {
                                 height: 150,
                                 width: double.infinity - 40,
                                 decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: AppColors.whiteDark),
-                                    borderRadius: BorderRadius.circular(8),
-                                    image: DecorationImage(
-                                        image: FileImage(
-                                            File(controller.thirdImg!.path)),
-                                        fit: BoxFit.cover)),
+                                  border:
+                                      Border.all(color: AppColors.whiteDark),
+                                  borderRadius: BorderRadius.circular(8),
+                                  image: DecorationImage(
+                                      image: FileImage(File(controller.thirdImg!.path)),
+                                      fit: BoxFit.cover),
+                                ),
                               ),
                             ),
                           ),

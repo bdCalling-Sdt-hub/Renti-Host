@@ -35,7 +35,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                 child: Row(
                   children: [
                     const Icon(Icons.arrow_back_ios_new_outlined,size: 18,color: AppColors.blackNormal),
-                    CustomText(text: "Car details".tr,color: AppColors.blackNormal,fontSize: 18,left: 8,)
+                    CustomText(text: "Car details".tr,color: AppColors.blackNormal,fontSize: 18,left: 8)
                   ],
                 ),
               ),
@@ -59,11 +59,15 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomText(
-                      text: homeCarListModel.cars![index].carModelName.toString(),
-                      fontSize: 18,
-                      color: AppColors.blueNormal,
-                      fontWeight: FontWeight.w500),
+                  Flexible(
+                    child: CustomText(
+                        text: homeCarListModel.cars![index].carModelName.toString(),
+                        fontSize: 18,maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        color: AppColors.blueNormal,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(width: 24),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     decoration: BoxDecoration(
@@ -76,8 +80,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                         text: homeCarListModel.cars![index].tripStatus == "Start"
                                 ? "Reserved"
                                 : "Active",
-                        color:
-                            homeCarListModel.cars![index].tripStatus == "Start"
+                        color: homeCarListModel.cars![index].tripStatus == "Start"
                                 ? AppColors.redNormal
                                 : AppColors.greenNormal,
                         fontSize: 10),
@@ -100,7 +103,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
               ),
               const SizedBox(height: 24),
               ReservedDetails(homeCarListModel: homeCarListModel, index: index),
-              const SizedBox(height: 16),
+              const SizedBox(height: 24),
               DocumentFilesSection(documentsName: homeCarListModel.cars![index].kyc),
             ],
           ),

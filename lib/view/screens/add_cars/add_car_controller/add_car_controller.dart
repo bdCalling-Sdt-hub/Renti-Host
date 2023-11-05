@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
@@ -29,6 +30,10 @@ class AddCarController extends GetxController {
   final TextEditingController totalRun = TextEditingController();
   final TextEditingController gearType = TextEditingController();
   final TextEditingController registrationDate = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
+
+  bool isLoading = false;
 
   //String Data
 
@@ -192,12 +197,13 @@ class AddCarController extends GetxController {
   Future<void> addCarMultipleFilesAndParams() async {
     final prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString(SharedPreferenceHelper.accessTokenKey);
+    isLoading = true;
+    update();
 
     try {
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse(
-            "${ApiUrlContainer.baseUrl}${ApiUrlContainer.carAddEndPoint}"),
+        Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.carAddEndPoint}"),
       );
 
       // Add the KYC files to the request
@@ -261,14 +267,24 @@ class AddCarController extends GetxController {
       var response = await request.send();
 
       if (response.statusCode == 201) {
-        Utils.toastMessage("Successfully car added");
+        isLoading = false;
+        update();
         Get.toNamed(AppRoute.navigation);
+        Utils.snackBar("Successful".tr,"Successfully car added".tr);
       } else {
-        print('Response body: ${await response.stream.bytesToString()}');
+        isLoading = false;
+        update();
+        if (kDebugMode) {
+          print('Response body: ${await response.stream.bytesToString()}');
+        }
         Utils.toastMessage("Somethings went wrong ${response.statusCode}");
       }
     } catch (e) {
-      Utils.toastMessage("Somethings went wrong $e");
+      isLoading = false;
+      update();
+      Utils.snackBar("Error".tr,"Somethings went wrong".tr);
     }
+    isLoading = false;
+    update();
   }
 }

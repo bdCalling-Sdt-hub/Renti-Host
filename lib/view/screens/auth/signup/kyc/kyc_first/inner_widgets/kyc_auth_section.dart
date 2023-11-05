@@ -71,33 +71,36 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                          width: 1, color: AppColors.whiteNormalActive),
+                      border: Border.all(width: 1, color: AppColors.whiteNormalActive),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 50,
-                              height: MediaQuery.of(context).size.height,
-                              alignment: Alignment.center,
-                              decoration: const BoxDecoration(
-                                color: AppColors.redNormal,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  bottomLeft: Radius.circular(8),
+                        Flexible(
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: MediaQuery.of(context).size.height,
+                                alignment: Alignment.center,
+                                decoration: const BoxDecoration(
+                                  color: AppColors.redNormal,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8),
+                                    bottomLeft: Radius.circular(8),
+                                  ),
                                 ),
+                                child: const CustomImage(imageSrc: AppIcons.pdfIcon),
                               ),
-                              child:
-                                  const CustomImage(imageSrc: AppIcons.pdfIcon),
-                            ),
-                            const SizedBox(width: 12),
-                            CustomText(
-                              text: controller.ineOrPassportFileName,
-                            )
-                          ],
+                              const SizedBox(width: 12),
+                              Flexible(
+                                child: CustomText(
+                                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                                  text: controller.ineOrPassportFileName,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         GestureDetector(
                           onTap: () => controller.removeIneOrPassportFile(),
@@ -139,33 +142,36 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                          width: 1, color: AppColors.whiteNormalActive),
+                      border: Border.all(width: 1, color: AppColors.whiteNormalActive),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 50,
-                              height: MediaQuery.of(context).size.height,
-                              alignment: Alignment.center,
-                              decoration: const BoxDecoration(
-                                color: AppColors.redNormal,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  bottomLeft: Radius.circular(8),
+                        Flexible(
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: MediaQuery.of(context).size.height,
+                                alignment: Alignment.center,
+                                decoration: const BoxDecoration(
+                                  color: AppColors.redNormal,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8),
+                                    bottomLeft: Radius.circular(8),
+                                  ),
                                 ),
+                                child: const CustomImage(imageSrc: AppIcons.pdfIcon),
                               ),
-                              child:
-                                  const CustomImage(imageSrc: AppIcons.pdfIcon),
-                            ),
-                            const SizedBox(width: 12),
-                            CustomText(
-                              text: controller.taxStampKeyFileName,
-                            )
-                          ],
+                              const SizedBox(width: 12),
+                              Flexible(
+                                child: CustomText(
+                                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                                  text: controller.taxStampKeyFileName,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         GestureDetector(
                           onTap: () => controller.removeTaxStampsFile(),
@@ -212,33 +218,38 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 50,
-                              height: MediaQuery.of(context).size.height,
-                              alignment: Alignment.center,
-                              decoration: const BoxDecoration(
-                                color: AppColors.redNormal,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  bottomLeft: Radius.circular(8),
+                        Flexible(
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: MediaQuery.of(context).size.height,
+                                alignment: Alignment.center,
+                                decoration: const BoxDecoration(
+                                  color: AppColors.redNormal,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8),
+                                    bottomLeft: Radius.circular(8),
+                                  ),
                                 ),
+                                child:
+                                    const CustomImage(imageSrc: AppIcons.pdfIcon),
                               ),
-                              child:
-                                  const CustomImage(imageSrc: AppIcons.pdfIcon),
-                            ),
-                            const SizedBox(width: 12),
-                            CustomText(
-                              text: controller.cerStampKeyFileName,
-                            )
-                          ],
+                              const SizedBox(width: 12),
+                              Flexible(
+                                child: CustomText(
+                                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                                  text: controller.cerStampKeyFileName,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         GestureDetector(
                           onTap: () => controller.removeTaxCerStampsFile(),
                           child: const Icon(Icons.cancel_outlined,
                               color: AppColors.redNormal, size: 24),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -302,8 +313,11 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                         controller.cerStampKeyFileName,
                         controller.ineNumberController.text,
                         controller.rfcController.text);
-                  }
+                  } else if(controller.uploadINEOrPassport == null
+                      && controller.uploadTaxStampsKey == null
+                      && controller.uploadCerStampsKey == null){
                     Utils.snackBar("Error".tr, "This field can not be empty".tr);
+                  }
                 },
                 buttonWidth: double.maxFinite,
                 buttonHeight: 48,

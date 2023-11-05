@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:renti_host/core/route/app_route.dart';
-import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/view/screens/select_language/language/languages.dart';
 import 'package:renti_host/view/screens/select_language/language_controller/language_controller.dart';
 import 'core/di_service/dependency_injection.dart' as di;
@@ -12,8 +12,6 @@ import 'core/di_service/dependency_injection.dart' as di;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await di.initDependency();
-  final socketService = SocketService();
-  socketService.connectToSocket();
   await ScreenUtil.ensureScreenSize();
   await Get.put(LanguageController()).initStorage();
 
@@ -21,11 +19,12 @@ void main() async{
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final data = GetStorage();
 
   // This widget is the root of your application.
   @override

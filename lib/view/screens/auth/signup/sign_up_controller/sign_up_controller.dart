@@ -20,36 +20,37 @@ class SignUpController extends GetxController {
   bool isSubmit = false;
 
   TextEditingController fullNameController = TextEditingController(text: "Md.Nahiduzzaman");
-  TextEditingController emailController = TextEditingController(text: "nahid@gmaiil.com");
+  TextEditingController emailController = TextEditingController(text: "hardikislam11@gmail.com");
   TextEditingController dateController = TextEditingController(text: "11");
   TextEditingController monthController = TextEditingController(text: "06");
   TextEditingController yearController = TextEditingController(text: "1998");
   TextEditingController passwordController = TextEditingController(text: "11223344");
   TextEditingController confirmPasswordController = TextEditingController(text: "11223344");
-  TextEditingController phoneNumberController = TextEditingController(text: "01999923399");
-  TextEditingController addressController = TextEditingController(text: "Dhaka");
+  TextEditingController phoneNumberController = TextEditingController(text: "1245789542");
 
 
-  TextEditingController countryController = TextEditingController(text: "Dhaka");
-  TextEditingController cityController = TextEditingController(text: "Dhaka");
-  TextEditingController stateController = TextEditingController(text: "Dhaka");
-  TextEditingController laneController = TextEditingController(text: "11");
-  TextEditingController postalController = TextEditingController(text: "1212");
+  TextEditingController countryController = TextEditingController(text: "MX");
+  TextEditingController cityController = TextEditingController(text: "Cuautitlán Izcalli");
+  TextEditingController stateController = TextEditingController(text: "Aguascalientes");
+  TextEditingController laneController = TextEditingController(text: "123 Main Street");
+  TextEditingController postalController = TextEditingController(text: "22056");
 
 
   TextEditingController accountController = TextEditingController(text: "000000001234567897");
   TextEditingController accountHolderController = TextEditingController(text: "Nahid");
-  TextEditingController accountTypeController = TextEditingController(text: "Individul");
+
 
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
-  TextEditingController ineNumberController = TextEditingController(text: "123456789");
+  TextEditingController ineNumberController = TextEditingController(text: "DAXR870101VY7");
   TextEditingController rfcController = TextEditingController(text: "123456789");
 
   List<String> genderList = ["Male", "Female", "Others"];
+  List<String> accountType = ["individual", "company"];
   int selectedGender = 0;
+  int selectedAccount = 0;
   List<File> kycDocFiles = [];
   File? profileImage;
   String phoneCode = "+52";
@@ -58,6 +59,10 @@ class SignUpController extends GetxController {
 
   void changeGender(int index) {
     selectedGender = index;
+    update();
+  }
+  void changeAccountType(int index) {
+    selectedAccount = index;
     update();
   }
 
@@ -188,9 +193,12 @@ class SignUpController extends GetxController {
         if (file.existsSync()) {
           try {
             var multipartFile = await http.MultipartFile.fromPath(
-                'KYC', file.path,
+                "KYC", file.path,
                 contentType: MediaType('application', 'pdf'));
             request.files.add(multipartFile);
+            if (kDebugMode) {
+              print(file.path);
+            }
           } on Exception catch (e) {
             if (kDebugMode) {
               print("Error is :${e.toString()}");
@@ -230,7 +238,7 @@ class SignUpController extends GetxController {
       Map <String, String> bankInfo ={
         "account_number": accountController.text,
         "account_holder_name": accountHolderController.text,
-        "account_holder_type": accountTypeController.text
+        "account_holder_type": accountType[selectedAccount]
 
       };
       final String bankInformation = jsonEncode(bankInfo);
@@ -239,7 +247,7 @@ class SignUpController extends GetxController {
       Map<String, String> params = {
         "fullName": fullNameController.text,
         "email": emailController.text,
-        "phoneNumber": "$phoneCode ${phoneNumberController.text}",
+        "phoneNumber": "$phoneCode${phoneNumberController.text}",
         "gender": genderList[selectedGender],
         "address": addresses,
         "dateOfBirth": "${dateController.text}/${monthController.text}/${yearController.text}",
@@ -253,6 +261,7 @@ class SignUpController extends GetxController {
       params.forEach((key, value) {
         request.fields[key] = value;
       });
+
 
       request.headers['Content-Type'] = 'multipart/form-data';
 
@@ -268,32 +277,22 @@ class SignUpController extends GetxController {
         update();
         Get.toNamed(AppRoute.kycNumberVerification);
         Utils.snackBar("Successful", "Sign Up Successful");
-      } else {
-        if (kDebugMode) {
-          print("Somethings went wrong ${response.statusCode}");
-        }
-        if (kDebugMode) {
-          print("Somethings went wrong ${response.stream.asBroadcastStream.toString()}");
-        }
-        Utils.snackBar("Error", "Somethings went wrong");
       }
-    } catch (e, s) {
+      else if(response.statusCode == 409){
+        isloading = false;
+        update();
+        Utils.snackBar("Error".tr, "User Already Exist".tr);
+      }
+    } catch (e) {
+      isloading = false;
+      update();
       if (kDebugMode) {
         print('Error sending request: $e');
       }
-      if (kDebugMode) {
-        print('Error s: $s');
-      }
-      Utils.snackBar("Error", "Somethings went wrong");
+
+      Utils.snackBar("Error".tr, "$e");
     }
+    isloading = false;
+    update();
   }
 }
-
-/*"bankInfo[account_number]": accountController.text,
-        "bankInfo[account_holder_name]": accountHolderController.text,
-        "bankInfo[account_holder_type]": accountTypeController.text,
-        "address[country]" : countryController.text,
-        "address[city]" : cityController.text,
-        "address[line1]" : laneController.text,
-        "address[postal_code]" : postalController.text,
-        "address[state]" : stateController.text,*/

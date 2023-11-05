@@ -22,11 +22,9 @@ class IncomeCategory extends StatelessWidget {
               if (index == 0) {
                 Get.toNamed(AppRoute.weeklyIncomeScreen);
               } else if (index == 1) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const RentFeeScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const RentFeeScreen()));
               } else {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const PaymentScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const PaymentScreen()));
               }
             },
             child: Container(

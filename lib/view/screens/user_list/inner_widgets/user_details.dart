@@ -26,7 +26,7 @@ class UserDetails extends StatelessWidget {
             controller.userList.length,
             (index) {
               return
-                controller.userList[index].payment == "Completed"?
+                controller.userList[index].payment == "Completed" && controller.userList[index].userId !=null && controller.userList[index].userId?.isBanned != "true"?
                 GestureDetector(
                 onTap: () => showDialog(
                   context: context,
@@ -83,6 +83,7 @@ class UserDetails extends StatelessWidget {
                               CustomText(
                                   text:controller.userList[index].userId!.fullName.toString(),
                                   fontSize: 18,maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                   fontWeight: FontWeight.w500,
                                   bottom: 8),
 
@@ -118,7 +119,7 @@ class UserDetails extends StatelessWidget {
                               fontSize: 10,
                             ) :
                                // controller.userList[index].carId!.tripStatus == "Start"?
-                            CustomText(
+                            const CustomText(
                               text: "Reserved",
                               color: AppColors.redNormal,
                               fontSize: 10,

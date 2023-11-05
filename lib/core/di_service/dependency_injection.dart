@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
+import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_controller/edit_profile_controller.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
@@ -15,4 +16,8 @@ Future<void> initDependency() async {
   Get.lazyPut(() => EditProfileRepo(apiService: Get.find()));
   Get.lazyPut(() => ProfileController(profileRepo: Get.find()), fenix: true);
   Get.lazyPut(() => ProfileRepo(apiService: Get.find()), fenix: true);
+
+  Get.lazyPut(() => SocketService(), fenix: true);
+
+  //Get.put<NoInternetController>(NoInternetController(), permanent: true);
 }

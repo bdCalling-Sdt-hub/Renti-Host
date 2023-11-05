@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/view/screens/%20home/home_screen.dart';
@@ -58,42 +59,46 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
     return SafeArea(
       top: true,
-      child: Scaffold(
-        backgroundColor: AppColors.whiteLight,
-        extendBody: true,
-        bottomNavigationBar: Container(
-          height: 60,
-          alignment: Alignment.bottomCenter,
-          padding: const EdgeInsets.only(top: 15),
-          decoration: const BoxDecoration(
-            color: AppColors.whiteLight,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.shadowColor,
-                blurRadius: 10,
-                offset: Offset(0, -4),
-                spreadRadius: 0,
-              )
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: List.generate(
-              manuBarItems.length,
-              (index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = index;
-                    });
+      child: GetBuilder<SocketService>(
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: AppColors.whiteLight,
+            extendBody: true,
+            bottomNavigationBar: Container(
+              height: 60,
+              alignment: Alignment.bottomCenter,
+              padding: const EdgeInsets.only(top: 15),
+              decoration: const BoxDecoration(
+                color: AppColors.whiteLight,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.shadowColor,
+                    blurRadius: 10,
+                    offset: Offset(0, -4),
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: List.generate(
+                  manuBarItems.length,
+                  (index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: manuBarItems[index],
+                    );
                   },
-                  child: manuBarItems[index],
-                );
-              },
+                ),
+              ),
             ),
-          ),
-        ),
-        body: screens[selectedIndex],
+            body: screens[selectedIndex],
+          );
+        }
       ),
     );
   }

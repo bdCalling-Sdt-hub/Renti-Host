@@ -23,7 +23,7 @@ class InboxScreen extends StatefulWidget {
 class _InboxScreenState extends State<InboxScreen> {
 
   TextEditingController messageController = TextEditingController();
-  List<ChatMessage> allMessages = [];
+  /*List<ChatMessage> allMessages = [];
   SocketService socketService = SocketService();
 
   ProfileModel profileModel = ProfileModel();
@@ -31,9 +31,7 @@ class _InboxScreenState extends State<InboxScreen> {
   hostMsg({required String hostUid, required String userUid}) {
     socketService.connectToSocket();
     socketService.joinRoom(hostUid);
-    socketService.addNewChat({
-      "participants": [userUid, hostUid],
-    }, hostUid);
+    socketService.addNewChat({"participants": [userUid, hostUid]}, hostUid);
     socketService.joinChat(hostUid);
     // socketService.addNewMessage("Hiii", hostUid, hostUid);
     socketService.getAllChats(hostUid);
@@ -68,6 +66,27 @@ class _InboxScreenState extends State<InboxScreen> {
     socketService.joinChat("653351d670ad16ac98ea1a7f");
     socketService.addNewMessage("Hello", "651551cf1ae339b4d6643733", "653117d450aadb8b4f822fc1");
     socketService.getAllChats("651551cf1ae339b4d6643733");
+    super.initState();
+  }*/
+
+  //BookingListModel bookingListModel = BookingListModel();
+
+  int index = 0;
+  String hostUid = "";
+  String userUid = "";
+
+  @override
+  void initState() {
+    //bookingListModel = Get.arguments[0];
+    index = Get.arguments[1];
+    hostUid = "653117d450aadb8b4f822fc1";
+    userUid = "651551cf1ae339b4d6643733";
+    final socketService = Get.find<SocketService>();
+    socketService.joinRoom(userUid);
+    socketService.addNewChat({
+      "participants": [userUid, hostUid],
+    }, userUid);
+    //DeviceUtils.innerUtils();
     super.initState();
   }
 

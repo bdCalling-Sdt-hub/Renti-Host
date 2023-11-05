@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
+import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -48,16 +49,22 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
         ),
         body: GetBuilder<AddCarController>(
           builder: (controller) => SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                CustomText(
+                  text: "NOTE:  All file must be in PDF format".tr,
+                  color: AppColors.ratingColor,
+                  fontWeight: FontWeight.bold,
+                  textAlign: TextAlign.start,
+                ),
                 //Upload Car License Text and File..
                 CustomText(
                   text: "1. Upload car license".tr,
                   color: AppColors.whiteDarkActive,
-                  top: 16,
                   bottom: 8,
+                  top: 16,
                   textAlign: TextAlign.start,
                 ),
 
@@ -69,12 +76,10 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               color: Colors.transparent,
-                              border: Border.all(
-                                  width: 1, color: AppColors.whiteNormalActive),
+                              border: Border.all(width: 1, color: AppColors.whiteNormalActive),
                               borderRadius: BorderRadius.circular(8)),
                           alignment: Alignment.center,
-                          child:
-                              const CustomImage(imageSrc: AppIcons.uploadIcons),
+                          child: const CustomImage(imageSrc: AppIcons.uploadIcons),
                         ),
                       )
                     : Container(
@@ -103,13 +108,9 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                                       bottomLeft: Radius.circular(8),
                                     ),
                                   ),
-                                  child: const CustomImage(
-                                      imageSrc: AppIcons.pdfIcon),
-                                ),
+                                  child: const CustomImage(imageSrc: AppIcons.pdfIcon)),
                                 const SizedBox(width: 12),
-                                CustomText(
-                                  text: controller.carLicenseFileName,
-                                )
+                                CustomText(text: controller.carLicenseFileName)
                               ],
                             ),
                             GestureDetector(
@@ -394,7 +395,16 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
 
                 CustomElevatedButton(
                   onPressed: () {
-                    Get.toNamed(AppRoute.addCarSpecialScreens);
+                    if (controller.uploadCarLic != null &&
+                        controller.uploadCarInsPolicy != null &&
+                        controller.uploadCirculationCard != null &&
+                        controller.uploadCarInvoice != null &&
+                        controller.uploadREPUVE != null) {
+                      Get.toNamed(AppRoute.addCarSpecialScreens);
+                    }
+                    else {
+                      Utils.snackBar("Error".tr, "File Can't be Empty".tr);
+                    }
                   },
                   buttonHeight: 52,
                   buttonWidth: double.infinity,

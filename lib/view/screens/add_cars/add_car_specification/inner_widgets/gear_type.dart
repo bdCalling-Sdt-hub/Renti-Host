@@ -40,8 +40,7 @@ class _GearTypeState extends State<GearType> {
                       });
                     },
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                       child: Row(
                         children: [
                           Container(
@@ -52,14 +51,11 @@ class _GearTypeState extends State<GearType> {
                               color: index == selectedItem
                                   ? AppColors.blueNormal
                                   : AppColors.whiteLight,
-                              border: Border.all(
-                                  color: AppColors.blueLight, width: 1),
+                              border: Border.all(color: AppColors.blueLight, width: 1),
                             ),
                           ),
                           const SizedBox(width: 10),
-                          CustomText(
-                            text: types[index].tr,
-                          ),
+                          CustomText(text: types[index].tr),
                         ],
                       ),
                     ),

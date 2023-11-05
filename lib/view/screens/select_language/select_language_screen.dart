@@ -54,6 +54,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                           selectedItem = index;
                           selectedItem == 0 ? Get.updateLocale(const Locale("en", "US")) : Get.updateLocale(const Locale("es" , "MX"));
                         });
+                        Get.toNamed(AppRoute.signInScreen);
                         Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
                       },
                       child: Container(

@@ -115,7 +115,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         textEditingController: controller.fullNameController,
                         hintText: "Enter full name".tr,
                         hintStyle: GoogleFonts.poppins(
-                            fontSize: 14,
+                            fontSize: 14,letterSpacing: 1,
                             fontWeight: FontWeight.w400,
                             color: AppColors.whiteNormalActive),
                       ),

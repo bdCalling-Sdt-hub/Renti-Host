@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -79,23 +78,6 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               ],
             ),
 
-            //Address Text and TextField
-            CustomText(text: "Address".tr, top: 16, bottom: 12),
-            CustomTextField(
-              textEditingController: controller.addressController,
-              textInputAction: TextInputAction.next,
-              hintText: "Enter your address".tr,
-              hintStyle: GoogleFonts.poppins(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.whiteNormalActive),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "This field can not be empty".tr;
-                }
-                return null;
-              },
-            ),
 
             const CustomText(text: "Country", top: 16, bottom: 12),
             CustomTextField(
@@ -192,7 +174,6 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                   if (formKey.currentState!.validate()) {
                     setDataToLocalStore(controller,
                         phoneNumber: "${controller.phoneCode} ${controller.phoneNumberController.text}",
-                        address: controller.addressController.text,
                         country: controller.countryController.text,
                         city: controller.cityController.text,
                         state: controller.stateController.text,
@@ -211,33 +192,18 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
 
   setDataToLocalStore(SignUpController signUpController,
       {required String phoneNumber,
-      required String address,
       required String country,
       required String city,
       required String state,
       required String lane,
       required String postal}) async {
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.address, address);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.country, country);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.city, city);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.state, state);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.lane, lane);
-    await signUpController.signUpRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.postal, postal);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.country, country);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.city, city);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.state, state);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.lane, lane);
+    await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.postal, postal);
 
-    if (kDebugMode) {
-      print("phone number: $phoneNumber\n");
-    }
-    if (kDebugMode) {
-      print("address: $address\n");
-    }
     Get.toNamed(AppRoute.signUpBankScreen);
   }
 }
