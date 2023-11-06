@@ -26,8 +26,8 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
   @override
   Widget build(BuildContext context) {
     List<String> languageName = [
-      'English'.tr,
-      'Spanish'.tr,
+      'English',
+      'Spanish',
     ];
     return SafeArea(
       top: true,

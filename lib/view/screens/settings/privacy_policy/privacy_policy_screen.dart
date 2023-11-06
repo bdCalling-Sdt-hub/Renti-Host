@@ -53,21 +53,16 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 future: controller.privacyPolicy(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
-                        child:
-                            CircularProgressIndicator()); // Show a loading indicator while waiting for data
+                    return const Center(child: CircularProgressIndicator()); // Show a loading indicator while waiting for data
                   } else if (snapshot.hasError) {
-                    return Text(
-                        "Error: ${snapshot.error}"); // Show an error message if data fetch fails
+                    return Text("Error: ${snapshot.error}"); // Show an error message if data fetch fails
                   } else if (!snapshot.hasData) {
-                    return const Text(
-                        "No data available"); // Handle case where no data is available
+                    return const Text("No data available"); // Handle case where no data is available
                   }
                   PrivacyPolicyModel ppModel = snapshot.data!;
                   return SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 24),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                     child: Html(
                       data: ppModel.privacyPolicy!.content.toString(),
                     ),

@@ -52,6 +52,7 @@ class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
                             selectedItem = index;
                             selectedItem == 0 ? Get.updateLocale(const Locale("en", "US")) : Get.updateLocale(const Locale("es" , "MX"));
                           });
+                          Get.back();
                           Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
                         },
                         child: Container(

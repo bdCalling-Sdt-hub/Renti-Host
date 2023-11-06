@@ -18,6 +18,7 @@ Future<void> initDependency() async {
   Get.lazyPut(() => ProfileRepo(apiService: Get.find()), fenix: true);
 
   Get.lazyPut(() => SocketService(), fenix: true);
+  Get.find<SocketService>().connectToSocket();
 
   //Get.put<NoInternetController>(NoInternetController(), permanent: true);
 }

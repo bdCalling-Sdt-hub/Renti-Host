@@ -3,21 +3,23 @@ import 'package:get/get.dart';
 import 'package:renti_host/service/notification.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
-class SocketService extends GetxController{
-
+class SocketService extends GetxController {
   late io.Socket socket;
 
   NotificationClass notificationClass = NotificationClass();
 
   List<dynamic> messageList = [];
+  List<dynamic> allMessageList = [];
   bool isLoading = false;
   String chatId = "";
 
   void connectToSocket() {
     socket = io.io(
-        "192.168.10.14:9000",
-        io.OptionBuilder().setTransports(['websocket']).enableAutoConnect().build()
-    );
+        "http://192.168.10.14:9000",
+        io.OptionBuilder()
+            .setTransports(['websocket'])
+            .enableAutoConnect()
+            .build());
 
     socket.onConnect((data) => print("Connection Established"));
     socket.onConnectError((data) => print("Connection Error"));
@@ -46,9 +48,9 @@ class SocketService extends GetxController{
       isLoading = true;
       update();
 
-      if(messages is List){
-        for(var message in messages){
-          if(message is Map<String, dynamic>){
+      if (messages is List) {
+        for (var message in messages) {
+          if (message is Map<String, dynamic>) {
             messageList.add(message);
           }
         }
@@ -61,9 +63,22 @@ class SocketService extends GetxController{
     });
 
     socket.on('all-chats', (chats) {
+      allMessageList.clear();
+      isLoading = true;
+      update();
+
+      if (chats is List) {
+        for (var message in chats) {
+          if (message is Map<String, dynamic>) {
+            allMessageList.add(message);
+          }
+        }
+      }
       if (kDebugMode) {
         print('All chats: $chats');
       }
+      isLoading = false;
+      update();
     });
 
     socket.on('host-notification', (data) {
@@ -84,6 +99,39 @@ class SocketService extends GetxController{
     });
   }
 
+  socketDispose(String event){
+    socket.off(event);
+  }
+
+  List<Chat> convertChatList(List<dynamic> dynamicList) {
+    List<Chat> allChatList = [];
+    for (var item in dynamicList) {
+      allChatList.add(Chat.fromJson(item));
+    }
+    return allChatList;
+  }
+
+  fetchAllChats({
+    required String hostId,
+    required Function(List<Chat>) didFetchChats,
+  }) {
+    socket.emit('get-all-chats', {'uid': hostId});
+
+    socket.on('all-chats', (chats) {
+       if (kDebugMode) {
+         print("TTHi is all the chats.....=======> ${chats} ");
+       }
+      if (chats != null) {
+        List<Chat> data=List<Chat>.from(chats.map((x) => Chat.fromJson(x)));
+        if (kDebugMode) {
+          print("Data ====> ${data.length}");
+        }
+        didFetchChats(data);
+
+      }
+    });
+  }
+
   void joinRoom(String uid) {
     socket.emit('join-room', {'uid': uid});
   }
@@ -97,7 +145,8 @@ class SocketService extends GetxController{
   }
 
   addNewMessage(String message, String sender, String chat) {
-    socket.emit('add-new-message', {"message": message, "sender": sender, "chat": chat});
+    socket.emit('add-new-message',
+        {"message": message, "sender": sender, "chat": chat});
   }
 
   getAllChats(String uid) {
@@ -112,3 +161,111 @@ class SocketService extends GetxController{
     socket.disconnect();
   }
 }
+/*class Chat {
+  String id;
+  List<Participant> participants;
+  String createdAt;
+  String updatedAt;
+  int v;
+
+  Chat({
+    required this.id,
+    required this.participants,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.v,
+  });
+
+  factory Chat.fromJson(Map<String, dynamic> json) {
+    var participantsList = json['participants'] as List;
+    List<Participant> participants =
+    participantsList.map((participant) => Participant.fromJson(participant)).toList();
+
+    return Chat(
+      id: json['_id'],
+      participants: participants,
+      createdAt: json['createdAt'],
+      updatedAt: json['updatedAt'],
+      v: json['__v'],
+    );
+  }
+}
+
+class Participant {
+  String id;
+  String fullName;
+  String image;
+  String role;
+
+  Participant({
+    required this.id,
+    required this.fullName,
+    required this.image,
+    required this.role,
+  });
+
+  factory Participant.fromJson(Map<String, dynamic> json) {
+    return Participant(
+      id: json['_id'],
+      fullName: json['fullName'],
+      image: json['image'],
+      role: json['role'],
+    );
+  }
+}*/
+
+class Chat {
+  String id;
+  List<Participant> participants;
+  String createdAt;
+  String updatedAt;
+  int v;
+
+  Chat({
+    required this.id,
+    required this.participants,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.v,
+  });
+
+  factory Chat.fromJson(Map<String, dynamic> json) {
+    var participantList = json['participants'] as List;
+    List<Participant> participants =
+    participantList.map((participant) => Participant.fromJson(participant)).toList();
+
+    return Chat(
+      id: json['_id'],
+      participants: participants,
+      createdAt: json['createdAt'],
+      updatedAt: json['updatedAt'],
+      v: json['__v'],
+    );
+  }
+}
+
+class Participant {
+  String id;
+  String fullName;
+  String image;
+  String role;
+
+  Participant({
+    required this.id,
+    required this.fullName,
+    required this.image,
+    required this.role,
+  });
+
+  factory Participant.fromJson(Map<String, dynamic> json) {
+    return Participant(
+      id: json['_id'],
+      fullName: json['fullName'],
+      image: json['image'],
+      role: json['role'],
+    );
+  }
+}
+
+
+

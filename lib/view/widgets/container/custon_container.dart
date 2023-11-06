@@ -32,8 +32,7 @@ class CustomContainer extends StatelessWidget {
       width: width,
       height: height,
       margin: EdgeInsets.only(top: marginTop),
-      padding: EdgeInsets.symmetric(
-          horizontal: paddingHorizontal, vertical: paddingVertical),
+      padding: EdgeInsets.symmetric(horizontal: paddingHorizontal, vertical: paddingVertical),
       decoration: BoxDecoration(
         color: AppColors.whiteLight1,
         borderRadius: BorderRadius.only(

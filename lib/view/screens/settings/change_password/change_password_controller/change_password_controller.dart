@@ -36,7 +36,9 @@ class ChangePasswordController extends GetxController{
         }),
       );
 
-      print("${userEmail}");
+      if (kDebugMode) {
+        print("$userEmail");
+      }
 
       if (response.statusCode == 200) {
         clearData();
@@ -45,9 +47,9 @@ class ChangePasswordController extends GetxController{
         if (kDebugMode) {
           print('Password changed successfully');
         }
-        Get.back();
         loading = false;
         update();
+        Get.back();
         Utils.snackBar("Successful","Password changed successfully");
       } else {
         // Password Change failed

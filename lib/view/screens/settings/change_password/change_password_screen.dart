@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:renti_host/data/controller/settings/change_password_controller/change_password_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/view/screens/settings/change_password/change_password_controller/change_password_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
