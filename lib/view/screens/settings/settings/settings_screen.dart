@@ -18,7 +18,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   List settingData = [
     "Change Language".tr,
     "Change Password".tr,
-    "Payment Method".tr,
+   // "Payment Method".tr,
     "Privacy Policy".tr
   ];
 
@@ -49,9 +49,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         Get.toNamed(AppRoute.changeLanguageScreen);
                       } else if (index == 1) {
                         Get.toNamed(AppRoute.changePasswordScreen);
-                      } else if (index == 2) {
+                      } /*else if (index == 2) {
                         Get.toNamed(AppRoute.paymentMethodScreen);
-                      } else if (index == 3) {
+                      }*/ else if (index == 2) {
                         Get.toNamed(AppRoute.privacyPolicyScreen);
                       }
                     },

@@ -7,6 +7,7 @@ import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works
 import 'package:renti_host/view/screens/rentiworks_support_condition/renti_works_screen/renti_works_repo/renti_works_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class RentiWorkScreen extends StatefulWidget {
   const RentiWorkScreen({super.key});
@@ -38,24 +39,26 @@ class _RentiWorkScreenState extends State<RentiWorkScreen> {
             color: AppColors.blackNormal,
           ),
         ),
-        body: GetBuilder<RentiWorksController>(builder: (controller) {
-          if (controller.isloading == true) {
-            return const Center(
-              child: CircularProgressIndicator(),
+        body: GetBuilder<RentiWorksController>(
+          builder: (controller) {
+            if (controller.isloading == true) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                physics: const BouncingScrollPhysics(),
+                child: controller.rentiWorksModel.howRentiWork?.content == null
+                    ? const Center(child: CustomText(text: "No Data Found"))
+                    : Html(data: "${controller.rentiWorksModel.howRentiWork?.content}",
+                ),
+              ),
             );
-          }
-          return LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 24),
-                    physics: const BouncingScrollPhysics(),
-                    child: Html(
-                      data: controller.rentiWorksModel.howRentiWork!.content
-                          .toString(),
-                    )),
-          );
-        }),
+          },
+        ),
       ),
     );
   }

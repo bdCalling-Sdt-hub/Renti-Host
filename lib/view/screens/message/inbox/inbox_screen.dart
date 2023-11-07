@@ -17,6 +17,7 @@ class InboxScreen extends StatefulWidget {
 }
 
 class _InboxScreenState extends State<InboxScreen> {
+  SocketService socketService = SocketService();
   int index = 0;
   String hostUid = "";
   String userUid = "";
@@ -30,18 +31,24 @@ class _InboxScreenState extends State<InboxScreen> {
     image = Get.arguments[2];
     hostUid = Get.arguments[3];
 
+    print(hostUid);
+    print(userUid);
+
     final socketService = Get.find<SocketService>();
     socketService.joinRoom(hostUid);
+    socketService.joinChat(hostUid);
     socketService.addNewChat({
       "participants": [hostUid, userUid],
     }, hostUid);
-
     DeviceUtils.screenUtils();
+    socketService.connectToSocket();
     super.initState();
   }
 
   @override
   void dispose() {
+    /*socketService.socketDispose("new-chat");
+    socketService.socketDispose("all-messages");*/
     DeviceUtils.screenUtils();
 
     super.dispose();
@@ -55,6 +62,7 @@ class _InboxScreenState extends State<InboxScreen> {
       top: true,
       child: Scaffold(
         extendBody: true,
+        backgroundColor: AppColors.whiteNormalActive,
         appBar: CustomAppBar(
           appBarBgColor: AppColors.blueNormal,
           bottom: 20,
@@ -110,8 +118,7 @@ class _InboxScreenState extends State<InboxScreen> {
                           socketService.messageList.length,
                           (index) => Align(
                             alignment: socketService.messageList[index]
-                                        ["sender"]["role"] !=
-                                    "host"
+                            ["sender"]["role"] != "host"
                                 ? Alignment.topLeft
                                 : Alignment.topRight,
                             child: Container(
@@ -120,9 +127,7 @@ class _InboxScreenState extends State<InboxScreen> {
                               padding: const EdgeInsetsDirectional.symmetric(
                                   vertical: 16, horizontal: 12),
                               decoration: BoxDecoration(
-                                borderRadius: socketService.messageList[index]
-                                            ["sender"]["role"] !=
-                                        "host"
+                                borderRadius: socketService.messageList[index]["sender"]["role"] != "host"
                                     ? const BorderRadius.only(
                                         topLeft: Radius.circular(12),
                                         topRight: Radius.circular(12),
@@ -171,7 +176,7 @@ class _InboxScreenState extends State<InboxScreen> {
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(16),
                     topRight: Radius.circular(16)),
-                color: AppColors.whiteNormalActive,
+                color: AppColors.whiteLight,
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.blackNormal.withOpacity(0.1),

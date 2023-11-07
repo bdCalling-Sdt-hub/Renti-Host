@@ -18,8 +18,7 @@ class RentRequestController extends GetxController {
 
   bool isloading = true;
 
-  RentRequestResponseModel rentRequestResponseModel =
-      RentRequestResponseModel();
+  RentRequestResponseModel rentRequestResponseModel = RentRequestResponseModel();
 
   Future<void> rentRequest() async {
     //Call the Api by using ApiResponse Model data
@@ -29,13 +28,16 @@ class RentRequestController extends GetxController {
     //Checking response data
     if (responseModel.statusCode == 200) {
       //get data by using reference model variable
-      rentRequestResponseModel = RentRequestResponseModel.fromJson(
-          jsonDecode(responseModel.responseJson));
-
+      rentRequestResponseModel = RentRequestResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       isloading = false;
       update();
     } else {
-      Utils.toastMessage(responseModel.message);
+      rentRequestResponseModel = RentRequestResponseModel.fromJson(jsonDecode(responseModel.responseJson));
+      isloading = false;
+      update();
+      Utils.snackBar("Error",rentRequestResponseModel.message.toString());
     }
+    isloading = false;
+    update();
   }
 }

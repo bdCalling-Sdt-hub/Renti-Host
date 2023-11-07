@@ -112,7 +112,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                                   return "Please use 8 character long password".tr;
                                 } else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(controller.passwordController.text)) {
                                   return "Please use uppercase,lowercase,spacial character and number";
-                                } else if (controller.passwordController.value != controller.confirmPasswordController.value) {
+                                } else if (controller.confirmPasswordController.value != controller.passwordController.value) {
                                   return "Password does not match!";
                                 }
                                 return null;

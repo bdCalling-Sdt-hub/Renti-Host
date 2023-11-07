@@ -21,7 +21,9 @@ class UserDetails extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         }
-        return Column(
+        return controller.userList.length == 0
+            ?const Center(child: CustomText(text: "No User List Found!",fontSize: 18))
+            : Column(
           children: List.generate(
             controller.userList.length,
             (index) {

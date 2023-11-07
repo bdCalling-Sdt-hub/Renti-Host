@@ -48,10 +48,6 @@ class _SignInAuthState extends State<SignInAuth> {
                     letterSpacing: 1,
                     color: AppColors.whiteNormalActive,
                   ),
-                  onFieldSubmitted: (value) {
-                    Utils.fieldFocusChange(context, controller.emailFocusNode,
-                        controller.passwordFocusNode);
-                  },
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "This field can not be empty".tr;
@@ -82,6 +78,7 @@ class _SignInAuthState extends State<SignInAuth> {
                       fontWeight: FontWeight.w400,
                       letterSpacing: 1,
                       color: AppColors.whiteNormalActive),
+
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "This field can not be empty".tr;

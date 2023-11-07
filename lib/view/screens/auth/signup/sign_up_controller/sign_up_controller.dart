@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:renti_host/core/global/api_url_container.dart';
+import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_repo/sign_up_repo.dart';
@@ -273,6 +274,7 @@ class SignUpController extends GetxController {
       }
 
       if (response.statusCode == 201) {
+        await signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userEmailKey,emailController.text.trim().toString());
         isloading = false;
         update();
         Get.toNamed(AppRoute.kycNumberVerification);

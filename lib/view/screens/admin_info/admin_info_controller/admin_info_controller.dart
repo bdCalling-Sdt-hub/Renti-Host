@@ -26,10 +26,8 @@ class AdminInfoController extends GetxController {
 
 
     if (responseModel.statusCode == 200) {
-      adminInfoModel =
-          AdminInfoModel.fromJson(jsonDecode(responseModel.responseJson));
+      adminInfoModel = AdminInfoModel.fromJson(jsonDecode(responseModel.responseJson));
 
-      print(adminInfoModel.adminData![0].email);
       isLoading = false;
       update();
     } else {

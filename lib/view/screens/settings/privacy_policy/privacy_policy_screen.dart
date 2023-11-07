@@ -8,6 +8,7 @@ import 'package:renti_host/view/screens/settings/privacy_policy/pp_repo/pp_repo.
 import 'package:renti_host/view/screens/settings/privacy_policy/pp_response_model/pp_response_model.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {
   const PrivacyPolicyScreen({super.key});
@@ -63,9 +64,9 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   return SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                    child: Html(
-                      data: ppModel.privacyPolicy!.content.toString(),
-                    ),
+                    child: ppModel.privacyPolicy?.content == null
+                        ? const Center(child: CustomText(text: "No Privacy Policy Data Found",fontSize: 18))
+                        : Html(data: "${ppModel.privacyPolicy?.content}"),
                   );
                 },
               ),

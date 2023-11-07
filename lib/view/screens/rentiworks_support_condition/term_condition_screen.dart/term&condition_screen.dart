@@ -8,6 +8,7 @@ import 'package:renti_host/view/screens/rentiworks_support_condition/term_condit
 import 'package:renti_host/view/screens/rentiworks_support_condition/term_condition_screen.dart/tc_repo/tc_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class TermsConditionScreen extends StatefulWidget {
   const TermsConditionScreen({super.key});
@@ -35,44 +36,50 @@ class _TermsConditionScreenState extends State<TermsConditionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<TermConditionController>(builder: (controller) {
-      return SafeArea(
-        top: true,
-        child: Scaffold(
-          backgroundColor: AppColors.whiteLight,
-          appBar: CustomAppBar(
-            appBarContent: CustomBack(
-              text: "Terms & Conditions".tr,
-              color: AppColors.blackNormal,
+    return GetBuilder<TermConditionController>(
+      builder: (controller) {
+        return SafeArea(
+          top: true,
+          child: Scaffold(
+            backgroundColor: AppColors.whiteLight,
+            appBar: CustomAppBar(
+              appBarContent: CustomBack(
+                text: "Terms & Conditions".tr,
+                color: AppColors.blackNormal,
+              ),
+            ),
+            body: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  FutureBuilder<TermConditionModel>(
+                future: controller.privacyPolicy(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                        child:
+                            CircularProgressIndicator()); // Show a loading indicator while waiting for data
+                  } else if (snapshot.hasError) {
+                    return Text(
+                        "Error: ${snapshot.error}"); // Show an error message if data fetch fails
+                  } else if (!snapshot.hasData) {
+                    return const Text(
+                        "No data available"); // Handle case where no data is available
+                  }
+                  TermConditionModel tcModel = snapshot.data!;
+                  return SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 24),
+                    physics: const BouncingScrollPhysics(),
+                    child: tcModel.termsCondition?.content == null
+                        ? const Center(child: CustomText(text: "No Data Found"))
+                        : Html(data: "${tcModel.termsCondition?.content}",
+                    ),
+                  );
+                },
+              ),
             ),
           ),
-          body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                FutureBuilder<TermConditionModel>(
-                    future: controller.privacyPolicy(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(
-                            child:
-                                CircularProgressIndicator()); // Show a loading indicator while waiting for data
-                      } else if (snapshot.hasError) {
-                        return Text(
-                            "Error: ${snapshot.error}"); // Show an error message if data fetch fails
-                      } else if (!snapshot.hasData) {
-                        return const Text(
-                            "No data available"); // Handle case where no data is available
-                      }
-                      TermConditionModel tcModel = snapshot.data!;
-                      return SingleChildScrollView(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 24),
-                        physics: const BouncingScrollPhysics(),
-                        child: Html(data: tcModel.termsCondition!.content.toString(),)
-                      );
-                    }),
-          ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

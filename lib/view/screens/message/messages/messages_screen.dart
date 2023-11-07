@@ -80,12 +80,15 @@ class _MessageScreenState extends State<MessageScreen> {
           appBarContent: CustomText(text: "Messages".tr, fontSize: 18, fontWeight: FontWeight.w600)),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-          child: Column(
+          child: participant.length == 0
+              ? const Center(child: CustomText(text: "No Messages Found!",fontSize: 18))
+              : Column(
             children: List.generate(
               participant.length,
               (index) {
-
-                return participant.length == 0 ? CircularProgressIndicator() : Padding(
+                return participant.length == 0
+                    ? const CircularProgressIndicator()
+                    : Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: GestureDetector(
                     onTap: () {

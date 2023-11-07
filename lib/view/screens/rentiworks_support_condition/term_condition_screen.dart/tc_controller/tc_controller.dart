@@ -14,10 +14,10 @@ class TermConditionController extends GetxController {
     TermConditionModel termCondition; // Define the variable here
 
     if (responseModel.statusCode == 200) {
-      termCondition =
-          TermConditionModel.fromJson(jsonDecode(responseModel.responseJson));
+      termCondition = TermConditionModel.fromJson(jsonDecode(responseModel.responseJson));
     } else {
-      Utils.toastMessage(responseModel.message);
+      termCondition = TermConditionModel.fromJson(jsonDecode(responseModel.responseJson));
+      Utils.snackBar("Error",termCondition.message.toString());
       // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
       return TermConditionModel(); // Return a default value or handle the error accordingly.
     }

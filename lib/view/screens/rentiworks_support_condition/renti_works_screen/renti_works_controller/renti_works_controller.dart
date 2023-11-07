@@ -10,22 +10,27 @@ class RentiWorksController extends GetxController {
   RentiWorksRepo rentiWorksRepo;
   RentiWorksController({required this.rentiWorksRepo});
 
-  bool isloading = true;
+  bool isloading = false;
   RentiWorksModel rentiWorksModel = RentiWorksModel();
   Future<RentiWorksModel> rentiWorks() async {
+    isloading = true;
+    update();
+
     ApiResponseModel responseModel = await rentiWorksRepo.howRentiWork();
     // Define the variable here
 
     if (responseModel.statusCode == 200) {
-      rentiWorksModel =
-          RentiWorksModel.fromJson(jsonDecode(responseModel.responseJson));
+      rentiWorksModel = RentiWorksModel.fromJson(jsonDecode(responseModel.responseJson));
       isloading = false;
       update();
     } else {
-      Utils.toastMessage(responseModel.message);
-
+      isloading = false;
+      update();
+      Utils.snackBar("Error",responseModel.message);
       return RentiWorksModel();
     }
+    isloading = false;
+    update();
 
     return rentiWorksModel; // Return the variable here
   }

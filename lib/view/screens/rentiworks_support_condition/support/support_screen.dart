@@ -7,6 +7,7 @@ import 'package:renti_host/view/screens/rentiworks_support_condition/support/sup
 import 'package:renti_host/view/screens/rentiworks_support_condition/support/support_repo/support_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});
@@ -31,28 +32,31 @@ class _SupportScreenState extends State<SupportScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar:  CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
             text: "Support".tr,
             color: AppColors.blackNormal,
           ),
         ),
-        body: GetBuilder<SupportController>(builder: (controller) {
-          if (controller.isloading == true) {
-            return const Center(
-              child: CircularProgressIndicator(),
+        body: GetBuilder<SupportController>(
+          builder: (controller) {
+            if (controller.isloading == true) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                child: controller.supportModel.support?.content == null
+                    ? const Center(child: CustomText(text: "No Data Found"))
+                    : Html(data: "${controller.supportModel.support?.content}"
+                ),
+              ),
             );
-          }
-          return LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =>
-                SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 24),
-                    child: Html(
-                      data: controller.supportModel.support!.content.toString(),
-                    )),
-          );
-        }),
+          },
+        ),
       ),
     );
   }

@@ -25,7 +25,8 @@ class CustomRentDetails extends StatelessWidget {
           color: AppColors.whiteDarkHover,
           fontSize: fontSize,
         ),
-        CustomText(text: data, fontSize: fontSize,textAlign: TextAlign.end)
+        const SizedBox(width: 24),
+        Flexible(child: CustomText(text: data, fontSize: fontSize,textAlign: TextAlign.end, maxLines: 1,overflow: TextOverflow.ellipsis))
       ],
     );
   }

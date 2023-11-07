@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/inner_widgets/user_request_card.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_controller/rent_request_controller.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_repo/rent_request_repo.dart';
@@ -56,34 +55,23 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
             return LayoutBuilder(
               builder: (context, constraint) {
                 return SingleChildScrollView(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                  child: Column(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                  child:controller.rentRequestResponseModel.rentRequest?.length == 0
+                      ? const Center(child: CustomText(text: "No Request Found",fontSize: 18))
+                      : Column(
                     children: List.generate(
                       controller.rentRequestResponseModel.rentRequest!.length,
                       (index) {
-                        String startDateString = controller
-                            .rentRequestResponseModel
-                            .rentRequest![index]
-                            .startDate
-                            .toString();
+                        String startDateString = controller.rentRequestResponseModel.rentRequest![index].startDate.toString();
 
-                        String endDateString = controller
-                            .rentRequestResponseModel
-                            .rentRequest![index]
-                            .endDate
-                            .toString();
+                        String endDateString = controller.rentRequestResponseModel.rentRequest![index].endDate.toString();
 
                         // Define a regular expression pattern to match the date part
                         RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
 
                         // Use the regular expression to extract the date part
-                        String formattedStartDate =
-                            datePattern.firstMatch(startDateString)?.group(0) ??
-                                '';
-                        String formattedEndDate =
-                            datePattern.firstMatch(endDateString)?.group(0) ??
-                                '';
+                        String formattedStartDate = datePattern.firstMatch(startDateString)?.group(0) ?? '';
+                        String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
 
                         return GestureDetector(
                           onTap: () {
@@ -93,15 +81,9 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                                   index,
                                 ]);
                           },
-                          child: controller.rentRequestResponseModel
-                                          .rentRequest![index].requestStatus ==
-                                      "Pending" &&
-                                  controller.rentRequestResponseModel
-                                          .rentRequest![index].carId !=
-                                      null &&
-                                  controller.rentRequestResponseModel
-                                          .rentRequest![index].sentRequest !=
-                                      "Cancel"
+                          child: controller.rentRequestResponseModel.rentRequest![index].requestStatus == "Pending" &&
+                                  controller.rentRequestResponseModel.rentRequest![index].carId != null &&
+                                  controller.rentRequestResponseModel.rentRequest![index].requestStatus != "Cancel"
                               ? Container(
                                   padding: const EdgeInsets.all(16),
                                   margin: const EdgeInsetsDirectional.only(
@@ -118,16 +100,10 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                                     ],
                                   ),
                                   child: UserRequestCard(
-                                    id: controller.rentRequestResponseModel
-                                        .rentRequest![index].id
-                                        .toString(),
-                                    name: controller.rentRequestResponseModel
-                                        .rentRequest![index].userId!.fullName
-                                        .toString(),
+                                    id: controller.rentRequestResponseModel.rentRequest![index].id.toString(),
+                                    name: controller.rentRequestResponseModel.rentRequest![index].userId!.fullName.toString(),
                                     endDate: formattedEndDate,
-                                    image: controller.rentRequestResponseModel
-                                        .rentRequest![index].userId!.image
-                                        .toString(),
+                                    image: controller.rentRequestResponseModel.rentRequest![index].userId!.image.toString(),
                                     startDate: formattedStartDate,
                                   ),
                                 )

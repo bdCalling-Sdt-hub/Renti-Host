@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_list/inner_widgets/rent_details_top_section.dart';
 import 'package:renti_host/view/screens/rent_list/rent_list_model/rent_list_model.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -74,21 +73,18 @@ class RentDetailsAlert extends StatelessWidget {
                   title: "Name:".tr,
                   data: rentListModel.rentedCars![index].userId!.fullName.toString()),
               const SizedBox(height: 8),
-               CustomRentDetails(
-                  title: "Contact: ".tr, data: rentListModel.rentedCars![index].userId!.phoneNumber.toString()),
+               CustomRentDetails(title: "Contact: ".tr, data: rentListModel.rentedCars![index].userId!.phoneNumber.toString()),
               const SizedBox(height: 8),
-               CustomRentDetails(
-                  title: "Email:".tr, data: rentListModel.rentedCars![index].userId!.email.toString()),
+               CustomRentDetails(title: "Email:".tr, data: rentListModel.rentedCars![index].userId!.email.toString()),
               const SizedBox(height: 8),
-               CustomRentDetails(
-                  title: "INE:".tr, data: rentListModel.rentedCars![index].userId!.ine.toString()),
+               CustomRentDetails(title: "INE:".tr, data: rentListModel.rentedCars![index].userId!.ine.toString()),
               const SizedBox(height: 8),
-              CustomRentDetails(
-                  title: "Driving license no:".tr, data: 'ACD1234566'),
+             // CustomRentDetails(title: "Driving license no:".tr, data: 'ACD1234566'),
               const SizedBox(height: 24),
 
               //This Button Only Show When Reserve Status card Clicked
-              rentListModel.rentedCars![index].carId!.tripStatus.toString() == "" ? const SizedBox()
+              rentListModel.rentedCars?[index].carId?.tripStatus == "Start"
+                  ? const SizedBox()
                   : CustomElevatedButton(onPressed: (){
                 Get.toNamed(AppRoute.startTripScreen,arguments: [rentListModel, index]);
               }, titleText: "See details".tr,buttonWidth: double.maxFinite,buttonHeight: 48)

@@ -73,7 +73,6 @@ class EditProfileController extends GetxController {
         "fullName": fullNameController.text,
         "phoneNumber": phoneNumberController.text,
         "image": "",
-        "address": addressController.text,
         "dateOfBirth": dateOfBirthController.text,
         "creaditCardNumber": creaditCardNumberController.text,
         "gender": genderController.text

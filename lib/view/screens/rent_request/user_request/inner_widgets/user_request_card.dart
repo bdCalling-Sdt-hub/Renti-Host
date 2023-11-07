@@ -111,8 +111,7 @@ class _UserRequestCardState extends State<UserRequestCard> {
                 Expanded(
                   child: CustomElevatedButton(
                     onPressed: () {
-                      rentReqRepo.rentRequest(
-                          request: Request.rejected, id: widget.id);
+                      rentReqRepo.rentRequest(request: Request.rejected, id: widget.id);
                       controller.rentRequest();
                     },
                     titleText: "Cancel".tr,

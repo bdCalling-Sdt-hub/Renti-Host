@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_list/inner_widgets/rent_details_top_section.dart';
 import 'package:renti_host/view/screens/rent_list/inner_widgets/renti_details_alert.dart';
 import 'package:renti_host/view/screens/rent_list/rent_list_controller/rent_list_controller.dart';
@@ -11,6 +10,7 @@ import 'package:renti_host/view/screens/rent_list/rent_list_model/rent_list_mode
 import 'package:renti_host/view/screens/rent_list/rent_list_repo/rent_list_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class RentListScreen extends StatefulWidget {
   const RentListScreen({super.key});
@@ -58,9 +58,10 @@ class _RentListScreenState extends State<RentListScreen> {
                 return LayoutBuilder(
                   builder: (context, constraint) {
                     return SingleChildScrollView(
-                      padding: const EdgeInsetsDirectional.symmetric(
-                          vertical: 24, horizontal: 20),
-                      child: Column(
+                      padding: const EdgeInsetsDirectional.symmetric(vertical: 24, horizontal: 20),
+                      child: rentListModel.rentedCars?.length == 0
+                          ? const Center(child: CustomText(text: "No Rent List Found",fontSize: 18))
+                          : Column(
                         children: List.generate(
                           rentListModel.rentedCars!.length,
                           (index) => rentListModel.rentedCars![index].requestStatus.toString() != "Completed" &&

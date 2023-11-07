@@ -52,9 +52,11 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
             body: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) =>
                   SingleChildScrollView(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                child: Column(
+                    physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                child: controller.adminInfoModel.adminData?.length == 0
+                    ?  const Center(child: CustomText(text: "Admin Not Add Any Information"))
+                    :Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
@@ -70,9 +72,7 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
                         const Icon(Icons.call,
                             color: AppColors.blackNormal, size: 18),
                         CustomText(
-                            text: controller
-                                .adminInfoModel.adminData![0].phoneNumber
-                                .toString(),
+                            text: controller.adminInfoModel.adminData![0].phoneNumber.toString(),
                             fontSize: 18,
                             left: 8),
                       ],

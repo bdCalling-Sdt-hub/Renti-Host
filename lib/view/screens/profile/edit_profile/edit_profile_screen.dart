@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_controller/edit_profile_controller.dart';
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -165,15 +164,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     width: 1.0,
                                     style: BorderStyle.solid),
                               ),
-                              child:  Row(
-                                children: [
-                                  const CustomImage(imageSrc: AppImages.flagImage, size: 40),
-                                  CustomText(
-                                      text: "+52".tr,
-                                      left: 10,
-                                      color: AppColors.whiteNormalActive)
-                                ],
-                              ),
+                              child:  const CustomImage(imageSrc: AppImages.flagImage, size: 40),
                             ),
                             const SizedBox(width: 10),
                             Expanded(
@@ -204,6 +195,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               strokeAlign: 1),
                         ),
                         child: CustomTextField(
+                          readOnly: true,
                           textEditingController: controller.addressController,
                           textInputAction: TextInputAction.done,
                           fieldBorderColor: AppColors.whiteLight,

@@ -52,16 +52,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         }
         ProfileModel profileModel = controller.profileModel;
 
-        String fullName = profileModel.user!.fullName.toString();
-        String email = profileModel.user!.email.toString();
-        String phoneNumber = profileModel.user!.phoneNumber.toString();
-        String creaditCardNumber =
-            profileModel.user!.creaditCardNumber.toString();
-        String dateOfBirth = profileModel.user!.dateOfBirth.toString();
-        String gender = profileModel.user!.gender.toString();
-        String address = profileModel.user!.address.toString();
-        String img = profileModel.user!.image.toString();
-        String ine = profileModel.user!.ine.toString();
+        String fullName = "${profileModel.user?.fullName}";
+        String email = "${profileModel.user?.email}";
+        String phoneNumber = "${profileModel.user?.phoneNumber}";
+        String dateOfBirth = "${profileModel.user?.dateOfBirth}";
+        String gender = "${profileModel.user?.gender}";
+        String address = "${profileModel.user?.address?.country}";
+        String img = "${profileModel.user?.image}";
+        String ine = "${profileModel.user?.ine}";
 
         return SafeArea(
           top: true,
@@ -91,9 +89,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                         editProfileController.emailController =
                             TextEditingController(text: email);
-
-                        editProfileController.creaditCardNumberController =
-                            TextEditingController(text: creaditCardNumber);
 
                         editProfileController.phoneNumberController =
                             TextEditingController(text: phoneNumber);

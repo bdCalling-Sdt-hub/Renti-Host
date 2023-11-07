@@ -32,9 +32,10 @@ class SocketService extends GetxController {
       }
     });
 
+      socket.emit("");
     socket.on('new-chat', (chat) {
-      chatId = chat["_id"];
-      joinChat(chatId);
+     // chatId = chat["_id"];
+      joinChat("654a1ccfa55ea9be3a689613");
       if (kDebugMode) {
         print("chat id: $chatId");
       }

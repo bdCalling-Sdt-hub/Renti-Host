@@ -9,19 +9,25 @@ class SupportController extends GetxController {
   SupportRepo supportRepo;
   SupportController({required this.supportRepo});
 
-  bool isloading = true;
+  bool isloading = false;
   SupportModel supportModel = SupportModel();
 
   Future<void> support() async {
+    isloading = true;
+    update();
     ApiResponseModel apiResponseModel = await supportRepo.support();
 
     if (apiResponseModel.statusCode == 200) {
-      supportModel =
-          SupportModel.fromJson(jsonDecode(apiResponseModel.responseJson));
+      supportModel = SupportModel.fromJson(jsonDecode(apiResponseModel.responseJson));
       isloading = false;
       update();
     } else {
-      Utils.toastMessage(apiResponseModel.message);
+      supportModel = SupportModel.fromJson(jsonDecode(apiResponseModel.responseJson));
+      isloading = false;
+      update();
+      Utils.snackBar("Error", supportModel.message.toString());
     }
+    isloading = false;
+    update();
   }
 }

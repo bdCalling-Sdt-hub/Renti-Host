@@ -43,11 +43,21 @@ class SignInController extends GetxController {
     }
 
     if (responseModel.statusCode == 200) {
+      isSubmit = false;
+      update();
       clearData();
       SignInResponseModel signInResponseModel = SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       await gotoNextStep(signInResponseModel);
-    } else {
-      Utils.snackBar("Error".tr,"Authentication failed".tr);
+    } else if(responseModel.statusCode == 503){
+      isSubmit = false;
+      update();
+      Utils.snackBar("Error".tr,"Connection Error");
+    }
+
+    else {
+      isSubmit = false;
+      update();
+      Utils.snackBar("Error".tr,responseModel.message);
     }
 
     isSubmit = false;
@@ -58,6 +68,8 @@ class SignInController extends GetxController {
     bool emailVerified = signInResponseModel.user?.emailVerified == false ? false : true;
 
     bool approved = signInResponseModel.user!.approved == false ? false : true;
+
+    bool isBanned = signInResponseModel.user!.isBanned == "false" ? false : true;
 
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.userIdKey,
@@ -90,7 +102,9 @@ class SignInController extends GetxController {
       Utils.snackBar("Successful".tr,"Successfully Signed In".tr);
     } else if (approved == false) {
       Utils.snackBar("Successful".tr,"Please wait for admin approve to log in".tr);
-    } else {
+    } else if (isBanned == true) {
+      Utils.snackBar("Successful".tr,"You Have Been Banned By Admin");
+    }else {
       Utils.snackBar("Error".tr,"Enter valid Email and Password".tr);
     }
   }
