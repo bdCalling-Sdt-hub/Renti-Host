@@ -26,6 +26,7 @@ class _InboxScreenState extends State<InboxScreen> {
 
   @override
   void initState() {
+
     userUid = Get.arguments[0];
     name = Get.arguments[1];
     image = Get.arguments[2];
@@ -35,20 +36,20 @@ class _InboxScreenState extends State<InboxScreen> {
     print(userUid);
 
     final socketService = Get.find<SocketService>();
+    socketService.connectToSocket();
     socketService.joinRoom(hostUid);
     socketService.joinChat(hostUid);
     socketService.addNewChat({
       "participants": [hostUid, userUid],
     }, hostUid);
     DeviceUtils.screenUtils();
-    socketService.connectToSocket();
     super.initState();
   }
 
   @override
   void dispose() {
-    /*socketService.socketDispose("new-chat");
-    socketService.socketDispose("all-messages");*/
+    socketService.socketDispose("new-chat");
+    socketService.socketDispose("all-messages");
     DeviceUtils.screenUtils();
 
     super.dispose();
@@ -62,7 +63,7 @@ class _InboxScreenState extends State<InboxScreen> {
       top: true,
       child: Scaffold(
         extendBody: true,
-        backgroundColor: AppColors.whiteNormalActive,
+        backgroundColor: AppColors.whiteLight,
         appBar: CustomAppBar(
           appBarBgColor: AppColors.blueNormal,
           bottom: 20,
