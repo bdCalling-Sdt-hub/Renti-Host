@@ -20,7 +20,7 @@ class RentiFeeMyControllerController extends GetxController {
         print("$rentiFeeMyPaymentModel");
       }
     } else {
-      Utils.toastMessage(responseModel.message);
+      //Utils.toastMessage(responseModel.message);
       // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
       return RentiFeeMyPaymentModel(); // Return a default value or handle the error accordingly.
     }

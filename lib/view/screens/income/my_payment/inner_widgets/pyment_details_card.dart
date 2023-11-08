@@ -67,7 +67,7 @@ class _PaymentDetailsCardState extends State<PaymentDetailsCard> {
   Widget build(BuildContext context) {
     return Column(
       children: List.generate(
-        dataList.length,
+        0,
         (index) {
           final isExpanded = expandedMap[index] ?? false;
           return Column(

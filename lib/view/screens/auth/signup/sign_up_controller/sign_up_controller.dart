@@ -249,12 +249,17 @@ class SignUpController extends GetxController {
         "email": emailController.text,
         "phoneNumber": "$phoneCode${phoneNumberController.text}",
         "gender": genderList[selectedGender],
-        "address": addresses,
+        "address[city]": cityController.text,
+        "address[state]": stateController.text,
+        "address[country]": countryController.text,
+        "address[line1]": laneController.text,
         "dateOfBirth": "${dateController.text}/${monthController.text}/${yearController.text}",
         "password": passwordController.text,
         "ine": ineNumberController.text,
         "RFC": rfcController.text,
-        "bankInfo" : bankInformation,
+        "bankInfo[account_number]" : accountController.text,
+        "bankInfo[account_holder_name]" : accountHolderController.text,
+        "bankInfo[account_holder_type]" : accountType[selectedAccount],
         "role": "host"
       };
 

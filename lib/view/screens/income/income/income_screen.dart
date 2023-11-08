@@ -17,8 +17,6 @@ class IncomeScreen extends StatefulWidget {
 }
 
 class _IncomeScreenState extends State<IncomeScreen> {
-
-
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
@@ -37,12 +35,13 @@ class _IncomeScreenState extends State<IncomeScreen> {
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
             appBar: CustomAppBar(
-              appBarContent: CustomBack(text: "Income".tr, color: AppColors.blackNormal)
-            ),
+                appBarContent: CustomBack(
+                    text: "Income".tr, color: AppColors.blackNormal)),
             body: LayoutBuilder(
               builder: (context, constraint) {
                 return SingleChildScrollView(
-                  padding: const EdgeInsetsDirectional.symmetric(vertical: 20, horizontal: 20),
+                  padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: 20, horizontal: 20),
                   child: Column(
                     children: [
                       Container(
@@ -71,12 +70,17 @@ class _IncomeScreenState extends State<IncomeScreen> {
                               bottom: 16,
                               fontWeight: FontWeight.w600,
                             ),
-                            CustomText(
-                              text: controller.incomeResponseModel.totalIncome.toString(),
-                              color: AppColors.whiteLight,
-                              fontSize: 40,
-                              fontWeight: FontWeight.w400,
-                            ),
+                            controller.incomeResponseModel.totalIncome != null
+                                ? CustomText(
+                                    text: "${controller.incomeResponseModel.totalIncome}",
+                                    color: AppColors.whiteLight,
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w400)
+                                : const CustomText(
+                                    text: "0",
+                                    color: AppColors.whiteLight,
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w400),
                           ],
                         ),
                       ),
