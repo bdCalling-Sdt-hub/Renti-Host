@@ -29,11 +29,6 @@ class _IncomeScreenState extends State<IncomeScreen> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return GetBuilder<IncomeController>(
       builder: (controller) {

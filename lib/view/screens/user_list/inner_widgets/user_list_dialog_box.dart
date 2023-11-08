@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -46,8 +47,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                    flex: 2,
+                  Flexible(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -57,49 +57,49 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: NetworkImage(
+                              image: CachedNetworkImageProvider(
                                 widget.userListResponseModel
                                     .userList![widget.index].userId!.image
                                     .toString(),
-                              ),
+                              ),fit: BoxFit.fill
                             ),
                           ),
                         ),
                         const SizedBox(width: 8),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomText(
-                                text: widget.userListResponseModel
-                                    .userList![widget.index].userId!.fullName
-                                    .toString(),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                bottom: 8),
-                            Row(
-                              children: [
-                                const CustomImage(
-                                  imageSrc: AppImages.starImage,
-                                  size: 12,
-                                ),
-                                CustomText(
-                                  text: widget
-                                      .userListResponseModel
-                                      .userList![widget.index]
-                                      .userId!
-                                      .averageRatings
+                        Flexible(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomText(
+                                  text: widget.userListResponseModel
+                                      .userList![widget.index].userId!.fullName
                                       .toString(),
-                                  fontSize: 10,
-                                  left: 8,
-                                )
-                              ],
-                            ),
-                          ],
+                                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                                  fontSize: 16,textAlign: TextAlign.start,
+                                  fontWeight: FontWeight.w500,
+                                  bottom: 8),
+                              Row(
+                                children: [
+                                  const CustomImage(
+                                    imageSrc: AppImages.starImage,
+                                    size: 12,
+                                  ),
+                                  widget.userListResponseModel.userList?[widget.index].userId?.averageRatings != null ?
+                                  CustomText(
+                                    text: "${widget.userListResponseModel.userList?[widget.index].userId?.averageRatings}",
+                                    fontSize: 10,
+                                    left: 8,
+                                  ) : const CustomText(text: "0", fontSize: 14,left: 4),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
+                  const SizedBox(width: 24),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -183,12 +183,14 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                       text: "Email".tr,
                       fontSize: 16,
                       color: AppColors.whiteDarkHover),
-                  CustomText(
-                      text: widget.userListResponseModel.userList![widget.index]
-                          .userId!.email
-                          .toString(),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
+                  const SizedBox(width: 24),
+                  Flexible(
+                    child: CustomText(
+                      maxLines: 1,overflow: TextOverflow.ellipsis,
+                        text: widget.userListResponseModel.userList![widget.index].userId!.email.toString(),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ],
               ),
               const SizedBox(height: 8),

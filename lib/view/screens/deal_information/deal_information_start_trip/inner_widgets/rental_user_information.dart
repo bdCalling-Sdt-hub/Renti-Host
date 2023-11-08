@@ -28,10 +28,13 @@ class RentalUserInformation extends StatelessWidget {
                 text: "Name:".tr,
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
-            CustomText(
-                text: rentListModel.rentedCars![index].userId!.fullName.toString(),
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+            Flexible(
+              child: CustomText(
+                maxLines: 1,overflow:  TextOverflow.ellipsis,
+                  text: rentListModel.rentedCars![index].userId!.fullName.toString(),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -74,7 +77,7 @@ class RentalUserInformation extends StatelessWidget {
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
-                text: rentListModel.rentedCars![index].hostId!.address.toString(),
+                text: "${rentListModel.rentedCars?[index].hostId?.address?.country}",
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],

@@ -89,16 +89,17 @@ class UserDetails extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                   bottom: 8),
 
-                               controller.userList[index].userId!.averageRatings != null ?
                                Row(
                                 children: [
                                   const CustomImage(
                                     imageSrc: AppImages.starImage,
-                                    size: 12,
+                                    size: 14,
                                   ),
-                                  CustomText(text: "(${controller.userList[index].userId!.averageRatings.toString()})", fontSize: 10,left: 4)
+                                  controller.userList[index].userId!.averageRatings != null
+                                      ? CustomText(text: "(${controller.userList[index].userId!.averageRatings.toString()})", fontSize: 10,left: 4)
+                                      : const CustomText(text: "0", fontSize: 14,left: 4)
                                 ],
-                              ) : const SizedBox(),
+                              ) ,
                             ],
                           ),
                         ],

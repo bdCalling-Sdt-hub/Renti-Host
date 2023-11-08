@@ -63,7 +63,7 @@ class _CarListScreenState extends State<CarListScreen> {
                                 crossAxisCount: 3,
                                 crossAxisSpacing: 8,
                                 mainAxisSpacing: 8,
-                                mainAxisExtent: 170),
+                                mainAxisExtent: 200),
                         itemBuilder: (context, index) => GestureDetector(
                           onTap: () {
                             Get.toNamed(AppRoute.carDetailsScreen,

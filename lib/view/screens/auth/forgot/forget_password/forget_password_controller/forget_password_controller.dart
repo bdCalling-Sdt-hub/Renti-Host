@@ -24,12 +24,16 @@ class ForgetPasswordController extends GetxController {
     ApiResponseModel responseModel = await forgetPasswordRepo.forgetPasswordResult(email: emailController.text.trim().toString());
 
     if (responseModel.statusCode == 201) {
+      isSubmit = false;
+      update();
       await forgetPasswordRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userEmailKey, emailController.text.trim().toString());
       Get.offAndToNamed(AppRoute.forgotPasswordOTPScreen);
       if (kDebugMode) {
         print("status code: ${responseModel.statusCode}");
       }
     } else {
+      isSubmit = false;
+      update();
       ForgetPassModel forgetPasswordModel = ForgetPassModel.fromJson(jsonDecode(responseModel.responseJson));
       Utils.snackBar("Error", forgetPasswordModel.message.toString());
       if (kDebugMode) {

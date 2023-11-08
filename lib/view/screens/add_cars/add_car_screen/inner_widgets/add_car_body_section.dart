@@ -162,7 +162,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                   Expanded(
                     child: TextFormField(
                       controller: controller.insuranceStartDate,
-                      showCursor: true,
+                      showCursor: true,keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                       style: GoogleFonts.poppins(
                           fontSize: 14,
@@ -203,6 +203,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                     child: TextFormField(
                       controller: controller.insuranceEndDate,
                       textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.number,
                       showCursor: true,
                       style: GoogleFonts.poppins(
                           fontSize: 14,

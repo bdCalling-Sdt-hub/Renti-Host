@@ -35,9 +35,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
         physics: const BouncingScrollPhysics(),
         child: GetBuilder<ProfileController>(
           builder: (controller) {
-            String fullName = controller.profileModel.user!.fullName.toString();
-            String phoneNumber =
-                controller.profileModel.user!.phoneNumber.toString();
+            String fullName = "${controller.profileModel.user?.fullName}";
+            String phoneNumber = "${controller.profileModel.user?.phoneNumber}";
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,

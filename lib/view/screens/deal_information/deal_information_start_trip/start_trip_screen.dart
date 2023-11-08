@@ -42,8 +42,13 @@ class _StartTripScreenState extends State<StartTripScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText(
+                 /* CustomText(
                       text: "Upload Car Photo".tr,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      bottom: 16),*/
+                  CustomText(
+                      text: "Car Information".tr,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       bottom: 16),
@@ -55,7 +60,7 @@ class _StartTripScreenState extends State<StartTripScreen> {
                           .toString(),
                       image3: rentListModel.rentedCars![index].carId!.image![2]
                           .toString()),
-                  const SizedBox(height: 16),
+                  /*const SizedBox(height: 16),
                   CustomElevatedButton(
                     onPressed: () {},
                     titleText: "Upload Car Photo".tr,
@@ -63,19 +68,19 @@ class _StartTripScreenState extends State<StartTripScreen> {
                     titleSize: 16,
                     titleWeight: FontWeight.w500,
                     buttonWidth: double.maxFinite,
-                  ),
-                  const SizedBox(height: 16),
+                  ),*/
+                  const SizedBox(height: 24),
                   RentalInformation(index: index, rentListModel: rentListModel),
                   const SizedBox(height: 24),
                   //User Information Section
                   RentalUserInformation(index: index, rentListModel: rentListModel),
                   const SizedBox(height: 24),
-                  CustomElevatedButton(
+                  /*CustomElevatedButton(
                       onPressed: () {
                         Get.toNamed(AppRoute.endTripScreen,arguments: [rentListModel,index]);
                       },
                       titleText: "Start trip".tr,
-                      buttonHeight: 48,buttonWidth: double.maxFinite),
+                      buttonHeight: 48,buttonWidth: double.maxFinite),*/
                 ],
               ),
             );

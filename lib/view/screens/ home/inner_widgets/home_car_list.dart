@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -57,9 +58,8 @@ class _HomeCarListState extends State<HomeCarList> {
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 fit: BoxFit.fill,
-                                image: NetworkImage(
-                                  widget.homeCarListModel.cars![index].image![0]
-                                      .toString(),
+                                image: CachedNetworkImageProvider(
+                                  "${widget.homeCarListModel.cars?[index].image?[0]}",
                                 ))),
                       ),
                       Expanded(

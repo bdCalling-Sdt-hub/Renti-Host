@@ -27,11 +27,11 @@ class ResetPasswordController extends GetxController {
       isSubmit = false;
       update();
       Get.offAndToNamed(AppRoute.signInScreen);
-      Utils.snackBar("Successful", "Password Reset Successful");
+      Utils.snackBar("Successful".tr, "Password Reset Successful".tr);
     } else {
       isSubmit = false;
       update();
-      Utils.snackBar("Error", "Somethings went wrong");
+      Utils.snackBar("Error".tr, "Somethings went wrong".tr);
     }
     isSubmit = false;
     update();

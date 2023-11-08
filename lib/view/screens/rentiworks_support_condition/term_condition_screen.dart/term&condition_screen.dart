@@ -70,7 +70,7 @@ class _TermsConditionScreenState extends State<TermsConditionScreen> {
                         horizontal: 20, vertical: 24),
                     physics: const BouncingScrollPhysics(),
                     child: tcModel.termsCondition?.content == null
-                        ? const Center(child: CustomText(text: "No Data Found"))
+                        ? const Center(child: CustomText(text: "No Data Found",fontSize: 18))
                         : Html(data: "${tcModel.termsCondition?.content}",
                     ),
                   );

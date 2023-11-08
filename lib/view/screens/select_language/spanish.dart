@@ -50,6 +50,7 @@ Map<String, String> spanish = {
   "Reset": "Reiniciar",
   "Confirm Password": "Confirmar Contraseña",
   "New Password": "Nueva contraseña",
+  "Password Reset Successful" : "Restablecimiento de contraseña exitosa",
 
   //Sign Up Screen
   "Sign Up": "Inscribirse",
@@ -71,6 +72,8 @@ Map<String, String> spanish = {
   "Address": "DIRECCIÓN",
   "Enter your address": "Ingrese su dirección",
   "InputField Can't be Empty": "InputField no puede estar vacía",
+  "Sign Up Successful" : "Regístrese exitosamente",
+  "User Already Exist" : "La usuario ya existe",
 
   //KYC Screen
   "KYC": "KYC",
@@ -91,8 +94,7 @@ Map<String, String> spanish = {
 
   //KYC Phone Number Verification Screen All Strings
   "Mobile Number Verification": "Verificación del número de teléfono",
-  "weHaveSent":
-      "Le hemos enviado un código OTP a su número de teléfono móvil. Ingrese el código OTP.",
+  "weHaveSent": "Le hemos enviado un código OTP a su número de teléfono móvil. Ingrese el código OTP.",
 
   "Email Verification": "Verificacion de email",
   "weSentEmail": "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
@@ -104,8 +106,7 @@ Map<String, String> spanish = {
   "Total car": "Coche total",
   "Active": "Activa",
   "Reserved": "Reservada",
-  "Please wait for admin’s approval.":
-      "Espere la aprobación del administrador.",
+  "Please wait for admin’s approval.": "Espere la aprobación del administrador.",
   "Add New Car": "Agregar auto nuevo",
   "Cars List": "Lista de coches",
   "See all": "Ver todo",
@@ -117,9 +118,10 @@ Map<String, String> spanish = {
   "Message": "Mensaje",
   "Profile": "Perfil",
   "Please wait for admin approve to log in" : "Veuillez attendre l'approbation de l'administrateur pour vous connecter",
-  "Error" : "Erreur",
+  "Error" : "Error",
   "Enter valid Email and Password" : "Entrez un e-mail et un mot de passe valides",
   "Authentication failed" : "Authentification échouée",
+  "Somethings went wrong" : "Algo salió mal",
 
   //Drawer Section
   "Add Car": "Agregar auto",
@@ -236,6 +238,7 @@ Map<String, String> spanish = {
   "Nice Behavior.": "Buen comportamiento.",
   "Type Review": "Tipo de revisión",
   "Send Review": "Enviar reseña",
+  "Car Information" : "Información del coche",
 
   //Rent Request Screen
   "Users Request": "Solicitud de usuarios",

@@ -25,7 +25,7 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
 
     return Row(
       children: [
-        Expanded(
+        Flexible(
           child: Row(
             children: [
               SizedBox(
@@ -50,7 +50,7 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
                     text: widget.rentRequestResponseModel
                         .rentRequest![widget.index].userId!.fullName
                         .toString(),
-                    fontSize: 24,
+                    fontSize: 24,maxLines: 1,overflow: TextOverflow.ellipsis,
                     fontWeight: FontWeight.w500,
                     color: AppColors.blueNormal,
                   ),
@@ -77,7 +77,8 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
             ],
           ),
         ),
-        Row(
+        //const SizedBox(width: 24),
+        /*Row(
           children: [
             InkWell(
               child: Container(
@@ -109,7 +110,7 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
               ),
             ),
           ],
-        ),
+        ),*/
       ],
     );
   }

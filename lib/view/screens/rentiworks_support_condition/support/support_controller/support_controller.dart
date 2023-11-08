@@ -25,7 +25,7 @@ class SupportController extends GetxController {
       supportModel = SupportModel.fromJson(jsonDecode(apiResponseModel.responseJson));
       isloading = false;
       update();
-      Utils.snackBar("Error", supportModel.message.toString());
+     // Utils.snackBar("Error", supportModel.message.toString());
     }
     isloading = false;
     update();

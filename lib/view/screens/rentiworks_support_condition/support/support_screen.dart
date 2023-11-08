@@ -50,7 +50,7 @@ class _SupportScreenState extends State<SupportScreen> {
                   SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                 child: controller.supportModel.support?.content == null
-                    ? const Center(child: CustomText(text: "No Data Found"))
+                    ? const Center(child: CustomText(text: "No Data Found",fontSize: 18))
                     : Html(data: "${controller.supportModel.support?.content}"
                 ),
               ),

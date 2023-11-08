@@ -1,13 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/service/socket_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/container/custon_container.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
-import '../../../../utils/device_utils.dart';
 
 class InboxScreen extends StatefulWidget {
   const InboxScreen({super.key});
@@ -32,8 +33,12 @@ class _InboxScreenState extends State<InboxScreen> {
     image = Get.arguments[2];
     hostUid = Get.arguments[3];
 
-    print(hostUid);
-    print(userUid);
+    if (kDebugMode) {
+      print(hostUid);
+    }
+    if (kDebugMode) {
+      print(userUid);
+    }
 
     final socketService = Get.find<SocketService>();
     socketService.connectToSocket();
@@ -63,7 +68,7 @@ class _InboxScreenState extends State<InboxScreen> {
       top: true,
       child: Scaffold(
         extendBody: true,
-        backgroundColor: AppColors.whiteLight,
+        backgroundColor: AppColors.whiteLight1,
         appBar: CustomAppBar(
           appBarBgColor: AppColors.blueNormal,
           bottom: 20,
@@ -79,8 +84,7 @@ class _InboxScreenState extends State<InboxScreen> {
                 children: [
                   GestureDetector(
                     onTap: () => Get.back(),
-                    child: const Icon(Icons.arrow_back_ios_rounded,
-                        size: 18, color: AppColors.whiteLight),
+                    child: const Icon(Icons.arrow_back_ios_rounded, size: 18, color: AppColors.whiteLight),
                   ),
                   Container(
                     height: 52,
@@ -99,8 +103,8 @@ class _InboxScreenState extends State<InboxScreen> {
                       color: AppColors.whiteLight)
                 ],
               ),
-              const SizedBox(width: 24),
-              const Icon(Icons.phone, size: 24, color: AppColors.whiteLight),
+              /*const SizedBox(width: 24),
+              const Icon(Icons.phone, size: 24, color: AppColors.whiteLight),*/
             ],
           ),
         ),
@@ -114,6 +118,7 @@ class _InboxScreenState extends State<InboxScreen> {
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.only(top: 24, bottom: 100),
                     child: CustomContainer(
+
                       child: Column(
                         children: List.generate(
                           socketService.messageList.length,

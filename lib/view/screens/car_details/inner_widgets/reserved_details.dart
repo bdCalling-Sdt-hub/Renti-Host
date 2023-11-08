@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renti_host/core/helper/date_converter_helper.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -159,9 +160,9 @@ class ReservedDetails extends StatelessWidget {
                     fontSize: 16,
                     color: AppColors.whiteDarkHover),
                 const SizedBox(width: 24),
-                const CustomText(
+                CustomText(
                     maxLines: 1,overflow: TextOverflow.ellipsis,
-                    text: "10 aug 2023 - 11 aug 2024",
+                    text: DateConverter.isoStringToLocalDateOnly("${homeCarListModel.cars?[index].registrationDate}"),
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
               ],

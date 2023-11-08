@@ -52,10 +52,12 @@ class _WeeklyIncomeScreenState extends State<WeeklyIncomeScreen> {
                 return SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   padding: const EdgeInsetsDirectional.symmetric(vertical: 24, horizontal: 20),
-                  child: Column(
+                  child:  Column(
                     children: List.generate(controller.incomeResponseModel.weeklyIncomeList?.length ?? 0,
                       (index) {
-                        return Container(
+                        return controller.incomeResponseModel.weeklyIncomeList?[index].carId != null
+                            && controller.incomeResponseModel.weeklyIncomeList?[index].userId != null
+                            ? Container(
                           width: double.maxFinite,
                           margin: const EdgeInsets.only(bottom: 8),
                           padding: const EdgeInsets.only(left: 8, right: 16, top: 8, bottom: 8),
@@ -87,43 +89,24 @@ class _WeeklyIncomeScreenState extends State<WeeklyIncomeScreen> {
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                               ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    CustomText(
-                                      text: "${controller.incomeResponseModel.weeklyIncomeList?[index].carId?.carModelName}",
-                                      color: AppColors.blueNormal,
-                                      fontWeight: FontWeight.w700,
-                                      bottom: 8,
-                                    ),
-                                    Row(
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomText(
+                                    text: "${controller.incomeResponseModel.weeklyIncomeList?[index].carId?.carModelName}",
+                                    color: AppColors.blueNormal,
+                                    fontWeight: FontWeight.w700,
+                                    bottom: 8,
+                                  ),
+                                  Flexible(
+                                    child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         //Transition ID
-                                        Text.rich(
-                                          TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: "Transition no: ".tr,
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: AppColors.whiteDarkHover,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: "${controller.incomeResponseModel.weeklyIncomeList?[index].paymentData?.balanceTransaction}",
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: AppColors.blackNormal,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
+                                        const CustomText(text: "Transition ID:",fontSize: 12,color: AppColors.blackNormal,),
+                                        Flexible(child: CustomText(text: "${controller.incomeResponseModel.weeklyIncomeList?[index].paymentData?.balanceTransaction}",maxLines: 1,overflow: TextOverflow.ellipsis,)),
+
                                         const CustomText(
                                           text: '\$ 50',
                                           textAlign: TextAlign.right,
@@ -132,35 +115,35 @@ class _WeeklyIncomeScreenState extends State<WeeklyIncomeScreen> {
                                         ),
                                       ],
                                     ),
-                                    const SizedBox(height: 8),
-                                    //Date Of review section
-                                    Text.rich(
-                                      TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: "Trip no: ".tr,
-                                            style: GoogleFonts.poppins(
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.whiteDarkHover),
-                                          ),
-                                          TextSpan(
-                                            text: "10",
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 12,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  //Date Of review section
+                                  Text.rich(
+                                    TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: "Trip no: ".tr,
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 10,
                                               fontWeight: FontWeight.w400,
-                                              color: AppColors.blackNormal,
-                                            ),
+                                              color: AppColors.whiteDarkHover),
+                                        ),
+                                        TextSpan(
+                                          text: "10",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.blackNormal,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        );
+                        ) : const SizedBox();
                       },
                     ),
                   ),

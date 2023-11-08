@@ -49,6 +49,10 @@ Map<String, String> english = {
   "Reset": "Reset",
   "Confirm Password": "Confirm Password",
   "New Password": "New Password",
+  "Password Reset Successful" : "Password Reset Successful",
+  "Somethings went wrong" : "Somethings went wrong",
+  "Sign Up Successful" : "Sign Up Successful",
+  "User Already Exist" : "User Already Exist",
 
   //Sign Up Screen
   "Sign Up": "Sign Up",
@@ -229,6 +233,7 @@ Map<String, String> english = {
   "Nice Behavior.": "Nice Behavior.",
   "Type Review": "Type Review",
   "Send Review": "Send Review",
+  "Car Information" : "Car Information",
 
   //Rent Request Screen
   "Users Request": "Users Request",

@@ -52,7 +52,7 @@ class _RentiWorkScreenState extends State<RentiWorkScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                 physics: const BouncingScrollPhysics(),
                 child: controller.rentiWorksModel.howRentiWork?.content == null
-                    ? const Center(child: CustomText(text: "No Data Found"))
+                    ? const Center(child: CustomText(text: "No Data Found",fontSize: 18))
                     : Html(data: "${controller.rentiWorksModel.howRentiWork?.content}",
                 ),
               ),

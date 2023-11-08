@@ -287,4 +287,23 @@ class AddCarController extends GetxController {
     isLoading = false;
     update();
   }
+
+
+  clearData() {
+    isLoading = false;
+    carModelName.text = "";
+    carLicenseNumber.text = "";
+    carDescription.text = "";
+    carRentAmmount.text = "";
+    insuranceStartDate.text = "";
+    insuranceEndDate.text = "";
+
+    //AddCar Section-2
+    carColor.text = "";
+    carDoor.text = "";
+    carSeats.text = "";
+    totalRun.text = "";
+    gearType.text = "";
+    registrationDate.text = "";
+  }
 }

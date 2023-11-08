@@ -112,7 +112,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                             return "This field can not be empty".tr;
                           } else if (value.length < 6) {
                             return "Password should be more than 6 characters".tr;
-                          } else {
+                          } else if(controller.reTypedPassword != controller.newPassword){
+                            return "Password doesn't match".tr;
+                        } else {
                             return null;
                           }
                         },

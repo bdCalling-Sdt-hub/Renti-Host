@@ -236,11 +236,10 @@ class SignUpController extends GetxController {
       };
       final String addresses = jsonEncode(address);
 
-      Map <String, String> bankInfo ={
+      Map <String, String> bankInfo = {
         "account_number": accountController.text,
         "account_holder_name": accountHolderController.text,
         "account_holder_type": accountType[selectedAccount]
-
       };
       final String bankInformation = jsonEncode(bankInfo);
 
@@ -271,6 +270,7 @@ class SignUpController extends GetxController {
 
       if (kDebugMode) {
         print(params);
+        print(response.statusCode);
       }
 
       if (response.statusCode == 201) {
@@ -278,12 +278,15 @@ class SignUpController extends GetxController {
         isloading = false;
         update();
         Get.toNamed(AppRoute.kycNumberVerification);
-        Utils.snackBar("Successful", "Sign Up Successful");
+        Utils.snackBar("Successful".tr, "Sign Up Successful".tr);
       }
       else if(response.statusCode == 409){
         isloading = false;
         update();
-        Utils.snackBar("Error".tr, "User Already Exist".tr);
+        Utils.snackBar("Successful".tr, "User Already Exist".tr);
+      }
+      if (kDebugMode) {
+        print(response.statusCode);
       }
     } catch (e) {
       isloading = false;
@@ -294,6 +297,7 @@ class SignUpController extends GetxController {
 
       Utils.snackBar("Error".tr, "$e");
     }
+
     isloading = false;
     update();
   }

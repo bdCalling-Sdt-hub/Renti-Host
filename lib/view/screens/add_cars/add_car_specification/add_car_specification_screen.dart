@@ -112,7 +112,7 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                     TextFormField(
                       controller: controller.registrationDate,
                       showCursor: true,
-                      keyboardType: TextInputType.datetime,
+                      keyboardType: TextInputType.number,
                       style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,

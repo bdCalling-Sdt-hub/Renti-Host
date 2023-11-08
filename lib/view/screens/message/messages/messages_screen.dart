@@ -167,13 +167,13 @@ class _MessageScreenState extends State<MessageScreen> {
                                           fontWeight: FontWeight.w500) ,
                                     ],
                                   ),
-                                  CustomText(
-                                    text: participant[index].id.toString(),
+                                 /* CustomText(
+                                    text: participant[index]..toString(),
                                     fontSize: 12,
                                     color: AppColors.whiteDark,
                                     textAlign: TextAlign.start,
                                     top: 8,
-                                  ),
+                                  ),*/
                                 ],
                               ),
                             ),
