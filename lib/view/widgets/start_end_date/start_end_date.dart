@@ -4,9 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
 
 class StartEndDate extends StatelessWidget {
-   StartEndDate({super.key});
+   StartEndDate({super.key, required this.startDate, required this.endDate});
 
   final List<String> date = ['05 aug, 2023', '06 aug, 2023'];
+  final String startDate;
+  final String endDate;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class StartEndDate extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: date[0],
+                  text: startDate,
                   style: GoogleFonts.poppins(
                     color: AppColors.blackNormal,
                     fontSize: 12,
@@ -59,7 +61,7 @@ class StartEndDate extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: date[1],
+                  text: endDate,
                   style: GoogleFonts.poppins(
                     color: AppColors.blackNormal,
                     fontSize: 12,

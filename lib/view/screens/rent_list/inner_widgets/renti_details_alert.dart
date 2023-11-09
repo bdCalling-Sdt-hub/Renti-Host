@@ -78,12 +78,11 @@ class RentDetailsAlert extends StatelessWidget {
                CustomRentDetails(title: "Email:".tr, data: rentListModel.rentedCars![index].userId!.email.toString()),
               const SizedBox(height: 8),
                CustomRentDetails(title: "INE:".tr, data: rentListModel.rentedCars![index].userId!.ine.toString()),
-              const SizedBox(height: 8),
              // CustomRentDetails(title: "Driving license no:".tr, data: 'ACD1234566'),
               const SizedBox(height: 24),
 
               //This Button Only Show When Reserve Status card Clicked
-              rentListModel.rentedCars?[index].carId?.tripStatus == "Start"
+              rentListModel.rentedCars?[index].carId?.tripStatus != "Start"
                   ? const SizedBox()
                   : CustomElevatedButton(onPressed: (){
                 Get.toNamed(AppRoute.startTripScreen,arguments: [rentListModel, index]);

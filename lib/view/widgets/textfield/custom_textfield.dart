@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
@@ -27,6 +28,7 @@ class CustomTextField extends StatefulWidget {
     this.isPassword = false,
     this.isPrefixIcon = true,
     this.readOnly = false,
+    this.inputFormatters,
     super.key
   });
 
@@ -52,6 +54,7 @@ class CustomTextField extends StatefulWidget {
   final bool isPassword;
   final bool isPrefixIcon;
   final bool readOnly;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -65,6 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
 
     return TextFormField(
+      inputFormatters: widget.inputFormatters,
       onFieldSubmitted: widget.onFieldSubmitted,
       readOnly: widget.readOnly,
       controller: widget.textEditingController,

@@ -193,8 +193,8 @@ class _RentFeeCardState extends State<RentFeeCard> {
                   ],
                 ),
               ),
-              isExpanded ? StartEndDate() : const SizedBox(),
-              const SizedBox(height: 8)
+              /*isExpanded ? StartEndDate() : const SizedBox(),
+              const SizedBox(height: 8)*/
             ],
           );
         },

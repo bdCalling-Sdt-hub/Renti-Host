@@ -19,6 +19,7 @@ class CarDetailsScreen extends StatefulWidget {
 class _CarDetailsScreenState extends State<CarDetailsScreen> {
   HomeCarListModel homeCarListModel = Get.arguments[0];
   int index = Get.arguments[1];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

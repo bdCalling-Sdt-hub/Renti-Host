@@ -47,10 +47,14 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
                   text: "Rent date: ".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
-              CustomText(
-                  text: "$formattedStartDate - $formattedEndDate",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+              const SizedBox(width: 24),
+              Flexible(
+                child: CustomText(
+                    text: "$formattedStartDate - $formattedEndDate",
+                    maxLines: 1,overflow: TextOverflow.ellipsis,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500),
+              ),
             ],
           ),
           const SizedBox(height: 8),
@@ -62,11 +66,14 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
                   text:"Total time: ".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
-              CustomText(
-                  text:
-                      "${widget.rentRequestResponseModel.rentRequest![widget.index].totalHours.toString()}h",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+              const SizedBox(width: 24),
+              Flexible(
+                child: CustomText(
+                    text: "${widget.rentRequestResponseModel.rentRequest![widget.index].totalHours.toString()}h",
+                    maxLines: 1,overflow: TextOverflow.ellipsis,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500),
+              ),
             ],
           ),
           const SizedBox(height: 8),
@@ -78,12 +85,14 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
                   text: "Contact: ".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
-              CustomText(
-                  text: widget.rentRequestResponseModel
-                          .rentRequest![widget.index].userId!.phoneNumber
-                          .toString() ?? "",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+              const SizedBox(width: 24),
+              Flexible(
+                child: CustomText(
+                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                    text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].userId?.phoneNumber}",
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500),
+              ),
             ],
           ),
           const SizedBox(height: 8),
@@ -95,11 +104,12 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
                   text: "Total amount:".tr,
                   fontSize: 16,
                   color: AppColors.whiteDarkHover),
-              CustomText(
-                  text:
-                      '\$${widget.rentRequestResponseModel.rentRequest![widget.index].totalAmount.toString() ?? ""}',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+              Flexible(
+                child: CustomText(
+                    text: '\$${widget.rentRequestResponseModel.rentRequest?[widget.index].totalAmount}',
+                    fontSize: 16,maxLines: 1,overflow: TextOverflow.ellipsis,
+                    fontWeight: FontWeight.w500),
+              ),
             ],
           ),
         ],

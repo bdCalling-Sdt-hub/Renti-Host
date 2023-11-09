@@ -17,9 +17,7 @@ class RequestCarDetailsCard extends StatefulWidget {
 class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
   @override
   Widget build(BuildContext context) {
-    String carImg = widget
-        .rentRequestResponseModel.rentRequest![widget.index].carId!.image![0]
-        .toString();
+    String carImg = "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.image?[0]}";
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -53,34 +51,27 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
-                      text: widget.rentRequestResponseModel
-                          .rentRequest![widget.index].carId!.carModelName
-                          .toString(),
+                      text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.carModelName}",
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.blueDark,
                       textAlign: TextAlign.start,
                     ),
                     CustomText(
-                      text: widget.rentRequestResponseModel
-                          .rentRequest![widget.index].carId!.carLicenseNumber
-                          .toString(),
+                      text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.carLicenseNumber}",
                       color: AppColors.whiteDarkActive,
                       top: 8,
                       bottom: 8,
                       textAlign: TextAlign.start,
                     ),
                     CustomText(
-                      text: widget.rentRequestResponseModel
-                              .rentRequest![widget.index].carId!.totalRun
-                              .toString() ??
-                          "",
+                      text:"${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.totalRun}" ,
                       color: AppColors.whiteDarkActive,
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(height: 8),
                     CustomText(
-                      text: "${widget.rentRequestResponseModel.rentRequest![widget.index].carId!.hourlyRate.toString()}\$/h" ?? "",
+                      text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.hourlyRate}\$/h",
                       color: AppColors.whiteDarkActive,
                     ),
                   ],

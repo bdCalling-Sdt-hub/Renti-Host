@@ -26,77 +26,66 @@ class RentDetailsTopSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            //Image Section
-            Container(
-              width: 70,
-              height: 70,
-              margin: const EdgeInsets.only(right: 16),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: NetworkImage(image),
-                    fit: BoxFit.fill),
-              ),
-            ),
 
-            //Car Name and Details Section
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText(
-                    text: carName,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    bottom: 8),
-                //Car License section
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "Car license no: ".tr,
-                        style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.whiteDarkHover),
-                      ),
-                      TextSpan(
-                        text: carLicense,
-                        style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.blackNormal),
-                      ),
-                    ],
-                  ),
+      children: [
+        Flexible(
+          child: Row(
+            children: [
+              //Image Section
+              Container(
+                width: 70,
+                height: 70,
+                margin: const EdgeInsets.only(right: 16),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage(image),
+                      fit: BoxFit.fill),
                 ),
-                const SizedBox(height: 8),
-                //Car Year Section
-                Text.rich(
-                  TextSpan(
-                    children: [
+              ),
+
+              //Car Name and Details Section
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText(
+                        text: carName,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        bottom: 8),
+                    //Car License section
+                    Row(children: [
+                      CustomText(text: "Car license no: ".tr,fontSize: 10),
+                      Flexible(child: CustomText(text: "$carLicense$carLicense",fontSize: 10,maxLines: 1,overflow: TextOverflow.ellipsis))
+                    ],),
+                    const SizedBox(height: 8),
+                    //Car Year Section
+                    Text.rich(
                       TextSpan(
-                        text: "Car year:".tr,
-                        style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.whiteDarkHover),
+                        children: [
+                          TextSpan(
+                            text: "Car year:".tr,
+                            style: GoogleFonts.poppins(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.whiteDarkHover),
+                          ),
+                          TextSpan(
+                            text: carModel,
+                            style: GoogleFonts.poppins(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.blackNormal),
+                          ),
+                        ],
                       ),
-                      TextSpan(
-                        text: carModel,
-                        style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.blackNormal),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
         tripStatus == "Pending" ?
         Container(

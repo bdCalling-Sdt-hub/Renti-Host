@@ -72,9 +72,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomText(
-                                  text: widget.userListResponseModel
-                                      .userList![widget.index].userId!.fullName
-                                      .toString(),
+                                  text: "${widget.userListResponseModel.userList?[widget.index].userId?.fullName} ",
                                   maxLines: 1,overflow: TextOverflow.ellipsis,
                                   fontSize: 16,textAlign: TextAlign.start,
                                   fontWeight: FontWeight.w500,
@@ -109,10 +107,10 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                         margin: const EdgeInsets.only(bottom: 8),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
-                            color: widget.userListResponseModel.userList![widget.index].requestStatus == "Completed" ? AppColors.greenLight : AppColors.redLight),
-                        child: widget.userListResponseModel.userList![widget.index].requestStatus == "Completed" ?
+                            color: widget.userListResponseModel.userList?[widget.index].requestStatus == "Completed" ? AppColors.greenLight : AppColors.redLight),
+                        child: widget.userListResponseModel.userList?[widget.index].requestStatus == "Completed" ?
                         CustomText(
-                          text: widget.userListResponseModel.userList![widget.index].requestStatus.toString(),
+                          text: "${widget.userListResponseModel.userList?[widget.index].requestStatus}",
                           color: AppColors.greenNormal,
                           fontSize: 10,
                         ) :
@@ -122,7 +120,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                           fontSize: 10,
                         ) ,
                       ),
-                      const SizedBox(height: 8),
+                      /*const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -152,7 +150,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                             ),
                           ),
                         ],
-                      ),
+                      ),*/
                     ],
                   ),
                 ],

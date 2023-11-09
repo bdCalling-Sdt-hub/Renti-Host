@@ -13,6 +13,18 @@ class RentalInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    String startDateString = "${rentListModel.rentedCars?[index].startDate}";
+
+    String endDateString = "${rentListModel.rentedCars?[index].endDate}";
+
+    // Define a regular expression pattern to match the date part
+    RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
+
+    // Use the regular expression to extract the date part
+    String formattedStartDate = datePattern.firstMatch(startDateString)?.group(0) ?? '';
+    String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
+
     return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -90,11 +102,11 @@ class RentalInformation extends StatelessWidget {
         const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(text: "Rental Date:".tr,color: AppColors.whiteDarkHover,fontSize: 16),
             const SizedBox(width: 24),
-            Flexible(child: CustomText(text: DateConverter.isoStringToLocalDateOnly("${rentListModel.rentedCars?[index].startDate}"),fontSize: 16,fontWeight:FontWeight.w500)),
+            Flexible(child: CustomText(text: "$formattedStartDate - $formattedEndDate",maxLines: 2,overflow: TextOverflow.ellipsis,textAlign: TextAlign.right,fontSize: 16,fontWeight:FontWeight.w500)),
           ],
         ),
       ],

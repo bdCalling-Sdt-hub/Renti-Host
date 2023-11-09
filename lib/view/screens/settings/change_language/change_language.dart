@@ -21,8 +21,8 @@ class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
   Widget build(BuildContext context) {
 
     List<String> languageName = [
-      'English'.tr,
-      'Spanish'.tr,
+      'English',
+      'Spanish',
     ];
 
     return SafeArea(
@@ -56,7 +56,6 @@ class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
                           Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
                         },
                         child: Container(
-                          height: 52,
                           width: double.maxFinite,
                           padding: const EdgeInsets.all(16),
                           child: Row(

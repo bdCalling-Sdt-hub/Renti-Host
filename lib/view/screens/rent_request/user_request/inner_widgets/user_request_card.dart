@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/rent_request/rent_request_repo/rent_request_repo.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_controller/rent_request_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -57,49 +56,53 @@ class _UserRequestCardState extends State<UserRequestCard> {
                   ),
                 ),
                 const SizedBox(width: 16),
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CustomText(
-                          text: widget.name,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500),
-                      const SizedBox(height: 8),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            children: List.generate(
-                              5,
-                              (index) => const CustomImage(
-                                imageSrc: AppImages.starImage,
-                                size: 12,
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomText(
+                            text: widget.name,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500),
+                        const SizedBox(height: 8),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: List.generate(
+                                5,
+                                (index) => const CustomImage(
+                                  imageSrc: AppImages.starImage,
+                                  size: 12,
+                                ),
                               ),
                             ),
-                          ),
-                           const CustomText(
-                              text: "",
-                              fontSize: 10,
-                              left: 8),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Icon(Icons.calendar_month,
-                              size: 14, color: AppColors.whiteDarkActive),
-                          CustomText(
-                              text: "${widget.startDate}-${widget.endDate}",
-                              color: AppColors.whiteDarkActive,
-                              left: 8),
-                        ],
-                      ),
-                    ],
+                             const CustomText(
+                                text: "",
+                                fontSize: 10,
+                                left: 8),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Icon(Icons.calendar_month, size: 14, color: AppColors.whiteDarkActive),
+                            Flexible(
+                              child: CustomText(
+                                  text: "${widget.startDate} - ${widget.endDate} ${widget.endDate}",
+                                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                                  color: AppColors.whiteDarkActive,
+                                  left: 8),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -123,14 +126,11 @@ class _UserRequestCardState extends State<UserRequestCard> {
                     titleWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(
-                  width: 8,
-                ),
+                const SizedBox(width: 8),
                 Expanded(
                   child: CustomElevatedButton(
                     onPressed: () {
-                      rentReqRepo.rentRequest(
-                          request: Request.accepted, id: widget.id);
+                      rentReqRepo.rentRequest(request: Request.accepted, id: widget.id);
                       controller.rentRequest();
                     },
                     titleText: "Approve".tr,

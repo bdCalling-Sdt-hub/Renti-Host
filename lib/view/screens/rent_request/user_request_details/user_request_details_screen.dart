@@ -38,8 +38,7 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
             return LayoutBuilder(
               builder: (context, constraint) {
                 return SingleChildScrollView(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -61,9 +60,7 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
                             onPressed: () {
                               rentReqRepo.rentRequest(
                                   request: Request.rejected,
-                                  id: rentRequestResponseModel
-                                      .rentRequest![index].id
-                                      .toString());
+                                  id: "${rentRequestResponseModel.rentRequest?[index].id}");
 
                               controller.rentRequest();
                               navigator!.pop();

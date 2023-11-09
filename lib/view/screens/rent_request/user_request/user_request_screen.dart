@@ -21,8 +21,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(RentRequestRepo(apiService: Get.find()));
-    var controller =
-        Get.put(RentRequestController(rentRequestRepo: Get.find()));
+    var controller = Get.put(RentRequestController(rentRequestRepo: Get.find()));
     controller.rentRequest();
     super.initState();
   }
@@ -62,9 +61,9 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                     children: List.generate(
                       controller.rentRequestResponseModel.rentRequest!.length,
                       (index) {
-                        String startDateString = controller.rentRequestResponseModel.rentRequest![index].startDate.toString();
+                        String startDateString = "${controller.rentRequestResponseModel.rentRequest?[index].startDate}";
 
-                        String endDateString = controller.rentRequestResponseModel.rentRequest![index].endDate.toString();
+                        String endDateString = "${controller.rentRequestResponseModel.rentRequest?[index].endDate}";
 
                         // Define a regular expression pattern to match the date part
                         RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
@@ -81,9 +80,9 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                                   index,
                                 ]);
                           },
-                          child: controller.rentRequestResponseModel.rentRequest![index].requestStatus == "Pending" &&
-                                  controller.rentRequestResponseModel.rentRequest![index].carId != null &&
-                                  controller.rentRequestResponseModel.rentRequest![index].requestStatus != "Cancel"
+                          child: controller.rentRequestResponseModel.rentRequest?[index].requestStatus == "Pending" &&
+                                  controller.rentRequestResponseModel.rentRequest?[index].carId != null &&
+                                  controller.rentRequestResponseModel.rentRequest?[index].requestStatus != "Cancel"
                               ? Container(
                                   padding: const EdgeInsets.all(16),
                                   margin: const EdgeInsetsDirectional.only(
@@ -100,10 +99,10 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                                     ],
                                   ),
                                   child: UserRequestCard(
-                                    id: controller.rentRequestResponseModel.rentRequest![index].id.toString(),
-                                    name: controller.rentRequestResponseModel.rentRequest![index].userId!.fullName.toString(),
+                                    id: "${controller.rentRequestResponseModel.rentRequest?[index].id}",
+                                    name: "${controller.rentRequestResponseModel.rentRequest?[index].userId?.fullName}",
                                     endDate: formattedEndDate,
-                                    image: controller.rentRequestResponseModel.rentRequest![index].userId!.image.toString(),
+                                    image: "${controller.rentRequestResponseModel.rentRequest?[index].userId?.image}",
                                     startDate: formattedStartDate,
                                   ),
                                 )

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
+import 'package:renti_host/view/widgets/start_end_date/start_end_date.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 // ignore: must_be_immutable
@@ -38,6 +39,17 @@ class _HomeCarListState extends State<HomeCarList> {
         widget.homeCarListModel.cars!.length,
         (index) {
           final isExpanded = expandedMap[index] ?? false;
+
+          String startDateString = "${widget.homeCarListModel.cars?[index].paymentId?.rentId?.startDate}";
+
+          String endDateString = "${widget.homeCarListModel.cars?[index].paymentId?.rentId?.endDate}";
+          // Define a regular expression pattern to match the date part
+          RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
+
+          // Use the regular expression to extract the date part
+          String formattedStartDate = datePattern.firstMatch(startDateString)?.group(0) ?? '';
+          String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
+
           return Column(
             children: [
               GestureDetector(
@@ -85,7 +97,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                 children: [
                                   Expanded(
                                     child: CustomText(
-                                        text: widget.homeCarListModel.cars![index].carModelName.toString(),
+                                        text: "${widget.homeCarListModel.cars?[index].carModelName}",
                                         maxLines: 1,overflow: TextOverflow.ellipsis,
                                         fontWeight: FontWeight.w700,
                                         color: AppColors.blueNormal,
@@ -135,7 +147,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                     children: [
                                       CustomText(
                                           text:
-                                              "\$${widget.homeCarListModel.cars![index].hourlyRate.toString()}",
+                                              "\$${widget.homeCarListModel.cars?[index].hourlyRate.toString()}",
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.whiteDarker),
@@ -146,19 +158,13 @@ class _HomeCarListState extends State<HomeCarList> {
                                           color: AppColors.whiteDarker),
                                     ],
                                   ),
-                                  widget.homeCarListModel.cars![index]
-                                              .tripStatus ==
-                                          "Start"
+                                  widget.homeCarListModel.cars?[index].tripStatus == "Start"
                                       ? GestureDetector(
                                           onTap: () {
                                             onChanged(index);
                                           },
-                                          child: Icon(
-                                              isExpanded
-                                                  ? Icons
-                                                      .keyboard_arrow_up_rounded
-                                                  : Icons
-                                                      .keyboard_arrow_down_rounded,
+                                          child: Icon(isExpanded ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                               color: AppColors.blueNormal,
                                               size: 18,
                                               weight: 10),
@@ -177,6 +183,10 @@ class _HomeCarListState extends State<HomeCarList> {
               // dataList[index]["status"] == "Reserved" && isExpanded
               //     ? StartEndDate()
               //     : const SizedBox(),
+
+
+              isExpanded ? StartEndDate(startDate: formattedStartDate,endDate: formattedEndDate,) : const SizedBox(),
+              const SizedBox(height: 8)
             ],
           );
         },

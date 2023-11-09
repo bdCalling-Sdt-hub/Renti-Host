@@ -64,11 +64,11 @@ class _RentListScreenState extends State<RentListScreen> {
                           : Column(
                         children: List.generate(
                           rentListModel.rentedCars!.length,
-                          (index) => rentListModel.rentedCars![index].requestStatus.toString() != "Completed" &&
-                                  rentListModel.rentedCars![index].payment.toString() != "Completed" &&
-                                  rentListModel.rentedCars![index].requestStatus.toString() != "Rejected" &&
-                                  rentListModel.rentedCars![index].requestStatus.toString() == "Accepted" &&
-                              rentListModel.rentedCars![index].carId != null
+                          (index) => rentListModel.rentedCars?[index].requestStatus.toString() != "Completed" &&
+                                  rentListModel.rentedCars?[index].payment.toString() != "Completed" &&
+                                  rentListModel.rentedCars?[index].requestStatus.toString() != "Rejected" &&
+                                  rentListModel.rentedCars?[index].requestStatus.toString() == "Accepted" &&
+                              rentListModel.rentedCars?[index].carId != null
                               ? GestureDetector(
                                   onTap: () => showDialog(
                                     context: context,
@@ -80,8 +80,7 @@ class _RentListScreenState extends State<RentListScreen> {
                                   ),
                                   child: Container(
                                     padding: const EdgeInsetsDirectional.all(8),
-                                    margin: const EdgeInsetsDirectional.only(
-                                        bottom: 8),
+                                    margin: const EdgeInsetsDirectional.only(bottom: 8),
                                     decoration: BoxDecoration(
                                       color: AppColors.whiteLight,
                                       borderRadius: BorderRadius.circular(8),
