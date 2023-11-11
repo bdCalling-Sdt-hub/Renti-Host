@@ -32,6 +32,7 @@ Map<String, String> english = {
   "Please enter your email address for recover your password.":
       "Please enter your email address for recover your password.",
   "Continue": "Continue",
+  "Car license no. :" : "Car license no. :",
 
   //OTP Screen
   "OTP": "OTP",

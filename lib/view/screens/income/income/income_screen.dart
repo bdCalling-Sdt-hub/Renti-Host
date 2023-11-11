@@ -22,7 +22,10 @@ class _IncomeScreenState extends State<IncomeScreen> {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(IncomeRepo(apiService: Get.find()));
     var controller = Get.put(IncomeController(incomeRepo: Get.find()));
-    controller.totalIncome();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      controller.totalIncome();
+    });
+
     super.initState();
   }
 
@@ -30,18 +33,19 @@ class _IncomeScreenState extends State<IncomeScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<IncomeController>(
       builder: (controller) {
+        if(controller.isLoading){
+          const Center(child: CircularProgressIndicator());
+        }
         return SafeArea(
           top: true,
           child: Scaffold(
             backgroundColor: AppColors.whiteLight,
             appBar: CustomAppBar(
-                appBarContent: CustomBack(
-                    text: "Income".tr, color: AppColors.blackNormal)),
+                appBarContent: CustomBack(text: "Income".tr, color: AppColors.blackNormal)),
             body: LayoutBuilder(
               builder: (context, constraint) {
                 return SingleChildScrollView(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                      vertical: 20, horizontal: 20),
+                  padding: const EdgeInsetsDirectional.symmetric(vertical: 20, horizontal: 20),
                   child: Column(
                     children: [
                       Container(
@@ -70,17 +74,12 @@ class _IncomeScreenState extends State<IncomeScreen> {
                               bottom: 16,
                               fontWeight: FontWeight.w600,
                             ),
-                            controller.incomeResponseModel.totalIncome != null
-                                ? CustomText(
-                                    text: "${controller.incomeResponseModel.totalIncome}",
+                            CustomText(
+                                    text: "\$${controller.income}",
+                                    maxLines: 1,overflow: TextOverflow.ellipsis,
                                     color: AppColors.whiteLight,
                                     fontSize: 40,
                                     fontWeight: FontWeight.w400)
-                                : const CustomText(
-                                    text: "0",
-                                    color: AppColors.whiteLight,
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w400),
                           ],
                         ),
                       ),

@@ -223,6 +223,7 @@ Map<String, String> spanish = {
   "Rental Information": "Información de alquiler",
   "Car year:": "Año del coche:",
   "search car by company...": "buscar coche por empresa...",
+  "Car license no. :" : "Licencia de coche no. :",
 
   //Start Trip End Trip Screen
   "Car Deal Information": "Información sobre ofertas de automóviles",

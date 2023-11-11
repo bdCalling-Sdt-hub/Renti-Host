@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
-import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/income/renti_fee_my_payment_model/renti_fee_my_payment_model.dart';
 import 'package:renti_host/view/screens/income/renti_fee_my_payment_repo/renti_fee_my_payment_repo.dart';
 
@@ -10,9 +9,11 @@ class RentiFeeMyControllerController extends GetxController {
   RentiFeeMyPaymentRepo rentiFeeMyPaymentRepo;
   RentiFeeMyControllerController({required this.rentiFeeMyPaymentRepo});
 
+  RentiFeeMyPaymentModel rentiFeeMyPaymentModel = RentiFeeMyPaymentModel();
+
   Future<RentiFeeMyPaymentModel> feeOrPayment() async {
     ApiResponseModel responseModel = await rentiFeeMyPaymentRepo.feeOrPayment();
-    RentiFeeMyPaymentModel rentiFeeMyPaymentModel; // Define the variable here
+    // Define the variable here
 
     if (responseModel.statusCode == 200) {
       rentiFeeMyPaymentModel = RentiFeeMyPaymentModel.fromJson(jsonDecode(responseModel.responseJson));
