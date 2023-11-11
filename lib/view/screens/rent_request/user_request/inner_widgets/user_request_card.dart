@@ -88,13 +88,13 @@ class _UserRequestCardState extends State<UserRequestCard> {
                         ),
                         const SizedBox(height: 8),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Icon(Icons.calendar_month, size: 14, color: AppColors.whiteDarkActive),
                             Flexible(
                               child: CustomText(
-                                  text: "${widget.startDate} - ${widget.endDate} ${widget.endDate}",
+                                  text: "${widget.startDate} - ${widget.endDate}",
                                   maxLines: 1,overflow: TextOverflow.ellipsis,
                                   color: AppColors.whiteDarkActive,
                                   left: 8),

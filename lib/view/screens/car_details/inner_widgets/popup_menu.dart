@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/%20home/home_controller/home_carlist_controller.dart';
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/screens/car_details/delete_car_repo/delete_car_repo.dart';
@@ -35,7 +36,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
         PopupMenuItem(
           child: GestureDetector(
             onTap: () {
-               //Get.toNamed(AppRoute.addCarsScreens);
+              Utils.snackBar("Alert!", "Need Admin Permission For Edit Car Details.");
             },
             child: Row(
               children: [
