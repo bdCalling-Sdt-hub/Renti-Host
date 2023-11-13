@@ -44,6 +44,7 @@ class CustomBack extends StatelessWidget {
             Icon(Icons.arrow_back_ios_new, size: fontSize, color: color),
             Expanded(
               child: CustomText(
+                maxLines: 1,overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.start,
                 left: left,
                 text: text,

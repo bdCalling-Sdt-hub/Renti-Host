@@ -78,10 +78,10 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: CustomText(
-                        text: homeCarListModel.cars![index].tripStatus == "Start"
+                        text: homeCarListModel.cars?[index].tripStatus == "Start"
                                 ? "Reserved"
                                 : "Active",
-                        color: homeCarListModel.cars![index].tripStatus == "Start"
+                        color: homeCarListModel.cars?[index].tripStatus == "Start"
                                 ? AppColors.redNormal
                                 : AppColors.greenNormal,
                         fontSize: 10),
@@ -97,7 +97,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                   CustomText(
-                      text: "/day".tr,
+                      text: "/hr".tr,
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                 ],

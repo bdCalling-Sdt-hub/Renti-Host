@@ -274,6 +274,11 @@ Map<String, String> english = {
   "Language Changed Successfully" : "Language Changed Successfully",
 
 
+  "No Internet Connection Found" : "No Internet Connection Found",
+  "Check Your Connection." : "Check Your Connection.",
+  "PLEASE CONNECT TO INTERNET" : "PLEASE CONNECT TO INTERNET",
+
+  "Payment Completed Trip Not Start" : "Payment Completed Trip Not Start",
 
 
 };

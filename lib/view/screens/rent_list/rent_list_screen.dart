@@ -65,7 +65,7 @@ class _RentListScreenState extends State<RentListScreen> {
                         children: List.generate(
                           rentListModel.rentedCars!.length,
                           (index) => rentListModel.rentedCars?[index].requestStatus.toString() != "Completed" &&
-                                  rentListModel.rentedCars?[index].payment.toString() != "Completed" &&
+                                  rentListModel.rentedCars?[index].payment.toString() == "Completed" &&
                                   rentListModel.rentedCars?[index].requestStatus.toString() != "Rejected" &&
                                   rentListModel.rentedCars?[index].requestStatus.toString() == "Accepted" &&
                               rentListModel.rentedCars?[index].carId != null
@@ -93,32 +93,15 @@ class _RentListScreenState extends State<RentListScreen> {
                                       ],
                                     ),
                                     child: RentDetailsTopSection(
-                                      image: rentListModel.rentedCars![index]
-                                              .userId!.image!.isEmpty
+                                      image: rentListModel.rentedCars![index].userId!.image!.isEmpty
                                           ? AppImages.profileImage
-                                          : rentListModel
-                                              .rentedCars![index].userId!.image
-                                              .toString(),
-                                      carName: rentListModel
-                                          .rentedCars![index].userId!.fullName
-                                          .toString(),
-                                      carModel: rentListModel
-                                          .rentedCars![index].carId!.year
-                                          .toString(),
-                                      requestStatus: rentListModel
-                                          .rentedCars![index].requestStatus
-                                          .toString(),
-                                      carLicense: rentListModel
-                                          .rentedCars![index]
-                                          .carId!
-                                          .carLicenseNumber
-                                          .toString(),
-                                      payment: rentListModel
-                                          .rentedCars![index].payment
-                                          .toString(),
-                                      tripStatus: rentListModel
-                                          .rentedCars![index].carId!.tripStatus
-                                          .toString(),
+                                          : rentListModel.rentedCars![index].userId!.image.toString(),
+                                      carName: rentListModel.rentedCars![index].userId!.fullName.toString(),
+                                      carModel: rentListModel.rentedCars![index].carId!.year.toString(),
+                                      requestStatus: rentListModel.rentedCars![index].requestStatus.toString(),
+                                      carLicense: rentListModel.rentedCars![index].carId!.carLicenseNumber.toString(),
+                                      payment: rentListModel.rentedCars![index].payment.toString(),
+                                      tripStatus: rentListModel.rentedCars![index].carId!.tripStatus.toString(),
                                     ),
                                   ),
                                 )

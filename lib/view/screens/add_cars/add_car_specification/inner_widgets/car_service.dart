@@ -14,10 +14,10 @@ class CarService extends StatefulWidget {
 
 class _CarServiceState extends State<CarService> {
   List<String> seatList = [
-    "Baby Car Seat".tr,
-    "Sunroof".tr,
-    'Bluetooth'.tr,
-    'GPS'.tr
+    "Baby Car Seat",
+    "Sunroof",
+    'Bluetooth',
+    'GPS'
   ];
   int selectedItem = 0;
 
@@ -57,7 +57,7 @@ class _CarServiceState extends State<CarService> {
                       ),
                       const SizedBox(width: 10),
                       CustomText(
-                        text: seatList[index].tr,
+                        text: seatList[index],
                       ),
                     ],
                   ),

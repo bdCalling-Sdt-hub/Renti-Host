@@ -46,6 +46,7 @@ import 'package:renti_host/view/screens/settings/privacy_policy/privacy_policy_s
 import 'package:renti_host/view/screens/settings/settings/settings_screen.dart';
 import 'package:renti_host/view/screens/splash/splash_screen.dart';
 import 'package:renti_host/view/screens/user_list/user_list_screen.dart';
+import 'package:renti_host/view/widgets/no_internet/no_internet.dart';
 
 class AppRoute {
   static const String splashScreen = "/splash_screen";
@@ -107,6 +108,9 @@ class AppRoute {
 
   static const String profileScreen = "/profile_screen";
   static const String editProfileScreen = "/edit_profile_screen";
+
+
+  static const String noInternet = "/no_internet";
 
   static List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -176,5 +180,7 @@ class AppRoute {
     //Profile and inner Screens
     GetPage(name: profileScreen, page: () => const ProfileScreen()),
     GetPage(name: editProfileScreen, page: () => const EditProfileScreen()),
+
+    GetPage(name: noInternet, page: () => const NoInternetScreen()),
   ];
 }

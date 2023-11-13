@@ -45,19 +45,21 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              Flexible(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
+                      maxLines: 1,overflow: TextOverflow.ellipsis,
                       text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.carModelName}",
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.blueDark,
-                      textAlign: TextAlign.start,
+                      textAlign: TextAlign.start
                     ),
                     CustomText(
+                      maxLines: 1,overflow: TextOverflow.ellipsis,
                       text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.carLicenseNumber}",
                       color: AppColors.whiteDarkActive,
                       top: 8,
@@ -65,19 +67,21 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
                       textAlign: TextAlign.start,
                     ),
                     CustomText(
+                      maxLines: 1,overflow: TextOverflow.ellipsis,
                       text:"${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.totalRun}" ,
                       color: AppColors.whiteDarkActive,
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(height: 8),
                     CustomText(
+                      maxLines: 1,overflow: TextOverflow.ellipsis,
                       text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.hourlyRate}\$/h",
                       color: AppColors.whiteDarkActive,
                     ),
                   ],
                 ),
               ),
-              Expanded(child: Image.network(carImg)),
+              Image.network(carImg,height: 70,width: 100,),
             ],
           ),
         ),

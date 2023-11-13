@@ -271,4 +271,13 @@ Map<String, String> spanish = {
   "You sure want to delete the message?": "¿Seguro que quieres borrar el mensaje?",
   "Language Changed Successfully": "El idioma cambió con éxito",
 
+
+
+  "No Internet Connection Found" : "No se encontró conexión a Internet",
+  "Check Your Connection." : "Verifique su conexión.",
+  "PLEASE CONNECT TO INTERNET" : "POR FAVOR CONÉCTATE A INTERNET",
+
+  "Payment Completed Trip Not Start" : "Pago completado, viaje no iniciado",
+
+
 };

@@ -13,7 +13,7 @@ class GearType extends StatefulWidget {
 }
 
 class _GearTypeState extends State<GearType> {
-  List<String> types = ["Manual".tr, "Automatic".tr];
+  List<String> types = ["Manual", "Automatic"];
   int selectedItem = 0;
 
   @override
@@ -55,7 +55,7 @@ class _GearTypeState extends State<GearType> {
                             ),
                           ),
                           const SizedBox(width: 10),
-                          CustomText(text: types[index].tr),
+                          CustomText(text: types[index]),
                         ],
                       ),
                     ),

@@ -9,15 +9,16 @@ import 'package:renti_host/view/widgets/rent_details/custom_rent_details.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class RentDetailsAlert extends StatelessWidget {
-   const RentDetailsAlert({super.key, required this.index, required this.rentListModel});
+  const RentDetailsAlert(
+      {super.key, required this.index, required this.rentListModel});
 
   final int index;
   final RentListModel rentListModel;
 
-
   @override
   Widget build(BuildContext context) {
-    String startDateString = rentListModel.rentedCars![index].startDate.toString();
+    String startDateString =
+        rentListModel.rentedCars![index].startDate.toString();
     String endDateString = rentListModel.rentedCars![index].endDate.toString();
 
     // Define a regular expression pattern to match the date part
@@ -45,48 +46,77 @@ class RentDetailsAlert extends StatelessWidget {
               ),
             ],
           ),
-          child:  Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               RentDetailsTopSection(
+              RentDetailsTopSection(
                   image: rentListModel.rentedCars![index].carId!.image![0],
                   carName: rentListModel.rentedCars![index].carId!.carModelName.toString(),
                   carModel: rentListModel.rentedCars![index].carId!.year.toString(),
                   requestStatus: rentListModel.rentedCars![index].requestStatus.toString(),
-                  carLicense: rentListModel.rentedCars![index].carId!.carLicenseNumber.toString(), payment: rentListModel.rentedCars![index].requestStatus.toString(),
-                 tripStatus: rentListModel.rentedCars![index].carId!.tripStatus.toString()),
+                  carLicense: rentListModel.rentedCars![index].carId!.carLicenseNumber.toString(),
+                  payment: rentListModel.rentedCars![index].payment.toString(),
+                  tripStatus: rentListModel.rentedCars![index].carId!.tripStatus.toString()),
               const SizedBox(height: 16),
-               CustomRentDetails(title: "Trip no: ".tr, data: "${rentListModel.rentedCars![index].rentTripNumber}"),
+              CustomRentDetails(
+                  title: "Trip no: ".tr,
+                  data: "${rentListModel.rentedCars![index].rentTripNumber}"),
               const SizedBox(height: 8),
-               CustomRentDetails(
+              CustomRentDetails(
                   title: "Start Date: ".tr, data: formattedStartDate),
               const SizedBox(height: 8),
-               CustomRentDetails(
-                  title: "End Date: ".tr, data: formattedEndDate),
+              CustomRentDetails(title: "End Date: ".tr, data: formattedEndDate),
               CustomText(
                   text: "User Information".tr,
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                   top: 24,
                   bottom: 16),
-               CustomRentDetails(
+              CustomRentDetails(
                   title: "Name:".tr,
-                  data: rentListModel.rentedCars![index].userId!.fullName.toString()),
+                  data: rentListModel.rentedCars![index].userId!.fullName
+                      .toString()),
               const SizedBox(height: 8),
-               CustomRentDetails(title: "Contact: ".tr, data: rentListModel.rentedCars![index].userId!.phoneNumber.toString()),
+              CustomRentDetails(
+                  title: "Contact: ".tr,
+                  data: rentListModel.rentedCars![index].userId!.phoneNumber
+                      .toString()),
               const SizedBox(height: 8),
-               CustomRentDetails(title: "Email:".tr, data: rentListModel.rentedCars![index].userId!.email.toString()),
+              CustomRentDetails(
+                  title: "Email:".tr,
+                  data: rentListModel.rentedCars![index].userId!.email
+                      .toString()),
               const SizedBox(height: 8),
-               CustomRentDetails(title: "INE:".tr, data: rentListModel.rentedCars![index].userId!.ine.toString()),
-             // CustomRentDetails(title: "Driving license no:".tr, data: 'ACD1234566'),
+              CustomRentDetails(
+                  title: "INE:".tr,
+                  data: rentListModel.rentedCars![index].userId!.ine.toString()),
+              // CustomRentDetails(title: "Driving license no:".tr, data: 'ACD1234566'),
               const SizedBox(height: 24),
+              rentListModel.rentedCars?[index].carId?.tripStatus != "Start" &&
+                  rentListModel.rentedCars?[index].payment == "Completed"
+                  ? SizedBox(
+                width: double.maxFinite,
+                    child: Row(
+                      children: [
+                        const Icon(Icons.error_outline,size: 14,color: AppColors.blackNormal),
+                        const SizedBox(width: 4),
+                        CustomText(text: "Payment Completed Trip Not Start".tr,fontSize: 12,maxLines: 2,overflow: TextOverflow.ellipsis),
+                      ],
+                    ),
+                  )
+                  : const SizedBox(),
 
               //This Button Only Show When Reserve Status card Clicked
               rentListModel.rentedCars?[index].carId?.tripStatus != "Start"
                   ? const SizedBox()
-                  : CustomElevatedButton(onPressed: (){
-                Get.toNamed(AppRoute.startTripScreen,arguments: [rentListModel, index]);
-              }, titleText: "See details".tr,buttonWidth: double.maxFinite,buttonHeight: 48)
+                  : CustomElevatedButton(
+                      onPressed: () {
+                        Get.toNamed(AppRoute.startTripScreen,
+                            arguments: [rentListModel, index]);
+                      },
+                      titleText: "See details".tr,
+                      buttonWidth: double.maxFinite,
+                      buttonHeight: 48)
             ],
           ),
         ),

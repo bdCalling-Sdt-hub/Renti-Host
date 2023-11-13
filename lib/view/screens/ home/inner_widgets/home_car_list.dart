@@ -152,7 +152,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.whiteDarker),
                                       CustomText(
-                                          text: "/day".tr,
+                                          text: "/hr".tr,
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.whiteDarker),

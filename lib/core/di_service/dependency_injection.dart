@@ -5,6 +5,7 @@ import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_contro
 import 'package:renti_host/view/screens/profile/edit_profile/edit_profile_repo/edit_profile_repo.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
+import 'package:renti_host/view/widgets/no_internet/no_internet_controller/no_internet_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> initDependency() async {
@@ -20,5 +21,5 @@ Future<void> initDependency() async {
   Get.lazyPut(() => SocketService(), fenix: true);
   Get.find<SocketService>().connectToSocket();
 
-  //Get.put<NoInternetController>(NoInternetController(), permanent: true);
+  Get.put<NoInternetController>(NoInternetController(), permanent: true);
 }

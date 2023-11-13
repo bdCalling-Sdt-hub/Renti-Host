@@ -37,4 +37,5 @@ class AppColors {
 
   //Rating Color
   static const Color ratingColor = Color(0xffFBA91D);
+  static const Color lightYellow = Color(0x80ffff32);
 }

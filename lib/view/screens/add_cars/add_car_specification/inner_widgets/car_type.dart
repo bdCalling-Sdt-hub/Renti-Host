@@ -12,7 +12,7 @@ class CarType extends StatefulWidget {
 }
 
 class _CarTypeState extends State<CarType> {
-  List<String> types = ["Standard".tr, "Luxury".tr];
+  List<String> types = ["Standard", "Luxury"];
   int selectedItem = 0;
 
   @override
@@ -52,7 +52,7 @@ class _CarTypeState extends State<CarType> {
                         ),
                         const SizedBox(width: 10),
                         CustomText(
-                          text: types[index].tr,
+                          text: types[index],
                         ),
                       ],
                     ),

@@ -31,4 +31,7 @@ class AppIcons {
   static const String fuelIcon = "$basePath/fuel_icon.svg";
   static const String pdfIcon = "$basePath/pdf_icon.svg";
   static const String sendIcon = "$basePath/send_icon.svg";
+
+  static const String noInternet = "$basePath/no_internet.svg";
+
 }

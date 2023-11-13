@@ -50,13 +50,17 @@ class RentDetailsTopSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
+                      textAlign: TextAlign.start,
+                        maxLines: 1,overflow: TextOverflow.ellipsis,
                         text: carName,
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         bottom: 8),
+                    const SizedBox(width: 24),
                     //Car License section
-                    Row(children: [
-                      CustomText(text: "Car license no: ".tr,fontSize: 10),
+                    Row(
+                      children: [
+                      Flexible(child: CustomText(text: "Car license no: ".tr,fontSize: 10,maxLines: 1,overflow: TextOverflow.ellipsis)),
                       Flexible(child: CustomText(text: "$carLicense$carLicense",fontSize: 10,maxLines: 1,overflow: TextOverflow.ellipsis))
                     ],),
                     const SizedBox(height: 8),
@@ -87,8 +91,8 @@ class RentDetailsTopSection extends StatelessWidget {
             ],
           ),
         ),
-        tripStatus == "Pending" ?
-        Container(
+        payment == "Pending"
+            ? Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           margin: const EdgeInsets.only(bottom: 8),
           decoration: BoxDecoration(
@@ -100,7 +104,8 @@ class RentDetailsTopSection extends StatelessWidget {
             color: AppColors.greenNormal,
             fontSize: 10,
           ),
-        ) :  Container(
+        )
+            : Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           margin: const EdgeInsets.only(bottom: 8),
           decoration: BoxDecoration(

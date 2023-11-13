@@ -24,10 +24,10 @@ class _InboxScreenState extends State<InboxScreen> {
   String userUid = "";
   String name = "";
   String image = "";
+  ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
-
     userUid = Get.arguments[0];
     name = Get.arguments[1];
     image = Get.arguments[2];
@@ -53,8 +53,8 @@ class _InboxScreenState extends State<InboxScreen> {
 
   @override
   void dispose() {
-    socketService.socketDispose("new-chat");
-    socketService.socketDispose("all-messages");
+   /* socketService.socketDispose("new-chat");
+    socketService.socketDispose("all-messages");*/
     DeviceUtils.screenUtils();
 
     super.dispose();
@@ -84,15 +84,15 @@ class _InboxScreenState extends State<InboxScreen> {
                 children: [
                   GestureDetector(
                     onTap: () => Get.back(),
-                    child: const Icon(Icons.arrow_back_ios_rounded, size: 18, color: AppColors.whiteLight),
+                    child: const Icon(Icons.arrow_back_ios_rounded,
+                        size: 18, color: AppColors.whiteLight),
                   ),
                   Container(
                     height: 52,
                     width: 52,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: CachedNetworkImageProvider(image))),
+                        image: DecorationImage(image: CachedNetworkImageProvider(image))),
                   ),
                   CustomText(
                       maxLines: 1,
@@ -118,20 +118,19 @@ class _InboxScreenState extends State<InboxScreen> {
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.only(top: 24, bottom: 100),
                     child: CustomContainer(
-
-                      child: Column(
-                        children: List.generate(
-                          socketService.messageList.length,
-                          (index) => Align(
-                            alignment: socketService.messageList[index]
-                            ["sender"]["role"] != "host"
+                      child: ListView.builder(
+                        //controller: scrollController,
+                        itemCount: socketService.messageList.length,
+                        physics: const BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return Align(
+                            alignment: socketService.messageList[index]["sender"]["role"] != "host"
                                 ? Alignment.topLeft
                                 : Alignment.topRight,
                             child: Container(
-                              margin:
-                                  const EdgeInsetsDirectional.only(bottom: 12),
-                              padding: const EdgeInsetsDirectional.symmetric(
-                                  vertical: 16, horizontal: 12),
+                              margin: const EdgeInsetsDirectional.only(bottom: 12),
+                              padding: const EdgeInsetsDirectional.symmetric(vertical: 16, horizontal: 12),
                               decoration: BoxDecoration(
                                 borderRadius: socketService.messageList[index]["sender"]["role"] != "host"
                                     ? const BorderRadius.only(
@@ -142,9 +141,7 @@ class _InboxScreenState extends State<InboxScreen> {
                                         topLeft: Radius.circular(12),
                                         topRight: Radius.circular(12),
                                         bottomLeft: Radius.circular(12)),
-                                color: socketService.messageList[index]
-                                            ["sender"]["role"] !=
-                                        "host"
+                                color: socketService.messageList[index]["sender"]["role"] != "host"
                                     ? AppColors.blueNormal
                                     : const Color(0xffE2E2E2),
                               ),
@@ -152,17 +149,15 @@ class _InboxScreenState extends State<InboxScreen> {
                                 socketService.messageList[index]["message"],
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.raleway(
-                                    color: socketService.messageList[index]
-                                                ["sender"]["role"] !=
-                                            "host"
-                                        ? AppColors.whiteNormalActive
-                                        : AppColors.blueNormal,
+                                    color: socketService.messageList[index]["sender"]["role"] != "host"
+                                            ? AppColors.whiteNormalActive
+                                            : AppColors.blueNormal,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   );
@@ -236,15 +231,18 @@ class _InboxScreenState extends State<InboxScreen> {
                       if (messageController.text != null &&
                           messageController.text != "" &&
                           messageController.text.isNotEmpty) {
+                        /*scrollController.animateTo(
+                            scrollController.position.maxScrollExtent,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeOut);*/
                         Get.find<SocketService>().addNewMessage(
                             messageController.text,
-                            hostUid, Get.find<SocketService>().chatId);
+                            hostUid,
+                            Get.find<SocketService>().chatId);
                       }
-
                       messageController.text = "";
                     },
-                    child: const Icon(Icons.send,
-                        color: AppColors.blueNormal, size: 20),
+                    child: const Icon(Icons.send, color: AppColors.blueNormal, size: 20),
                   ),
                 ],
               ),

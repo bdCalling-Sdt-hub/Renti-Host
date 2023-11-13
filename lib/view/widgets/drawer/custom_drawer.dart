@@ -175,7 +175,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                   ),
                 ),
-                //All Review List Section
+                /*//All Review List Section
                 GestureDetector(
                   onTap: () => Get.toNamed(AppRoute.allReview),
                   child: Container(
@@ -199,7 +199,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ],
                     ),
                   ),
-                ),
+                ),*/
                 //All Income List Section
                 GestureDetector(
                   onTap: () => Get.toNamed(AppRoute.incomeScreen),
@@ -226,32 +226,30 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   ),
                 ),
 
-                //All Notification List Section
+                /*//All Notification List Section
                 GestureDetector(
                   onTap: () => Get.toNamed(AppRoute.notificationScreen),
                   child: Container(
                     width: double.maxFinite,
                     padding: const EdgeInsets.all(8),
                     margin: const EdgeInsets.only(top: 8),
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(4)),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const CustomImage(
-                            imageSrc: AppIcons.notification, size: 18),
+                        const CustomImage(imageSrc: AppIcons.notification, size: 18),
                         Expanded(
                           child: CustomText(
                               textAlign: TextAlign.start,
                               text: "Notification".tr,
                               color: AppColors.whiteDarkHover,
                               left: 8),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                ),
+                ),*/
 
                 //Admin Section
                 GestureDetector(
