@@ -12,6 +12,8 @@ class AlertPopUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: AppColors.whiteLight,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -26,8 +28,8 @@ class AlertPopUp extends StatelessWidget {
           CustomElevatedButton(
             onPressed: onTap,
             titleText: "Retry",
-            buttonColor: AppColors.redLight,
-            titleColor: AppColors.redNormal,
+            buttonColor: AppColors.blueNormal,
+            titleColor: AppColors.whiteLight,
             buttonHeight: 48,buttonWidth: double.maxFinite,
           ),
         ],

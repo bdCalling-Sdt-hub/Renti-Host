@@ -47,14 +47,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   fontSize: 18,
                   color: AppColors.whiteLight),
             ),
-            body: controller.isSubmit == true
-                ? const Center(
-                    child: CircularProgressIndicator(
-                      backgroundColor: AppColors.whiteLight,
-                      color: AppColors.blueNormal,
-                    ),
-                  )
-                : LayoutBuilder(
+            body: LayoutBuilder(
                     builder: (BuildContext context, BoxConstraints constraints) =>
                             CustomContainer(
                       height: MediaQuery.of(context).size.height,

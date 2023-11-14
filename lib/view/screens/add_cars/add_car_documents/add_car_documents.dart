@@ -95,23 +95,25 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: MediaQuery.of(context).size.height,
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.redNormal,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8),
-                                      bottomLeft: Radius.circular(8),
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: MediaQuery.of(context).size.height,
+                                    alignment: Alignment.center,
+                                    decoration: const BoxDecoration(
+                                      color: AppColors.redNormal,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(8),
+                                        bottomLeft: Radius.circular(8),
+                                      ),
                                     ),
-                                  ),
-                                  child: const CustomImage(imageSrc: AppIcons.pdfIcon)),
-                                const SizedBox(width: 12),
-                                CustomText(text: controller.carLicenseFileName)
-                              ],
+                                    child: const CustomImage(imageSrc: AppIcons.pdfIcon)),
+                                  const SizedBox(width: 12),
+                                  Flexible(child: CustomText(text: controller.carLicenseFileName,maxLines: 1,overflow: TextOverflow.ellipsis))
+                                ],
+                              ),
                             ),
                             GestureDetector(
                               onTap: () => controller.removeCarLicFile(),
@@ -160,27 +162,26 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: MediaQuery.of(context).size.height,
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.redNormal,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8),
-                                      bottomLeft: Radius.circular(8),
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: MediaQuery.of(context).size.height,
+                                    alignment: Alignment.center,
+                                    decoration: const BoxDecoration(
+                                      color: AppColors.redNormal,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(8),
+                                        bottomLeft: Radius.circular(8),
+                                      ),
                                     ),
+                                    child: const CustomImage(imageSrc: AppIcons.pdfIcon),
                                   ),
-                                  child: const CustomImage(
-                                      imageSrc: AppIcons.pdfIcon),
-                                ),
-                                const SizedBox(width: 12),
-                                CustomText(
-                                  text: controller.carInsPolicyFillName,
-                                )
-                              ],
+                                  const SizedBox(width: 12),
+                                  Flexible(child: CustomText(text: controller.carInsPolicyFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
+                                ],
+                              ),
                             ),
                             GestureDetector(
                               onTap: () => controller.removeCarInsPolicyFile(),
@@ -228,25 +229,27 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: MediaQuery.of(context).size.height,
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.redNormal,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8),
-                                      bottomLeft: Radius.circular(8),
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: MediaQuery.of(context).size.height,
+                                    alignment: Alignment.center,
+                                    decoration: const BoxDecoration(
+                                      color: AppColors.redNormal,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(8),
+                                        bottomLeft: Radius.circular(8),
+                                      ),
                                     ),
+                                    child: const CustomImage(
+                                        imageSrc: AppIcons.pdfIcon),
                                   ),
-                                  child: const CustomImage(
-                                      imageSrc: AppIcons.pdfIcon),
-                                ),
-                                const SizedBox(width: 12),
-                                CustomText(text: controller.circulationFillName)
-                              ],
+                                  const SizedBox(width: 12),
+                                  Flexible(child: CustomText(text: controller.circulationFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
+                                ],
+                              ),
                             ),
                             GestureDetector(
                               onTap: () => controller.removeCirculationFile(),
@@ -295,25 +298,27 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: MediaQuery.of(context).size.height,
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.redNormal,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8),
-                                      bottomLeft: Radius.circular(8),
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: MediaQuery.of(context).size.height,
+                                    alignment: Alignment.center,
+                                    decoration: const BoxDecoration(
+                                      color: AppColors.redNormal,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(8),
+                                        bottomLeft: Radius.circular(8),
+                                      ),
                                     ),
+                                    child: const CustomImage(
+                                        imageSrc: AppIcons.pdfIcon),
                                   ),
-                                  child: const CustomImage(
-                                      imageSrc: AppIcons.pdfIcon),
-                                ),
-                                const SizedBox(width: 12),
-                                CustomText(text: controller.carInvoiceFillName)
-                              ],
+                                  const SizedBox(width: 12),
+                                  Flexible(child: CustomText(text: controller.carInvoiceFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
+                                ],
+                              ),
                             ),
                             GestureDetector(
                               onTap: () => controller.removeCarInvoiceFile(),
@@ -362,25 +367,27 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: MediaQuery.of(context).size.height,
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.redNormal,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8),
-                                      bottomLeft: Radius.circular(8),
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: MediaQuery.of(context).size.height,
+                                    alignment: Alignment.center,
+                                    decoration: const BoxDecoration(
+                                      color: AppColors.redNormal,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(8),
+                                        bottomLeft: Radius.circular(8),
+                                      ),
                                     ),
+                                    child: const CustomImage(
+                                        imageSrc: AppIcons.pdfIcon),
                                   ),
-                                  child: const CustomImage(
-                                      imageSrc: AppIcons.pdfIcon),
-                                ),
-                                const SizedBox(width: 12),
-                                CustomText(text: controller.carREPUVEFillName)
-                              ],
+                                  const SizedBox(width: 12),
+                                  Flexible(child: CustomText(text: controller.carREPUVEFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
+                                ],
+                              ),
                             ),
                             GestureDetector(
                               onTap: () => controller.removeREPUVEFile(),

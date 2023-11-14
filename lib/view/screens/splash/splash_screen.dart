@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
+import 'package:renti_host/view/screens/splash/splash_controller/splash_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -16,6 +16,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    var controller = Get.put(SplashController());
+    controller.logout();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

@@ -64,11 +64,16 @@ class AddCarController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadCarLic = File(result.files.single.path!);
-      carLicenseFileName = result.files.single.name;
-
-      addCarDocumentsFiles.add(uploadCarLic!);
-      update();
+      PlatformFile file = result.files.first;
+      if (file.extension == 'pdf') {
+        uploadCarLic = File(result.files.single.path!);
+        carLicenseFileName = result.files.single.name;
+        addCarDocumentsFiles.add(uploadCarLic!);
+        update();
+      }
+      else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+      }
     }
   }
 
@@ -79,10 +84,15 @@ class AddCarController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadCarInsPolicy = File(result.files.single.path!);
-      carInsPolicyFillName = result.files.single.name;
-      addCarDocumentsFiles.add(uploadCarInsPolicy!);
-      update();
+      PlatformFile file = result.files.first;
+      if(file.extension == 'pdf'){
+        uploadCarInsPolicy = File(result.files.single.path!);
+        carInsPolicyFillName = result.files.single.name;
+        addCarDocumentsFiles.add(uploadCarInsPolicy!);
+        update();
+      }else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+      }
     }
   }
 
@@ -93,10 +103,15 @@ class AddCarController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadCirculationCard = File(result.files.single.path!);
-      circulationFillName = result.files.single.name;
-      addCarDocumentsFiles.add(uploadCirculationCard!);
-      update();
+      PlatformFile file = result.files.first;
+      if(file.extension == 'pdf'){
+        uploadCirculationCard = File(result.files.single.path!);
+        circulationFillName = result.files.single.name;
+        addCarDocumentsFiles.add(uploadCirculationCard!);
+        update();
+      }else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+      }
     }
   }
 
@@ -107,10 +122,15 @@ class AddCarController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadCarInvoice = File(result.files.single.path!);
-      carInvoiceFillName = result.files.single.name;
-      addCarDocumentsFiles.add(uploadCarInvoice!);
-      update();
+      PlatformFile file = result.files.first;
+      if(file.extension == 'pdf'){
+        uploadCarInvoice = File(result.files.single.path!);
+        carInvoiceFillName = result.files.single.name;
+        addCarDocumentsFiles.add(uploadCarInvoice!);
+        update();
+      }else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+      }
     }
   }
 
@@ -121,10 +141,15 @@ class AddCarController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadREPUVE = File(result.files.single.path!);
-      carREPUVEFillName = result.files.single.name;
-      addCarDocumentsFiles.add(uploadREPUVE!);
-      update();
+      PlatformFile file = result.files.first;
+      if(file.extension == 'pdf'){
+        uploadREPUVE = File(result.files.single.path!);
+        carREPUVEFillName = result.files.single.name;
+        addCarDocumentsFiles.add(uploadREPUVE!);
+        update();
+      }else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+      }
     }
   }
 
@@ -171,8 +196,6 @@ class AddCarController extends GetxController {
   void openGallery({required int index}) async {
     final pickedFile = await imagePicker.pickImage(
       source: ImageSource.gallery,
-      maxHeight: 120,
-      maxWidth: 120,
     );
 
     if (pickedFile != null) {
@@ -203,7 +226,8 @@ class AddCarController extends GetxController {
     try {
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.carAddEndPoint}"),
+        Uri.parse(
+            "${ApiUrlContainer.baseUrl}${ApiUrlContainer.carAddEndPoint}"),
       );
 
       // Add the KYC files to the request
@@ -270,7 +294,7 @@ class AddCarController extends GetxController {
         isLoading = false;
         update();
         Get.toNamed(AppRoute.navigation);
-        Utils.snackBar("Successful".tr,"Successfully car added".tr);
+        Utils.snackBar("Successful".tr, "Successfully car added".tr);
       } else {
         isLoading = false;
         update();
@@ -282,12 +306,37 @@ class AddCarController extends GetxController {
     } catch (e) {
       isLoading = false;
       update();
-      Utils.snackBar("Error".tr,"Somethings went wrong".tr);
+      Utils.snackBar("Error".tr, "Somethings went wrong".tr);
     }
     isLoading = false;
     update();
   }
 
+  Future<void> insuranceDateStart(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2023),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != insuranceStartDate.text) {
+      insuranceStartDate.text = "${picked.year}-${picked.month}-${picked.day}";
+      update();
+    }
+  }
+
+  Future<void> insuranceDateEnd(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2023),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != insuranceEndDate.text) {
+      insuranceEndDate.text = "${picked.year}-${picked.month}-${picked.day}";
+      update();
+    }
+  }
 
   clearData() {
     isLoading = false;

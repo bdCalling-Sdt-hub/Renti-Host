@@ -41,7 +41,7 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomText(
                   text: "Rent date: ".tr,
@@ -51,8 +51,8 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
               Flexible(
                 child: CustomText(
                     text: "$formattedStartDate - $formattedEndDate",
-                    maxLines: 1,overflow: TextOverflow.ellipsis,
-                    fontSize: 16,
+                    maxLines: 2,overflow: TextOverflow.ellipsis,
+                    fontSize: 16,textAlign: TextAlign.right,
                     fontWeight: FontWeight.w500),
               ),
             ],

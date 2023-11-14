@@ -32,10 +32,10 @@ class Utils {
   }
 
   static snackBar(String title, String message) {
-    Get.snackbar(title, message,snackPosition: SnackPosition.BOTTOM,backgroundColor: AppColors.blueNormal,colorText: AppColors.whiteLight, duration: const Duration(seconds: 1));
+    Get.snackbar(title, message,snackPosition: SnackPosition.BOTTOM,backgroundColor: AppColors.blueNormal,colorText: AppColors.whiteLight, duration: const Duration(seconds: 3));
   }
 
   static popUp (String title,VoidCallback onTap){
-    Get.dialog(AlertPopUp(title: title, onTap: onTap));
+    Get.dialog(AlertPopUp(title: title, onTap: onTap),);
   }
 }

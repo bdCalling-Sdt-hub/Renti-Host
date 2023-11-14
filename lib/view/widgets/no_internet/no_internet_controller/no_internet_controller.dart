@@ -30,7 +30,7 @@ class NoInternetController extends GetxController {
       if (Get.isSnackbarOpen) {
 
         Get.closeAllSnackbars();
-        Get.offAllNamed(AppRoute.navigation);
+        Get.offAllNamed(AppRoute.signInScreen);
       }
     }
   }

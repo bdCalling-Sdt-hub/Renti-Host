@@ -31,30 +31,31 @@ class CustomBack extends StatelessWidget {
   void defaultCallback() {}
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        //   ontap!();
-        isBack ? Get.back() : ontap!();
-      },
-      child: Container(
-        height: height,
-        padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
-        child: Row(
-          children: [
-            Icon(Icons.arrow_back_ios_new, size: fontSize, color: color),
-            Expanded(
-              child: CustomText(
-                maxLines: 1,overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.start,
-                left: left,
-                text: text,
-                fontSize: fontSize,
-                fontWeight: fontWeight,
-                color: color,
-              ),
+    return Container(
+      height: height,
+      padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+      child: Row(
+        children: [
+          GestureDetector(
+            onTap: () {
+              //   ontap!();
+              isBack ? Get.back() : ontap!();
+            },
+            child: SizedBox(height: 42,width: 25,
+                child: Icon(Icons.arrow_back_ios_new, size: fontSize, color: color)),
+          ),
+          Expanded(
+            child: CustomText(
+              maxLines: 1,overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.start,
+              left: left,
+              text: text,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              color: color,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

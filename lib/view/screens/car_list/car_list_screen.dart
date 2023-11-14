@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -52,18 +53,17 @@ class _CarListScreenState extends State<CarListScreen> {
                   const SizedBox(height: 16),
                   Expanded(
                     child: SingleChildScrollView(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 24),
+                      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 24),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: homeCarModel.cars!.length,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                crossAxisSpacing: 8,
-                                mainAxisSpacing: 8,
-                                mainAxisExtent: 200),
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 16,
+                                mainAxisSpacing: 16,
+                            mainAxisExtent: 225),
                         itemBuilder: (context, index) => GestureDetector(
                           onTap: () {
                             Get.toNamed(AppRoute.carDetailsScreen,
@@ -85,7 +85,7 @@ class _CarListScreenState extends State<CarListScreen> {
                             child: Column(
                               children: [
                                 Container(
-                                  height: 56,
+                                  height: 100,
                                   decoration: BoxDecoration(
                                     borderRadius: const BorderRadius.only(
                                       bottomLeft: Radius.zero,
@@ -94,62 +94,53 @@ class _CarListScreenState extends State<CarListScreen> {
                                       topRight: Radius.circular(8),
                                     ),
                                     image: DecorationImage(
-                                        image: NetworkImage(homeCarModel
-                                            .cars![index].image![0]
-                                            .toString()),
+                                        image: CachedNetworkImageProvider("${homeCarModel.cars?[index].image?[0]}"),
                                         fit: BoxFit.fill),
                                   ),
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          vertical: 8, horizontal: 20),
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 4, horizontal: 4),
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: homeCarModel
-                                                    .cars![index].tripStatus ==
-                                                "Start"
-                                            ? AppColors.redLight
-                                            : AppColors.greenLight,
-                                        borderRadius: BorderRadius.circular(4),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                                        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          color: homeCarModel.cars![index].tripStatus == "Start"
+                                              ? AppColors.redLight
+                                              : AppColors.greenLight,
+                                          borderRadius: BorderRadius.circular(4),
+                                        ),
+                                        child: homeCarModel.cars?[index].tripStatus == "Start"
+                                            ? CustomText(
+                                                text: "Reserved".toString(),
+                                                color: AppColors.redNormal,
+                                                fontSize: 10)
+                                            : CustomText(
+                                                text: "Active".toString(),
+                                                color: AppColors.greenNormal,
+                                                fontSize: 10),
                                       ),
-                                      child: homeCarModel.cars![index].tripStatus == "Start"
-                                          ? CustomText(
-                                              text: "Reserved".toString(),
-                                              color: AppColors.redNormal,
-                                              fontSize: 10)
-                                          : CustomText(
-                                              text: "Active".toString(),
-                                              color: AppColors.greenNormal,
-                                              fontSize: 10),
-                                    ),
-                                    CustomText(
-                                      maxLines: 1,overflow: TextOverflow.ellipsis,
-                                        text: homeCarModel
-                                            .cars![index].carModelName
-                                            .toString(),
-                                        fontSize: 12),
-                                    CustomText(
-                                        text: homeCarModel.cars![index].year
-                                            .toString(),
-                                        fontSize: 10,
-                                        color: AppColors.whiteDarkActive),
-                                    CustomText(
-                                        text: homeCarModel
-                                            .cars![index].carLicenseNumber
-                                            .toString(),
-                                        fontSize: 10,
-                                        top: 4,
-                                        bottom: 4),
-                                    CustomText(
-                                        text: "See details".tr,
-                                        fontSize: 10,
-                                        color: AppColors.blueNormal),
-                                  ],
+                                      CustomText(
+                                        maxLines: 1,overflow: TextOverflow.ellipsis,
+                                          text: "${homeCarModel.cars?[index].carModelName}",
+                                          fontSize: 12,left: 8),
+                                      CustomText(
+                                          text: "${homeCarModel.cars?[index].year}",
+                                          fontSize: 10,left: 8,
+                                          color: AppColors.whiteDarkActive),
+                                      CustomText(
+                                          text: "${homeCarModel.cars?[index].carLicenseNumber}",
+                                          fontSize: 10,
+                                          top: 4,left: 8,
+                                          bottom: 4),
+                                      CustomText(
+                                          text: "See details".tr,left: 8,
+                                          fontSize: 10,textAlign: TextAlign.right,
+                                          color: AppColors.blueNormal),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),

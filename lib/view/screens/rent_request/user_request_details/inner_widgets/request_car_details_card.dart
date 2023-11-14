@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -81,7 +82,7 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
                   ],
                 ),
               ),
-              Image.network(carImg,height: 70,width: 100,),
+              Flexible(child: ClipRRect(borderRadius: BorderRadius.circular(8),child: CachedNetworkImage(imageUrl: carImg))),
             ],
           ),
         ),

@@ -215,7 +215,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           },
                           buttonWidth: double.maxFinite,
                           buttonHeight: 52,
-                          titleText: "Save".tr),
+                          titleText: "Update".tr),
                       const SizedBox(height: 24),
                     ],
                   ),

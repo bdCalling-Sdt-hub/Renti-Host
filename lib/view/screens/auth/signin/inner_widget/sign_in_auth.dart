@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
-import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_controller/sign_in_controller.dart';
 import 'package:renti_host/view/widgets/button/custom_button_with_icon.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -32,7 +31,6 @@ class _SignInAuthState extends State<SignInAuth> {
           //Email pass auth section
           Form(
             key: _formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -78,7 +76,6 @@ class _SignInAuthState extends State<SignInAuth> {
                       fontWeight: FontWeight.w400,
                       letterSpacing: 1,
                       color: AppColors.whiteNormalActive),
-
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "This field can not be empty".tr;
@@ -112,15 +109,22 @@ class _SignInAuthState extends State<SignInAuth> {
           ),
 
           //Sign In button
-          CustomElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                controller.signInUser();
-              }
-            },
-            titleText: "Sign In".tr,
-            buttonWidth: double.maxFinite,
-          ),
+          controller.isSubmit == true
+              ? const Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: AppColors.whiteLight,
+                    color: AppColors.blueNormal,
+                  ),
+                )
+              : CustomElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      controller.signInUser();
+                    }
+                  },
+                  titleText: "Sign In".tr,
+                  buttonWidth: double.maxFinite,
+                ),
 
           //Or Text
           Align(

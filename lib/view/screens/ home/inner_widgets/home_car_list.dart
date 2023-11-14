@@ -57,6 +57,7 @@ class _HomeCarListState extends State<HomeCarList> {
                   Get.toNamed(AppRoute.carDetailsScreen, arguments: [widget.homeCarListModel, index]);
                 },
                 child: Container(
+                  height: 100,
                   margin: const EdgeInsets.only(top: 16.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
@@ -64,10 +65,10 @@ class _HomeCarListState extends State<HomeCarList> {
                   child: Row(
                     children: [
                       Container(
-                        height: 70,
-                        width: 140,
+                        width: 100,
                         padding: const EdgeInsetsDirectional.symmetric(vertical: 8, horizontal: 8),
                         decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(topLeft: Radius.circular(8),bottomLeft: Radius.circular(8)),
                             image: DecorationImage(
                                 fit: BoxFit.fill,
                                 image: CachedNetworkImageProvider(
@@ -90,6 +91,7 @@ class _HomeCarListState extends State<HomeCarList> {
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

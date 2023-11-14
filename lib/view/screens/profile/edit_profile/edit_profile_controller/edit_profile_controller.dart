@@ -16,11 +16,7 @@ class EditProfileController extends GetxController {
   File? imageFile;
   final imagePicker = ImagePicker();
   void openGallery() async {
-    final pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-      maxHeight: 120,
-      maxWidth: 120,
-    );
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
@@ -47,9 +43,7 @@ class EditProfileController extends GetxController {
 
     try {
       var request = http.MultipartRequest(
-        'POST',
-        Uri.parse(
-            "${ApiUrlContainer.baseUrl}${ApiUrlContainer.editProfile}$userID"),
+        'POST', Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.editProfile}$userID"),
       );
 
       // Add the image file to the request
@@ -91,10 +85,10 @@ class EditProfileController extends GetxController {
       if (response.statusCode == 200) {
         final profileController = Get.find<ProfileController>();
         profileController.profile();
-        Utils.toastMessage("Successfully Data Updated");
+        Utils.snackBar("Successful".tr,"Successfully Profile Updated".tr);
         navigator!.pop();
       } else {
-        Utils.toastMessage("Somethings went wrong ${response.statusCode}");
+        Utils.snackBar("Error".tr,"Somethings went wrong".tr);
       }
     } catch (e) {
       print('Error sending request: $e');

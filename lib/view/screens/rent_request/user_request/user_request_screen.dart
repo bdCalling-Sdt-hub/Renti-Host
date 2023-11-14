@@ -85,8 +85,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                                   controller.rentRequestResponseModel.rentRequest?[index].requestStatus != "Cancel"
                               ? Container(
                                   padding: const EdgeInsets.all(16),
-                                  margin: const EdgeInsetsDirectional.only(
-                                      bottom: 24),
+                                  margin: const EdgeInsetsDirectional.only(bottom: 24),
                                   decoration: BoxDecoration(
                                     color: AppColors.whiteLight,
                                     borderRadius: BorderRadius.circular(8),

@@ -68,6 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
 
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       inputFormatters: widget.inputFormatters,
       onFieldSubmitted: widget.onFieldSubmitted,
       readOnly: widget.readOnly,

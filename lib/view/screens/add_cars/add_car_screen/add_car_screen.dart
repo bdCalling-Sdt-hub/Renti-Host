@@ -41,12 +41,13 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
             ),
             body: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const AddCarImage(),
                   const AddCarBodySection(),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 24),
                   CustomElevatedButton(
                     onPressed: () {
                       if(controller.formKey.currentState!.validate() && controller.firstImg !=null && controller.secondImg != null && controller.thirdImg != null){

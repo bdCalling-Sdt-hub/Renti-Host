@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_method.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/core/global/api_url_container.dart';
@@ -9,10 +10,8 @@ class RentReqRepo {
   ApiService apiService;
   RentReqRepo({required this.apiService});
 
-  Future<ApiResponseModel> rentRequest(
-      {required Request request, required String id}) async {
-    String uri =
-        "${ApiUrlContainer.baseUrl}${ApiUrlContainer.rentAccerpAndReject}$id";
+  Future<ApiResponseModel> rentRequest({required Request request, required String id}) async {
+    String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.rentAccerpAndReject}$id";
     String requestMethod = ApiResponseMethod.postMethod;
 
     Map<String, String> parems = {
@@ -24,15 +23,13 @@ class RentReqRepo {
       print(uri);
     }
 
-    ApiResponseModel responseModel =
-        await apiService.request(uri, requestMethod, parems, passHeader: true);
+    ApiResponseModel responseModel = await apiService.request(uri, requestMethod, parems, passHeader: true);
 
     if (responseModel.statusCode == 200) {
-      Utils.snackBar("Successful",responseModel.message);
+      Utils.snackBar("Successful".tr,"Successful".tr);
     } else {
-      Utils.snackBar("Error",responseModel.message);
+      Utils.snackBar("Error".tr,"Somethings went wrong".tr);
     }
-
     return responseModel;
   }
 }

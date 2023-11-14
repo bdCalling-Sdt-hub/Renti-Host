@@ -169,7 +169,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                         ),
                                         const SizedBox(height: 8),
                                         Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment: MainAxisAlignment.start,
                                           children: [
                                             const CustomText(
                                                 text: "Car license no. :",
@@ -179,7 +179,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             ),
                                             Flexible(
                                               child: CustomText(
-                                                  maxLines: 1,overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.start,
                                                   text: " ${controller.rentiFeeMyPaymentModel.userPaymentList?[index].income?.carId?.carLicenseNumber}",
                                                   fontSize: 12
                                               ),

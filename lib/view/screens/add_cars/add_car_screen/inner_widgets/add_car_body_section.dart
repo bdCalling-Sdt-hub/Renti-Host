@@ -53,7 +53,6 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
       builder: (controller) {
         return Form(
           key: controller.formKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -140,10 +139,11 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
               ),
 
               //Set Rent Amount and TextField
-              CustomText(text: "Set Rent Amount".tr, top: 16, bottom: 12),
+              CustomText(text: "Set Rent Amount /hr".tr, top: 16, bottom: 12),
               CustomTextField(
                 textEditingController: controller.carRentAmmount,
                 hintText: "Enter Amount".tr,
+                keyboardType: TextInputType.phone,
                 textInputAction: TextInputAction.next,
                 hintStyle: hintStyle,
                 validator: (value) {
@@ -161,6 +161,8 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      readOnly: true,cursorColor: Colors.transparent,
                       controller: controller.insuranceStartDate,
                       showCursor: true,keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
@@ -190,6 +192,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                               color: AppColors.whiteNormalActive, width: 1),
                         ),
                       ),
+                      onTap: () => controller.insuranceDateStart(context),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "This field can not be empty".tr;
@@ -201,6 +204,8 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                   const SizedBox(width: 16),
                   Expanded(
                     child: TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      readOnly: true,cursorColor: Colors.transparent,
                       controller: controller.insuranceEndDate,
                       textInputAction: TextInputAction.done,
                       keyboardType: TextInputType.number,
@@ -231,6 +236,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
                               color: AppColors.whiteNormalActive, width: 1),
                         ),
                       ),
+                      onTap: () => controller.insuranceDateEnd(context),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "This field can not be empty".tr;

@@ -156,7 +156,7 @@ Map<String, String> spanish = {
   "Enter license number": "Ingrese el número de licencia",
   "Car Description": "Descripción del coche",
   "Enter Description": "Ingresar descripción",
-  "Set Rent Amount": "Establecer monto de alquiler",
+  "Set Rent Amount /hr" : "Establecer importe de alquiler /hora",
   "Enter Amount": "Ingresar monto",
   "Insurance Date": "Fecha de seguro",
   "Start": "Comenzar",
@@ -253,7 +253,11 @@ Map<String, String> spanish = {
 
   //Message
   "Messages": "Mensajes",
-
+  "Alert!" : "Alerta!",
+  "OTP Resend Successful" : "Reenvío OTP exitosa",
+  "OTP Resend Failed" : "Error en el reenvío de OTP",
+  "Email verify successful" : "Verificación de correo electrónico exitosa",
+  "Failed to email verify" : "Error al verificar el correo electrónico",
   //Settings Screen
   "Change Password": "Completa",
   "Current Password": "Contraseña actual",
@@ -278,6 +282,16 @@ Map<String, String> spanish = {
   "PLEASE CONNECT TO INTERNET" : "POR FAVOR CONÉCTATE A INTERNET",
 
   "Payment Completed Trip Not Start" : "Pago completado, viaje no iniciado",
+  "Only PDF file allow" : "Solo se permiten archivos PDF",
+  "You Have Been Banned By Admin" : "El administrador te ha prohibido",
+  "Connection Error" : "Error de conexión",
+  "Invalid Email or password is not correct!" : "El correo electrónico no válido o la contraseña no es correcta!",
+  "Update" : "Actualizar",
+  "Rent request accepted" : "Solicitud de alquiler aceptada",
+  "Rent request rejected" : "Solicitud de alquiler rechazada",
+  "Successfully Profile Updated" : "Perfil actualizado correctamente",
+
+
 
 
 };

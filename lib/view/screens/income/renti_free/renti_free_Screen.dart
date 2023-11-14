@@ -22,8 +22,7 @@ class _RentFeeScreenState extends State<RentFeeScreen> {
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(RentiFeeMyPaymentRepo(apiService: Get.find()));
-    var controller = Get.put(
-        RentiFeeMyControllerController(rentiFeeMyPaymentRepo: Get.find()));
+    var controller = Get.put(RentiFeeMyControllerController(rentiFeeMyPaymentRepo: Get.find()));
     controller.feeOrPayment();
     super.initState();
   }
@@ -79,7 +78,7 @@ class _RentFeeScreenState extends State<RentFeeScreen> {
                     // Use the regular expression to extract the date part
                     String formattedStartDate = datePattern.firstMatch(startDateString)?.group(0) ?? '';
                     String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
-                    return controller.rentiFeeMyPaymentModel.userPaymentList?[index].income?.carId == null
+                    return controller.rentiFeeMyPaymentModel.userPaymentList?[index].income?.carId != null
                         ? Column(
                             children: [
                               Container(

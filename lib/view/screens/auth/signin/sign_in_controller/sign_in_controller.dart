@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,13 +12,16 @@ import 'package:renti_host/view/screens/auth/signin/sign_in_response_model/sign_
 
 class SignInController extends GetxController {
   SignInRepo signInRepo;
+
   SignInController({required this.signInRepo});
 
- /* TextEditingController emailController = TextEditingController(text: "jarsh@gmail.com");
+  /* TextEditingController emailController = TextEditingController(text: "jarsh@gmail.com");
   TextEditingController passwordController = TextEditingController(text: "1qazxsw2");*/
 
-  TextEditingController emailController = TextEditingController(text: "nahiduzzaman15-12736@diu.edu.bd");
-  TextEditingController passwordController = TextEditingController(text: "#Nahid111");
+  TextEditingController emailController =
+      TextEditingController(text: "nahiduzzaman15-12736@diu.edu.bd");
+  TextEditingController passwordController =
+      TextEditingController(text: "#Nahid111");
 
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
@@ -43,23 +47,17 @@ class SignInController extends GetxController {
     }
 
     if (responseModel.statusCode == 200) {
-      isSubmit = false;
-      update();
-      clearData();
       SignInResponseModel signInResponseModel = SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       await gotoNextStep(signInResponseModel);
-    } else if(responseModel.statusCode == 503){
+    } else if (responseModel.statusCode == 401) {
       isSubmit = false;
       update();
-      Utils.snackBar("Error".tr,"Connection Error");
-    }
-
-    else {
+      Utils.snackBar("Error".tr, "Invalid Email or password is not correct!".tr);
+    } else if (responseModel.statusCode == 503) {
       isSubmit = false;
       update();
-      Utils.snackBar("Error".tr,responseModel.message);
+      Utils.snackBar("Error".tr, "Connection Error".tr);
     }
-
     isSubmit = false;
     update();
   }
@@ -67,9 +65,9 @@ class SignInController extends GetxController {
   gotoNextStep(SignInResponseModel signInResponseModel) async {
     bool emailVerified = signInResponseModel.user?.emailVerified == false ? false : true;
 
-    bool approved = signInResponseModel.user!.approved == false ? false : true;
+    bool approved = signInResponseModel.user?.approved == false ? false : true;
 
-    bool isBanned = signInResponseModel.user!.isBanned == "false" ? false : true;
+    bool isBanned = signInResponseModel.user?.isBanned == "false" ? false : true;
 
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.userIdKey,
@@ -82,15 +80,15 @@ class SignInController extends GetxController {
     await signInRepo.apiService.sharedPreferences
         .setString(SharedPreferenceHelper.accessTokenType, "Bearer");
 
-     await signInRepo.apiService.sharedPreferences.setString(
-         SharedPreferenceHelper.userEmailKey,
-         signInResponseModel.user?.email.toString() ?? "");
-     await signInRepo.apiService.sharedPreferences.setString(
+    await signInRepo.apiService.sharedPreferences.setString(
+        SharedPreferenceHelper.userEmailKey,
+        signInResponseModel.user?.email.toString() ?? "");
+    await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.userPhoneNumberKey,
         signInResponseModel.user?.phoneNumber.toString() ?? "");
-     await signInRepo.apiService.sharedPreferences.setString(
-         SharedPreferenceHelper.userNameKey,
-         signInResponseModel.user?.fullName.toString() ?? "");
+    await signInRepo.apiService.sharedPreferences.setString(
+        SharedPreferenceHelper.userNameKey,
+        signInResponseModel.user?.fullName.toString() ?? "");
 
     if (emailVerified == false) {
       Get.offNamed(AppRoute.forgotPasswordOTPScreen);
@@ -99,13 +97,13 @@ class SignInController extends GetxController {
     if (emailVerified == true && approved == true) {
       clearData();
       Get.offAllNamed(AppRoute.navigation);
-      Utils.snackBar("Successful".tr,"Successfully Signed In".tr);
+      Utils.snackBar("Successful".tr, "Successfully Signed In".tr);
     } else if (approved == false) {
-      Utils.snackBar("Successful".tr,"Please wait for admin approve to log in".tr);
+      Utils.popUp("Please wait for admin approve to log in".tr, () => Get.back());
     } else if (isBanned == true) {
-      Utils.snackBar("Successful".tr,"You Have Been Banned By Admin");
-    }else {
-      Utils.snackBar("Error".tr,"Enter valid Email and Password".tr);
+      Utils.snackBar("Successful".tr, "You Have Been Banned By Admin".tr);
+    } else {
+      Utils.snackBar("Error".tr, "Enter valid Email and Password".tr);
     }
   }
 
@@ -120,6 +118,4 @@ class SignInController extends GetxController {
     emailController.text = "";
     passwordController.text = "";
   }
-
 }
-

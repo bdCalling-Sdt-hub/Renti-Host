@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -81,15 +80,15 @@ class SignUpController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadINEOrPassport = File(result.files.single.path.toString());
-      // ineOrPassportFileName = result.files.single.name;
-
-      kycDocFiles.add(uploadINEOrPassport!);
-      if (kDebugMode) {
-        print(kycDocFiles);
+      PlatformFile file = result.files.first;
+      if(file.extension == 'pdf'){
+        uploadINEOrPassport = File(result.files.single.path.toString());
+        ineOrPassportFileName = result.files.single.name;
+        kycDocFiles.add(uploadINEOrPassport!);
+        update();
+      }else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
       }
-
-      update();
     }
   }
 
@@ -100,11 +99,15 @@ class SignUpController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadTaxStampsKey = File(result.files.single.path.toString());
-      taxStampKeyFileName = result.files.single.name;
-      kycDocFiles.add(uploadTaxStampsKey!);
-
-      update();
+      PlatformFile file = result.files.first;
+      if(file.extension == 'pdf'){
+        uploadTaxStampsKey = File(result.files.single.path.toString());
+        taxStampKeyFileName = result.files.single.name;
+        kycDocFiles.add(uploadTaxStampsKey!);
+        update();
+      }else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+      }
     }
   }
 
@@ -115,11 +118,15 @@ class SignUpController extends GetxController {
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
-      uploadCerStampsKey = File(result.files.single.path.toString());
-      cerStampKeyFileName = result.files.single.name;
-      kycDocFiles.add(uploadCerStampsKey!);
-
-      update();
+      PlatformFile file = result.files.first;
+      if(file.extension == 'pdf'){
+        uploadCerStampsKey = File(result.files.single.path.toString());
+        cerStampKeyFileName = result.files.single.name;
+        kycDocFiles.add(uploadCerStampsKey!);
+        update();
+      }else{
+        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+      }
     }
   }
 
@@ -159,9 +166,7 @@ class SignUpController extends GetxController {
 
   void openGallery() async {
     final pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-      maxHeight: 120,
-      maxWidth: 120,
+      source: ImageSource.gallery
     );
 
     if (pickedFile != null) {
@@ -171,8 +176,8 @@ class SignUpController extends GetxController {
   }
 
   void openCamera(BuildContext context) async {
-    final pickedFile = await ImagePicker()
-        .pickImage(source: ImageSource.camera, maxHeight: 120, maxWidth: 120);
+    final pickedFile = await ImagePicker().pickImage(
+        source: ImageSource.camera);
 
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
@@ -228,7 +233,7 @@ class SignUpController extends GetxController {
         }
       }
 
-      Map <String, String> address ={
+     /* Map <String, String> address ={
         "city": cityController.text,
         "country": countryController.text,
         "line1": laneController.text,
@@ -241,7 +246,7 @@ class SignUpController extends GetxController {
         "account_holder_name": accountHolderController.text,
         "account_holder_type": accountType[selectedAccount]
       };
-      final String bankInformation = jsonEncode(bankInfo);
+      final String bankInformation = jsonEncode(bankInfo);*/
 
       // Add the parameters to the request
       Map<String, String> params = {
@@ -288,7 +293,7 @@ class SignUpController extends GetxController {
       else if(response.statusCode == 409){
         isloading = false;
         update();
-        Utils.snackBar("Successful".tr, "User Already Exist".tr);
+        Utils.snackBar("Alert!".tr, "User Already Exist".tr);
       }
       if (kDebugMode) {
         print(response.statusCode);
@@ -299,8 +304,7 @@ class SignUpController extends GetxController {
       if (kDebugMode) {
         print('Error sending request: $e');
       }
-
-      Utils.snackBar("Error".tr, "$e");
+      //Utils.snackBar("Error".tr, "$e");
     }
 
     isloading = false;

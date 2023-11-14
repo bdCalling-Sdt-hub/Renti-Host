@@ -176,9 +176,9 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
 
                       //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
 
-                      if (homeCarListModel.totalCar! < 0)
+                      if (homeCarListModel.totalCar! > 0)
                         const SizedBox(height: 16),
-                      if (homeCarListModel.totalCar! < 0)
+                      if (homeCarListModel.totalCar! > 0)
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -188,8 +188,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.w600),
                             GestureDetector(
                               onTap: () {
-                                Get.toNamed(AppRoute.seeAllCarList,
-                                    arguments: homeCarListModel);
+                                Get.toNamed(AppRoute.seeAllCarList, arguments: homeCarListModel);
                               },
                               child: CustomText(
                                 text: "See all".tr,

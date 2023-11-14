@@ -118,6 +118,11 @@ Map<String, String> english = {
   "Error" : "Error",
   "Enter valid Email and Password" : "Enter valid Email and Password",
   "Authentication failed" : "Authentication failed",
+  "Alert!" : "Alert!",
+  "OTP Resend Successful" : "OTP Resend Successful",
+  "OTP Resend Failed" : "OTP Resend Failed",
+  "Email verify successful" : "Email verify successful",
+  "Failed to email verify" : "Failed to email verify",
 
   //Drawer Section
   "Add Car": "Add Car",
@@ -152,7 +157,7 @@ Map<String, String> english = {
   "Enter license number": "Enter license number",
   "Car Description": "Car Description",
   "Enter Description": "Enter Description",
-  "Set Rent Amount": "Set Rent Amount",
+  "Set Rent Amount /hr": "Set Rent Amount /hr",
   "Enter Amount": "Enter Amount",
   "Insurance Date": "Insurance Date",
   "Start": "Start",
@@ -251,6 +256,7 @@ Map<String, String> english = {
   "Profile Edit": "Profile Edit",
   "Name": "Name",
   "Save": "Save",
+  "Update" : "Update",
 
   //Message Screen
   "Messages": "Messages",
@@ -279,6 +285,14 @@ Map<String, String> english = {
   "PLEASE CONNECT TO INTERNET" : "PLEASE CONNECT TO INTERNET",
 
   "Payment Completed Trip Not Start" : "Payment Completed Trip Not Start",
+  "Only PDF file allow" : "Only PDF file allow",
+  "You Have Been Banned By Admin" : "You Have Been Banned By Admin",
+  "Connection Error" : "Connection Error",
+  "Invalid Email or password is not correct!" : "Invalid Email or password is not correct!",
+  "Rent request accepted" : "Rent request accepted",
+  "Rent request rejected" : "Rent request rejected",
+
+  "Successfully Profile Updated" : "Successfully Profile Updated",
 
 
 };

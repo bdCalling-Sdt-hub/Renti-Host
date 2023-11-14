@@ -18,10 +18,12 @@ class CommonPopUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: AppColors.whiteLight,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CustomText(text: title, fontSize: 18, fontWeight: FontWeight.w600),
+          CustomText(text: title, fontSize: 18, fontWeight: FontWeight.w500),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 24.0),
             child: Divider(
@@ -35,9 +37,9 @@ class CommonPopUp extends StatelessWidget {
                 child: CustomElevatedButton(
                   onPressed: onTapYes,
                   titleText: "Yes".tr,
-                  buttonColor: AppColors.redLight,
-                  titleColor: AppColors.redNormal,
-                  buttonHeight: 48,
+                  buttonColor: AppColors.blackNormal,
+                  titleColor: AppColors.whiteLight,
+                  buttonHeight: 42,
                 ),
               ),
               const SizedBox(width: 8),
@@ -45,7 +47,7 @@ class CommonPopUp extends StatelessWidget {
                 child: CustomElevatedButton(
                   onPressed: onTapNo,
                   titleText: "No".tr,
-                  buttonHeight: 48,
+                  buttonHeight: 42,
                 ),
               ),
             ],
