@@ -338,6 +338,19 @@ class AddCarController extends GetxController {
     }
   }
 
+  Future<void> registrationDateStart(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2023),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != registrationDate.text) {
+      registrationDate.text = "${picked.year}-${picked.month}-${picked.day}";
+      update();
+    }
+  }
+
   clearData() {
     isLoading = false;
     carModelName.text = "";

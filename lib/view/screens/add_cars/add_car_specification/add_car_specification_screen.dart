@@ -35,11 +35,11 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                 CustomBack(text: "Add Car".tr, color: AppColors.blackNormal)),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20),
+          physics: const BouncingScrollPhysics(),
           child: GetBuilder<AddCarController>(
             builder: (controller) {
               return Form(
                 key: controller.formKey1,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -111,7 +111,9 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                     CustomText(text: "Registration Date".tr, top: 16, bottom: 12),
                     TextFormField(
                       controller: controller.registrationDate,
-                      showCursor: true,
+                      showCursor: false,cursorColor: Colors.transparent,
+                      //readOnly: true,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       keyboardType: TextInputType.number,
                       style: GoogleFonts.poppins(
                           fontSize: 14,
@@ -142,6 +144,7 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                               color: AppColors.whiteNormalActive, width: 1),
                         ),
                       ),
+                     // onTap: () => controller.registrationDateStart(context),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "This field can not be empty".tr;
