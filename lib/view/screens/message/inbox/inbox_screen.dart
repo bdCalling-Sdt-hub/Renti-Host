@@ -201,8 +201,7 @@ class _InboxScreenState extends State<InboxScreen> {
                           fontSize: 14,
                           fontWeight: FontWeight.w500),
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsetsDirectional.only(
-                            start: 12, end: 12, top: 12, bottom: 12),
+                        contentPadding: const EdgeInsetsDirectional.only(start: 12, end: 12, top: 12, bottom: 12),
                         fillColor: Colors.transparent,
                         filled: true,
                         hintText: "Type message".tr,

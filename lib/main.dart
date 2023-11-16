@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.noTransition,
       transitionDuration: const Duration(milliseconds: 200),
       translations: Languages(),
-      locale: Get.find<LanguageController>().language.val ? const Locale("en" , "US") : const Locale("es", "MX"),
+      locale: Get.find<LanguageController>().language.val ?  const Locale("es", "MX") : const Locale("en" , "US"),
       fallbackLocale:const Locale("en" , "US"),
       initialRoute: AppRoute.splashScreen,
       navigatorKey: Get.key,
