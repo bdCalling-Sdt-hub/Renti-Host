@@ -13,13 +13,13 @@ class RentDetailsAlert extends StatelessWidget {
       {super.key, required this.index, required this.rentListModel});
 
   final int index;
-  final RentListModel rentListModel;
+  final List<RentedCar> rentListModel;
 
   @override
   Widget build(BuildContext context) {
     String startDateString =
-        rentListModel.rentedCars![index].startDate.toString();
-    String endDateString = rentListModel.rentedCars![index].endDate.toString();
+        rentListModel[index].startDate.toString();
+    String endDateString = rentListModel[index].endDate.toString();
 
     // Define a regular expression pattern to match the date part
     RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
@@ -50,17 +50,17 @@ class RentDetailsAlert extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               RentDetailsTopSection(
-                  image: rentListModel.rentedCars![index].carId!.image![0],
-                  carName: rentListModel.rentedCars![index].carId!.carModelName.toString(),
-                  carModel: rentListModel.rentedCars![index].carId!.year.toString(),
-                  requestStatus: rentListModel.rentedCars![index].requestStatus.toString(),
-                  carLicense: rentListModel.rentedCars![index].carId!.carLicenseNumber.toString(),
-                  payment: rentListModel.rentedCars![index].payment.toString(),
-                  tripStatus: rentListModel.rentedCars![index].carId!.tripStatus.toString()),
+                  image: rentListModel[index].carId!.image![0],
+                  carName: rentListModel[index].carId!.carModelName.toString(),
+                  carModel: rentListModel[index].carId!.year.toString(),
+                  requestStatus: rentListModel[index].requestStatus.toString(),
+                  carLicense: rentListModel[index].carId!.carLicenseNumber.toString(),
+                  payment: rentListModel[index].payment.toString(),
+                  tripStatus: rentListModel[index].carId!.tripStatus.toString()),
               const SizedBox(height: 16),
               CustomRentDetails(
                   title: "Trip no: ".tr,
-                  data: "${rentListModel.rentedCars![index].rentTripNumber}"),
+                  data: "${rentListModel[index].rentTripNumber}"),
               const SizedBox(height: 8),
               CustomRentDetails(
                   title: "Start Date: ".tr, data: formattedStartDate),
@@ -74,26 +74,26 @@ class RentDetailsAlert extends StatelessWidget {
                   bottom: 16),
               CustomRentDetails(
                   title: "Name:".tr,
-                  data: rentListModel.rentedCars![index].userId!.fullName
+                  data: rentListModel[index].userId!.fullName
                       .toString()),
               const SizedBox(height: 8),
               CustomRentDetails(
                   title: "Contact: ".tr,
-                  data: rentListModel.rentedCars![index].userId!.phoneNumber
+                  data: rentListModel[index].userId!.phoneNumber
                       .toString()),
               const SizedBox(height: 8),
               CustomRentDetails(
                   title: "Email:".tr,
-                  data: rentListModel.rentedCars![index].userId!.email
+                  data: rentListModel[index].userId!.email
                       .toString()),
               const SizedBox(height: 8),
               CustomRentDetails(
                   title: "INE:".tr,
-                  data: rentListModel.rentedCars![index].userId!.ine.toString()),
+                  data: rentListModel[index].userId!.ine.toString()),
               // CustomRentDetails(title: "Driving license no:".tr, data: 'ACD1234566'),
               const SizedBox(height: 24),
-              rentListModel.rentedCars?[index].carId?.tripStatus != "Start" &&
-                  rentListModel.rentedCars?[index].payment == "Completed"
+              rentListModel[index].carId?.tripStatus != "Start" &&
+                  rentListModel[index].payment == "Completed"
                   ? SizedBox(
                 width: double.maxFinite,
                     child: Row(
@@ -107,7 +107,7 @@ class RentDetailsAlert extends StatelessWidget {
                   : const SizedBox(),
 
               //This Button Only Show When Reserve Status card Clicked
-              rentListModel.rentedCars?[index].carId?.tripStatus != "Start"
+              rentListModel[index].carId?.tripStatus != "Start"
                   ? const SizedBox()
                   : CustomElevatedButton(
                       onPressed: () {

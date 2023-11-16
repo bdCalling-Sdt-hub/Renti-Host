@@ -19,7 +19,7 @@ class UserRequestDetailsScreen extends StatefulWidget {
 }
 
 class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
-  RentRequestResponseModel rentRequestResponseModel = Get.arguments[0];
+  List<RentRequest> rentRequestResponseModel = Get.arguments[0];
   int index = Get.arguments[1];
   RentReqRepo rentReqRepo = RentReqRepo(apiService: Get.find());
 
@@ -60,7 +60,7 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
                             onPressed: () {
                               rentReqRepo.rentRequest(
                                   request: Request.rejected,
-                                  id: "${rentRequestResponseModel.rentRequest?[index].id}");
+                                  id: "${rentRequestResponseModel[index].id}");
 
                               controller.rentRequest();
                               navigator!.pop();
@@ -75,7 +75,7 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
                           Expanded(
                             child: CustomElevatedButton(
                               onPressed: () {
-                                rentReqRepo.rentRequest(request: Request.accepted, id: rentRequestResponseModel.rentRequest![index].id.toString());
+                                rentReqRepo.rentRequest(request: Request.accepted, id: rentRequestResponseModel[index].id.toString());
                                 controller.rentRequest();
                                 navigator!.pop();
                               },

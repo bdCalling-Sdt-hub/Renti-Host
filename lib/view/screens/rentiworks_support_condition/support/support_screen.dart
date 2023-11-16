@@ -3,10 +3,12 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/service/api_service.dart';
 import 'package:renti_host/utils/app_colors.dart';
+import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/support/support_controller/support_controller.dart';
 import 'package:renti_host/view/screens/rentiworks_support_condition/support/support_repo/support_repo.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
+import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class SupportScreen extends StatefulWidget {
@@ -45,16 +47,29 @@ class _SupportScreenState extends State<SupportScreen> {
                 child: CircularProgressIndicator(),
               );
             }
-            return LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) =>
-                  SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                child: controller.supportModel.support?.content == null
-                    ? const Center(child: CustomText(text: "No Data Found",fontSize: 18))
-                    : Html(data: "${controller.supportModel.support?.content}"
-                ),
-              ),
-            );
+            return controller.supportModel.support?.content == null
+                ? Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CustomImage(
+                            imageSrc: AppIcons.dataNotFound,
+                            size: 120,
+                            imageType: ImageType.png),
+                        const SizedBox(height: 8),
+                        CustomText(
+                            text: "No Data Found!".tr,
+                            fontSize: 16,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis)
+                      ],
+                    ),
+                  )
+                : SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                    child: Html(data: "${controller.supportModel.support?.content}"),
+                  );
           },
         ),
       ),

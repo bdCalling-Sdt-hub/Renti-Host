@@ -112,8 +112,7 @@ class _InboxScreenState extends State<InboxScreen> {
           builder: (socketService) {
             return socketService.messageList.isEmpty
                 ? Center(
-                    child: Text("No Data Found".tr,
-                        style: GoogleFonts.raleway(fontSize: 20)))
+                    child: CustomText(text: "No Data Found!".tr,fontSize: 16,maxLines: 1,overflow: TextOverflow.ellipsis))
                 : SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.only(top: 24, bottom: 100),

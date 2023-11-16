@@ -33,5 +33,6 @@ class AppIcons {
   static const String sendIcon = "$basePath/send_icon.svg";
 
   static const String noInternet = "$basePath/no_internet.svg";
+  static const String dataNotFound = "$basePath/no_data.png";
 
 }

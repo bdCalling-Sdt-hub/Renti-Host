@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/utils/app_static_strings.dart';
 import 'package:renti_host/view/screens/user_list/user_list_response_model/user_list_response_model.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
@@ -13,7 +12,7 @@ class UserListDialogBox extends StatefulWidget {
       {super.key, required this.index, required this.userListResponseModel});
 
   final int index;
-  final UserListResponseModel userListResponseModel;
+  final List<UserList> userListResponseModel;
 
   @override
   State<UserListDialogBox> createState() => _UserListDialogBoxState();
@@ -58,9 +57,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                             shape: BoxShape.circle,
                             image: DecorationImage(
                               image: CachedNetworkImageProvider(
-                                widget.userListResponseModel
-                                    .userList![widget.index].userId!.image
-                                    .toString(),
+                                widget.userListResponseModel[widget.index].userId!.image.toString(),
                               ),fit: BoxFit.fill
                             ),
                           ),
@@ -72,7 +69,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomText(
-                                  text: "${widget.userListResponseModel.userList?[widget.index].userId?.fullName} ",
+                                  text: "${widget.userListResponseModel[widget.index].userId?.fullName} ",
                                   maxLines: 1,overflow: TextOverflow.ellipsis,
                                   fontSize: 16,textAlign: TextAlign.start,
                                   fontWeight: FontWeight.w500,
@@ -83,9 +80,9 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                                     imageSrc: AppImages.starImage,
                                     size: 12,
                                   ),
-                                  widget.userListResponseModel.userList?[widget.index].userId?.averageRatings != null ?
+                                  widget.userListResponseModel[widget.index].userId?.averageRatings != null ?
                                   CustomText(
-                                    text: "${widget.userListResponseModel.userList?[widget.index].userId?.averageRatings}",
+                                    text: "${widget.userListResponseModel[widget.index].userId?.averageRatings}",
                                     fontSize: 10,
                                     left: 8,
                                   ) : const CustomText(text: "0", fontSize: 14,left: 4),
@@ -107,10 +104,11 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                         margin: const EdgeInsets.only(bottom: 8),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
-                            color: widget.userListResponseModel.userList?[widget.index].requestStatus == "Completed" ? AppColors.greenLight : AppColors.redLight),
-                        child: widget.userListResponseModel.userList?[widget.index].requestStatus == "Completed" ?
+                            color: widget.userListResponseModel[widget.index].requestStatus == "Completed"
+                                ? AppColors.greenLight : AppColors.redLight),
+                        child: widget.userListResponseModel[widget.index].requestStatus == "Completed" ?
                         CustomText(
-                          text: "${widget.userListResponseModel.userList?[widget.index].requestStatus}",
+                          text: "${widget.userListResponseModel[widget.index].requestStatus}",
                           color: AppColors.greenNormal,
                           fontSize: 10,
                         ) :
@@ -165,9 +163,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                       fontSize: 16,
                       color: AppColors.whiteDarkHover),
                   CustomText(
-                      text: widget.userListResponseModel.userList![widget.index]
-                          .userId!.phoneNumber
-                          .toString(),
+                      text: "${widget.userListResponseModel[widget.index].userId?.phoneNumber}",
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                 ],
@@ -185,7 +181,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                   Flexible(
                     child: CustomText(
                       maxLines: 1,overflow: TextOverflow.ellipsis,
-                        text: widget.userListResponseModel.userList![widget.index].userId!.email.toString(),
+                        text: "${widget.userListResponseModel[widget.index].userId?.email}",
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                   ),
@@ -201,9 +197,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                       fontSize: 16,
                       color: AppColors.whiteDarkHover),
                   CustomText(
-                      text: widget.userListResponseModel.userList![widget.index]
-                          .rentTripNumber
-                          .toString(),
+                      text: "${widget.userListResponseModel[widget.index].rentTripNumber}",
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                 ],

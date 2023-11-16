@@ -30,12 +30,13 @@ class RentRequestController extends GetxController {
     if (responseModel.statusCode == 200) {
       //get data by using reference model variable
       rentRequestResponseModel = RentRequestResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-     /* rentRequestList = [];
+      rentRequestList = [];
       rentRequestResponseModel.rentRequest?.forEach((element) {
-        if(element.requestStatus == "Pending" && element.carId != null && element.requestStatus != "Cancel"){
+        if(element.requestStatus == "Pending" && element.carId != null && element.requestStatus != "Cancel"
+            && element.userId != null){
           rentRequestList.add(element);
         }
-      });*/
+      });
       isloading = false;
       update();
     } else {

@@ -293,6 +293,10 @@ Map<String, String> english = {
   "Rent request rejected" : "Rent request rejected",
 
   "Successfully Profile Updated" : "Successfully Profile Updated",
-
+  "No Request Found!" : "No Request Found!",
+  "No Messages Found!" : "No Messages Found!",
+  "No Data Found!" : "No Data Found!",
+  "No Rent Data Found!" : "No Rent Data Found!",
+  "No User Data Found!" : "No User Data Found!",
 
 };

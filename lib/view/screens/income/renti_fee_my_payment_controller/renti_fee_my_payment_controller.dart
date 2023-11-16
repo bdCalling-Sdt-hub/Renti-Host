@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
 import 'package:renti_host/view/screens/income/renti_fee_my_payment_model/renti_fee_my_payment_model.dart';
@@ -12,15 +11,20 @@ class RentiFeeMyControllerController extends GetxController {
   RentiFeeMyPaymentModel rentiFeeMyPaymentModel = RentiFeeMyPaymentModel();
   bool isLoading = false;
 
+  List<UserPaymentList> payment = [];
+
   Future<RentiFeeMyPaymentModel> feeOrPayment() async {
     ApiResponseModel responseModel = await rentiFeeMyPaymentRepo.feeOrPayment();
     // Define the variable here
 
     if (responseModel.statusCode == 200) {
       rentiFeeMyPaymentModel = RentiFeeMyPaymentModel.fromJson(jsonDecode(responseModel.responseJson));
-      if (kDebugMode) {
-        print("$rentiFeeMyPaymentModel");
-      }
+      payment = [];
+      rentiFeeMyPaymentModel.userPaymentList?.forEach((element) {
+        if(element.income?.carId != null && element.income?.rentId != null && element.income?.paymentData !=null){
+          payment.add(element);
+        }
+      });
       isLoading = false;
       update();
     } else {

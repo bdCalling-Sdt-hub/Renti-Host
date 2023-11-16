@@ -291,6 +291,11 @@ Map<String, String> spanish = {
   "Rent request rejected" : "Solicitud de alquiler rechazada",
   "Successfully Profile Updated" : "Perfil actualizado correctamente",
 
+  "No Request Found!" : "¡No se encontró ninguna solicitud!",
+  "No Messages Found!" : "¡No se han encontrado mensajes!",
+  "No Data Found!" : "¡Datos no encontrados!",
+  "No Rent Data Found!" : "¡No se encontraron datos de alquiler!",
+  "No User Data Found!" : "¡No se encontraron datos de usuario!",
 
 
 

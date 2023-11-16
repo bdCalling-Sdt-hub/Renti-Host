@@ -7,7 +7,7 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 class RequestCarDetails extends StatefulWidget {
   const RequestCarDetails(
       {super.key, required this.rentRequestResponseModel, required this.index});
-  final RentRequestResponseModel rentRequestResponseModel;
+  final List<RentRequest> rentRequestResponseModel;
   final int index;
 
   @override
@@ -17,23 +17,17 @@ class RequestCarDetails extends StatefulWidget {
 class _RequestCarDetailsState extends State<RequestCarDetails> {
   @override
   Widget build(BuildContext context) {
-    String startDateString = widget
-        .rentRequestResponseModel.rentRequest![widget.index].startDate
-        .toString();
+    String startDateString = "${widget.rentRequestResponseModel[widget.index].startDate}";
 
-    String endDateString = widget
-        .rentRequestResponseModel.rentRequest![widget.index].endDate
-        .toString();
+    String endDateString = "${widget.rentRequestResponseModel[widget.index].endDate}";
 
     // Define a regular expression pattern to match the date part
     RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
 
     // Use the regular expression to extract the date part
-    String formattedStartDate =
-        datePattern.firstMatch(startDateString)?.group(0) ?? '';
+    String formattedStartDate = datePattern.firstMatch(startDateString)?.group(0) ?? '';
 
-    String formattedEndDate =
-        datePattern.firstMatch(endDateString)?.group(0) ?? '';
+    String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Column(
@@ -69,7 +63,7 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
               const SizedBox(width: 24),
               Flexible(
                 child: CustomText(
-                    text: "${widget.rentRequestResponseModel.rentRequest![widget.index].totalHours.toString()}h",
+                    text: "${widget.rentRequestResponseModel[widget.index].totalHours}h",
                     maxLines: 1,overflow: TextOverflow.ellipsis,
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
@@ -89,7 +83,7 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
               Flexible(
                 child: CustomText(
                   maxLines: 1,overflow: TextOverflow.ellipsis,
-                    text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].userId?.phoneNumber}",
+                    text: "${widget.rentRequestResponseModel[widget.index].userId?.phoneNumber}",
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
               ),
@@ -106,7 +100,7 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
                   color: AppColors.whiteDarkHover),
               Flexible(
                 child: CustomText(
-                    text: '\$${widget.rentRequestResponseModel.rentRequest?[widget.index].totalAmount}',
+                    text: '\$${widget.rentRequestResponseModel[widget.index].totalAmount}',
                     fontSize: 16,maxLines: 1,overflow: TextOverflow.ellipsis,
                     fontWeight: FontWeight.w500),
               ),

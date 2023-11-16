@@ -8,7 +8,7 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 class RequestCarDetailsCard extends StatefulWidget {
   const RequestCarDetailsCard(
       {super.key, required this.rentRequestResponseModel, required this.index});
-  final RentRequestResponseModel rentRequestResponseModel;
+  final List<RentRequest> rentRequestResponseModel;
   final int index;
 
   @override
@@ -18,7 +18,7 @@ class RequestCarDetailsCard extends StatefulWidget {
 class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
   @override
   Widget build(BuildContext context) {
-    String carImg = "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.image?[0]}";
+    String carImg = "${widget.rentRequestResponseModel[widget.index].carId?.image?[0]}";
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -53,7 +53,7 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
                   children: [
                     CustomText(
                       maxLines: 1,overflow: TextOverflow.ellipsis,
-                      text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.carModelName}",
+                      text: "${widget.rentRequestResponseModel[widget.index].carId?.carModelName}",
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.blueDark,
@@ -61,7 +61,7 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
                     ),
                     CustomText(
                       maxLines: 1,overflow: TextOverflow.ellipsis,
-                      text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.carLicenseNumber}",
+                      text: "${widget.rentRequestResponseModel[widget.index].carId?.carLicenseNumber}",
                       color: AppColors.whiteDarkActive,
                       top: 8,
                       bottom: 8,
@@ -69,20 +69,20 @@ class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
                     ),
                     CustomText(
                       maxLines: 1,overflow: TextOverflow.ellipsis,
-                      text:"${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.totalRun}" ,
+                      text:"${widget.rentRequestResponseModel[widget.index].carId?.totalRun}" ,
                       color: AppColors.whiteDarkActive,
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(height: 8),
                     CustomText(
                       maxLines: 1,overflow: TextOverflow.ellipsis,
-                      text: "${widget.rentRequestResponseModel.rentRequest?[widget.index].carId?.hourlyRate}\$/h",
+                      text: "${widget.rentRequestResponseModel[widget.index].carId?.hourlyRate}\$/h",
                       color: AppColors.whiteDarkActive,
                     ),
                   ],
                 ),
               ),
-              Flexible(child: ClipRRect(borderRadius: BorderRadius.circular(8),child: CachedNetworkImage(imageUrl: carImg))),
+              ClipRRect(borderRadius: BorderRadius.circular(8),child: CachedNetworkImage(imageUrl: carImg,height: 100,width: 150)),
             ],
           ),
         ),

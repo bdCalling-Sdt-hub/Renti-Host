@@ -9,7 +9,7 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 class UserDetailsTopSection extends StatefulWidget {
   const UserDetailsTopSection(
       {super.key, required this.rentRequestResponseModel, required this.index});
-  final RentRequestResponseModel rentRequestResponseModel;
+  final List<RentRequest> rentRequestResponseModel;
   final int index;
 
   @override
@@ -19,9 +19,7 @@ class UserDetailsTopSection extends StatefulWidget {
 class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
   @override
   Widget build(BuildContext context) {
-    String img = widget
-        .rentRequestResponseModel.rentRequest![widget.index].userId!.image
-        .toString();
+    String img = "${widget.rentRequestResponseModel[widget.index].userId?.image}";
 
     return Row(
       children: [
@@ -47,9 +45,7 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomText(
-                    text: widget.rentRequestResponseModel
-                        .rentRequest![widget.index].userId!.fullName
-                        .toString(),
+                    text: "${widget.rentRequestResponseModel[widget.index].userId?.fullName}",
                     fontSize: 24,maxLines: 1,overflow: TextOverflow.ellipsis,
                     fontWeight: FontWeight.w500,
                     color: AppColors.blueNormal,

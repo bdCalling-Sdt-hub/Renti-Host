@@ -11,6 +11,7 @@ class IncomeController extends GetxController {
   IncomeResponseModel incomeResponseModel = IncomeResponseModel();
   String income = "";
   bool isLoading = false;
+  List<WeeklyIncomeList> weeklyIncomeList = [];
 
 
   Future<IncomeResponseModel> totalIncome() async {
@@ -26,10 +27,15 @@ class IncomeController extends GetxController {
       update();
       incomeResponseModel = IncomeResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       income = incomeResponseModel.totalIncome ?? "";
-      if (kDebugMode) {
-        print("$incomeResponseModel");
-        print(income);
-      }
+      weeklyIncomeList = [];
+      incomeResponseModel.weeklyIncomeList?.forEach((element) {
+        if(element.carId != null && element.rentId != null && element.paymentData != null){
+          weeklyIncomeList.add(element);
+        }
+      });
+      isLoading = false;
+      update();
+
     } else {
       isLoading = false;
       update();

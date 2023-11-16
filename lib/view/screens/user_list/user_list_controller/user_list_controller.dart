@@ -1,9 +1,6 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/global/api_response_model.dart';
-import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/user_list/user_list_repo/user_list_repo.dart';
 import 'package:renti_host/view/screens/user_list/user_list_response_model/user_list_response_model.dart';
 
@@ -24,16 +21,15 @@ class UserListController extends GetxController {
 
     if (responseModel.statusCode == 200) {
       userListResponseModel = UserListResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-      List<UserList>? tempList = userListResponseModel.userList;
-      if(tempList != null && tempList.isNotEmpty){
-        userList.addAll(tempList);
-      }
-      if (kDebugMode) {
-        print("$userListResponseModel");
-      }
-    } else {
-      Utils.toastMessage(responseModel.message);
-
+      userList = [];
+      userListResponseModel.userList?.forEach((element) {
+        if(element.payment == "Completed" &&
+            element.requestStatus == "Completed" &&
+            element.userId != null &&
+            element.userId?.isBanned != "true"){
+          userList.add(element);
+        }
+      });
     }
     isLoading = false;
     update();// Return the variable here
