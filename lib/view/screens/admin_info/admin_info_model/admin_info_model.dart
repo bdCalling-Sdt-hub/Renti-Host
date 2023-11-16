@@ -29,7 +29,7 @@ class AdminDatum {
   String? fullName;
   String? email;
   String? phoneNumber;
-  String? address;
+  Address? address;
 
   AdminDatum({
     this.id,
@@ -48,7 +48,7 @@ class AdminDatum {
     fullName: json["fullName"],
     email: json["email"],
     phoneNumber: json["phoneNumber"],
-    address: json["address"],
+    address: json["address"] == null ? null : Address.fromJson(json["address"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -56,6 +56,38 @@ class AdminDatum {
     "fullName": fullName,
     "email": email,
     "phoneNumber": phoneNumber,
-    "address": address,
+    "address": address?.toJson(),
+  };
+}
+
+class Address {
+  String? city;
+  String? state;
+  String? country;
+  String? line1;
+
+  Address({
+    this.city,
+    this.state,
+    this.country,
+    this.line1,
+  });
+
+  factory Address.fromRawJson(String str) => Address.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Address.fromJson(Map<String, dynamic> json) => Address(
+    city: json["city"],
+    state: json["state"],
+    country: json["country"],
+    line1: json["line1"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "city": city,
+    "state": state,
+    "country": country,
+    "line1": line1,
   };
 }

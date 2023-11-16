@@ -18,6 +18,7 @@ class RentFeeScreen extends StatefulWidget {
 }
 
 class _RentFeeScreenState extends State<RentFeeScreen> {
+
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
@@ -60,7 +61,9 @@ class _RentFeeScreenState extends State<RentFeeScreen> {
                 color: AppColors.blackNormal,
               ),
             ),
-            body: SingleChildScrollView(
+            body: controller.isLoading
+                ? const Center(child: CircularProgressIndicator())
+                : SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsetsDirectional.symmetric(vertical: 24, horizontal: 20),
               child: Column(
@@ -70,8 +73,7 @@ class _RentFeeScreenState extends State<RentFeeScreen> {
                     final isExpanded = expandedMap[index] ?? false;
                     String startDateString = "${controller.rentiFeeMyPaymentModel.userPaymentList?[index].income?.rentId?.startDate}";
 
-                    String endDateString =
-                        "${controller.rentiFeeMyPaymentModel.userPaymentList?[index].income?.rentId?.endDate}";
+                    String endDateString = "${controller.rentiFeeMyPaymentModel.userPaymentList?[index].income?.rentId?.endDate}";
                     // Define a regular expression pattern to match the date part
                     RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
 

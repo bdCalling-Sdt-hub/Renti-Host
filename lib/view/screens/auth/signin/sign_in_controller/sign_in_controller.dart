@@ -19,9 +19,9 @@ class SignInController extends GetxController {
   TextEditingController passwordController = TextEditingController(text: "1qazxsw2");*/
 
   TextEditingController emailController =
-      TextEditingController(text: "nahiduzzaman15-12736@diu.edu.bd");
+      TextEditingController();
   TextEditingController passwordController =
-      TextEditingController(text: "#Nahid111");
+      TextEditingController();
 
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();

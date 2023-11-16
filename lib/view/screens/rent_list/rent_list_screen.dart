@@ -65,7 +65,7 @@ class _RentListScreenState extends State<RentListScreen> {
                         children: List.generate(
                           rentListModel.rentedCars!.length,
                           (index) => rentListModel.rentedCars?[index].requestStatus.toString() != "Completed" &&
-                                  rentListModel.rentedCars?[index].payment.toString() == "Completed" &&
+                                  rentListModel.rentedCars?[index].payment.toString() != "Completed" &&
                                   rentListModel.rentedCars?[index].requestStatus.toString() != "Rejected" &&
                                   rentListModel.rentedCars?[index].requestStatus.toString() == "Accepted" &&
                               rentListModel.rentedCars?[index].carId != null

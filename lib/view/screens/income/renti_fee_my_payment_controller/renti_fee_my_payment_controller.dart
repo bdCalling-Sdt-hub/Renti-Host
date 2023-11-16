@@ -10,6 +10,7 @@ class RentiFeeMyControllerController extends GetxController {
   RentiFeeMyControllerController({required this.rentiFeeMyPaymentRepo});
 
   RentiFeeMyPaymentModel rentiFeeMyPaymentModel = RentiFeeMyPaymentModel();
+  bool isLoading = false;
 
   Future<RentiFeeMyPaymentModel> feeOrPayment() async {
     ApiResponseModel responseModel = await rentiFeeMyPaymentRepo.feeOrPayment();
@@ -20,11 +21,17 @@ class RentiFeeMyControllerController extends GetxController {
       if (kDebugMode) {
         print("$rentiFeeMyPaymentModel");
       }
+      isLoading = false;
+      update();
     } else {
+      isLoading = false;
+      update();
       //Utils.toastMessage(responseModel.message);
       // You should handle the case where there's an error. It's also recommended to return an appropriate response in this case.
-      return RentiFeeMyPaymentModel(); // Return a default value or handle the error accordingly.
+      return RentiFeeMyPaymentModel();// Return a default value or handle the error accordingly.
     }
+    isLoading = false;
+    update();
     return rentiFeeMyPaymentModel; // Return the variable here
   }
 }

@@ -19,33 +19,33 @@ class SignUpController extends GetxController {
 
   bool isSubmit = false;
 
-  TextEditingController fullNameController = TextEditingController(text: "Md.Nahiduzzaman");
-  TextEditingController emailController = TextEditingController(text: "hardikislam11@gmail.com");
-  TextEditingController dateController = TextEditingController(text: "11");
-  TextEditingController monthController = TextEditingController(text: "06");
-  TextEditingController yearController = TextEditingController(text: "1998");
-  TextEditingController passwordController = TextEditingController(text: "11223344");
-  TextEditingController confirmPasswordController = TextEditingController(text: "11223344");
-  TextEditingController phoneNumberController = TextEditingController(text: "1245789542");
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController monthController = TextEditingController();
+  TextEditingController yearController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
 
 
-  TextEditingController countryController = TextEditingController(text: "MX");
-  TextEditingController cityController = TextEditingController(text: "Cuautitlán Izcalli");
-  TextEditingController stateController = TextEditingController(text: "Aguascalientes");
-  TextEditingController laneController = TextEditingController(text: "123 Main Street");
-  TextEditingController postalController = TextEditingController(text: "22056");
+  TextEditingController countryController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController laneController = TextEditingController();
+  TextEditingController postalController = TextEditingController();
 
 
-  TextEditingController accountController = TextEditingController(text: "000000001234567897");
-  TextEditingController accountHolderController = TextEditingController(text: "Nahid");
+  TextEditingController accountController = TextEditingController();
+  TextEditingController accountHolderController = TextEditingController();
 
 
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
-  TextEditingController ineNumberController = TextEditingController(text: "DAXR870101VY7");
-  TextEditingController rfcController = TextEditingController(text: "123456789");
+  TextEditingController ineNumberController = TextEditingController();
+  TextEditingController rfcController = TextEditingController();
 
   List<String> genderList = ["Male", "Female", "Others"];
   List<String> accountType = ["individual", "company"];
