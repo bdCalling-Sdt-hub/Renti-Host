@@ -79,8 +79,7 @@ class _UserListScreenState extends State<UserListScreen> {
                             onTap: () => showDialog(
                               context: context,
                               builder: (BuildContext context) => Padding(
-                                padding: const EdgeInsetsDirectional.symmetric(
-                                    horizontal: 20),
+                                padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
                                 child: UserListDialogBox(
                                     index: index,
                                     userListResponseModel: controller.userList),
