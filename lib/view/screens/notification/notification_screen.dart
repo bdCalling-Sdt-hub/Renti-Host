@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:renti_host/core/helper/date_converter_helper.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/screens/notification/notification_controller.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';

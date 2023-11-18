@@ -1,14 +1,18 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NoInternetController extends GetxController {
   final Connectivity _connectivity = Connectivity();
 
-  void onConnectivityChange(ConnectivityResult result) {
+  void onConnectivityChange(ConnectivityResult result) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final bool? repeat = prefs.getBool(SharedPreferenceHelper.rememberMeKey);
     if (result == ConnectivityResult.none) {
       Get.rawSnackbar(
           messageText: CustomText(text:
@@ -22,15 +26,16 @@ class NoInternetController extends GetxController {
           ),
           snackStyle: SnackStyle.GROUNDED,
           duration: const Duration(days: 1));
-
       Get.offAllNamed(AppRoute.noInternet);
 
-
     } else {
-      if (Get.isSnackbarOpen) {
-
+      if (Get.isSnackbarOpen && repeat == false) {
         Get.closeAllSnackbars();
         Get.offAllNamed(AppRoute.signInScreen);
+      }
+      else if(Get.isSnackbarOpen && repeat == true){
+        Get.closeAllSnackbars();
+        Get.offAllNamed(AppRoute.navigation);
       }
     }
   }

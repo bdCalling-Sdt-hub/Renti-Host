@@ -79,8 +79,7 @@ class _UserListScreenState extends State<UserListScreen> {
                             onTap: () => showDialog(
                               context: context,
                               builder: (BuildContext context) => Padding(
-                                padding: const EdgeInsetsDirectional.symmetric(
-                                    horizontal: 20),
+                                padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
                                 child: UserListDialogBox(
                                     index: index,
                                     userListResponseModel: controller.userList),
@@ -104,8 +103,7 @@ class _UserListScreenState extends State<UserListScreen> {
                                 ],
                               ),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Flexible(
@@ -136,11 +134,12 @@ class _UserListScreenState extends State<UserListScreen> {
                                             children: [
                                               Row(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Flexible(
                                                     child: CustomText(
                                                         textAlign: TextAlign.start,
-                                                        text: "${controller.userList[index].userId?.fullName}${controller.userList[index].userId?.fullName}",
+                                                        text: "${controller.userList[index].userId?.fullName}",
                                                         fontSize: 18,
                                                         maxLines: 1,
                                                         overflow: TextOverflow.ellipsis,
@@ -214,18 +213,12 @@ class _UserListScreenState extends State<UserListScreen> {
                                               Row(
                                                 children: [
                                                   const CustomImage(
-                                                    imageSrc:
-                                                        AppImages.starImage,
+                                                    imageSrc: AppImages.starImage,
                                                     size: 14,
                                                   ),
-                                                  controller
-                                                              .userList[index]
-                                                              .userId!
-                                                              .averageRatings !=
-                                                          null
+                                                  controller.userList[index].userId!.averageRatings != null
                                                       ? CustomText(
-                                                          text:
-                                                              "(${controller.userList[index].userId!.averageRatings.toString()})",
+                                                          text: "(${controller.userList[index].userId!.averageRatings.toString()})",
                                                           fontSize: 10,
                                                           left: 4)
                                                       : const CustomText(

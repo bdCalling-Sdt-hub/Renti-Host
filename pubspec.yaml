@@ -64,7 +64,8 @@ dependencies:
   flutter_local_notifications:
   connectivity_plus:
   intl:
-
+  back_button_interceptor:
+  custom_will_pop_scope:
 
 
 dev_dependencies:

@@ -8,6 +8,9 @@ import 'package:renti_host/view/screens/profile/profile_screen/profile_controlle
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/popups/common_popup.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../core/helper/shear_preference_helper.dart';
 
 // ignore: must_be_immutable
 class CustomDrawer extends StatefulWidget {
@@ -425,7 +428,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     context: context,
                     builder: (context) => CommonPopUp(
                         title: "You sure want to log out?".tr,
-                        onTapYes: () {
+                        onTapYes: () async {
+                          final SharedPreferences prefs = await SharedPreferences.getInstance();
+                          prefs.setBool(SharedPreferenceHelper.rememberMeKey, false);
                           Get.offAllNamed(AppRoute.signInScreen);
                         },
                         onTapNo: () {

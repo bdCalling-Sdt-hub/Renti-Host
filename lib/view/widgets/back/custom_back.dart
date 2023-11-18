@@ -37,12 +37,9 @@ class CustomBack extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {
-              //   ontap!();
-              isBack ? Get.back() : ontap!();
-            },
-            child: SizedBox(height: 42,width: 25,
+            child: SizedBox(width: 42,height:42,
                 child: Icon(Icons.arrow_back_ios_new, size: fontSize, color: color)),
+            onTap: () => isBack ? Get.back() : ontap!(),
           ),
           Expanded(
             child: CustomText(

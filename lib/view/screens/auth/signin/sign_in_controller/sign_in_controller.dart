@@ -69,9 +69,7 @@ class SignInController extends GetxController {
 
     bool isBanned = signInResponseModel.user?.isBanned == "false" ? false : true;
 
-    await signInRepo.apiService.sharedPreferences.setString(
-        SharedPreferenceHelper.userIdKey,
-        signInResponseModel.user?.id.toString() ?? "");
+    await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
 
     await signInRepo.apiService.sharedPreferences.setString(
         SharedPreferenceHelper.accessTokenKey,
@@ -95,6 +93,7 @@ class SignInController extends GetxController {
     }
 
     if (emailVerified == true && approved == true) {
+      signInRepo.apiService.sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, true);
       clearData();
       Get.offAllNamed(AppRoute.navigation);
       Utils.snackBar("Successful".tr, "Successfully Signed In".tr);

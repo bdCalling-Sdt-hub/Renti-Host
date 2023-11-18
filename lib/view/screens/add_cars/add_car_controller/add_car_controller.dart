@@ -367,5 +367,14 @@ class AddCarController extends GetxController {
     totalRun.text = "";
     gearType.text = "";
     registrationDate.text = "";
+    totalRun.text = "";
+
+    carLicenseFileName = "";
+    carInsPolicyFillName = "";
+    circulationFillName = "";
+    carInvoiceFillName = "";
+    carREPUVEFillName = "";
+
   }
 }
+

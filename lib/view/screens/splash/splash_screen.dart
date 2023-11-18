@@ -21,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     var controller = Get.put(SplashController());
     controller.logout();
+    controller.setRememberMe();
     super.initState();
   }
 
