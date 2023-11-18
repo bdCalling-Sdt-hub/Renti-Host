@@ -44,7 +44,7 @@ class HomeTopSection extends StatelessWidget {
                 children: [
                    CustomText(
                       text: "Total car".tr,
-                      fontSize: 12,
+                      fontSize: 12,maxLines: 1,overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.w500),
                   CustomText(
                       text: totalCar,
@@ -84,7 +84,7 @@ class HomeTopSection extends StatelessWidget {
                 children: [
                   CustomText(
                       text: "Active".tr,
-                      fontSize: 12,
+                      fontSize: 12,maxLines: 1,overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.w500),
                   CustomText(
                       text: activeCar,
@@ -124,7 +124,7 @@ class HomeTopSection extends StatelessWidget {
                 children: [
                   CustomText(
                       text: "Reserved".tr,
-                      fontSize: 12,
+                      fontSize: 12,maxLines: 1,overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.w500),
                   CustomText(
                       text: reservedCar,

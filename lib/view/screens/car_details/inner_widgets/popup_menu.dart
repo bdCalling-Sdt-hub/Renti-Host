@@ -58,6 +58,8 @@ class _PopUpMenuState extends State<PopUpMenu> {
                 barrierDismissible: false,
                 builder: (BuildContext context) {
                   return AlertDialog(
+                    backgroundColor: AppColors.whiteLight,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     title: Column(
                       children: [
                         CustomText(
@@ -90,9 +92,9 @@ class _PopUpMenuState extends State<PopUpMenu> {
                                       Get.offNamed(AppRoute.navigation);
                                     },
                                     titleText: "Yes".tr,
-                                    buttonColor: AppColors.redLight,
-                                    titleColor: AppColors.redNormal,
-                                    buttonHeight: 48)),
+                                    buttonColor: AppColors.blackNormal,
+                                    titleColor: AppColors.whiteLight,
+                                    buttonHeight: 42)),
                             const SizedBox(width: 8),
                             Expanded(
                               child: CustomElevatedButton(
@@ -100,7 +102,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
                                     Navigator.of(context).pop();
                                   },
                                   titleText: "N0".tr,
-                                  buttonHeight: 48),
+                                  buttonHeight: 42),
                             ),
                           ],
                         ),

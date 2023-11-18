@@ -172,7 +172,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,

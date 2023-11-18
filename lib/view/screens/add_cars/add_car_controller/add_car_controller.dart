@@ -316,7 +316,7 @@ class AddCarController extends GetxController {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime(1900),
       lastDate: DateTime(2101),
     );
     if (picked != null && picked != insuranceStartDate.text) {
@@ -329,7 +329,7 @@ class AddCarController extends GetxController {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime(1900),
       lastDate: DateTime(2101),
     );
     if (picked != null && picked != insuranceEndDate.text) {
@@ -342,7 +342,7 @@ class AddCarController extends GetxController {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime(1900),
       lastDate: DateTime(2101),
     );
     if (picked != null && picked != registrationDate.text) {

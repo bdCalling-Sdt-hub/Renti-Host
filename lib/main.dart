@@ -9,6 +9,7 @@ import 'package:renti_host/service/notification.dart';
 import 'package:renti_host/view/screens/select_language/language/languages.dart';
 import 'package:renti_host/view/screens/select_language/language_controller/language_controller.dart';
 import 'core/di_service/dependency_injection.dart' as di;
+
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin=FlutterLocalNotificationsPlugin();
 
 void main() async{

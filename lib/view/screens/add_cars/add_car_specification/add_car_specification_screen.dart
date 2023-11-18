@@ -112,7 +112,7 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                     TextFormField(
                       controller: controller.registrationDate,
                       showCursor: false,cursorColor: Colors.transparent,
-                      //readOnly: true,
+                      readOnly: true,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       keyboardType: TextInputType.number,
                       style: GoogleFonts.poppins(
@@ -144,7 +144,7 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                               color: AppColors.whiteNormalActive, width: 1),
                         ),
                       ),
-                     // onTap: () => controller.registrationDateStart(context),
+                     onTap: () => controller.registrationDateStart(context),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "This field can not be empty".tr;
