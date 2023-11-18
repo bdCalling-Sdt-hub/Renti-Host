@@ -431,6 +431,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         onTapYes: () async {
                           final SharedPreferences prefs = await SharedPreferences.getInstance();
                           prefs.setBool(SharedPreferenceHelper.rememberMeKey, false);
+                          prefs.remove(SharedPreferenceHelper.accessTokenKey);
                           Get.offAllNamed(AppRoute.signInScreen);
                         },
                         onTapNo: () {

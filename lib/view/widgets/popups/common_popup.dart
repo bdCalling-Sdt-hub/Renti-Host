@@ -37,8 +37,8 @@ class CommonPopUp extends StatelessWidget {
                 child: CustomElevatedButton(
                   onPressed: onTapYes,
                   titleText: "Yes".tr,
-                  buttonColor: AppColors.blackNormal,
-                  titleColor: AppColors.whiteLight,
+                  buttonColor: AppColors.redLight,
+                  titleColor: AppColors.redNormal,
                   buttonHeight: 42,
                 ),
               ),

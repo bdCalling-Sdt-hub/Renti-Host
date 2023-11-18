@@ -91,7 +91,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           drawer: const CustomDrawer(),
           appBar: CustomAppBar(
-            appBarHeight: 90,
+            appBarHeight: 80,
             bottom: 20,
             appBarContent: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -172,7 +172,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,

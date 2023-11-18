@@ -20,8 +20,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     var controller = Get.put(SplashController());
-    controller.logout();
+    //controller.logout();
     controller.setRememberMe();
+    controller.isLogIn();
     super.initState();
   }
 
