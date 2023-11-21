@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -27,7 +28,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
     return GetBuilder<SignUpController>(
       builder: (controller) => Form(
         key: formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -70,6 +71,8 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "This field can not be empty".tr;
+                      }else if(value.length > 8){
+                        return "Enter valid phone number";
                       }
                       return null;
                     },
@@ -79,16 +82,16 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
             ),
 
 
-            const CustomText(text: "Country", top: 16, bottom: 12),
+            CustomText(text: "Country".tr, top: 16, bottom: 12),
             CustomTextField(
               textEditingController: controller.countryController,
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
-              hintText: "Type country name",
+              hintText: "MX".tr,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
-                  color: AppColors.whiteNormalActive),
+                  color: AppColors.blackNormal),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "This field can not be empty".tr;
@@ -97,12 +100,12 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               },
             ),
 
-            const CustomText(text: "City", top: 16, bottom: 12),
+            CustomText(text: "City".tr, top: 16, bottom: 12),
             CustomTextField(
               textEditingController: controller.cityController,
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
-              hintText: "Type city name",
+              hintText: "Type city name".tr,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -115,11 +118,11 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               },
             ),
 
-            const CustomText(text: "State", top: 16, bottom: 12),
+            CustomText(text: "State".tr, top: 16, bottom: 12),
             CustomTextField(
               textEditingController: controller.stateController,
               keyboardType: TextInputType.text,
-              hintText: "Type state name",
+              hintText: "Type state name".tr,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -132,11 +135,11 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               },
             ),
 
-            const CustomText(text: "Lane no.", top: 16, bottom: 12),
+            CustomText(text: "Address".tr, top: 16, bottom: 12),
             CustomTextField(
               textEditingController: controller.laneController,
               keyboardType: TextInputType.streetAddress,
-              hintText: "Type lane no.",
+              hintText: "Type address".tr,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -149,11 +152,11 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               },
             ),
 
-            const CustomText(text: "Postal Code", top: 16, bottom: 12),
+            CustomText(text: "Postal Code".tr, top: 16, bottom: 12),
             CustomTextField(
               textEditingController: controller.postalController,
               keyboardType: TextInputType.text,
-              hintText: "Type postal code",
+              hintText: "Type postal code".tr,
               textInputAction: TextInputAction.done,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,

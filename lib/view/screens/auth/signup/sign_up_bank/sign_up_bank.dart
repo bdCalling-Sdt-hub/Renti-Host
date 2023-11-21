@@ -46,11 +46,11 @@ class _SignUpBankState extends State<SignUpBank> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const CustomText(text: "Account Number", bottom: 12),
+                        CustomText(text: "Account Number".tr, bottom: 12),
                         CustomTextField(
                           textEditingController: controller.accountController,
                           keyboardType: TextInputType.number,
-                          hintText: "Type account number",
+                          hintText: "Type account number".tr,
                           hintStyle: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -58,16 +58,27 @@ class _SignUpBankState extends State<SignUpBank> {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "This field can not be empty".tr;
+                            } else if(value.length <18){
+                              return "Account number must be 18 digits".tr;
                             }
                             return null;
                           },
                         ),
+                        /*Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.error_outline,size: 12,color: AppColors.redNormal),
+                              CustomText(text: "Account number must be 16 digits".tr,color: AppColors.redNormal,fontSize: 10),
+                            ],
+                          ),
+                        ),*/
 
-                        const CustomText(text: "Account Holder Name", bottom: 12,top: 16),
+                        CustomText(text: "Account Holder Name".tr, bottom: 12,top: 16),
                         CustomTextField(
                           textEditingController: controller.accountHolderController,
                           keyboardType: TextInputType.text,
-                          hintText: "Type account holder name",
+                          hintText: "Type account holder name".tr,
                           hintStyle: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -80,7 +91,7 @@ class _SignUpBankState extends State<SignUpBank> {
                           },
                         ),
 
-                        const CustomText(text: "Account Holder Type",top: 16,bottom: 16),
+                        CustomText(text: "Account Holder Type".tr,top: 16,bottom: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: List.generate(

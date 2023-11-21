@@ -53,7 +53,7 @@ Map<String, String> spanish = {
   "Password Reset Successful" : "Restablecimiento de contraseña exitosa",
 
   //Sign Up Screen
-  "Sign Up": "Inscribirse",
+  "Sign Up": "Regístrate",
   "Full Name": "Nombre completo",
   "Enter full name": "Ingrese el nombre completo",
   "Gender": "Género",
@@ -65,6 +65,17 @@ Map<String, String> spanish = {
   "Profile Edit": "Editar perfil",
   "Name": "Nombre",
   "Save": "Ahorrar",
+  "Email is not verified" : "Correo no identificado",
+  "Enter valid phone number" : "Ingrese un número de teléfono válido",
+  "Type country name" : "Escriba el nombre del país",
+  "Country" : "País",
+  "City" : "Ciudad",
+  "Type city name" : "Escriba el nombre de la ciudad",
+  "State" : "Estado",
+  "Type state name" : "Escriba el nombre del estado",
+  "Type address" : "Escriba la dirección",
+  "Postal Code" : "Código Postal",
+  "Type postal code" : "Escriba el código postal",
 
   //Sign Up Continue Screen
   "Phone Number": "Número de teléfono",
@@ -75,22 +86,27 @@ Map<String, String> spanish = {
   "Sign Up Successful" : "Regístrese exitosamente",
   "User Already Exist" : "La usuario ya existe",
 
+
   //KYC Screen
   "KYC": "KYC",
   "Upload": "Subir",
-  "NOTE:  All file must be in PDF format":
-      "NOTA: Todo el archivo debe estar en formato PDF",
+  "NOTE:  All file must be in PDF format": "NOTA: Todo el archivo debe estar en formato PDF",
   "1. Upload INE/Passport": "1. Cargar IN/Pasaporte",
-  "2. Tax stamps .key extension file":
-      "2. Archivo de extensión .key de sellos fiscales",
-  "3. Tax stamps .cer extension file":
-      "3. Archivo de extensión .cer de sellos fiscales",
+  "2. Tax stamps .key extension file": "2. Archivo de extensión .key de sellos fiscales",
+  "3. Tax stamps .cer extension file": "3. Archivo de extensión .cer de sellos fiscales",
   "INE/Passport": "INE/Pasaporte",
   "Enter INE/Passport": "Ingrese IN/Pasaporte",
   "RFC": "RFC",
   "Enter RFC": "Ingresar RFC",
   "Select Photo": "Seleccione Foto",
   "Upload Your Photo": "Sube tu foto",
+  "INE/Passport Number" : "INE/Número de Pasaporte",
+  "Account Number" : "Número de cuenta",
+  "Type account number" : "Escriba el número de cuenta",
+  "Account Holder Name" : "Nombre del titular de la cuenta",
+  "Account Holder Type" : "Tipo de titular de cuenta",
+  "Type account holder name" : "Escriba el nombre del titular de la cuenta",
+  "Account number must be 18 digits" : "El número de cuenta debe tener 18 dígitos",
 
   //KYC Phone Number Verification Screen All Strings
   "Mobile Number Verification": "Verificación del número de teléfono",
@@ -266,7 +282,7 @@ Map<String, String> spanish = {
   "Enter Confirm Password": "Ingrese Confirmar Contraseña",
   "Add Card": "Agregar tarjeta",
   "Add New Card": "Agregar nueva tarjeta",
-  'Account Holder Name': 'Nombre del titular de la cuenta',
+
   "Enter Account Number": "Ingrese el número de cuenta",
   "Change Language": "Cambiar idioma",
   "Payment Method": "Método de pago",
@@ -296,6 +312,7 @@ Map<String, String> spanish = {
   "No Data Found!" : "¡Datos no encontrados!",
   "No Rent Data Found!" : "¡No se encontraron datos de alquiler!",
   "No User Data Found!" : "¡No se encontraron datos de usuario!",
+
 
 
 

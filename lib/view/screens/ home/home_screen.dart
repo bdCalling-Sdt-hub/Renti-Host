@@ -75,6 +75,12 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
             title: "You sure want to log out?".tr,
             onTapYes: () async {
               final SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.remove(SharedPreferenceHelper.userIdKey);
+              prefs.remove(SharedPreferenceHelper.accessTokenType);
+              prefs.remove(SharedPreferenceHelper.userEmailKey);
+              prefs.remove(SharedPreferenceHelper.userPhoneNumberKey);
+              prefs.remove(SharedPreferenceHelper.userNameKey);
+              prefs.remove(SharedPreferenceHelper.accessTokenKey);
               prefs.setBool(SharedPreferenceHelper.rememberMeKey, false);
               Get.offAllNamed(AppRoute.signInScreen);
             },

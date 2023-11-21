@@ -29,6 +29,7 @@ class CustomTextField extends StatefulWidget {
     this.isPrefixIcon = true,
     this.readOnly = false,
     this.inputFormatters,
+    this.onTap,
     super.key
   });
 
@@ -55,6 +56,7 @@ class CustomTextField extends StatefulWidget {
   final bool isPrefixIcon;
   final bool readOnly;
   final List<TextInputFormatter>? inputFormatters;
+  final VoidCallback? onTap;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -82,6 +84,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       maxLines: widget.maxLines,
       obscureText: widget.isPassword ? obscureText : false,
       validator: widget.validator,
+      onTap: widget.onTap,
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: widget.hintStyle,

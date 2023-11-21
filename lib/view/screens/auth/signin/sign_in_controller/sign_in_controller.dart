@@ -67,38 +67,30 @@ class SignInController extends GetxController {
 
     bool approved = signInResponseModel.user?.approved == false ? false : true;
 
-    bool isBanned = signInResponseModel.user?.isBanned == "false" ? false : true;
+    String isBanned = signInResponseModel.user?.isBanned == "false" ? "false" : "true";
 
-    await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
-
-    await signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenKey, signInResponseModel.accessToken ?? "");
-
-    await signInRepo.apiService.sharedPreferences
-        .setString(SharedPreferenceHelper.accessTokenType, "Bearer");
-
-    await signInRepo.apiService.sharedPreferences.setString(
-        SharedPreferenceHelper.userEmailKey,
-        signInResponseModel.user?.email.toString() ?? "");
-    await signInRepo.apiService.sharedPreferences.setString(
-        SharedPreferenceHelper.userPhoneNumberKey,
-        signInResponseModel.user?.phoneNumber.toString() ?? "");
-    await signInRepo.apiService.sharedPreferences.setString(
-        SharedPreferenceHelper.userNameKey,
-        signInResponseModel.user?.fullName.toString() ?? "");
 
     if (emailVerified == false) {
-      Get.offNamed(AppRoute.forgotPasswordOTPScreen);
+      Get.offNamed(AppRoute.forgotPasswordScreen);
+      Utils.snackBar("Alert!".tr, "Email is not verified".tr);
     }
 
-    if (emailVerified == true && approved == true) {
+    if (emailVerified == true && approved == true && isBanned != "true") {
+      signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
+      signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenType, "Bearer");
+      signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userEmailKey, signInResponseModel.user?.email.toString() ?? "");
+      signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userPhoneNumberKey, signInResponseModel.user?.phoneNumber.toString() ?? "");
+      signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userNameKey, signInResponseModel.user?.fullName.toString() ?? "");
+      signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenKey, signInResponseModel.accessToken ?? "");
       signInRepo.apiService.sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, true);
+
       clearData();
       Get.offAllNamed(AppRoute.navigation);
       Utils.snackBar("Successful".tr, "Successfully Signed In".tr);
     } else if (approved == false) {
       Utils.popUp("Please wait for admin approve to log in".tr, () => Get.back());
-    } else if (isBanned == true) {
-      Utils.snackBar("Successful".tr, "You Have Been Banned By Admin".tr);
+    } else if (isBanned == "true") {
+      Utils.snackBar("Alert!".tr, "You Have Been Banned By Admin".tr);
     } else {
       Utils.snackBar("Error".tr, "Enter valid Email and Password".tr);
     }

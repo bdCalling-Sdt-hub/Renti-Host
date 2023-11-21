@@ -29,7 +29,7 @@ class SignUpController extends GetxController {
   TextEditingController phoneNumberController = TextEditingController();
 
 
-  TextEditingController countryController = TextEditingController();
+  TextEditingController countryController = TextEditingController(text: "MX");
   TextEditingController cityController = TextEditingController();
   TextEditingController stateController = TextEditingController();
   TextEditingController laneController = TextEditingController();

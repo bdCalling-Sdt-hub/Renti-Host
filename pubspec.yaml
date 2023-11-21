@@ -66,6 +66,7 @@ dependencies:
   intl:
   back_button_interceptor:
   custom_will_pop_scope:
+  custom_date_range_picker:
 
 
 dev_dependencies:

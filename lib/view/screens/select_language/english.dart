@@ -2,6 +2,7 @@ Map<String, String> english = {
   //Splash Screen
   "Get Started": "Get Started",
 
+
   //Language Change Screen
   "Select Language": "Select Language",
   "English": "English",
@@ -26,6 +27,7 @@ Map<String, String> english = {
   "Successful": "Successful",
   "Failed": "Failed",
   "Successfully Signed In" : "Successfully Signed In",
+  "Email is not verified" : "Email is not verified",
 
   //Forget Password Screen
   "Forgot Password": "Forgot Password",
@@ -64,6 +66,16 @@ Map<String, String> english = {
   "Female": "Female",
   "Others": "Others",
   "Date of Birth": "Date of Birth",
+  "Enter valid phone number" : "Enter valid phone number",
+  "Type country name" :"Type country name",
+  "Country" : "Country",
+  "City" : "City",
+  "Type city name" : "Type city name",
+  "State" : "State",
+  "Type state name" : "Type state name",
+  "Type address" : "Type address",
+  "Postal Code" : "Postal Code",
+  "Type postal code" : "Type postal code",
 
   //Sign Up Continue Screen
   "Phone Number": "Phone Number",
@@ -81,11 +93,18 @@ Map<String, String> english = {
   "2. Tax stamps .key extension file": "2. Tax stamps .key extension file",
   "3. Tax stamps .cer extension file": "3. Tax stamps .cer extension file",
   "INE/Passport": "INE/Passport",
+  "INE/Passport Number" : "INE/Passport Number",
   "Enter INE/Passport": "Enter INE/Passport",
   "RFC": "RFC",
   "Enter RFC": "Enter RFC",
   "Select Photo": "Select Photo",
   "Upload Your Photo": "Upload Your Photo",
+  "Account Number" : "Account Number",
+  "Type account number" : "Type account number",
+  "Account Holder Name" : "Account Holder Name",
+  "Account Holder Type" : "Account Holder Type",
+  "Type account holder name" : "Type account holder name",
+  "Account number must be 18 digits" : "Account number must be 18 digits",
 
   //KYC Phone Number Verification Screen All Strings
   "Mobile Number Verification": "Mobile Number Verification",

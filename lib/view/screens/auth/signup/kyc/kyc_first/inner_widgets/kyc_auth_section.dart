@@ -256,7 +256,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
 
             //INE/Passport Text and TextField
             CustomText(
-              text: "INE/Passport".tr,
+              text: "INE/Passport Number".tr,
               top: 16,
               bottom: 12,
               textAlign: TextAlign.start,

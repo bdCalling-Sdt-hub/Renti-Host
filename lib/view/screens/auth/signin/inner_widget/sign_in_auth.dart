@@ -127,10 +127,10 @@ class _SignInAuthState extends State<SignInAuth> {
                 ),
 
           //Or Text
-          Align(
+          const Align(
             alignment: Alignment.center,
             child: CustomText(
-              text: "Or".tr,
+              text: "Or",
               top: 24,
               bottom: 24,
               fontSize: 16,
