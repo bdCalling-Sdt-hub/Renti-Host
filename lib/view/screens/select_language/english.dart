@@ -116,6 +116,7 @@ Map<String, String> english = {
       "We have sent you a link to your email address. Please check to confirm your account.",
   "Resend Email": "Resend Email",
   "Did not get the email?": "Did not get the email?",
+  "Minimum 18 Years Old" : "Minimum 18 Years Old",
 
   //Home Section
   "Search cars...": "Search cars...",
@@ -288,7 +289,6 @@ Map<String, String> english = {
   "Enter Confirm Password": "Enter Confirm Password",
   "Add Card": "Add Card",
   "Add New Card": "Add New Card",
-  'Account Holder Name': 'Account Holder Name',
   "Enter Account Number": "Enter Account Number",
   "Change Language": "Change Language",
   "Payment Method": "Payment Method" ,

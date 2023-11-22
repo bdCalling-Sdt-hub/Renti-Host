@@ -59,7 +59,7 @@ Map<String, String> spanish = {
   "Gender": "Género",
   "Male": "Masculino",
   "Female": "Femenino",
-  "Others": "Otras",
+  "Others": "Otro",
   "Date of Birth": "Fecha de nacimiento",
   "Mobile": "Móvil",
   "Profile Edit": "Editar perfil",
@@ -116,6 +116,7 @@ Map<String, String> spanish = {
   "weSentEmail": "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
   "Resend Email": "Reenviar email",
   "Did not get the email?": "¿No recibiste el email?",
+  "Minimum 18 Years Old" : "Mínimo 18 años",
 
   //Home Screen
   "Search cars...": "Buscar coches...",

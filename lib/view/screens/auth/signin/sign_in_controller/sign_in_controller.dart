@@ -71,7 +71,7 @@ class SignInController extends GetxController {
 
 
     if (emailVerified == false) {
-      Get.offNamed(AppRoute.forgotPasswordScreen);
+      Get.offNamed(AppRoute.kycNumberVerification);
       Utils.snackBar("Alert!".tr, "Email is not verified".tr);
     }
 

@@ -24,7 +24,6 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
     return GetBuilder<SignUpController>(
       builder: (controller) => Form(
         key: _formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -107,7 +106,9 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
 
             //Date Of Birth
             CustomText(text: "Date of Birth".tr, top: 16, bottom: 12),
-            Row(
+            /*Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: CustomTextField(
@@ -166,6 +167,24 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                   ),
                 ),
               ],
+            ),*/
+            CustomTextField(
+              hintText: "DD/MM/YY".tr,
+              readOnly: true,
+              textEditingController: controller.dateController,
+              textInputAction: TextInputAction.next,
+              inputTextStyle: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: AppColors.blackNormal,
+              ),
+              hintStyle: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 1,
+                  color: AppColors.whiteNormalActive),
+
+              onTap: ()=>controller.dateOfBirthPicker(context),
             ),
 
             //Password Text and TextField

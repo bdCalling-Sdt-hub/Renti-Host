@@ -23,7 +23,7 @@ class KycController extends GetxController{
     if(responseModel.statusCode == 200){
       isSubmit = false;
       update();
-      Get.offAndToNamed(AppRoute.signInScreen);
+      Get.offAllNamed(AppRoute.signInScreen);
       Utils.snackBar("Successful".tr,"Email verify successful".tr);
     }
     else{

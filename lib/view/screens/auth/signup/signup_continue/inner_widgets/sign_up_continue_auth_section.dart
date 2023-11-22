@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -71,7 +70,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "This field can not be empty".tr;
-                      }else if(value.length > 8){
+                      }else if(value.length > 10){
                         return "Enter valid phone number";
                       }
                       return null;
@@ -87,7 +86,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               textEditingController: controller.countryController,
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
-              hintText: "MX".tr,
+              hintText: controller.countryController.text,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -200,6 +199,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
       required String state,
       required String lane,
       required String postal}) async {
+
     await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.phoneNumber, phoneNumber);
     await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.country, country);
     await signUpController.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.city, city);

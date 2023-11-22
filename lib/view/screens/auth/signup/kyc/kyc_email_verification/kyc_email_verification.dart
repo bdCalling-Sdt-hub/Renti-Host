@@ -23,9 +23,7 @@ class _KYCEmailVerificationState extends State<KYCEmailVerification> {
       child: Scaffold(
         extendBody: true,
         backgroundColor: AppColors.blueNormal,
-        appBar: CustomAppBar(
-          appBarContent: CustomBack(text: "Email Verification".tr),
-        ),
+        appBar: CustomAppBar(appBarContent: CustomBack(text: "Email Verification".tr)),
         body: GetBuilder<SignUpController>(
           builder: (controller) {
             if (controller.isloading == true) {

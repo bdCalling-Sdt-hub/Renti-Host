@@ -43,9 +43,7 @@ class _KYCNumberVerificationState extends State<KYCNumberVerification> {
           return Scaffold(
             extendBody: true,
             backgroundColor: AppColors.blueNormal,
-            appBar: CustomAppBar(
-              appBarContent: CustomBack(text: "Mobile Number Verification".tr),
-            ),
+            appBar: CustomAppBar(appBarContent: CustomBack(text: "Email Verification".tr)),
             body: Form(
               key: formKey,
               child: LayoutBuilder(
@@ -59,7 +57,7 @@ class _KYCNumberVerificationState extends State<KYCNumberVerification> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomText(
-                              text: "weHaveSent".tr,
+                              text: "weSentEmail".tr,
                               fontSize: 16,
                               textAlign: TextAlign.start,
                               bottom: 24,
