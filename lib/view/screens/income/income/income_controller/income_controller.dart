@@ -23,8 +23,6 @@ class IncomeController extends GetxController {
     // Define the variable here
 
     if (responseModel.statusCode == 200) {
-      isLoading = false;
-      update();
       incomeResponseModel = IncomeResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       income = incomeResponseModel.totalIncome ?? "";
       weeklyIncomeList = [];

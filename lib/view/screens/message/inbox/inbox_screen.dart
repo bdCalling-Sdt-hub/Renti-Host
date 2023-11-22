@@ -82,10 +82,9 @@ class _InboxScreenState extends State<InboxScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GestureDetector(
-                    onTap: () => Get.back(),
-                    child: const Icon(Icons.arrow_back_ios_rounded,
-                        size: 18, color: AppColors.whiteLight),
+                  IconButton(
+                    onPressed: () => Get.back(),
+                    icon: const Icon(Icons.arrow_back_ios_rounded, size: 18, color: AppColors.whiteLight),
                   ),
                   Container(
                     height: 52,
@@ -98,7 +97,7 @@ class _InboxScreenState extends State<InboxScreen> {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       text: name,
-                      fontSize: 18,
+                      fontSize: 18,left: 4,
                       fontWeight: FontWeight.w500,
                       color: AppColors.whiteLight)
                 ],
@@ -194,7 +193,7 @@ class _InboxScreenState extends State<InboxScreen> {
                       keyboardType: TextInputType.multiline,
                       textAlign: TextAlign.left,
                       textInputAction: TextInputAction.done,
-                      controller: messageController,
+                      controller: messageController,maxLines: messageController.text.isEmpty? 1 : 5,
                       style: GoogleFonts.raleway(
                           color: AppColors.blackNormal,
                           fontSize: 14,

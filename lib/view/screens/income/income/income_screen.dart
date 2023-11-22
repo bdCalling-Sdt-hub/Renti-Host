@@ -75,7 +75,7 @@ class _IncomeScreenState extends State<IncomeScreen> {
                               fontWeight: FontWeight.w600,
                             ),
                             CustomText(
-                                    text: controller.income == null ? "\$${controller.income}" : "\$0",
+                                    text: controller.income != null ? "\$${controller.income}" : "\$0",
                                     maxLines: 1,overflow: TextOverflow.ellipsis,
                                     color: AppColors.whiteLight,
                                     fontSize: 40,

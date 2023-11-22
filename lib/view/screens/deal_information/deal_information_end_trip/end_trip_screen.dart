@@ -21,7 +21,7 @@ class EndTripScreen extends StatefulWidget {
 class _EndTripState extends State<EndTripScreen> {
   @override
   Widget build(BuildContext context) {
-    RentListModel rentListModel = Get.arguments[0];
+    List<RentedCar> rentListModel = Get.arguments[0];
     int index = Get.arguments[1];
     return /*SafeArea(
       top: true,
@@ -96,11 +96,11 @@ class _EndTripState extends State<EndTripScreen> {
 
                     // top Section with upload button
                     DealImageSection(
-                        image1: rentListModel.rentedCars![index].carId!.image![0]
+                        image1: rentListModel[index].carId!.image![0]
                             .toString(),
-                        image2: rentListModel.rentedCars![index].carId!.image![1]
+                        image2: rentListModel[index].carId!.image![1]
                             .toString(),
-                        image3: rentListModel.rentedCars![index].carId!.image![2]
+                        image3: rentListModel[index].carId!.image![2]
                             .toString()),
                     const SizedBox(height: 16),
                     CustomElevatedButton(

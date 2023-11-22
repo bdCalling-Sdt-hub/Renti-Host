@@ -29,11 +29,13 @@ class RentDetailsAlert extends StatelessWidget {
 
     String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
 
-    return Center(
-      child: SingleChildScrollView(
+    return AlertDialog(
+      backgroundColor: AppColors.whiteLight,
+      contentPadding: const EdgeInsets.all(0),
+      content: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Container(
           width: double.maxFinite,
-          margin: const EdgeInsets.symmetric(horizontal: 20),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: AppColors.whiteLight,
@@ -107,9 +109,8 @@ class RentDetailsAlert extends StatelessWidget {
                   : const SizedBox(),
 
               //This Button Only Show When Reserve Status card Clicked
-              rentListModel[index].carId?.tripStatus != "Start"
-                  ? const SizedBox()
-                  : CustomElevatedButton(
+              rentListModel[index].carId?.tripStatus == "Start"
+                  ? CustomElevatedButton(
                       onPressed: () {
                         Get.toNamed(AppRoute.startTripScreen,
                             arguments: [rentListModel, index]);
@@ -117,6 +118,7 @@ class RentDetailsAlert extends StatelessWidget {
                       titleText: "See details".tr,
                       buttonWidth: double.maxFinite,
                       buttonHeight: 48)
+                  : const SizedBox()
             ],
           ),
         ),

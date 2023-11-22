@@ -78,9 +78,10 @@ class _UserListScreenState extends State<UserListScreen> {
                           return GestureDetector(
                             onTap: () => showDialog(
                               context: context,
-                              builder: (BuildContext context) => Padding(
-                                padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
-                                child: UserListDialogBox(
+                              builder: (BuildContext context) => AlertDialog(
+                                contentPadding: const EdgeInsets.all(0),
+                                backgroundColor: AppColors.whiteLight,
+                                content: UserListDialogBox(
                                     index: index,
                                     userListResponseModel: controller.userList),
                               ),

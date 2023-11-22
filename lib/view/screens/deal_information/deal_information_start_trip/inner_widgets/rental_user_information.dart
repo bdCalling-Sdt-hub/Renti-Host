@@ -7,7 +7,7 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 class RentalUserInformation extends StatelessWidget {
   const RentalUserInformation({super.key, required this.rentListModel, required this.index});
 
-  final RentListModel rentListModel;
+  final List<RentedCar> rentListModel;
   final int index;
 
   @override
@@ -31,7 +31,7 @@ class RentalUserInformation extends StatelessWidget {
             Flexible(
               child: CustomText(
                 maxLines: 1,overflow:  TextOverflow.ellipsis,
-                  text: rentListModel.rentedCars![index].userId!.fullName.toString(),
+                  text: rentListModel[index].userId!.fullName.toString(),
                   fontSize: 16,
                   fontWeight: FontWeight.w500),
             ),
@@ -47,7 +47,7 @@ class RentalUserInformation extends StatelessWidget {
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
-                text: rentListModel.rentedCars![index].userId!.ine.toString(),
+                text: rentListModel[index].userId!.ine.toString(),
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],
@@ -77,7 +77,7 @@ class RentalUserInformation extends StatelessWidget {
                 color: AppColors.whiteDarkHover,
                 fontSize: 16),
             CustomText(
-                text: "${rentListModel.rentedCars?[index].hostId?.address?.country}",
+                text: "${rentListModel[index].hostId?.address?.country}",
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],

@@ -31,20 +31,20 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () => Get.back(),
-                child: Row(
-                  children: [
-                    const Icon(Icons.arrow_back_ios_new_outlined,size: 18,color: AppColors.blackNormal),
-                    CustomText(text: "Car details".tr,color: AppColors.blackNormal,fontSize: 18,left: 8)
-                  ],
-                ),
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: ()=> Get.back(),
+                      icon: const Icon(Icons.arrow_back_ios_new_outlined,size: 18,color: AppColors.blackNormal),
+                  ),
+                  CustomText(text: "Car details".tr,color: AppColors.blackNormal,fontSize: 18,left: 8)
+                ],
               ),
               if (homeCarListModel.cars![index].tripStatus != "Start")
                 PopUpMenu(
                   homeCarListModel: homeCarListModel,
                   index: index,
-                )
+                ),
             ],
           ),
         ),

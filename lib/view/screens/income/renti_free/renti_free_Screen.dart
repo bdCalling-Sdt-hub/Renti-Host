@@ -156,43 +156,30 @@ class _RentFeeScreenState extends State<RentFeeScreen> {
                                         ),
                                         Flexible(
                                           child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Flexible(
                                                     child: CustomText(
                                                       maxLines: 1,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      text:
-                                                          "${controller.payment[index].income?.carId?.carModelName}",
-                                                      color:
-                                                          AppColors.blueNormal,
-                                                      fontWeight:
-                                                          FontWeight.w700,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      text: "${controller.payment[index].income?.carId?.carModelName}",
+                                                      color: AppColors.blueNormal,
+                                                      fontWeight: FontWeight.w700,
                                                     ),
                                                   ),
                                                   const SizedBox(width: 24),
                                                   Flexible(
                                                     child: CustomText(
                                                       maxLines: 1,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      text:
-                                                          "\$${controller.payment[index].rentiFee}",
-                                                      textAlign:
-                                                          TextAlign.right,
-                                                      color:
-                                                          AppColors.blueNormal,
-                                                      fontWeight:
-                                                          FontWeight.w700,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      text: "\$${controller.payment[index].rentiFee}",
+                                                      textAlign: TextAlign.right,
+                                                      color: AppColors.blueNormal,
+                                                      fontWeight: FontWeight.w700,
                                                     ),
                                                   ),
                                                 ],

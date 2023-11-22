@@ -14,6 +14,10 @@ class RentiFeeMyControllerController extends GetxController {
   List<UserPaymentList> payment = [];
 
   Future<RentiFeeMyPaymentModel> feeOrPayment() async {
+
+    isLoading = true;
+    update();
+
     ApiResponseModel responseModel = await rentiFeeMyPaymentRepo.feeOrPayment();
     // Define the variable here
 

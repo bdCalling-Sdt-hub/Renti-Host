@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_information.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_user_information.dart';
@@ -8,7 +7,6 @@ import 'package:renti_host/view/screens/deal_information/inner_widgets/image_sce
 import 'package:renti_host/view/screens/rent_list/rent_list_model/rent_list_model.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
-import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class StartTripScreen extends StatefulWidget {
@@ -21,7 +19,7 @@ class StartTripScreen extends StatefulWidget {
 class _StartTripScreenState extends State<StartTripScreen> {
   @override
   Widget build(BuildContext context) {
-    RentListModel rentListModel = Get.arguments[0];
+    List<RentedCar> rentListModel = Get.arguments[0];
     int index = Get.arguments[1];
 
     return SafeArea(
@@ -54,11 +52,11 @@ class _StartTripScreenState extends State<StartTripScreen> {
                       bottom: 16),
                   // top Section with upload button
                   DealImageSection(
-                      image1: rentListModel.rentedCars![index].carId!.image![0]
+                      image1: rentListModel[index].carId!.image![0]
                           .toString(),
-                      image2: rentListModel.rentedCars![index].carId!.image![1]
+                      image2: rentListModel[index].carId!.image![1]
                           .toString(),
-                      image3: rentListModel.rentedCars![index].carId!.image![2]
+                      image3: rentListModel[index].carId!.image![2]
                           .toString()),
                   /*const SizedBox(height: 16),
                   CustomElevatedButton(

@@ -92,8 +92,8 @@ class _PopUpMenuState extends State<PopUpMenu> {
                                       Get.offNamed(AppRoute.navigation);
                                     },
                                     titleText: "Yes".tr,
-                                    buttonColor: AppColors.blackNormal,
-                                    titleColor: AppColors.whiteLight,
+                                    buttonColor: AppColors.redLight,
+                                    titleColor: AppColors.redNormal,
                                     buttonHeight: 42)),
                             const SizedBox(width: 8),
                             Expanded(

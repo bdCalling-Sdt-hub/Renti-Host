@@ -75,16 +75,14 @@ class _RentListScreenState extends State<RentListScreen> {
                         ),
                       )
                     : SingleChildScrollView(
-                        padding: const EdgeInsetsDirectional.symmetric(
-                            vertical: 24, horizontal: 20),
+                        padding: const EdgeInsetsDirectional.symmetric(vertical: 24, horizontal: 20),
                         child: Column(
                           children: List.generate(
                             controller.rentListData.length,
                             (index) => GestureDetector(
                               onTap: () => showDialog(
                                 context: context,
-                                builder: (BuildContext context) =>
-                                    RentDetailsAlert(
+                                builder: (BuildContext context) => RentDetailsAlert(
                                   index: index,
                                   rentListModel: controller.rentListData,
                                 ),
@@ -106,13 +104,20 @@ class _RentListScreenState extends State<RentListScreen> {
                                 child: RentDetailsTopSection(
                                   image: controller.rentListData[index].userId!.image!.isEmpty
                                       ? AppImages.profileImage
-                                      : controller.rentListData[index].userId!.image.toString(),
-                                  carName: controller.rentListData[index].userId!.fullName.toString(),
-                                  carModel: controller.rentListData[index].carId!.year.toString(),
-                                  requestStatus: controller.rentListData[index].requestStatus.toString(),
-                                  carLicense: controller.rentListData[index].carId!.carLicenseNumber.toString(),
-                                  payment: controller.rentListData[index].payment.toString(),
-                                  tripStatus: controller.rentListData[index].carId!.tripStatus.toString(),
+                                      : controller.rentListData[index].userId!.image
+                                          .toString(),
+                                  carName: controller.rentListData[index].userId!.fullName
+                                      .toString(),
+                                  carModel: controller.rentListData[index].carId!.year
+                                      .toString(),
+                                  requestStatus: controller.rentListData[index].requestStatus
+                                      .toString(),
+                                  carLicense: controller.rentListData[index].carId!.carLicenseNumber
+                                      .toString(),
+                                  payment: controller.rentListData[index].payment
+                                      .toString(),
+                                  tripStatus: controller.rentListData[index].carId!.tripStatus
+                                      .toString(),
                                 ),
                               ),
                             ),

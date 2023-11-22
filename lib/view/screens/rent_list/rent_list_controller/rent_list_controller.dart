@@ -25,7 +25,6 @@ class RentListController extends GetxController {
       rentListData = [];
       rentListModel.rentedCars?.forEach((element) {
         if (element.requestStatus != "Completed" &&
-            element.payment != "Completed" &&
             element.requestStatus != "Rejected" &&
             element.requestStatus == "Accepted" &&
             element.carId != null &&

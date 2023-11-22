@@ -17,11 +17,14 @@ class AdminInfoController extends GetxController {
   }
 
 
-  bool isLoading = true;
+  bool isLoading = false;
 
   AdminInfoModel adminInfoModel = AdminInfoModel();
 
   Future<void> adminInfo() async {
+
+    isLoading = true;
+    update();
     ApiResponseModel responseModel = await adminInfoRepo.adminInfo();
 
 
@@ -33,5 +36,7 @@ class AdminInfoController extends GetxController {
     } else {
       Utils.toastMessage(responseModel.message);
     }
+    isLoading = false;
+    update();
   }
 }
