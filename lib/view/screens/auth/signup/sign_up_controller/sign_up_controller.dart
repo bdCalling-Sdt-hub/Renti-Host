@@ -21,28 +21,28 @@ class SignUpController extends GetxController {
 
   bool isSubmit = false;
 
-  TextEditingController fullNameController = TextEditingController(text: "MD.Nahiduzzaman");
+  TextEditingController fullNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController monthController = TextEditingController();
   TextEditingController yearController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController(text: "1245789542");
+  TextEditingController phoneNumberController = TextEditingController();
 
-  TextEditingController countryController = TextEditingController(text: "MX");
-  TextEditingController cityController = TextEditingController(text: "Toluca");
-  TextEditingController stateController = TextEditingController(text: "Aguascalientes");
-  TextEditingController laneController = TextEditingController(text: "123 Main Street");
-  TextEditingController postalController = TextEditingController(text: "22056");
+  TextEditingController countryController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController laneController = TextEditingController();
+  TextEditingController postalController = TextEditingController();
 
-  TextEditingController accountController = TextEditingController(text: "000000001234567897");
-  TextEditingController accountHolderController = TextEditingController(text: "MD.Nahiduzzaman");
+  TextEditingController accountController = TextEditingController();
+  TextEditingController accountHolderController = TextEditingController();
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
-  TextEditingController ineNumberController = TextEditingController(text: "DAXR870101VY7");
+  TextEditingController ineNumberController = TextEditingController();
   TextEditingController rfcController = TextEditingController();
 
   List<String> genderList = ["Male", "Female", "Others"];
@@ -191,7 +191,7 @@ class SignUpController extends GetxController {
     debugPrint(fullNameController.text);
     debugPrint(emailController.text);
     debugPrint("$selectedGender");
-    debugPrint("${dateController.text}/${monthController.text}/${yearController.text}");
+    debugPrint(dateController.text);
     debugPrint(passwordController.text);
     debugPrint(phoneNumberController.text);
     debugPrint(countryController.text);

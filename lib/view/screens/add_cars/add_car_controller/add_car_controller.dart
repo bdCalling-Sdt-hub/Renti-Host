@@ -293,7 +293,8 @@ class AddCarController extends GetxController {
       if (response.statusCode == 201) {
         isLoading = false;
         update();
-        Get.toNamed(AppRoute.navigation);
+        clearData();
+        Get.offAllNamed(AppRoute.navigation);
         Utils.snackBar("Successful".tr, "Successfully car added".tr);
       } else {
         isLoading = false;

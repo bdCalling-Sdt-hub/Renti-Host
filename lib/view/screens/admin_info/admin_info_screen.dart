@@ -68,7 +68,7 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomText(
-                      text: 'Hotline Number'.tr,
+                      text: "Hotline Number".tr,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.blueNormal,
@@ -106,7 +106,7 @@ class _AdminInfoScreenState extends State<AdminInfoScreen> {
                   ),
                   const SizedBox(height: 24),
                   CustomText(
-                      text: 'Office Address'.tr,
+                      text: "Office Address".tr,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.blueNormal,

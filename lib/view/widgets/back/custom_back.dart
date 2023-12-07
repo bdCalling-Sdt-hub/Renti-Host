@@ -29,6 +29,7 @@ class CustomBack extends StatelessWidget {
   final Color color;
 
   void defaultCallback() {}
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,14 +37,14 @@ class CustomBack extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
       child: Row(
         children: [
-          GestureDetector(
-            child: SizedBox(width: 42,height:42,
-                child: Icon(Icons.arrow_back_ios_new, size: fontSize, color: color)),
-            onTap: () => isBack ? Get.back() : ontap!(),
+          IconButton(
+              onPressed: () => isBack ? Get.back() : ontap!(),
+              icon: Icon(Icons.arrow_back_ios_new, size: fontSize, color: color),
           ),
           Expanded(
             child: CustomText(
-              maxLines: 1,overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.start,
               left: left,
               text: text,

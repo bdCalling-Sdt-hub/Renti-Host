@@ -50,8 +50,13 @@ class ChangePasswordController extends GetxController{
         loading = false;
         update();
         Get.back();
-        Utils.snackBar("Successful","Password changed successfully");
-      } else {
+        Utils.snackBar("Successful".tr,"Password changed successfully".tr);
+      }else if(response.statusCode == 401) {
+
+        loading = false;
+        update();
+        Utils.snackBar("Error".tr,"Current password does not match".tr);
+      }else {
         // Password Change failed
         // You can handle errors here, e.g., show a snack bar or dialog
         if (kDebugMode) {
@@ -60,7 +65,7 @@ class ChangePasswordController extends GetxController{
         }
         loading = false;
         update();
-        Utils.snackBar("Error",'New password and Confirm password do not match');
+        Utils.snackBar("Error".tr,"New password and Confirm password does not match".tr);
       }
     } catch (error) {
       // Handle any network or other errors

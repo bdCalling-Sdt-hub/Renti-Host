@@ -1,15 +1,9 @@
-Map<String, String> spanish = {
-//Splash Screen
+{
   "Get Started": "Empezar",
-
-  //Language Change Screen
   "Select Language": "Seleccione el idioma",
   "English": "Inglesa",
   "Spanish": "Española",
   "Confirm": "Confirmar",
-
-
-  //Sign In Screen
   "Sign In": "Iniciar sesión",
   "Email": "Correo electrónico",
   "Email:": "Correo electrónico:",
@@ -22,37 +16,25 @@ Map<String, String> spanish = {
   "Apple": "Manzana",
   "Don’t have an account? ": "¿No tienes una cuenta? ",
   "This field can not be empty": "Este campo no puede estar vacío",
-  "Password should be more than 6 characters":
-  "La contraseña debe tener más de 6 caracteres",
+  "Password should be more than 6 characters": "La contraseña debe tener más de 6 caracteres",
   "Successful": "Exitosa",
   "Failed": "Fallida",
-  "Successfully Signed In" : "Connexion réussie",
-
-  //Forget Password Screen
+  "Successfully Signed In": "Connexion réussie",
   "Forgot Password": "Has olvidado tu contraseña",
-  "Please enter your email address for recover your password.":
-      "Por favor ingrese su dirección de correo electrónico para recuperar su contraseña.",
+  "Please enter your email address for recover your password.": "Por favor ingrese su dirección de correo electrónico para recuperar su contraseña.",
   "Continue": "Continuar",
-
-  //OTP Screen
   "OTP": "OTP",
   "Please enter the OTP code.": "Por favor ingrese el código OTP.",
   "Did not get the OTP?": "¿No recibiste la OTP?",
   "Resend OTP": "Reenviar OTP",
   "Verify": "Verificar",
-
-  //Set New Password
   "Set a new password": "Establecer una nueva contraseña",
-  "Your password must have 8-10 characters.":
-      "Su contraseña debe tener entre 8 y 10 caracteres.",
-  "New password and Current password does not match":
-      "La nueva contraseña y la contraseña actual no coinciden",
+  "Your password must have 8-10 characters.": "Su contraseña debe tener entre 8 y 10 caracteres.",
+  "New password and Current password does not match": "La nueva contraseña y la contraseña actual no coinciden",
   "Reset": "Reiniciar",
   "Confirm Password": "Confirmar Contraseña",
   "New Password": "Nueva contraseña",
-  "Password Reset Successful" : "Restablecimiento de contraseña exitosa",
-
-  //Sign Up Screen
+  "Password Reset Successful": "Restablecimiento de contraseña exitosa",
   "Sign Up": "Regístrate",
   "Full Name": "Nombre completo",
   "Enter full name": "Ingrese el nombre completo",
@@ -64,30 +46,25 @@ Map<String, String> spanish = {
   "Mobile": "Móvil",
   "Profile Edit": "Editar perfil",
   "Name": "Nombre",
-  "Save": "Ahorrar",
-  "Email is not verified" : "Correo no identificado",
-  "Enter valid phone number" : "Ingrese un número de teléfono válido",
-  "Type country name" : "Escriba el nombre del país",
-  "Country" : "País",
-  "City" : "Ciudad",
-  "Type city name" : "Escriba el nombre de la ciudad",
-  "State" : "Estado",
-  "Type state name" : "Escriba el nombre del estado",
-  "Type address" : "Escriba la dirección",
-  "Postal Code" : "Código Postal",
-  "Type postal code" : "Escriba el código postal",
-
-  //Sign Up Continue Screen
+  "Save": "Ahorra",
+  "Email is not verified": "Correo no identificado",
+  "Enter valid phone number": "Ingrese un número de teléfono válido",
+  "Type country name": "Escriba el nombre del país",
+  "Country": "País",
+  "City": "Ciudad",
+  "Type city name": "Escriba el nombre de la ciudad",
+  "State": "Estado",
+  "Type state name": "Escriba el nombre del estado",
+  "Type address": "Escriba la dirección",
+  "Postal Code": "Código Postal",
+  "Type postal code": "Escriba el código postal",
   "Phone Number": "Número de teléfono",
   "Enter phone number": "Ingresa número telefónico",
   "Address": "DIRECCIÓN",
   "Enter your address": "Ingrese su dirección",
   "InputField Can't be Empty": "InputField no puede estar vacía",
-  "Sign Up Successful" : "Regístrese exitosamente",
-  "User Already Exist" : "La usuario ya existe",
-
-
-  //KYC Screen
+  "Sign Up Successful": "Regístrese exitosamente",
+  "User Already Exist": "La usuario ya existe",
   "KYC": "KYC",
   "Upload": "Subir",
   "NOTE:  All file must be in PDF format": "NOTA: Todo el archivo debe estar en formato PDF",
@@ -100,25 +77,20 @@ Map<String, String> spanish = {
   "Enter RFC": "Ingresar RFC",
   "Select Photo": "Seleccione Foto",
   "Upload Your Photo": "Sube tu foto",
-  "INE/Passport Number" : "INE/Número de Pasaporte",
-  "Account Number" : "Número de cuenta",
-  "Type account number" : "Escriba el número de cuenta",
-  "Account Holder Name" : "Nombre del titular de la cuenta",
-  "Account Holder Type" : "Tipo de titular de cuenta",
-  "Type account holder name" : "Escriba el nombre del titular de la cuenta",
-  "Account number must be 18 digits" : "El número de cuenta debe tener 18 dígitos",
-
-  //KYC Phone Number Verification Screen All Strings
+  "INE/Passport Number": "INE/Número de Pasaporte",
+  "Account Number": "Número de cuenta",
+  "Type account number": "Escriba el número de cuenta",
+  "Account Holder Name": "Nombre del titular de la cuenta",
+  "Account Holder Type": "Tipo de titular de cuenta",
+  "Type account holder name": "Escriba el nombre del titular de la cuenta",
+  "Account number must be 18 digits": "El número de cuenta debe tener 18 dígitos",
   "Mobile Number Verification": "Verificación del número de teléfono",
   "weHaveSent": "Le hemos enviado un código OTP a su número de teléfono móvil. Ingrese el código OTP.",
-
   "Email Verification": "Verificacion de email",
   "weSentEmail": "Le hemos enviado un enlace a su dirección de correo electrónico. Verifique para confirmar su cuenta.",
   "Resend Email": "Reenviar email",
   "Did not get the email?": "¿No recibiste el email?",
-  "Minimum 18 Years Old" : "Mínimo 18 años",
-
-  //Home Screen
+  "Minimum 18 Years Old": "Mínimo 18 años",
   "Search cars...": "Buscar coches...",
   "Total car": "Coche total",
   "Active": "Activa",
@@ -134,13 +106,11 @@ Map<String, String> spanish = {
   "Rent": "Alquilar",
   "Message": "Mensaje",
   "Profile": "Perfil",
-  "Please wait for admin approve to log in" : "Veuillez attendre l'approbation de l'administrateur pour vous connecter",
-  "Error" : "Error",
-  "Enter valid Email and Password" : "Entrez un e-mail et un mot de passe valides",
-  "Authentication failed" : "Authentification échouée",
-  "Somethings went wrong" : "Algo salió mal",
-
-  //Drawer Section
+  "Please wait for admin approve to log in": "Veuillez attendre l'approbation de l'administrateur pour vous connecter",
+  "Error": "Error",
+  "Enter valid Email and Password": "Entrez un e-mail et un mot de passe valides",
+  "Authentication failed": "Authentification échouée",
+  "Somethings went wrong": "Algo salió mal",
   "Add Car": "Agregar auto",
   "User List": "Lista de usuarios",
   "Rent List": "Lista de alquiler",
@@ -151,29 +121,24 @@ Map<String, String> spanish = {
   "Settings": "Ajustes",
   "How Renti Works": "Cómo funciona Renti",
   "Terms & Conditions": "Términos y condiciones",
-  "Support": "Apoyo",
+  "Support": "Ayuda",
   "About Us": "Sobre nosotras",
   "Log Out": "Cerrar sesión",
   "You sure want to log out?": "¿Seguro que quieres cerrar sesión?",
   "Add Car Documentation": "Agregar documentación del automóvil",
   "Yes": "Sí",
   "No": "No",
-
-  //Search Screen
   "Search": "Buscar",
   "Find Car Model": "Buscar modelo de coche",
-
   "Start: ": "Comenzar: ",
   "End: ": "Fin: ",
-
-  //Add Car Screen
   "Car Model Name": "Nombre del modelo de coche",
   "Enter car name": "Ingrese el nombre del auto",
   "Car License Number": "Número de licencia de automóvil",
   "Enter license number": "Ingrese el número de licencia",
   "Car Description": "Descripción del coche",
   "Enter Description": "Ingresar descripción",
-  "Set Rent Amount /hr" : "Establecer importe de alquiler /hora",
+  "Set Rent Amount /hr": "Establecer importe de alquiler /hora",
   "Enter Amount": "Ingresar monto",
   "Insurance Date": "Fecha de seguro",
   "Start": "Comenzar",
@@ -202,28 +167,23 @@ Map<String, String> spanish = {
   "Registration Date": "Fecha de Registro",
   "Baby Car Seat": "Asiento de coche de bebé",
   "Sunroof": "Techo corredizo",
-  "Image File Can't be Empty" : "El archivo de imagen no puede estar vacío",
-  "File Can't be Empty" : "El archivo no puede estar vacío",
-  "Successfully car added" : "Coche añadido con éxito",
-
-  //Admin Information
-  'Hotline Number': 'Número de línea directa',
-  'Office Address': 'Dirección de la oficina',
-  'Weekly Income': 'Ingresos semanales',
-  'Total Income': 'Ingresos totales',
-  //"Weekly Income": "Ingresos semanales",
+  "Image File Can't be Empty": "El archivo de imagen no puede estar vacío",
+  "File Can't be Empty": "El archivo no puede estar vacío",
+  "Successfully car added": "Coche añadido con éxito",
+  "Hotline Number": "Número de línea directa",
+  "Office Address": "Dirección de la oficina",
+  "Weekly Income": "Ingresos semanales",
+  "Total Income": "Ingresos totales",
   "Renti Fee": "Tarifa de alquiler",
   "My Payment": "Mi pago",
-  'All reviews': 'Todas las reseñas',
-  'Date: ': 'Fecha: ',
-
-  //Car Details Screen
+  "All reviews": "Todas las reseñas",
+  "Date: ": "Fecha: ",
   "Car model: ": "Modelo de auto: ",
   "Number of Doors: ": "Número de puertas: ",
   "Seats: ": "Asientos: ",
   "Car Color: ": "Color del coche: ",
   "Car license no: ": "Número de licencia de coche: ",
-  'Car License No: ': 'Número de licencia de automóvil: ',
+  "Car License No: ": "Número de licencia de automóvil: ",
   "Registration date: ": "Fecha de Registro: ",
   "Insurance date: ": "Fecha de seguro: ",
   "Reservation: ": "Reserva: ",
@@ -240,9 +200,7 @@ Map<String, String> spanish = {
   "Rental Information": "Información de alquiler",
   "Car year:": "Año del coche:",
   "search car by company...": "buscar coche por empresa...",
-  "Car license no. :" : "Licencia de coche no. :",
-
-  //Start Trip End Trip Screen
+  "Car license no. :": "Licencia de coche no. :",
   "Car Deal Information": "Información sobre ofertas de automóviles",
   "Start trip": "Iniciar viaje",
   "User Information": "Informacion del usuario",
@@ -256,9 +214,7 @@ Map<String, String> spanish = {
   "Nice Behavior.": "Buen comportamiento.",
   "Type Review": "Tipo de revisión",
   "Send Review": "Enviar reseña",
-  "Car Information" : "Información del coche",
-
-  //Rent Request Screen
+  "Car Information": "Información del coche",
   "Users Request": "Solicitud de usuarios",
   "Cancel": "Cancelar",
   "Approve": "Aprobar",
@@ -267,54 +223,44 @@ Map<String, String> spanish = {
   "Total time: ": "Tiempo Total: ",
   "Contact: ": "Contacto: ",
   "Total amount:": "Cantidad total:",
-
-  //Message
   "Messages": "Mensajes",
-  "Alert!" : "Alerta!",
-  "OTP Resend Successful" : "Reenvío OTP exitosa",
-  "OTP Resend Failed" : "Error en el reenvío de OTP",
-  "Email verify successful" : "Verificación de correo electrónico exitosa",
-  "Failed to email verify" : "Error al verificar el correo electrónico",
-  //Settings Screen
-  "Change Password": "Completa",
+  "Alert!": "Alerta!",
+  "OTP Resend Successful": "Reenvío OTP exitosa",
+  "OTP Resend Failed": "Error en el reenvío de OTP",
+  "Email verify successful": "Verificación de correo electrónico exitosa",
+  "Failed to email verify": "Error al verificar el correo electrónico",
+  "Change Password": "Cambiar la contraseña",
   "Current Password": "Contraseña actual",
   "Enter Current Password": "Introducir la contraseña actual",
   "Enter New Password": "Ingrese nueva clave",
   "Enter Confirm Password": "Ingrese Confirmar Contraseña",
   "Add Card": "Agregar tarjeta",
   "Add New Card": "Agregar nueva tarjeta",
-
   "Enter Account Number": "Ingrese el número de cuenta",
   "Change Language": "Cambiar idioma",
   "Payment Method": "Método de pago",
   "Privacy Policy": "Política de privacidad",
-
   "You sure want to delete the message?": "¿Seguro que quieres borrar el mensaje?",
   "Language Changed Successfully": "El idioma cambió con éxito",
-
-
-
-  "No Internet Connection Found" : "No se encontró conexión a Internet",
-  "Check Your Connection." : "Verifique su conexión.",
-  "PLEASE CONNECT TO INTERNET" : "POR FAVOR CONÉCTATE A INTERNET",
-
-  "Payment Completed Trip Not Start" : "Pago completado, viaje no iniciado",
-  "Only PDF file allow" : "Solo se permiten archivos PDF",
-  "You Have Been Banned By Admin" : "El administrador te ha prohibido",
-  "Connection Error" : "Error de conexión",
-  "Invalid Email or password is not correct!" : "El correo electrónico no válido o la contraseña no es correcta!",
-  "Update" : "Actualizar",
-  "Rent request accepted" : "Solicitud de alquiler aceptada",
-  "Rent request rejected" : "Solicitud de alquiler rechazada",
-  "Successfully Profile Updated" : "Perfil actualizado correctamente",
-
-  "No Request Found!" : "¡No se encontró ninguna solicitud!",
-  "No Messages Found!" : "¡No se han encontrado mensajes!",
-  "No Data Found!" : "¡Datos no encontrados!",
-  "No Rent Data Found!" : "¡No se encontraron datos de alquiler!",
-  "No User Data Found!" : "¡No se encontraron datos de usuario!",
-
-
-
-
-};
+  "No Internet Connection Found": "No se encontró conexión a Internet",
+  "Check Your Connection.": "Verifique su conexión.",
+  "PLEASE CONNECT TO INTERNET": "POR FAVOR CONÉCTATE A INTERNET",
+  "Payment Completed Trip Not Start": "Pago completado, viaje no iniciado",
+  "Only PDF file allow": "Solo se permiten archivos PDF",
+  "You Have Been Banned By Admin": "El administrador te ha prohibido",
+  "Connection Error": "Error de conexión",
+  "Invalid Email or password is not correct!": "El correo electrónico no válido o la contraseña no es correcta!",
+  "Update": "Actualizar",
+  "Rent request accepted": "Solicitud de alquiler aceptada",
+  "Rent request rejected": "Solicitud de alquiler rechazada",
+  "Successfully Profile Updated": "Perfil actualizado correctamente",
+  "No Request Found!": "¡No se encontró ninguna solicitud!",
+  "No Messages Found!": "¡No se han encontrado mensajes!",
+  "No Data Found!": "¡Datos no encontrados!",
+  "No Rent Data Found!": "¡No se encontraron datos de alquiler!",
+  "No User Data Found!": "¡No se encontraron datos de usuario!",
+  "Password doesn't match" : "La contraseña no coincide",
+  "Password changed successfully" : "Contraseña cambiada con éxito",
+  "New password and Confirm password does not match" : "La nueva contraseña y Confirmar contraseña no coinciden",
+  "Current password does not match" : "La contraseña actual no coincide"
+}

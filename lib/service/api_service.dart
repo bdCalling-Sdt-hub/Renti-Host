@@ -94,7 +94,12 @@ class ApiService {
           ApiAuthorizationResponseModel.fromJson(jsonDecode(response.body));
           if (authorizationResponseModel.message == 'Unauthenticated') {
             sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
-            sharedPreferences.remove(SharedPreferenceHelper.token);
+            sharedPreferences.remove(SharedPreferenceHelper.userIdKey);
+            sharedPreferences.remove(SharedPreferenceHelper.accessTokenType);
+            sharedPreferences.remove(SharedPreferenceHelper.userEmailKey);
+            sharedPreferences.remove(SharedPreferenceHelper.userPhoneNumberKey);
+            sharedPreferences.remove(SharedPreferenceHelper.userNameKey);
+            sharedPreferences.remove(SharedPreferenceHelper.accessTokenKey);
             Get.offAllNamed(AppRoute.signInScreen);
           }
         } catch (e) {
@@ -105,6 +110,13 @@ class ApiService {
 
       else if (response.statusCode == 401) {
         sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
+        sharedPreferences.remove(SharedPreferenceHelper.userIdKey);
+        sharedPreferences.remove(SharedPreferenceHelper.accessTokenType);
+        sharedPreferences.remove(SharedPreferenceHelper.userEmailKey);
+        sharedPreferences.remove(SharedPreferenceHelper.userPhoneNumberKey);
+        sharedPreferences.remove(SharedPreferenceHelper.userNameKey);
+        sharedPreferences.remove(SharedPreferenceHelper.accessTokenKey);
+
         return ApiResponseModel(401, "Unauthorized".tr, response.body);
       } else if (response.statusCode == 201) {
         return ApiResponseModel(201, 'Success', response.body);

@@ -55,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: SingleChildScrollView(
                         physics: const BouncingScrollPhysics(),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const SignInAuth(),

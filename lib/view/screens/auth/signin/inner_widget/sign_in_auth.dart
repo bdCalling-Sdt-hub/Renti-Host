@@ -3,11 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
-import 'package:renti_host/utils/app_icons.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_controller/sign_in_controller.dart';
-import 'package:renti_host/view/widgets/button/custom_button_with_icon.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
-import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:renti_host/view/widgets/textfield/custom_textfield.dart';
 
@@ -126,7 +123,7 @@ class _SignInAuthState extends State<SignInAuth> {
                   buttonWidth: double.maxFinite,
                 ),
 
-          //Or Text
+         /* //Or Text
           const Align(
             alignment: Alignment.center,
             child: CustomText(
@@ -157,7 +154,7 @@ class _SignInAuthState extends State<SignInAuth> {
                 ),
               ),
             ],
-          ),
+          ),*/
         ],
       ),
     );

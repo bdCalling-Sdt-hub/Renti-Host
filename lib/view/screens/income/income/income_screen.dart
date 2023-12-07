@@ -68,7 +68,7 @@ class _IncomeScreenState extends State<IncomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomText(
-                              text: 'Total Income'.tr,
+                              text: "Total Income".tr,
                               color: AppColors.whiteLight,
                               fontSize: 18,
                               bottom: 16,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renti_host/core/Language/language_component.dart';
+import 'package:renti_host/core/Language/language_controller.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
@@ -15,15 +17,9 @@ class ChangeLanguageScreen extends StatefulWidget {
 
 class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
 
-  int selectedItem = -1;
 
   @override
   Widget build(BuildContext context) {
-
-    List<String> languageName = [
-      'English',
-      'Spanish',
-    ];
 
     return SafeArea(
       top: true,
@@ -35,58 +31,64 @@ class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
             color: AppColors.blackNormal,
           ),
         ),
-        body: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) =>
-              SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                Column(
-                  children: List.generate(
-                    languageName.length,
-                    (index) {
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            selectedItem = index;
-                            selectedItem == 0 ? Get.updateLocale(const Locale("en", "US")) : Get.updateLocale(const Locale("es" , "MX"));
-                          });
-                          Get.back();
-                          Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
+        body: GetBuilder<LocalizationController>(
+          builder: (localizationController) {
+            return LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    Column(
+                      children: List.generate(
+                        LanguageComponent.languages.length,
+                        (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                localizationController.setLanguage(Locale(
+                                    LanguageComponent.languages[index].languageCode,
+                                    LanguageComponent.languages[index].countryCode));
+                                localizationController.setSelectIndex(index);
+                              });
+                              Get.back();
+                              Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
+                            },
+                            child: Container(
+                              width: double.maxFinite,
+                              padding: const EdgeInsets.all(16),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 20,
+                                    width: 20,
+                                    margin: const EdgeInsets.only(right: 8),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(
+                                          color: AppColors.blueLight, width: 1),
+                                      color: index == localizationController.selectIndex
+                                          ? AppColors.blueNormal
+                                          : AppColors.whiteLight,
+                                    ),
+                                  ),
+                                  CustomText(
+                                    text: localizationController.languages[index].languageName,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
                         },
-                        child: Container(
-                          width: double.maxFinite,
-                          padding: const EdgeInsets.all(16),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: 20,
-                                width: 20,
-                                margin: const EdgeInsets.only(right: 8),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(
-                                      color: AppColors.blueLight, width: 1),
-                                  color: index == selectedItem
-                                      ? AppColors.blueNormal
-                                      : AppColors.whiteLight,
-                                ),
-                              ),
-                              CustomText(
-                                text: languageName[index],
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                      ),
+                    ),
+                    const SizedBox(height: 34),
+                  ],
                 ),
-                const SizedBox(height: 34),
-              ],
-            ),
-          ),
+              ),
+            );
+          }
         ),
       ),
     );

@@ -17,6 +17,17 @@ class DeviceUtils{
     );
   }
 
+  static onboardUtils() {
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.light,
+            systemNavigationBarColor: Color(0xFFF4F4F4),
+            systemNavigationBarIconBrightness: Brightness.dark
+        )
+    );
+  }
+
   static void authUtils(){
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
@@ -26,6 +37,17 @@ class DeviceUtils{
           statusBarColor: Colors.transparent,
           systemStatusBarContrastEnforced: true,
           systemNavigationBarDividerColor: Colors.transparent,
+        )
+    );
+  }
+
+  static bottomNavUtils() {
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.dark,
+            systemNavigationBarColor: Colors.black,
+            systemNavigationBarIconBrightness: Brightness.light
         )
     );
   }

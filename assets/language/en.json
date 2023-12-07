@@ -1,15 +1,9 @@
-Map<String, String> english = {
-  //Splash Screen
+{
   "Get Started": "Get Started",
-
-
-  //Language Change Screen
   "Select Language": "Select Language",
   "English": "English",
   "Spanish": "Spanish",
   "Confirm": "Confirm",
-
-  //Sign In Screens
   "Sign In": "Sign In",
   "Email": "Email",
   "Email:": "Email:",
@@ -26,38 +20,27 @@ Map<String, String> english = {
   "Password should be more than 6 characters": "Password should be more than 6 characters",
   "Successful": "Successful",
   "Failed": "Failed",
-  "Successfully Signed In" : "Successfully Signed In",
-  "Email is not verified" : "Email is not verified",
-
-  //Forget Password Screen
+  "Successfully Signed In": "Successfully Signed In",
+  "Email is not verified": "Email is not verified",
   "Forgot Password": "Forgot Password",
-  "Please enter your email address for recover your password.":
-      "Please enter your email address for recover your password.",
+  "Please enter your email address for recover your password.": "Please enter your email address for recover your password.",
   "Continue": "Continue",
-  "Car license no. :" : "Car license no. :",
-
-  //OTP Screen
+  "Car license no. :": "Car license no. :",
   "OTP": "OTP",
   "Please enter the OTP code.": "Please enter the OTP code.",
   "Did not get the OTP?": "Did not get the OTP?",
   "Resend OTP": "Resend OTP",
   "Verify": "Verify",
-
-  //Set New Password
   "Set a new password": "Set a new password",
-  "Your password must have 8-10 characters.":
-      "Your password must have 8-10 characters.",
-  "New password and Current password does not match":
-      "New password and Current password does not match",
+  "Your password must have 8-10 characters.": "Your password must have 8-10 characters.",
+  "New password and Current password does not match": "New password and Current password does not match",
   "Reset": "Reset",
   "Confirm Password": "Confirm Password",
   "New Password": "New Password",
-  "Password Reset Successful" : "Password Reset Successful",
-  "Somethings went wrong" : "Somethings went wrong",
-  "Sign Up Successful" : "Sign Up Successful",
-  "User Already Exist" : "User Already Exist",
-
-  //Sign Up Screen
+  "Password Reset Successful": "Password Reset Successful",
+  "Somethings went wrong": "Somethings went wrong",
+  "Sign Up Successful": "Sign Up Successful",
+  "User Already Exist": "User Already Exist",
   "Sign Up": "Sign Up",
   "Full Name": "Full Name",
   "Enter full name": "Enter full name",
@@ -66,59 +49,47 @@ Map<String, String> english = {
   "Female": "Female",
   "Others": "Others",
   "Date of Birth": "Date of Birth",
-  "Enter valid phone number" : "Enter valid phone number",
-  "Type country name" :"Type country name",
-  "Country" : "Country",
-  "City" : "City",
-  "Type city name" : "Type city name",
-  "State" : "State",
-  "Type state name" : "Type state name",
-  "Type address" : "Type address",
-  "Postal Code" : "Postal Code",
-  "Type postal code" : "Type postal code",
-
-  //Sign Up Continue Screen
+  "Enter valid phone number": "Enter valid phone number",
+  "Type country name": "Type country name",
+  "Country": "Country",
+  "City": "City",
+  "Type city name": "Type city name",
+  "State": "State",
+  "Type state name": "Type state name",
+  "Type address": "Type address",
+  "Postal Code": "Postal Code",
+  "Type postal code": "Type postal code",
   "Phone Number": "Phone Number",
   "Enter phone number": "Enter phone number",
   "Address": "Address",
   "Enter your address": "Enter your address",
   "InputField Can't be Empty": "InputField Can't be Empty",
-
-  // KYC Screen
   "KYC": "KYC",
   "Upload": "Upload",
-  "NOTE:  All file must be in PDF format":
-      "NOTE:  All file must be in PDF format",
+  "NOTE:  All file must be in PDF format": "NOTE:  All file must be in PDF format",
   "1. Upload INE/Passport": "1. Upload INE/Passport",
   "2. Tax stamps .key extension file": "2. Tax stamps .key extension file",
   "3. Tax stamps .cer extension file": "3. Tax stamps .cer extension file",
   "INE/Passport": "INE/Passport",
-  "INE/Passport Number" : "INE/Passport Number",
+  "INE/Passport Number": "INE/Passport Number",
   "Enter INE/Passport": "Enter INE/Passport",
   "RFC": "RFC",
   "Enter RFC": "Enter RFC",
   "Select Photo": "Select Photo",
   "Upload Your Photo": "Upload Your Photo",
-  "Account Number" : "Account Number",
-  "Type account number" : "Type account number",
-  "Account Holder Name" : "Account Holder Name",
-  "Account Holder Type" : "Account Holder Type",
-  "Type account holder name" : "Type account holder name",
-  "Account number must be 18 digits" : "Account number must be 18 digits",
-
-  //KYC Phone Number Verification Screen All Strings
+  "Account Number": "Account Number",
+  "Type account number": "Type account number",
+  "Account Holder Name": "Account Holder Name",
+  "Account Holder Type": "Account Holder Type",
+  "Type account holder name": "Type account holder name",
+  "Account number must be 18 digits": "Account number must be 18 digits",
   "Mobile Number Verification": "Mobile Number Verification",
-  "weHaveSent":
-      "We have sent you an OTP code on your mobile number. Please enter the OTP code.",
-
+  "weHaveSent": "We have sent you an OTP code on your mobile number. Please enter the OTP code.",
   "Email Verification": "Email Verification",
-  "weSentEmail":
-      "We have sent you a link to your email address. Please check to confirm your account.",
+  "weSentEmail": "We have sent you a link to your email address. Please check to confirm your account.",
   "Resend Email": "Resend Email",
   "Did not get the email?": "Did not get the email?",
-  "Minimum 18 Years Old" : "Minimum 18 Years Old",
-
-  //Home Section
+  "Minimum 18 Years Old": "Minimum 18 Years Old",
   "Search cars...": "Search cars...",
   "Total car": "Total car",
   "Active": "Active",
@@ -134,17 +105,15 @@ Map<String, String> english = {
   "Rent": "Rent",
   "Message": "Message",
   "Profile": "Profile",
-  "Please wait for admin approve to log in" : "Please wait for admin approve to log in",
-  "Error" : "Error",
-  "Enter valid Email and Password" : "Enter valid Email and Password",
-  "Authentication failed" : "Authentication failed",
-  "Alert!" : "Alert!",
-  "OTP Resend Successful" : "OTP Resend Successful",
-  "OTP Resend Failed" : "OTP Resend Failed",
-  "Email verify successful" : "Email verify successful",
-  "Failed to email verify" : "Failed to email verify",
-
-  //Drawer Section
+  "Please wait for admin approve to log in": "Please wait for admin approve to log in",
+  "Error": "Error",
+  "Enter valid Email and Password": "Enter valid Email and Password",
+  "Authentication failed": "Authentication failed",
+  "Alert!": "Alert!",
+  "OTP Resend Successful": "OTP Resend Successful",
+  "OTP Resend Failed": "OTP Resend Failed",
+  "Email verify successful": "Email verify successful",
+  "Failed to email verify": "Failed to email verify",
   "Add Car": "Add Car",
   "User List": "User List",
   "Rent List": "Rent List",
@@ -162,15 +131,10 @@ Map<String, String> english = {
   "Add Car Documentation": "Add Car Documentation",
   "Yes": "Yes",
   "No": "No",
-
-  //Search Screen
   "Search": "Search",
   "Find Car Model": "Find Car Model",
-
   "Start: ": "Start: ",
   "End: ": "End: ",
-
-  //Add Car Screens
   "Car Model Name": "Car Model Name",
   "Enter car name": "Enter car name",
   "Car License Number": "Car License Number",
@@ -206,23 +170,18 @@ Map<String, String> english = {
   "Registration Date": "Registration Date",
   "Baby Car Seat": "Baby Car Seat",
   "Sunroof": "Sunroof",
-  'Car License No: ': 'Car License No: ',
-  "Image File Can't be Empty" : "Image File Can't be Empty",
-  "File Can't be Empty" : "File Can't be Empty",
-  "Successfully car added" : "Successfully car added",
-
-  //Admin Information
-  'Hotline Number': 'Hotline Number',
-  'Office Address': 'Office Address',
-  'Weekly Income': 'Weekly Income',
-  'Total Income': 'Total Income',
-  //"Weekly Income" : "Weekly Income",
+  "Car License No: ": "Car License No: ",
+  "Image File Can't be Empty": "Image File Can't be Empty",
+  "File Can't be Empty": "File Can't be Empty",
+  "Successfully car added": "Successfully car added",
+  "Hotline Number": "Hotline Number",
+  "Office Address": "Office Address",
+  "Weekly Income": "Weekly Income",
+  "Total Income": "Total Income",
   "Renti Fee": "Renti Fee",
   "My Payment": "My Payment",
-  'All reviews': 'All reviews',
-  'Date: ': 'Date: ',
-
-  //Car Details
+  "All reviews": "All reviews",
+  "Date: ": "Date: ",
   "Car model: ": "Car model: ",
   "Number of Doors: ": "Number of Doors: ",
   "Seats: ": "Seats: ",
@@ -244,8 +203,6 @@ Map<String, String> english = {
   "Rental Information": "Rental Information",
   "Car year:": "Car year:",
   "search car by company...": "search car by company...",
-
-  //Start Trip End Trip screen
   "Car Deal Information": "Car Deal Information",
   "Start trip": "Start trip",
   "User Information": "User Information",
@@ -259,9 +216,7 @@ Map<String, String> english = {
   "Nice Behavior.": "Nice Behavior.",
   "Type Review": "Type Review",
   "Send Review": "Send Review",
-  "Car Information" : "Car Information",
-
-  //Rent Request Screen
+  "Car Information": "Car Information",
   "Users Request": "Users Request",
   "Cancel": "Cancel",
   "Approve": "Approve",
@@ -270,18 +225,12 @@ Map<String, String> english = {
   "Total time: ": "Total time: ",
   "Contact: ": "Contact: ",
   "Total amount:": "Total amount:",
-
-  //Profile Screen
   "Mobile": "Mobile",
   "Profile Edit": "Profile Edit",
   "Name": "Name",
   "Save": "Save",
-  "Update" : "Update",
-
-  //Message Screen
+  "Update": "Update",
   "Messages": "Messages",
-
-  //Settings Screen
   "Change Password": "Change Password",
   "Current Password": "Current Password",
   "Enter Current Password": "Enter Current Password",
@@ -291,31 +240,28 @@ Map<String, String> english = {
   "Add New Card": "Add New Card",
   "Enter Account Number": "Enter Account Number",
   "Change Language": "Change Language",
-  "Payment Method": "Payment Method" ,
-  "Privacy Policy" : "Privacy Policy",
-
-
-  "You sure want to delete the message?" : "You sure want to delete the message?",
-  "Language Changed Successfully" : "Language Changed Successfully",
-
-
-  "No Internet Connection Found" : "No Internet Connection Found",
-  "Check Your Connection." : "Check Your Connection.",
-  "PLEASE CONNECT TO INTERNET" : "PLEASE CONNECT TO INTERNET",
-
-  "Payment Completed Trip Not Start" : "Payment Completed Trip Not Start",
-  "Only PDF file allow" : "Only PDF file allow",
-  "You Have Been Banned By Admin" : "You Have Been Banned By Admin",
-  "Connection Error" : "Connection Error",
-  "Invalid Email or password is not correct!" : "Invalid Email or password is not correct!",
-  "Rent request accepted" : "Rent request accepted",
-  "Rent request rejected" : "Rent request rejected",
-
-  "Successfully Profile Updated" : "Successfully Profile Updated",
-  "No Request Found!" : "No Request Found!",
-  "No Messages Found!" : "No Messages Found!",
-  "No Data Found!" : "No Data Found!",
-  "No Rent Data Found!" : "No Rent Data Found!",
-  "No User Data Found!" : "No User Data Found!",
-
-};
+  "Payment Method": "Payment Method",
+  "Privacy Policy": "Privacy Policy",
+  "You sure want to delete the message?": "You sure want to delete the message?",
+  "Language Changed Successfully": "Language Changed Successfully",
+  "No Internet Connection Found": "No Internet Connection Found",
+  "Check Your Connection.": "Check Your Connection.",
+  "PLEASE CONNECT TO INTERNET": "PLEASE CONNECT TO INTERNET",
+  "Payment Completed Trip Not Start": "Payment Completed Trip Not Start",
+  "Only PDF file allow": "Only PDF file allow",
+  "You Have Been Banned By Admin": "You Have Been Banned By Admin",
+  "Connection Error": "Connection Error",
+  "Invalid Email or password is not correct!": "Invalid Email or password is not correct!",
+  "Rent request accepted": "Rent request accepted",
+  "Rent request rejected": "Rent request rejected",
+  "Successfully Profile Updated": "Successfully Profile Updated",
+  "No Request Found!": "No Request Found!",
+  "No Messages Found!": "No messages found!",
+  "No Data Found!": "No data found!",
+  "No Rent Data Found!": "No rent data found!",
+  "No User Data Found!": "No user data found!",
+  "Password doesn't match" : "Password doesn't match",
+  "Password changed successfully" : "Password changed successfully",
+  "New password and Confirm password does not match": "New password and Confirm password does not match",
+  "Current password does not match" : "Current password does not match"
+}

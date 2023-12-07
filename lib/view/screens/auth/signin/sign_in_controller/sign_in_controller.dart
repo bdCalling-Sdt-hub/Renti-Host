@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,13 +14,8 @@ class SignInController extends GetxController {
 
   SignInController({required this.signInRepo});
 
-  /* TextEditingController emailController = TextEditingController(text: "jarsh@gmail.com");
-  TextEditingController passwordController = TextEditingController(text: "1qazxsw2");*/
-
-  TextEditingController emailController =
-      TextEditingController();
-  TextEditingController passwordController =
-      TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
@@ -48,7 +42,15 @@ class SignInController extends GetxController {
 
     if (responseModel.statusCode == 200) {
       SignInResponseModel signInResponseModel = SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-      await gotoNextStep(signInResponseModel);
+      if(signInResponseModel.user?.role == "host"){
+        await gotoNextStep(signInResponseModel);
+      }
+      else{
+        isSubmit = false;
+        update();
+        Utils.snackBar("Error".tr, "Invalid Email or password is not correct!".tr);
+      }
+
     } else if (responseModel.statusCode == 401) {
       isSubmit = false;
       update();
@@ -70,12 +72,12 @@ class SignInController extends GetxController {
     String isBanned = signInResponseModel.user?.isBanned == "false" ? "false" : "true";
 
 
-    if (emailVerified == false) {
+    if (emailVerified == false && approved ==  false) {
       Get.offNamed(AppRoute.kycNumberVerification);
       Utils.snackBar("Alert!".tr, "Email is not verified".tr);
     }
 
-    if (emailVerified == true && approved == true && isBanned != "true") {
+    else if (emailVerified == true && approved == true && isBanned != "true") {
       signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
       signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenType, "Bearer");
       signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userEmailKey, signInResponseModel.user?.email.toString() ?? "");

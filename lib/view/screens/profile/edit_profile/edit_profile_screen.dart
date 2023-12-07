@@ -108,8 +108,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
 
                       //Name and TextField
-                      CustomText(
-                          text: "Name".tr, bottom: 12, top: 16),
+                      CustomText(text: "Name".tr, bottom: 12, top: 16),
                       CustomTextField(
                         textEditingController: controller.fullNameController,
                         hintText: "Enter full name".tr,
@@ -154,8 +153,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 8),
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 color: AppColors.whiteLight,

@@ -15,15 +15,13 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
 
-  List settingData = [
-    "Change Language".tr,
-    "Change Password".tr,
-   // "Payment Method".tr,
-    "Privacy Policy".tr
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List settingData = [
+      "Change Language".tr,
+      "Change Password".tr,
+      "Privacy Policy".tr
+    ];
     return SafeArea(
       top: true,
       child: Scaffold(

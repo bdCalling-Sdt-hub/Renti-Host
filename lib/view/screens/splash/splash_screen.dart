@@ -1,12 +1,15 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_images.dart';
-import 'package:renti_host/view/screens/splash/splash_controller/splash_controller.dart';
+import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,19 +20,33 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+
   @override
   void initState() {
-    var controller = Get.put(SplashController());
-    //controller.logout();
-    controller.setRememberMe();
-    controller.isLogIn();
+    DeviceUtils.splashUtils();
+    rememberMe();
     super.initState();
+  }
+
+  rememberMe() async{
+    final prefs = await SharedPreferences.getInstance();
+    final accessToken = prefs.getString(SharedPreferenceHelper.accessTokenKey);
+    if(accessToken != null && accessToken.isNotEmpty){
+      Timer(const Duration(seconds: 3), () => Get.offAndToNamed(AppRoute.navigation));
+    }
+  }
+
+  @override
+  void dispose() {
+    DeviceUtils.onboardUtils();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       top: true,
+      bottom: true,
       child: Scaffold(
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) =>
@@ -43,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 image: AssetImage(AppImages.splashImage),
                 fit: BoxFit.fill,
                 colorFilter:
-                    ColorFilter.mode(AppColors.blueNormal, BlendMode.dstATop),
+                ColorFilter.mode(AppColors.blueNormal, BlendMode.dstATop),
               ),
             ),
             child: Column(

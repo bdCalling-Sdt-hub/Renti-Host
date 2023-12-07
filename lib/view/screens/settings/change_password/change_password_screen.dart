@@ -17,10 +17,8 @@ class ChangePasswordScreen extends StatefulWidget {
 }
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
-
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(ChangePasswordController());
-
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +26,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar:  CustomAppBar(
+        appBar: CustomAppBar(
           appBarContent: CustomBack(
-              text: "Change Password".tr,
-              color: AppColors.blackNormal),
+              text: "Change Password".tr, color: AppColors.blackNormal),
         ),
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) =>
@@ -42,7 +39,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               children: [
                 Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -63,13 +59,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           if (value == null || value.isEmpty) {
                             return "This field can not be empty".tr;
                           } else if (value.length < 6) {
-                            return "Password should be more than 6 characters".tr;
+                            return "Password should be more than 6 characters"
+                                .tr;
                           } else {
                             return null;
                           }
                         },
                       ),
-                       CustomText(
+                      CustomText(
                         text: "New Password".tr,
                         top: 16,
                         bottom: 12,
@@ -93,7 +90,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           }
                         },
                       ),
-                       CustomText(
+                      CustomText(
                         text: "Confirm Password".tr,
                         top: 16,
                         bottom: 12,
@@ -112,21 +109,19 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                             return "This field can not be empty".tr;
                           } else if (value.length < 6) {
                             return "Password should be more than 6 characters".tr;
-                          } else if(controller.reTypedPassword != controller.newPassword){
-                            return "Password doesn't match".tr;
-                        } else {
-                            return null;
                           }
+                          return null;
                         },
                       ),
-                      GestureDetector(
+                      /*GestureDetector(
                         onTap: () {},
                         child: CustomText(
                           text: "Forgot Password?".tr,
                           color: AppColors.blueNormal,
-                          fontSize: 16,top: 24,
+                          fontSize: 16,
+                          top: 24,
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
@@ -136,10 +131,15 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         ),
         extendBody: true,
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
-          child: CustomElevatedButton(onPressed: (){
-            controller.changePass(controller.currentPassword.value.text, controller.currentPassword.value.text, controller.reTypedPassword.value.text);
-          }, titleText: "Save".tr),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          child: CustomElevatedButton(
+              onPressed: () {
+                controller.changePass(
+                    controller.currentPassword.value.text,
+                    controller.currentPassword.value.text,
+                    controller.reTypedPassword.value.text);
+              },
+              titleText: "Save".tr),
         ),
       ),
     );

@@ -106,68 +106,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
 
             //Date Of Birth
             CustomText(text: "Date of Birth".tr, top: 16, bottom: 12),
-            /*Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: CustomTextField(
-                    keyboardType: TextInputType.datetime,
-                    textEditingController: controller.dateController,
-                    hintText: "DD",
-                    hintStyle: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.whiteNormalActive,
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field can not be empty".tr;
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: CustomTextField(
-                    keyboardType: TextInputType.datetime,
-                    textEditingController: controller.monthController,
-                    hintText: "MM",
-                    hintStyle: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.whiteNormalActive,
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field can not be empty".tr;
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: CustomTextField(
-                    keyboardType: TextInputType.datetime,
-                    textEditingController: controller.yearController,
-                    hintText: "YY",
-                    hintStyle: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.whiteNormalActive,
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field can not be empty".tr;
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-              ],
-            ),*/
+
             CustomTextField(
               hintText: "DD/MM/YY".tr,
               readOnly: true,
@@ -247,7 +186,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                         fullName: controller.fullNameController.text,
                         email: controller.emailController.text,
                         gender: controller.genderList[controller.selectedGender].toString(),
-                        dob: "${controller.dateController.text}/${controller.monthController.text}/${controller.yearController.text}",
+                        dob: controller.dateController.text,
                         password: controller.confirmPasswordController.text);
                   }
                 },

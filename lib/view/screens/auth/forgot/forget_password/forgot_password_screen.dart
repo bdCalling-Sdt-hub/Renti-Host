@@ -59,9 +59,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText(
-                          text:
-                              "Please enter your email address for recover your password."
-                                  .tr,
+                          text: "Please enter your email address for recover your password.".tr,
                           textAlign: TextAlign.start,
                           fontSize: 16,
                           bottom: 24,
@@ -81,7 +79,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         CustomTextField(
                           textEditingController: controller.emailController,
                           textInputAction: TextInputAction.done,
-                          hintText: "Enter password".tr,
+                          hintText: "Enter email".tr,
                           hintStyle: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -90,9 +88,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "This field can not be empty".tr;
-                            } else if (value.length < 6) {
-                              return "Password should be more than 6 characters"
-                                  .tr;
+                            } else if (!value.contains(RegExp('@'))) {
+                              return "Please enter a valid email".tr;
                             } else {
                               return null;
                             }
