@@ -140,12 +140,20 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           }
                         },
                       ),
+                       SizedBox(height: 4,),
+                      Row(
+                        children: [
+                          const Icon(Icons.error_outline,size: 14,color: AppColors.redNormal),
+                          CustomText(text: "Email not changeable".tr,color: AppColors.redNormal,left: 4),
+                        ],
+                      ),
+
 
                       //Phone Number Text and TextField
                       CustomText(
                         text: "Phone Number".tr,
                         bottom: 12,
-                        top: 8,
+                        top: 16
                       ),
                       SizedBox(
                         height: 56,

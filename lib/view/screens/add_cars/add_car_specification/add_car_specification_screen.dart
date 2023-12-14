@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:renti_host/utils/app_colors.dart';
@@ -21,6 +22,8 @@ class AddCarSpecialScreen extends StatefulWidget {
 }
 
 class _CarDetailsState extends State<AddCarSpecialScreen> {
+
+
   bool isClicked = false;
 
   @override
@@ -153,8 +156,7 @@ class _CarDetailsState extends State<AddCarSpecialScreen> {
                       },
                     ),
 
-                    const SizedBox(height: 16),
-                    const CarService(),
+
                     const SizedBox(height: 24),
                     controller.isLoading
                         ? const Center(child: CircularProgressIndicator())

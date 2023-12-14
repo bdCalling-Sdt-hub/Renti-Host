@@ -262,5 +262,7 @@
   "Password doesn't match" : "La contraseña no coincide",
   "Password changed successfully" : "Contraseña cambiada con éxito",
   "New password and Confirm password does not match" : "La nueva contraseña y Confirmar contraseña no coinciden",
-  "Current password does not match" : "La contraseña actual no coincide"
+  "Current password does not match" : "La contraseña actual no coincide",
+  "Email not changeable" :  "El correo electrónico no se puede cambiar",
+  "Search City" : "Buscar ciudad"
 }

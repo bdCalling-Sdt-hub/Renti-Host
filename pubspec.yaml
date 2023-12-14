@@ -67,6 +67,7 @@ dependencies:
   back_button_interceptor:
   custom_will_pop_scope:
   custom_date_range_picker:
+  flutter_typeahead: ^5.0.1
 
 
 dev_dependencies:

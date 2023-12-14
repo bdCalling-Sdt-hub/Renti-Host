@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
@@ -10,6 +11,7 @@ import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
+import 'package:renti_host/view/screens/add_cars/google_map_model/google_map_mpdel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AddCarController extends GetxController {
@@ -277,8 +279,11 @@ class AddCarController extends GetxController {
         "gearType": selectedGearType,
         "specialCharacteristics": selectedText,
         "registrationDate": registrationDate.text,
-        "carType": selectedCarType
+        "carType": selectedCarType,
+        "carLocation": searchTextController.text,
       };
+
+      print(params);
 
       params.forEach((key, value) {
         request.fields[key] = value;
@@ -351,6 +356,41 @@ class AddCarController extends GetxController {
       update();
     }
   }
+
+  /// location controller
+  TextEditingController searchTextController=TextEditingController();
+  List<Prediction> _predictionList=[];
+  Future<List<Prediction>> searchLocation(BuildContext context, String? text) async {
+    if(text != null && text.isNotEmpty) {
+      var response = await getSearchLocation(text);
+      if (response.runtimeType!=int) {
+        _predictionList = [];
+        response['predictions'].forEach((prediction)
+        => _predictionList.add(Prediction.fromJson(prediction)));
+      } else {
+        // ApiChecker.checkApi(response);
+      }
+    }
+    return _predictionList;
+  }
+
+  Future<dynamic> getSearchLocation(String text)async{
+    try {
+      var response = await http.get(Uri.parse("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$text&key=AIzaSyCfGzSTTEXbcFCAzebzuY92i28NtuUcCJA"));
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return response.statusCode;
+      }
+    } on Exception catch (e) {
+      if (kDebugMode) {
+        return print("Data fetch Error. Reason ${e.toString()}");
+      }
+      return 0;
+    }
+
+  }
+
 
   clearData() {
     isLoading = false;

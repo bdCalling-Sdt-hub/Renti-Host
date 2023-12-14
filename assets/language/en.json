@@ -263,5 +263,7 @@
   "Password doesn't match" : "Password doesn't match",
   "Password changed successfully" : "Password changed successfully",
   "New password and Confirm password does not match": "New password and Confirm password does not match",
-  "Current password does not match" : "Current password does not match"
+  "Current password does not match" : "Current password does not match",
+  "Email not changeable" :  "Email not changeable",
+  "Search City" : "Search City"
 }
