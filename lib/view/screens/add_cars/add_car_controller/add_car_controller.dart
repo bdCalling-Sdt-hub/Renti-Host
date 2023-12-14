@@ -358,7 +358,7 @@ class AddCarController extends GetxController {
   }
 
   /// location controller
-  TextEditingController searchTextController=TextEditingController();
+  TextEditingController searchTextController = TextEditingController();
   List<Prediction> _predictionList=[];
   Future<List<Prediction>> searchLocation(BuildContext context, String? text) async {
     if(text != null && text.isNotEmpty) {
