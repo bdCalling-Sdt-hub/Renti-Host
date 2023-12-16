@@ -222,7 +222,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           buttonWidth: double.maxFinite,
                           buttonHeight: 52,
                           titleText: "Update".tr),
+                      Row(
+                        children: [
+                          const Icon(Icons.error_outline,size: 14,color: AppColors.redNormal),
+                          CustomText(text: "Address not changeable".tr,color: AppColors.redNormal,left: 4),
+                        ],
+                      ),
                       const SizedBox(height: 24),
+
                     ],
                   ),
                 ),
