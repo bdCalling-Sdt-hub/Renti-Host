@@ -266,5 +266,6 @@
   "Email not changeable" :  "El correo electrónico no se puede cambiar",
   "Search City" : "Buscar ciudad",
   "Search Car Location" : "Buscar ubicación del coche",
-  "Address not changeable" : "La dirección no se puede cambiar"
+  "Address not changeable" : "La dirección no se puede cambiar",
+  "Car Location" : "Ubicación del coche"
 }

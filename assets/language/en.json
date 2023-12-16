@@ -267,5 +267,6 @@
   "Email not changeable" :  "Email not changeable",
   "Search City" : "Search City",
   "Search Car Location" : "Search Car Location",
-  "Address not changeable" : "Address not changeable"
+  "Address not changeable" : "Address not changeable",
+  "Car Location" : "Car Location"
 }
