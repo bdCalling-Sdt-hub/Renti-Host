@@ -265,5 +265,7 @@
   "New password and Confirm password does not match": "New password and Confirm password does not match",
   "Current password does not match" : "Current password does not match",
   "Email not changeable" :  "Email not changeable",
-  "Search City" : "Search City"
+  "Search City" : "Search City",
+  "Search Car Location" : "Search Car Location",
+  "Address not changeable" : "Address not changeable"
 }

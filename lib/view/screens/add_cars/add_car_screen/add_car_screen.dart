@@ -80,7 +80,7 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                                   borderRadius: BorderRadius.circular(8),
                                   borderSide: const BorderSide(color: AppColors.whiteNormalActive, width: 1),
                                   gapPadding: 0),
-                              hintText: 'Search City'
+                              hintText: 'Search Car Location'.tr
                           ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
