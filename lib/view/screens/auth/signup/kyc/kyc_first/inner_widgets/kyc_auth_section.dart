@@ -33,14 +33,14 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Upload INE or Passport Text and File..
-            CustomText(
+            /*CustomText(
               text: "NOTE:  All file must be in PDF format".tr,
               color: AppColors.ratingColor,
               fontWeight: FontWeight.bold,
               top: 16,
               bottom: 8,
               textAlign: TextAlign.start,
-            ),
+            ),*/
             CustomText(
               text: "1. Upload INE/Passport".tr,
               color: AppColors.whiteDarkActive,
@@ -50,30 +50,47 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
             ),
 
             controller.uploadINEOrPassport == null
-                ? GestureDetector(
-                    onTap: () => controller.pickIneOrPassportFile(),
-                    child: Container(
-                      height: 115,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                          borderRadius: BorderRadius.circular(8)),
-                      alignment: Alignment.center,
-                      child: const CustomImage(imageSrc: AppIcons.uploadIcons),
-                    ),
-                  )
+                ? Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.all(width: 1, color: AppColors.whiteNormalActive),
+                      borderRadius: BorderRadius.circular(8)),
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      const CustomImage(imageSrc: AppIcons.uploadIcons),
+                      const SizedBox(height: 24),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(child: CustomElevatedButton(onPressed: () => controller.clickedIneOrPassportFile(), titleText: "Open Camara".tr,buttonHeight: 42,titleSize: 12)),
+                          const SizedBox(width: 8),
+                          Expanded(child: CustomElevatedButton(onPressed: () => controller.pickIneOrPassportFile(), titleText: "Open Gallery".tr,buttonHeight: 42,titleSize: 12)),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
                 : Container(
-                    padding: const EdgeInsetsDirectional.only(end: 12),
-                    width: MediaQuery.of(context).size.width,
-                    height: 52,
+                    padding: const EdgeInsetsDirectional.only(end: 12,top: 12),
+                    width: MediaQuery.of(context).size.width ,
+                    height: 180,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(width: 1, color: AppColors.whiteNormalActive),
+                      image: DecorationImage(image: FileImage(controller.uploadINEOrPassport!),fit: BoxFit.fill)
                     ),
-                    child: Row(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: GestureDetector(
+                        onTap: () => controller.removeIneOrPassportFile(),
+                        child: const Icon(Icons.cancel_outlined, color: AppColors.redNormal, size: 24),
+                      ),
+                    ),
+              /*Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
@@ -102,13 +119,14 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                             ],
                           ),
                         ),
+
                         GestureDetector(
                           onTap: () => controller.removeIneOrPassportFile(),
                           child: const Icon(Icons.cancel_outlined,
                               color: AppColors.redNormal, size: 24),
-                        )
+                        ),
                       ],
-                    ),
+                    )*/
                   ),
 
             //Upload Text Stamps Key Extension Text and File..
@@ -121,30 +139,48 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
             ),
 
             controller.uploadTaxStampsKey == null
-                ? GestureDetector(
-                    onTap: () => controller.pickTaxStampsFile(),
-                    child: Container(
-                      height: 115,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                          borderRadius: BorderRadius.circular(8)),
-                      alignment: Alignment.center,
-                      child: const CustomImage(imageSrc: AppIcons.uploadIcons),
-                    ),
-                  )
+                ? Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.all(width: 1, color: AppColors.whiteNormalActive),
+                      borderRadius: BorderRadius.circular(8),
+                  ),
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      const CustomImage(imageSrc: AppIcons.uploadIcons),
+                      const SizedBox(height: 24),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(child: CustomElevatedButton(onPressed: () => controller.clickedTaxStampsFile(), titleText: "Open Camara".tr,buttonHeight: 42,titleSize: 12)),
+                          const SizedBox(width: 8),
+                          Expanded(child: CustomElevatedButton(onPressed: () => controller.pickTaxStampsFile(), titleText: "Open Gallery".tr,buttonHeight: 42,titleSize: 12)),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
                 : Container(
-                    padding: const EdgeInsetsDirectional.only(end: 12),
+                    padding: const EdgeInsetsDirectional.only(end: 12,top: 12),
                     width: MediaQuery.of(context).size.width,
-                    height: 52,
+                    height: 180,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(width: 1, color: AppColors.whiteNormalActive),
+                        image: DecorationImage(image: FileImage(controller.uploadTaxStampsKey!),fit: BoxFit.fill)
                     ),
-                    child: Row(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: GestureDetector(
+                        onTap: () => controller.removeTaxStampsFile(),
+                        child: const Icon(Icons.cancel_outlined, color: AppColors.redNormal, size: 24),
+                      ),
+                    ),
+              /*Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
@@ -179,43 +215,61 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                               color: AppColors.redNormal, size: 24),
                         )
                       ],
-                    ),
+                    )*/
                   ),
 
             //Upload Text Stamps Key Extension Text and File..
             CustomText(
               text: "3. Tax stamps .cer extension file".tr,
               color: AppColors.whiteDarkActive,
-              top: 16,
+              top: 16,bottom: 8,
               textAlign: TextAlign.start,
             ),
 
             controller.uploadCerStampsKey == null
-                ? GestureDetector(
-                    onTap: () => controller.pickTaxCerFile(),
-                    child: Container(
-                      height: 115,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                          borderRadius: BorderRadius.circular(8)),
-                      alignment: Alignment.center,
-                      child: const CustomImage(imageSrc: AppIcons.uploadIcons),
-                    ),
-                  )
+                ? Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.all(
+                          width: 1, color: AppColors.whiteNormalActive),
+                      borderRadius: BorderRadius.circular(8)),
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      const CustomImage(imageSrc: AppIcons.uploadIcons),
+                      const SizedBox(height: 24),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(child: CustomElevatedButton(onPressed: () => controller.clickedTaxCerFile(), titleText: "Open Camara".tr,buttonHeight: 42,titleSize: 12)),
+                          const SizedBox(width: 8),
+                          Expanded(child: CustomElevatedButton(onPressed: () => controller.pickTaxCerFile(), titleText: "Open Gallery".tr,buttonHeight: 42,titleSize: 12)),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
                 : Container(
-                    padding: const EdgeInsetsDirectional.only(end: 12),
+                    padding: const EdgeInsetsDirectional.only(end: 12,top: 12),
                     width: MediaQuery.of(context).size.width,
-                    height: 52,
+                    height: 180,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                          width: 1, color: AppColors.whiteNormalActive),
+                      border: Border.all(width: 1, color: AppColors.whiteNormalActive),
+                        image: DecorationImage(image: FileImage(controller.uploadCerStampsKey!),fit: BoxFit.fill)
                     ),
-                    child: Row(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: GestureDetector(
+                        onTap: () => controller.removeTaxCerStampsFile(),
+                        child: const Icon(Icons.cancel_outlined,
+                            color: AppColors.redNormal, size: 24),
+                      ),
+                    ),
+              /*Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
@@ -251,7 +305,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                               color: AppColors.redNormal, size: 24),
                         ),
                       ],
-                    ),
+                    )*/
                   ),
 
             //INE/Passport Text and TextField

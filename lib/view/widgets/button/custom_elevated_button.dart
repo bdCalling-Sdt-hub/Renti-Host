@@ -41,11 +41,13 @@ class CustomElevatedButton extends StatelessWidget {
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(buttonRadius),
-                side: BorderSide(color: buttonBorderColor)),
+                side: BorderSide(color: buttonBorderColor),
+            ),
           ),
           elevation: MaterialStateProperty.all(0),
         ),
         child: CustomText(
+          maxLines: 2,overflow: TextOverflow.ellipsis,
           text: titleText,
           textAlign: textAlign,
           fontSize: titleSize,

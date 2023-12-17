@@ -15,18 +15,17 @@ class NoInternetController extends GetxController {
     final bool? repeat = prefs.getBool(SharedPreferenceHelper.rememberMeKey);
     if (result == ConnectivityResult.none) {
       Get.rawSnackbar(
-          messageText: CustomText(text:
-          "PLEASE CONNECT TO INTERNET".tr,fontSize: 16,fontWeight: FontWeight.w500),
+          messageText: CustomText(text: "PLEASE CONNECT TO INTERNET".tr,fontSize: 16,fontWeight: FontWeight.w500),
           isDismissible: false,
           backgroundColor: AppColors.blackNormal,
           icon: const Icon(
             Icons.wifi_off_outlined,
             color: Colors.white,
-            size: 35,
+            size: 34,
           ),
           snackStyle: SnackStyle.GROUNDED,
-          duration: const Duration(days: 1));
-      Get.offAllNamed(AppRoute.noInternet);
+          duration: const Duration(seconds: 10));
+      Get.toNamed(AppRoute.noInternet);
 
     } else {
       if (Get.isSnackbarOpen && repeat == false) {
@@ -35,7 +34,7 @@ class NoInternetController extends GetxController {
       }
       else if(Get.isSnackbarOpen && repeat == true){
         Get.closeAllSnackbars();
-        Get.offAllNamed(AppRoute.navigation);
+        Get.back();
       }
     }
   }

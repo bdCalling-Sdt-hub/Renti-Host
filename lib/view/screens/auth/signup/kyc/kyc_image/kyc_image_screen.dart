@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/device_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_controller/sign_up_controller.dart';
@@ -18,18 +17,6 @@ class KYCImageScreen extends StatefulWidget {
 }
 
 class _KYCImageScreenState extends State<KYCImageScreen> {
-  final ImagePicker _imagePicker = ImagePicker();
-  XFile? image;
-
-  fromCamera() async {
-    image = await _imagePicker.pickImage(source: ImageSource.camera);
-    setState(() {});
-  }
-
-  fromGallery() async {
-    image = await _imagePicker.pickImage(source: ImageSource.gallery);
-    setState(() {});
-  }
 
   @override
   void initState() {
@@ -55,8 +42,7 @@ class _KYCImageScreenState extends State<KYCImageScreen> {
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: SingleChildScrollView(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                   physics: const BouncingScrollPhysics(),
                   child: GestureDetector(
                     onTap: () {

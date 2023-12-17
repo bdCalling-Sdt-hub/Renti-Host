@@ -105,7 +105,7 @@ class ApiService {
         } catch (e) {
           e.toString();
         }
-        return ApiResponseModel(200, 'Success', response.body);
+        return ApiResponseModel(200, "Successful".tr, response.body);
       }
 
       else if (response.statusCode == 401) {
@@ -119,7 +119,7 @@ class ApiService {
 
         return ApiResponseModel(401, "Unauthorized".tr, response.body);
       } else if (response.statusCode == 201) {
-        return ApiResponseModel(201, 'Success', response.body);
+        return ApiResponseModel(201, "Successful".tr, response.body);
       } else if (response.statusCode == 500) {
         return ApiResponseModel(500, "Internal Server Error".tr, response.body);
       } else {

@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
@@ -21,23 +20,23 @@ class SignUpController extends GetxController {
 
   bool isSubmit = false;
 
-  TextEditingController fullNameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  TextEditingController fullNameController = TextEditingController(text: "MD");
+  TextEditingController emailController = TextEditingController(text: "rehoh74593@avucon.com");
   TextEditingController dateController = TextEditingController();
   TextEditingController monthController = TextEditingController();
   TextEditingController yearController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController passwordController = TextEditingController(text: "123456");
+  TextEditingController confirmPasswordController = TextEditingController(text: "123456");
+  TextEditingController phoneNumberController = TextEditingController(text: "1245789542");
 
-  TextEditingController countryController = TextEditingController();
-  TextEditingController cityController = TextEditingController();
-  TextEditingController stateController = TextEditingController();
-  TextEditingController laneController = TextEditingController();
-  TextEditingController postalController = TextEditingController();
+  TextEditingController countryController = TextEditingController(text: "MX");
+  TextEditingController cityController = TextEditingController(text: "MX");
+  TextEditingController stateController = TextEditingController(text: "Aguascalientes");
+  TextEditingController laneController = TextEditingController(text: "123 Main Street");
+  TextEditingController postalController = TextEditingController(text: "22056");
 
-  TextEditingController accountController = TextEditingController();
-  TextEditingController accountHolderController = TextEditingController();
+  TextEditingController accountController = TextEditingController(text: "000000001234567897");
+  TextEditingController accountHolderController = TextEditingController(text: "MD");
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
@@ -59,6 +58,7 @@ class SignUpController extends GetxController {
     selectedGender = index;
     update();
   }
+
   void changeAccountType(int index) {
     selectedAccount = index;
     update();
@@ -71,9 +71,8 @@ class SignUpController extends GetxController {
   String taxStampKeyFileName = "";
   String cerStampKeyFileName = "";
 
-
   Future<void> pickIneOrPassportFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
+    /*FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
         allowedExtensions: ["pdf"],
         type: FileType.custom);
@@ -89,44 +88,91 @@ class SignUpController extends GetxController {
       }else{
         Utils.snackBar("Error".tr, "Only PDF file allow".tr);
       }
+    }*/
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      uploadINEOrPassport = File(pickedFile.path);
+      kycDocFiles.add(uploadINEOrPassport!);
+      update();
+    }
+  }
+  //INE get by Camara
+  Future<void> clickedIneOrPassportFile() async {
+    final picked = await ImagePicker().pickImage(source: ImageSource.camera);
+
+    if (picked != null) {
+      uploadINEOrPassport = File(picked.path);
+      kycDocFiles.add(uploadINEOrPassport!);
+      update();
     }
   }
 
   Future<void> pickTaxStampsFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
+   /* FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: false,
         allowedExtensions: ["pdf"],
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
       PlatformFile file = result.files.first;
-      if(file.extension == 'pdf'){
+      if (file.extension == 'pdf') {
         uploadTaxStampsKey = File(result.files.single.path.toString());
         taxStampKeyFileName = result.files.single.name;
         kycDocFiles.add(uploadTaxStampsKey!);
         update();
-      }else{
+      } else {
         Utils.snackBar("Error".tr, "Only PDF file allow".tr);
       }
+    }*/
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      uploadTaxStampsKey = File(pickedFile.path);
+      kycDocFiles.add(uploadTaxStampsKey!);
+      update();
+    }
+  }
+  //TaxStamps.key get by camara
+  Future<void> clickedTaxStampsFile() async {
+
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      uploadTaxStampsKey = File(pickedFile.path);
+      kycDocFiles.add(uploadTaxStampsKey!);
+      update();
     }
   }
 
   Future<void> pickTaxCerFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
+    /*FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: false,
         allowedExtensions: ["pdf"],
         type: FileType.custom);
 
     if (result != null && result.files.isNotEmpty) {
       PlatformFile file = result.files.first;
-      if(file.extension == 'pdf'){
+      if (file.extension == 'pdf') {
         uploadCerStampsKey = File(result.files.single.path.toString());
         cerStampKeyFileName = result.files.single.name;
         kycDocFiles.add(uploadCerStampsKey!);
         update();
-      }else{
+      } else {
         Utils.snackBar("Error".tr, "Only PDF file allow".tr);
       }
+    }*/
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      uploadCerStampsKey = File(pickedFile.path);
+      kycDocFiles.add(uploadCerStampsKey!);
+      update();
+    }
+  }
+  //TaxStamps.cer get by camara
+  Future<void> clickedTaxCerFile() async {
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      uploadCerStampsKey = File(pickedFile.path);
+      kycDocFiles.add(uploadCerStampsKey!);
+      update();
     }
   }
 
@@ -136,7 +182,6 @@ class SignUpController extends GetxController {
       uploadINEOrPassport = null;
       ineOrPassportFileName = "";
     }
-
     update();
   }
 
@@ -146,8 +191,6 @@ class SignUpController extends GetxController {
       uploadTaxStampsKey = null;
       taxStampKeyFileName = "";
     }
-
-    // kycDocFiles.removeAt(1);
     update();
   }
 
@@ -165,9 +208,7 @@ class SignUpController extends GetxController {
   String? imageUrl;
 
   void openGallery() async {
-    final pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.gallery
-    );
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
@@ -176,8 +217,7 @@ class SignUpController extends GetxController {
   }
 
   void openCamera(BuildContext context) async {
-    final pickedFile = await ImagePicker().pickImage(
-        source: ImageSource.camera);
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
 
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
@@ -186,9 +226,7 @@ class SignUpController extends GetxController {
   }
 
   Future<void> signUpMultipleFilesAndParams() async {
-
-
-    debugPrint(fullNameController.text);
+    /*debugPrint(fullNameController.text);
     debugPrint(emailController.text);
     debugPrint("$selectedGender");
     debugPrint(dateController.text);
@@ -204,7 +242,7 @@ class SignUpController extends GetxController {
     debugPrint("$selectedAccount");
     debugPrint(ineNumberController.text);
     debugPrint(rfcController.text);
-
+    debugPrint("$kycDocFiles");*/
 
     try {
       isloading = true;
@@ -214,12 +252,13 @@ class SignUpController extends GetxController {
         Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
       );
 
-
       // Add the KYC files to the request
       for (var file in kycDocFiles) {
         if (file.existsSync()) {
           try {
-            var multipartFile = await http.MultipartFile.fromPath("KYC", file.path, contentType: MediaType('application', 'pdf'));
+            var multipartFile = await http.MultipartFile.fromPath(
+                "KYC", file.path,
+                contentType: MediaType('image', 'jpeg'));
             request.files.add(multipartFile);
             if (kDebugMode) {
               print(file.path);
@@ -242,7 +281,6 @@ class SignUpController extends GetxController {
         try {
           var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType: MediaType('image', 'jpeg'));
           request.files.add(img);
-
         } on Exception catch (e) {
           if (kDebugMode) {
             print('Error adding image file to request: $e');
@@ -251,50 +289,33 @@ class SignUpController extends GetxController {
         }
       }
 
-     /* Map <String, String> address ={
-        "city": cityController.text,
-        "country": countryController.text,
-        "line1": laneController.text,
-        "state": stateController.text
-      };
-      final String addresses = jsonEncode(address);
-
-      Map <String, String> bankInfo = {
-        "account_number": accountController.text,
-        "account_holder_name": accountHolderController.text,
-        "account_holder_type": accountType[selectedAccount]
-      };
-      final String bankInformation = jsonEncode(bankInfo);*/
 
       // Add the parameters to the request
       Map<String, String> params = {
         "fullName": fullNameController.text,
         "email": emailController.text,
         "gender": genderList[selectedGender],
-        "dateOfBirth": "${dateController.text}/${monthController.text}/${yearController.text}",
+        "dateOfBirth": dateController.text,
         "password": passwordController.text,
-
         "phoneNumber": "$phoneCode${phoneNumberController.text}",
         "address[country]": countryController.text,
         "address[city]": cityController.text,
         "address[state]": stateController.text,
         "address[line1]": laneController.text,
-        "address[postal_code]" : postalController.text,
-
+        "address[postal_code]": postalController.text,
         "ine": ineNumberController.text,
         "RFC": rfcController.text,
-
-        "bankInfo[account_number]" : accountController.text,
-        "bankInfo[account_holder_name]" : accountHolderController.text,
-        "bankInfo[account_holder_type]" : accountType[selectedAccount],
-
+        "bankInfo[account_number]": accountController.text,
+        "bankInfo[account_holder_name]": accountHolderController.text,
+        "bankInfo[account_holder_type]": accountType[selectedAccount],
         "role": "host"
       };
+
+      debugPrint("---------------------------->>>>>>>>>>>>>>>>>>>>>>>>$params");
 
       params.forEach((key, value) {
         request.fields[key] = value;
       });
-
 
       request.headers['Content-Type'] = 'multipart/form-data';
 
@@ -307,20 +328,22 @@ class SignUpController extends GetxController {
       }
 
       if (response.statusCode == 201) {
-        await signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userEmailKey,emailController.text.trim().toString());
+        await signUpRepo.apiService.sharedPreferences.setString(
+            SharedPreferenceHelper.userEmailKey,
+            emailController.text.trim().toString());
         Get.toNamed(AppRoute.kycNumberVerification);
         Utils.snackBar("Successful".tr, "Sign Up Successful".tr);
         clearData();
         isloading = false;
         update();
-      }
-      else if(response.statusCode == 409){
+      } else if (response.statusCode == 409) {
         isloading = false;
         update();
         Utils.snackBar("Alert!".tr, "User Already Exist".tr);
       }
       if (kDebugMode) {
-        print("${response.statusCode}----------------->>>>>> ${response.request}---------------->>>>>>>> ${response.reasonPhrase}");
+        print(
+            "${response.statusCode}----------------->>>>>> ${response.request}---------------->>>>>>>> ${response.reasonPhrase}");
       }
     } catch (e) {
       isloading = false;
@@ -335,18 +358,17 @@ class SignUpController extends GetxController {
     update();
   }
 
-  Future<void> dateOfBirthPicker(BuildContext context) async{
+  Future<void> dateOfBirthPicker(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       builder: (context, child) => Theme(
           data: Theme.of(context).copyWith(
-            colorScheme:  const ColorScheme.light(
+            colorScheme: const ColorScheme.light(
               primary: AppColors.blueNormal, // <-- SEE HERE
               onPrimary: AppColors.whiteLight, // <-- SEE HERE
               onSurface: AppColors.blueNormal, // <-- SEE HERE
             ),
           ),
-          child: child!
-      ),
+          child: child!),
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1950),
@@ -360,19 +382,19 @@ class SignUpController extends GetxController {
       int yearDiff = today.year - birthday.year;
       int monthDiff = today.month - birthday.month;
       int dayDiff = today.day - birthday.day;
-      if(yearDiff > 18 || yearDiff == 18 && monthDiff > 0 || yearDiff == 18 && monthDiff == 0 && dayDiff >= 0){
+      if (yearDiff > 18 ||
+          yearDiff == 18 && monthDiff > 0 ||
+          yearDiff == 18 && monthDiff == 0 && dayDiff >= 0) {
         dateController.text = "${picked.day}/${picked.month}/${picked.year}";
         debugPrint(dateController.text);
         update();
-      }
-      else{
+      } else {
         dateController.clear();
         Utils.snackBar("Error".tr, "Minimum 18 Years Old".tr);
       }
       update();
     }
   }
-
 
   clearData() {
     fullNameController.text = "";
