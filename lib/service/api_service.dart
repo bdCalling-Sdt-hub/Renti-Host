@@ -116,7 +116,7 @@ class ApiService {
         sharedPreferences.remove(SharedPreferenceHelper.userPhoneNumberKey);
         sharedPreferences.remove(SharedPreferenceHelper.userNameKey);
         sharedPreferences.remove(SharedPreferenceHelper.accessTokenKey);
-
+        Get.offAllNamed(AppRoute.signInScreen);
         return ApiResponseModel(401, "Unauthorized".tr, response.body);
       } else if (response.statusCode == 201) {
         return ApiResponseModel(201, "Successful".tr, response.body);
