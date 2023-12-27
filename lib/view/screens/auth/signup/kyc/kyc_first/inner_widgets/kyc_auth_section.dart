@@ -117,7 +117,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                     children: [
                       Container(
                         height: 50,
-                        width: MediaQuery.of(context).size.width * 0.8,
+                        width: MediaQuery.of(context).size.width * 0.5,
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
                           color: AppColors.redNormal,
@@ -234,7 +234,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                   children: [
                     Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.5,
                       alignment: Alignment.center,
                       decoration: const BoxDecoration(
                         color: AppColors.redNormal,
@@ -349,7 +349,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                   children: [
                     Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.5,
                       alignment: Alignment.center,
                       decoration: const BoxDecoration(
                         color: AppColors.redNormal,

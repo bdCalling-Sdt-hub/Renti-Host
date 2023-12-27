@@ -13,6 +13,7 @@ import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signup/sign_up_repo/sign_up_repo.dart';
+import 'package:path/path.dart' as path;
 
 class SignUpController extends GetxController {
   SignUpRepo signUpRepo;
@@ -21,23 +22,23 @@ class SignUpController extends GetxController {
 
   bool isSubmit = false;
 
-  TextEditingController fullNameController = TextEditingController(text: "MD");
-  TextEditingController emailController = TextEditingController(text: "rehoh74593@avucon.com");
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController monthController = TextEditingController();
   TextEditingController yearController = TextEditingController();
-  TextEditingController passwordController = TextEditingController(text: "123456");
-  TextEditingController confirmPasswordController = TextEditingController(text: "123456");
-  TextEditingController phoneNumberController = TextEditingController(text: "1245789542");
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
 
-  TextEditingController countryController = TextEditingController(text: "MX");
-  TextEditingController cityController = TextEditingController(text: "MX");
-  TextEditingController stateController = TextEditingController(text: "Aguascalientes");
-  TextEditingController laneController = TextEditingController(text: "123 Main Street");
-  TextEditingController postalController = TextEditingController(text: "22056");
+  TextEditingController countryController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController laneController = TextEditingController();
+  TextEditingController postalController = TextEditingController();
 
-  TextEditingController accountController = TextEditingController(text: "000000001234567897");
-  TextEditingController accountHolderController = TextEditingController(text: "MD");
+  TextEditingController accountController = TextEditingController();
+  TextEditingController accountHolderController = TextEditingController();
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
@@ -49,7 +50,7 @@ class SignUpController extends GetxController {
   List<String> accountType = ["individual", "company"];
   int selectedGender = 0;
   int selectedAccount = 0;
-  List<File> kycDocFiles = [];
+   List<File> kycDocFiles = [];
   File? profileImage;
   String phoneCode = "+52";
 
@@ -180,22 +181,7 @@ class SignUpController extends GetxController {
     }
   }
   Future<void> pickTaxStampsFile() async {
-    /*  FilePickerResult? result = await FilePicker.platform.pickFiles(
-        allowMultiple: false,
-        allowedExtensions: ["pdf"],
-        type: FileType.custom);
 
-    if (result != null && result.files.isNotEmpty) {
-      PlatformFile file = result.files.first;
-      if (file.extension == 'pdf') {
-        uploadTaxStampsKey = File(result.files.single.path.toString());
-        taxStampKeyFileName = result.files.single.name;
-        kycDocFiles.add(uploadTaxStampsKey!);
-        update();
-      } else {
-        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
-      }
-    }*/
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       uploadTaxStampsKey = File(pickedFile.path);
@@ -354,59 +340,121 @@ class SignUpController extends GetxController {
         Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
       );
 
-      // Add the KYC files to the request
+
+
+
+
+
+
+
+
+
+
+      // // Add the KYC files to the request
       for (var file in kycDocFiles) {
-        if (file.existsSync()) {
-          try {
-            var multipartFile = await http.MultipartFile.fromPath(
-                'KYC', file.path,
-                contentType: MediaType('application', 'pdf'));
-            request.files.add(multipartFile);
-          } on Exception catch (e) {
-            print("Error is :${e.toString()}");
-          }
-        } else {
-          print('File does not exist: ${file.path}');
-        }
 
-        if (file.existsSync()) {
-          try {
-            var multipartFile = await http.MultipartFile.fromPath(
-                "KYC", file.path,
-                contentType: MediaType('image', 'jpeg'));
-            request.files.add(multipartFile);
-            if (kDebugMode) {
-              print(file.path);
-            }
-          } on Exception catch (e) {
-            if (kDebugMode) {
-              print("Error is :${e.toString()}");
-            }
-          }
+
+        String fileExtension = path.extension(file.path).toLowerCase();
+        // Check the file extension
+        if (fileExtension == ".jpeg") {
+          var multipartFile = await http.MultipartFile.fromPath(
+              'KYC', file.path,
+              contentType: MediaType('image', 'jpeg'));
+          request.files.add(multipartFile);
+
+          print("It's a JPEG file.");
+        } else if (fileExtension == ".png") {
+          var multipartFile = await http.MultipartFile.fromPath(
+              'KYC', file.path,
+              contentType: MediaType('image', 'png'));
+          request.files.add(multipartFile);
+
+          print("It's a PNG file.");
+        } else if (fileExtension == ".pdf") {
+          var multipartFile = await http.MultipartFile.fromPath(
+              'KYC', file.path,
+              contentType: MediaType('application', 'pdf'));
+          request.files.add(multipartFile);
+          print("It's a PDF file.");
         } else {
-          if (kDebugMode) {
-            print('File does not exist: ${file.path}');
-          }
-          // Handle the missing file gracefully, e.g., skip it or show an error message.
+          print("It's not a supported file type.");
         }
       }
 
-      // Add the image file to the request
-      if (imageFile != null && imageFile!.existsSync()) {
-        try {
-          var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType: MediaType('image', 'jpeg'));
-          request.files.add(img);
-        } on Exception catch (e) {
-          if (kDebugMode) {
-            print('Error adding image file to request: $e');
-          }
-          // Handle the error gracefully, e.g., show an error message to the user.
-        }
-      }
+      //
+      //
+      //   if (file.existsSync()) {
+      //     try {
+      //       var multipartFile = await http.MultipartFile.fromPath(
+      //           'KYC', file.path,
+      //           contentType: MediaType('application', 'pdf'));
+      //       request.files.add(multipartFile);
+      //     } on Exception catch (e) {
+      //       print("Error is :${e.toString()}");
+      //     }
+      //   } else {
+      //     print('File does not exist: ${file.path}');
+      //   }
+      //
+      //   if (file.existsSync()) {
+      //     try {
+      //       var multipartFile = await http.MultipartFile.fromPath(
+      //           "KYC", file.path,
+      //           contentType: MediaType('image', 'jpeg'));
+      //       request.files.add(multipartFile);
+      //       if (kDebugMode) {
+      //         print(file.path);
+      //       }
+      //     } on Exception catch (e) {
+      //       if (kDebugMode) {
+      //         print("Error is :${e.toString()}");
+      //       }
+      //     }
+      //   } else {
+      //     if (kDebugMode) {
+      //       print('File does not exist: ${file.path}');
+      //     }
+      //     // Handle the missing file gracefully, e.g., skip it or show an error message.
+      //   }
+      // }
+      //
+      // // Add the image file to the request
+      // if (imageFile != null && imageFile!.existsSync()) {
+      //   try {
+      //     var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType: MediaType('image', 'jpeg'));
+      //     request.files.add(img);
+      //   } on Exception catch (e) {
+      //     if (kDebugMode) {
+      //       print('Error adding image file to request: $e');
+      //     }
+      //     // Handle the error gracefully, e.g., show an error message to the user.
+      //   }
+      // }
 
 
       // Add the parameters to the request
-      Map<String, String> params = {
+      // Map<String, String> params =
+      //   {
+      //     'fullName': 'Ahm',
+      //     'email': 'palash900202@gmail.com',
+      //     'phoneNumber': '+521245789542',
+      //     'gender': 'Male',
+      //     'dateOfBirth': '21/09/1994',
+      //     'password': '1qazxsw2',
+      //     'RFC': 'rfc',
+      //     'role': 'host',
+      //     'ine': 'DAXR870101VY7',
+      //     'bankInfo[account_number]': '000000001234567897',
+      //     'bankInfo[account_holder_name]': 'Ahmed',
+      //     'bankInfo[account_holder_type]': 'individual',
+      //     'address[city]': 'dhaka',
+      //     'address[line1]': '123 Main Street',
+      //     'address[postal_code]': '22056',
+      //     'address[state]': 'Aguascalientes',
+      //     'address[country]': 'MX'
+      //
+      // };
+ Map<String, String> params = {
         "fullName": fullNameController.text,
         "email": emailController.text,
         "gender": genderList[selectedGender],
