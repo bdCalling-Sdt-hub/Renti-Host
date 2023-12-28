@@ -1,13 +1,13 @@
 class ApiUrlContainer {
 
  ///live url
- static const String baseUrl = "http://159.65.18.179:3001/api/";
- //159.65.18.179
- static const String socketGlobal = "http://159.65.18.179:9000";
+ static const String baseUrl = "http://159.65.25.16:3001/api/";
+
+ static const String socketGlobal = "http://159.65.25.16:9000";
   /// local url
 
 
- /*static const String baseUrl = "http://192.168.10.14:3000/api/";
+ /*static const String baseUrl = "http://192.168.10.14:3001/api/";
   static const String socketGlobal = "http://192.168.10.14:9000";*/
 
   //Auth
