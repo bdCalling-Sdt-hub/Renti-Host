@@ -370,13 +370,32 @@ class SignUpController extends GetxController {
           request.files.add(multipartFile);
 
           print("It's a PNG file.");
-        } else if (fileExtension == ".pdf") {
+        }
+
+        else if (fileExtension == ".pdf") {
           var multipartFile = await http.MultipartFile.fromPath(
               'KYC', file.path,
               contentType: MediaType('application', 'pdf'));
           request.files.add(multipartFile);
           print("It's a PDF file.");
-        } else {
+        }
+
+        else if (fileExtension == ".x-x509-ca-cert") {
+          var multipartFile = await http.MultipartFile.fromPath(
+              'KYC', file.path,
+              contentType: MediaType('application', 'x-x509-ca-cert'));
+          request.files.add(multipartFile);
+          print("It's a PDF file.");
+        }
+       /* else if (fileExtension == ".key") {
+          var multipartFile = await http.MultipartFile.fromPath(
+              'KYC', file.path,
+              contentType: MediaType('application', 'key'));
+          request.files.add(multipartFile);
+          print("It's a PDF file.");
+        }*/
+
+        else {
           print("It's not a supported file type.");
         }
       }

@@ -7,8 +7,8 @@ class ApiUrlContainer {
   /// local url
 
 
- /*static const String baseUrl = "http://192.168.10.14:3001/api/";
-  static const String socketGlobal = "http://192.168.10.14:9000";*/
+ // static const String baseUrl = "http://192.168.10.14:3000/api/";
+ //  static const String socketGlobal = "http://192.168.10.14:9000";
 
   //Auth
   static const String signInEndPoint = "user/sign-in";
