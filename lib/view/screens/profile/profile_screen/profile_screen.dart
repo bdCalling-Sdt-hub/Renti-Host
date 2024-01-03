@@ -42,7 +42,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void dispose() {
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     var editProfileController = Get.find<EditProfileController>();
@@ -89,10 +88,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Scaffold(
               backgroundColor: AppColors.whiteLight,
               appBar: CustomAppBar(
-                appBarContent: CustomText(
-                  text: "Profile".tr,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
+                appBarContent: Row(
+                  children: [
+
+                    IconButton(onPressed: (){
+                      Get.back();
+                    }, icon: const Icon(Icons.arrow_back_ios_new_outlined,color: AppColors.black,)),
+                    CustomText(
+                      text: "Profile".tr,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ],
                 ),
               ),
               body: LayoutBuilder(

@@ -1,5 +1,5 @@
 {
-  "Get Started": "Empezar",
+  "Get Started": "Comenzar",
   "Select Language": "Seleccione el idioma",
   "English": "Inglesa",
   "Spanish": "Española",
@@ -10,7 +10,7 @@
   "Enter email": "Ingrese correo electrónico",
   "Password": "Contraseña",
   "Enter password": "Introducir la contraseña",
-  "Forgot Password?": "¿Has olvidado tu contraseña?",
+  "Forgot Password?": " ¿Olvidaste tu contraseña?",
   "Or": "O",
   "Google": "Google",
   "Apple": "Manzana",
@@ -102,7 +102,7 @@
   "/day": "/día",
   "Car details": "Detalles del coche",
   "See details": "Ver detalles",
-  "Home": "Hogar",
+  "Home": "Inicio",
   "Rent": "Alquilar",
   "Message": "Mensaje",
   "Profile": "Perfil",
@@ -229,7 +229,7 @@
   "OTP Resend Failed": "Error en el reenvío de OTP",
   "Email verify successful": "Verificación de correo electrónico exitosa",
   "Failed to email verify": "Error al verificar el correo electrónico",
-  "Change Password": "Cambiar la contraseña",
+  "Change Password": "Cambiar contraseña",
   "Current Password": "Contraseña actual",
   "Enter Current Password": "Introducir la contraseña actual",
   "Enter New Password": "Ingrese nueva clave",
@@ -268,5 +268,7 @@
   "Search Car Location" : "Buscar ubicación del coche",
   "Address not changeable" : "La dirección no se puede cambiar",
   "Car Location" : "Ubicación del coche",
-  "Back" : "Atrás"
+  "Back" : "Atrás",
+  "individual": "Individual",
+   "company" : "Compañía"
 }

@@ -269,5 +269,7 @@
   "Search Car Location" : "Search Car Location",
   "Address not changeable" : "Address not changeable",
   "Car Location" : "Car Location",
-  "Back" : "Back"
+  "Back" : "Back",
+  "individual": "Individual",
+  "company" : "Company"
 }

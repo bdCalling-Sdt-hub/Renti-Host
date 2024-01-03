@@ -97,7 +97,7 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                               shape: BoxShape.circle),
                         ),
                       ),
-                      CustomText(text: controller.genderList[index], left: 8),
+                      CustomText(text: controller.genderList[index].tr, left: 8),
                     ],
                   ),
                 ),

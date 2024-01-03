@@ -341,15 +341,6 @@ class SignUpController extends GetxController {
       );
 
 
-
-
-
-
-
-
-
-
-
       // // Add the KYC files to the request
       for (var file in kycDocFiles) {
 

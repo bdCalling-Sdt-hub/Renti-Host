@@ -20,6 +20,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/helper/shear_preference_helper.dart';
 import '../../../service/api_service.dart';
 import '../../../service/socket_service.dart';
+import '../navbar/custom_navbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -148,16 +149,21 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         child: CircularProgressIndicator(),
                       );
                     }
-                    return Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(controller.img),
+                    return GestureDetector(
+                      onTap: (){
+                        Get.toNamed(AppRoute.profileScreen);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(controller.img),
+                          ),
                         ),
+                        height: 50,
+                        width: 40,
                       ),
-                      height: 50,
-                      width: 40,
                     );
                   },
                 ),

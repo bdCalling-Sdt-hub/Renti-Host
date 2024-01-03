@@ -118,7 +118,7 @@ class _SignUpBankState extends State<SignUpBank> {
                                           shape: BoxShape.circle),
                                     ),
                                   ),
-                                  CustomText(text: controller.accountType[index], left: 8,right: 16),
+                                  CustomText(text: controller.accountType[index].tr, left: 8,right: 16),
                                 ],
                               ),
                             ),
