@@ -31,7 +31,7 @@ class SignUpController extends GetxController {
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
 
-  TextEditingController countryController = TextEditingController();
+  TextEditingController countryController = TextEditingController(text: "MX");
   TextEditingController cityController = TextEditingController();
   TextEditingController stateController = TextEditingController();
   TextEditingController laneController = TextEditingController();
@@ -378,13 +378,13 @@ class SignUpController extends GetxController {
           request.files.add(multipartFile);
           print("It's a PDF file.");
         }
-       /* else if (fileExtension == ".key") {
+        else if (fileExtension == ".key") {
           var multipartFile = await http.MultipartFile.fromPath(
               'KYC', file.path,
-              contentType: MediaType('application', 'key'));
+              contentType: MediaType('application', 'octet-stream'));
           request.files.add(multipartFile);
           print("It's a PDF file.");
-        }*/
+        }
 
         else {
           print("It's not a supported file type.");
@@ -441,29 +441,6 @@ class SignUpController extends GetxController {
       //   }
       // }
 
-
-      // Add the parameters to the request
-      // Map<String, String> params =
-      //   {
-      //     'fullName': 'Ahm',
-      //     'email': 'palash900202@gmail.com',
-      //     'phoneNumber': '+521245789542',
-      //     'gender': 'Male',
-      //     'dateOfBirth': '21/09/1994',
-      //     'password': '1qazxsw2',
-      //     'RFC': 'rfc',
-      //     'role': 'host',
-      //     'ine': 'DAXR870101VY7',
-      //     'bankInfo[account_number]': '000000001234567897',
-      //     'bankInfo[account_holder_name]': 'Ahmed',
-      //     'bankInfo[account_holder_type]': 'individual',
-      //     'address[city]': 'dhaka',
-      //     'address[line1]': '123 Main Street',
-      //     'address[postal_code]': '22056',
-      //     'address[state]': 'Aguascalientes',
-      //     'address[country]': 'MX'
-      //
-      // };
  Map<String, String> params = {
         "fullName": fullNameController.text,
         "email": emailController.text,
@@ -576,7 +553,7 @@ class SignUpController extends GetxController {
     passwordController.text = "";
     confirmPasswordController.text = "";
     phoneNumberController.text = "";
-    countryController.text = "";
+    // countryController.text = "";
     cityController.text = "";
     stateController.text = "";
     laneController.text = "";

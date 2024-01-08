@@ -20,8 +20,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/helper/shear_preference_helper.dart';
 import '../../../service/api_service.dart';
 import '../../../service/socket_service.dart';
-import '../navbar/custom_navbar.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

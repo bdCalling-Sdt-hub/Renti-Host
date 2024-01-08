@@ -64,7 +64,7 @@
   "Enter your address": "Ingrese su dirección",
   "InputField Can't be Empty": "InputField no puede estar vacía",
   "Sign Up Successful": "Regístrese exitosamente",
-  "User Already Exist": "La usuario ya existe",
+  "User Already Exist": "Usuario ya existente",
   "KYC": "KYC",
   "Upload": "Subir",
   "NOTE:  All file must be in PDF format": "NOTA: Todo el archivo debe estar en formato PDF",
@@ -270,5 +270,6 @@
   "Car Location" : "Ubicación del coche",
   "Back" : "Atrás",
   "individual": "Individual",
-   "company" : "Compañía"
+   "company" : "Compañía",
+  "english1" : "Spanish"
 }

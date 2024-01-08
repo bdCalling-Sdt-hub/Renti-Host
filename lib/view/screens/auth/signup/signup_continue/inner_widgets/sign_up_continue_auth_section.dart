@@ -86,6 +86,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
               textEditingController: controller.countryController,
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
+              readOnly: true,
               hintText: controller.countryController.text,
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
@@ -154,7 +155,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
             CustomText(text: "Postal Code".tr, top: 16, bottom: 12),
             CustomTextField(
               textEditingController: controller.postalController,
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.number,
               hintText: "Type postal code".tr,
               textInputAction: TextInputAction.done,
               hintStyle: GoogleFonts.poppins(
@@ -177,6 +178,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                     setDataToLocalStore(controller,
                         phoneNumber: "${controller.phoneCode} ${controller.phoneNumberController.text}",
                         country: controller.countryController.text,
+
                         city: controller.cityController.text,
                         state: controller.stateController.text,
                         lane: controller.stateController.text,

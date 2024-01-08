@@ -79,17 +79,17 @@ class _SplashScreenState extends State<SplashScreen> {
                       onTap: () {
                         Get.toNamed(AppRoute.selectLanguageScreen);
                       },
-                      child:  const Row(
+                      child:   Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomText(
-                            text: "English",
+                            text: "english1".tr,
                             color: AppColors.whiteLight,
                             fontSize: 16,
                             right: 8,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios_outlined,
                             color: AppColors.whiteLight,
                             size: 14,
