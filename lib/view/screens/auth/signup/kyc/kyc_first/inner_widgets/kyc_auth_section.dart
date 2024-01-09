@@ -60,13 +60,13 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(
+                            /*Expanded(
                                 child: CustomElevatedButton(
                                     onPressed: () =>
                                         controller.clickedIneOrPassportFile(),
                                     titleText: "Open Camara".tr,
                                     buttonHeight: 42,
-                                    titleSize: 12)),
+                                    titleSize: 12)),*/
                             const SizedBox(width: 8),
                             Expanded(
                                 child: CustomElevatedButton(
@@ -184,13 +184,13 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(
+                           /* Expanded(
                                 child: CustomElevatedButton(
                                     onPressed: () =>
                                         controller.clickedTaxStampsFile(),
                                     titleText: "Open Camara".tr,
                                     buttonHeight: 42,
-                                    titleSize: 12)),
+                                    titleSize: 12)),*/
                             const SizedBox(width: 8),
                             Expanded(
                                 child: CustomElevatedButton(
@@ -304,13 +304,13 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(
+                       /*     Expanded(
                                 child: CustomElevatedButton(
                                     onPressed: () =>
                                         controller.clickedTaxCerFile(),
                                     titleText: "Open Camara".tr,
                                     buttonHeight: 42,
-                                    titleSize: 12)),
+                                    titleSize: 12)),*/
                             const SizedBox(width: 8),
                             Expanded(
                                 child: CustomElevatedButton(
@@ -444,42 +444,13 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
             const SizedBox(height: 24),
             CustomElevatedButton(
                 onPressed: () {
-
-               /*   File? uploadINEOrPassport;
-                  File? uploadINEOrPassport1;
-                  File? uploadINEOrPassport2;
-                  File? uploadINEOrPassport3;
-                  File? uploadTaxStampsKey;
-                  File? uploadCerStampsKey;*/
-
-                  if (formKey.currentState!.validate() &&
-                      controller.uploadINEOrPassport != null &&
-                      controller.uploadINEOrPassport1 != null &&
-                      controller.uploadINEOrPassport2 != null &&
-                      controller.uploadINEOrPassport3!= null &&
-                      controller.uploadTaxStampsKey != null &&
-                      controller.uploadCerStampsKey != null) {
-                    setDataToLocalStore(
-                        controller, controller.ineOrPassportFileName,
-                        controller.taxStampKeyFileName,
-                         controller.ineNumberController.text,
-
-                        controller.rfcController.text,
-                        controller.cerStampKeyFileName,
-
-                    );
-                  }
-                   else if (
-                  controller.uploadINEOrPassport == null &&
-                  controller.uploadINEOrPassport1 == null &&
-                      controller.uploadINEOrPassport2 == null &&
-                      controller.uploadINEOrPassport3 == null &&
-                      controller.uploadTaxStampsKey != null &&
-                      controller.uploadCerStampsKey == null
-                  ) {
-                    Utils.snackBar(
-                        "Error".tr, "This field can not be empty".tr);
-                  }
+                  setDataToLocalStore(
+                    controller, controller.ineOrPassportFileName,
+                    controller.taxStampKeyFileName,
+                    controller.ineNumberController.text,
+                    controller.rfcController.text,
+                    controller.cerStampKeyFileName,
+                  );
                 },
                 buttonWidth: double.maxFinite,
                 buttonHeight: 48,
@@ -497,18 +468,29 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
       String cerStampKeyFileName,
       String ineNumber,
       String rfc) async {
+
+
+    if (formKey.currentState!.validate()) {
+
+      if (
+          controller.uploadINEOrPassport != null &&
+          controller.uploadINEOrPassport1 != null &&
+          controller.uploadINEOrPassport2 != null &&
+          controller.uploadINEOrPassport3 != null &&
+          controller.uploadTaxStampsKey != null &&
+          // controller.imageFile != null&&
+          controller.uploadCerStampsKey != null
+      ) {
+        Get.toNamed(AppRoute.kycImageScreen);
+      }
+      Utils.snackBar(
+          "Error".tr, "This field can not be empty".tr);
+      // Get.toNamed(AppRoute.kycImageScreen);
+    }
     await controller.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.ineOrPassport, ineOrPassportFileName);
     await controller.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.taxStampsKey, taxStampKeyFileName);
     await controller.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.taxStampsCer, cerStampKeyFileName);
     await controller.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.ineNumber, ineNumber);
     await controller.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.rfc, rfc);
-
-    if (kDebugMode) {
-      // print(ineNumber);
-    }
-    if (kDebugMode) {
-      print(rfc);
-    }
-    Get.toNamed(AppRoute.kycImageScreen);
   }
 }

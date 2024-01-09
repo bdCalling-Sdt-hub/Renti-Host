@@ -166,8 +166,6 @@ class SignUpController extends GetxController {
     }
   }
 
-
-
   // from gallery image
   Future<void> pickIneOrPassportFile() async {
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -216,8 +214,7 @@ class SignUpController extends GetxController {
     }
   }
 
-
-  //INE get by Camara
+/*  //INE get by Camara
   Future<void> clickedIneOrPassportFile() async {
     final picked = await ImagePicker().pickImage(source: ImageSource.camera);
     if (picked != null) {
@@ -247,7 +244,7 @@ class SignUpController extends GetxController {
       isContentType3=1;
       update();
     }
-  }
+  }*/
 
 
   // void removeIneOrPassportFile() {

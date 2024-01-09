@@ -271,5 +271,9 @@
   "Back" : "Atrás",
   "individual": "Individual",
    "company" : "Compañía",
-  "english1" : "Spanish"
+  "english1" : "Spanish",
+  "Field can't be empty" : "El campo no puede estar vacío",
+  "Please enter your valid email" : "Por favor ingrese su correo electrónico válido",
+
+
 }

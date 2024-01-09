@@ -117,6 +117,13 @@ class _SignUpAuthSectionState extends State<SignUpAuthSection> {
                 fontWeight: FontWeight.w400,
                 color: AppColors.blackNormal,
               ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Field can't be empty".tr;
+                }  else {
+                  return null;
+                }
+              },
               hintStyle: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
