@@ -273,7 +273,8 @@
    "company" : "Compañía",
   "english1" : "Spanish",
   "Field can't be empty" : "El campo no puede estar vacío",
-  "Please enter your valid email" : "Por favor ingrese su correo electrónico válido"
+  "Please enter your valid email" : "Por favor ingrese su correo electrónico válido",
+  "This Files can not be empty" : "Estos archivos no pueden estar vacíos"
 
 
 }

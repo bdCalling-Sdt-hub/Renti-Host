@@ -42,53 +42,60 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
               bottom: 8,
               textAlign: TextAlign.start,
             ),
-            controller.isContentType1 == 0
-                ? Container(
-                    width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        border: Border.all(
-                            width: 1, color: AppColors.whiteNormalActive),
-                        borderRadius: BorderRadius.circular(8)),
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        const SizedBox(height: 24),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            /*Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.clickedIneOrPassportFile(),
-                                    titleText: "Open Camara".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),*/
-                            const SizedBox(width: 8),
-                            Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.pickIneOrPassportFile(),
-                                    titleText: "Open Gallery".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),
-                            const SizedBox(width: 8),
-                            Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.pickIneOrPassportFile1(),
-                                    titleText: "Pick File".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),
-                          ],
-                        ),
-                      ],
+            controller.passportPath.isEmpty
+                ? GestureDetector(
+              onTap: (){
+                controller.pickPassport();
+              },
+                  child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 115,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 20),
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          border: Border.all(
+                              width: 1, color: AppColors.whiteNormalActive),
+                          borderRadius: BorderRadius.circular(8)),
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const CustomImage(imageSrc: AppIcons.uploadIcons),
+
+                          // Row(
+                          //   crossAxisAlignment: CrossAxisAlignment.center,
+                          //   children: [
+                          //     /*Expanded(
+                          //         child: CustomElevatedButton(
+                          //             onPressed: () =>
+                          //                 controller.clickedIneOrPassportFile(),
+                          //             titleText: "Open Camara".tr,
+                          //             buttonHeight: 42,
+                          //             titleSize: 12)),*/
+                          //     const SizedBox(width: 8),
+                          //     Expanded(
+                          //         child: CustomElevatedButton(
+                          //             onPressed: () {},
+                          //             //     controller.pickIneOrPassportFile(),
+                          //             titleText: "Open Gallery".tr,
+                          //             buttonHeight: 42,
+                          //             titleSize: 12)),
+                          //     const SizedBox(width: 8),
+                          //     Expanded(
+                          //         child: CustomElevatedButton(
+                          //             onPressed: () =>
+                          //                 controller.pickIneOrPassportFile1(),
+                          //             titleText: "Pick File".tr,
+                          //             buttonHeight: 42,
+                          //             titleSize: 12)),
+                          //   ],
+                          // ),
+                        ],
+                      ),
                     ),
-                  )
-                : controller.isContentType1 == 1
+                )
+                : controller.checkExtension(controller.passportPath)!="file"
                     ? Container(
                         padding:
                             const EdgeInsetsDirectional.only(end: 12, top: 12),
@@ -137,7 +144,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                                   child: CustomText(
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    text: controller.ineOrPassportFileName,
+                                    text: controller.passportName,
                                   ),
                                 )
                               ],
@@ -165,54 +172,63 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
               textAlign: TextAlign.start,
             ),
 
-            controller.isContentType2 == 0
-                ? Container(
-                    width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      border: Border.all(
-                          width: 1, color: AppColors.whiteNormalActive),
-                      borderRadius: BorderRadius.circular(8),
+            controller.stampKeyPath.isEmpty
+                ? GestureDetector(
+                  onTap: (){
+                    controller.pickStampKey();
+                  },
+                  child: Container(
+                    height: 115,
+                      width: MediaQuery.of(context).size.width,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border.all(
+                            width: 1, color: AppColors.whiteNormalActive),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const CustomImage(imageSrc: AppIcons.uploadIcons),
+                          // const SizedBox(height: 24),
+                          // Row(
+                          //   crossAxisAlignment: CrossAxisAlignment.center,
+                          //   children: [
+                          //    /* Expanded(
+                          //         child: CustomElevatedButton(
+                          //             onPressed: () =>
+                          //                 controller.clickedTaxStampsFile(),
+                          //             titleText: "Open Camara".tr,
+                          //             buttonHeight: 42,
+                          //             titleSize: 12)),*/
+                          //     const SizedBox(width: 8),
+                          //     Expanded(
+                          //         child: CustomElevatedButton(
+                          //              onPressed: () {
+                          //
+                          //              },
+                          //             //     controller.pickTaxStampsFile(),
+                          //             titleText: "Open Gallery".tr,
+                          //             buttonHeight: 42,
+                          //             titleSize: 12)),
+                          //     const SizedBox(width: 8),
+                          //     Expanded(
+                          //         child: CustomElevatedButton(
+                          //             onPressed: () =>
+                          //                 controller.pickIneOrPassportFile2(),
+                          //             titleText: "Pick File".tr,
+                          //             buttonHeight: 42,
+                          //             titleSize: 12)),
+                          //   ],
+                          // ),
+                        ],
+                      ),
                     ),
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        const SizedBox(height: 24),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                           /* Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.clickedTaxStampsFile(),
-                                    titleText: "Open Camara".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),*/
-                            const SizedBox(width: 8),
-                            Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.pickTaxStampsFile(),
-                                    titleText: "Open Gallery".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),
-                            const SizedBox(width: 8),
-                            Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.pickIneOrPassportFile2(),
-                                    titleText: "Pick File".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                : controller.isContentType2 == 1
+                )
+                : controller.checkExtension(controller.stampKeyPath)!="file"
                     ? Container(
                         padding:
                             const EdgeInsetsDirectional.only(end: 12, top: 12),
@@ -225,7 +241,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                                 width: 1, color: AppColors.whiteNormalActive),
                             image: DecorationImage(
                                 image:
-                                    FileImage(controller.uploadTaxStampsKey!),
+                                    FileImage(File(controller.stampKeyPath)),
                                 fit: BoxFit.fill)),
                         child: Align(
                           alignment: Alignment.topRight,
@@ -262,7 +278,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                                   child: CustomText(
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    text: controller.ineOrPassportFileName,
+                                    text: controller.stampKeyName,
                                   ),
                                 )
                               ],
@@ -286,53 +302,62 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
               textAlign: TextAlign.start,
             ),
 
-            controller.isContentType3 == 0
-                ? Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 20),
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        border: Border.all(
-                            width: 1, color: AppColors.whiteNormalActive),
-                        borderRadius: BorderRadius.circular(8)),
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        const SizedBox(height: 24),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                       /*     Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.clickedTaxCerFile(),
-                                    titleText: "Open Camara".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),*/
-                            const SizedBox(width: 8),
-                            Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.pickTaxCerFile(),
-                                    titleText: "Open Gallery".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),
-                            const SizedBox(width: 8),
-                            Expanded(
-                                child: CustomElevatedButton(
-                                    onPressed: () =>
-                                        controller.pickIneOrPassportFile3(),
-                                    titleText: "Pick File".tr,
-                                    buttonHeight: 42,
-                                    titleSize: 12)),
-                          ],
-                        ),
-                      ],
+            controller.stampCerPath.isEmpty
+                ? GestureDetector(
+              onTap:(){
+                controller.pickStampCer();
+              } ,
+                  child: Container(
+                    height: 115,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 20),
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          border: Border.all(
+                              width: 1, color: AppColors.whiteNormalActive),
+                          borderRadius: BorderRadius.circular(8)),
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const CustomImage(imageSrc: AppIcons.uploadIcons),
+                         //  const SizedBox(height: 24),
+                         //  Row(
+                         //    crossAxisAlignment: CrossAxisAlignment.center,
+                         //    children: [
+                         // /*     Expanded(
+                         //          child: CustomElevatedButton(
+                         //              onPressed: () =>
+                         //                  controller.clickedTaxCerFile(),
+                         //              titleText: "Open Camara".tr,
+                         //              buttonHeight: 42,
+                         //              titleSize: 12)),*/
+                         //      const SizedBox(width: 8),
+                         //      Expanded(
+                         //          child: CustomElevatedButton(
+                         //               onPressed: (){
+                         //
+                         //               },
+                         //              //     controller.pickTaxCerFile(),
+                         //              titleText: "Open Gallery".tr,
+                         //              buttonHeight: 42,
+                         //              titleSize: 12)),
+                         //      const SizedBox(width: 8),
+                         //      Expanded(
+                         //          child: CustomElevatedButton(
+                         //              onPressed: () =>
+                         //                  controller.pickIneOrPassportFile3(),
+                         //              titleText: "Pick File".tr,
+                         //              buttonHeight: 42,
+                         //              titleSize: 12)),
+                         //    ],
+                         //  ),
+                        ],
+                      ),
                     ),
-                  )
-                : controller.isContentType3 == 1
+                )
+                : controller.checkExtension(controller.stampCerPath) !="file"
                     ? Container(
                         padding:
                             const EdgeInsetsDirectional.only(end: 12, top: 12),
@@ -345,7 +370,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                                 width: 1, color: AppColors.whiteNormalActive),
                             image: DecorationImage(
                                 image:
-                                    FileImage(controller.uploadCerStampsKey!),
+                                    FileImage(File(controller.stampCerPath)),
                                 fit: BoxFit.fill)),
                         child: Align(
                           alignment: Alignment.topRight,
@@ -382,7 +407,7 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                                   child: CustomText(
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    text: controller.ineOrPassportFileName,
+                                    text: controller.stampCerName,
                                   ),
                                 )
                               ],
@@ -445,11 +470,11 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
             CustomElevatedButton(
                 onPressed: () {
                   setDataToLocalStore(
-                    controller, controller.ineOrPassportFileName,
-                    controller.taxStampKeyFileName,
+                    controller, controller.passportName,
+                    controller.stampKeyName,
                     controller.ineNumberController.text,
                     controller.rfcController.text,
-                    controller.cerStampKeyFileName,
+                    controller.stampCerPath,
                   );
                 },
                 buttonWidth: double.maxFinite,
@@ -468,24 +493,9 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
       String cerStampKeyFileName,
       String ineNumber,
       String rfc) async {
-
-
-    if (formKey.currentState!.validate()) {
-
-      if (
-          controller.uploadINEOrPassport != null &&
-          controller.uploadINEOrPassport1 != null &&
-          controller.uploadINEOrPassport2 != null &&
-          controller.uploadINEOrPassport3 != null &&
-          controller.uploadTaxStampsKey != null &&
-          // controller.imageFile != null&&
-          controller.uploadCerStampsKey != null
-      ) {
+       controller.checkFilePathEmpty();
+    if (formKey.currentState!.validate()&&controller.checkFilePathEmpty()) {
         Get.toNamed(AppRoute.kycImageScreen);
-      }
-      Utils.snackBar(
-          "Error".tr, "This field can not be empty".tr);
-      // Get.toNamed(AppRoute.kycImageScreen);
     }
     await controller.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.ineOrPassport, ineOrPassportFileName);
     await controller.signUpRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.taxStampsKey, taxStampKeyFileName);

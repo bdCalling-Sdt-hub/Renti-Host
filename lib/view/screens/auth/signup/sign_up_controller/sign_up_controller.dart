@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -67,152 +68,211 @@ class SignUpController extends GetxController {
   }
 
 
-  var isContentType1 = 0;
-  var isContentType2 = 0;
-  var isContentType3 = 0;
-
-
-  File? uploadINEOrPassport;
-  File? uploadINEOrPassport1;
-  File? uploadINEOrPassport2;
-  File? uploadINEOrPassport3;
-  File? uploadTaxStampsKey;
-  File? uploadCerStampsKey;
-  String ineOrPassportFileName = "";
-  String taxStampKeyFileName = "";
-  String cerStampKeyFileName = "";
+  // var isContentType1 = 0;
+  // var isContentType2 = 0;
+  // var isContentType3 = 0;
+  //
+  //
+  //
+  // File? uploadINEOrPassport1;
+  // File? uploadINEOrPassport2;
+  // File? uploadINEOrPassport3;
+  //
+  // File? uploadINEOrPassport;
+  // File? uploadTaxStampsKey;
+  // File? uploadCerStampsKey;
+  //
+  //
+  // String ineOrPassportFileName = "";
+  // String taxStampKeyFileName = "";
+  // String cerStampKeyFileName = "";
 
   String passportPath="";
-  String stampPath="";
-  String certificatePath="";
+  String stampKeyPath="";
+  String stampCerPath="";
+
+  String passportName="";
+  String stampKeyName="";
+  String stampCerName="";
 
 
   removeFile1(){
-    isContentType1=0;
+    passportPath="";
     update();
   }
 
   removeFile2(){
-    isContentType2 = 0;
+    stampKeyPath="";
     update();
   }
 
   removeFile3(){
-    isContentType3 = 0;
+    stampCerPath ="";
     update();
   }
 
 //files
 
 
-  Future<void> pickIneOrPassportFile1() async {
+  /// <------------------------- new feature ------------------------->
 
 
+ String checkExtension(String filePath){
+    String fileExtension = path.extension(filePath).toLowerCase();
+    switch(fileExtension){
+      case ".pdf":
+        return "file";
+      case ".key":
+        return "file";
+      case ".cer":
+        return "file";
+      case ".jpg":
+        return "image";
+      case ".png":
+        return "image";
+      case ".jpeg":
+        return "image";
+      case ".heic":
+        return "image";
+    }
+    return  fileExtension;
+  }
+
+  bool checkFilePathEmpty(){
+    if(passportPath.isNotEmpty && stampKeyPath.isNotEmpty && stampCerPath.isNotEmpty){
+      return true;
+    }else{
+      Utils.snackBar("Alert".tr, "This Files can not be empty".tr);
+      return false;
+
+    }
+  }
+
+
+
+  Future<void> pickPassport() async {
      FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
-        allowedExtensions: ["pdf" , "key", "cer"],
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
         type: FileType.custom);
-
     if (result != null && result.files.isNotEmpty) {
-      PlatformFile file = result.files.first;
-      if(file.extension == 'pdf' || file.extension == 'key' || file.extension == 'cer'){
-        uploadINEOrPassport1 = File(result.files.single.path.toString());
-        passportPath=result.files.single.path.toString();
-        ineOrPassportFileName = result.files.single.name;
-        kycDocFiles.add(uploadINEOrPassport1!);
-        isContentType1=2;
+        passportPath=result.files.first.path!;
+        passportName=result.files.first.name;
         update();
-      }else{
-        Utils.snackBar("Error".tr, "any files allow");
-      }
     }
   }
-  Future<void> pickIneOrPassportFile2() async {
+
+  Future<void> pickStampKey() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
-        allowedExtensions: ["pdf" , "key", "cer"],
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
         type: FileType.custom);
-
     if (result != null && result.files.isNotEmpty) {
-      PlatformFile file = result.files.first;
-      if(file.extension == 'pdf'  || file.extension == 'key' || file.extension == 'cer'){
-        uploadINEOrPassport2 = File(result.files.single.path.toString());
-        ineOrPassportFileName = result.files.single.name;
-        kycDocFiles.add(uploadINEOrPassport2!);
-        isContentType2=2;
-        update();
-      }else{
-        Utils.snackBar("Error".tr, "any files allow");
-      }
+      stampKeyPath=result.files.first.path!;
+      stampKeyName=result.files.first.name;
+      update();
     }
   }
-  Future<void> pickIneOrPassportFile3() async {
+
+  Future<void> pickStampCer() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
-        allowedExtensions: ["pdf" , "key", "cer"],
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
         type: FileType.custom);
-
     if (result != null && result.files.isNotEmpty) {
-      PlatformFile file = result.files.first;
-      if(file.extension == 'pdf' || file.extension == 'key' || file.extension == 'cer' ){
-        uploadINEOrPassport3 = File(result.files.single.path.toString());
-        ineOrPassportFileName = result.files.single.name;
-        kycDocFiles.add(uploadINEOrPassport3!);
-        isContentType3=2;
-        update();
-      }else{
-        Utils.snackBar("Error".tr, "any files allow");
-      }
-    }
-  }
-
-  // from gallery image
-  Future<void> pickIneOrPassportFile() async {
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      uploadINEOrPassport = File(pickedFile.path);
-      passportPath=pickedFile.path;
-      kycDocFiles.add(uploadINEOrPassport!);
-      debugPrint("=======> Pick Gallery Image $passportPath");
-      isContentType1=1;
+      stampCerPath=result.files.first.path!;
+       stampCerName= result.files.single.name;
       update();
     }
   }
-  Future<void> pickTaxStampsFile() async {
 
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      uploadTaxStampsKey = File(pickedFile.path);
-      kycDocFiles.add(uploadTaxStampsKey!);
-      isContentType2=1;
-      update();
-    }
-  }
-  Future<void> pickTaxCerFile() async {
-    /*FilePickerResult? result = await FilePicker.platform.pickFiles(
-        allowMultiple: false,
-        allowedExtensions: ["pdf"],
-        type: FileType.custom);
+  //
+  // Future<void> pickIneOrPassportFile2() async {
+  //   FilePickerResult? result = await FilePicker.platform.pickFiles(
+  //       allowMultiple: true,
+  //       allowedExtensions: ["pdf" , "key", "cer"],
+  //       type: FileType.custom);
+  //
+  //   if (result != null && result.files.isNotEmpty) {
+  //     PlatformFile file = result.files.first;
+  //     if(file.extension == 'pdf'  || file.extension == 'key' || file.extension == 'cer'){
+  //       uploadINEOrPassport2 = File(result.files.single.path.toString());
+  //       ineOrPassportFileName = result.files.single.name;
+  //       kycDocFiles.add(uploadINEOrPassport2!);
+  //       isContentType2=2;
+  //       update();
+  //     }else{
+  //       Utils.snackBar("Error".tr, "any files allow");
+  //     }
+  //   }
+  // }
+  // Future<void> pickIneOrPassportFile3() async {
+  //   FilePickerResult? result = await FilePicker.platform.pickFiles(
+  //       allowMultiple: true,
+  //       allowedExtensions: ["pdf" , "key", "cer"],
+  //       type: FileType.custom);
+  //
+  //   if (result != null && result.files.isNotEmpty) {
+  //     PlatformFile file = result.files.first;
+  //     if(file.extension == 'pdf' || file.extension == 'key' || file.extension == 'cer' ){
+  //       uploadINEOrPassport3 = File(result.files.single.path.toString());
+  //       ineOrPassportFileName = result.files.single.name;
+  //       kycDocFiles.add(uploadINEOrPassport3!);
+  //       isContentType3=2;
+  //       update();
+  //     }else{
+  //       Utils.snackBar("Error".tr, "any files allow");
+  //     }
+  //   }
+  // }
 
-    if (result != null && result.files.isNotEmpty) {
-      PlatformFile file = result.files.first;
-      if (file.extension == 'pdf') {
-        uploadCerStampsKey = File(result.files.single.path.toString());
-        cerStampKeyFileName = result.files.single.name;
-        kycDocFiles.add(uploadCerStampsKey!);
-        update();
-      } else {
-        Utils.snackBar("Error".tr, "Only PDF file allow".tr);
-      }
-    }*/
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      uploadCerStampsKey = File(pickedFile.path);
-      kycDocFiles.add(uploadCerStampsKey!);
-      isContentType3=1;
-      update();
-    }
-  }
+  // // from gallery image
+  // Future<void> pickIneOrPassportFile() async {
+  //   final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //   if (pickedFile != null) {
+  //     uploadINEOrPassport = File(pickedFile.path);
+  //     passportPath=pickedFile.path;
+  //     kycDocFiles.add(uploadINEOrPassport!);
+  //     debugPrint("=======> Pick Gallery Image $passportPath");
+  //     isContentType1=1;
+  //     update();
+  //   }
+  // }
+  // Future<void> pickTaxStampsFile() async {
+  //
+  //   final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //   if (pickedFile != null) {
+  //     uploadTaxStampsKey = File(pickedFile.path);
+  //     kycDocFiles.add(uploadTaxStampsKey!);
+  //     isContentType2=1;
+  //     update();
+  //   }
+  // }
+  // Future<void> pickTaxCerFile() async {
+  //   /*FilePickerResult? result = await FilePicker.platform.pickFiles(
+  //       allowMultiple: false,
+  //       allowedExtensions: ["pdf"],
+  //       type: FileType.custom);
+  //
+  //   if (result != null && result.files.isNotEmpty) {
+  //     PlatformFile file = result.files.first;
+  //     if (file.extension == 'pdf') {
+  //       uploadCerStampsKey = File(result.files.single.path.toString());
+  //       cerStampKeyFileName = result.files.single.name;
+  //       kycDocFiles.add(uploadCerStampsKey!);
+  //       update();
+  //     } else {
+  //       Utils.snackBar("Error".tr, "Only PDF file allow".tr);
+  //     }
+  //   }*/
+  //   final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //   if (pickedFile != null) {
+  //     uploadCerStampsKey = File(pickedFile.path);
+  //     kycDocFiles.add(uploadCerStampsKey!);
+  //     isContentType3=1;
+  //     update();
+  //   }
+  // }
 
 /*  //INE get by Camara
   Future<void> clickedIneOrPassportFile() async {
@@ -559,9 +619,10 @@ class SignUpController extends GetxController {
     accountHolderController.text = "";
     ineNumberController.text = "";
     rfcController.text = "";
-    ineOrPassportFileName = "";
-    taxStampKeyFileName = "";
-    cerStampKeyFileName = "";
+    passportName = "";
+
+    stampCerName= "";
+    stampKeyName = "";
     update();
   }
 }
