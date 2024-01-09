@@ -1,13 +1,13 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:mime/mime.dart';
 import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -34,12 +34,12 @@ class SignUpController extends GetxController {
 
   TextEditingController countryController = TextEditingController(text: "MX");
   TextEditingController cityController = TextEditingController();
-  TextEditingController stateController = TextEditingController();
-  TextEditingController laneController = TextEditingController();
-  TextEditingController postalController = TextEditingController();
+  TextEditingController stateController = TextEditingController(text: "Aguascalientes");
+  TextEditingController laneController = TextEditingController(text: "123 Main Street");
+  TextEditingController postalController = TextEditingController(text: "22056");
 
-  TextEditingController accountController = TextEditingController();
-  TextEditingController accountHolderController = TextEditingController();
+  TextEditingController accountController = TextEditingController(text: "000000001234567897");
+  TextEditingController accountHolderController = TextEditingController(text: "Ahmed");
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
@@ -51,7 +51,7 @@ class SignUpController extends GetxController {
   List<String> accountType = ["individual", "company"];
   int selectedGender = 0;
   int selectedAccount = 0;
-   List<File> kycDocFiles = [];
+  List<File> kycDocFiles = [];
   File? profileImage;
   String phoneCode = "+52";
 
@@ -147,8 +147,6 @@ class SignUpController extends GetxController {
 
     }
   }
-
-
 
   Future<void> pickPassport() async {
      FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -397,56 +395,39 @@ class SignUpController extends GetxController {
         Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
       );
 
-
-      // // Add the KYC files to the request
-      for (var file in kycDocFiles) {
-
-
-        String fileExtension = path.extension(file.path).toLowerCase();
-        // Check the file extension
-        if (fileExtension == ".jpeg") {
-          var multipartFile = await http.MultipartFile.fromPath(
-              'KYC', file.path,
-              contentType: MediaType('image', 'jpeg'));
-          request.files.add(multipartFile);
-
-          print("It's a JPEG file.");
-        } else if (fileExtension == ".png") {
-          var multipartFile = await http.MultipartFile.fromPath(
-              'KYC', file.path,
-              contentType: MediaType('image', 'png'));
-          request.files.add(multipartFile);
-
-          print("It's a PNG file.");
-        }
-
-        else if (fileExtension == ".pdf") {
-          var multipartFile = await http.MultipartFile.fromPath(
-              'KYC', file.path,
-              contentType: MediaType('application', 'pdf'));
-          request.files.add(multipartFile);
-          print("It's a PDF file.");
-        }
-
-        else if (fileExtension == ".x-x509-ca-cert") {
-          var multipartFile = await http.MultipartFile.fromPath(
-              'KYC', file.path,
-              contentType: MediaType('application', 'x-x509-ca-cert'));
-          request.files.add(multipartFile);
-          print("It's a PDF file.");
-        }
-        else if (fileExtension == ".key") {
-          var multipartFile = await http.MultipartFile.fromPath(
-              'KYC', file.path,
-              contentType: MediaType('application', 'octet-stream'));
-          request.files.add(multipartFile);
-          print("It's a PDF file.");
-        }
-
-        else {
-          print("It's not a supported file type.");
-        }
+      if (passportPath.isNotEmpty) {
+        debugPrint("=========> passportPath  $passportPath");
+        var mimeType = lookupMimeType(passportPath);
+        var multipartImg = await http.MultipartFile.fromPath(
+          'KYC',
+          passportPath,
+          contentType: MediaType.parse(mimeType!),
+        );
+        request.files.add(multipartImg);
       }
+
+      if (stampKeyPath.isNotEmpty) {
+        debugPrint("======> stampKeyPath  $stampKeyPath");
+        var mimeType = lookupMimeType(stampKeyPath);
+        var multipartImg = await http.MultipartFile.fromPath(
+          'KYC',
+          stampKeyPath,
+          contentType: MediaType.parse(mimeType!),
+        );
+        request.files.add(multipartImg);
+      }
+
+      if (stampCerPath.isNotEmpty) {
+        debugPrint("========>stampCerPath  $stampCerPath");
+        var mimeType = lookupMimeType(stampCerPath);
+        var multipartImg = await http.MultipartFile.fromPath(
+          'KYC',
+          stampCerPath,
+          contentType: MediaType.parse(mimeType!),
+        );
+        request.files.add(multipartImg);
+      }
+
 
       //
       //
@@ -485,18 +466,18 @@ class SignUpController extends GetxController {
       //   }
       // }
       //
-      // // Add the image file to the request
-      // if (imageFile != null && imageFile!.existsSync()) {
-      //   try {
-      //     var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType: MediaType('image', 'jpeg'));
-      //     request.files.add(img);
-      //   } on Exception catch (e) {
-      //     if (kDebugMode) {
-      //       print('Error adding image file to request: $e');
-      //     }
-      //     // Handle the error gracefully, e.g., show an error message to the user.
-      //   }
-      // }
+      // Add the image file to the request
+      if (imageFile != null && imageFile!.existsSync()) {
+        try {
+          var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType: MediaType('image', 'jpeg'));
+          request.files.add(img);
+        } on Exception catch (e) {
+          if (kDebugMode) {
+            print('Error adding image file to request: $e');
+          }
+          // Handle the error gracefully, e.g., show an error message to the user.
+        }
+      }
 
  Map<String, String> params = {
         "fullName": fullNameController.text,
@@ -550,7 +531,7 @@ class SignUpController extends GetxController {
       }
       if (kDebugMode) {
         print(
-            "${response.statusCode}----------------->>>>>> ${response.request}---------------->>>>>>>> ${response.reasonPhrase}");
+            "${response.statusCode}----------------->>>>>> ${response.stream.bytesToString()}---------------->>>>>>>> ${response.reasonPhrase}");
       }
     } catch (e) {
       isloading = false;
