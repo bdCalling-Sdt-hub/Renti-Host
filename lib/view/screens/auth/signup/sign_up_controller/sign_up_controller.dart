@@ -34,12 +34,12 @@ class SignUpController extends GetxController {
 
   TextEditingController countryController = TextEditingController(text: "MX");
   TextEditingController cityController = TextEditingController();
-  TextEditingController stateController = TextEditingController(text: "Aguascalientes");
-  TextEditingController laneController = TextEditingController(text: "123 Main Street");
-  TextEditingController postalController = TextEditingController(text: "22056");
+  TextEditingController stateController = TextEditingController();
+  TextEditingController laneController = TextEditingController();
+  TextEditingController postalController = TextEditingController();
 
-  TextEditingController accountController = TextEditingController(text: "000000001234567897");
-  TextEditingController accountHolderController = TextEditingController(text: "Ahmed");
+  TextEditingController accountController = TextEditingController();
+  TextEditingController accountHolderController = TextEditingController();
 
   TextEditingController creditCardNumberController = TextEditingController();
   TextEditingController expireDateController = TextEditingController();
