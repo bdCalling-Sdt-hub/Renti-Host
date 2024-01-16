@@ -278,7 +278,12 @@
   "This Files can not be empty" : "Estos archivos no pueden estar vacíos",
   "User not find" : "Usuario no encontrado",
   "DD/MM/YY" : "DD/MM/AA",
-  "Successful" : "Exitosa"
+  "Successful" : "Exitosa",
+  "Please enter a valid email" : "Por favor introduzca una dirección de correo electrónico válida",
 
 
+  "Please enter your password": "Por favor, introduzca su contraseña",
+  "Please use 8 character long password":"Utilice una contraseña de 8 caracteres" ,
+  "Please use uppercase,lowercase,spacial character and number":  "Por favor utilice mayúsculas, minúsculas, espacios y números",
+  "Password does not match!":  "¡Las contraseñas no coinciden!"
 }

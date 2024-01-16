@@ -71,7 +71,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                               textEditingController:
                                   controller.passwordController,
                               textInputAction: TextInputAction.next,
-                              hintText: "Enter password",
+                              hintText: "Enter password".tr,
                               suffixIconColor: AppColors.whiteNormalActive,
                               hintStyle: GoogleFonts.poppins(
                                   fontSize: 14,
@@ -107,13 +107,13 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                                   color: AppColors.whiteNormalActive),
                               validator: (value) {
                                 if (value.isEmpty) {
-                                  return "Please enter your password";
+                                  return "Please enter your password".tr;
                                 } else if (value.length < 8) {
                                   return "Please use 8 character long password".tr;
                                 } else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(controller.passwordController.text)) {
-                                  return "Please use uppercase,lowercase,spacial character and number";
+                                  return "Please use uppercase,lowercase,spacial character and number".tr;
                                 } else if (controller.confirmPasswordController.value != controller.passwordController.value) {
-                                  return "Password does not match!";
+                                  return "Password does not match!".tr;
                                 }
                                 return null;
                               },

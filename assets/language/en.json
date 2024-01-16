@@ -279,7 +279,13 @@
   "This Files can not be empty" : "This Files can not be empty",
   "Successful" : "Successful",
   "User not find" : "User not find",
-  "DD/MM/YY" : "DD/MM/YY"
+  "DD/MM/YY" : "DD/MM/YY",
+  "Please enter a valid email" : "Please enter a valid email",
+  "Please enter your password":  "Please enter your password",
+
+  "Please use 8 character long password": "Please use 8 character long password",
+  "Please use uppercase,lowercase,spacial character and number":  "Please use uppercase,lowercase,spacial character and number",
+  "Password does not match!":  "Password does not match!"
 
 
 }
