@@ -32,7 +32,7 @@ class OtpController extends GetxController{
       Get.offAndToNamed(AppRoute.newPasswordScreen);
       isSubmit = false;
       update();
-      Utils.snackBar("Successful", "OTP Verify Successful");
+      Utils.snackBar("Successful".tr, "OTP Verify Successful".tr);
     } else{
       OtpModel otpModel = OtpModel.fromJson(jsonDecode(responseModel.responseJson));
       isSubmit = false;
@@ -56,7 +56,7 @@ class OtpController extends GetxController{
     }
     else{
       ForgetPassModel forgetPassModel = ForgetPassModel.fromJson(jsonDecode(responseModel.responseJson));
-      Utils.snackBar("Error".tr,forgetPassModel.message.toString());
+      Utils.snackBar("Error".tr,"User not find".tr);
     }
     isResend = false;
     update();

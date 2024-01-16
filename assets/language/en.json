@@ -1,6 +1,7 @@
 {
   "Get Started": "Get Started",
   "Select Language": "Select Language",
+  "OTP Verify Successful" : "OTP Verify Successful",
   "English": "English",
   "Spanish": "Spanish",
   "Confirm": "Confirm",
@@ -275,5 +276,10 @@
   "english1" : "English",
   "Field can't be empty" : "Field can't be empty",
   "Please enter your valid email" : "Please enter your valid email",
-  "This Files can not be empty" : "This Files can not be empty"
+  "This Files can not be empty" : "This Files can not be empty",
+  "Successful" : "Successful",
+  "User not find" : "User not find",
+  "DD/MM/YY" : "DD/MM/YY"
+
+
 }

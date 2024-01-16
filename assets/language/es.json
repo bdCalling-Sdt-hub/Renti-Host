@@ -2,6 +2,7 @@
   "Get Started": "Comenzar",
   "Select Language": "Seleccione el idioma",
   "English": "Inglesa",
+  "OTP Verify Successful" : "OTP Verificar Exitosa",
   "Spanish": "Española",
   "Confirm": "Confirmar",
   "Sign In": "Iniciar sesión",
@@ -274,7 +275,10 @@
   "english1" : "Spanish",
   "Field can't be empty" : "El campo no puede estar vacío",
   "Please enter your valid email" : "Por favor ingrese su correo electrónico válido",
-  "This Files can not be empty" : "Estos archivos no pueden estar vacíos"
+  "This Files can not be empty" : "Estos archivos no pueden estar vacíos",
+  "User not find" : "Usuario no encontrado",
+  "DD/MM/YY" : "DD/MM/AA",
+  "Successful" : "Exitosa"
 
 
 }

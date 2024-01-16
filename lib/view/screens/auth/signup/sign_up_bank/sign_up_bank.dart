@@ -60,7 +60,7 @@ class _SignUpBankState extends State<SignUpBank> {
                               return "This field can not be empty".tr;
                             }
 
-                            else if(value.length <18){
+                            else if(value.length <18 || value.length >18){
                               return "Account number must be 18 digits".tr;
                             }
                             return null;

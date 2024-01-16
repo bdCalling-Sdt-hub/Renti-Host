@@ -48,7 +48,7 @@ class SignUpController extends GetxController {
   TextEditingController rfcController = TextEditingController();
 
   List<String> genderList = ["Male", "Female", "Others"];
-  List<String> accountType = ["individual", "company"];
+  List<String> accountType = ["individual",];
   int selectedGender = 0;
   int selectedAccount = 0;
   List<File> kycDocFiles = [];
