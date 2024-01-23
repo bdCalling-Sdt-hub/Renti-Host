@@ -1,9 +1,9 @@
 class ApiUrlContainer {
 
  ///live url
- static const String baseUrl = "http://159.65.25.16:3000/api/";
+ static const String baseUrl = "http://46.101.82.12:3000/api/";
 
- static const String socketGlobal = "http://159.65.25.16:9000";
+ static const String socketGlobal = "http://46.101.82.12:9000";
   /// local url
 
 
