@@ -30,6 +30,7 @@ class CustomTextField extends StatefulWidget {
     this.readOnly = false,
     this.inputFormatters,
     this.onTap,
+    this.maxLength,
     super.key
   });
 
@@ -57,6 +58,7 @@ class CustomTextField extends StatefulWidget {
   final bool readOnly;
   final List<TextInputFormatter>? inputFormatters;
   final VoidCallback? onTap;
+   final int ?maxLength;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -82,10 +84,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
       style: widget.inputTextStyle,
       onChanged: widget.onChanged,
       maxLines: widget.maxLines,
+      maxLength: widget.maxLength,
       obscureText: widget.isPassword ? obscureText : false,
       validator: widget.validator,
       onTap: widget.onTap,
       decoration: InputDecoration(
+        counterText: "",
         hintText: widget.hintText,
         hintStyle: widget.hintStyle,
         fillColor: widget.fillColor,

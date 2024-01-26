@@ -48,6 +48,7 @@ class _SignUpBankState extends State<SignUpBank> {
                       children: [
                         CustomText(text: "Account Number".tr, bottom: 12),
                         CustomTextField(
+                          maxLength: 18,
                           textEditingController: controller.accountController,
                           keyboardType: TextInputType.number,
                           hintText: "Type account number".tr,
@@ -60,7 +61,7 @@ class _SignUpBankState extends State<SignUpBank> {
                               return "This field can not be empty".tr;
                             }
 
-                            else if(value.length <18 || value.length >18){
+                            else if(value.length <18){
                               return "Account number must be 18 digits".tr;
                             }
                             return null;

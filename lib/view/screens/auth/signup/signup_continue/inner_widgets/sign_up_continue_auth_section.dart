@@ -60,6 +60,7 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: CustomTextField(
+                    maxLength: 10,
                     textEditingController: controller.phoneNumberController,
                     keyboardType: TextInputType.phone,
                     hintText: "Enter phone number".tr,
@@ -70,8 +71,6 @@ class _SignUpContinueAuthSectionState extends State<SignUpContinueAuthSection> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "This field can not be empty".tr;
-                      }else if(value.length > 10){
-                        return "Enter valid phone number";
                       }
                       return null;
                     },

@@ -57,7 +57,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText(
-                            text: "Your password must have 8-10 characters.".tr,
+                            text: "Your password must have 6 characters.".tr,
                             fontSize: 16,
                             textAlign: TextAlign.start),
                         Column(
@@ -80,10 +80,8 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Please enter your password";
-                                } else if (value.length < 8) {
-                                  return "Please use 8 character long password".tr;
-                                }else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(controller.passwordController.text)) {
-                                  return "Please use uppercase,lowercase,spacial character and number";
+                                } else if (value.length < 6) {
+                                  return "Please use 6 character long password".tr;
                                 }
                                 return null;
                               },
@@ -108,12 +106,8 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Please enter your password".tr;
-                                } else if (value.length < 8) {
-                                  return "Please use 8 character long password".tr;
-                                } else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(controller.passwordController.text)) {
-                                  return "Please use uppercase,lowercase,spacial character and number".tr;
-                                } else if (controller.confirmPasswordController.value != controller.passwordController.value) {
-                                  return "Password does not match!".tr;
+                                } else if (value.length < 6) {
+                                  return "Please use 6 character long password".tr;
                                 }
                                 return null;
                               },
