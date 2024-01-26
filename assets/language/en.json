@@ -285,7 +285,9 @@
 
   "Please use 8 character long password": "Please use 8 character long password",
   "Please use uppercase,lowercase,spacial character and number":  "Please use uppercase,lowercase,spacial character and number",
-  "Password does not match!":  "Password does not match!"
+  "Password does not match!":  "Password does not match!",
+  "Password doesn't match" : "Password doesn't match",
+  "Current and New password couldn't be same" : "Current and New password couldn't be same"
 
 
 }
