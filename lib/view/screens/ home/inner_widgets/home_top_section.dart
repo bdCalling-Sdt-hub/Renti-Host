@@ -6,22 +6,30 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 class HomeTopSection extends StatelessWidget {
   final String totalCar;
   final String activeCar;
+  final String deActiveCar;
+  final String adminCancelCar;
   final String reservedCar;
+  final String pendingCar;
+
 
   const HomeTopSection(
       {super.key,
       required this.totalCar,
       required this.activeCar,
+      required this.deActiveCar,
+      required this.pendingCar,
+      required this.adminCancelCar,
       required this.reservedCar});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        //Total Car section
-        Expanded(
-          child: Container(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ///Total Car section
+          Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: ShapeDecoration(
               color: Colors.white,
@@ -42,9 +50,11 @@ class HomeTopSection extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   CustomText(
+                  CustomText(
                       text: "Total car".tr,
-                      fontSize: 12,maxLines: 1,overflow: TextOverflow.ellipsis,
+                      fontSize: 12,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.w500),
                   CustomText(
                       text: totalCar,
@@ -56,13 +66,11 @@ class HomeTopSection extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        const SizedBox(width: 16),
 
-        //Total Active Car section
-        Expanded(
-          child: Container(
+          ///Total Active Car section
+          Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            margin: const EdgeInsets.only(left: 8, right: 8),
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
@@ -84,7 +92,9 @@ class HomeTopSection extends StatelessWidget {
                 children: [
                   CustomText(
                       text: "Active".tr,
-                      fontSize: 12,maxLines: 1,overflow: TextOverflow.ellipsis,
+                      fontSize: 12,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.w500),
                   CustomText(
                       text: activeCar,
@@ -96,12 +106,129 @@ class HomeTopSection extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        const SizedBox(width: 16),
 
-        //Total Reserved Car section
-        Expanded(
-          child: Container(
+          ///Total Inactive Car section
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            decoration: ShapeDecoration(
+              color: AppColors.whiteLight,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 0.50, color: AppColors.blueLight),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              shadows: const [
+                BoxShadow(
+                  color: AppColors.shadowColor,
+                  blurRadius: 8,
+                  offset: Offset(0, 1),
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                      text: "Deactive".tr,
+                      fontSize: 12,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: deActiveCar,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      top: 8,
+                      color: AppColors.redNormal),
+                ],
+              ),
+            ),
+          ),
+
+          /// Pending car section
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            margin: const EdgeInsets.only(left: 8, right: 8),
+            decoration: ShapeDecoration(
+              color: AppColors.whiteLight,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 0.50, color: AppColors.blueLight),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              shadows: const [
+                BoxShadow(
+                  color: AppColors.shadowColor,
+                  blurRadius: 8,
+                  offset: Offset(0, 1),
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                      text: "Pending".tr,
+                      fontSize: 12,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: pendingCar,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      top: 8,
+                      color: Colors.red.withOpacity(0.5)),
+                ],
+              ),
+            ),
+          ),
+
+  /// from admin cancel car
+
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            margin: const EdgeInsets.only(left: 8, right: 8),
+            decoration: ShapeDecoration(
+              color: AppColors.whiteLight,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 0.50, color: AppColors.blueLight),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              shadows: const [
+                BoxShadow(
+                  color: AppColors.shadowColor,
+                  blurRadius: 8,
+                  offset: Offset(0, 1),
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                      text: "Cancel".tr,
+                      fontSize: 12,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: adminCancelCar,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      top: 8,
+                      color: Colors.red),
+                ],
+              ),
+            ),
+          ),
+
+          /// Reserved car section
+          Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: ShapeDecoration(
               color: AppColors.whiteLight,
@@ -124,20 +251,22 @@ class HomeTopSection extends StatelessWidget {
                 children: [
                   CustomText(
                       text: "Reserved".tr,
-                      fontSize: 12,maxLines: 1,overflow: TextOverflow.ellipsis,
+                      fontSize: 12,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.w500),
                   CustomText(
                       text: reservedCar,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       top: 8,
-                      color: AppColors.redNormal),
+                      color: AppColors.greenNormal),
                 ],
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

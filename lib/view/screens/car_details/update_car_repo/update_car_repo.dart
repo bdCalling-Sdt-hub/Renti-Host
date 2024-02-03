@@ -8,7 +8,7 @@ class DeleteCarRepo {
   ApiService apiService;
   DeleteCarRepo({required this.apiService});
 
-  Future<ApiResponseModel> deleteCar({required String carId}) async {
+  Future<ApiResponseModel> updateCar({required String carId}) async {
     String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.carUpdate}$carId";
 
     String requestMethod = ApiResponseMethod.deleteMethod;

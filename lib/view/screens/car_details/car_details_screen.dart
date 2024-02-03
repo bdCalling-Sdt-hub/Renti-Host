@@ -80,10 +80,11 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                     child: CustomText(
                         text: homeCarListModel.cars?[index].tripStatus == "Start"
                                 ? "Reserved"
-                                : "Active",
-                        color: homeCarListModel.cars?[index].tripStatus == "Start"
-                                ? AppColors.redNormal
-                                : AppColors.greenNormal,
+                                :  homeCarListModel.cars?[index].isCarActive == "Pending" ? "Pending"
+                                :  homeCarListModel.cars?[index].isCarActive == "Active" ? "Active"
+                                : homeCarListModel.cars?[index].isCarActive == "Cancel" ? "Cancel"
+                                : "Deactive",
+                                color: homeCarListModel.cars?[index].tripStatus == "Start" ? AppColors.redNormal : homeCarListModel.cars?[index].isCarActive == "Active"? AppColors.greenNormal : AppColors.redNormal,
                         fontSize: 10),
                   ),
                 ],
@@ -97,7 +98,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                   CustomText(
-                      text: "/hr".tr,
+                      text: "/day".tr,
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                 ],

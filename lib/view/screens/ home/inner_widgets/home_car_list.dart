@@ -34,14 +34,14 @@ class _HomeCarListState extends State<HomeCarList> {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: List.generate(
         widget.homeCarListModel.cars!.length,
         (index) {
+          print(widget.homeCarListModel.cars![index].isCarActive);
           final isExpanded = expandedMap[index] ?? false;
-
           String startDateString = "${widget.homeCarListModel.cars?[index].paymentId?.rentId?.startDate}";
-
           String endDateString = "${widget.homeCarListModel.cars?[index].paymentId?.rentId?.endDate}";
           // Define a regular expression pattern to match the date part
           RegExp datePattern = RegExp(r"(\d{4}-\d{2}-\d{2})");
@@ -122,7 +122,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                               fontSize: 10,
                                               color: AppColors.redNormal),
                                         )
-                                      : Container(
+                                      :widget.homeCarListModel.cars![index].isCarActive == "Pending" ? Container(
                                           alignment: Alignment.center,
                                           padding: const EdgeInsetsDirectional
                                               .symmetric(
@@ -133,11 +133,56 @@ class _HomeCarListState extends State<HomeCarList> {
                                                 BorderRadius.circular(4),
                                           ),
                                           child: CustomText(
-                                            text: "Active".tr,
+                                            text: "Pending".tr,
                                             fontSize: 10,
-                                            color: AppColors.greenNormal,
+                                            color: Colors.red.withOpacity(0.5),
                                           ),
-                                        ),
+                                        )   :widget.homeCarListModel.cars![index].isCarActive == "Cancel" ? Container(
+                                    alignment: Alignment.center,
+                                    padding: const EdgeInsetsDirectional
+                                        .symmetric(
+                                        vertical: 4, horizontal: 12),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greenLight,
+                                      borderRadius:
+                                      BorderRadius.circular(4),
+                                    ),
+                                    child: CustomText(
+                                      text: "Cancel".tr,
+                                      fontSize: 10,
+                                      color: Colors.red,
+                                    ),
+                                  ) :widget.homeCarListModel.cars![index].isCarActive == "Active" ? Container(
+                                    alignment: Alignment.center,
+                                    padding: const EdgeInsetsDirectional
+                                        .symmetric(
+                                        vertical: 4, horizontal: 12),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greenLight,
+                                      borderRadius:
+                                      BorderRadius.circular(4),
+                                    ),
+                                    child: CustomText(
+                                      text: "Active".tr,
+                                      fontSize: 10,
+                                      color: AppColors.greenNormal,
+                                    ),
+                                  ) :  Container(
+                                    alignment: Alignment.center,
+                                    padding: const EdgeInsetsDirectional
+                                        .symmetric(
+                                        vertical: 4, horizontal: 12),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greenLight,
+                                      borderRadius:
+                                      BorderRadius.circular(4),
+                                    ),
+                                    child: CustomText(
+                                      text: "DeActive".tr,
+                                      fontSize: 10,
+                                      color: AppColors.redNormal,
+                                    ),
+                                  ) ,
                                 ],
                               ),
                               const SizedBox(height: 16),
@@ -154,7 +199,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.whiteDarker),
                                       CustomText(
-                                          text: "/hr".tr,
+                                          text: "/day".tr,
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.whiteDarker),

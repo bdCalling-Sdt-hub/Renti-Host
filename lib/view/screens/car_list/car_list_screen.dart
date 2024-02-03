@@ -114,16 +114,16 @@ class _CarListScreenState extends State<CarListScreen> {
                                         ),
                                         child: homeCarModel.cars?[index].tripStatus == "Start"
                                             ? CustomText(
-                                                text: "Reserved".toString(),
-                                                color: AppColors.redNormal,
-                                                fontSize: 10)
+                                            text: "Reserved".toString(),
+                                            color: AppColors.redNormal,
+                                            fontSize: 10)
                                             : CustomText(
-                                                text: "Active".toString(),
-                                                color: AppColors.greenNormal,
-                                                fontSize: 10),
+                                            text: "Active".toString(),
+                                            color: AppColors.greenNormal,
+                                            fontSize: 10),
                                       ),
                                       CustomText(
-                                        maxLines: 1,overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,overflow: TextOverflow.ellipsis,
                                           text: "${homeCarModel.cars?[index].carModelName}",
                                           fontSize: 12,left: 8),
                                       CustomText(

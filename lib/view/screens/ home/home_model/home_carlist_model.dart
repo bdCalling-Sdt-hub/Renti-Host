@@ -4,7 +4,10 @@ class HomeCarListModel {
   String? message;
   int? totalCar;
   int? activeCar;
+  int? deActiveCar;
   int? reservedCar;
+  int? pendingCar;
+  int? adminCancelCar;
   List<Car>? cars;
   Pagination? pagination;
 
@@ -13,6 +16,9 @@ class HomeCarListModel {
     this.totalCar,
     this.activeCar,
     this.reservedCar,
+    this.deActiveCar,
+    this.pendingCar,
+    this.adminCancelCar,
     this.cars,
     this.pagination,
   });
@@ -25,6 +31,9 @@ class HomeCarListModel {
     message: json["message"],
     totalCar: json["totalCar"],
     activeCar: json["activeCar"],
+    deActiveCar: json["deActiveCar"],
+    pendingCar: json["pendingCar"],
+    adminCancelCar: json["adminCancelCar"],
     reservedCar: json["reservedCar"],
     cars: json["cars"] == null ? [] : List<Car>.from(json["cars"]!.map((x) => Car.fromJson(x))),
     pagination: json["pagination"] == null ? null : Pagination.fromJson(json["pagination"]),
@@ -34,6 +43,9 @@ class HomeCarListModel {
     "message": message,
     "totalCar": totalCar,
     "activeCar": activeCar,
+    "deActiveCar": deActiveCar,
+    "pendingCar": pendingCar,
+    "adminCancelCar":adminCancelCar,
     "reservedCar": reservedCar,
     "cars": cars == null ? [] : List<dynamic>.from(cars!.map((x) => x.toJson())),
     "pagination": pagination?.toJson(),
@@ -62,6 +74,7 @@ class Car {
   String? specialCharacteristics;
   bool? activeReserve;
   String? tripStatus;
+  String  ? isCarActive;
   String? carOwner;
   DateTime? createdAt;
   DateTime? updatedAt;
@@ -72,6 +85,7 @@ class Car {
 
   Car({
     this.id,
+     this.isCarActive,
     this.carModelName,
     this.image,
     this.year,
@@ -133,7 +147,7 @@ class Car {
     v: json["__v"],
     paymentId: json["paymentId"] == null ? null : PaymentId.fromJson(json["paymentId"]),
     carImage: json["carImage"] == null ? [] : List<String>.from(json["carImage"]!.map((x) => x)),
-    userId: json["userId"],
+    userId: json["userId"], isCarActive: json["isCarActive"],
   );
 
   Map<String, dynamic> toJson() => {

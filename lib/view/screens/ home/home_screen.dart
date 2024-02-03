@@ -20,6 +20,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/helper/shear_preference_helper.dart';
 import '../../../service/api_service.dart';
 import '../../../service/socket_service.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -46,10 +47,10 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
   SocketService socketService = SocketService();
   String hostUid = "";
 
-  joinChat()async{
+  joinChat() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-     hostUid = prefs.getString(SharedPreferenceHelper.userIdKey).toString();
-   socketService.connectToSocket();
+    hostUid = prefs.getString(SharedPreferenceHelper.userIdKey).toString();
+    socketService.connectToSocket();
     socketService.joinRoom(hostUid);
     socketService.listenNotification();
 
@@ -60,7 +61,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
 
   bool canReturn = true;
 
-
   @override
   void dispose() {
     super.dispose();
@@ -70,22 +70,25 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        await showDialog(context: context, builder: (context)=> CommonPopUp(
-            title: "You sure want to log out?".tr,
-            onTapYes: () async {
-              final SharedPreferences prefs = await SharedPreferences.getInstance();
-              prefs.remove(SharedPreferenceHelper.userIdKey);
-              prefs.remove(SharedPreferenceHelper.accessTokenType);
-              prefs.remove(SharedPreferenceHelper.userEmailKey);
-              prefs.remove(SharedPreferenceHelper.userPhoneNumberKey);
-              prefs.remove(SharedPreferenceHelper.userNameKey);
-              prefs.remove(SharedPreferenceHelper.accessTokenKey);
-              prefs.setBool(SharedPreferenceHelper.rememberMeKey, false);
-              Get.offAllNamed(AppRoute.signInScreen);
-            },
-            onTapNo: () {
-              Navigator.of(context).pop();
-            }));
+        await showDialog(
+            context: context,
+            builder: (context) => CommonPopUp(
+                title: "You sure want to log out?".tr,
+                onTapYes: () async {
+                  final SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.remove(SharedPreferenceHelper.userIdKey);
+                  prefs.remove(SharedPreferenceHelper.accessTokenType);
+                  prefs.remove(SharedPreferenceHelper.userEmailKey);
+                  prefs.remove(SharedPreferenceHelper.userPhoneNumberKey);
+                  prefs.remove(SharedPreferenceHelper.userNameKey);
+                  prefs.remove(SharedPreferenceHelper.accessTokenKey);
+                  prefs.setBool(SharedPreferenceHelper.rememberMeKey, false);
+                  Get.offAllNamed(AppRoute.signInScreen);
+                },
+                onTapNo: () {
+                  Navigator.of(context).pop();
+                }));
         return false;
       },
       child: SafeArea(
@@ -93,7 +96,8 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
         child: Scaffold(
           backgroundColor: AppColors.whiteLight,
           key: scaffoldKey,
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
           drawer: const CustomDrawer(),
           appBar: CustomAppBar(
             appBarHeight: 80,
@@ -115,8 +119,8 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                     },
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 16),
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 8),
                       decoration: BoxDecoration(
                         color: AppColors.whiteLight,
                         border: Border.all(color: AppColors.whiteNormalActive),
@@ -126,9 +130,12 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Icon(Icons.search, size: 20, color: AppColors.whiteNormalActive),
+                          const Icon(Icons.search,
+                              size: 20, color: AppColors.whiteNormalActive),
                           CustomText(
-                              text: "Search cars...".tr,maxLines: 1,overflow: TextOverflow.ellipsis,
+                              text: "Search cars...".tr,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               color: AppColors.whiteNormalActive,
                               left: 8),
                         ],
@@ -136,10 +143,15 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                IconButton(onPressed: (){
-                  Get.toNamed(AppRoute.notificationScreen);
-                }, icon:const Icon(Icons.notifications_none_outlined,color: AppColors.blueNormal,size: 28)),
-                const SizedBox(width: 4,),
+                IconButton(
+                    onPressed: () {
+                      Get.toNamed(AppRoute.notificationScreen);
+                    },
+                    icon: const Icon(Icons.notifications_none_outlined,
+                        color: AppColors.blueNormal, size: 28)),
+                const SizedBox(
+                  width: 4,
+                ),
                 GetBuilder<ProfileController>(
                   builder: (controller) {
                     if (controller.isloading == true) {
@@ -148,7 +160,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                       );
                     }
                     return GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(AppRoute.profileScreen);
                       },
                       child: Container(
@@ -165,7 +177,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                     );
                   },
                 ),
-
               ],
             ),
           ),
@@ -182,15 +193,21 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         HomeTopSection(
-                            activeCar: homeCarListModel.activeCar.toString(),
-                            reservedCar: homeCarListModel.reservedCar.toString(),
-                            totalCar: homeCarListModel.totalCar.toString()),
+                          activeCar: homeCarListModel.activeCar.toString(),
+                          reservedCar: homeCarListModel.reservedCar.toString(),
+                          totalCar: homeCarListModel.totalCar.toString(),
+                          deActiveCar: homeCarListModel.deActiveCar.toString(),
+                          pendingCar: homeCarListModel.pendingCar.toString(),
+
+                          adminCancelCar: homeCarListModel.adminCancelCar.toString(),
+                        ),
 
                         //Add car Section
                         if (homeCarListModel.totalCar! <= 0)
@@ -205,7 +222,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                                 onTap: () {
                                   Get.toNamed(AppRoute.addCarsScreens);
                                 },
-                                child:  Row(
+                                child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -226,7 +243,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-
                         //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
 
                         if (homeCarListModel.totalCar! > 0)
@@ -241,7 +257,8 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                                   fontWeight: FontWeight.w600),
                               GestureDetector(
                                 onTap: () {
-                                  Get.toNamed(AppRoute.seeAllCarList, arguments: homeCarListModel);
+                                  Get.toNamed(AppRoute.seeAllCarList,
+                                      arguments: homeCarListModel);
                                 },
                                 child: CustomText(
                                   text: "See all".tr,

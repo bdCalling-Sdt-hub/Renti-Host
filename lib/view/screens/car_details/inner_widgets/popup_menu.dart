@@ -45,7 +45,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
                   size: 20,
                   color: AppColors.blackNormal,
                 ),
-                CustomText(text: "Edit Car".tr, left: 16),
+                CustomText(text: "Active/InActive".tr, left: 16),
               ],
             ),
           ),
