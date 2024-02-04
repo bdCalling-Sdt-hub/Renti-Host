@@ -75,7 +75,10 @@ class ApiUrlContainer {
   static const String support = "support/";
 
   //howRentiWork
+  //howRentiWork
   static const String howRentiWork = "howRentiWork";
+  static const String activecarEndPoint = "car/active-car";
+
 
   //Review
   static const String reviewGet = "review/hostReview";

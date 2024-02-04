@@ -135,7 +135,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                           child: CustomText(
                                             text: "Pending".tr,
                                             fontSize: 10,
-                                            color: Colors.red.withOpacity(0.5),
+                                            color: Colors.amberAccent
                                           ),
                                         )   :widget.homeCarListModel.cars![index].isCarActive == "Cancel" ? Container(
                                     alignment: Alignment.center,
@@ -180,7 +180,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                     child: CustomText(
                                       text: "DeActive".tr,
                                       fontSize: 10,
-                                      color: AppColors.redNormal,
+                                      color: Colors.orange,
                                     ),
                                   ) ,
                                 ],

@@ -205,7 +205,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                           totalCar: homeCarListModel.totalCar.toString(),
                           deActiveCar: homeCarListModel.deActiveCar.toString(),
                           pendingCar: homeCarListModel.pendingCar.toString(),
-
                           adminCancelCar: homeCarListModel.adminCancelCar.toString(),
                         ),
 
