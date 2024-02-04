@@ -76,7 +76,6 @@ class SignInController extends GetxController {
       Get.offNamed(AppRoute.kycNumberVerification);
       Utils.snackBar("Alert!".tr, "Email is not verified".tr);
     }
-
     else if (emailVerified == true && approved == true && isBanned != "true") {
       signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
       signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.accessTokenType, "Bearer");

@@ -19,7 +19,7 @@ class _SearchFilterState extends State<SearchFilter> {
     "Mercedes",
     "Lamborghini",
   ];
-  int selectedItem = 0;
+  int selectedItem = -1;
 
   final homecontroller = Get.find<HomeCarListController>();
 
