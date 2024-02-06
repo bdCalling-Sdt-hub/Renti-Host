@@ -7,12 +7,15 @@ import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
+import 'package:mime/mime.dart';
 import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/core/helper/shear_preference_helper.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/add_cars/google_map_model/google_map_mpdel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:path/path.dart' as path;
 
 class AddCarController extends GetxController {
   //Text Editing Controllers
@@ -47,11 +50,18 @@ class AddCarController extends GetxController {
   List<File> addCarDocumentsFiles = [];
   List<File> addCarImages = [];
 
-  File? uploadCarLic;
+ /* File? uploadCarLic;
   File? uploadCarInsPolicy;
   File? uploadCirculationCard;
   File? uploadCarInvoice;
-  File? uploadREPUVE;
+  File? uploadREPUVE;*/
+
+
+  String uploadCarLicPath = "";
+  String uploadCarInsPolicyPath = "";
+  String  uploadCirculationCardPath = "";
+  String  uploadCarInvoicePath = "";
+  String uploadREPUVEPath = "";
 
   String carLicenseFileName = "";
   String carInsPolicyFillName = "";
@@ -59,7 +69,126 @@ class AddCarController extends GetxController {
   String carInvoiceFillName = "";
   String carREPUVEFillName = "";
 
+  String checkExtension(String filePath){
+    String fileExtension = path.extension(filePath).toLowerCase();
+    switch(fileExtension){
+      case ".pdf":
+        return "file";
+      case ".key":
+        return "file";
+      case ".cer":
+        return "file";
+      case ".jpg":
+        return "image";
+      case ".png":
+        return "image";
+      case ".jpeg":
+        return "image";
+      case ".heic":
+        return "image";
+    }
+    return  fileExtension;
+  }
+
+
+  removeFile1(){
+    uploadCarLicPath="";
+    update();
+  }
+
+  removeFile2(){
+    uploadCarInsPolicyPath="";
+    update();
+  }
+
+  removeFile3(){
+    uploadCirculationCardPath ="";
+    update();
+  }
+
+  removeFile4(){
+    uploadCarInvoicePath ="";
+    update();
+  }
+
+  removeFile5(){
+    uploadREPUVEPath ="";
+    update();
+  }
+
+
+
+  bool checkFilePathEmpty(){
+    if(uploadCarLicPath.isNotEmpty && uploadCarInsPolicyPath.isNotEmpty && uploadCirculationCardPath.isNotEmpty && uploadCarInvoicePath.isNotEmpty && uploadREPUVEPath.isNotEmpty) {
+      return true;
+    }else{
+      Utils.snackBar("Alert".tr, "This Files can not be empty".tr);
+      return false;
+
+    }
+  }
+
   Future<void> pickCarLicFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+        allowMultiple: true,
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+        type: FileType.custom);
+    if (result != null && result.files.isNotEmpty) {
+      uploadCarLicPath=result.files.first.path!;
+      carLicenseFileName=result.files.first.name;
+      update();
+    }
+  }
+  Future<void> pickCarLisPolicyFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+        allowMultiple: true,
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+        type: FileType.custom);
+    if (result != null && result.files.isNotEmpty) {
+      uploadCarInsPolicyPath=result.files.first.path!;
+      carInsPolicyFillName=result.files.first.name;
+      update();
+    }
+  }
+  Future<void> pickCirculationFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+        allowMultiple: true,
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+        type: FileType.custom);
+    if (result != null && result.files.isNotEmpty) {
+      uploadCirculationCardPath=result.files.first.path!;
+      circulationFillName= result.files.single.name;
+      update();
+    }
+  }
+  Future<void> pickCarInvoiceFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+        allowMultiple: true,
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+        type: FileType.custom);
+    if (result != null && result.files.isNotEmpty) {
+      uploadCarInvoicePath=result.files.first.path!;
+      carInvoiceFillName= result.files.single.name;
+      update();
+    }
+  }
+  Future<void> pickREPUVEFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+        allowMultiple: true,
+        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+        type: FileType.custom);
+    if (result != null && result.files.isNotEmpty) {
+      uploadREPUVEPath=result.files.first.path!;
+      carREPUVEFillName= result.files.single.name;
+      update();
+    }
+  }
+
+
+
+
+
+/*  Future<void> pickCarLicFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: false,
         allowedExtensions: ["pdf"],
@@ -188,7 +317,7 @@ class AddCarController extends GetxController {
     carREPUVEFillName = "";
     addCarDocumentsFiles.removeAt(4);
     update();
-  }
+  }*/
 
   File? firstImg;
   File? secondImg;
@@ -235,11 +364,13 @@ class AddCarController extends GetxController {
       // Add the KYC files to the request
       for (var file in addCarDocumentsFiles) {
         if (file.existsSync()) {
+          var mimeType = lookupMimeType(file.toString());
+          debugPrint("===================FileType$mimeType");
           try {
             var multipartFile = await http.MultipartFile.fromPath(
                 'KYC', file.path,
-                contentType: MediaType('application', 'pdf'));
-            request.files.add(multipartFile);
+                contentType: MediaType.parse(mimeType!));
+                request.files.add(multipartFile);
           } on Exception catch (e) {
             print("Error is :${e.toString()}");
           }
@@ -250,10 +381,13 @@ class AddCarController extends GetxController {
 
       for (var img in addCarImages) {
         if (img.existsSync()) {
+          var mimeType = lookupMimeType(img.toString());
+          print("==================>MimeType${mimeType}");
+
           try {
             var multipartImg = await http.MultipartFile.fromPath(
                 'image', img.path,
-                contentType: MediaType('image', 'jpeg'));
+                contentType: MediaType.parse(mimeType!));
             request.files.add(multipartImg);
           } on Exception catch (e) {
             print("Error is :${e.toString()}");

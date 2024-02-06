@@ -1,6 +1,5 @@
-import 'dart:io';
 
-import 'package:flutter/foundation.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,47 +57,17 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                               width: 1, color: AppColors.whiteNormalActive),
                           borderRadius: BorderRadius.circular(8)),
                       alignment: Alignment.center,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const CustomImage(imageSrc: AppIcons.uploadIcons),
+                          CustomImage(imageSrc: AppIcons.uploadIcons),
 
-                          // Row(
-                          //   crossAxisAlignment: CrossAxisAlignment.center,
-                          //   children: [
-                          //     /*Expanded(
-                          //         child: CustomElevatedButton(
-                          //             onPressed: () =>
-                          //                 controller.clickedIneOrPassportFile(),
-                          //             titleText: "Open Camara".tr,
-                          //             buttonHeight: 42,
-                          //             titleSize: 12)),*/
-                          //     const SizedBox(width: 8),
-                          //     Expanded(
-                          //         child: CustomElevatedButton(
-                          //             onPressed: () {},
-                          //             //     controller.pickIneOrPassportFile(),
-                          //             titleText: "Open Gallery".tr,
-                          //             buttonHeight: 42,
-                          //             titleSize: 12)),
-                          //     const SizedBox(width: 8),
-                          //     Expanded(
-                          //         child: CustomElevatedButton(
-                          //             onPressed: () =>
-                          //                 controller.pickIneOrPassportFile1(),
-                          //             titleText: "Pick File".tr,
-                          //             buttonHeight: 42,
-                          //             titleSize: 12)),
-                          //   ],
-                          // ),
                         ],
                       ),
                     ),
                 )
                 : controller.checkExtension(controller.passportPath)!="file"
-                    ? Container(
-                        padding:
-                            const EdgeInsetsDirectional.only(end: 12, top: 12),
+                    ? Container(padding: const EdgeInsetsDirectional.only(end: 12, top: 12),
                         width: MediaQuery.of(context).size.width,
                         height: 180,
                         decoration: BoxDecoration(
@@ -189,10 +158,10 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       alignment: Alignment.center,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const CustomImage(imageSrc: AppIcons.uploadIcons),
+                          CustomImage(imageSrc: AppIcons.uploadIcons),
                           // const SizedBox(height: 24),
                           // Row(
                           //   crossAxisAlignment: CrossAxisAlignment.center,
@@ -318,10 +287,10 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                               width: 1, color: AppColors.whiteNormalActive),
                           borderRadius: BorderRadius.circular(8)),
                       alignment: Alignment.center,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const CustomImage(imageSrc: AppIcons.uploadIcons),
+                          CustomImage(imageSrc: AppIcons.uploadIcons),
                          //  const SizedBox(height: 24),
                          //  Row(
                          //    crossAxisAlignment: CrossAxisAlignment.center,

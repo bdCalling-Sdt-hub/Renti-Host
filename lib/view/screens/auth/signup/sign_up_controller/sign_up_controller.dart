@@ -87,6 +87,8 @@ class SignUpController extends GetxController {
   // String taxStampKeyFileName = "";
   // String cerStampKeyFileName = "";
 
+
+
   String passportPath="";
   String stampKeyPath="";
   String stampCerPath="";
@@ -111,7 +113,6 @@ class SignUpController extends GetxController {
     update();
   }
 
-//files
 
 
   /// <------------------------- new feature ------------------------->
@@ -151,7 +152,7 @@ class SignUpController extends GetxController {
   Future<void> pickPassport() async {
      FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
-        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+         allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
         type: FileType.custom);
     if (result != null && result.files.isNotEmpty) {
         passportPath=result.files.first.path!;
@@ -352,21 +353,20 @@ class SignUpController extends GetxController {
 
   void openGallery() async {
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
       update();
     }
   }
 
-  void openCamera(BuildContext context) async {
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
-
-    if (pickedFile != null) {
-      imageFile = File(pickedFile.path);
-      update();
-    }
-  }
+  // void openCamera(BuildContext context) async {
+  //   final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
+  //
+  //   if (pickedFile != null) {
+  //     imageFile = File(pickedFile.path);
+  //     update();
+  //   }
+  // }
 
   Future<void> signUpMultipleFilesAndParams() async {
   /*  debugPrint(fullNameController.text);
@@ -386,7 +386,6 @@ class SignUpController extends GetxController {
     debugPrint(ineNumberController.text);
     debugPrint(rfcController.text);
     debugPrint("$kycDocFiles");*/
-
     try {
       isloading = true;
       update();

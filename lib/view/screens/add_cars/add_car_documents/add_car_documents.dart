@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -59,72 +60,108 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                   fontWeight: FontWeight.bold,
                   textAlign: TextAlign.start,
                 ),
-                //Upload Car License Text and File..
+                   ///--------------------Upload Car License  File------------------>
                 CustomText(
-                  text: "1. Upload car license".tr,
+                  text: "1. Upload Car License".tr,
                   color: AppColors.whiteDarkActive,
-                  bottom: 8,
                   top: 16,
+                  bottom: 8,
                   textAlign: TextAlign.start,
                 ),
-
-                controller.uploadCarLic == null
+                controller.uploadCarLicPath.isEmpty
                     ? GestureDetector(
-                        onTap: () => controller.pickCarLicFile(),
-                        child: Container(
-                          height: 115,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(width: 1, color: AppColors.whiteNormalActive),
-                              borderRadius: BorderRadius.circular(8)),
-                          alignment: Alignment.center,
-                          child: const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        ),
-                      )
-                    : Container(
-                        padding: const EdgeInsetsDirectional.only(end: 12),
-                        width: MediaQuery.of(context).size.width,
-                        height: 52,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 50,
-                                    height: MediaQuery.of(context).size.height,
-                                    alignment: Alignment.center,
-                                    decoration: const BoxDecoration(
-                                      color: AppColors.redNormal,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                      ),
-                                    ),
-                                    child: const CustomImage(imageSrc: AppIcons.pdfIcon)),
-                                  const SizedBox(width: 12),
-                                  Flexible(child: CustomText(text: controller.carLicenseFileName,maxLines: 1,overflow: TextOverflow.ellipsis))
-                                ],
+                  onTap: (){
+                    controller.pickCarLicFile();
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 115,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border.all(
+                            width: 1, color: AppColors.whiteNormalActive),
+                        borderRadius: BorderRadius.circular(8)),
+                    alignment: Alignment.center,
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomImage(imageSrc: AppIcons.uploadIcons),
+
+                      ],
+                    ),
+                  ),
+                )
+                    : controller.checkExtension(controller.uploadCarLicPath)!="file"
+                    ? Container(padding: const EdgeInsetsDirectional.only(end: 12, top: 12),
+                  width: MediaQuery.of(context).size.width,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                          width: 1, color: AppColors.whiteNormalActive),
+                      image: DecorationImage(
+                          image: FileImage(File(controller.uploadCarLicPath)),
+                          fit: BoxFit.fill)),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () => controller.removeFile1(),
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ),
+                )
+                    : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width:
+                            MediaQuery.of(context).size.width * 0.5,
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              color: AppColors.redNormal,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                bottomLeft: Radius.circular(8),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () => controller.removeCarLicFile(),
-                              child: const Icon(Icons.cancel_outlined,
-                                  color: AppColors.redNormal, size: 24),
-                            )
-                          ],
-                        ),
+                            child: const CustomImage(
+                                imageSrc: AppIcons.pdfIcon),
+                          ),
+                          const SizedBox(width: 12),
+                          Flexible(
+                            child: CustomText(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              text: controller.carLicenseFileName,
+                            ),
+                          )
+                        ],
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        controller.removeFile1();
+                      },
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
 
-                //Upload Car Insurance Policy Text and File..
+
+                /// ===================+>Upload car insurance Policy====================>
+
                 CustomText(
                   text: "2. Upload car insurance Policy".tr,
                   color: AppColors.whiteDarkActive,
@@ -132,135 +169,201 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                   bottom: 8,
                   textAlign: TextAlign.start,
                 ),
-
-                controller.uploadCarInsPolicy == null
+                controller.uploadCarInsPolicyPath.isEmpty
                     ? GestureDetector(
-                        onTap: () => controller.pickCarLisPolicyFile(),
-                        child: Container(
-                          height: 115,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(
-                                  width: 1, color: AppColors.whiteNormalActive),
-                              borderRadius: BorderRadius.circular(8)),
-                          alignment: Alignment.center,
-                          child:
-                              const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        ),
-                      )
-                    : Container(
-                        padding: const EdgeInsetsDirectional.only(end: 12),
-                        width: MediaQuery.of(context).size.width,
-                        height: 52,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 50,
-                                    height: MediaQuery.of(context).size.height,
-                                    alignment: Alignment.center,
-                                    decoration: const BoxDecoration(
-                                      color: AppColors.redNormal,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                      ),
-                                    ),
-                                    child: const CustomImage(imageSrc: AppIcons.pdfIcon),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Flexible(child: CustomText(text: controller.carInsPolicyFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
-                                ],
+                  onTap: (){
+                    controller.pickCarLisPolicyFile();
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 115,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border.all(
+                            width: 1, color: AppColors.whiteNormalActive),
+                        borderRadius: BorderRadius.circular(8)),
+                    alignment: Alignment.center,
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomImage(imageSrc: AppIcons.uploadIcons),
+
+                      ],
+                    ),
+                  ),
+                )
+                    : controller.checkExtension(controller.uploadCarInsPolicyPath)!="file"
+                    ? Container(padding: const EdgeInsetsDirectional.only(end: 12, top: 12),
+                  width: MediaQuery.of(context).size.width,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                          width: 1, color: AppColors.whiteNormalActive),
+                      image: DecorationImage(
+                          image: FileImage(File(controller.uploadCarInsPolicyPath)),
+                          fit: BoxFit.fill)),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () => controller.removeFile2(),
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ),
+                )
+                    : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width:
+                            MediaQuery.of(context).size.width * 0.5,
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              color: AppColors.redNormal,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                bottomLeft: Radius.circular(8),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () => controller.removeCarInsPolicyFile(),
-                              child: const Icon(Icons.cancel_outlined,
-                                  color: AppColors.redNormal, size: 24),
+                            child: const CustomImage(
+                                imageSrc: AppIcons.pdfIcon),
+                          ),
+                          const SizedBox(width: 12),
+                          Flexible(
+                            child: CustomText(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              text: controller.carInsPolicyFillName,
                             ),
-                          ],
-                        ),
+                          )
+                        ],
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        controller.removeFile2();
+                      },
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
 
-                //Upload Circulation Card Text and File..
+
+                /// ===================>Upload circulation card====================>
                 CustomText(
                   text: "3. Upload circulation card".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
+                  bottom: 8,
                   textAlign: TextAlign.start,
                 ),
-
-                controller.uploadCirculationCard == null
+                controller.uploadCirculationCardPath.isEmpty
                     ? GestureDetector(
-                        onTap: () => controller.pickCirculationFile(),
-                        child: Container(
-                          height: 115,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(
-                                  width: 1, color: AppColors.whiteNormalActive),
-                              borderRadius: BorderRadius.circular(8)),
-                          alignment: Alignment.center,
-                          child:
-                              const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        ),
-                      )
-                    : Container(
-                        padding: const EdgeInsetsDirectional.only(end: 12),
-                        width: MediaQuery.of(context).size.width,
-                        height: 52,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 50,
-                                    height: MediaQuery.of(context).size.height,
-                                    alignment: Alignment.center,
-                                    decoration: const BoxDecoration(
-                                      color: AppColors.redNormal,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                      ),
-                                    ),
-                                    child: const CustomImage(
-                                        imageSrc: AppIcons.pdfIcon),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Flexible(child: CustomText(text: controller.circulationFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
-                                ],
+                  onTap: (){
+                    controller.pickCirculationFile();
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 115,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border.all(
+                            width: 1, color: AppColors.whiteNormalActive),
+                        borderRadius: BorderRadius.circular(8)),
+                    alignment: Alignment.center,
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomImage(imageSrc: AppIcons.uploadIcons),
+
+                      ],
+                    ),
+                  ),
+                )
+                    : controller.checkExtension(controller.uploadCirculationCardPath)!="file"
+                    ? Container(padding: const EdgeInsetsDirectional.only(end: 12, top: 12),
+                  width: MediaQuery.of(context).size.width,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                          width: 1, color: AppColors.whiteNormalActive),
+                      image: DecorationImage(
+                          image: FileImage(File(controller.uploadCirculationCardPath)),
+                          fit: BoxFit.fill)),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () => controller.removeFile3(),
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ),
+                )
+                    : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width:
+                            MediaQuery.of(context).size.width * 0.5,
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              color: AppColors.redNormal,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                bottomLeft: Radius.circular(8),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () => controller.removeCirculationFile(),
-                              child: const Icon(Icons.cancel_outlined,
-                                  color: AppColors.redNormal, size: 24),
-                            )
-                          ],
-                        ),
+                            child: const CustomImage(
+                                imageSrc: AppIcons.pdfIcon),
+                          ),
+                          const SizedBox(width: 12),
+                          Flexible(
+                            child: CustomText(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              text: controller.circulationFillName,
+                            ),
+                          )
+                        ],
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        controller.removeFile3();
+                      },
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
 
-                //Upload Car Invoice Text and File..
+
+
+                /// ===================Upload car invoice====================>
+
                 CustomText(
                   text: "4. Upload car invoice".tr,
                   color: AppColors.whiteDarkActive,
@@ -268,156 +371,195 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                   bottom: 8,
                   textAlign: TextAlign.start,
                 ),
-
-                controller.uploadCarInvoice == null
+                controller.uploadCarInvoicePath.isEmpty
                     ? GestureDetector(
-                        onTap: () => controller.pickCarInvoiceFile(),
-                        child: Container(
-                          height: 115,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(
-                                  width: 1, color: AppColors.whiteNormalActive),
-                              borderRadius: BorderRadius.circular(8)),
-                          alignment: Alignment.center,
-                          child:
-                              const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        ),
-                      )
-                    : Container(
-                        padding: const EdgeInsetsDirectional.only(end: 12),
-                        width: MediaQuery.of(context).size.width,
-                        height: 52,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 50,
-                                    height: MediaQuery.of(context).size.height,
-                                    alignment: Alignment.center,
-                                    decoration: const BoxDecoration(
-                                      color: AppColors.redNormal,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                      ),
-                                    ),
-                                    child: const CustomImage(
-                                        imageSrc: AppIcons.pdfIcon),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Flexible(child: CustomText(text: controller.carInvoiceFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
-                                ],
+                  onTap: (){
+                    controller.pickCarInvoiceFile();
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 115,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border.all(
+                            width: 1, color: AppColors.whiteNormalActive),
+                        borderRadius: BorderRadius.circular(8)),
+                    alignment: Alignment.center,
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomImage(imageSrc: AppIcons.uploadIcons),
+
+                      ],
+                    ),
+                  ),
+                )
+                    : controller.checkExtension(controller.uploadCarInvoicePath)!="file"
+                    ? Container(padding: const EdgeInsetsDirectional.only(end: 12, top: 12),
+                  width: MediaQuery.of(context).size.width,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                          width: 1, color: AppColors.whiteNormalActive),
+                      image: DecorationImage(
+                          image: FileImage(File(controller.uploadCarInvoicePath)),
+                          fit: BoxFit.fill)),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () => controller.removeFile4(),
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ),
+                )
+                    : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width:
+                            MediaQuery.of(context).size.width * 0.5,
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              color: AppColors.redNormal,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                bottomLeft: Radius.circular(8),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () => controller.removeCarInvoiceFile(),
-                              child: const Icon(Icons.cancel_outlined,
-                                  color: AppColors.redNormal, size: 24),
-                            )
-                          ],
-                        ),
+                            child: const CustomImage(
+                                imageSrc: AppIcons.pdfIcon),
+                          ),
+                          const SizedBox(width: 12),
+                          Flexible(
+                            child: CustomText(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              text: controller.carInvoiceFillName,
+                            ),
+                          )
+                        ],
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        controller.removeFile4();
+                      },
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
 
-                //Upload REPUVE Text and File..
+            ///========================== Upload REPUVE (non theft report) ======================>
                 CustomText(
-                  text: "5. Upload REPUVE (nontheft report)".tr,
+                  text: "5. Upload REPUVE (non theft report)".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   bottom: 8,
                   textAlign: TextAlign.start,
                 ),
-
-                controller.uploadREPUVE == null
+                controller.uploadREPUVEPath.isEmpty
                     ? GestureDetector(
-                        onTap: () => controller.pickREPUVEFile(),
-                        child: Container(
-                          height: 115,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(
-                                  width: 1, color: AppColors.whiteNormalActive),
-                              borderRadius: BorderRadius.circular(8)),
-                          alignment: Alignment.center,
-                          child:
-                              const CustomImage(imageSrc: AppIcons.uploadIcons),
-                        ),
-                      )
-                    : Container(
-                        padding: const EdgeInsetsDirectional.only(end: 12),
-                        width: MediaQuery.of(context).size.width,
-                        height: 52,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                              width: 1, color: AppColors.whiteNormalActive),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 50,
-                                    height: MediaQuery.of(context).size.height,
-                                    alignment: Alignment.center,
-                                    decoration: const BoxDecoration(
-                                      color: AppColors.redNormal,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                      ),
-                                    ),
-                                    child: const CustomImage(
-                                        imageSrc: AppIcons.pdfIcon),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Flexible(child: CustomText(text: controller.carREPUVEFillName,maxLines: 1,overflow: TextOverflow.ellipsis))
-                                ],
+                  onTap: (){
+                    controller.pickREPUVEFile();
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 115,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border.all(
+                            width: 1, color: AppColors.whiteNormalActive),
+                        borderRadius: BorderRadius.circular(8)),
+                    alignment: Alignment.center,
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomImage(imageSrc: AppIcons.uploadIcons),
+
+                      ],
+                    ),
+                  ),
+                )
+                    : controller.checkExtension(controller.uploadREPUVEPath)!="file"
+                    ? Container(padding: const EdgeInsetsDirectional.only(end: 12, top: 12),
+                  width: MediaQuery.of(context).size.width,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                          width: 1, color: AppColors.whiteNormalActive),
+                      image: DecorationImage(
+                          image: FileImage(File(controller.uploadREPUVEPath)),
+                          fit: BoxFit.fill)),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () => controller.removeFile5(),
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ),
+                )
+                    : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width:
+                            MediaQuery.of(context).size.width * 0.5,
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              color: AppColors.redNormal,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                bottomLeft: Radius.circular(8),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () => controller.removeREPUVEFile(),
-                              child: const Icon(Icons.cancel_outlined,
-                                  color: AppColors.redNormal, size: 24),
-                            )
-                          ],
-                        ),
+                            child: const CustomImage(
+                                imageSrc: AppIcons.pdfIcon),
+                          ),
+                          const SizedBox(width: 12),
+                          Flexible(
+                            child: CustomText(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              text: controller.carREPUVEFillName,
+                            ),
+                          )
+                        ],
                       ),
-
-                const SizedBox(height: 24),
-
-                CustomElevatedButton(
-                  onPressed: () {
-                    if (controller.uploadCarLic != null &&
-                        controller.uploadCarInsPolicy != null &&
-                        controller.uploadCirculationCard != null &&
-                        controller.uploadCarInvoice != null &&
-                        controller.uploadREPUVE != null) {
-                      Get.toNamed(AppRoute.addCarSpecialScreens);
-                    }
-                    else {
-                      Utils.snackBar("Error".tr, "File Can't be Empty".tr);
-                    }
-                  },
-                  buttonHeight: 52,
-                  buttonWidth: double.infinity,
-                  titleText: "Continue".tr,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        controller.removeFile5();
+                      },
+                      child: const Icon(Icons.cancel_outlined,
+                          color: AppColors.redNormal, size: 24),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(
+                  height: 12,
+                ),
               ],
             ),
           ),
