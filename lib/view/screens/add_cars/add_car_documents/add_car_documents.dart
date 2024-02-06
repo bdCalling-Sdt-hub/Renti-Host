@@ -54,12 +54,12 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomText(
+               /* CustomText(
                   text: "NOTE:  All file must be in PDF format".tr,
                   color: AppColors.ratingColor,
                   fontWeight: FontWeight.bold,
                   textAlign: TextAlign.start,
-                ),
+                ),*/
                    ///--------------------Upload Car License  File------------------>
                 CustomText(
                   text: "1. Upload Car License".tr,
@@ -557,9 +557,18 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 12,
+                const SizedBox(height: 24),
+                CustomElevatedButton(
+                  onPressed: () {
+                    if (controller.checkFilePathEmpty()) {
+                      Get.toNamed(AppRoute.addCarSpecialScreens);
+                    }
+                  },
+                  buttonHeight: 52,
+                  buttonWidth: double.infinity,
+                  titleText: "Continue".tr,
                 ),
+                const SizedBox(height: 24),
               ],
             ),
           ),
