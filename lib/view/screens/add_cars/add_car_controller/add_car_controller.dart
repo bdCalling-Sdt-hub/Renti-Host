@@ -217,9 +217,9 @@ class AddCarController extends GetxController {
     try {
       var request = http.MultipartRequest('POST',Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.carAddEndPoint}"),);
 
-      // Add the KYC files to the request
+      /// ==================== Add the upload car licence KYC files to the request=======================>
 
- /*     if (uploadCarLicPath.isNotEmpty) {
+      if (uploadCarLicPath.isNotEmpty) {
         debugPrint("=========> passportPath $uploadCarLicPath");
         var mimeType = lookupMimeType(uploadCarLicPath);
         var multipartImg = await http.MultipartFile.fromPath(
@@ -229,6 +229,9 @@ class AddCarController extends GetxController {
         );
         request.files.add(multipartImg);
       }
+
+      /// ==================== Add the uploadcarlicencePrivacy Pplicy KYC files to the request=======================>
+
       if (uploadCarInsPolicyPath.isNotEmpty) {
         debugPrint("======> stampKeyPath  $uploadCarInsPolicyPath");
         var mimeType = lookupMimeType(uploadCarInsPolicyPath);
@@ -239,6 +242,11 @@ class AddCarController extends GetxController {
         );
         request.files.add(multipartImg);
       }
+
+
+      /// ==================== Add the upload car circulationCard KYC files to the request=======================>
+
+
       if (uploadCirculationCardPath.isNotEmpty) {
         debugPrint("========>stampCerPath  $uploadCirculationCardPath");
         var mimeType = lookupMimeType(uploadCirculationCardPath);
@@ -249,6 +257,9 @@ class AddCarController extends GetxController {
         );
         request.files.add(multipartImg);
       }
+
+      /// ==================== Add the upload car invoice KYC files to the request=======================>
+
       if (uploadCarInvoicePath.isNotEmpty) {
         debugPrint("========>stampCerPath  $uploadCarInvoicePath");
         var mimeType = lookupMimeType(uploadCarInvoicePath);
@@ -259,6 +270,9 @@ class AddCarController extends GetxController {
         );
         request.files.add(multipartImg);
       }
+
+      /// ==================== Add the upload car REPUVE KYC files to the request=======================>
+
       if (uploadREPUVEPath.isNotEmpty) {
         debugPrint("========>stampCerPath  $uploadREPUVEPath");
         var mimeType = lookupMimeType(uploadREPUVEPath);
@@ -268,16 +282,16 @@ class AddCarController extends GetxController {
           contentType: MediaType.parse(mimeType!),
         );
         request.files.add(multipartImg);
-      }*/
+      }
 
-      for (var file in addCarDocumentsFiles) {
-        if (file.existsSync()) {
+/*      for (var files in addCarDocumentsFiles) {
+        if (files!=null&&files.existsSync()) {
           try {
-            var mimeType = lookupMimeType(file);
-            debugPrint("===================FileType$mimeType");
+            var mimeType = lookupMimeType(files);
+          print("===================FileType========$mimeType");
             var multipartFile = await http.MultipartFile.fromPath(
               'KYC',
-              file.path,
+              files,
               contentType: MediaType.parse(mimeType!),
             );
             request.files.add(multipartFile);
@@ -285,15 +299,15 @@ class AddCarController extends GetxController {
             print("Error is: ${e.toString()}");
           }
         } else {
-          print('File does not exist: ${file}');
+          print('File does not exist: ${files}');
         }
-      }
+      }*/
 
       for (var img in addCarImages) {
         if (img != null && img.existsSync()) {
           try {
             var mimeType = lookupMimeType(img.path);
-            print("==================>MimeType${mimeType}");
+            print("==================>MimeType=>$mimeType");
 
             var multipartImg = await http.MultipartFile.fromPath(
               'image',
