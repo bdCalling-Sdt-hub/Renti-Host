@@ -287,7 +287,6 @@
   "Please use uppercase,lowercase,spacial character and number":  "Please use uppercase,lowercase,spacial character and number",
   "Password does not match!":  "Password does not match!",
   "Password doesn't match" : "Password doesn't match",
-  "Current and New password couldn't be same" : "Current and New password couldn't be same"
-
-
+  "Current and New password couldn't be same" : "Current and New password couldn't be same",
+  "New password and current password doesn't same" : "La nueva contraseña y la contraseña actual no son iguales"
 }

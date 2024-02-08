@@ -83,6 +83,7 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                                 } else if (value.length < 6) {
                                   return "Please use 6 character long password".tr;
                                 }
+
                                 return null;
                               },
                             ),
@@ -108,6 +109,9 @@ class NewPasswordScreenState extends State<NewPasswordScreen> {
                                   return "Please enter your password".tr;
                                 } else if (value.length < 6) {
                                   return "Please use 6 character long password".tr;
+                                }
+                                else if(controller.passwordController.text!=controller.confirmPasswordController.text){
+                                  return "New password and current password doesn't same".tr;
                                 }
                                 return null;
                               },

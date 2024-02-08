@@ -41,7 +41,8 @@ class _DocumentFilesSectionState extends State<DocumentFilesSection> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const CustomImage(imageSrc: AppIcons.pdfIcon, size: 25),
+                        // const CustomImage(imageSrc: AppIcons.pdfIcon, size: 25),
+                        const Icon((Icons.description_outlined),color: Colors.black54,size: 25,),
                         Expanded(
                           child: CustomText(
                             textAlign: TextAlign.start,

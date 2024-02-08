@@ -31,7 +31,6 @@ class VerifyEmailRepo {
   }*/
 
   Future<ApiResponseModel> emailVerifyResult({required String otp}) async{
-
     String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.emailVerify}";
     String requestMethod = ApiResponseMethod.postMethod;
     final String? email = apiService.sharedPreferences.getString(SharedPreferenceHelper.userEmailKey);

@@ -369,23 +369,7 @@ class SignUpController extends GetxController {
   // }
 
   Future<void> signUpMultipleFilesAndParams() async {
-  /*  debugPrint(fullNameController.text);
-    debugPrint(emailController.text);
-    debugPrint("$selectedGender");
-    debugPrint(dateController.text);
-    debugPrint(passwordController.text);
-    debugPrint(phoneNumberController.text);
-    debugPrint(countryController.text);
-    debugPrint(cityController.text);
-    debugPrint(stateController.text);
-    debugPrint(laneController.text);
-    debugPrint(postalController.text);
-    debugPrint(accountController.text);
-    debugPrint(accountHolderController.text);
-    debugPrint("$selectedAccount");
-    debugPrint(ineNumberController.text);
-    debugPrint(rfcController.text);
-    debugPrint("$kycDocFiles");*/
+
     try {
       isloading = true;
       update();

@@ -286,5 +286,6 @@
   "Please use 8 character long password":"Utilice una contraseña de 8 caracteres" ,
   "Please use uppercase,lowercase,spacial character and number":  "Por favor utilice mayúsculas, minúsculas, espacios y números",
   "Password does not match!":  "¡Las contraseñas no coinciden!",
-  "Current and New password couldn't be same" : "La contraseña actual y la nueva no pueden ser iguales"
+  "Current and New password couldn't be same" : "La contraseña actual y la nueva no pueden ser iguales",
+  "New password and current password doesn't same" : "New password and current password doesn't same"
 }

@@ -16,13 +16,11 @@ class HomeCarListController extends GetxController {
   HomeCarListModel homeCarListModel = HomeCarListModel();
 
   Future<void> homeCarList({String search = ""}) async {
-    ApiResponseModel responseModel =
-        await homeCarListRepo.homeCarList(search: search);
+    ApiResponseModel responseModel = await homeCarListRepo.homeCarList(search: search);
 
     if (responseModel.statusCode == 200) {
       isLoading = false;
-      homeCarListModel =
-          HomeCarListModel.fromJson(jsonDecode(responseModel.responseJson));
+      homeCarListModel = HomeCarListModel.fromJson(jsonDecode(responseModel.responseJson));
       update();
     } else {
       Utils.toastMessage(responseModel.message);
