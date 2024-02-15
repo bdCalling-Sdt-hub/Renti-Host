@@ -11,6 +11,8 @@ import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../core/global/api_url_container.dart';
+
 class AllReviewScreen extends StatefulWidget {
   const AllReviewScreen({super.key});
 
@@ -83,12 +85,8 @@ class _AllReviewScreenState extends State<AllReviewScreen> {
                                       carLicense: reviewModel.review![index]
                                           .carId!.carLicenseNumber
                                           .toString(),
-                                      userImg: reviewModel
-                                          .review![index].userId!.image
-                                          .toString(),
-                                      carImg: reviewModel
-                                          .review![index].carId!.image![0]
-                                          .toString(),
+                                      userImg: "${ApiUrlContainer.imageUrl}${reviewModel.review![index].userId!.image.toString()}",
+                                      carImg: "${ApiUrlContainer.imageUrl}${reviewModel.review![index].carId!.image![0].toString()}",
                                       date: DateConverter
                                           .formatDepositTimeWithAmFormat(
                                               reviewModel.review![index].carId!

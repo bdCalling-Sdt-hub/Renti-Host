@@ -7,6 +7,8 @@ import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.da
 import 'package:renti_host/view/widgets/start_end_date/start_end_date.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 // ignore: must_be_immutable
 class HomeCarList extends StatefulWidget {
   HomeCarList({super.key, required this.homeCarListModel});
@@ -74,7 +76,7 @@ class _HomeCarListState extends State<HomeCarList> {
                             image: DecorationImage(
                                 fit: BoxFit.fill,
                                 image: CachedNetworkImageProvider(
-                                  "${widget.homeCarListModel.cars?[index].image?[0]}",
+                                  "${ApiUrlContainer.imageUrl}${widget.homeCarListModel.cars?[index].image?[0]}",
                                 ))),
                       ),
                       Expanded(

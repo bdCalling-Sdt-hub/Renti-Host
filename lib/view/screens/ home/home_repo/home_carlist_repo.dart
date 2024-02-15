@@ -8,8 +8,7 @@ class HomeCarListRepo {
   HomeCarListRepo({required this.apiService});
 
   Future<ApiResponseModel> homeCarList({String search = ""}) async {
-    String uri =
-        "${ApiUrlContainer.baseUrl}${ApiUrlContainer.homeCarList}$search";
+    String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.homeCarList}$search";
     String requestMethod = ApiResponseMethod.getMethod;
 
     ApiResponseModel responseModel =

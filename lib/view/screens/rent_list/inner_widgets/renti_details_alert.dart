@@ -8,6 +8,8 @@ import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/rent_details/custom_rent_details.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 class RentDetailsAlert extends StatelessWidget {
   const RentDetailsAlert(
       {super.key, required this.index, required this.rentListModel});
@@ -52,7 +54,7 @@ class RentDetailsAlert extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               RentDetailsTopSection(
-                  image: rentListModel[index].carId!.image![0],
+                  image: "${ApiUrlContainer.imageUrl}${rentListModel[index].carId!.image![0]}",
                   carName: rentListModel[index].carId!.carModelName.toString(),
                   carModel: rentListModel[index].carId!.year.toString(),
                   requestStatus: rentListModel[index].requestStatus.toString(),

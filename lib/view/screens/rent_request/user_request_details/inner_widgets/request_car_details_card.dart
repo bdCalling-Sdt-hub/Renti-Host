@@ -5,6 +5,8 @@ import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/screens/rent_request/user_request/rent_request_response_model/rent_request_response_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../../core/global/api_url_container.dart';
+
 class RequestCarDetailsCard extends StatefulWidget {
   const RequestCarDetailsCard(
       {super.key, required this.rentRequestResponseModel, required this.index});
@@ -18,7 +20,7 @@ class RequestCarDetailsCard extends StatefulWidget {
 class _RequestCarDetailsCardState extends State<RequestCarDetailsCard> {
   @override
   Widget build(BuildContext context) {
-    String carImg = "${widget.rentRequestResponseModel[widget.index].carId?.image?[0]}";
+    String carImg = "${ApiUrlContainer.imageUrl}${widget.rentRequestResponseModel[widget.index].carId?.image?[0]}";
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

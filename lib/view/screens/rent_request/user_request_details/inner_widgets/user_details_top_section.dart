@@ -6,6 +6,8 @@ import 'package:renti_host/view/screens/rent_request/user_request/rent_request_r
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../../core/global/api_url_container.dart';
+
 class UserDetailsTopSection extends StatefulWidget {
   const UserDetailsTopSection(
       {super.key, required this.rentRequestResponseModel, required this.index});
@@ -19,7 +21,7 @@ class UserDetailsTopSection extends StatefulWidget {
 class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
   @override
   Widget build(BuildContext context) {
-    String img = "${widget.rentRequestResponseModel[widget.index].userId?.image}";
+    String img = "${ApiUrlContainer.imageUrl}${widget.rentRequestResponseModel[widget.index].userId?.image}";
 
     return Row(
       children: [

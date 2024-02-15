@@ -18,6 +18,8 @@ import 'package:renti_host/view/widgets/popups/common_popup.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -60,7 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         String dateOfBirth = "${profileModel.user?.dateOfBirth}";
         String gender = "${profileModel.user?.gender}";
         String address = "${profileModel.user?.address?.country}";
-        String img = "${profileModel.user?.image}";
+        String img = "${ApiUrlContainer.imageUrl}${profileModel.user?.image}";
         String ine = "${profileModel.user?.ine}";
 
         return WillPopScope(

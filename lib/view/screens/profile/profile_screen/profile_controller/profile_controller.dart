@@ -6,6 +6,8 @@ import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_model/profile_model.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
 
+import '../../../../../core/global/api_url_container.dart';
+
 class ProfileController extends GetxController {
   ProfileRepo profileRepo;
   ProfileController({required this.profileRepo});
@@ -25,7 +27,8 @@ class ProfileController extends GetxController {
 
     if (responseModel.statusCode == 200) {
       profileModel = ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
-      img = profileModel.user!.image.toString();
+      img = "${ApiUrlContainer.imageUrl}${profileModel.user!.image.toString()}";
+
       isloading = false;
       update();
     } else {

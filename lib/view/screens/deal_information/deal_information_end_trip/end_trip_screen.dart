@@ -11,6 +11,8 @@ import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 class EndTripScreen extends StatefulWidget {
   const EndTripScreen({super.key});
 
@@ -96,12 +98,10 @@ class _EndTripState extends State<EndTripScreen> {
 
                     // top Section with upload button
                     DealImageSection(
-                        image1: rentListModel[index].carId!.image![0]
-                            .toString(),
-                        image2: rentListModel[index].carId!.image![1]
-                            .toString(),
-                        image3: rentListModel[index].carId!.image![2]
-                            .toString()),
+                        image1: "${ApiUrlContainer.imageUrl}${rentListModel[index].carId!.image![0].toString()}",
+                        image2: "${ApiUrlContainer.imageUrl}${rentListModel[index].carId!.image![1].toString()}",
+                        image3: "${ApiUrlContainer.imageUrl}${rentListModel[index].carId!.image![2].toString()}",
+                    ),
                     const SizedBox(height: 16),
                     CustomElevatedButton(
                       onPressed: () {},

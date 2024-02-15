@@ -10,6 +10,8 @@ import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../core/global/api_url_container.dart';
+
 class CarListScreen extends StatefulWidget {
   const CarListScreen({super.key});
 
@@ -94,7 +96,7 @@ class _CarListScreenState extends State<CarListScreen> {
                                       topRight: Radius.circular(8),
                                     ),
                                     image: DecorationImage(
-                                        image: CachedNetworkImageProvider("${homeCarModel.cars?[index].image?[0]}"),
+                                        image: CachedNetworkImageProvider("${ApiUrlContainer.imageUrl}${homeCarModel.cars?[index].image?[0]}"),
                                         fit: BoxFit.fill),
                                   ),
                                 ),

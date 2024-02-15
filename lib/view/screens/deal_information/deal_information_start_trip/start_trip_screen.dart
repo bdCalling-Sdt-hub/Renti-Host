@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_information.dart';
 import 'package:renti_host/view/screens/deal_information/deal_information_start_trip/inner_widgets/rental_user_information.dart';
@@ -52,12 +53,11 @@ class _StartTripScreenState extends State<StartTripScreen> {
                       bottom: 16),
                   // top Section with upload button
                   DealImageSection(
-                      image1: rentListModel[index].carId!.image![0]
-                          .toString(),
-                      image2: rentListModel[index].carId!.image![1]
-                          .toString(),
-                      image3: rentListModel[index].carId!.image![2]
-                          .toString()),
+                      image1: "${ApiUrlContainer.imageUrl}${rentListModel[index].carId!.image![0].toString()}",
+                      image2: "${ApiUrlContainer.imageUrl}${rentListModel[index].carId!.image![1].toString()}",
+                      image3: "${ApiUrlContainer.imageUrl}${rentListModel[index].carId!.image![2].toString()}"
+
+                  ),
                   /*const SizedBox(height: 16),
                   CustomElevatedButton(
                     onPressed: () {},

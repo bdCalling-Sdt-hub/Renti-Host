@@ -14,6 +14,8 @@ import 'package:renti_host/view/widgets/popups/common_popup.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 class MessageScreen extends StatefulWidget {
   const MessageScreen({super.key});
 
@@ -187,10 +189,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                                 image: DecorationImage(
                                                     fit: BoxFit.cover,
                                                     image:
-                                                        CachedNetworkImageProvider(
-                                                            participant[index]
-                                                                .image
-                                                                .toString()))),
+                                                        CachedNetworkImageProvider("${ApiUrlContainer.imageUrl}${participant[index].image.toString()}"))),
                                           ),
                                           const SizedBox(width: 16),
                                           Expanded(

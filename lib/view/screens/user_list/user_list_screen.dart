@@ -13,6 +13,8 @@ import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../core/global/api_url_container.dart';
+
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
 
@@ -120,7 +122,7 @@ class _UserListScreenState extends State<UserListScreen> {
                                             shape: BoxShape.circle,
                                             image: DecorationImage(
                                               image: CachedNetworkImageProvider(
-                                                "${controller.userList[index].userId?.image}",
+                                                "${ApiUrlContainer.imageUrl}${controller.userList[index].userId?.image}",
                                               ),
                                               fit: BoxFit.fill,
                                             ),

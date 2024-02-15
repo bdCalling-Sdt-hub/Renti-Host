@@ -11,6 +11,8 @@ import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 class WeeklyIncomeScreen extends StatefulWidget {
   const WeeklyIncomeScreen({super.key});
 
@@ -105,7 +107,7 @@ class _WeeklyIncomeScreenState extends State<WeeklyIncomeScreen> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: CachedNetworkImageProvider(
-                                          "${controller.incomeResponseModel.weeklyIncomeList?[index].carId?.image?[0]}"),
+                                          "${ApiUrlContainer.imageUrl}${controller.incomeResponseModel.weeklyIncomeList?[index].carId?.image?[0]}"),
                                       fit: BoxFit.fill,
                                     ),
                                     borderRadius: BorderRadius.circular(4),

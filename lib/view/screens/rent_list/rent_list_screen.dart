@@ -13,6 +13,8 @@ import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../core/global/api_url_container.dart';
+
 class RentListScreen extends StatefulWidget {
   const RentListScreen({super.key});
 
@@ -102,10 +104,9 @@ class _RentListScreenState extends State<RentListScreen> {
                                   ],
                                 ),
                                 child: RentDetailsTopSection(
-                                  image: controller.rentListData[index].userId!.image!.isEmpty
+                                  image: "${ApiUrlContainer.imageUrl}${controller.rentListData[index].userId!.image}".isEmpty
                                       ? AppImages.profileImage
-                                      : controller.rentListData[index].userId!.image
-                                          .toString(),
+                                      : "${ApiUrlContainer.imageUrl}${controller.rentListData[index].userId!.image.toString()}",
                                   carName: controller.rentListData[index].userId!.fullName
                                       .toString(),
                                   carModel: controller.rentListData[index].carId!.year

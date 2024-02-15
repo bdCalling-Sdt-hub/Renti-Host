@@ -12,6 +12,8 @@ import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/start_end_date/start_end_date.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
 
@@ -131,7 +133,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 margin: const EdgeInsets.only(right: 8),
                                 decoration: ShapeDecoration(
                                   image: DecorationImage(
-                                    image: CachedNetworkImageProvider("${controller.payment[index].income?.carId?.image?[0]}"),
+                                    image: CachedNetworkImageProvider("${ApiUrlContainer.imageUrl}${controller.payment[index].income?.carId?.image?[0]}"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: RoundedRectangleBorder(

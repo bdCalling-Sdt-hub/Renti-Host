@@ -7,6 +7,8 @@ import 'package:renti_host/view/screens/user_list/user_list_response_model/user_
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../../core/global/api_url_container.dart';
+
 class UserListDialogBox extends StatefulWidget {
   const UserListDialogBox(
       {super.key, required this.index, required this.userListResponseModel});
@@ -59,7 +61,7 @@ class _UserListDialogBoxState extends State<UserListDialogBox> {
                               shape: BoxShape.circle,
                               image: DecorationImage(
                                 image: CachedNetworkImageProvider(
-                                  widget.userListResponseModel[widget.index].userId!.image.toString(),
+                                  "${ApiUrlContainer.imageUrl}${widget.userListResponseModel[widget.index].userId!.image.toString()}",
                                 ),fit: BoxFit.fill
                               ),
                             ),

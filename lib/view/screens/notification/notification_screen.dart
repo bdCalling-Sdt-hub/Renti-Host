@@ -7,6 +7,8 @@ import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../../../core/global/api_url_container.dart';
+
 class NotificationScreen extends StatelessWidget {
    NotificationScreen({super.key});
 
@@ -64,7 +66,7 @@ class NotificationScreen extends StatelessWidget {
                                margin: const EdgeInsets.only(right: 16),
                                decoration:  BoxDecoration(
                                  color: AppColors.whiteDarkHover,
-                                 image: DecorationImage(image:NetworkImage(data.image!),fit: BoxFit.fill),
+                                 image: DecorationImage(image:NetworkImage("${ApiUrlContainer.imageUrl}${data.image!}"),fit: BoxFit.fill),
                                  shape: BoxShape.circle,
                                ),
 

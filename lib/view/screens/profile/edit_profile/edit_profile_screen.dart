@@ -84,8 +84,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
-                                          image: FileImage(
-                                              File(controller.imageFile!.path)),
+                                          image: FileImage(File(controller.imageFile!.path)),
                                           fit: BoxFit.contain)),
                                 ),
                           Align(

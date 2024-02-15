@@ -255,7 +255,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),*/
 
                 //Admin Section
-                GestureDetector(
+             /*   GestureDetector(
                   onTap: () => Get.toNamed(AppRoute.adminInfoScreen),
                   child: Container(
                     width: double.maxFinite,
@@ -280,7 +280,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ],
                     ),
                   ),
-                ),
+                ),*/
                 //Divider
                 const Padding(
                   padding: EdgeInsets.only(top: 8),
