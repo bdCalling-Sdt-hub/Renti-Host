@@ -114,7 +114,23 @@ class _CarListScreenState extends State<CarListScreen> {
                                               : AppColors.greenLight,
                                           borderRadius: BorderRadius.circular(4),
                                         ),
-                                        child: homeCarModel.cars?[index].tripStatus == "Start"
+                                        child:  CustomText(
+                                          text: homeCarModel.cars ?[index].tripStatus == "Start" ? "Reserved"
+                                              :  homeCarModel.cars?[index].isCarActive == "Pending" ? "Pending"
+                                              :  homeCarModel.cars?[index].isCarActive == "Active" ? "Active"
+                                              : homeCarModel.cars?[index].isCarActive == "Cancel" ? "Cancel"
+                                              : "Deactive",
+                                          fontSize: 10,
+
+                                          color: homeCarModel.cars ?[index].tripStatus == "Start" ? AppColors.greenLight
+                                              :  homeCarModel.cars?[index].isCarActive == "Pending" ? Colors.orangeAccent
+                                              :  homeCarModel.cars?[index].isCarActive == "Active" ? AppColors.greenNormal
+                                              : homeCarModel.cars?[index].isCarActive == "Cancel" ? AppColors.redNormal
+                                              : Colors.orange,
+
+                                        )
+
+                                        /*homeCarModel.cars?[index].tripStatus == "Start"
                                             ? CustomText(
                                             text: "Reserved".toString(),
                                             color: AppColors.redNormal,
@@ -122,7 +138,7 @@ class _CarListScreenState extends State<CarListScreen> {
                                             : CustomText(
                                             text: "Active".toString(),
                                             color: AppColors.greenNormal,
-                                            fontSize: 10),
+                                            fontSize: 10),*/
                                       ),
                                       CustomText(
                                           maxLines: 1,overflow: TextOverflow.ellipsis,
