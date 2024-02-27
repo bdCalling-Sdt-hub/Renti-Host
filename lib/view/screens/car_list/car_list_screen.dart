@@ -121,7 +121,6 @@ class _CarListScreenState extends State<CarListScreen> {
                                               : homeCarModel.cars?[index].isCarActive == "Cancel" ? "Cancel"
                                               : "Deactive",
                                           fontSize: 10,
-
                                           color: homeCarModel.cars ?[index].tripStatus == "Start" ? AppColors.greenLight
                                               :  homeCarModel.cars?[index].isCarActive == "Pending" ? Colors.orangeAccent
                                               :  homeCarModel.cars?[index].isCarActive == "Active" ? AppColors.greenNormal

@@ -138,8 +138,8 @@ class ReservedDetails extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8),
-        Row(
+
+       /* Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -154,7 +154,7 @@ class ReservedDetails extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
           ],
-        ),
+        ),*/
 
         //This Section Needed When car in Reserved
         homeCarListModel.cars![index].tripStatus == "Start" ?

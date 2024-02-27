@@ -27,7 +27,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
   Widget build(BuildContext context) {
     return  widget.homeCarListModel
         .cars![widget.index].isCarActive
-        .toString()=="Active" || widget.homeCarListModel
+        .toString()=="Active"|| widget.homeCarListModel
         .cars![widget.index].isCarActive
         .toString()=="Deactive" ?  PopupMenuButton(
       color: AppColors.whiteLight,
@@ -69,7 +69,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
               ),
               CustomText(text: widget.homeCarListModel
                   .cars![widget.index].isCarActive
-                  .toString()=="Active" ? "Deactive"  : "Active"
+                  .toString()=="Active" ? "Deactive".tr  : "Active".tr
                   .toString()  , left: 16),
             ],
           )

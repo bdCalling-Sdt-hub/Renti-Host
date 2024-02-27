@@ -24,17 +24,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     DeviceUtils.splashUtils();
-    rememberMe();
+   // rememberMe();
     super.initState();
   }
 
-  rememberMe() async{
-    final prefs = await SharedPreferences.getInstance();
-    final accessToken = prefs.getString(SharedPreferenceHelper.accessTokenKey);
-    if(accessToken != null && accessToken.isNotEmpty){
-      Timer(const Duration(seconds: 1), () => Get.offAndToNamed(AppRoute.navigation));
-    }
-  }
+  // rememberMe() async{
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final accessToken = prefs.getString(SharedPreferenceHelper.accessTokenKey);
+  //   if(accessToken != null && accessToken.isNotEmpty){
+  //     Timer(const Duration(seconds: 1), () => Get.offAndToNamed(AppRoute.navigation));
+  //   }
+  // }
 
   @override
   void dispose() {

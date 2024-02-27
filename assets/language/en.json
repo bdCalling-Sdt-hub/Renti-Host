@@ -95,6 +95,9 @@
   "Total car": "Total car",
   "Active": "Active",
   "Reserved": "Reserved",
+  "Deactive" : "Deactive",
+  "Pending": "Pending",
+  "Cancel" : "Cancel",
   "Please wait for admin’s approval.": "Please wait for admin’s approval.",
   "Add New Car": "Add New Car",
   "Cars List": "Cars List",
@@ -289,4 +292,5 @@
   "Password doesn't match" : "Password doesn't match",
   "Current and New password couldn't be same" : "Current and New password couldn't be same",
   "New password and current password doesn't same" : "La nueva contraseña y la contraseña actual no son iguales"
+
 }

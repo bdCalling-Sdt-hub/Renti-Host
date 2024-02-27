@@ -272,7 +272,6 @@ class SignUpController extends GetxController {
   //     update();
   //   }
   // }
-
 /*  //INE get by Camara
   Future<void> clickedIneOrPassportFile() async {
     final picked = await ImagePicker().pickImage(source: ImageSource.camera);
@@ -304,8 +303,6 @@ class SignUpController extends GetxController {
       update();
     }
   }*/
-
-
   // void removeIneOrPassportFile() {
   //   if (kycDocFiles.contains(uploadINEOrPassport)) {
   //     kycDocFiles.remove(uploadINEOrPassport);
@@ -411,45 +408,6 @@ class SignUpController extends GetxController {
         request.files.add(multipartImg);
       }
 
-
-      //
-      //
-      //   if (file.existsSync()) {
-      //     try {
-      //       var multipartFile = await http.MultipartFile.fromPath(
-      //           'KYC', file.path,
-      //           contentType: MediaType('application', 'pdf'));
-      //       request.files.add(multipartFile);
-      //     } on Exception catch (e) {
-      //       print("Error is :${e.toString()}");
-      //     }
-      //   } else {
-      //     print('File does not exist: ${file.path}');
-      //   }
-      //
-      //   if (file.existsSync()) {
-      //     try {
-      //       var multipartFile = await http.MultipartFile.fromPath(
-      //           "KYC", file.path,
-      //           contentType: MediaType('image', 'jpeg'));
-      //       request.files.add(multipartFile);
-      //       if (kDebugMode) {
-      //         print(file.path);
-      //       }
-      //     } on Exception catch (e) {
-      //       if (kDebugMode) {
-      //         print("Error is :${e.toString()}");
-      //       }
-      //     }
-      //   } else {
-      //     if (kDebugMode) {
-      //       print('File does not exist: ${file.path}');
-      //     }
-      //     // Handle the missing file gracefully, e.g., skip it or show an error message.
-      //   }
-      // }
-      //
-      // Add the image file to the request
       if (imageFile != null && imageFile!.existsSync()) {
         try {
           var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType: MediaType('image', 'jpeg'));
