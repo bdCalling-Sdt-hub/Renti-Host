@@ -177,6 +177,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 textEditingController:
                                 controller.phoneNumberController,
                                 keyboardType: TextInputType.phone,
+                                maxLength: 13,
                                 hintText: "Enter phone number".tr,
                                 hintStyle: GoogleFonts.poppins(
                                     fontSize: 14,

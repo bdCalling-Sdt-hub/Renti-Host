@@ -77,7 +77,7 @@ class _SearchFilterState extends State<SearchFilter> {
 
               //Pop Up
 
-              SizedBox(
+             /* SizedBox(
                 width: 55,
                 child: PopupMenuButton(
                   position: PopupMenuPosition.under,
@@ -139,7 +139,7 @@ class _SearchFilterState extends State<SearchFilter> {
                     ),
                   ),
                 ),
-              ),
+              ),*/
             ],
           ),
         ),

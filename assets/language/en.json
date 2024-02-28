@@ -123,7 +123,7 @@
   "Rent List": "Rent List",
   "Reviews": "Reviews",
   "Income": "Income",
-  "Notification": "Notification",
+  "Notification": "Notifications",
   "Admin Info": "Admin Info",
   "Settings": "Settings",
   "How Renti Works": "How Renti Works",
@@ -221,7 +221,7 @@
   "Type Review": "Type Review",
   "Send Review": "Send Review",
   "Car Information": "Car Information",
-  "Users Request": "Users Request",
+  "Users Request": "Users Requests",
   "Cancel": "Cancel",
   "Approve": "Approve",
   "User details": "User details",
@@ -291,6 +291,7 @@
   "Password does not match!":  "Password does not match!",
   "Password doesn't match" : "Password doesn't match",
   "Current and New password couldn't be same" : "Current and New password couldn't be same",
-  "New password and current password doesn't same" : "La nueva contraseña y la contraseña actual no son iguales"
+  "New password and current password doesn't same" : "La nueva contraseña y la contraseña actual no son iguales",
+  "PLease Click the resent button" : "PLease Click the resent button"
 
 }

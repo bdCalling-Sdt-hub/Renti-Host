@@ -8,6 +8,7 @@ import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_repo/sign_in_repo.dart';
 import 'package:renti_host/view/screens/auth/signin/sign_in_response_model/sign_in_response_model.dart';
+import 'package:renti_host/view/screens/auth/signup/kyc/kyc_number_verification/kyc_controller/kyc_controller.dart';
 
 class SignInController extends GetxController {
   SignInRepo signInRepo;
@@ -74,7 +75,7 @@ class SignInController extends GetxController {
 
     if (emailVerified == false && approved ==  false) {
       Get.offNamed(AppRoute.kycNumberVerification);
-      Utils.snackBar("Alert!".tr, "Email is not verified".tr);
+      Utils.snackBar("Alert!".tr, "PLease Click the resend button".tr);
     }
     else if (emailVerified == true && approved == true && isBanned != "true") {
       signInRepo.apiService.sharedPreferences.setString(SharedPreferenceHelper.userIdKey, signInResponseModel.user?.id.toString() ?? "");
