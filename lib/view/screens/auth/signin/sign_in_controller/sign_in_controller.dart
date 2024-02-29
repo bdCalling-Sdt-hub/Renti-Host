@@ -26,6 +26,8 @@ class SignInController extends GetxController {
 
   //Sign In Function that call for Authentication
   Future<void> signInUser() async {
+
+
     //Is SignIn Button Clicked then value is change to True
     isSubmit = true;
     update();
@@ -40,7 +42,7 @@ class SignInController extends GetxController {
       print(emailController.text);
       print(passwordController.text);
     }
-
+SignInResponseModel signInResponseModel = SignInResponseModel();
     if (responseModel.statusCode == 200) {
       SignInResponseModel signInResponseModel = SignInResponseModel.fromJson(jsonDecode(responseModel.responseJson));
       if(signInResponseModel.user?.role == "host"){

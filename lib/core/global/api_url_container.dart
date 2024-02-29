@@ -7,14 +7,14 @@ class ApiUrlContainer {
 
 
 /// local url
- // static const String baseUrl = "http://192.168.10.14:3001/api/";
- //  static const String socketGlobal = "http://192.168.10.14:9000";
- // static const String imageUrl = "http://192.168.10.14:3001";
+//  static const String baseUrl = "http://192.168.10.14:3001/api/";
+//  static const String socketGlobal = "http://192.168.10.14:9000";
+//  static const String imageUrl = "http://192.168.10.14:3001";
 
   //Auth
-  static const String signInEndPoint = "user/sign-in";
+  static const String signInEndPoint = "user/host/sign-in";
   static const String signUpEndPoint = "user/signup";
-  static const String forgotPassEndPoint = "user/forget-password";
+  static const String forgotPassEndPoint = "user/host/forget-password";
   static const String oneTimeCodeEndPoint = "user/verify-code";
   static const String resetPassEndPoint = "user/update-password";
   static const String emailVerify = "user/verify";
