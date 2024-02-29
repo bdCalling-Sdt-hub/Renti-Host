@@ -99,8 +99,16 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     const SizedBox(height: 24),
                     CustomElevatedButton(
-                      onPressed: () {
-                        Get.toNamed(AppRoute.signInScreen);
+                      onPressed: () async{
+                          final prefs = await SharedPreferences.getInstance();
+                          final accessToken = prefs.getString(SharedPreferenceHelper.accessTokenKey);
+                          if(accessToken == null || accessToken.isEmpty){
+                            Get.toNamed(AppRoute.signInScreen);
+                          }
+                          else{
+                            Get.offAndToNamed(AppRoute.navigation);
+                          }
+
                       },
                       titleText: "Get Started".tr,
                       buttonWidth: double.maxFinite,
