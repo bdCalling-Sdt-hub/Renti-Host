@@ -11,7 +11,7 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key});
-
+final bool isBack = false;
   @override
   State<CustomNavBar> createState() => _CustomNavBarState();
 }
@@ -31,7 +31,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
       const HomeScreen(),
       const UserRequestScreen(),
       const MessageScreen(),
-      const ProfileScreen()
+       ProfileScreen(isBack: widget.isBack,)
     ];
     List<Widget> manuBarItems = [
       MenuBarItems(

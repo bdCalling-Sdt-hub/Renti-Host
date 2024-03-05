@@ -160,7 +160,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                         Flexible(
                                           child: CustomText(
                                             maxLines: 1,overflow: TextOverflow.ellipsis,
-                                            text: "\$${controller.payment[index].myPayment}",
+                                            text: "\$${(controller.payment[index].myPayment! / 100).toInt()}",
                                             textAlign: TextAlign.right,
                                             color: AppColors.blueNormal,
                                             fontWeight: FontWeight.w700,

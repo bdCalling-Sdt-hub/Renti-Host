@@ -67,15 +67,7 @@ class _SignUpBankState extends State<SignUpBank> {
                             return null;
                           },
                         ),
-                        /*Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.error_outline,size: 12,color: AppColors.redNormal),
-                              CustomText(text: "Account number must be 16 digits".tr,color: AppColors.redNormal,fontSize: 10),
-                            ],
-                          ),
-                        ),*/
+
 
                         CustomText(text: "Account Holder Name".tr, bottom: 12,top: 16),
                         CustomTextField(

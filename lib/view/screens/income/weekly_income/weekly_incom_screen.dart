@@ -139,8 +139,8 @@ class _WeeklyIncomeScreenState extends State<WeeklyIncomeScreen> {
                                             child: CustomText(
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis,
-                                              text:
-                                                  "\$${controller.incomeResponseModel.weeklyIncomeList?[index].paymentData?.amount}",
+                                              //text: "\$${(controller.payment[index].myPayment / 100).toInt()}"
+                                              text: "\$${(controller.incomeResponseModel.weeklyIncomeList?[index].paymentData?.amount ?? 0) ~/ 100}",
                                               color: AppColors.blueNormal,
                                               fontWeight: FontWeight.w700,
                                               bottom: 8,

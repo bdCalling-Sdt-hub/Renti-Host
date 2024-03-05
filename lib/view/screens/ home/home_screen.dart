@@ -11,12 +11,14 @@ import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
+import 'package:renti_host/view/screens/profile/profile_screen/profile_screen.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/drawer/custom_drawer.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/popups/common_popup.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../core/global/api_url_container.dart';
 import '../../../core/helper/shear_preference_helper.dart';
 import '../../../service/api_service.dart';
 import '../../../service/socket_service.dart';
@@ -153,17 +155,19 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                   width: 4,
                 ),
                 GetBuilder<ProfileController>(
+
                   builder: (controller) {
+
                     if (controller.isloading == true) {
                       return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
-                    return GestureDetector(
+                    return  GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoute.profileScreen);
+                        Get.to(const ProfileScreen(isBack: true));
                       },
-                      child: Container(
+                      child:controller.img.isNotEmpty?Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -173,7 +177,13 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         ),
                         height: 50,
                         width: 40,
-                      ),
+                      ) :Container(
+                        height: 50,
+                        width: 40,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(image: AssetImage(AppImages.profileImage))
+                        ),
+                      )
                     );
                   },
                 ),

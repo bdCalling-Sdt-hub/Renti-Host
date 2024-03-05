@@ -21,13 +21,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/global/api_url_container.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
-
+   const ProfileScreen({super.key,required this.isBack});
+   final bool isBack;
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
-
 class _ProfileScreenState extends State<ProfileScreen> {
+
+
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
@@ -92,17 +93,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
               appBar: CustomAppBar(
                 appBarContent: Row(
                   children: [
-
-                    IconButton(onPressed: (){
+                    widget.isBack ? IconButton(onPressed: (){
                       Get.back();
-                    }, icon: const Icon(Icons.arrow_back_ios_new_outlined,color: AppColors.black,)),
+                    }, icon:const Icon(Icons.arrow_back_ios_new_outlined,color: AppColors.black,)) : const SizedBox(),
                     CustomText(
                       text: "Profile".tr,
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
                   ],
-                ),
+                )
               ),
               body: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) =>

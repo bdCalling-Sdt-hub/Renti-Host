@@ -178,7 +178,7 @@ class AppRoute {
     GetPage(name: inboxScreen, page: () => const InboxScreen()),
 
     //Profile and inner Screens
-    GetPage(name: profileScreen, page: () => const ProfileScreen()),
+    //GetPage(name: profileScreen, page: () =>  const ProfileScreen(isBack: false,)),
     GetPage(name: editProfileScreen, page: () => const EditProfileScreen()),
 
     GetPage(name: noInternet, page: () => const NoInternetScreen()),

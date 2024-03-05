@@ -178,7 +178,8 @@ class _RentFeeScreenState extends State<RentFeeScreen> {
                                                     child: CustomText(
                                                       maxLines: 1,
                                                       overflow: TextOverflow.ellipsis,
-                                                      text: "\$${controller.payment[index].rentiFee}",
+                                                      text: "\$${(controller.payment[index].rentiFee! / 100).toInt()}",
+                                                      // text: "\$${controller.payment[index].rentiFee}",
                                                       textAlign: TextAlign.right,
                                                       color: AppColors.blueNormal,
                                                       fontWeight: FontWeight.w700,
