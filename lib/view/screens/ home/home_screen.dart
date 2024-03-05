@@ -193,7 +193,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
           body: GetBuilder<HomeCarListController>(
             builder: (controller) {
               HomeCarListModel homeCarListModel = controller.homeCarListModel;
-
               if (controller.isLoading == true) {
                 return const Center(
                   child: CircularProgressIndicator(),
