@@ -198,89 +198,92 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                   child: CircularProgressIndicator(),
                 );
               }
-              return LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  return SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        HomeTopSection(
-                          activeCar: homeCarListModel.activeCar.toString(),
-                          reservedCar: homeCarListModel.reservedCar.toString(),
-                          totalCar: homeCarListModel.totalCar.toString(),
-                          deActiveCar: homeCarListModel.deActiveCar.toString(),
-                          pendingCar: homeCarListModel.pendingCar.toString(),
-                          adminCancelCar: homeCarListModel.adminCancelCar.toString(),
-                        ),
-
-                        //Add car Section
-                        if (homeCarListModel.totalCar! <= 0)
-                          Column(
-                            children: [
-                              const SizedBox(height: 80),
-                              const CustomImage(
-                                  imageSrc: AppImages.adminApprovalImage,
-                                  imageType: ImageType.png),
-                              const SizedBox(height: 48),
-                              GestureDetector(
-                                onTap: () {
-                                  Get.toNamed(AppRoute.addCarsScreens);
-                                },
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const CustomImage(
-                                      imageSrc: AppIcons.addCar,
-                                      size: 24,
-                                      imageColor: AppColors.blueNormal,
-                                    ),
-                                    CustomText(
-                                      text: "Add New Car".tr,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.blueNormal,
-                                      left: 8,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        //This is the car list section... If host have previous car data that will Show here otherwise the screen show to Add New Car
-
-                        if (homeCarListModel.totalCar! > 0)
-                          const SizedBox(height: 16),
-                        if (homeCarListModel.totalCar! > 0)
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              CustomText(
-                                  text: "Cars List".tr,
-                                  fontWeight: FontWeight.w600),
-                              GestureDetector(
-                                onTap: () {
-                                  Get.toNamed(AppRoute.seeAllCarList,
-                                      arguments: homeCarListModel);
-                                },
-                                child: CustomText(
-                                  text: "See all".tr,
-                                  color: AppColors.blueNormal,
-                                ),
-                              ),
-                            ],
-                          ),
-                        if (homeCarListModel.totalCar! > 0)
-                          HomeCarList(homeCarListModel: homeCarListModel)
-                      ],
-                    ),
-                  );
+              return RefreshIndicator(
+                color: AppColors.blueNormal,
+                backgroundColor: Colors.white,
+                onRefresh: () async {
+                  print("Refresh triggered");
+                  await Future.delayed(const Duration(seconds: 4));
+                  controller.homeCarList(); // Refresh data
+                  print("Refresh completed");
                 },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24.0,horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      HomeTopSection(
+                        activeCar: homeCarListModel.activeCar.toString(),
+                        reservedCar: homeCarListModel.reservedCar.toString(),
+                        totalCar: homeCarListModel.totalCar.toString(),
+                        deActiveCar: homeCarListModel.deActiveCar.toString(),
+                        pendingCar: homeCarListModel.pendingCar.toString(),
+                        adminCancelCar: homeCarListModel.adminCancelCar.toString(),
+                      ),
+
+                      // Add car Section
+                      if (homeCarListModel.totalCar! <= 0)
+                        Column(
+                          children: [
+                            const SizedBox(height: 80),
+                            const CustomImage(
+                              imageSrc: AppImages.adminApprovalImage,
+                              imageType: ImageType.png,
+                            ),
+                            const SizedBox(height: 48),
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(AppRoute.addCarsScreens);
+                              },
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const CustomImage(
+                                    imageSrc: AppIcons.addCar,
+                                    size: 24,
+                                    imageColor: AppColors.blueNormal,
+                                  ),
+                                  CustomText(
+                                    text: "Add New Car".tr,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.blueNormal,
+                                    left: 8,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      if (homeCarListModel.totalCar! > 0) const SizedBox(height: 16),
+                      if (homeCarListModel.totalCar! > 0)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CustomText(
+                              text: "Cars List".tr,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(AppRoute.seeAllCarList,
+                                    arguments: homeCarListModel);
+                              },
+                              child: CustomText(
+                                text: "See all".tr,
+                                color: AppColors.blueNormal,
+                              ),
+                            ),
+                          ],
+                        ),
+                      if (homeCarListModel.totalCar! > 0)
+                        Expanded(child: HomeCarList(homeCarListModel: homeCarListModel))
+                    ],
+                  ),
+                ),
               );
             },
           ),

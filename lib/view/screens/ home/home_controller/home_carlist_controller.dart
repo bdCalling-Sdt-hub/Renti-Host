@@ -6,7 +6,61 @@ import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/screens/%20home/home_repo/home_carlist_repo.dart';
 
+
+
 class HomeCarListController extends GetxController {
+  HomeCarListRepo homeCarListRepo;
+  HomeCarListController({required this.homeCarListRepo});
+
+  bool isLoading = true;
+
+  TextEditingController searchController = TextEditingController();
+  HomeCarListModel homeCarListModel = HomeCarListModel();
+
+  Future<void> homeCarList({String search = ""}) async {
+    try {
+      ApiResponseModel responseModel = await homeCarListRepo.homeCarList(search: search);
+
+      if (responseModel.statusCode == 200) {
+        isLoading = false;
+        homeCarListModel = HomeCarListModel.fromJson(jsonDecode(responseModel.responseJson));
+        update(); // Ensure to call update() after updating the model
+      } else {
+        Utils.toastMessage(responseModel.message);
+      }
+    } finally {
+      // Complete the refresh operation
+      // This ensures that the refresh indicator disappears after completion
+      isLoading = false;
+      update();
+    }
+  }
+
+  @override
+  void onInit() {
+    homeCarList();
+    super.onInit();
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*class HomeCarListController extends GetxController {
   HomeCarListRepo homeCarListRepo;
   HomeCarListController({required this.homeCarListRepo});
 
@@ -32,4 +86,4 @@ class HomeCarListController extends GetxController {
     homeCarList();
     super.onInit();
   }
-}
+}*/
