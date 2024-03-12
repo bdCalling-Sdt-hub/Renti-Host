@@ -12,7 +12,7 @@ class CarType extends StatefulWidget {
 }
 
 class _CarTypeState extends State<CarType> {
-  List<String> types = [ "Luxury","Standard"];
+  List<String> types = ["Luxury","Standard",];
   int selectedItem = 0;
 
   @override

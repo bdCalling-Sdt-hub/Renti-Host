@@ -44,7 +44,7 @@ class AddCarController extends GetxController {
 
   String selectedYear = "2023";
   String selectedText = "Baby Car Seat";
-  String selectedCarType = "Standard";
+  String selectedCarType = "Luxury";
   String selectedGearType = "Manual";
 
 
@@ -278,7 +278,7 @@ class AddCarController extends GetxController {
       }
          int imageCount = 0;
       for (var img in addCarImages) {
-        if (imageCount == 3 && img != null && img.existsSync()) {
+        if (imageCount < 3 && img != null && img.existsSync()) {
           try {
             var mimeType = lookupMimeType(img.path);
             print("==================>MimeType=>$mimeType");
