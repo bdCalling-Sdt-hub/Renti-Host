@@ -33,69 +33,60 @@ class SearchScreen extends StatelessWidget {
                   text: "Search".tr,
                   color: AppColors.blackNormal),
             ),
-            body: RefreshIndicator(
-              color: AppColors.blueNormal,
-              backgroundColor: Colors.white,
-              onRefresh: () async {
-                print("asdh asdkjhf asdfkh HUmayun kabir111");
-               // await controller.homeCarList();
-                return Future<void>.delayed(const Duration(seconds: 3));
-              },
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    TextFormField(
-                      controller: controller.searchController,
-                      onChanged: (value) {
-                        Future.delayed(
-                          const Duration(seconds: 1),
-                          () {
-                            controller.homeCarList(search: "?search=$value");
-                          },
-                        );
-                      },
-                      cursorColor: AppColors.blackNormal,
-                      showCursor: true,
-                      style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.blackNormal),
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.search_outlined,
-                            size: 20, color: AppColors.whiteNormalActive),
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            controller.searchController.clear();
-                            controller.homeCarList(search: "");
-                          },
-                          child: const Icon(
-                            Icons.cancel_outlined,
-                            size: 15,
-                            color: AppColors.blueNormal,
-                          ),
-                        ),
-                        hintText: "Find Car Model".tr,
-                        hintStyle: const TextStyle(
-                            color: AppColors.whiteNormalActive,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(color: AppColors.whiteNormalActive, width: 1)),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: const BorderSide(
-                              color: AppColors.whiteNormalActive, width: 1),
+            body: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextFormField(
+                    controller: controller.searchController,
+                    onChanged: (value) {
+                      Future.delayed(
+                        const Duration(seconds: 1),
+                        () {
+                          controller.homeCarList(search: "?search=$value");
+                        },
+                      );
+                    },
+                    cursorColor: AppColors.blackNormal,
+                    showCursor: true,
+                    style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.blackNormal),
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.search_outlined,
+                          size: 20, color: AppColors.whiteNormalActive),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          controller.searchController.clear();
+                          controller.homeCarList(search: "");
+                        },
+                        child: const Icon(
+                          Icons.cancel_outlined,
+                          size: 15,
+                          color: AppColors.blueNormal,
                         ),
                       ),
+                      hintText: "Find Car Model".tr,
+                      hintStyle: const TextStyle(
+                          color: AppColors.whiteNormalActive,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(color: AppColors.whiteNormalActive, width: 1)),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(
+                            color: AppColors.whiteNormalActive, width: 1),
+                      ),
                     ),
-                    HomeCarList(homeCarListModel: controller.homeCarListModel)
-                  ],
-                ),
+                  ),
+                  HomeCarList(homeCarListModel: controller.homeCarListModel)
+                ],
               ),
             ),
           ),

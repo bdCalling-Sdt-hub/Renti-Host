@@ -50,12 +50,6 @@ class AddCarController extends GetxController {
 
   List<File> addCarImages = [];
 
- /* File? uploadCarLic;
-  File? uploadCarInsPolicy;
-  File? uploadCirculationCard;
-  File? uploadCarInvoice;
-  File? uploadREPUVE;*/
-
   List  addCarDocumentsFiles = [];
   String uploadCarLicPath = "";
   String uploadCarInsPolicyPath = "";
@@ -178,7 +172,6 @@ class AddCarController extends GetxController {
     }
   }
 
-
   File? firstImg;
   File? secondImg;
   File? thirdImg;
@@ -190,6 +183,7 @@ class AddCarController extends GetxController {
     );
 
     if (pickedFile != null) {
+      File pickedImage = File(pickedFile.path);
       if (index == 0) {
         firstImg = File(pickedFile.path);
         addCarImages.add(firstImg!);
@@ -197,14 +191,13 @@ class AddCarController extends GetxController {
       } else if (index == 1) {
         secondImg = File(pickedFile.path);
         addCarImages.add(secondImg!);
-
         update();
       } else if (index == 2) {
         thirdImg = File(pickedFile.path);
         addCarImages.add(thirdImg!);
-
         update();
       }
+      print('======================>Image path: ${pickedImage.path}');
     }
   }
 
@@ -283,28 +276,9 @@ class AddCarController extends GetxController {
         );
         request.files.add(multipartImg);
       }
-
-/*      for (var files in addCarDocumentsFiles) {
-        if (files!=null&&files.existsSync()) {
-          try {
-            var mimeType = lookupMimeType(files);
-          print("===================FileType========$mimeType");
-            var multipartFile = await http.MultipartFile.fromPath(
-              'KYC',
-              files,
-              contentType: MediaType.parse(mimeType!),
-            );
-            request.files.add(multipartFile);
-          } on Exception catch (e) {
-            print("Error is: ${e.toString()}");
-          }
-        } else {
-          print('File does not exist: ${files}');
-        }
-      }*/
-
+         int imageCount = 0;
       for (var img in addCarImages) {
-        if (img != null && img.existsSync()) {
+        if (imageCount == 3 && img != null && img.existsSync()) {
           try {
             var mimeType = lookupMimeType(img.path);
             print("==================>MimeType=>$mimeType");
@@ -315,11 +289,12 @@ class AddCarController extends GetxController {
               contentType: MediaType.parse(mimeType!),
             );
             request.files.add(multipartImg);
+            imageCount++;
           } on Exception catch (e) {
             print("Error is :${e.toString()}");
           }
         } else {
-          print('File does not exist or is null.');
+          print('File does not exist, is null, or more than 3 images have been selected.');
         }
       }
 
