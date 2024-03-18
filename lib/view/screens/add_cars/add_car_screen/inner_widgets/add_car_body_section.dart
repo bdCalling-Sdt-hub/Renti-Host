@@ -127,6 +127,7 @@ class _AddCarBodySectionState extends State<AddCarBodySection> {
               CustomText(text: "Car Description".tr, top: 16, bottom: 12),
               CustomTextField(
                 textEditingController: controller.carDescription,
+                maxLines: 3,
                 textInputAction: TextInputAction.next,
                 hintText: "Enter Description".tr,
                 hintStyle: hintStyle,

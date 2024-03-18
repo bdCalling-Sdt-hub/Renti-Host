@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/view/screens/notification/notification_controller.dart';
@@ -8,6 +9,7 @@ import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
 import '../../../core/global/api_url_container.dart';
+import '../../widgets/image/custom_image.dart';
 
 class NotificationScreen extends StatelessWidget {
    NotificationScreen({super.key});
@@ -31,6 +33,27 @@ class NotificationScreen extends StatelessWidget {
         body: LayoutBuilder(
           builder: (context, constraints) => Obx(()=>_notificationController.loading.value?const Center(
             child: CircularProgressIndicator(),
+          ):_notificationController.allNotificationList.isEmpty?Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CustomImage(
+                  imageSrc: "assets/icons/empty.svg",
+                  imageType: ImageType.svg,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "No Data Found".tr,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                      color: const Color(0xffCCCCCC),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400
+                  ),
+                )
+              ],
+            ),
           ):
              ListView.builder(
                itemCount: _notificationController.allNotificationList.length,

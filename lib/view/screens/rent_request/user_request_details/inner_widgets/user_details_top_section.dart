@@ -37,7 +37,7 @@ class _UserDetailsTopSectionState extends State<UserDetailsTopSection> {
                     imageUrl: img,
                     placeholder: (context, url) =>
                         const CircularProgressIndicator(),
-                    errorWidget: (context, url, error) =>
+                           errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                   ),
                 ),

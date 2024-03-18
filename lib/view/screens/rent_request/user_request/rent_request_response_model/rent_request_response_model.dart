@@ -28,7 +28,7 @@ class RentRequest {
   String? id;
   String? rentTripNumber;
   String? totalAmount;
-  String? totalHours;
+  String? totalDays;
   String? requestStatus;
   DateTime? startDate;
   DateTime? endDate;
@@ -44,7 +44,7 @@ class RentRequest {
     this.id,
     this.rentTripNumber,
     this.totalAmount,
-    this.totalHours,
+    this.totalDays,
     this.requestStatus,
     this.startDate,
     this.endDate,
@@ -65,7 +65,7 @@ class RentRequest {
     id: json["_id"],
     rentTripNumber: json["rentTripNumber"],
     totalAmount: json["totalAmount"],
-    totalHours: json["totalHours"],
+    totalDays: json["totalDays"],
     requestStatus: json["requestStatus"],
     startDate: json["startDate"] == null ? null : DateTime.parse(json["startDate"]),
     endDate: json["endDate"] == null ? null : DateTime.parse(json["endDate"]),
@@ -82,7 +82,7 @@ class RentRequest {
     "_id": id,
     "rentTripNumber": rentTripNumber,
     "totalAmount": totalAmount,
-    "totalHours": totalHours,
+    "totalDays": totalDays,
     "requestStatus": requestStatus,
     "startDate": startDate?.toIso8601String(),
     "endDate": endDate?.toIso8601String(),

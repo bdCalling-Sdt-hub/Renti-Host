@@ -27,7 +27,11 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
     // Use the regular expression to extract the date part
     String formattedStartDate = datePattern.firstMatch(startDateString)?.group(0) ?? '';
 
+
+
     String formattedEndDate = datePattern.firstMatch(endDateString)?.group(0) ?? '';
+
+    print("==================TOtal TIme ==>${widget.rentRequestResponseModel[widget.index].totalDays?.toString()}");
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Column(
@@ -63,7 +67,7 @@ class _RequestCarDetailsState extends State<RequestCarDetails> {
               const SizedBox(width: 24),
               Flexible(
                 child: CustomText(
-                    text: "${widget.rentRequestResponseModel[widget.index].totalHours}h",
+                    text: "${widget.rentRequestResponseModel[widget.index].totalDays?.toString()} days",
                     maxLines: 1,overflow: TextOverflow.ellipsis,
                     fontSize: 16,
                     fontWeight: FontWeight.w500),

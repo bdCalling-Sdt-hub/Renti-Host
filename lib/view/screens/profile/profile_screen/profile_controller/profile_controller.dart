@@ -17,7 +17,6 @@ class ProfileController extends GetxController {
     profile();
     super.onInit();
   }
-
   String img = "";
   ProfileModel profileModel = ProfileModel();
 
@@ -27,8 +26,7 @@ class ProfileController extends GetxController {
 
     if (responseModel.statusCode == 200) {
       profileModel = ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
-      img = "${ApiUrlContainer.imageUrl}${profileModel.user!.image.toString()}";
-
+      img = "${ApiUrlContainer.imageUrl}${profileModel.user?.image.toString()}";
       isloading = false;
       update();
     } else {

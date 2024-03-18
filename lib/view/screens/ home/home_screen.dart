@@ -176,10 +176,10 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                           ),
                         ),
                         height: 50,
-                        width: 40,
+                        width: 50,
                       ) :Container(
                         height: 50,
-                        width: 40,
+                        width: 50,
                         decoration: const BoxDecoration(
                             image: DecorationImage(image: AssetImage(AppImages.profileImage))
                         ),

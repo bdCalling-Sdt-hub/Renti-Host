@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
 import 'package:renti_host/utils/app_colors.dart';
 import 'package:renti_host/utils/app_icons.dart';
+import 'package:renti_host/utils/app_images.dart';
+import 'package:renti_host/view/screens/car_details/inner_widgets/document_file_section.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/popups/common_popup.dart';
@@ -40,24 +43,31 @@ class _CustomDrawerState extends State<CustomDrawer> {
           builder: (controller) {
             String fullName = "${controller.profileModel.user?.fullName}";
             String phoneNumber = "${controller.profileModel.user?.phoneNumber}";
-
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //Drawer Top Section
                 const SizedBox(height: 30),
-                SizedBox(
+                controller.img!=null&&controller.img.isNotEmpty?Container(
                   height: 50,
                   width: 50,
-                  child: ClipOval(
-                    child: CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      imageUrl: controller.img,
-                      placeholder: (context, url) =>
-                          const CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(image:NetworkImage(
+                      controller.img,
                     ),
+                      fit: BoxFit.fill
+                    )
+                  ),
+                ):Container(
+                  height: 50,
+                  width: 50,
+                  decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(image:AssetImage(
+                        AppImages.profileImage
+                         ),
+                      )
                   ),
                 ),
                 CustomText(
