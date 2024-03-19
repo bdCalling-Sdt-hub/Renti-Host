@@ -27,10 +27,13 @@ class ProfileController extends GetxController {
     if (responseModel.statusCode == 200) {
       profileModel = ProfileModel.fromJson(jsonDecode(responseModel.responseJson));
       img = "${ApiUrlContainer.imageUrl}${profileModel.user?.image.toString()}";
+
+      print("========+++==========Image Link  ${img}");
       isloading = false;
       update();
     } else {
       Utils.toastMessage(responseModel.message);
     }
   }
+
 }

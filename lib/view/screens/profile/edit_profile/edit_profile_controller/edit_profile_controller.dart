@@ -35,8 +35,10 @@ class EditProfileController extends GetxController {
   TextEditingController dateOfBirthController = TextEditingController();
   TextEditingController creaditCardNumberController = TextEditingController();
   TextEditingController genderController = TextEditingController();
-
+bool isLoading = false;
   Future<void> editProfile() async {
+    isLoading = true;
+    update();
     final prefs = await SharedPreferences.getInstance();
     final userID = prefs.getString(SharedPreferenceHelper.userIdKey);
     String? token = prefs.getString(SharedPreferenceHelper.accessTokenKey);
@@ -93,5 +95,7 @@ class EditProfileController extends GetxController {
     } catch (e) {
       print('Error sending request: $e');
     }
+    isLoading = false;
+    update();
   }
 }

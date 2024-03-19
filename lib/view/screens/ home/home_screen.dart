@@ -9,6 +9,7 @@ import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.da
 import 'package:renti_host/view/screens/%20home/home_repo/home_carlist_repo.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
+import 'package:renti_host/view/screens/car_details/inner_widgets/document_file_section.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_screen.dart';
@@ -35,10 +36,11 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
     Get.put(HomeCarListRepo(apiService: Get.find()));
-    var homeCarListController =
-        Get.put(HomeCarListController(homeCarListRepo: Get.find()));
+    var homeCarListController = Get.put(HomeCarListController(homeCarListRepo: Get.find()));
     homeCarListController.homeCarList();
-    Get.find<ProfileController>();
+    final proController = Get.find<ProfileController>();
+    print("===============image ${proController.img}");
+    proController.profile();
     Get.put(ProfileRepo(apiService: Get.find()));
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       joinChat();
@@ -155,9 +157,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                   width: 4,
                 ),
                 GetBuilder<ProfileController>(
-
                   builder: (controller) {
-
                     if (controller.isloading == true) {
                       return const Center(
                         child: CircularProgressIndicator(),
@@ -167,8 +167,8 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                       onTap: () {
                         Get.to(const ProfileScreen(isBack: true));
                       },
-                      child:controller.img.isNotEmpty?Container(
-                        decoration: BoxDecoration(
+                      child:controller.img.isNotEmpty ? Container(
+                        decoration:  BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             fit: BoxFit.cover,

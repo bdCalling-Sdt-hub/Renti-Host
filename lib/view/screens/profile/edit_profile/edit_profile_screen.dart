@@ -222,7 +222,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
                       const SizedBox(height: 24),
 
-                      CustomElevatedButton(
+                    controller.isLoading?const Center(child: CircularProgressIndicator(color: AppColors.blueNormal,)) : CustomElevatedButton(
                           onPressed: () {
                             controller.editProfile();
                           },
