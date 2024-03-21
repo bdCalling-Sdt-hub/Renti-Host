@@ -136,7 +136,7 @@ class AppRoute {
 
     //Home and Inner Screens
     //GetPage(name: homeScreen, page: () =>  HomeScreen(image: "")),
-    GetPage(name: searchScreen, page: () => const SearchScreen()),
+    GetPage(name: searchScreen, page: () =>  SearchScreen()),
     GetPage(name: addCarsScreens, page: () => const AddCarsScreen()),
     GetPage(name: addCarsDocument, page: () => const AddCarDocuments()),
     GetPage(name: addCarSpecialScreens, page: () => const AddCarSpecialScreen()),

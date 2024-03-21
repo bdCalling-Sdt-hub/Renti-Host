@@ -7,9 +7,10 @@ import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
 
+class SearchScreen extends StatelessWidget {
+    SearchScreen({super.key});
+ // HomeCarListModel homeCarListModel = HomeCarListModel();
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeCarListController>(
@@ -41,12 +42,7 @@ class SearchScreen extends StatelessWidget {
                   TextFormField(
                     controller: controller.searchController,
                     onChanged: (value) {
-                      Future.delayed(
-                        const Duration(seconds: 1),
-                        () {
-                          controller.homeCarList(search: "?search=$value");
-                        },
-                      );
+                         controller.homeCarList(search: "?search=$value");
                     },
                     cursorColor: AppColors.blackNormal,
                     showCursor: true,
