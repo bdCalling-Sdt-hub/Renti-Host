@@ -1,9 +1,9 @@
 class ApiUrlContainer {
 
  ///live url
- static const String baseUrl = "renticarshare.com/api/";
+ static const String baseUrl = "https://renticarshare.com/api/";
  static const String socketGlobal = "http://46.101.82.12:9000";
- static const String imageUrl = "renticarshare.com";
+ static const String imageUrl = "https://renticarshare.com";
 
 /// local url
 

@@ -62,8 +62,8 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
                                   request: Request.rejected,
                                   id: "${rentRequestResponseModel[index].id}");
 
-                              controller.rentRequest();
-                              navigator!.pop();
+                                  controller.rentRequest();
+                                   navigator!.pop();
                             },
                             titleText: "Cancel".tr,
                             buttonHeight: 48,

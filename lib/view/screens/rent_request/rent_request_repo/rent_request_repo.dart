@@ -14,16 +14,19 @@ class RentReqRepo {
     String uri = "${ApiUrlContainer.baseUrl}${ApiUrlContainer.rentAccerpAndReject}$id";
     String requestMethod = ApiResponseMethod.postMethod;
 
-    Map<String, String> parems = {
+    Map<String, String> params = {
       "request": request == Request.accepted ? "Accepted" : "Rejected"
     };
 
+    params.forEach((key, value) {
+      print("$key: $value");
+    });
 
     if (kDebugMode) {
       print(uri);
     }
 
-    ApiResponseModel responseModel = await apiService.request(uri, requestMethod, parems, passHeader: true);
+    ApiResponseModel responseModel = await apiService.request(uri, requestMethod, params, passHeader: true);
 
     if (responseModel.statusCode == 200) {
       Utils.snackBar("Successful".tr,"Successful".tr);

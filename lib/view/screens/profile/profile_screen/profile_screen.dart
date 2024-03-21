@@ -19,6 +19,7 @@ import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/global/api_url_container.dart';
+import '../../../../utils/app_images.dart';
 
 class ProfileScreen extends StatefulWidget {
    const ProfileScreen({super.key,required this.isBack});
@@ -27,8 +28,6 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 class _ProfileScreenState extends State<ProfileScreen> {
-
-
   @override
   void initState() {
     Get.put(ApiService(sharedPreferences: Get.find()));
@@ -148,18 +147,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Flexible(
                                 child: Row(
                                   children: [
-                                    SizedBox(
+
+                                    controller.img!=null&&controller.img.isNotEmpty?Container(
                                       height: 50,
                                       width: 50,
-                                      child: ClipOval(
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: img,
-                                          placeholder: (context, url) =>
-                                              const CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.error),
-                                        ),
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(image:NetworkImage(
+                                            controller.img,
+                                          ),
+                                              fit: BoxFit.fill
+                                          )
+                                      ),
+                                    ):Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(image:AssetImage(
+                                              AppImages.profileImage
+                                          ),
+                                          )
                                       ),
                                     ),
                                     Flexible(

@@ -70,6 +70,7 @@ class _HomeCarListState extends State<HomeCarList> {
                       children: [
           
                         ///===================== Home car List =======================>
+
                         Container(
                           width: 100,
                           padding: const EdgeInsetsDirectional.symmetric(vertical: 8, horizontal: 8),
@@ -211,18 +212,18 @@ class _HomeCarListState extends State<HomeCarList> {
                                             color: AppColors.whiteDarker),
                                       ],
                                     ),
-                                    widget.homeCarListModel.cars?[index].tripStatus == "Start"
-                                        ? GestureDetector(
-                                      onTap: () {
-                                        onChanged(index);
-                                      },
-                                      child: Icon(isExpanded ? Icons.keyboard_arrow_up_rounded
-                                          : Icons.keyboard_arrow_down_rounded,
-                                          color: AppColors.blueNormal,
-                                          size: 18,
-                                          weight: 10),
-                                    )
-                                        : const SizedBox()
+                                    // widget.homeCarListModel.cars?[index].tripStatus == "Start"
+                                    //     ? GestureDetector(
+                                    //   onTap: () {
+                                    //     onChanged(index);
+                                    //   },
+                                    //   child: Icon(isExpanded ? Icons.keyboard_arrow_up_rounded
+                                    //       : Icons.keyboard_arrow_down_rounded,
+                                    //       color: AppColors.blueNormal,
+                                    //       size: 18,
+                                    //       weight: 10),
+                                    // )
+                                    //     : const SizedBox()
                                   ],
                                 ),
                               ],
