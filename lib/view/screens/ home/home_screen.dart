@@ -9,7 +9,6 @@ import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.da
 import 'package:renti_host/view/screens/%20home/home_repo/home_carlist_repo.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_car_list.dart';
 import 'package:renti_host/view/screens/%20home/inner_widgets/home_top_section.dart';
-import 'package:renti_host/view/screens/car_details/inner_widgets/document_file_section.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_controller/profile_controller.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_repo/profile_repo.dart';
 import 'package:renti_host/view/screens/profile/profile_screen/profile_screen.dart';
@@ -19,7 +18,6 @@ import 'package:renti_host/view/widgets/image/custom_image.dart';
 import 'package:renti_host/view/widgets/popups/common_popup.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../core/global/api_url_container.dart';
 import '../../../core/helper/shear_preference_helper.dart';
 import '../../../service/api_service.dart';
 import '../../../service/socket_service.dart';
@@ -39,7 +37,6 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     var homeCarListController = Get.put(HomeCarListController(homeCarListRepo: Get.find()));
     homeCarListController.homeCarList();
     final proController = Get.find<ProfileController>();
-    print("===============image ${proController.img}");
     proController.profile();
     Get.put(ProfileRepo(apiService: Get.find()));
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {

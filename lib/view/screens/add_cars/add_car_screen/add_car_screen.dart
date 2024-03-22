@@ -1,6 +1,4 @@
-import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_typeahead/flutter_typeahead.dart';
@@ -11,7 +9,6 @@ import 'package:renti_host/utils/app_utils.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_controller/add_car_controller.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_body_section.dart';
 import 'package:renti_host/view/screens/add_cars/add_car_screen/inner_widgets/add_car_image.dart';
-import 'package:renti_host/view/screens/add_cars/google_map_model/google_map_mpdel.dart';
 import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/button/custom_elevated_button.dart';
@@ -37,7 +34,6 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
       top: true,
       child: GetBuilder<AddCarController>(
         builder: (controller) {
-
           return Scaffold(
             backgroundColor: AppColors.whiteLight,
             // App Bar
@@ -105,11 +101,15 @@ class _AddCarsScreenState extends State<AddCarsScreen> {
                   const SizedBox(height: 24),
                   CustomElevatedButton(
                     onPressed: () {
-                      if(controller.formKey.currentState!.validate() && controller.firstImg !=null && controller.secondImg != null && controller.thirdImg != null){
+                      if(controller.formKey.currentState!.validate() && controller.firstImg !=null &&
+                          controller.secondImg != null && controller.thirdImg != null&&controller.searchTextController.text.isNotEmpty){
                         Get.toNamed(AppRoute.addCarsDocument);
                       }
                       else if (controller.firstImg == null || controller.secondImg == null || controller.thirdImg == null){
                         Utils.snackBar("Error".tr, "Image File Can't be Empty".tr);
+                      }
+                      else if(controller.searchTextController.text.isEmpty){
+                        Utils.snackBar("Error".tr, " Location field can't be Empty".tr);
                       }
                     },
                     buttonHeight: 52,

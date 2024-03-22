@@ -393,7 +393,7 @@ class AddCarController extends GetxController {
     }
   }
 
-  /// location controller
+  /// =========================== location controller=====================================///
   TextEditingController searchTextController = TextEditingController();
   List<Prediction> _predictionList=[];
   Future<List<Prediction>> searchLocation(BuildContext context, String? text) async {
@@ -401,8 +401,7 @@ class AddCarController extends GetxController {
       var response = await getSearchLocation(text);
       if (response.runtimeType!=int) {
         _predictionList = [];
-        response['predictions'].forEach((prediction)
-        => _predictionList.add(Prediction.fromJson(prediction)));
+        response['predictions'].forEach((prediction) => _predictionList.add(Prediction.fromJson(prediction)));
       } else {
         // ApiChecker.checkApi(response);
       }
@@ -412,6 +411,7 @@ class AddCarController extends GetxController {
 
   Future<dynamic> getSearchLocation(String text)async{
     try {
+    //AIzaSyCfGzSTTEXbcFCAzebzuY92i28NtuUcCJA
       var response = await http.get(Uri.parse("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$text&key=AIzaSyCfGzSTTEXbcFCAzebzuY92i28NtuUcCJA"));
       if (response.statusCode == 200) {
         return jsonDecode(response.body);

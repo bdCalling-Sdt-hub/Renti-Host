@@ -212,8 +212,7 @@ class SignUpController extends GetxController {
       isloading = true;
       update();
       var request = http.MultipartRequest(
-        'POST',
-        Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
+        'POST', Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
       );
 
       if (passportPath.isNotEmpty) {
