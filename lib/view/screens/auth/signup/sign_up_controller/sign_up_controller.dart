@@ -249,8 +249,9 @@ class SignUpController extends GetxController {
       }
 
       if (imageFile != null && imageFile!.existsSync()) {
+        var mimeType = lookupMimeType(imageFile!.path);
         try {
-          var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType: MediaType('image', 'jpeg'));
+          var img = await http.MultipartFile.fromPath('image', imageFile!.path, contentType:  MediaType.parse(mimeType!));
           request.files.add(img);
         } on Exception catch (e) {
           if (kDebugMode) {
