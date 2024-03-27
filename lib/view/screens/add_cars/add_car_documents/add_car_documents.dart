@@ -62,7 +62,7 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
                 ),*/
                    ///--------------------Upload Car License  File------------------>
                 CustomText(
-                  text: "1. Upload Car License".tr,
+                  text: "1. Upload car plates".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   bottom: 8,
@@ -464,7 +464,7 @@ class _AddCarDocumentsState extends State<AddCarDocuments> {
 
             ///========================== Upload REPUVE (non theft report) ======================>
                 CustomText(
-                  text: "5. Upload REPUVE (non theft report)".tr,
+                  text: "5. REPUVE".tr,
                   color: AppColors.whiteDarkActive,
                   top: 16,
                   bottom: 8,

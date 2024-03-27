@@ -164,7 +164,7 @@ class SignUpController extends GetxController {
   Future<void> pickStampKey() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
-        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+        allowedExtensions: ["key"],
         type: FileType.custom);
     if (result != null && result.files.isNotEmpty) {
       stampKeyPath=result.files.first.path!;
@@ -176,7 +176,7 @@ class SignUpController extends GetxController {
   Future<void> pickStampCer() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
-        allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
+        allowedExtensions: ["cer"],
         type: FileType.custom);
     if (result != null && result.files.isNotEmpty) {
       stampCerPath=result.files.first.path!;
