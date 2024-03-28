@@ -149,7 +149,38 @@ class SignUpController extends GetxController {
     }
   }
 
+
+
   Future<void> pickPassport() async {
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        allowMultiple: true,
+        allowedExtensions: ["pdf", "key", "cer", "jpg", "png", "jpeg", "heic"],
+        type: FileType.custom,
+      );
+      if (result != null && result.files.isNotEmpty) {
+        // Ensure result.files.first is not null before accessing its properties
+        final selectedFile = result.files.first;
+        if (selectedFile != null) {
+          passportPath = selectedFile.path ?? '';
+          passportName = selectedFile.name ?? '';
+          update();
+        } else {
+          // Handle the case when result.files.first is null
+          print('Selected file is null');
+        }
+      } else {
+        // Handle the case when no file is selected
+        print('No file selected');
+      }
+    } catch (e) {
+      // Handle any errors that occur during file picking
+      print('Error picking file: $e');
+    }
+  }
+
+
+  /* Future<void> pickPassport() async {
      FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
          allowedExtensions: ["pdf","key", "cer","jpg","png","jpeg","heic"],
@@ -160,18 +191,36 @@ class SignUpController extends GetxController {
         update();
     }
   }
+*/
 
   Future<void> pickStampKey() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
         allowedExtensions: ["key"],
-        type: FileType.custom);
-    if (result != null && result.files.isNotEmpty) {
-      stampKeyPath=result.files.first.path!;
-      stampKeyName=result.files.first.name;
-      update();
+        type: FileType.custom,
+      );
+      if (result != null && result.files.isNotEmpty) {
+        // Ensure result.files.first is not null before accessing its properties
+        final selectedFile = result.files.first;
+        if (selectedFile != null) {
+          stampKeyPath = selectedFile.path ?? '';
+          stampKeyName = selectedFile.name ?? '';
+          update();
+        } else {
+          // Handle the case when result.files.first is null
+          print('Selected file is null');
+        }
+      } else {
+        // Handle the case when no file is selected
+        print('No file selected');
+      }
+    } catch (e) {
+      // Handle any errors that occur during file picking
+      print('Error picking file: $e');
     }
   }
+
 
   Future<void> pickStampCer() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -206,8 +255,129 @@ class SignUpController extends GetxController {
   //     update();
   //   }
   // }
-
   Future<void> signUpMultipleFilesAndParams() async {
+    try {
+      isloading = true;
+      update();
+
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse("${ApiUrlContainer.baseUrl}${ApiUrlContainer.signUpEndPoint}"),
+      );
+
+      if (passportPath.isNotEmpty && File(passportPath).existsSync()) {
+        var mimeType = lookupMimeType(passportPath);
+        if (mimeType != null) {
+          var multipartImg = await http.MultipartFile.fromPath(
+            'KYC',
+            passportPath,
+            contentType: MediaType.parse(mimeType),
+          );
+          request.files.add(multipartImg);
+        }
+      }
+
+      if (stampKeyPath.isNotEmpty && File(stampKeyPath).existsSync()) {
+        var mimeType = lookupMimeType(stampKeyPath);
+        if (mimeType != null) {
+          var multipartImg = await http.MultipartFile.fromPath(
+            'KYC',
+            stampKeyPath,
+            contentType: MediaType.parse(mimeType),
+          );
+          request.files.add(multipartImg);
+        }
+      }
+
+      if (stampCerPath.isNotEmpty && File(stampCerPath).existsSync()) {
+        var mimeType = lookupMimeType(stampCerPath);
+        if (mimeType != null) {
+          var multipartImg = await http.MultipartFile.fromPath(
+            'KYC',
+            stampCerPath,
+            contentType: MediaType.parse(mimeType),
+          );
+          request.files.add(multipartImg);
+        }
+      }
+
+      if (imageFile != null && imageFile!.existsSync()) {
+        var mimeType = lookupMimeType(imageFile!.path);
+        if (mimeType != null) {
+          var img = await http.MultipartFile.fromPath(
+            'image',
+            imageFile!.path,
+            contentType: MediaType.parse(mimeType),
+          );
+          request.files.add(img);
+        }
+      }
+
+      Map<String, String> params = {
+        "fullName": fullNameController.text,
+        "email": emailController.text,
+        "gender": genderList[selectedGender],
+        "dateOfBirth": dateController.text,
+        "password": passwordController.text,
+        "phoneNumber": "$phoneCode${phoneNumberController.text}",
+        "address[country]": countryController.text,
+        "address[city]": cityController.text,
+        "address[state]": stateController.text,
+        "address[line1]": laneController.text,
+        "address[postal_code]": postalController.text,
+        "ine": ineNumberController.text,
+        "RFC": rfcController.text,
+        "bankInfo[account_number]": accountController.text,
+        "bankInfo[account_holder_name]": accountHolderController.text,
+        "bankInfo[account_holder_type]": accountType[selectedAccount],
+        "role": "host"
+      };
+
+      params.forEach((key, value) {
+        request.fields[key] = value;
+      });
+
+      request.headers['Content-Type'] = 'multipart/form-data';
+
+      // Send the request
+      var response = await request.send();
+
+      if (kDebugMode) {
+        print(params);
+        print(response.statusCode);
+      }
+
+      if (response.statusCode == 201) {
+        await signUpRepo.apiService.sharedPreferences.setString(
+            SharedPreferenceHelper.userEmailKey,
+            emailController.text.trim().toString());
+        Get.toNamed(AppRoute.kycNumberVerification);
+        Utils.snackBar("Successful".tr, "Sign Up Successful".tr);
+        clearData();
+        isloading = false;
+        update();
+      } else if (response.statusCode == 409) {
+        isloading = false;
+        update();
+        Utils.snackBar("Alert!".tr, "User Already Exist".tr);
+      }
+
+
+      // Handle the response based on status code
+      // Add your response handling logic here
+
+    } catch (e) {
+      // Handle exceptions
+      if (kDebugMode) {
+        print('Error sending request: $e');
+      }
+      // Handle the error gracefully, e.g., show an error message to the user.
+    } finally {
+      isloading = false;
+      update();
+    }
+  }
+/*  Future<void> signUpMultipleFilesAndParams() async {
     try {
       isloading = true;
       update();
@@ -238,7 +408,7 @@ class SignUpController extends GetxController {
       }
 
       if (stampCerPath.isNotEmpty) {
-        debugPrint("========>stampCerPath  $stampCerPath");
+        debugPrint("=========> passportPath  $stampCerPath");
         var mimeType = lookupMimeType(stampCerPath);
         var multipartImg = await http.MultipartFile.fromPath(
           'KYC',
@@ -326,7 +496,7 @@ class SignUpController extends GetxController {
 
     isloading = false;
     update();
-  }
+  }*/
 
   Future<void> dateOfBirthPicker(BuildContext context) async {
     final DateTime? picked = await showDatePicker(

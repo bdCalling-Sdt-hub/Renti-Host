@@ -6,8 +6,6 @@ class ApiUrlContainer {
  static const String imageUrl = "https://renticarshare.com";
 
 /// local url
-
-
 //  static const String baseUrl = "http://192.168.10.14:3001/api/";
 //  static const String socketGlobal = "http://192.168.10.14:9000";
 //  static const String imageUrl = "http://192.168.10.14:3001";
