@@ -233,14 +233,14 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                                       MediaQuery.of(context).size.width * 0.5,
                                   alignment: Alignment.center,
                                   decoration: const BoxDecoration(
-                                    color: AppColors.redNormal,
+                                    color: AppColors.blueLight,
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(8),
                                       bottomLeft: Radius.circular(8),
                                     ),
                                   ),
                                   child: const CustomImage(
-                                      imageSrc: AppIcons.pdfIcon),
+                                      imageSrc: AppIcons.keyIcon),
                                 ),
                                 const SizedBox(width: 12),
                                 Flexible(
@@ -362,14 +362,14 @@ class _KYCAuthSectionState extends State<KYCAuthSection> {
                                       MediaQuery.of(context).size.width * 0.5,
                                   alignment: Alignment.center,
                                   decoration: const BoxDecoration(
-                                    color: AppColors.redNormal,
+                                    color: AppColors.blueLight,
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(8),
                                       bottomLeft: Radius.circular(8),
                                     ),
                                   ),
                                   child: const CustomImage(
-                                      imageSrc: AppIcons.pdfIcon),
+                                      imageSrc: AppIcons.cerIcon),
                                 ),
                                 const SizedBox(width: 12),
                                 Flexible(

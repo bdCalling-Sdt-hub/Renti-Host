@@ -24,11 +24,11 @@ class CarImageSection extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
+                image:homeCarListModel.cars?[index].image!=null && homeCarListModel.cars![index].image!.isNotEmpty? DecorationImage(
                   fit: BoxFit.cover,
                   image: CachedNetworkImageProvider(
                       "${ApiUrlContainer.imageUrl}${homeCarListModel.cars?[index].image?[0]}"),
-                ),
+                ):const DecorationImage(image: AssetImage("assets/images/No-Image-Placeholder.png"),fit: BoxFit.fill),
               ),
             ),
           ),

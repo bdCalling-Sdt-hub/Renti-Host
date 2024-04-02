@@ -134,7 +134,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                           const Icon(Icons.search,
                               size: 20, color: AppColors.whiteNormalActive),
                           CustomText(
-                              text: "Search cars..".tr,
+                              text: "Search cars...".tr,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               color: AppColors.whiteNormalActive,

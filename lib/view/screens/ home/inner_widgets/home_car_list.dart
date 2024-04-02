@@ -76,11 +76,11 @@ class _HomeCarListState extends State<HomeCarList> {
                           padding: const EdgeInsetsDirectional.symmetric(vertical: 8, horizontal: 8),
                           decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(topLeft: Radius.circular(8),bottomLeft: Radius.circular(8)),
-                              image: DecorationImage(
+                              image: widget.homeCarListModel.cars?[index].image!=null && widget.homeCarListModel.cars![index].image!.isNotEmpty? DecorationImage(
                                   fit: BoxFit.fill,
                                   image: CachedNetworkImageProvider(
                                     "${ApiUrlContainer.imageUrl}${widget.homeCarListModel.cars?[index].image?[0]}",
-                                  ))),
+                                  )):null),
                         ),
                         Expanded(
                           child: Container(
