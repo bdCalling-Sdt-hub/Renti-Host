@@ -9,7 +9,6 @@ import '../main.dart';
 class SocketService extends GetxController {
   late io.Socket socket;
 
- // NotificationClass notificationClass = NotificationClass();
 
   List<dynamic> messageList = [];
   List<dynamic> allMessageList = [];
@@ -18,16 +17,14 @@ class SocketService extends GetxController {
 
   void connectToSocket() {
     socket = io.io(
-        //"http://192.168.10.14:9000",
-        //ApiUrlContainer.baseUrl,
       ApiUrlContainer.socketGlobal,
         io.OptionBuilder()
             .setTransports(['websocket'])
             .enableAutoConnect()
             .build());
 
-    socket.onConnect((data) => print("===============> Connection Established"));
-    socket.onConnectError((data) => print("Connection Error"));
+    socket.onConnect((data) => print("===============> Connection Established===>$data"));
+    socket.onConnectError((data) => print("===============>Connection Error$data"));
 
     socket.connect();
 

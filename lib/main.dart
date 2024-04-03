@@ -27,7 +27,7 @@ void main() async{
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  await NotificationHelper.initLocalNotification(flutterLocalNotificationsPlugin);
+   NotificationHelper.initLocalNotification(flutterLocalNotificationsPlugin);
   runApp(MyApp(languages: languages));
 }
 
