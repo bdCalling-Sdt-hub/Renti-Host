@@ -4,8 +4,6 @@ import 'package:renti_host/core/global/api_url_container.dart';
 import 'package:renti_host/service/notification.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
-import '../main.dart';
-
 class SocketService extends GetxController {
   late io.Socket socket;
 
@@ -28,7 +26,6 @@ class SocketService extends GetxController {
 
     socket.connect();
 
-    //joinRoom(userUid);
 
     socket.on('join-check', (data) {
       if (kDebugMode) {
@@ -96,11 +93,9 @@ class SocketService extends GetxController {
         if (kDebugMode) {
           print("No Data: $data");
         }
-      } else {
-        NotificationHelper.showNotification(body:data, fln: flutterLocalNotificationsPlugin);
-        // notificationClass
-        //     .showNotification(data['allNotification'][0]['message']);
 
+      } else {
+        NotificationHelper.showNotification(data);
         debugPrint("============> Host Notification  $data");
         if (kDebugMode) {
           print("This is  Data: $data");
@@ -174,6 +169,7 @@ class SocketService extends GetxController {
     socket.disconnect();
   }
 }
+
 /*class Chat {
   String id;
   List<Participant> participants;

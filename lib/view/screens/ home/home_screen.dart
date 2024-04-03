@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:renti_host/core/route/app_route.dart';
@@ -53,7 +54,7 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
     hostUid = prefs.getString(SharedPreferenceHelper.userIdKey).toString();
     socketService.connectToSocket();
     socketService.joinRoom(hostUid);
-    socketService.listenNotification();
+   // socketService.listenNotification();
 
     debugPrint("========> connect socket");
   }
@@ -133,12 +134,14 @@ class _PendingApprovalScreenState extends State<HomeScreen> {
                         children: [
                           const Icon(Icons.search,
                               size: 20, color: AppColors.whiteNormalActive),
-                          CustomText(
-                              text: "Search cars...".tr,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              color: AppColors.whiteNormalActive,
-                              left: 8),
+                          Flexible(
+                            child: CustomText(
+                                text: "Search cars...".tr,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                color: AppColors.whiteNormalActive,
+                                left: 8),
+                          ),
                         ],
                       ),
                     ),

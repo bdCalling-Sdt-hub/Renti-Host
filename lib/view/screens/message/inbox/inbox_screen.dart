@@ -140,16 +140,16 @@ class _InboxScreenState extends State<InboxScreen> {
                                         topRight: Radius.circular(12),
                                         bottomLeft: Radius.circular(12)),
                                 color: socketService.messageList[index]["sender"]["role"] != "host"
-                                    ? AppColors.blueNormal
-                                    : const Color(0xffE2E2E2),
+                                    ? AppColors.blueLight
+                                    : AppColors.blueNormal,
                               ),
                               child: Text(
                                 socketService.messageList[index]["message"],
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.raleway(
                                     color: socketService.messageList[index]["sender"]["role"] != "host"
-                                            ? AppColors.whiteNormalActive
-                                            : AppColors.blueNormal,
+                                            ? AppColors.blueNormal
+                                            : AppColors.whiteLight,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500),
                               ),

@@ -18,8 +18,8 @@ Future<void> initDependency() async {
   Get.lazyPut(() => ProfileController(profileRepo: Get.find()), fenix: true);
   Get.lazyPut(() => ProfileRepo(apiService: Get.find()), fenix: true);
 
-  Get.lazyPut(() => SocketService(), fenix: true);
-  Get.find<SocketService>().connectToSocket();
-
-  Get.put<NoInternetController>(NoInternetController(), permanent: true);
+   Get.lazyPut(() => SocketService(), fenix: true);
+   Get.find<SocketService>().connectToSocket();
+   Get.find<SocketService>().listenNotification();
+   Get.put<NoInternetController>(NoInternetController(), permanent: true);
 }

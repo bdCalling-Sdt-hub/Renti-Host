@@ -137,7 +137,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                     Get.toNamed(AppRoute.inboxScreen, arguments: [
                                       participant[index].id,
                                       participant[index].fullName,
-                                      participant[index].image,
+                                      "${ApiUrlContainer.imageUrl}/${participant[index].image}",
                                       hostUid
                                     ]);
                                   },
