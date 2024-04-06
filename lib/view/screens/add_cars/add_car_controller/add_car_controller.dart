@@ -138,6 +138,7 @@ class AddCarController extends GetxController {
       update();
     }
   }
+
   Future<void> pickCirculationFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
         allowMultiple: true,
@@ -197,7 +198,9 @@ class AddCarController extends GetxController {
         addCarImages.add(thirdImg!);
         update();
       }
-      print('======================>Image path: ${pickedImage.path}');
+      if (kDebugMode) {
+        print('======================>Image path: ${pickedImage.path}');
+      }
     }
   }
 
@@ -223,7 +226,7 @@ class AddCarController extends GetxController {
         request.files.add(multipartImg);
       }
 
-      /// ==================== Add the uploadcarlicencePrivacy Pplicy KYC files to the request=======================>
+      /// ==================== Add the upload car licencePrivacy Pplicy KYC files to the request=======================>
 
       if (uploadCarInsPolicyPath.isNotEmpty) {
         debugPrint("======> stampKeyPath  $uploadCarInsPolicyPath");
