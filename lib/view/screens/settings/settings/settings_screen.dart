@@ -6,6 +6,8 @@ import 'package:renti_host/view/widgets/appbar/custom_appbar.dart';
 import 'package:renti_host/view/widgets/back/custom_back.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 
+import '../change_language/change_language.dart';
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -44,7 +46,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   return GestureDetector(
                     onTap: () {
                       if (index == 0) {
-                        Get.toNamed(AppRoute.changeLanguageScreen);
+                        Get.to(ChangeLanguageScreen());
                       } else if (index == 1) {
                         Get.toNamed(AppRoute.changePasswordScreen);
                       } /*else if (index == 2) {

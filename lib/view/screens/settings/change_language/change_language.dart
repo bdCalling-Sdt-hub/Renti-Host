@@ -56,8 +56,26 @@ class _ChaneLanguageScreenState extends State<ChangeLanguageScreen> {
                               Utils.snackBar("Successful".tr,"Language Changed Successfully".tr);
                             },
                             child: Container(
-                              width: double.maxFinite,
-                              padding: const EdgeInsets.all(16),
+                                decoration: ShapeDecoration(
+                                  color: AppColors.whiteLight,
+                                  shape: RoundedRectangleBorder(
+                                    side: const BorderSide(
+                                        width: 1, color: AppColors.blueLight),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  shadows: const [
+                                    BoxShadow(
+                                      color: AppColors.shadowColor,
+                                      blurRadius: 10,
+                                      offset: Offset(0, 1),
+                                      spreadRadius: 0,
+                                    ),
+                                  ],
+                                ),
+                              margin: const EdgeInsets.only(bottom: 8),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 24),
+                              width: Get.width,
                               child: Row(
                                 children: [
                                   Container(

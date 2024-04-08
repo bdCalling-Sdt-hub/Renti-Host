@@ -12,7 +12,6 @@ import 'package:renti_host/view/screens/%20home/home_controller/home_carlist_con
 import 'package:renti_host/view/screens/%20home/home_model/home_carlist_model.dart';
 import 'package:renti_host/view/widgets/text/custom_text.dart';
 import 'package:path/path.dart' as path;
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import '../../../../utils/app_icons.dart';
 import '../../../widgets/image/custom_image.dart';
