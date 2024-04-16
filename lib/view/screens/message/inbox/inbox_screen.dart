@@ -191,9 +191,11 @@ class _InboxScreenState extends State<InboxScreen> {
                     child: TextFormField(
                       cursorColor: AppColors.blackNormal,
                       keyboardType: TextInputType.multiline,
+                      maxLines: null,
                       textAlign: TextAlign.left,
                       textInputAction: TextInputAction.done,
-                      controller: messageController,maxLines: messageController.text.isEmpty? 1 : 5,
+                      controller: messageController,
+                      //maxLines: messageController.text.isEmpty? 1 : 5,
                       style: GoogleFonts.raleway(
                           color: AppColors.blackNormal,
                           fontSize: 14,
