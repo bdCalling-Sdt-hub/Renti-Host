@@ -79,7 +79,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                     ),
                     child: CustomText(
                         text: homeCarListModel.cars?[index].tripStatus == "Start"
-                                ? "Reserved".tr
+                                ? "reserved".tr
                                 :  homeCarListModel.cars?[index].isCarActive == "Pending" ? "Pending".tr
                                 :  homeCarListModel.cars?[index].isCarActive == "Active" ? "Active".tr
                                 : homeCarListModel.cars?[index].isCarActive == "Cancel" ? "Cancel".tr

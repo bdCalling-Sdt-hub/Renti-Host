@@ -65,7 +65,7 @@ class _UserRequestDetailsScreenState extends State<UserRequestDetailsScreen> {
                                   controller.rentRequest();
                                    navigator!.pop();
                             },
-                            titleText: "Cancel".tr,
+                            titleText: "cancel".tr,
                             buttonHeight: 48,
                             titleWeight: FontWeight.w500,
                             buttonColor: AppColors.redLight,

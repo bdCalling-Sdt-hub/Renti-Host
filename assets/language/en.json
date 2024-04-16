@@ -97,7 +97,7 @@
   "Reserved": "Reserved",
   "Deactive" : "Deactive",
   "Pending": "Pending",
-  "Cancel" : "Cancel",
+  "Cancel" : "Canceled",
   "Please wait for admin’s approval.": "Please wait for admin’s approval.",
   "Add New Car": "Add new car",
   "Cars List": "Cars list",
@@ -107,7 +107,7 @@
   "See details": "See details",
   "Home": "Home",
   "Rent": "Rent",
-  "Message": "Message",
+  "Message": "Messages",
   "Profile": "Profile",
   "Please wait for admin approve to log in": "Please wait for admin approve to log in",
   "Error": "Error",
@@ -222,7 +222,7 @@
   "Send Review": "Send review",
   "Car Information": "Car information",
   "Users Request": "Users requests",
-  "Cancel": "Cancel",
+
   "Approve": "Approve",
   "User details": "User details",
   "Rent date: ": "Rent date: ",
@@ -292,6 +292,10 @@
   "Password doesn't match" : "Password doesn't match",
   "Current and New password couldn't be same" : "Current and New password couldn't be same",
   "New password and current password doesn't same" : "La nueva contraseña y la contraseña actual no son iguales",
-  "PLease Click the resent button" : "PLease click the resent button"
+  "PLease Click the resent button" : "PLease click the resent button",
+  "reserved": "Reserved",
+  "deactive" : "Deactive",
+   "active": "Active",
+  "cancel" : "Cancel"
 
 }

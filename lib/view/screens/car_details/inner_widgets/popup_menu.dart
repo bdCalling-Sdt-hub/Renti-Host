@@ -69,7 +69,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
               ),
               CustomText(text: widget.homeCarListModel
                   .cars![widget.index].isCarActive
-                  .toString()=="Active" ? "Deactive".tr  : "Active".tr
+                  .toString()=="Active" ? "deactive".tr  : "active".tr
                   .toString()  , left: 16),
             ],
           )

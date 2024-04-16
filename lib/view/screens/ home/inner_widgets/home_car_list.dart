@@ -125,7 +125,7 @@ class _HomeCarListState extends State<HomeCarList> {
                                         BorderRadius.circular(4),
                                       ),
                                       child: CustomText(
-                                          text: "Reserved".tr,
+                                          text: "reserved".tr,
                                           fontSize: 10,
                                           color: AppColors.redNormal),
                                     )
