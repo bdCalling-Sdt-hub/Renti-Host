@@ -28,12 +28,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
       top: true,
       child: Scaffold(
         backgroundColor: AppColors.whiteLight,
-        appBar: CustomAppBar(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 80,
+          leading: IconButton(onPressed: (){
+         Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back_ios_new)),
+        title: CustomText( text: "Settings".tr,),
+        ),
+
+        /*CustomAppBar(
           appBarContent: CustomBack(
             text: "Settings".tr,
             color: AppColors.blackNormal,
           ),
-        ),
+        ),*/
+
+
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) =>
               SingleChildScrollView(
@@ -46,7 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   return GestureDetector(
                     onTap: () {
                       if (index == 0) {
-                        Get.to(ChangeLanguageScreen());
+                        Get.to(const ChangeLanguageScreen());
                       } else if (index == 1) {
                         Get.toNamed(AppRoute.changePasswordScreen);
                       } /*else if (index == 2) {
